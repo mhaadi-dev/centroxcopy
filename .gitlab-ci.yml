@@ -103,7 +103,7 @@ deploy-release:
     image: dtzar/helm-kubectl:3.7.1
     environment:
         name: production
-        url: http://bodymeasurements.centrox.ai/
+        url: http://centrox.ai/
     before_script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - kubectl config get-contexts
@@ -156,7 +156,7 @@ deploy:
     image: dtzar/helm-kubectl:3.7.1
     environment:
         name: staging
-        url: http://bodymeasurements.centrox.ai/
+        url: http://centrox.ai/
     before_script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - kubectl config get-contexts
