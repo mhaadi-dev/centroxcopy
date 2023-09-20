@@ -3,25 +3,23 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center">
+		<div className="flex min-h-screen flex-col items-center justify-center -mt-20">
 			<Navbar />
 			<JoinCommunity />
-		</main>
+		</div>
 	);
 }
 
 const JoinCommunity = () => {
 	return (
-		<section className="py-12 bg-gray-50 sm:py-16 lg:py-20">
+		<section className="py-12 bg-gray-50 sm:py-16 lg:py-20 mt-52">
 			<div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 				<div className="max-w-2xl mx-auto text-center">
 					<h2 className="text-4xl font-bold text-gray-900 font-pj">
 						Centrox AI⚡️
 					</h2>
 					<p className="max-w-md mx-auto mt-5 text-base font-normal text-gray-600 font-pj">
-						Sorry for the inconvenience; we are currently updating this page; it
-						will be live in a day; check back later or enter your email address
-						to be notified when we will be live.
+					Sorry for the inconvenience, we are updating our website and it will be live back again in a few hours.
 					</p>
 				</div>
 
