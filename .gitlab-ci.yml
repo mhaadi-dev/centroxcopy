@@ -13,8 +13,8 @@ variables:
     IMAGE_TAG_LATEST: latest
     IMAGE_PULL_SECRET: gitlab-registry-secret
     APP_NAME: "Centrox-AI-Frontend-Landing"
-    STAGING_LINK: "https://staging.bodymeasurements.centrox.ai"
-    PRODUCTION_LINK: "https://bodymeasurements.centrox.ai"
+    STAGING_LINK: "https://staging.centrox.ai"
+    PRODUCTION_LINK: "https://centrox.ai"
     NAMESPASE_PRODUCTION: "app-production-centrox-ai-frontend-landing"
     NAMESPASE_STAGING: "app-staging-centrox-ai-frontend-landing"
     SLACK_TEMPALTE_PATH: "ci/slack-templates/apk-update.json"
