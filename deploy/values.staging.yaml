@@ -1,0 +1,18 @@
+replicas: 1
+
+ingress:
+    enabled: true
+    tls: true
+    domains:
+        - "www.centrox.ai"
+        - "centrox.ai"
+service:
+    ports:
+        target: 3000
+        port: 80
+        name: "80"
+
+server:
+    port: 3000
+    session_secret: "ashdfjhasdlkjfhalksdjhflal"
+    environment: production

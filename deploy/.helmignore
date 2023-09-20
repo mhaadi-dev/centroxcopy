@@ -1,0 +1,5 @@
+.git
+values.production.yaml
+values.staging.yaml
+.gitlab-ci.yml
+slack-templates/*

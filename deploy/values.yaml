@@ -1,0 +1,33 @@
+replicas: 1
+
+
+ingress:
+    enabled: false
+    domains: []
+    secret_name: centrox-frontend-landing-tls
+    issuer: letsencrypt-prod
+    class: "nginx"
+    tls: false
+    annotations:
+        kubernetes.io/ingress.class: "nginx"
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+
+
+service:
+    name: centrox-ai-frontend-landing-service
+    ports:
+        target: 3000
+        port: 80
+        name: "80"
+
+image:
+    tag: latest
+    name: ""
+    pullsecret: gitlab-registry-secret
+
+server:
+    port: 3000
+    session_secret: ""
+    environment: production
