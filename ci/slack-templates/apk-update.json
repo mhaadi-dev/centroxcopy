@@ -1,0 +1,78 @@
+{
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": ":iphone:  $APP_NAME: $RELEASE Release $BUILD_VERSION :loudspeaker:"
+			}
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"text": "*Version #* | Commit Hash `# $CI_COMMIT_SHORT_SHA` | Version: `$BUILD_VERSION` | Timestamp `$DATETIME`  |",
+					"type": "mrkdwn"
+				}
+			]
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":pushpin: * $BRANCH_NAME Branch*"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "Everyone let's test it out and share your specific feedback by replying to this post in the thread. @channel"
+			},
+			"accessory": {
+				"type": "button",
+				"text": {
+					"type": "plain_text",
+					"text": "Test Now",
+					"emoji": true
+				},
+				"value": "click_me_123",
+				"url": "$LINK",
+				"action_id": "button-action"
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": ":spiral_note_pad: *Change Log*"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "$FORMATED_CHANGE_LOG",
+				"verbatim": false
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "context",
+			"elements": [
+				{
+					"type": "mrkdwn",
+					"text": ":technologist: Asking questions is always *encouraged*!"
+				}
+			]
+		}
+	]
+}
