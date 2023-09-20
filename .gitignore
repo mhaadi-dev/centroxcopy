@@ -9,7 +9,6 @@
 .next/
 /.next
 /temp
-package-lock.json
 # testing
 /coverage
 
