@@ -6,7 +6,6 @@ services:
 variables:
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: "/certs"
-    # GIT_SUBMODULE_STRATEGY: recursive
     APP: centrox-ai-frontend-landing
     IMAGE_TAG: $CI_COMMIT_SHA
     RELEASE_IMAGE_TAG: release.$CI_COMMIT_SHA
@@ -58,7 +57,6 @@ prerelease:
         - echo "CHANGE_LOG_B64=> $CHANGE_LOG_B64"
         - echo "BUILD VERSION=> '${BUILD_VERSION}'"
         - echo "BUILD_VERSION=$BUILD_VERSION" >> build.env
-        # - echo "CHANGE_LOG_B64=$CHANGE_LOG_B64" >> build.env
     artifacts:
       reports:
         dotenv: build.env
@@ -115,7 +113,6 @@ deploy-release:
         - "kubectl create secret -n $KUBE_NAMESPACE docker-registry ${IMAGE_PULL_SECRET} --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD --docker-email=$GITLAB_USER_EMAIL -o yaml --dry-run=client | kubectl replace --force -n $KUBE_NAMESPACE -f -"
     script:
         - cd deploy/
-        # - printf "%s" "${PRODUCTION_YAML}" > "./values.production.yaml"
         - helm -n "$KUBE_NAMESPACE" upgrade --install -f values.production.yaml  ${APP} ./ --set image.name="$CI_REGISTRY_IMAGE" --set image.tag="${BUILD_VERSION}"
             --set image.pullsecret=${IMAGE_PULL_SECRET}
     only:
