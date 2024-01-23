@@ -168,7 +168,6 @@ deploy:
         - "kubectl create secret -n $KUBE_NAMESPACE docker-registry ${IMAGE_PULL_SECRET} --docker-server=$CI_REGISTRY --docker-username=$CI_DEPLOY_USER --docker-password=$CI_DEPLOY_PASSWORD --docker-email=$GITLAB_USER_EMAIL -o yaml --dry-run=client | kubectl replace --force -n $KUBE_NAMESPACE -f -"
     script:
         - cd deploy/
-        # - printf "%s" "${STAGING_YAML}" > "./values.staging.yaml"
         - cat "./values.staging.yaml"
         - helm -n "$KUBE_NAMESPACE"  upgrade --install -f values.staging.yaml  ${APP} ./ --set image.name="$CI_REGISTRY_IMAGE" --set image.tag="${BUILD_VERSION}"
             --set image.pullsecret=${IMAGE_PULL_SECRET}
