@@ -5,7 +5,6 @@ ingress:
     tls: true
     domains:
         - "www.centrox.ai"
-        - "centrox.ai"
 
 service:
     ports:
