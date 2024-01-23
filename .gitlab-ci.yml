@@ -44,7 +44,7 @@ test:
 
 
 prerelease:
-    image: node:18-slim
+    image: node:21-slim
     stage: prerelease
     before_script:
         - apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
@@ -178,7 +178,7 @@ deploy:
         - any
 
 release:
-    image: node:18-slim
+    image: node:21-slim
     stage: release
     before_script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
