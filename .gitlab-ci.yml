@@ -208,7 +208,7 @@ release:
         
         - data=$(cat "$SLACK_TEMPALTE_PATH" | envsubst '$CI_PROJECT_TITLE $LINK $BRANCH_NAME $CI_COMMIT_SHORT_SHA $DATETIME $RELEASE $BUILD_VERSION $APP_NAME $FORMATED_CHANGE_LOG')
         
-        # - 'curl -X POST -H "Content-type: application/json" --data "$data" $SLACK_WEBHOOK'
+        - 'curl -X POST -H "Content-type: application/json" --data "$data" $SLACK_WEBHOOK'
     only:
       - main
       - staging
