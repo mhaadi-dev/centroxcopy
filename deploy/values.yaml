@@ -4,7 +4,7 @@ replicas: 1
 ingress:
     enabled: false
     domains: []
-    secret_name: centrox-frontend-landing-tls
+    secret_name: centrox-ai-frontend-landing-tls
     issuer: letsencrypt-prod
     class: "nginx"
     tls: false
