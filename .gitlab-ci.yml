@@ -19,6 +19,7 @@ variables:
     NAMESPASE_STAGING: "app-staging-centrox-ai-frontend-landing"
     SLACK_TEMPALTE_PATH: "ci/slack-templates/apk-update.json"
 
+
 stages:
     - test
     - prerelease
