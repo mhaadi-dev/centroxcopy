@@ -2,11 +2,38 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 import Image from "next/image";
 import myGif from "@/assets/Video.gif";
+import BlueCore from "@/assets/Bluecore.svg";
+import Dreamlamp from "@/assets/Dream Lamp.svg";
+import Derq from "@/assets/DERQ.svg";
+import Instacured from "@/assets/InstaCure.svg";
+import Nooberly from "@/assets/Nooblerly.svg";
+
+import Conjion from "@/assets/Conjion.svg";
+
+import { useEffect, useState } from "react";
+
 export default function Home() {
+	const [animationClass, setAnimationClass] = useState("animate-none");
+
+	useEffect(() => {
+		// Add animation class after component mounts
+		setAnimationClass("animate-move");
+	}, []);
+
 	return (
 		<div className="flex min-h-screen flex-col bg-gray-charcoal">
 			<Navbar />
 			<VideoComponent />
+			<div
+				className={`flex gap-10 sm:gap-20 lg:gap-40 items-center justify-center mt-10  ${animationClass}`}
+			>
+				<Image src={BlueCore} alt="Logo" className="w-auto sm:w-72" />
+				<Image src={Conjion} alt="Logo" className="w-auto sm:w-72" />
+				<Image src={Dreamlamp} alt="Logo" className="w-auto sm:w-[15rem]" />
+				<Image src={Derq} alt="Logo" className="w-auto sm:w-72" />
+				<Image src={Nooberly} alt="Logo" className="w-auto sm:w-96 mt-16" />
+				<Image src={Instacured} alt="Logo" className="w-auto sm:w-96 mt-16" />
+			</div>
 			<Section1 />
 			<Section3 />
 			<Section2 />
@@ -16,17 +43,27 @@ export default function Home() {
 }
 const VideoComponent = () => {
 	return (
-		<Image
-			src={myGif}
-			priority
-			alt="Description of the GIF"
-			width={500}
-			height={500}
-			layout="responsive"
-			objectFit="cover"
-			loading="eager"
-			className="h-full w-full"
-		/>
+		<div>
+			<Image
+				src={myGif}
+				priority
+				alt="Description of the GIF"
+				width={500}
+				height={500}
+				layout="responsive"
+				objectFit="cover"
+				loading="eager"
+				className="h-full w-full"
+			/>
+			<div className="flex flex-col gap-4 absolute -mt-[30%] sm:-mt-[10%] 3xl:-mt-[1%] w-full pl-10">
+				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
+					Leading Innovation with Artificial Intelligence
+				</div>
+				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl">
+					Unleashing Potential: ML Community's Hub for Models and Applications.
+				</div>
+			</div>
+		</div>
 	);
 };
 
