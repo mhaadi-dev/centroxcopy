@@ -1,4 +1,5 @@
-import AppLogo from "@/assets/LogoWhite.svg";
+// import AppLogo from "@/assets/LogoWhite.svg";
+import AppLogo from "@/assets/AppLogo.svg";
 import { Button } from "../Button.js/button";
 import Image from "next/image";
 
