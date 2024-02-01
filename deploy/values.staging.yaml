@@ -6,6 +6,7 @@ ingress:
     domains:
         - "www.staging.centrox.ai"
         - "staging.centrox.ai"
+
 service:
     ports:
         target: 3000
@@ -15,4 +16,4 @@ service:
 server:
     port: 3000
     session_secret: "ashdfjhasdlkjfhalksdjhflal"
-    environment: production
+    environment: staging
