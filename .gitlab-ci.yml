@@ -68,7 +68,6 @@ prerelease:
         - any
 
 
-
 build-release:
     stage: build-release
     image:
@@ -96,7 +95,6 @@ build-release:
     tags:
         - any
 
-
 deploy-release:
     stage: deploy-release
     image: dtzar/helm-kubectl:3.7.1
@@ -120,7 +118,6 @@ deploy-release:
 
     tags:
         - any
-
 
 build:
     stage: build
@@ -147,7 +144,6 @@ build:
         - staging
     tags:
         - any
-
 
 deploy:
     stage: deploy
