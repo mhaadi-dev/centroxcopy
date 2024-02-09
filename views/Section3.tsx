@@ -4,8 +4,9 @@ import DataLabelingImage from "@/assets/DataLabelling.svg";
 import CustomDataImage from "@/assets/CustomDataWorkflow.svg";
 import BuildingAi from "@/assets/BuildingAI.svg";
 import DeployingAi from "@/assets/DeployingAI.svg";
+import Arrow from "@/assets/RightArrow.svg";
 
-import { ReactEventHandler, useEffect, useState } from "react";
+import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
 import classNames from "@/helpers/common";
 import Image from "next/image";
@@ -103,7 +104,7 @@ export const Section3 = () => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-4 w-full sm:px-[7%] 3xl:px-[19%] mt-10">
+			<div className="flex flex-col gap-4 w-full sm:px-[7%] 3xl:px-[19%] mt-28">
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
 					Accelerate AI Deployment with Lighting Fast Annotation
 				</div>
@@ -112,16 +113,15 @@ export const Section3 = () => {
 				</div>
 				<Button
 					content="Learn More"
+					isLefticon={false}
+					iconClassName="-mt-1"
+					Icon={Arrow}
 					className="bg-blue-azure border-0 w-44 !rounded-full"
 				/>
 			</div>
 			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
 				<div className="absolute bottom-0 right-0 overflow-hidden">
-					<Image
-						className="w-full"
-						src={BackgroundImage as never}
-						alt=""
-					/>
+					<Image className="w-full" src={BackgroundImage as never} alt="" />
 				</div>
 
 				<div className="sm:px-[7%] 3xl:px-[5%] mt-10">
@@ -212,7 +212,7 @@ export const Section3 = () => {
 										),
 								)}
 								<div className="flex items-center h-full mt-10">
-									{tabs[0]?.current && (
+								{tabs[0]?.current && (
 										<Image
 											className="w-full h-auto"
 											src={

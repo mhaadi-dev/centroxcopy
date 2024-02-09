@@ -2,18 +2,20 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 import Image from "next/image";
 import myGif from "@/assets/Video.gif";
-
-import {LogosCarousel} from "@/views/LogosCarousel";
+import Arrow from "@/assets/RightArrow.svg";
+import { LogosCarousel } from "@/views/LogosCarousel";
 import { Section3 } from "@/views/Section3";
+import { Button } from "@/Components/Button.js/button";
+import SnapMeasureSVG from "@/assets/Snap.svg";
+import ListBullet from "@/assets/centroxLogo.svg";
 
 export default function Home() {
-
-
 	return (
-		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden">
+		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-40">
 			<Navbar />
 			<VideoComponent />
-			<LogosCarousel/>
+			<LogosCarousel />
+			<SnapMeasure />
 			<Section3 />
 			<Footer />
 		</div>
@@ -34,11 +36,11 @@ const VideoComponent = () => {
 				loading="eager"
 				className="h-full w-full"
 			/>
-			<div className="flex flex-col gap-4 absolute -mt-[30%] sm:-mt-[10%] 3xl:-mt-[5%] w-full sm:px-[7%] 3xl:pl-[18%]">
-				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
+			<div className="flex flex-col gap-4 absolute -mt-[30%] w-full sm:px-[7%] 3xl:pl-[18%] items-center">
+				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-semibold">
 					Leading Innovation with Artificial Intelligence
 				</div>
-				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl">
+				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-medium">
 					Unleashing Potential: ML Community's Hub for Models and Applications.
 				</div>
 			</div>
@@ -46,7 +48,55 @@ const VideoComponent = () => {
 	);
 };
 
-
+const SnapMeasure = () => {
+	return (
+		<div className="flex flex-col gap-16 justify-center items-center mt-5">
+			<div className="flex flex-col gap-4 items-center">
+				<div className="text-6xl text-white font-semibold ">
+					Snap and Measure Anywhere
+				</div>
+				<div className="text-gray-100 font-medium text-3xl flex justify-center text-center">
+					<div className="w-[80%]">
+						AI model that accurately measures your physique in real time, all
+						with a simple snap from your camera.
+					</div>
+				</div>
+				<Button
+					content="Measure Now"
+					isLefticon={false}
+					iconClassName="-mt-1"
+					Icon={Arrow}
+					className="bg-blue-azure border-0 w-44 !rounded-full"
+					onClick={() => {
+						window.open("https://bodymeasurements.centrox.ai/", "_blank");
+					}}
+				/>
+			</div>
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-20 3xl:gap-10 mt-24">
+				<div className="flex flex-col gap-5 items-center   h-full">
+					<div className="text-5xl text-white font-semibold 2xl:ms-[15%] 3xl:mx-[25%]">
+						Exclusive solution increasing efficiency.
+					</div>
+					<div className="flex flex-col gap-8 2xl:mx-[15%] 3xl:mx-[25%] mt-10">
+						{[
+							"Simplify tailoring by providing quick and precise sizing solutions.",
+							"AI ensures perfect retail fits, delighting customers with accurate body measurements.",
+							"Smooth tailoring with ease, giving customers the perfect size hassle-free.",
+						].map((text, index) => (
+							<div key={index} className="flex gap-3">
+								{/* <ListBullet className="w-auto h-auto" /> */}
+								<div className="text-gray-100 text-3xl font-medium">{text}</div>
+							</div>
+						))}
+					</div>
+				</div>
+				<div className="flex justify-center lg:justify-start">
+					<Image src={SnapMeasureSVG} alt="" className="w-[90%] 3xl:w-full" />
+				</div>
+			</div>
+		</div>
+	);
+};
 const Footer = () => {
 	return (
 		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20">
@@ -66,7 +116,7 @@ const Footer = () => {
 						<div className="p-6 lg:py-8 lg:px-14">
 							<div className="lg:flex lg:items-center lg:justify-between">
 								<h5 className="max-w-md mx-auto text-3xl font-bold text-white xl:max-w-xl lg:mx-0 font-pj">
-									Grow your business fast with Rareblocks UI Kit.
+									Grow your business fast with Centrox AI.
 								</h5>
 
 								<div className="flex-1 mt-7 lg:mt-0 lg:ml-8">
@@ -322,4 +372,3 @@ const Footer = () => {
 		</footer>
 	);
 };
-

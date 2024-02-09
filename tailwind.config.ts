@@ -24,7 +24,7 @@ const config: Config = {
 				},
 			},
 			screens: {
-				"3xl": { min: "2000px",},
+				"3xl": { min: "2000px" },
 				"4xl": { min: "2500px" },
 			},
 		},
