@@ -4,27 +4,33 @@
 
 
 @keyframes move {
-    0% {
-      transform: translateX(100%);
-      opacity: 0.5;
-      filter: blur(3px);
-      -webkit-filter: blur(3px);
-}
-    50% {
-      transform: translateX(0);
-      opacity: 1;
-      filter: blur(0); 
-    }
-    100% {
-      transform: translateX(-100%);
-      opacity: 0.5;
-      filter: blur(3px);
-    }
+  0% {
+    transform: translateX(100%);
   }
+  20% {
+    transform: translateX(80%);
+  }
+  40% {
+    transform: translateX(60%);
+  }
+  60% {
+    transform: translateX(40%);
+  }
+  80% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+}
+}
   
   .animate-move {
-    animation: move 50s infinite linear;
-    -webkit-animation: move 50s infinite linear;
+    animation: move 35s infinite linear;
+    -webkit-animation: move 35s infinite linear;
 }
   
 .highlighted-bar {
@@ -41,4 +47,26 @@
 .box-shadow-initial:hover {
   box-shadow: 10px 10px 18px 18px rgba(0, 83, 168, 0.20) inset, 0px 0px 16px 0px rgba(6, 119, 230, 0.55);
   backdrop-filter: blur(18px);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 3px;
+}
+/* ::-webkit-scrollbar-button {  background-color: #666; } */
+::-webkit-scrollbar-track {
+  background-color: #646464;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #e5e5e5;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #666;
+  border-radius: 3px;
+}
+/* ::-webkit-scrollbar-corner { background-color: #646464;} */
+::-webkit-resizer {
+  background-color: #666;
 }

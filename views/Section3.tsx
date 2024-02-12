@@ -32,8 +32,8 @@ const GradientCard: React.FC<GradientCardProps> = ({
 		onMouseEnter={onMouseEnter}
 		onMouseLeave={onMouseLeave}
 	>
-		<span className="text-3xl text-white font-bold">{title}</span>
-		<span className="text-xl text-white-offWhite font-normal">
+		<span className="text-xl md:text-3xl text-white font-bold">{title}</span>
+		<span className="text-md md:text-xl text-white-offWhite font-normal">
 			{description}
 		</span>
 	</div>
@@ -50,7 +50,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 				<select
 					id="tabs"
 					name="tabs"
-					className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base  focus:outline-none focus:ring-indigo-500 sm:text-sm"
+					className="block w-full rounded-md border-2 border-blue-azure py-2 pl-3 pr-10 text-base  focus:outline-none bg-transparent sm:text-sm"
 					defaultValue={selectedTab}
 				>
 					{tabs.map((tab: any) => (
@@ -104,7 +104,7 @@ export const Section3 = () => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-4 w-full sm:px-[7%] 3xl:px-[19%] mt-28">
+			<div className="flex flex-col gap-4 w-full px-5 sm:px-[7%] 3xl:mx-[6%] mt-28 md:bg-blue-200 lg:bg-green-300 2xl:bg-gray-700">
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
 					Accelerate AI Deployment with Lighting Fast Annotation
 				</div>
@@ -119,15 +119,15 @@ export const Section3 = () => {
 					className="bg-blue-azure border-0 w-44 !rounded-full"
 				/>
 			</div>
-			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
-				<div className="absolute bottom-0 right-0 overflow-hidden">
+			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
+				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
 					<Image className="w-full" src={BackgroundImage as never} alt="" />
 				</div>
 
-				<div className="sm:px-[7%] 3xl:px-[5%] mt-10">
+				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[3%] mt-10 ">
 					<div className="container mx-auto mt-10">
 						<div
-							className="border border-blue-azure text-white md:p-16 p-8 rounded-3xl flex flex-col gap-20 h-full"
+							className="border border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full 2xl:w-[102rem] 3xl:w-[118rem]"
 							style={{
 								backdropFilter: "blur(10px)",
 								background: "rgba(5, 110, 225, 0.03)",
@@ -140,14 +140,14 @@ export const Section3 = () => {
 									(tab, index) =>
 										tab?.current && (
 											<div key={index} className="flex flex-col gap-4">
-												<span className="text-5xl text-white font-bold">
+												<span className="text-2xl md:text-5xl text-white font-bold flex justify-center sm:justify-start">
 													{index === 0
 														? "Solving Data"
 														: index === 1
 														? "Building AI"
 														: "Deploying AI"}
 												</span>
-												<span className="text-2xl font-semibold text-gray-light">
+												<span className="text-lg md:text-2xl font-semibold text-gray-light flex justify-center sm:justify-start">
 													{index === 0
 														? "Need help with Data?"
 														: index === 1
@@ -211,7 +211,7 @@ export const Section3 = () => {
 											</div>
 										),
 								)}
-								<div className="flex items-center h-full mt-10">
+								<div className="flex items-center h-full sm:mt-10 py-5">
 								{tabs[0]?.current && (
 										<Image
 											className="w-full h-auto"
