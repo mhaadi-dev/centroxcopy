@@ -65,12 +65,12 @@ const Footer = () => {
 
 					<div className="relative overflow-hidden text-center bg-gray-900 rounded-3xl lg:text-left">
 						<div className="p-6 lg:py-8 lg:px-14">
-							<div className="lg:flex lg:items-center lg:justify-between">
-								<h5 className="max-w-md mx-auto text-3xl font-bold text-white xl:max-w-xl lg:mx-0 font-pj">
+							<div className="flex w-full items-center justify-center">
+								<h5 className="text-xl sm:text-3xl font-bold text-white">
 									Explore our innovative solutions for your business growth
 								</h5>
 
-								<div className="flex-1 mt-7 lg:mt-0 lg:ml-8">
+								{/* <div className="flex-1 mt-7 lg:mt-0 lg:ml-8">
 									<form action="#" method="POST">
 										<div className="md:flex">
 											<div className="flex-1">
@@ -110,39 +110,40 @@ const Footer = () => {
 											</button>
 										</div>
 									</form>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="flex justify-between mx-[7%] mt-60">
+			<div className="grid gap-10 sm:gap-0 sm:flex justify-between mx-5 sm:mx-[7%] mt-20 sm:mt-60">
 				<div className="h-full">
-					<Image src={AppLogo} alt="Logo" className="w-60" />
+					<Image src={AppLogo} alt="Logo" className="w-[10rem] sm:w-60" />
 				</div>
 				<div className="flex flex-col gap-5">
-					<div className="flex  items-center gap-28 cursor-pointer">
-						<span className="text-white font-semibold text-2xl">Services</span>
-						<span className="text-white font-semibold text-2xl">Solutions</span>
-						<span className="text-white font-semibold text-2xl">API's</span>
-						<span className="text-white font-semibold text-2xl">Team</span>
+					<div className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer">
+						<span className="text-white font-semibold sm:text-2xl">Services</span>
+						<span className="text-white font-semibold sm:text-2xl">Solutions</span>
+						<span className="text-white font-semibold sm:text-2xl">API's</span>
+						<span className="text-white font-semibold sm:text-2xl">Team</span>
 					</div>
-					<div className="flex  items-center gap-20 cursor-pointer">
-						<span className="text-white font-semibold text-2xl">
+					<div className="grid sm:flex  items-center gap-4 sm:gap-20 cursor-pointer">
+						<span className="text-white font-semibold sm:text-2xl">
 							Contact Us
 						</span>
-						<span className="text-white font-semibold text-2xl">About Us </span>
-						<span className="text-white font-semibold text-2xl">
+						<span className="text-white font-semibold sm:text-2xl">About Us </span>
+						<span className="text-white font-semibold sm:text-2xl">
 							Talk to an Expert
 						</span>
 					</div>
-					<div className="flex items-center justify-end gap-10 mt-14 cursor-pointer">
+					<div className="flex  items-center sm:justify-end gap-4 sm:mt-14 sm:gap-10 cursor-pointer">
+					{/* <div className="flex items-center justify-end gap-10 mt-14 cursor-pointer"> */}
 						<Image src={TwitterIcon} alt="Logo" className="" />
 						<Image src={LinkedinIcon} alt="Logo" className="" />
 						<Image src={MsgIcon} alt="Logo" className="" />
 					</div>
 					<div className="flex  items-center mt-2 justify-end">
-						<span className="text-white font-bold text-xl">
+						<span className="text-white font-bold sm:text-xl">
 							© 2024 Centrox Technologies, Inc.All rights reserved.
 						</span>
 					</div>

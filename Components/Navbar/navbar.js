@@ -9,7 +9,7 @@ export const Navbar = () => {
 				<Image
 					src={AppLogo}
 					alt="Logo"
-					className="w-2/6 md:w-[20%] lg:w-[15%] 2xl:w-[12%]"
+					className="w-[10rem] sm:w-[20%] lg:w-[15%] 2xl:w-[12%]"
 				/>
 
 				<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[30rem] lg:w-[40rem]">
