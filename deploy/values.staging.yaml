@@ -4,7 +4,6 @@ ingress:
     enabled: true
     tls: true
     domains:
-        - "www.staging.centrox.ai"
         - "staging.centrox.ai"
 
 service:
@@ -16,4 +15,4 @@ service:
 server:
     port: 3000
     session_secret: "ashdfjhasdlkjfhalksdjhflal"
-    environment: staging
+    environment: production
