@@ -53,6 +53,15 @@ const Tabs = ({ tabs, setTabs }: any) => {
 					name="tabs"
 					className="block w-full rounded-md border-2 border-blue-azure py-2 pl-3 pr-10 text-base  focus:outline-none bg-transparent sm:text-sm"
 					defaultValue={selectedTab}
+					onChange={(e: any) => {
+						const selectedTabName = e.target.value;
+						setTabs((prevTabs: any) =>
+							prevTabs.map((prevTab: any) => ({
+								...prevTab,
+								current: prevTab.name === selectedTabName,
+							})),
+						);
+					}}
 				>
 					{tabs.map((tab: any) => (
 						<option key={tab.name}>{tab.name}</option>
@@ -73,7 +82,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 									tab.current
 										? "border-blue-azure text-blue-azure z-30"
 										: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-									"whitespace-nowrap border-b-2 py-4 px-1 text-2xl font-semibold cursor-pointer",
+									"whitespace-nowrap border-b-2 sm:py-4 px-1 text-2xl font-semibold cursor-pointer",
 								)}
 								aria-current={tab.current ? "page" : undefined}
 								onClick={() =>
@@ -106,7 +115,7 @@ export const Section3 = () => {
 	// console.log("widrh is",width)
 	return (
 		<>
-			<div className="flex flex-col gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] sm:mt-40 md:mt-80">
+			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
 					Accelerate <span className="font-semibold">AI Deployment</span> with
 					Lighting <span className="font-semibold">Fast</span> Annotation
@@ -119,7 +128,7 @@ export const Section3 = () => {
 					isLefticon={false}
 					iconClassName="-mt-1"
 					Icon={Arrow}
-					className="bg-blue-azure border-0 w-44 !rounded-full mt-4"
+					className="bg-blue-azure border-0 w-44 !rounded-full mt-2 sm:mt-4"
 				/>
 			</div>
 			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
@@ -127,8 +136,8 @@ export const Section3 = () => {
 					<Image className="w-auto" src={BackgroundImage as never} alt="" />
 				</div>
 
-				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%] mt-10 ">
-					<div className="container mx-auto mt-10">
+				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
+					<div className="container mx-auto sm:mt-10">
 						<div
 							className="border border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%]"
 							style={{
@@ -137,20 +146,22 @@ export const Section3 = () => {
 							}}
 						>
 							<Tabs tabs={tabs} setTabs={setTabs} />
-
 							<div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 								{tabs.map(
 									(tab, index) =>
 										tab?.current && (
-											<div key={index} className="flex flex-col gap-4">
-												<span className="text-2xl md:text-5xl text-white font-bold flex justify-center sm:justify-start">
+											<div
+												key={index}
+												className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0"
+											>
+												<span className="text-2xl md:text-5xl text-white font-bold flex justify-start">
 													{index === 0
 														? "Solving Data"
 														: index === 1
 														? "Building AI"
 														: "Deploying AI"}
 												</span>
-												<span className="text-lg md:text-2xl font-semibold text-gray-light flex justify-center sm:justify-start">
+												<span className="text-lg md:text-2xl font-semibold text-gray-light flex justify-start">
 													{index === 0
 														? "Need help with Data?"
 														: index === 1
