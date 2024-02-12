@@ -10,6 +10,7 @@ import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
 import classNames from "@/helpers/common";
 import Image from "next/image";
+import useSize from "@/helpers/windowWidth";
 interface GradientCardProps {
 	title: string;
 	description: string;
@@ -95,18 +96,20 @@ const Tabs = ({ tabs, setTabs }: any) => {
 };
 
 export const Section3 = () => {
+	// const {width} =useSize()
 	const [tabs, setTabs] = useState([
 		{ name: "Solving Data", href: "#", current: true },
 		{ name: "ModelDev", href: "#", current: false },
 		{ name: "AIOps", href: "#", current: false },
 	]);
 	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
-
+	// console.log("widrh is",width)
 	return (
 		<>
-			<div className="flex flex-col gap-4 w-full px-5 sm:px-[7%] 3xl:mx-[6%] mt-28 md:bg-blue-200 lg:bg-green-300 2xl:bg-gray-700">
-				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
-					Accelerate AI Deployment with Lighting Fast Annotation
+			<div className="flex flex-col gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] sm:mt-40 md:mt-80">
+				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
+					Accelerate <span className="font-semibold">AI Deployment</span> with
+					Lighting <span className="font-semibold">Fast</span> Annotation
 				</div>
 				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl">
 					Which stage of development you are at?
@@ -116,18 +119,18 @@ export const Section3 = () => {
 					isLefticon={false}
 					iconClassName="-mt-1"
 					Icon={Arrow}
-					className="bg-blue-azure border-0 w-44 !rounded-full"
+					className="bg-blue-azure border-0 w-44 !rounded-full mt-4"
 				/>
 			</div>
 			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
 				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
-					<Image className="w-full" src={BackgroundImage as never} alt="" />
+					<Image className="w-auto" src={BackgroundImage as never} alt="" />
 				</div>
 
-				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[3%] mt-10 ">
+				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%] mt-10 ">
 					<div className="container mx-auto mt-10">
 						<div
-							className="border border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full 2xl:w-[102rem] 3xl:w-[118rem]"
+							className="border border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%]"
 							style={{
 								backdropFilter: "blur(10px)",
 								background: "rgba(5, 110, 225, 0.03)",
@@ -212,7 +215,7 @@ export const Section3 = () => {
 										),
 								)}
 								<div className="flex items-center h-full sm:mt-10 py-5">
-								{tabs[0]?.current && (
+									{tabs[0]?.current && (
 										<Image
 											className="w-full h-auto"
 											src={

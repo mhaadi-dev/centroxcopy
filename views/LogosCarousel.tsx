@@ -52,7 +52,7 @@ export const LogosCarousel = () => {
 	};
 	return (
 		<div
-			className={`flex gap-10 sm:gap-20 lg:gap-40 items-end justify-center mt-10  ${animationClass}`}
+			className={`flex gap-10 sm:gap-20 lg:gap-40 items-end justify-center 3xl:mt-10  ${animationClass}`}
 		>
 			{logosSets.map((logosSet, index) => (
 				<React.Fragment key={index}>{renderLogos(logosSet)}</React.Fragment>

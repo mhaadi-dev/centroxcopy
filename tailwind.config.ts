@@ -13,6 +13,7 @@ const config: Config = {
 			colors: {
 				gray: {
 					charcoal: "#121212",
+					dark: "#181818",
 					light: "#D1D5DB",
 				},
 				blue: {
@@ -24,8 +25,9 @@ const config: Config = {
 				},
 			},
 			screens: {
-				"3xl": { min: "2000px" },
-				"4xl": { min: "2500px" },
+				"xlc": {  'min': "1919" },
+				"3xl": { 'min': "2000px" },
+				"4xl": { 'min': "2500px" },
 			},
 		},
 	},

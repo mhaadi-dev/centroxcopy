@@ -2,46 +2,43 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 import Image from "next/image";
 import myGif from "@/assets/Video.gif";
-import Arrow from "@/assets/RightArrow.svg";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { Section3 } from "@/views/Section3";
-import { Button } from "@/Components/Button.js/button";
-import SnapMeasureSVG from "@/assets/Snap.svg";
 import AppLogo from "@/assets/LogoWhite.svg";
-import TwitterIcon from "@/assets/twitter.svg"
-import LinkedinIcon from "@/assets/linkedin.svg"
-import MsgIcon from "@/assets/msg.svg"
+import TwitterIcon from "@/assets/twitter.svg";
+import LinkedinIcon from "@/assets/linkedin.svg";
+import MsgIcon from "@/assets/msg.svg";
+import { SnapMeasure } from "@/views/SnapandMeasure";
 export default function Home() {
 	return (
 		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
 			<Navbar />
 			<VideoComponent />
 			<LogosCarousel />
-			<SnapMeasure />
+			 <SnapMeasure />
 			<Section3 />
-			<Footer />
+			{/* <Footer />  */}
 		</div>
 	);
 }
 
 const VideoComponent = () => {
 	return (
-		<div >
+		<div>
 			<Image
 				src={myGif}
 				priority
 				alt="Description of the GIF"
-				// width={500}
-				// height={500}
-				// layout="responsive"
 				objectFit="cover"
 				loading="eager"
-				className="h-screen sm:h-[50rem] w-full object-cover"
+				className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover"
 			/>
-			<div className="flex flex-col gap-10 absolute -mt-[100%] sm:-mt-[25%] mx-8 sm:ml-[28%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10 backdrop-filter backdrop-blur-xl text-center">
-				<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-semibold tracking-normal">
+			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-8 sm:mx-0 sm:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10 backdrop-filter backdrop-blur-xl text-center">
+				<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-thin tracking-normal">
 					Leading <span className="font-extrabold">Innovation</span> with
-					Artificial Intelligence
+					<span className="font-extrabold ml-1 sm:ml-3">
+						Artificial Intelligence
+					</span>
 				</div>
 				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
 					Unleashing Potential: ML Community's Hub for Models and Applications.
@@ -51,55 +48,6 @@ const VideoComponent = () => {
 	);
 };
 
-const SnapMeasure = () => {
-	return (
-		<div className="flex flex-col gap-16 justify-center items-center mt-5">
-			<div className="flex flex-col gap-4 items-center">
-				<div className="text-2xl md:text-6xl text-white font-semibold">
-					Snap and Measure Anywhere
-				</div>
-				<div className="text-gray-100 font-medium text-xl md:text-3xl flex justify-center text-center">
-					<div className="w-[80%]">
-						AI model that accurately measures your physique in real time, all
-						with a simple snap from your camera.
-					</div>
-				</div>
-				<Button
-					content="Measure Now"
-					isLefticon={false}
-					iconClassName="-mt-1"
-					Icon={Arrow}
-					className="bg-blue-azure border-0 w-44 !rounded-full"
-					onClick={() => {
-						window.open("https://bodymeasurements.centrox.ai/", "_blank");
-					}}
-				/>
-			</div>
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-20 3xl:gap-10 mt-24">
-				<div className="flex flex-col gap-5 items-center h-full">
-					<div className="text-2xl md:text-5xl text-white font-semibold mx-5 lg:mx-20 2xl:mx-[15%] 3xl:mx-[24.5%]">
-						Exclusive solution increasing efficiency.
-					</div>
-					<div className="flex flex-col gap-8 mx-5 md:mx-20 2xl:mx-[15%] 3xl:mx-[24.5%] mt-10">
-						{[
-							"Simplify tailoring by providing quick and precise sizing solutions.",
-							"AI ensures perfect retail fits, delighting customers with accurate body measurements.",
-							"Smooth tailoring with ease, giving customers the perfect size hassle-free.",
-						].map((text, index) => (
-							<div key={index} className="flex gap-3">
-								{/* <ListBullet className="w-auto h-auto" /> */}
-								<div className="text-gray-100 text-xl md:text-3xl font-medium">{text}</div>
-							</div>
-						))}
-					</div>
-				</div>
-				<div className="flex justify-center lg:justify-start">
-					<Image src={SnapMeasureSVG} alt="" className="w-[90%] 3xl:w-full" />
-				</div>
-			</div>
-		</div>
-	);
-};
 const Footer = () => {
 	return (
 		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20">
@@ -189,10 +137,9 @@ const Footer = () => {
 						</span>
 					</div>
 					<div className="flex items-center justify-end gap-10 mt-14 cursor-pointer">
-					<Image src={TwitterIcon} alt="Logo" className="" />
-					<Image src={LinkedinIcon} alt="Logo" className="" />
-					<Image src={MsgIcon} alt="Logo" className="" />
-
+						<Image src={TwitterIcon} alt="Logo" className="" />
+						<Image src={LinkedinIcon} alt="Logo" className="" />
+						<Image src={MsgIcon} alt="Logo" className="" />
 					</div>
 					<div className="flex  items-center mt-2 justify-end">
 						<span className="text-white font-bold text-xl">
