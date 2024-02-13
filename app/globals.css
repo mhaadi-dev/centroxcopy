@@ -29,8 +29,8 @@
 }
   
   .animate-move {
-    animation: move 35s infinite linear;
-    -webkit-animation: move 35s infinite linear;
+    animation: move 25s infinite linear;
+    -webkit-animation: move 25s infinite linear;
 }
   
 .highlighted-bar {

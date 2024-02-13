@@ -11,11 +11,13 @@ import { Button } from "@/Components/Button.js/button";
 import classNames from "@/helpers/common";
 import Image from "next/image";
 import useSize from "@/helpers/windowWidth";
+import { Toast } from "@/Components/Toast/toast";
 interface GradientCardProps {
 	title: string;
 	description: string;
 	onMouseEnter?: ReactEventHandler;
 	onMouseLeave?: ReactEventHandler;
+	onClick?: () => void;
 }
 
 const GradientCard: React.FC<GradientCardProps> = ({
@@ -23,15 +25,17 @@ const GradientCard: React.FC<GradientCardProps> = ({
 	description,
 	onMouseEnter,
 	onMouseLeave,
+	onClick,
 }) => (
 	<div
-		className="rounded-2xl border border-solid border-blue-500 bg-blue-gradient  flex flex-col gap-3 p-5 mt-10 box-shadow-initial cursor-pointer"
+		className="rounded-2xl border border-solid border-blue-500 bg-blue-gradient  flex flex-col gap-3 p-5 mt-10 box-shadow-initial cursor-pointer border-opacity-50 hover:border-opacity-100 hover:border-2"
 		style={{
 			background:
 				"radial-gradient(88.47% 182.54% at 0% 0%, rgba(6, 119, 230, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
 		}}
 		onMouseEnter={onMouseEnter}
 		onMouseLeave={onMouseLeave}
+		onClick={() => onClick?.()}
 	>
 		<span className="text-xl md:text-3xl text-white font-bold">{title}</span>
 		<span className="text-md md:text-xl text-white-offWhite font-normal">
@@ -105,14 +109,13 @@ const Tabs = ({ tabs, setTabs }: any) => {
 };
 
 export const Section3 = () => {
-	// const {width} =useSize()
+	const [showToast, setShowToast] = useState(false);
 	const [tabs, setTabs] = useState([
 		{ name: "Solving Data", href: "#", current: true },
-		{ name: "ModelDev", href: "#", current: false },
-		{ name: "AIOps", href: "#", current: false },
+		{ name: "Model Dev", href: "#", current: false },
+		{ name: "MLOps", href: "#", current: false },
 	]);
 	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
-	// console.log("widrh is",width)
 	return (
 		<>
 			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
@@ -128,7 +131,10 @@ export const Section3 = () => {
 					isLefticon={false}
 					iconClassName="-mt-1"
 					Icon={Arrow}
-					className="bg-blue-azure border-0 w-44 !rounded-full mt-2 sm:mt-4"
+					className="bg-blue-azure border-0 w-44 !rounded-full -mt-1 sm:-mt-5"
+					onClick={() => {
+						setShowToast(!showToast);
+					}}
 				/>
 			</div>
 			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
@@ -139,7 +145,7 @@ export const Section3 = () => {
 				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
 					<div className="container mx-auto sm:mt-10">
 						<div
-							className="border border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%]"
+							className="border-2 border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] shadow-2xl border-opacity-40"
 							style={{
 								backdropFilter: "blur(10px)",
 								background: "rgba(5, 110, 225, 0.03)",
@@ -185,6 +191,9 @@ export const Section3 = () => {
 													}
 													onMouseEnter={() => setHoveredCard(1)}
 													onMouseLeave={() => setHoveredCard(null)}
+													onClick={() => {
+														setShowToast(!showToast);
+													}}
 												/>
 												<GradientCard
 													title={
@@ -203,6 +212,9 @@ export const Section3 = () => {
 													}
 													onMouseEnter={() => setHoveredCard(2)}
 													onMouseLeave={() => setHoveredCard(null)}
+													onClick={() => {
+														setShowToast(!showToast);
+													}}
 												/>
 												<GradientCard
 													title={
@@ -221,6 +233,9 @@ export const Section3 = () => {
 													}
 													onMouseEnter={() => setHoveredCard(3)}
 													onMouseLeave={() => setHoveredCard(null)}
+													onClick={() => {
+														setShowToast(!showToast);
+													}}
 												/>
 											</div>
 										),
@@ -250,6 +265,9 @@ export const Section3 = () => {
 						</div>
 					</div>
 				</div>
+				{showToast && (
+					<Toast showToast={showToast} setShowToast={setShowToast} />
+				)}
 			</section>
 		</>
 	);

@@ -9,15 +9,19 @@ import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
 import MsgIcon from "@/assets/msg.svg";
 import { SnapMeasure } from "@/views/SnapandMeasure";
+import { Testimonial } from "@/views/Testimonial";
+import { useState } from "react";
+import { Toast } from "@/Components/Toast/toast";
 export default function Home() {
 	return (
 		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
 			<Navbar />
 			<VideoComponent />
 			<LogosCarousel />
-			 <SnapMeasure />
+			<SnapMeasure />
 			<Section3 />
-			<Footer /> 
+			<Testimonial />
+			<Footer />
 		</div>
 	);
 }
@@ -33,7 +37,8 @@ const VideoComponent = () => {
 				loading="eager"
 				className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover"
 			/>
-			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 sm:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10 backdrop-filter backdrop-blur-xl text-center">
+			{/* backdrop-filter backdrop-blur-xl */}
+			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 sm:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
 				<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-thin tracking-normal">
 					Leading <span className="font-extrabold">Innovation</span> with
 					<span className="font-extrabold ml-1 sm:ml-3">
@@ -49,8 +54,10 @@ const VideoComponent = () => {
 };
 
 const Footer = () => {
+	const [showToast, setShowToast] = useState(false);
+
 	return (
-		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20">
+		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20 mt-40 md:mt-80">
 			<div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 				<div className="relative">
 					<div className="absolute -inset-2">
@@ -121,34 +128,106 @@ const Footer = () => {
 					<Image src={AppLogo} alt="Logo" className="w-[10rem] sm:w-60" />
 				</div>
 				<div className="flex flex-col gap-5">
-					<div className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer">
-						<span className="text-white font-semibold sm:text-2xl">Services</span>
-						<span className="text-white font-semibold sm:text-2xl">Solutions</span>
-						<span className="text-white font-semibold sm:text-2xl">API's</span>
-						<span className="text-white font-semibold sm:text-2xl">Team</span>
+					<div
+						className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer ml-10 sm:ml-0"
+						onClick={() => {
+							setShowToast(!showToast);
+						}}
+					>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Services
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Solutions
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							APIs
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Team
+						</span>
 					</div>
-					<div className="grid sm:flex  items-center gap-4 sm:gap-20 cursor-pointer">
-						<span className="text-white font-semibold sm:text-2xl">
+					<div className="grid sm:flex  items-center gap-4 sm:gap-20 cursor-pointer ml-10 sm:ml-0">
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
 							Contact Us
 						</span>
-						<span className="text-white font-semibold sm:text-2xl">About Us </span>
-						<span className="text-white font-semibold sm:text-2xl">
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							About Us{" "}
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
 							Talk to an Expert
 						</span>
 					</div>
-					<div className="flex  items-center sm:justify-end gap-4 sm:mt-14 sm:gap-10 cursor-pointer">
-					{/* <div className="flex items-center justify-end gap-10 mt-14 cursor-pointer"> */}
-						<Image src={TwitterIcon} alt="Logo" className="" />
-						<Image src={LinkedinIcon} alt="Logo" className="" />
-						<Image src={MsgIcon} alt="Logo" className="" />
+					<div className="flex  items-center sm:justify-end gap-4 sm:mt-14 sm:gap-10 cursor-pointer ml-10 sm:ml-0">
+						{/* <div className="flex items-center justify-end gap-10 mt-14 cursor-pointer"> */}
+						<Image
+							src={TwitterIcon}
+							alt="Logo"
+							className="w-4 sm:w-8"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/>
+						<Image
+							src={LinkedinIcon}
+							alt="Logo"
+							className="w-4 sm:w-8"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/>
+						<Image
+							src={MsgIcon}
+							alt="Logo"
+							className="w-6 sm:w-10"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/>
 					</div>
 					<div className="flex  items-center mt-2 justify-end">
-						<span className="text-white font-bold sm:text-xl">
+						<span className="text-white font-bold sm:text-xl ml-10 sm:ml-0">
 							© 2024 Centrox Technologies, Inc.All rights reserved.
 						</span>
 					</div>
 				</div>
 			</div>
+			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
 		</footer>
 	);
 };
