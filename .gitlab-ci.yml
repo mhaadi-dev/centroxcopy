@@ -122,7 +122,7 @@ deploy-release:
 build:
     stage: build
     image:
-        name: gcr.io/kaniko-project/executor:debug
+        name: gcr.io/kaniko-project/executor:v1.20.0-slim
         entrypoint: [""]
     script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
