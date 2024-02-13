@@ -1,11 +1,10 @@
 import AppLogo from "@/assets/LogoWhite.svg";
 import { Button } from "../Button.js/button";
 import Image from "next/image";
-import { useState } from "react";
-import { Toast } from "../Toast/toast";
+import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
-	const [showToast, setShowToast] = useState(false);
+	const router = useRouter();
 
 	return (
 		<div className="flex justify-center fixed z-10 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
@@ -26,12 +25,9 @@ export const Navbar = () => {
 				<Button
 					content="Contact Us"
 					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
-					onClick={() => {
-						setShowToast(!showToast);
-					}}
+					onClick={() => router.push(`/contact`)}
 				/>
 			</div>
-			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
 		</div>
 	);
 };
