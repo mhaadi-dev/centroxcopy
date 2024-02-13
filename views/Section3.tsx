@@ -10,11 +10,14 @@ import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
 import classNames from "@/helpers/common";
 import Image from "next/image";
+import useSize from "@/helpers/windowWidth";
+import { Toast } from "@/Components/Toast/toast";
 interface GradientCardProps {
 	title: string;
 	description: string;
 	onMouseEnter?: ReactEventHandler;
 	onMouseLeave?: ReactEventHandler;
+	onClick?: () => void;
 }
 
 const GradientCard: React.FC<GradientCardProps> = ({
@@ -22,18 +25,20 @@ const GradientCard: React.FC<GradientCardProps> = ({
 	description,
 	onMouseEnter,
 	onMouseLeave,
+	onClick,
 }) => (
 	<div
-		className="rounded-2xl border border-solid border-blue-500 bg-blue-gradient  flex flex-col gap-3 p-5 mt-10 box-shadow-initial cursor-pointer"
+		className="rounded-2xl border border-solid border-blue-500 bg-blue-gradient  flex flex-col gap-3 p-5 mt-10 box-shadow-initial cursor-pointer border-opacity-50 hover:border-opacity-100 hover:border-2"
 		style={{
 			background:
 				"radial-gradient(88.47% 182.54% at 0% 0%, rgba(6, 119, 230, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
 		}}
 		onMouseEnter={onMouseEnter}
 		onMouseLeave={onMouseLeave}
+		onClick={() => onClick?.()}
 	>
-		<span className="text-3xl text-white font-bold">{title}</span>
-		<span className="text-xl text-white-offWhite font-normal">
+		<span className="text-xl md:text-3xl text-white font-bold">{title}</span>
+		<span className="text-md md:text-xl text-white-offWhite font-normal">
 			{description}
 		</span>
 	</div>
@@ -50,8 +55,17 @@ const Tabs = ({ tabs, setTabs }: any) => {
 				<select
 					id="tabs"
 					name="tabs"
-					className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base  focus:outline-none focus:ring-indigo-500 sm:text-sm"
+					className="block w-full rounded-md border-2 border-blue-azure py-2 pl-3 pr-10 text-base  focus:outline-none bg-transparent sm:text-sm"
 					defaultValue={selectedTab}
+					onChange={(e: any) => {
+						const selectedTabName = e.target.value;
+						setTabs((prevTabs: any) =>
+							prevTabs.map((prevTab: any) => ({
+								...prevTab,
+								current: prevTab.name === selectedTabName,
+							})),
+						);
+					}}
 				>
 					{tabs.map((tab: any) => (
 						<option key={tab.name}>{tab.name}</option>
@@ -72,7 +86,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 									tab.current
 										? "border-blue-azure text-blue-azure z-30"
 										: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-									"whitespace-nowrap border-b-2 py-4 px-1 text-2xl font-semibold cursor-pointer",
+									"whitespace-nowrap border-b-2 sm:py-4 px-1 text-2xl font-semibold cursor-pointer",
 								)}
 								aria-current={tab.current ? "page" : undefined}
 								onClick={() =>
@@ -95,18 +109,19 @@ const Tabs = ({ tabs, setTabs }: any) => {
 };
 
 export const Section3 = () => {
+	const [showToast, setShowToast] = useState(false);
 	const [tabs, setTabs] = useState([
 		{ name: "Solving Data", href: "#", current: true },
-		{ name: "ModelDev", href: "#", current: false },
-		{ name: "AIOps", href: "#", current: false },
+		{ name: "Model Dev", href: "#", current: false },
+		{ name: "MLOps", href: "#", current: false },
 	]);
 	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
-
 	return (
 		<>
-			<div className="flex flex-col gap-4 w-full sm:px-[7%] 3xl:px-[19%] mt-28">
-				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl">
-					Accelerate AI Deployment with Lighting Fast Annotation
+			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
+				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
+					Accelerate <span className="font-semibold">AI Deployment</span> with
+					Lighting <span className="font-semibold">Fast</span> Annotation
 				</div>
 				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl">
 					Which stage of development you are at?
@@ -116,38 +131,43 @@ export const Section3 = () => {
 					isLefticon={false}
 					iconClassName="-mt-1"
 					Icon={Arrow}
-					className="bg-blue-azure border-0 w-44 !rounded-full"
+					className="bg-blue-azure border-0 w-44 !rounded-full -mt-1 sm:-mt-5"
+					onClick={() => {
+						setShowToast(!showToast);
+					}}
 				/>
 			</div>
-			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
-				<div className="absolute bottom-0 right-0 overflow-hidden">
-					<Image className="w-full" src={BackgroundImage as never} alt="" />
+			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
+				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
+					<Image className="w-auto" src={BackgroundImage as never} alt="" />
 				</div>
 
-				<div className="sm:px-[7%] 3xl:px-[5%] mt-10">
-					<div className="container mx-auto mt-10">
+				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
+					<div className="container mx-auto sm:mt-10">
 						<div
-							className="border border-blue-azure text-white md:p-16 p-8 rounded-3xl flex flex-col gap-20 h-full"
+							className="border-2 border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] shadow-2xl border-opacity-40"
 							style={{
 								backdropFilter: "blur(10px)",
 								background: "rgba(5, 110, 225, 0.03)",
 							}}
 						>
 							<Tabs tabs={tabs} setTabs={setTabs} />
-
 							<div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 								{tabs.map(
 									(tab, index) =>
 										tab?.current && (
-											<div key={index} className="flex flex-col gap-4">
-												<span className="text-5xl text-white font-bold">
+											<div
+												key={index}
+												className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0"
+											>
+												<span className="text-2xl md:text-5xl text-white font-bold flex justify-start">
 													{index === 0
 														? "Solving Data"
 														: index === 1
 														? "Building AI"
 														: "Deploying AI"}
 												</span>
-												<span className="text-2xl font-semibold text-gray-light">
+												<span className="text-lg md:text-2xl font-semibold text-gray-light flex justify-start">
 													{index === 0
 														? "Need help with Data?"
 														: index === 1
@@ -171,6 +191,9 @@ export const Section3 = () => {
 													}
 													onMouseEnter={() => setHoveredCard(1)}
 													onMouseLeave={() => setHoveredCard(null)}
+													onClick={() => {
+														setShowToast(!showToast);
+													}}
 												/>
 												<GradientCard
 													title={
@@ -189,6 +212,9 @@ export const Section3 = () => {
 													}
 													onMouseEnter={() => setHoveredCard(2)}
 													onMouseLeave={() => setHoveredCard(null)}
+													onClick={() => {
+														setShowToast(!showToast);
+													}}
 												/>
 												<GradientCard
 													title={
@@ -207,12 +233,15 @@ export const Section3 = () => {
 													}
 													onMouseEnter={() => setHoveredCard(3)}
 													onMouseLeave={() => setHoveredCard(null)}
+													onClick={() => {
+														setShowToast(!showToast);
+													}}
 												/>
 											</div>
 										),
 								)}
-								<div className="flex items-center h-full mt-10">
-								{tabs[0]?.current && (
+								<div className="flex items-center h-full sm:mt-10 py-5">
+									{tabs[0]?.current && (
 										<Image
 											className="w-full h-auto"
 											src={
@@ -236,6 +265,9 @@ export const Section3 = () => {
 						</div>
 					</div>
 				</div>
+				{showToast && (
+					<Toast showToast={showToast} setShowToast={setShowToast} />
+				)}
 			</section>
 		</>
 	);

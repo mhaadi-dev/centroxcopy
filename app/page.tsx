@@ -2,21 +2,25 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 import Image from "next/image";
 import myGif from "@/assets/Video.gif";
-import Arrow from "@/assets/RightArrow.svg";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { Section3 } from "@/views/Section3";
-import { Button } from "@/Components/Button.js/button";
-import SnapMeasureSVG from "@/assets/Snap.svg";
-import ListBullet from "@/assets/centroxLogo.svg";
-
+import AppLogo from "@/assets/LogoWhite.svg";
+import TwitterIcon from "@/assets/twitter.svg";
+import LinkedinIcon from "@/assets/linkedin.svg";
+import MsgIcon from "@/assets/msg.svg";
+import { SnapMeasure } from "@/views/SnapandMeasure";
+import { Testimonial } from "@/views/Testimonial";
+import { useState } from "react";
+import { Toast } from "@/Components/Toast/toast";
 export default function Home() {
 	return (
-		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-40">
+		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
 			<Navbar />
 			<VideoComponent />
 			<LogosCarousel />
 			<SnapMeasure />
 			<Section3 />
+			<Testimonial />
 			<Footer />
 		</div>
 	);
@@ -29,18 +33,19 @@ const VideoComponent = () => {
 				src={myGif}
 				priority
 				alt="Description of the GIF"
-				width={500}
-				height={500}
-				layout="responsive"
 				objectFit="cover"
 				loading="eager"
-				className="h-full w-full"
+				className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover"
 			/>
-			<div className="flex flex-col gap-4 absolute -mt-[30%] w-full sm:px-[7%] 3xl:pl-[18%] items-center">
-				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-semibold">
-					Leading Innovation with Artificial Intelligence
+			{/* backdrop-filter backdrop-blur-xl */}
+			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 sm:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
+				<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-thin tracking-normal">
+					Leading <span className="font-extrabold">Innovation</span> with
+					<span className="font-extrabold ml-1 sm:ml-3">
+						Artificial Intelligence
+					</span>
 				</div>
-				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-medium">
+				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
 					Unleashing Potential: ML Community's Hub for Models and Applications.
 				</div>
 			</div>
@@ -48,58 +53,11 @@ const VideoComponent = () => {
 	);
 };
 
-const SnapMeasure = () => {
-	return (
-		<div className="flex flex-col gap-16 justify-center items-center mt-5">
-			<div className="flex flex-col gap-4 items-center">
-				<div className="text-6xl text-white font-semibold ">
-					Snap and Measure Anywhere
-				</div>
-				<div className="text-gray-100 font-medium text-3xl flex justify-center text-center">
-					<div className="w-[80%]">
-						AI model that accurately measures your physique in real time, all
-						with a simple snap from your camera.
-					</div>
-				</div>
-				<Button
-					content="Measure Now"
-					isLefticon={false}
-					iconClassName="-mt-1"
-					Icon={Arrow}
-					className="bg-blue-azure border-0 w-44 !rounded-full"
-					onClick={() => {
-						window.open("https://bodymeasurements.centrox.ai/", "_blank");
-					}}
-				/>
-			</div>
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-20 3xl:gap-10 mt-24">
-				<div className="flex flex-col gap-5 items-center   h-full">
-					<div className="text-5xl text-white font-semibold 2xl:ms-[15%] 3xl:mx-[25%]">
-						Exclusive solution increasing efficiency.
-					</div>
-					<div className="flex flex-col gap-8 2xl:mx-[15%] 3xl:mx-[25%] mt-10">
-						{[
-							"Simplify tailoring by providing quick and precise sizing solutions.",
-							"AI ensures perfect retail fits, delighting customers with accurate body measurements.",
-							"Smooth tailoring with ease, giving customers the perfect size hassle-free.",
-						].map((text, index) => (
-							<div key={index} className="flex gap-3">
-								{/* <ListBullet className="w-auto h-auto" /> */}
-								<div className="text-gray-100 text-3xl font-medium">{text}</div>
-							</div>
-						))}
-					</div>
-				</div>
-				<div className="flex justify-center lg:justify-start">
-					<Image src={SnapMeasureSVG} alt="" className="w-[90%] 3xl:w-full" />
-				</div>
-			</div>
-		</div>
-	);
-};
 const Footer = () => {
+	const [showToast, setShowToast] = useState(false);
+
 	return (
-		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20">
+		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20 mt-40 md:mt-80">
 			<div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 				<div className="relative">
 					<div className="absolute -inset-2">
@@ -114,12 +72,12 @@ const Footer = () => {
 
 					<div className="relative overflow-hidden text-center bg-gray-900 rounded-3xl lg:text-left">
 						<div className="p-6 lg:py-8 lg:px-14">
-							<div className="lg:flex lg:items-center lg:justify-between">
-								<h5 className="max-w-md mx-auto text-3xl font-bold text-white xl:max-w-xl lg:mx-0 font-pj">
-									Grow your business fast with Centrox AI.
+							<div className="flex w-full items-center justify-center">
+								<h5 className="text-xl sm:text-3xl font-bold text-white">
+									Explore our innovative solutions for your business growth
 								</h5>
 
-								<div className="flex-1 mt-7 lg:mt-0 lg:ml-8">
+								{/* <div className="flex-1 mt-7 lg:mt-0 lg:ml-8">
 									<form action="#" method="POST">
 										<div className="md:flex">
 											<div className="flex-1">
@@ -159,216 +117,117 @@ const Footer = () => {
 											</button>
 										</div>
 									</form>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div className="grid grid-cols-2 gap-16 mt-16 md:mt-24 md:grid-cols-4">
-					<div>
-						<h6 className="text-base font-bold text-white font-pj">Company</h6>
-
-						<ul className="mt-8 space-y-5">
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									About{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Features{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Works{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Career{" "}
-								</a>
-							</li>
-						</ul>
+			</div>
+			<div className="grid gap-10 sm:gap-0 sm:flex justify-between mx-5 sm:mx-[7%] mt-20 sm:mt-60">
+				<div className="h-full">
+					<Image src={AppLogo} alt="Logo" className="w-[10rem] sm:w-60" />
+				</div>
+				<div className="flex flex-col gap-5">
+					<div
+						className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer ml-10 sm:ml-0"
+						onClick={() => {
+							setShowToast(!showToast);
+						}}
+					>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Services
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Solutions
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							APIs
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Team
+						</span>
 					</div>
-
-					<div>
-						<h6 className="text-base font-bold text-white font-pj">Help</h6>
-
-						<ul className="mt-8 space-y-5">
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Customer Support{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Delivery Details{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Terms & Conditions{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Privacy Policy{" "}
-								</a>
-							</li>
-						</ul>
+					<div className="grid sm:flex  items-center gap-4 sm:gap-20 cursor-pointer ml-10 sm:ml-0">
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Contact Us
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							About Us{" "}
+						</span>
+						<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							Talk to an Expert
+						</span>
 					</div>
-
-					<div>
-						<h6 className="text-base font-bold text-white font-pj">
-							Resources
-						</h6>
-
-						<ul className="mt-8 space-y-5">
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Free eBooks{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Development Tutorial{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									How to - Blog{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Youtube Playlist{" "}
-								</a>
-							</li>
-						</ul>
+					<div className="flex  items-center sm:justify-end gap-4 sm:mt-14 sm:gap-10 cursor-pointer ml-10 sm:ml-0">
+						{/* <div className="flex items-center justify-end gap-10 mt-14 cursor-pointer"> */}
+						<Image
+							src={TwitterIcon}
+							alt="Logo"
+							className="w-4 sm:w-8"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/>
+						<Image
+							src={LinkedinIcon}
+							alt="Logo"
+							className="w-4 sm:w-8"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/>
+						<Image
+							src={MsgIcon}
+							alt="Logo"
+							className="w-6 sm:w-10"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/>
 					</div>
-
-					<div>
-						<h6 className="text-base font-bold text-white font-pj">Links</h6>
-
-						<ul className="mt-8 space-y-5">
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Free eBooks{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Development Tutorial{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									How to - Blog{" "}
-								</a>
-							</li>
-
-							<li>
-								<a
-									href="#"
-									title=""
-									className="inline-flex text-sm font-normal text-white transition-all duration-300 transform font-pj hover:text-gray-300 hover:translate-x-1"
-								>
-									{" "}
-									Youtube Playlist{" "}
-								</a>
-							</li>
-						</ul>
+					<div className="flex  items-center mt-2 justify-end">
+						<span className="text-white font-bold sm:text-xl ml-10 sm:ml-0">
+							© 2024 Centrox Technologies, Inc.All rights reserved.
+						</span>
 					</div>
 				</div>
 			</div>
+			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
 		</footer>
 	);
 };
