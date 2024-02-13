@@ -6,12 +6,13 @@ import Nooberly from "@/assets/Nooblerly.svg";
 import Instacured from "@/assets/InstaCure.svg";
 import Dreamlamp from "@/assets/Dream Lamp.svg";
 import React, { useEffect, useState } from "react";
+import { generateBlurredSVG } from "@/helpers/common";
 
 const logosSets = [
 	[
 		{ src: Dreamlamp, marginTop: 0 },
 		{ src: Derq, marginTop: 0 },
-		{ src: Nooberly, marginTop: 0},
+		{ src: Nooberly, marginTop: 0 },
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
@@ -19,7 +20,7 @@ const logosSets = [
 	[
 		{ src: Dreamlamp, marginTop: 0 },
 		{ src: Derq, marginTop: 0 },
-		{ src: Nooberly, marginTop: 0},
+		{ src: Nooberly, marginTop: 0 },
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
@@ -27,7 +28,7 @@ const logosSets = [
 	[
 		{ src: Dreamlamp, marginTop: 0 },
 		{ src: Derq, marginTop: 0 },
-		{ src: Nooberly, marginTop: 0},
+		{ src: Nooberly, marginTop: 0 },
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
@@ -35,35 +36,43 @@ const logosSets = [
 	[
 		{ src: Dreamlamp, marginTop: 0 },
 		{ src: Derq, marginTop: 0 },
-		{ src: Nooberly, marginTop: 0},
+		{ src: Nooberly, marginTop: 0 },
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
-	],[
+	],
+	[
 		{ src: Dreamlamp, marginTop: 0 },
 		{ src: Derq, marginTop: 0 },
-		{ src: Nooberly, marginTop: 0},
+		{ src: Nooberly, marginTop: 0 },
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
 	],
 ];
+
 export const LogosCarousel = () => {
 	const [animationClass, setAnimationClass] = useState("animate-none");
 
 	useEffect(() => {
 		setAnimationClass("animate-move");
 	}, []);
-
 	const renderLogos = (logosSet: any) => {
-		return logosSet.map((logo: any, index: any) => (
-			<Image
-				key={index}
-				src={logo.src}
-				alt="Logo"
-				className={`w-auto mt-${logo.marginTop}`}
-			/>
-		));
+		return logosSet.map((logo: any, index: any) => {
+			const svgContent = btoa(encodeURIComponent(logo.src));
+			const blurredSVG = generateBlurredSVG(svgContent);
+			return (
+				<Image
+					key={index}
+					src={logo.src}
+					alt="Logo"
+					loading="eager"
+					priority={true}
+					className={`w-auto mt-${logo.marginTop}`}
+					blurDataURL={`data:image/svg+xml;base64,${btoa(blurredSVG)}`}
+				/>
+			);
+		});
 	};
 	return (
 		<div

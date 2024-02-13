@@ -2,8 +2,11 @@ import { Button } from "@/Components/Button.js/button";
 import SnapMeasureSVG from "@/assets/Snap.svg";
 import Arrow from "@/assets/RightArrow.svg";
 import Image from "next/image";
+import { generateBlurredSVG } from "@/helpers/common";
 
 export const SnapMeasure = () => {
+	const tab1BlurImage = btoa(encodeURIComponent(SnapMeasureSVG));
+	const blurredSVG = generateBlurredSVG(tab1BlurImage);
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
@@ -54,7 +57,13 @@ export const SnapMeasure = () => {
 					</div>
 				</div>
 				<div className="flex justify-center lg:justify-start">
-					<Image src={SnapMeasureSVG} alt="" className="w-[90%] 2xl:w-full" />
+					<Image
+						alt=""
+						src={SnapMeasureSVG}
+						loading="eager"
+						className="w-[90%] 2xl:w-full"
+						blurDataURL={`data:image/svg+xml;base64,${btoa(blurredSVG)}`}
+					/>
 				</div>
 			</div>
 		</div>

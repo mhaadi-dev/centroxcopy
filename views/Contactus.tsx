@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/Components/Button.js/button";
 import { Toast } from "@/Components/Toast/toast";
 import {
@@ -12,7 +12,7 @@ export const ContactUsSection = () => {
 	const [showToast, setShowToast] = useState(false);
 
 	return (
-		<div className="relative isolate bg-gray-900 lg:h-screen lg:overflow-hidden">
+		<div className="relative isolate bg-gray-charcoal lg:h-screen lg:overflow-hidden">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
 				<div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
 					<div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
@@ -52,7 +52,7 @@ export const ContactUsSection = () => {
 								aria-hidden="true"
 							>
 								<div
-									className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#80caff] to-[#4f46e5] opacity-20"
+									className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-[#056EE1] to-[#221c8f] opacity-20"
 									style={{
 										clipPath:
 											"polygon(74.1% 56.1%, 100% 38.6%, 97.5% 73.3%, 85.5% 100%, 80.7% 98.2%, 72.5% 67.7%, 60.2% 37.8%, 52.4% 32.2%, 47.5% 41.9%, 45.2% 65.8%, 27.5% 23.5%, 0.1% 35.4%, 17.9% 0.1%, 27.6% 23.5%, 76.1% 2.6%, 74.1% 56.1%)",
@@ -64,17 +64,14 @@ export const ContactUsSection = () => {
 							Get in touch
 						</h2>
 						<p className="mt-6 text-lg leading-8 text-gray-300">
-							Centrox AI is at the heart of machine intelligence, pioneering
-							cutting-edge solutions in web development, artificial
-							intelligence, and mobile applications. Our company specializes in
-							crafting innovative web solutions that harness the power of AI to
-							deliver intelligent, user-centric experiences. Whether it's
-							developing intuitive web interfaces, implementing advanced AI
-							algorithms, or creating seamless mobile apps, Centrox AI is
-							dedicated to pushing the boundaries of technology to drive
-							transformative outcomes for our clients. With a passion for
-							innovation and a commitment to excellence, we are shaping the
-							future of intelligent technology solutions.
+							Centrox AI is at the core of smart machines, making advanced
+							solutions for websites, AI, and phone apps. We're experts at
+							creating clever web tools using AI to give users great
+							experiences. Whether it's designing easy websites, using smart AI
+							tricks, or making smooth mobile apps, Centrox AI is here to make
+							cool tech that helps our clients. We love coming up with new ideas
+							and doing our best to make super-smart tech solutions for
+							everyone.
 						</p>
 						<dl className="mt-10 space-y-4 text-base leading-7 text-gray-300">
 							<div className="flex gap-x-4">
@@ -231,7 +228,6 @@ export const ContactUsSection = () => {
 				</form>
 			</div>
 			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
-
 		</div>
 	);
 };
