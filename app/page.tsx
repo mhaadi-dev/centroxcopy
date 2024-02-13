@@ -12,6 +12,7 @@ import { SnapMeasure } from "@/views/SnapandMeasure";
 import { Testimonial } from "@/views/Testimonial";
 import { useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
+import { useRouter } from "next/navigation";
 export default function Home() {
 	return (
 		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
@@ -55,6 +56,7 @@ const VideoComponent = () => {
 
 const Footer = () => {
 	const [showToast, setShowToast] = useState(false);
+	const router = useRouter();
 
 	return (
 		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20 mt-40 md:mt-80">
@@ -170,9 +172,7 @@ const Footer = () => {
 					<div className="grid sm:flex  items-center gap-4 sm:gap-20 cursor-pointer ml-10 sm:ml-0">
 						<span
 							className="text-white font-semibold sm:text-2xl"
-							onClick={() => {
-								setShowToast(!showToast);
-							}}
+							onClick={() => router.push(`/contact`)}
 						>
 							Contact Us
 						</span>
