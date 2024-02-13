@@ -1,6 +1,6 @@
 import BackgroundImage from "@/assets/Services BackGround.png";
 import DataCurationImage from "@/assets/DataCuration.svg";
-import DataLabelingImage from "@/assets/DataLabelling.svg";
+import DataLabelingImage from "../assets/DataLabelling.svg";
 import CustomDataImage from "@/assets/CustomDataWorkflow.svg";
 import BuildingAi from "@/assets/BuildingAI.svg";
 import DeployingAi from "@/assets/DeployingAI.svg";
@@ -8,7 +8,7 @@ import Arrow from "@/assets/RightArrow.svg";
 
 import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
-import classNames from "@/helpers/common";
+import classNames, { generateBlurredSVG } from "@/helpers/common";
 import Image from "next/image";
 import useSize from "@/helpers/windowWidth";
 import { Toast } from "@/Components/Toast/toast";
@@ -116,6 +116,10 @@ export const Section3 = () => {
 		{ name: "MLOps", href: "#", current: false },
 	]);
 	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
+	const tab1BlurImage = btoa(encodeURIComponent(DataCurationImage));
+	const blurredSVG = generateBlurredSVG(tab1BlurImage);
+
+	
 	return (
 		<>
 			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
@@ -252,6 +256,7 @@ export const Section3 = () => {
 													: DataCurationImage
 											}
 											alt=""
+											blurDataURL={`data:image/svg+xml;base64,${btoa(blurredSVG)}`}
 										/>
 									)}
 									{tabs[1]?.current && (
