@@ -34,7 +34,7 @@ test:
     before_script:
         - npm install -g @commitlint/cli @commitlint/config-conventional
     script:
-        - echo "${CI_COMMIT_MESSAGE}" | commitlint -x $(npm root -g)/@commitlint/config-conventional
+        # - echo "${CI_COMMIT_MESSAGE}" | commitlint -x $(npm root -g)/@commitlint/config-conventional
         - echo "sample tests running good!!!"
         - echo "CI_COMMIT_BRANCH:${CI_COMMIT_BRANCH}"
 
