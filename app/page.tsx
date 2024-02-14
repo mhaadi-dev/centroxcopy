@@ -91,6 +91,9 @@ const Footer = () => {
 										className="bg-blue-azure border-0 w-60 !rounded-full font-semibold"
 										Icon={Arrow}
 										isLefticon={false}
+										onClick={() => {
+											setShowToast(!showToast);
+										}}
 									/>
 								</div>
 							</div>
