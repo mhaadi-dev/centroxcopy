@@ -32,9 +32,9 @@ test:
     stage: test
     image: node:16
     before_script:
-        - npm install -g @commitlint/cli @commitlint/config-conventional
+        - npm install -g @commitlint/cli@18.4.3 @commitlint/config-conventional@18.4.3
     script:
-        # - echo "${CI_COMMIT_MESSAGE}" | commitlint -x $(npm root -g)/@commitlint/config-conventional
+        - echo "${CI_COMMIT_MESSAGE}" | commitlint -x $(npm root -g)/@commitlint/config-conventional
         - echo "sample tests running good!!!"
         - echo "CI_COMMIT_BRANCH:${CI_COMMIT_BRANCH}"
 
