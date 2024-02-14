@@ -10,7 +10,6 @@ import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
 import classNames, { generateBlurredSVG } from "@/helpers/common";
 import Image from "next/image";
-import useSize from "@/helpers/windowWidth";
 import { Toast } from "@/Components/Toast/toast";
 interface GradientCardProps {
 	title: string;

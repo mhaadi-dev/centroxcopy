@@ -13,6 +13,10 @@ import { Testimonial } from "@/views/Testimonial";
 import { useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
 import { useRouter } from "next/navigation";
+import { POCS } from "@/views/POCS";
+import { Button } from "@/Components/Button.js/button";
+import Arrow from "@/assets/RightArrow.svg";
+
 export default function Home() {
 	return (
 		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
@@ -21,6 +25,7 @@ export default function Home() {
 			<LogosCarousel />
 			<SnapMeasure />
 			<Section3 />
+			<POCS />
 			<Testimonial />
 			<Footer />
 		</div>
@@ -74,52 +79,23 @@ const Footer = () => {
 
 					<div className="relative overflow-hidden text-center bg-gray-900 rounded-3xl lg:text-left">
 						<div className="p-6 lg:py-8 lg:px-14">
-							<div className="flex w-full items-center justify-center">
+							<div className="grid lg:flex  w-full items-center justify-center">
 								<h5 className="text-xl sm:text-3xl font-bold text-white">
-									Explore our innovative solutions for your business growth
+									Get an expert help in constructing your own models or
+									utilizing foundational models for your business
 								</h5>
 
-								{/* <div className="flex-1 mt-7 lg:mt-0 lg:ml-8">
-									<form action="#" method="POST">
-										<div className="md:flex">
-											<div className="flex-1">
-												<input
-													type="email"
-													name=""
-													id=""
-													placeholder="Enter email address"
-													className="block w-full px-4 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border-gray-300 md:text-left focus:ring-white focus:border-white rounded-t-xl md:rounded-t-none md:rounded-l-xl font-pj caret-gray-900"
-													required
-												/>
-											</div>
-
-											<button
-												type="submit"
-												className="
-                                            w-full
-                                            px-6
-                                            py-4
-                                            text-base
-                                            font-bold
-                                            text-gray-900
-                                            transition-all
-                                            duration-200
-                                            bg-white
-                                            border border-transparent
-                                            xl:px-16
-                                            md:w-auto
-                                            focus:ring-2 focus:ring-offset-2 focus:ring-white
-                                            rounded-b-xl
-                                            md:rounded-b-none md:rounded-r-xl
-                                            font-pj
-                                            focus:outline-none
-                                        "
-											>
-												Subscribe
-											</button>
-										</div>
-									</form>
-								</div> */}
+								<div className="flex-1 mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center ">
+									<Button
+										content="Talk to our AI expert"
+										className="bg-blue-azure border-0 w-60 !rounded-full font-semibold"
+										Icon={Arrow}
+										isLefticon={false}
+										onClick={() => {
+											setShowToast(!showToast);
+										}}
+									/>
+								</div>
 							</div>
 						</div>
 					</div>
