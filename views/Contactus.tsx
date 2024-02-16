@@ -113,9 +113,9 @@ export const ContactUsSection = () => {
 								<dd>
 									<a
 										className="hover:text-white"
-										href="mailto:hello@example.com"
+										href="mailto:team@centrox.io"
 									>
-										hello@example.com
+										team@centrox.io
 									</a>
 								</dd>
 							</div>
