@@ -1,10 +1,31 @@
 import Image from "next/image";
 import Poc1 from "@/assets/POCF.svg";
+import Poc2 from "@/assets/RealEstate.svg";
+import Poc3 from "@/assets/LabellingAI.svg";
+import Poc4 from "@/assets/LLM.svg";
+import { ReactEventHandler, useState } from "react";
+import { generateLinearGradientBase64 } from "@/helpers/common";
 
-const GradientTab = ({ tabName = "", isLeftGradient = false }) => {
+interface GradientCardProps {
+	tabName: string;
+	isLeftGradient?: boolean;
+	onMouseEnter?: ReactEventHandler;
+	onMouseLeave?: ReactEventHandler;
+	onClick?: () => void;
+}
+const GradientTab: React.FC<GradientCardProps> = ({
+	tabName = "",
+	isLeftGradient = false,
+	onMouseEnter,
+	onMouseLeave,
+	onClick,
+}) => {
 	return (
 		<div
-			className="rounded-lg text-white font-bold text-xl md:text-3xl p-10"
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
+			onClick={() => onClick?.()}
+			className="rounded-lg text-white font-bold text-xl md:text-3xl p-10 cursor-pointer"
 			style={{
 				border: "1px solid rgba(3, 34, 182, 0.20)",
 
@@ -19,7 +40,12 @@ const GradientTab = ({ tabName = "", isLeftGradient = false }) => {
 		</div>
 	);
 };
+
 export const POCS = () => {
+	const linearGradientBlurDataURL = generateLinearGradientBase64();
+	const [showToast, setShowToast] = useState(false);
+	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
+
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
@@ -35,11 +61,59 @@ export const POCS = () => {
 			</div>
 
 			<div className=" w-[90%] flex flex-wrap justify-between mt-14 gap-10 sm:gap-0">
-				<div className="flex flex-col gap-4 w-full lg:w-[35%]">
-					<GradientTab tabName="Snap and Measurement" />
+				<div className="flex flex-col gap-4 justify-between w-full lg:w-[35%] py-6">
+					<GradientTab
+						tabName="Snap and Measurement"
+						onMouseEnter={() => setHoveredCard(1)}
+						onMouseLeave={() => setHoveredCard(null)}
+						onClick={() => {
+							setShowToast(!showToast);
+						}}
+					/>
+					<GradientTab
+						tabName="Real-estate Chatbot"
+						isLeftGradient
+						onMouseEnter={() => setHoveredCard(2)}
+						onMouseLeave={() => setHoveredCard(null)}
+						onClick={() => {
+							setShowToast(!showToast);
+						}}
+					/>
+					<GradientTab
+						tabName="Labeling Dresses with AI"
+						onMouseEnter={() => setHoveredCard(3)}
+						onMouseLeave={() => setHoveredCard(null)}
+						onClick={() => {
+							setShowToast(!showToast);
+						}}
+					/>
+					<GradientTab
+						tabName="LLM Based Health Chatbot"
+						isLeftGradient
+						onMouseEnter={() => setHoveredCard(4)}
+						onMouseLeave={() => setHoveredCard(null)}
+						onClick={() => {
+							setShowToast(!showToast);
+						}}
+					/>
 				</div>
 				<div className="flex justify-start lg:w-[62%]">
-					<Image src={Poc1} alt="" loading="eager" className="w-full" />
+					<Image
+						src={
+							hoveredCard === 2
+								? Poc2
+								: hoveredCard === 3
+								? Poc3
+								: hoveredCard === 4
+								? Poc4
+								: Poc1
+						}
+						alt=""
+						loading="eager"
+						className="w-full"
+						placeholder="blur"
+						blurDataURL={linearGradientBlurDataURL}
+					/>
 				</div>
 			</div>
 		</div>

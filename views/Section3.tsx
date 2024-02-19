@@ -8,7 +8,7 @@ import Arrow from "@/assets/RightArrow.svg";
 
 import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
-import classNames, { generateBlurredSVG } from "@/helpers/common";
+import classNames, { generateLinearGradientBase64 } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
 interface GradientCardProps {
@@ -108,6 +108,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 };
 
 export const Section3 = () => {
+	const linearGradientBlurDataURL = generateLinearGradientBase64();
 	const [showToast, setShowToast] = useState(false);
 	const [tabs, setTabs] = useState([
 		{ name: "Solving Data", href: "#", current: true },
@@ -116,9 +117,7 @@ export const Section3 = () => {
 	]);
 	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
 	const tab1BlurImage = btoa(encodeURIComponent(DataCurationImage));
-	const blurredSVG = generateBlurredSVG(tab1BlurImage);
 
-	
 	return (
 		<>
 			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
@@ -255,7 +254,7 @@ export const Section3 = () => {
 													: DataCurationImage
 											}
 											alt=""
-											blurDataURL={`data:image/svg+xml;base64,${btoa(blurredSVG)}`}
+											blurDataURL={linearGradientBlurDataURL}
 										/>
 									)}
 									{tabs[1]?.current && (
