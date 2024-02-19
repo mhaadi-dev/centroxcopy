@@ -1,5 +1,4 @@
 import { ContactUsSection } from "@/views/Contactus";
-import React from "react";
 import LandingLayout from "../layoutPage";
 
 function ContactUs() {

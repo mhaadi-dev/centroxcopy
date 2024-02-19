@@ -20,7 +20,7 @@ export const Navbar = () => {
 					<NavLink text="Solutions" />
 					<NavLink text="Services" />
 					<NavLink text="APIs" />
-					<NavLink text="Team" />
+					<NavLink text="Team" onClick={() => router.push(`/team`)} />
 				</div>
 
 				<Button
@@ -33,8 +33,11 @@ export const Navbar = () => {
 	);
 };
 
-const NavLink = ({ text }) => (
-	<span className="text-xl font-semibold text-white cursor-pointer">
+const NavLink = ({ text, onClick }) => (
+	<span
+		className="text-xl font-semibold text-white cursor-pointer"
+		onClick={() => onClick?.()}
+	>
 		{text}
 	</span>
 );
