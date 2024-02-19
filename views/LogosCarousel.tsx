@@ -6,7 +6,7 @@ import Nooberly from "@/assets/Nooblerly.svg";
 import Instacured from "@/assets/InstaCure.svg";
 import Dreamlamp from "@/assets/Dream Lamp.svg";
 import React, { useEffect, useState } from "react";
-import { generateBlurredSVG } from "@/helpers/common";
+import { generateLinearGradientBase64 } from "@/helpers/common";
 
 const logosSets = [
 	[
@@ -53,14 +53,13 @@ const logosSets = [
 
 export const LogosCarousel = () => {
 	const [animationClass, setAnimationClass] = useState("animate-none");
+	const linearGradientBlurDataURL = generateLinearGradientBase64();
 
 	useEffect(() => {
 		setAnimationClass("animate-move");
 	}, []);
 	const renderLogos = (logosSet: any) => {
 		return logosSet.map((logo: any, index: any) => {
-			const svgContent = btoa(encodeURIComponent(logo.src));
-			const blurredSVG = generateBlurredSVG(svgContent);
 			return (
 				<Image
 					key={index}
@@ -69,7 +68,7 @@ export const LogosCarousel = () => {
 					loading="eager"
 					priority={true}
 					className={`w-auto mt-${logo.marginTop}`}
-					blurDataURL={`data:image/svg+xml;base64,${btoa(blurredSVG)}`}
+					blurDataURL={linearGradientBlurDataURL}
 				/>
 			);
 		});
