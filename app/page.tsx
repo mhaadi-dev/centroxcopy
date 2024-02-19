@@ -27,7 +27,7 @@ export default function Home() {
 			<Section3 />
 			<POCS />
 			<Testimonial />
-			<Footer />
+			<PageFooter />
 		</div>
 	);
 }
@@ -44,7 +44,7 @@ const VideoComponent = () => {
 				className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover"
 			/>
 			{/* backdrop-filter backdrop-blur-xl */}
-			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 sm:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
+			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[32%] 2xl:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
 				<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-thin tracking-normal">
 					Leading <span className="font-extrabold">Innovation</span> with
 					<span className="font-extrabold ml-1 sm:ml-3">
@@ -59,7 +59,7 @@ const VideoComponent = () => {
 	);
 };
 
-const Footer = () => {
+const PageFooter = () => {
 	const [showToast, setShowToast] = useState(false);
 	const router = useRouter();
 

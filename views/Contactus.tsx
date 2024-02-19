@@ -13,7 +13,7 @@ export const ContactUsSection = () => {
 
 	return (
 		<div className="relative isolate bg-gray-charcoal lg:h-screen lg:overflow-hidden">
-			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:mt-[3%] 2xl:mt-[5%] 3xl:mt-[13%]">
 				<div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
 					<div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
 						<div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
@@ -113,9 +113,9 @@ export const ContactUsSection = () => {
 								<dd>
 									<a
 										className="hover:text-white"
-										href="mailto:hello@example.com"
+										href="mailto:team@centrox.io"
 									>
-										hello@example.com
+										team@centrox.io
 									</a>
 								</dd>
 							</div>
@@ -146,7 +146,7 @@ export const ContactUsSection = () => {
 										name="first-name"
 										id="first-name"
 										autoComplete="given-name"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -163,7 +163,7 @@ export const ContactUsSection = () => {
 										name="last-name"
 										id="last-name"
 										autoComplete="family-name"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -180,7 +180,7 @@ export const ContactUsSection = () => {
 										name="email"
 										id="email"
 										autoComplete="email"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -197,7 +197,7 @@ export const ContactUsSection = () => {
 										name="phone-number"
 										id="phone-number"
 										autoComplete="tel"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -213,7 +213,7 @@ export const ContactUsSection = () => {
 										name="message"
 										id="message"
 										rows={4}
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
 										defaultValue={""}
 									/>
 								</div>
