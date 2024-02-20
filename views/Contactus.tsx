@@ -111,10 +111,7 @@ export const ContactUsSection = () => {
 									/>
 								</dt>
 								<dd>
-									<a
-										className="hover:text-white"
-										href="mailto:team@centrox.io"
-									>
+									<a className="hover:text-white" href="mailto:team@centrox.io">
 										team@centrox.io
 									</a>
 								</dd>
@@ -127,12 +124,8 @@ export const ContactUsSection = () => {
 					method="POST"
 					className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
 				>
-
-
 					<div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-						
 						<div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-							
 							<div>
 								<label
 									htmlFor="first-name"
@@ -146,7 +139,7 @@ export const ContactUsSection = () => {
 										name="first-name"
 										id="first-name"
 										autoComplete="given-name"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -163,7 +156,7 @@ export const ContactUsSection = () => {
 										name="last-name"
 										id="last-name"
 										autoComplete="family-name"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -180,7 +173,7 @@ export const ContactUsSection = () => {
 										name="email"
 										id="email"
 										autoComplete="email"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>
@@ -197,7 +190,7 @@ export const ContactUsSection = () => {
 										name="phone-number"
 										id="phone-number"
 										autoComplete="tel"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
 									/>
 								</div>
 							</div>

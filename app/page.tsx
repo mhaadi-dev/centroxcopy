@@ -4,7 +4,7 @@ import Image from "next/image";
 import myGif from "@/assets/Video.gif";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { Section3 } from "@/views/Section3";
-import AppLogo from "@/assets/LogoWhite.svg";
+import AppLogo from "@/assets/LogoWhite.png";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
 import MsgIcon from "@/assets/msg.svg";
