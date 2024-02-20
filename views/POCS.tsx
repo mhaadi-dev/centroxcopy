@@ -87,6 +87,7 @@ export const POCS = () => {
             }));
         }
     };
+	console.log("Blur data URL: " + blurDataURLs[hoveredCard]);
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">

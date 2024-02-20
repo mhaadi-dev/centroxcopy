@@ -1,9 +1,9 @@
 import BackgroundImage from "@/assets/Services BackGround.png";
-import DataCurationImage from "@/assets/DataCuration.svg";
+import DataCurationImage from "@/assets/DataCuration.png";
 import DataLabelingImage from "../assets/DataLabelling.png";
 import CustomDataImage from "@/assets/CustomDataWorkflow.png";
-import BuildingAi from "@/assets/BuildingAI.svg";
-import DeployingAi from "@/assets/DeployingAI.svg";
+import BuildingAi from "@/assets/BuildingAI.png";
+import DeployingAi from "@/assets/DeployingAI.png";
 import Arrow from "@/assets/RightArrow.svg";
 
 import { ReactEventHandler, useState } from "react";
