@@ -2,12 +2,19 @@ import { Button } from "@/Components/Button.js/button";
 import SnapMeasureSVG from "@/assets/Snap.svg";
 import Arrow from "@/assets/RightArrow.svg";
 import Image from "next/image";
-import {
-	generateLinearGradientBase64,
-} from "@/helpers/common";
+import { useState } from "react";
+import { generateBlurDataURL } from "@/helpers/common";
 
 export const SnapMeasure = () => {
-	const linearGradientBlurDataURL = generateLinearGradientBase64();
+	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
+
+	const singleImageLoad = async (imageSrc: string) => {
+		if (!blurDataURL) {
+			const blurredBase64 = await generateBlurDataURL(imageSrc);
+			setBlurDataURL(blurredBase64);
+		}
+	};
+
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
@@ -63,7 +70,9 @@ export const SnapMeasure = () => {
 						src={SnapMeasureSVG}
 						loading="eager"
 						className="w-[90%] 2xl:w-full"
-						blurDataURL={linearGradientBlurDataURL}
+						placeholder="blur"
+						onLoad={() => singleImageLoad(SnapMeasureSVG.src)}
+						blurDataURL={blurDataURL}
 					/>
 				</div>
 			</div>

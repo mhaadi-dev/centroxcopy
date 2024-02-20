@@ -8,7 +8,7 @@ import Arrow from "@/assets/RightArrow.svg";
 
 import { ReactEventHandler, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
-import classNames, { generateLinearGradientBase64 } from "@/helpers/common";
+import classNames, { generateBlurDataURL } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
 interface GradientCardProps {
@@ -108,15 +108,44 @@ const Tabs = ({ tabs, setTabs }: any) => {
 };
 
 export const Section3 = () => {
-	const linearGradientBlurDataURL = generateLinearGradientBase64();
 	const [showToast, setShowToast] = useState(false);
 	const [tabs, setTabs] = useState([
 		{ name: "Solving Data", href: "#", current: true },
 		{ name: "Model Dev", href: "#", current: false },
 		{ name: "MLOps", href: "#", current: false },
 	]);
-	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
-	console.log("Image url is", linearGradientBlurDataURL);
+	const [hoveredCard, setHoveredCard] = useState<number>(1);
+	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
+	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
+
+	const handleImageLoad = async () => {
+		if (!blurDataURLs[hoveredCard]) {
+			let imageUrl = "";
+			switch (hoveredCard) {
+				case 3:
+					imageUrl = CustomDataImage.src;
+					break;
+				case 3:
+					imageUrl = DataLabelingImage.src;
+					break;
+				default:
+					imageUrl = DataCurationImage.src;
+					break;
+			}
+			const blurredBase64 = await generateBlurDataURL(imageUrl);
+			setBlurDataURLs((prevBlurDataURLs) => ({
+				...prevBlurDataURLs,
+				[hoveredCard]: blurredBase64,
+			}));
+		}
+	};
+	const singleImageLoad = async (imageSrc: string) => {
+		if (!blurDataURL) {
+			const blurredBase64 = await generateBlurDataURL(imageSrc);
+			setBlurDataURL(blurredBase64);
+		}
+	};
+	
 	return (
 		<>
 			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
@@ -191,7 +220,7 @@ export const Section3 = () => {
 															: "Name the technology and we will serve your model the right way."
 													}
 													onMouseEnter={() => setHoveredCard(1)}
-													onMouseLeave={() => setHoveredCard(null)}
+													onMouseLeave={() => setHoveredCard(0)}
 													onClick={() => {
 														setShowToast(!showToast);
 													}}
@@ -212,7 +241,7 @@ export const Section3 = () => {
 															: "Deploy your model On-premise or want us to set up your ML-Cloud?"
 													}
 													onMouseEnter={() => setHoveredCard(2)}
-													onMouseLeave={() => setHoveredCard(null)}
+													onMouseLeave={() => setHoveredCard(0)}
 													onClick={() => {
 														setShowToast(!showToast);
 													}}
@@ -233,7 +262,7 @@ export const Section3 = () => {
 															: "We can help optimize your model to perform in less time with better results."
 													}
 													onMouseEnter={() => setHoveredCard(3)}
-													onMouseLeave={() => setHoveredCard(null)}
+													onMouseLeave={() => setHoveredCard(0)}
 													onClick={() => {
 														setShowToast(!showToast);
 													}}
@@ -254,7 +283,9 @@ export const Section3 = () => {
 													: DataCurationImage
 											}
 											alt=""
-											blurDataURL={linearGradientBlurDataURL}
+											placeholder="blur"
+											onLoad={handleImageLoad}
+											blurDataURL={blurDataURLs[hoveredCard]}
 										/>
 									)}
 									{tabs[1]?.current && (
@@ -263,7 +294,9 @@ export const Section3 = () => {
 											src={BuildingAi}
 											alt=""
 											loading="eager"
-											blurDataURL={linearGradientBlurDataURL}
+											placeholder="blur"
+											onLoad={()=>singleImageLoad(BuildingAi.src)}
+											blurDataURL={blurDataURL}
 										/>
 									)}
 									{tabs[2]?.current && (
@@ -272,7 +305,9 @@ export const Section3 = () => {
 											src={DeployingAi}
 											alt=""
 											loading="eager"
-											blurDataURL={linearGradientBlurDataURL}
+											placeholder="blur"
+											onLoad={()=>singleImageLoad(DeployingAi.src)}
+											blurDataURL={blurDataURL}
 										/>
 									)}
 								</div>

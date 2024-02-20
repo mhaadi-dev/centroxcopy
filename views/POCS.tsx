@@ -5,6 +5,7 @@ import Poc3 from "@/assets/Labelling.png";
 import Poc4 from "@/assets/LLM.png";
 import { ReactEventHandler, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
+import { generateBlurDataURL } from "@/helpers/common";
 
 interface GradientCardProps {
 	tabName: string;
@@ -45,49 +46,31 @@ export const POCS = () => {
 	const [showToast, setShowToast] = useState<boolean>(false);
 	const [hoveredCard, setHoveredCard] = useState<number>(1);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
-  
-	const generateBlurDataURL = async (imageUrl: string) => {
-	  const img = new Image();
-	  img.src = imageUrl;
-	  await img.decode();
-	  const canvas = document.createElement('canvas');
-	  const ctx = canvas.getContext('2d');
-	  if (ctx) {
-		canvas.width = img.width;
-		canvas.height = img.height;
-		ctx.filter = 'blur(10px)';
-		ctx.drawImage(img, 0, 0);
-		const blurredBase64 = canvas.toDataURL('image/png');
-		return blurredBase64;
-	  }
-	  return '';
-	};
-  
+
 	const handleImageLoad = async () => {
-        if (!blurDataURLs[hoveredCard]) {
-            let imageUrl = '';
-            switch (hoveredCard) {
-                case 2:
-                    imageUrl = Poc2.src;
-                    break;
-                case 3:
-                    imageUrl = Poc3.src;
-                    break;
-                case 4:
-                    imageUrl = Poc4.src;
-                    break;
-                default:
-                    imageUrl = Poc1.src;
-                    break;
-            }
-            const blurredBase64 = await generateBlurDataURL(imageUrl);
-            setBlurDataURLs(prevBlurDataURLs => ({
-                ...prevBlurDataURLs,
-                [hoveredCard]: blurredBase64,
-            }));
-        }
-    };
-	console.log("Blur data URL: " + blurDataURLs[hoveredCard]);
+		if (!blurDataURLs[hoveredCard]) {
+			let imageUrl = "";
+			switch (hoveredCard) {
+				case 2:
+					imageUrl = Poc2.src;
+					break;
+				case 3:
+					imageUrl = Poc3.src;
+					break;
+				case 4:
+					imageUrl = Poc4.src;
+					break;
+				default:
+					imageUrl = Poc1.src;
+					break;
+			}
+			const blurredBase64 = await generateBlurDataURL(imageUrl);
+			setBlurDataURLs((prevBlurDataURLs) => ({
+				...prevBlurDataURLs,
+				[hoveredCard]: blurredBase64,
+			}));
+		}
+	};
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
@@ -156,7 +139,6 @@ export const POCS = () => {
 						placeholder="blur"
 						onLoad={handleImageLoad}
 						blurDataURL={blurDataURLs[hoveredCard]}
-				  
 					/>
 				</div>
 			</div>
