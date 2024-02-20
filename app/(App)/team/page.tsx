@@ -1,11 +1,10 @@
+import { TeamUsSection } from "@/views/TeamSection";
 import LandingLayout from "../layoutPage";
 
 function TeamPage() {
 	return (
 		<LandingLayout>
-			<>
-				<div className="text-white ">Team page</div>
-			</>
+			<TeamUsSection/>
 		</LandingLayout>
 	);
 }

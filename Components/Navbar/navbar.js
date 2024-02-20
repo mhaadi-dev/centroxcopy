@@ -1,4 +1,4 @@
-import AppLogo from "@/assets/LogoWhite.svg";
+import AppLogo from "@/assets/LogoWhite.png";
 import { Button } from "../Button.js/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,8 @@ export const Navbar = () => {
 				<Image
 					src={AppLogo}
 					alt="Logo"
+					priority={true}
+					loading="eager"
 					className="w-[10rem] sm:w-[20%] lg:w-[15%] 2xl:w-[12%] cursor-pointer"
 					onClick={() => router.push(`/`)}
 				/>

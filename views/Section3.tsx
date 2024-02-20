@@ -1,7 +1,7 @@
 import BackgroundImage from "@/assets/Services BackGround.png";
 import DataCurationImage from "@/assets/DataCuration.svg";
-import DataLabelingImage from "../assets/DataLabelling.svg";
-import CustomDataImage from "@/assets/CustomDataWorkflow.svg";
+import DataLabelingImage from "../assets/DataLabelling.png";
+import CustomDataImage from "@/assets/CustomDataWorkflow.png";
 import BuildingAi from "@/assets/BuildingAI.svg";
 import DeployingAi from "@/assets/DeployingAI.svg";
 import Arrow from "@/assets/RightArrow.svg";
@@ -116,8 +116,7 @@ export const Section3 = () => {
 		{ name: "MLOps", href: "#", current: false },
 	]);
 	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
-	const tab1BlurImage = btoa(encodeURIComponent(DataCurationImage));
-
+	console.log("Image url is", linearGradientBlurDataURL);
 	return (
 		<>
 			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
@@ -246,6 +245,7 @@ export const Section3 = () => {
 									{tabs[0]?.current && (
 										<Image
 											className="w-full h-auto"
+											loading="eager"
 											src={
 												hoveredCard === 3
 													? CustomDataImage
@@ -258,10 +258,22 @@ export const Section3 = () => {
 										/>
 									)}
 									{tabs[1]?.current && (
-										<Image className="w-full h-auto" src={BuildingAi} alt="" />
+										<Image
+											className="w-full h-auto"
+											src={BuildingAi}
+											alt=""
+											loading="eager"
+											blurDataURL={linearGradientBlurDataURL}
+										/>
 									)}
 									{tabs[2]?.current && (
-										<Image className="w-full h-auto" src={DeployingAi} alt="" />
+										<Image
+											className="w-full h-auto"
+											src={DeployingAi}
+											alt=""
+											loading="eager"
+											blurDataURL={linearGradientBlurDataURL}
+										/>
 									)}
 								</div>
 							</div>

@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 
-import AppLogo from "@/assets/LogoWhite.svg";
+import AppLogo from "@/assets/LogoWhite.png";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
 import MsgIcon from "@/assets/msg.svg";

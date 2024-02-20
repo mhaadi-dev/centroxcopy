@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Poc1 from "@/assets/POCF.svg";
-import Poc2 from "@/assets/RealEstate.svg";
-import Poc3 from "@/assets/LabellingAI.svg";
-import Poc4 from "@/assets/LLM.svg";
+import NextImage from "next/image";
+import Poc1 from "@/assets/POCF.png";
+import Poc2 from "@/assets/RealEstate.png";
+import Poc3 from "@/assets/Labelling.png";
+import Poc4 from "@/assets/LLM.png";
 import { ReactEventHandler, useState } from "react";
-import { generateLinearGradientBase64 } from "@/helpers/common";
+import { Toast } from "@/Components/Toast/toast";
 
 interface GradientCardProps {
 	tabName: string;
@@ -42,10 +42,51 @@ const GradientTab: React.FC<GradientCardProps> = ({
 };
 
 export const POCS = () => {
-	const linearGradientBlurDataURL = generateLinearGradientBase64();
-	const [showToast, setShowToast] = useState(false);
-	const [hoveredCard, setHoveredCard] = useState<null | number>(null);
-
+	const [showToast, setShowToast] = useState<boolean>(false);
+	const [hoveredCard, setHoveredCard] = useState<number>(1);
+	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
+  
+	const generateBlurDataURL = async (imageUrl: string) => {
+	  const img = new Image();
+	  img.src = imageUrl;
+	  await img.decode();
+	  const canvas = document.createElement('canvas');
+	  const ctx = canvas.getContext('2d');
+	  if (ctx) {
+		canvas.width = img.width;
+		canvas.height = img.height;
+		ctx.filter = 'blur(10px)';
+		ctx.drawImage(img, 0, 0);
+		const blurredBase64 = canvas.toDataURL('image/png');
+		return blurredBase64;
+	  }
+	  return '';
+	};
+  
+	const handleImageLoad = async () => {
+        if (!blurDataURLs[hoveredCard]) {
+            let imageUrl = '';
+            switch (hoveredCard) {
+                case 2:
+                    imageUrl = Poc2.src;
+                    break;
+                case 3:
+                    imageUrl = Poc3.src;
+                    break;
+                case 4:
+                    imageUrl = Poc4.src;
+                    break;
+                default:
+                    imageUrl = Poc1.src;
+                    break;
+            }
+            const blurredBase64 = await generateBlurDataURL(imageUrl);
+            setBlurDataURLs(prevBlurDataURLs => ({
+                ...prevBlurDataURLs,
+                [hoveredCard]: blurredBase64,
+            }));
+        }
+    };
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
@@ -65,7 +106,7 @@ export const POCS = () => {
 					<GradientTab
 						tabName="Snap and Measurement"
 						onMouseEnter={() => setHoveredCard(1)}
-						onMouseLeave={() => setHoveredCard(null)}
+						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
 							setShowToast(!showToast);
 						}}
@@ -74,7 +115,7 @@ export const POCS = () => {
 						tabName="Real-estate Chatbot"
 						isLeftGradient
 						onMouseEnter={() => setHoveredCard(2)}
-						onMouseLeave={() => setHoveredCard(null)}
+						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
 							setShowToast(!showToast);
 						}}
@@ -82,7 +123,7 @@ export const POCS = () => {
 					<GradientTab
 						tabName="Labeling Dresses with AI"
 						onMouseEnter={() => setHoveredCard(3)}
-						onMouseLeave={() => setHoveredCard(null)}
+						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
 							setShowToast(!showToast);
 						}}
@@ -91,14 +132,14 @@ export const POCS = () => {
 						tabName="LLM Based Health Chatbot"
 						isLeftGradient
 						onMouseEnter={() => setHoveredCard(4)}
-						onMouseLeave={() => setHoveredCard(null)}
+						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
 							setShowToast(!showToast);
 						}}
 					/>
 				</div>
 				<div className="flex justify-start lg:w-[62%]">
-					<Image
+					<NextImage
 						src={
 							hoveredCard === 2
 								? Poc2
@@ -112,10 +153,13 @@ export const POCS = () => {
 						loading="eager"
 						className="w-full"
 						placeholder="blur"
-						blurDataURL={linearGradientBlurDataURL}
+						onLoad={handleImageLoad}
+						blurDataURL={blurDataURLs[hoveredCard]}
+				  
 					/>
 				</div>
 			</div>
+			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
 		</div>
 	);
 };
