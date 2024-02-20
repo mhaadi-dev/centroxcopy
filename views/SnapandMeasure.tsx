@@ -1,5 +1,5 @@
 import { Button } from "@/Components/Button.js/button";
-import SnapMeasureSVG from "@/assets/Snap.svg";
+import SnapMeasureSVG from "@/assets/Snap.png";
 import Arrow from "@/assets/RightArrow.svg";
 import Image from "next/image";
 import { useState } from "react";
