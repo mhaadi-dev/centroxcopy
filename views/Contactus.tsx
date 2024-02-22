@@ -10,7 +10,21 @@ import { useState } from "react";
 
 export const ContactUsSection = () => {
 	const [showToast, setShowToast] = useState(false);
-
+	const [formData, setFormData] = useState({
+		firstName: "",
+		lastName: "",
+		email: "",
+		phoneNumber: "",
+		message: "",
+	});
+	const [errorMessage, setErrorMessage] = useState(false);
+	const handleInputChange = (e: any) => {
+		const { name, value } = e.target;
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+	};
 	return (
 		<div className="relative isolate bg-gray-charcoal lg:h-screen lg:overflow-hidden">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:mt-[3%] 2xl:mt-[5%] 3xl:mt-[13%]">
@@ -119,85 +133,54 @@ export const ContactUsSection = () => {
 						</dl>
 					</div>
 				</div>
+
 				<form
-					action="#"
-					method="POST"
+					onSubmit={() => {}}
 					className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
 				>
 					<div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
 						<div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-							<div>
-								<label
-									htmlFor="first-name"
-									className="block text-sm font-semibold leading-6 text-white"
-								>
-									First name
-								</label>
-								<div className="mt-2.5">
-									<input
-										type="text"
-										name="first-name"
-										id="first-name"
-										autoComplete="given-name"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
-									/>
-								</div>
-							</div>
-							<div>
-								<label
-									htmlFor="last-name"
-									className="block text-sm font-semibold leading-6 text-white"
-								>
-									Last name
-								</label>
-								<div className="mt-2.5">
-									<input
-										type="text"
-										name="last-name"
-										id="last-name"
-										autoComplete="family-name"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
-									/>
-								</div>
+							<Input
+								label="First name"
+								name="firstName"
+								id="first-name"
+								type="text"
+								autoComplete="given-name"
+								onChange={handleInputChange}
+							/>
+							<Input
+								label="Last name"
+								name="lastName"
+								id="last-name"
+								type="text"
+								autoComplete="family-name"
+								onChange={handleInputChange}
+							/>
+							<div className="sm:col-span-2">
+								<Input
+									label="Email"
+									name="email"
+									id="email"
+									type="email"
+									autoComplete="email"
+									onChange={handleInputChange}
+								/>
 							</div>
 							<div className="sm:col-span-2">
-								<label
-									htmlFor="email"
-									className="block text-sm font-semibold leading-6 text-white"
-								>
-									Email
-								</label>
-								<div className="mt-2.5">
-									<input
-										type="email"
-										name="email"
-										id="email"
-										autoComplete="email"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
-									/>
-								</div>
-							</div>
-							<div className="sm:col-span-2">
-								<label
-									htmlFor="phone-number"
-									className="block text-sm font-semibold leading-6 text-white"
-								>
-									Phone number
-								</label>
-								<div className="mt-2.5">
-									<input
-										type="tel"
-										name="phone-number"
-										id="phone-number"
-										autoComplete="tel"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
-									/>
-								</div>
+								<Input
+									label="Phone number"
+									name="phoneNumber"
+									id="phone-number"
+									type="tel"
+									autoComplete="tel"
+									onChange={handleInputChange}
+									error={errorMessage}
+								/>
 							</div>
 							<div className="sm:col-span-2">
 								<label
 									htmlFor="message"
-									className="block text-sm font-semibold leading-6 text-white"
+									className="block text-md font-semibold leading-6 tracking-widest text-white"
 								>
 									Message
 								</label>
@@ -205,9 +188,9 @@ export const ContactUsSection = () => {
 									<textarea
 										name="message"
 										id="message"
-										rows={4}
 										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
-										defaultValue={""}
+										onChange={handleInputChange}
+										value={formData.message}
 									/>
 								</div>
 							</div>
@@ -217,7 +200,10 @@ export const ContactUsSection = () => {
 								content="Send Message"
 								className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
 								onClick={() => {
-									setShowToast(!showToast);
+									if (!formData?.firstName.trim()) {
+										setErrorMessage(true);
+										return;
+									}
 								}}
 							/>
 						</div>
@@ -225,6 +211,47 @@ export const ContactUsSection = () => {
 				</form>
 			</div>
 			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
+		</div>
+	);
+};
+
+const Input = ({
+	label,
+	name,
+	id,
+	type,
+	autoComplete,
+	onChange,
+	error,
+	errorMsg = "",
+}: any) => {
+	return (
+		<div>
+			<label
+				htmlFor={id}
+				className="block text-md font-semibold leading-6 tracking-widest text-white"
+			>
+				{label}
+			</label>
+			<div className="mt-2.5">
+				<input
+					type={type}
+					name={name}
+					id={id}
+					autoComplete={autoComplete}
+					className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6 ${
+						error
+							? "border-2 border-red-500"
+							: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
+					}`}
+					onChange={onChange}
+				/>
+				{error && (
+					<p className="text-red-500 text-sm font-semibold font-mono mt-1">
+						{errorMsg || "Field required"}
+					</p>
+				)}
+			</div>
 		</div>
 	);
 };
