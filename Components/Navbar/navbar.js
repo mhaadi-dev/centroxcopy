@@ -22,8 +22,7 @@ export const Navbar = () => {
 					<NavLink text="Solutions" />
 					<NavLink text="Services" />
 					<NavLink text="APIs" />
-					<NavLink text="Team"  />
-					{/* onClick={() => router.push(`/team`)} */}
+					<NavLink text="Team" onClick={() => router.push(`/team`)} />
 				</div>
 
 				<Button
