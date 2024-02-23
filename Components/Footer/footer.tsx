@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
@@ -68,9 +67,7 @@ export const Footer = () => {
 						</span>
 						<span
 							className="text-white font-semibold sm:text-2xl"
-							onClick={() => {
-								setShowToast(!showToast);
-							}}
+							onClick={() => router.push(`/team`)}
 						>
 							About Us{" "}
 						</span>
