@@ -1,12 +1,13 @@
 "use client";
 import { Button } from "@/Components/Button.js/button";
+import { InputField } from "@/Components/InputField/Inputfield";
 import { Toast } from "@/Components/Toast/toast";
 import {
 	BuildingOffice2Icon,
 	EnvelopeIcon,
 	PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { FocusEvent, useEffect, useState } from "react";
 
 export const ContactUsSection = () => {
 	const [showToast, setShowToast] = useState(false);
@@ -97,9 +98,9 @@ export const ContactUsSection = () => {
 									/>
 								</dt>
 								<dd>
-									Floor 1
+									New York, NY 10001, US
 									<br />
-									Gulber, Islamabad
+									Gulberg, Islamabad Pakistan
 								</dd>
 							</div>
 							<div className="flex gap-x-4">
@@ -147,14 +148,18 @@ export const ContactUsSection = () => {
 								type="text"
 								autoComplete="given-name"
 								onChange={handleInputChange}
+								value={formData.firstName}
+								errMsg={errorMessage}
 							/>
 							<Input
 								label="Last name"
 								name="lastName"
 								id="last-name"
 								type="text"
+								value={formData.lastName}
 								autoComplete="family-name"
 								onChange={handleInputChange}
+								errMsg={errorMessage}
 							/>
 							<div className="sm:col-span-2">
 								<Input
@@ -163,7 +168,9 @@ export const ContactUsSection = () => {
 									id="email"
 									type="email"
 									autoComplete="email"
+									value={formData.email}
 									onChange={handleInputChange}
+									errMsg={errorMessage}
 								/>
 							</div>
 							<div className="sm:col-span-2">
@@ -174,7 +181,8 @@ export const ContactUsSection = () => {
 									type="tel"
 									autoComplete="tel"
 									onChange={handleInputChange}
-									error={errorMessage}
+									value={formData.phoneNumber}
+									errMsg={errorMessage}
 								/>
 							</div>
 							<div className="sm:col-span-2">
@@ -188,10 +196,20 @@ export const ContactUsSection = () => {
 									<textarea
 										name="message"
 										id="message"
-										className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6"
+										rows={4}
+										className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6 ${
+											errorMessage && !formData.message
+												? "border-2 border-red-500"
+												: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
+										}`}
 										onChange={handleInputChange}
 										value={formData.message}
 									/>
+									{errorMessage && !formData.message && (
+										<p className="text-red-500 text-sm font-semibold font-mono mt-3">
+											{"Message is required"}
+										</p>
+									)}
 								</div>
 							</div>
 						</div>
@@ -200,7 +218,13 @@ export const ContactUsSection = () => {
 								content="Send Message"
 								className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
 								onClick={() => {
-									if (!formData?.firstName.trim()) {
+									if (
+										!formData?.firstName.trim() ||
+										!formData?.lastName.trim() ||
+										!formData?.email.trim() ||
+										!formData?.phoneNumber.trim() ||
+										!formData?.message.trim()
+									) {
 										setErrorMessage(true);
 										return;
 									}
@@ -222,9 +246,36 @@ const Input = ({
 	type,
 	autoComplete,
 	onChange,
-	error,
-	errorMsg = "",
+	value,
+	onBlur,
+	onFocus,
+	isOptional = false,
+	errMsg,
 }: any) => {
+	const [val, setVal] = useState<string | number>("");
+	const [error, setError] = useState<string>("");
+
+	useEffect(() => {
+		if (value !== null && value !== undefined) {
+			setVal(value);
+		}
+	}, [value]);
+
+	useEffect(() => {
+		if (errMsg && !value) {
+			if (errMsg === true || errMsg === false) {
+				setError(`${label || name} is required`);
+			} else setError(errMsg);
+		}
+	}, [errMsg, value]);
+	const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+		if (!value && isOptional) {
+			setError(`${label || name} is required`);
+		} else {
+			setError("");
+		}
+		onBlur?.(event, setError);
+	};
 	return (
 		<div>
 			<label
@@ -240,15 +291,17 @@ const Input = ({
 					id={id}
 					autoComplete={autoComplete}
 					className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6 ${
-						error
+						error && !val
 							? "border-2 border-red-500"
 							: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
 					}`}
 					onChange={onChange}
+					onBlur={handleBlur}
+					onFocus={onFocus}
 				/>
-				{error && (
+				{error && !val && (
 					<p className="text-red-500 text-sm font-semibold font-mono mt-1">
-						{errorMsg || "Field required"}
+						{error}
 					</p>
 				)}
 			</div>

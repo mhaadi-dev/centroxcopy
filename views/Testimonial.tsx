@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const Testimonial = () => {
 	return (
-		<div className="px-5 lg:px-0 w-full flex justify-center mt-40 md:mt-80">
+		<div className="px-5 lg:px-0 w-full flex justify-center mt-40 md:mt-60">
 			<div
 				className="p-10 lg:w-1/2 text-xl sm:text-3xl text-white text-center rounded-2xl tracking-wide"
 				style={{
@@ -14,11 +14,18 @@ export const Testimonial = () => {
 				“Centrox exceeded our expectations in developing our product Conjoin.
 				Their team was highly skilled, professional, and dedicated to delivering
 				a high-quality solution that met all of our needs.”
-				<div className="flex w-full justify-end">
-					<Image src={Conjion} alt="Logo" className={`w-24 sm:w-32 mt-6 sm:mt-4`} />
+				<div className="flex w-full justify-center">
+					<Image
+						src={Conjion}
+						alt="Logo"
+						className={`w-24 sm:w-32 mt-6 sm:mt-4`}
+					/>
 				</div>
-				<div className="text-sm sm:text-xl flex w-full justify-end mt-2">
-					Tyler Osso CEO of Cjoin
+				<div className="text-sm sm:text-xl flex w-full justify-center mt-1.5">
+					Tyler Osso
+				</div>
+				<div className="text-sm sm:text-md flex w-full justify-center mt-1.5">
+					CEO - Cjoin
 				</div>
 			</div>
 		</div>

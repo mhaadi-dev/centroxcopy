@@ -145,10 +145,10 @@ export const Section3 = () => {
 			setBlurDataURL(blurredBase64);
 		}
 	};
-	
+
 	return (
 		<>
-			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
+			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60">
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
 					Accelerate <span className="font-semibold">AI Deployment</span> with
 					Lighting <span className="font-semibold">Fast</span> Annotation
@@ -167,13 +167,13 @@ export const Section3 = () => {
 					}}
 				/>
 			</div>
-			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
+			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
 				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
 					<Image className="w-auto" src={BackgroundImage as never} alt="" />
 				</div>
 
 				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
-					<div className="container mx-auto sm:mt-10">
+					<div className="container mx-auto">
 						<div
 							className="border-2 border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] shadow-2xl border-opacity-40"
 							style={{
@@ -188,7 +188,7 @@ export const Section3 = () => {
 										tab?.current && (
 											<div
 												key={index}
-												className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0"
+												className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0 3xl:justify-around 3xl:-mt-[13%]"
 											>
 												<span className="text-2xl md:text-5xl text-white font-bold flex justify-start">
 													{index === 0
@@ -273,7 +273,7 @@ export const Section3 = () => {
 								<div className="flex items-center h-full sm:mt-10 py-5">
 									{tabs[0]?.current && (
 										<Image
-											className="w-full h-auto"
+											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											loading="eager"
 											src={
 												hoveredCard === 3
@@ -290,23 +290,23 @@ export const Section3 = () => {
 									)}
 									{tabs[1]?.current && (
 										<Image
-											className="w-full h-auto"
+											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											src={BuildingAi}
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={()=>singleImageLoad(BuildingAi.src)}
+											onLoad={() => singleImageLoad(BuildingAi.src)}
 											blurDataURL={blurDataURL}
 										/>
 									)}
 									{tabs[2]?.current && (
 										<Image
-											className="w-full h-auto"
+											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											src={DeployingAi}
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={()=>singleImageLoad(DeployingAi.src)}
+											onLoad={() => singleImageLoad(DeployingAi.src)}
 											blurDataURL={blurDataURL}
 										/>
 									)}

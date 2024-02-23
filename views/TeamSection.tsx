@@ -123,6 +123,10 @@ const team = [
 export const TeamUsSection = () => {
 	const [showToast, setShowToast] = useState(false);
 	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
+	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
+	const [teamblurDataURLs, setTeamBlurDataURLs] = useState<
+		Record<number, string>
+	>({});
 
 	const singleImageLoad = async (imageSrc: string) => {
 		if (!blurDataURL) {
@@ -130,7 +134,24 @@ export const TeamUsSection = () => {
 			setBlurDataURL(blurredBase64);
 		}
 	};
-
+	const handleImageLoad = async (index: number, imageUrl: string) => {
+		if (!blurDataURLs[index]) {
+			const blurredBase64 = await generateBlurDataURL(imageUrl);
+			setBlurDataURLs((prevBlurDataURLs) => ({
+				...prevBlurDataURLs,
+				[index]: blurredBase64,
+			}));
+		}
+	};
+	const handleTeamImageLoad = async (index: number, imageUrl: string) => {
+		if (!blurDataURLs[index]) {
+			const blurredBase64 = await generateBlurDataURL(imageUrl);
+			setTeamBlurDataURLs((prevBlurDataURLs) => ({
+				...prevBlurDataURLs,
+				[index]: blurredBase64,
+			}));
+		}
+	};
 	return (
 		<div className="flex flex-col gap-40 bg-gray-charcoal">
 			<div className="">
@@ -161,7 +182,10 @@ export const TeamUsSection = () => {
 							<Image
 								src={el.img}
 								alt="image-data"
-								className="rounded-xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
+								placeholder="blur"
+								blurDataURL={blurDataURLs[index]}
+								onLoad={() => handleImageLoad(index, el.img.src)}
+								className="rounded-2xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
 							/>
 							<p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
 								{el.name}
@@ -199,6 +223,9 @@ export const TeamUsSection = () => {
 							<Image
 								src={el.img}
 								alt="image-data"
+								placeholder="blur"
+								blurDataURL={teamblurDataURLs[index]}
+								onLoad={() => handleTeamImageLoad(index, el.img.src)}
 								className="rounded-xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
 							/>
 							<p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">

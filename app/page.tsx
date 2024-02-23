@@ -154,9 +154,8 @@ const PageFooter = () => {
 						</span>
 						<span
 							className="text-white font-semibold sm:text-2xl"
-							onClick={() => {
-								setShowToast(!showToast);
-							}}
+							onClick={() => router.push(`/team`)}
+
 						>
 							About Us{" "}
 						</span>
