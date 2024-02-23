@@ -145,10 +145,10 @@ export const Section3 = () => {
 			setBlurDataURL(blurredBase64);
 		}
 	};
-	
+
 	return (
 		<>
-			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-40 md:mt-80">
+			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60">
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
 					Accelerate <span className="font-semibold">AI Deployment</span> with
 					Lighting <span className="font-semibold">Fast</span> Annotation
@@ -167,13 +167,13 @@ export const Section3 = () => {
 					}}
 				/>
 			</div>
-			<section className="relative  py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
+			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
 				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
 					<Image className="w-auto" src={BackgroundImage as never} alt="" />
 				</div>
 
 				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
-					<div className="container mx-auto sm:mt-10">
+					<div className="container mx-auto">
 						<div
 							className="border-2 border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] shadow-2xl border-opacity-40"
 							style={{
@@ -295,7 +295,7 @@ export const Section3 = () => {
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={()=>singleImageLoad(BuildingAi.src)}
+											onLoad={() => singleImageLoad(BuildingAi.src)}
 											blurDataURL={blurDataURL}
 										/>
 									)}
@@ -306,7 +306,7 @@ export const Section3 = () => {
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={()=>singleImageLoad(DeployingAi.src)}
+											onLoad={() => singleImageLoad(DeployingAi.src)}
 											blurDataURL={blurDataURL}
 										/>
 									)}

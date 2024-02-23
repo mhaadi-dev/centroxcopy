@@ -16,7 +16,7 @@ export const SnapMeasure = () => {
 	};
 
 	return (
-		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-40 md:mt-80">
+		<div className="flex flex-col gap-12 justify-center items-center mt-10 sm:mt-60">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
 				<div className="text-2xl md:text-6xl text-white font-semibold">
 					Snap <span className="!font-thin">and</span> Measure

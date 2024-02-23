@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const Testimonial = () => {
 	return (
-		<div className="px-5 lg:px-0 w-full flex justify-center mt-40 md:mt-80">
+		<div className="px-5 lg:px-0 w-full flex justify-center mt-40 md:mt-60">
 			<div
 				className="p-10 lg:w-1/2 text-xl sm:text-3xl text-white text-center rounded-2xl tracking-wide"
 				style={{
