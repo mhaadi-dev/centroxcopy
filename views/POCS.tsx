@@ -26,14 +26,14 @@ const GradientTab: React.FC<GradientCardProps> = ({
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
 			onClick={() => onClick?.()}
-			className="rounded-lg text-white font-bold text-xl md:text-3xl p-10 cursor-pointer"
+			className="rounded-lg text-white font-bold text-xl md:text-3xl p-10 cursor-pointer border-opacity-50 hover:border-opacity-80 hover:shadow-md sha hover:shadow-blue-azure hover:border-2 border-blue-500 "
 			style={{
-				border: "1px solid rgba(3, 34, 182, 0.20)",
+				// border: "1px solid rgba(3, 34, 182, 0.20)",
 
 				background: isLeftGradient
 					? "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)"
 					: "radial-gradient(112.77% 124.52% at 0% 0%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-				boxShadow: "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
+				// boxShadow: "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
 				backdropFilter: "blur(18px)",
 			}}
 		>
@@ -139,6 +139,7 @@ export const POCS = () => {
 						placeholder="blur"
 						onLoad={handleImageLoad}
 						blurDataURL={blurDataURLs[hoveredCard]}
+						priority={true}
 					/>
 				</div>
 			</div>
