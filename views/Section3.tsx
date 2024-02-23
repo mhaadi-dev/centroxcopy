@@ -188,7 +188,7 @@ export const Section3 = () => {
 										tab?.current && (
 											<div
 												key={index}
-												className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0"
+												className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0 3xl:justify-around 3xl:-mt-[13%]"
 											>
 												<span className="text-2xl md:text-5xl text-white font-bold flex justify-start">
 													{index === 0
@@ -273,7 +273,7 @@ export const Section3 = () => {
 								<div className="flex items-center h-full sm:mt-10 py-5">
 									{tabs[0]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-14"
+											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											loading="eager"
 											src={
 												hoveredCard === 3
@@ -290,7 +290,7 @@ export const Section3 = () => {
 									)}
 									{tabs[1]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-14"
+											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											src={BuildingAi}
 											alt=""
 											loading="eager"
@@ -301,7 +301,7 @@ export const Section3 = () => {
 									)}
 									{tabs[2]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-14"
+											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											src={DeployingAi}
 											alt=""
 											loading="eager"
