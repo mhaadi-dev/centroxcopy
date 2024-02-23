@@ -146,7 +146,7 @@ export const POCS = () => {
 					/>
 				</div>
 				<div className="flex flex-col justify-between  lg:w-[30%]">
-					<div className="flex flex-col gap-4 bg-gray-dark  h-1/2 p-4 rounded-xl text-white mt-10 lg:mt-0">
+					<div className="flex flex-col gap-4 bg-gray-dark  h-1/2 p-4 rounded-xl text-white mt-10 lg:mt-5">
 						<div className="text-4xl font-semibold">
 							{hoveredCard === 4
 								? "LLM Based Health Chatbot"
