@@ -50,9 +50,6 @@ export const POCS = () => {
 	const [showToast, setShowToast] = useState<boolean>(false);
 	const [hoveredCard, setHoveredCard] = useState<number>(1);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
-	const [blurRightDataURLs, setBlurRightDataURLs] = useState<
-		Record<number, string>
-	>({});
 
 	const handleImageLoad = async () => {
 		if (!blurDataURLs[hoveredCard]) {
@@ -78,30 +75,7 @@ export const POCS = () => {
 			}));
 		}
 	};
-	const handleRightColImageLoad = async () => {
-		if (!blurDataURLs[hoveredCard]) {
-			let imageUrl = "";
-			switch (hoveredCard) {
-				case 2:
-					imageUrl = POCImage2.src;
-					break;
-				case 3:
-					imageUrl = POCImage3.src;
-					break;
-				case 4:
-					imageUrl = POCImage4.src;
-					break;
-				default:
-					imageUrl = POC1Image.src;
-					break;
-			}
-			const blurredBase64 = await generateBlurDataURL(imageUrl);
-			setBlurRightDataURLs((prevBlurDataURLs) => ({
-				...prevBlurDataURLs,
-				[hoveredCard]: blurredBase64,
-			}));
-		}
-	};
+
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-60">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
@@ -204,9 +178,6 @@ export const POCS = () => {
 						}
 						alt="sorry"
 						className="w-full lg:w-auto h-1/2 mt-10 lg:mt-0"
-						placeholder="blur"
-						onLoad={handleRightColImageLoad}
-						blurDataURL={blurRightDataURLs[hoveredCard]}
 					/>
 				</div>
 			</div>
