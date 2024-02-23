@@ -185,7 +185,7 @@ export const TeamUsSection = () => {
 								placeholder="blur"
 								blurDataURL={blurDataURLs[index]}
 								onLoad={() => handleImageLoad(index, el.img.src)}
-								className="rounded-xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
+								className="rounded-2xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
 							/>
 							<p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
 								{el.name}
