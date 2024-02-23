@@ -1,11 +1,15 @@
 import NextImage from "next/image";
-import Poc1 from "@/assets/POCF.png";
-import Poc2 from "@/assets/RealEstate.png";
-import Poc3 from "@/assets/Labelling.png";
-import Poc4 from "@/assets/LLM.png";
 import { ReactEventHandler, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
 import { generateBlurDataURL } from "@/helpers/common";
+import POC1Image from "@/assets/FPOC.png";
+import POC1Image1 from "@/assets/FPOC.svg";
+import POCImage2 from "@/assets/FPOC2.png";
+import POC2Image2 from "@/assets/FPOC2.svg";
+import POCImage3 from "@/assets/FPOC3.png";
+import POC3Image3 from "@/assets/FPOC3.svg";
+import POCImage4 from "@/assets/FPOC4.png";
+import POC4Image4 from "@/assets/FPOC4.svg";
 
 interface GradientCardProps {
 	tabName: string;
@@ -46,22 +50,25 @@ export const POCS = () => {
 	const [showToast, setShowToast] = useState<boolean>(false);
 	const [hoveredCard, setHoveredCard] = useState<number>(1);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
+	const [blurRightDataURLs, setBlurRightDataURLs] = useState<
+		Record<number, string>
+	>({});
 
 	const handleImageLoad = async () => {
 		if (!blurDataURLs[hoveredCard]) {
 			let imageUrl = "";
 			switch (hoveredCard) {
 				case 2:
-					imageUrl = Poc2.src;
+					imageUrl = POCImage2.src;
 					break;
 				case 3:
-					imageUrl = Poc3.src;
+					imageUrl = POCImage3.src;
 					break;
 				case 4:
-					imageUrl = Poc4.src;
+					imageUrl = POCImage4.src;
 					break;
 				default:
-					imageUrl = Poc1.src;
+					imageUrl = POC1Image.src;
 					break;
 			}
 			const blurredBase64 = await generateBlurDataURL(imageUrl);
@@ -71,21 +78,45 @@ export const POCS = () => {
 			}));
 		}
 	};
+	const handleRightColImageLoad = async () => {
+		if (!blurDataURLs[hoveredCard]) {
+			let imageUrl = "";
+			switch (hoveredCard) {
+				case 2:
+					imageUrl = POCImage2.src;
+					break;
+				case 3:
+					imageUrl = POCImage3.src;
+					break;
+				case 4:
+					imageUrl = POCImage4.src;
+					break;
+				default:
+					imageUrl = POC1Image.src;
+					break;
+			}
+			const blurredBase64 = await generateBlurDataURL(imageUrl);
+			setBlurRightDataURLs((prevBlurDataURLs) => ({
+				...prevBlurDataURLs,
+				[hoveredCard]: blurredBase64,
+			}));
+		}
+	};
 	return (
 		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-60">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
-				<div className="text-2xl md:text-6xl text-white font-semibold">
+				<div className="text-2xl md:text-6xl text-white font-semibold text-center">
 					Our specialized AI products
 				</div>
-				<div className="text-gray-100 font-medium text-xl md:text-3xl flex justify-center text-center">
-					<div className="w-[75%] sm:w-[55%]">
+				<div className="text-gray-100 font-medium text-xl md:text-3xl flex justify-center text-center mt-5 lg:mt-0">
+					<div className="w-[75%] lg:w-[55%]">
 						Apply AI to your most demanding challenges with precision through
 						our pre-built applications.
 					</div>
 				</div>
 			</div>
 
-			<div className=" w-[90%] flex flex-wrap justify-between mt-14 gap-10 sm:gap-0">
+			<div className=" w-[90%] grid grid-cols-1 lg:flex justify-between mt-14 gap-10 sm:gap-0">
 				<div className="flex flex-col gap-4 justify-between w-full lg:w-[35%] py-6">
 					<GradientTab
 						tabName="Snap and Measurement"
@@ -122,24 +153,60 @@ export const POCS = () => {
 						}}
 					/>
 				</div>
-				<div className="flex justify-start lg:w-[62%]">
+				<div className="lg:w-[35%] flex justify-center">
 					<NextImage
 						src={
-							hoveredCard === 2
-								? Poc2
+							hoveredCard === 4
+								? POCImage4
 								: hoveredCard === 3
-								? Poc3
-								: hoveredCard === 4
-								? Poc4
-								: Poc1
+								? POCImage3
+								: hoveredCard === 2
+								? POCImage2
+								: POC1Image
 						}
-						alt=""
-						loading="eager"
-						className="w-full"
+						alt="sorry"
+						className="w-auto h-full p-4"
 						placeholder="blur"
 						onLoad={handleImageLoad}
 						blurDataURL={blurDataURLs[hoveredCard]}
-						priority={true}
+					/>
+				</div>
+				<div className="flex flex-col justify-between  lg:w-[30%]">
+					<div className="flex flex-col gap-4 bg-gray-dark  h-1/2 p-4 rounded-xl text-white mt-10 lg:mt-0">
+						<div className="text-4xl font-semibold">
+							{hoveredCard === 4
+								? "LLM Based Health Chatbot"
+								: hoveredCard === 3
+								? "Labeling Dresses with AI"
+								: hoveredCard === 2
+								? "Real-estate Chatbot"
+								: "Full Body Measurements"}
+						</div>
+						<div className="text-xl font-medium">
+							{hoveredCard === 4
+								? "Using the RAG pipeline, This chatbot strives to offer personalized support for mental health by understanding user queries and delivering empathetic responses,"
+								: hoveredCard === 3
+								? "AI Dress Labeling Seamlessly deploys our AI solution by uploading an image.This has utilized the 'test' parameter with the base64-converted image to receive a dictionary featuring an property, showcasing a list of up to three dress characteristics."
+								: hoveredCard === 2
+								? "This demonstrating how users can effortlessly find their ideal property by querying the chatbot. The  property information is made  accurate and aligns with user preferences for a seamless property search experience."
+								: "It's an advanced AI B2B product designed to tackle complex challenges in the fashion-retail and fitness domains."}
+						</div>
+					</div>
+					<NextImage
+						src={
+							hoveredCard === 4
+								? POC4Image4
+								: hoveredCard === 3
+								? POC3Image3
+								: hoveredCard === 2
+								? POC2Image2
+								: POC1Image1
+						}
+						alt="sorry"
+						className="w-full lg:w-auto h-1/2 mt-10 lg:mt-0"
+						placeholder="blur"
+						onLoad={handleRightColImageLoad}
+						blurDataURL={blurRightDataURLs[hoveredCard]}
 					/>
 				</div>
 			</div>
