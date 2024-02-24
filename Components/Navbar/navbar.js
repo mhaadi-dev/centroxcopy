@@ -1,29 +1,45 @@
-// import AppLogo from "@/assets/LogoWhite.svg";
-import AppLogo from "@/assets/AppLogo.svg";
+import AppLogo from "@/assets/LogoWhite.png";
 import { Button } from "../Button.js/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
+	const router = useRouter();
+
 	return (
-		<div className="flex fixed z-10 h-24 items-center justify-between w-full px-4 md:px-8 lg:px-16 xl:px-20 2xl:px-32 backdrop-filter backdrop-blur-xl">
-			<Image
-				src={AppLogo}
-				alt="Logo"
-				className="w-2/6 md:w-[20%] lg:w-[15%] 2xl:w-[12%]"
-			/>
+		<div className="flex justify-center fixed z-10 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
+			<div className="flex items-center justify-between w-[90%]">
+				<Image
+					src={AppLogo}
+					alt="Logo"
+					priority={true}
+					loading="eager"
+					className="w-[10rem] sm:w-[20%] lg:w-[15%] 2xl:w-[12%] cursor-pointer"
+					onClick={() => router.push(`/`)}
+				/>
 
-			<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[30rem] lg:w-[40rem]">
-				<NavLink text="About" />
-				<NavLink text="Products" />
-				<NavLink text="Blogs" />
-				<NavLink text="Careers" />
+				<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[33rem] sm:-ml-[7%]">
+					<NavLink text="Solutions" />
+					<NavLink text="Services" />
+					<NavLink text="APIs" />
+					<NavLink text="Team" onClick={() => router.push(`/team`)} />
+				</div>
+
+				<Button
+					content="Contact Us"
+					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
+					onClick={() => router.push(`/contact`)}
+				/>
 			</div>
-
-			<Button content="Sign Up" className="w-32" />
 		</div>
 	);
 };
 
-const NavLink = ({ text }) => (
-	<span className="text-xl font-semibold text-white">{text}</span>
+const NavLink = ({ text, onClick }) => (
+	<span
+		className="text-xl font-semibold text-white cursor-pointer"
+		onClick={() => onClick?.()}
+	>
+		{text}
+	</span>
 );

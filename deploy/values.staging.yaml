@@ -4,8 +4,8 @@ ingress:
     enabled: true
     tls: true
     domains:
-        - "www.staging.centrox.ai"
         - "staging.centrox.ai"
+
 service:
     ports:
         target: 3000

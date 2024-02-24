@@ -1,4 +1,5 @@
-import classNames from "@/helpers/common"
+import classNames from "@/helpers/common";
+import Image from "next/image";
 
 interface PropsI {
 	Icon?: any;
@@ -44,11 +45,7 @@ export const Button = ({
 			disabled={isDisabled}
 		>
 			{Icon && isLefticon && (
-				<Icon
-					// className={classNames(!iconClassName ? "h-8 w-8" : iconClassName)}
-					className={classNames(iconClassName)}
-					alt=""
-				/>
+				<Image src={Icon} className={classNames(iconClassName)} alt="" />
 			)}
 			<div className="flex flex-col items-center justify-center text-sm lg:text-base">
 				{isLoading ? (
@@ -65,10 +62,7 @@ export const Button = ({
 				)}
 			</div>
 			{Icon && !isLefticon && (
-				<Icon
-					className={classNames(iconClassName)}
-					alt=""
-				/>
+				<Image src={Icon} className={classNames(iconClassName)} alt="" />
 			)}
 		</button>
 	);
