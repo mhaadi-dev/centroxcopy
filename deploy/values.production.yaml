@@ -3,6 +3,7 @@ replicas: 1
 ingress:
     enabled: true
     tls: true
+    secret_name: centrox-ai-frontend-landing-tls
     domains:
         - "www.centrox.ai"
         - "centrox.ai"
