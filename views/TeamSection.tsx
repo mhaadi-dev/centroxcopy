@@ -162,7 +162,18 @@ export const TeamUsSection = () => {
 					placeholder="blur"
 					onLoad={() => singleImageLoad(HeroImage.src)}
 					blurDataURL={blurDataURL}
+					className="opacity-50 h-screen lg:h-full"
 				/>
+				<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[50%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
+					<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
+						About Us
+					</div>
+					<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
+						We aim to speed up AI application development and our exceptional
+						team is here playing a crucial role in achieving this goal with
+						great confidence
+					</div>
+				</div>
 			</div>
 			<div className="flex justify-around flex-wrap text-white">
 				{owners.map((el, index) => {
