@@ -1,15 +1,19 @@
 "use client";
+import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import { Button } from "@/Components/Button.js/button";
-import { InputField } from "@/Components/InputField/Inputfield";
 import { Toast } from "@/Components/Toast/toast";
+import classNames from "@/helpers/common";
 import {
 	BuildingOffice2Icon,
 	EnvelopeIcon,
 	PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { FocusEvent, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, FocusEvent, useEffect, useState } from "react";
 
 export const ContactUsSection = () => {
+	const router = useRouter();
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [showToast, setShowToast] = useState(false);
 	const [formData, setFormData] = useState({
 		firstName: "",
@@ -19,6 +23,9 @@ export const ContactUsSection = () => {
 		message: "",
 	});
 	const [errorMessage, setErrorMessage] = useState(false);
+	const [error, setError] = useState<string>("");
+	const [msg, setMsg] = useState<string>("");
+
 	const handleInputChange = (e: any) => {
 		const { name, value } = e.target;
 		setFormData({
@@ -26,6 +33,7 @@ export const ContactUsSection = () => {
 			[name]: value,
 		});
 	};
+
 	return (
 		<div className="relative isolate bg-gray-charcoal lg:h-screen lg:overflow-hidden">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:mt-[3%] 2xl:mt-[5%] 3xl:mt-[13%]">
@@ -215,18 +223,49 @@ export const ContactUsSection = () => {
 						</div>
 						<div className="mt-8 flex justify-end">
 							<Button
+								isLoading={isLoading}
 								content="Send Message"
 								className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
-								onClick={() => {
+								onClick={async () => {
+									const numericRegex = /^[0-9]+$/;
+									const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 									if (
 										!formData?.firstName.trim() ||
 										!formData?.lastName.trim() ||
 										!formData?.email.trim() ||
 										!formData?.phoneNumber.trim() ||
-										!formData?.message.trim()
+										!formData?.message.trim() ||
+										!numericRegex.test(formData?.phoneNumber.trim()) ||
+										!emailRegex.test(formData?.email.trim())
 									) {
 										setErrorMessage(true);
 										return;
+									} else {
+										setIsLoading(true);
+										setError("");
+										setMsg("");
+										try {
+											const response = await fetch(
+												"https://staging.api.app.centrox.ai/api/v1/contact-us/create",
+												{
+													method: "POST",
+													headers: {
+														"Content-Type": "application/json",
+													},
+													body: JSON.stringify(formData),
+												},
+											);
+
+											if (!response.ok) {
+												throw new Error("Failed to submit form data");
+											}
+											setIsLoading(false);
+											setMsg("Your request has been submitted successfuly");
+										} catch (error) {
+											console.error("Error submitting form data:", error);
+											setError("There is a problem submitting your request");
+											setIsLoading(false);
+										}
 									}
 								}}
 							/>
@@ -235,15 +274,44 @@ export const ContactUsSection = () => {
 				</form>
 			</div>
 			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
+			<AlertOverlay
+				heading={error || msg}
+				setShow={() => {
+					setMsg("");
+					setError("");
+					router.push(`/`);
+				}}
+				isError={!(msg?.length > 0)}
+				show={!!(error?.length > 0 || msg?.length > 0)}
+				headingCustomClass={classNames(
+					error?.length > 0 ? "!text-red-400" : "!text-gray-500",
+				)}
+			/>
 		</div>
 	);
 };
 
-const Input = ({
+interface InputProps {
+	label: string;
+	name: string;
+	id: string;
+	type?: string;
+	autoComplete: string;
+	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+	value: string;
+	onBlur?: (
+		event: FocusEvent<HTMLInputElement>,
+		setError: (error: string) => void,
+	) => void;
+	onFocus?: () => void;
+	isOptional?: boolean;
+	errMsg?: string | boolean;
+}
+const Input: React.FC<InputProps> = ({
 	label,
 	name,
 	id,
-	type,
+	type = "text",
 	autoComplete,
 	onChange,
 	value,
@@ -251,8 +319,8 @@ const Input = ({
 	onFocus,
 	isOptional = false,
 	errMsg,
-}: any) => {
-	const [val, setVal] = useState<string | number>("");
+}: InputProps) => {
+	const [val, setVal] = useState<string>("");
 	const [error, setError] = useState<string>("");
 
 	useEffect(() => {
@@ -263,19 +331,50 @@ const Input = ({
 
 	useEffect(() => {
 		if (errMsg && !value) {
-			if (errMsg === true || errMsg === false) {
+			if (errMsg === true) {
 				setError(`${label || name} is required`);
-			} else setError(errMsg);
+			} else {
+				setError(errMsg);
+			}
 		}
 	}, [errMsg, value]);
+
 	const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
 		if (!value && isOptional) {
 			setError(`${label || name} is required`);
+		} else if (type === "tel" || type === "number") {
+			const numericRegex = /^[0-9]+$/;
+			if (!numericRegex.test(val)) {
+				setError("Please enter numeric values only");
+			} else {
+				setError("");
+			}
+		} else if (type === "email") {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(val)) {
+				setError("Please enter a valid email");
+			} else {
+				setError("");
+			}
 		} else {
 			setError("");
 		}
 		onBlur?.(event, setError);
 	};
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setError("");
+		if (type === "tel" || type === "number") {
+			const numericRegex = /^[0-9]*$/;
+			if (!numericRegex.test(event.target.value)) {
+				setError("Please enter numeric values only");
+			} else {
+				setError("");
+			}
+		}
+		setVal(event.target.value);
+		onChange(event);
+	};
+
 	return (
 		<div>
 			<label
@@ -291,15 +390,16 @@ const Input = ({
 					id={id}
 					autoComplete={autoComplete}
 					className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6 ${
-						error && !val
+						error
 							? "border-2 border-red-500"
 							: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
 					}`}
-					onChange={onChange}
+					onChange={handleChange}
 					onBlur={handleBlur}
 					onFocus={onFocus}
+					value={val}
 				/>
-				{error && !val && (
+				{error && (
 					<p className="text-red-500 text-sm font-semibold font-mono mt-1">
 						{error}
 					</p>
