@@ -1,15 +1,19 @@
 "use client";
+import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import { Button } from "@/Components/Button.js/button";
-import { InputField } from "@/Components/InputField/Inputfield";
 import { Toast } from "@/Components/Toast/toast";
+import classNames from "@/helpers/common";
 import {
 	BuildingOffice2Icon,
 	EnvelopeIcon,
 	PhoneIcon,
 } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 import { FocusEvent, useEffect, useState } from "react";
 
 export const ContactUsSection = () => {
+	const router = useRouter();
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [showToast, setShowToast] = useState(false);
 	const [formData, setFormData] = useState({
 		firstName: "",
@@ -19,6 +23,9 @@ export const ContactUsSection = () => {
 		message: "",
 	});
 	const [errorMessage, setErrorMessage] = useState(false);
+	const [error, setError] = useState<string>("");
+	const [msg, setMsg] = useState<string>("");
+
 	const handleInputChange = (e: any) => {
 		const { name, value } = e.target;
 		setFormData({
@@ -215,9 +222,10 @@ export const ContactUsSection = () => {
 						</div>
 						<div className="mt-8 flex justify-end">
 							<Button
+								isLoading={isLoading}
 								content="Send Message"
 								className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
-								onClick={() => {
+								onClick={async () => {
 									if (
 										!formData?.firstName.trim() ||
 										!formData?.lastName.trim() ||
@@ -227,6 +235,32 @@ export const ContactUsSection = () => {
 									) {
 										setErrorMessage(true);
 										return;
+									} else {
+										setIsLoading(true);
+										setError("");
+										setMsg("");
+										try {
+											const response = await fetch(
+												"https://staging.api.app.centrox.ai/api/v1/contact-us/create",
+												{
+													method: "POST",
+													headers: {
+														"Content-Type": "application/json",
+													},
+													body: JSON.stringify(formData),
+												},
+											);
+
+											if (!response.ok) {
+												throw new Error("Failed to submit form data");
+											}
+											setIsLoading(false);
+											setMsg("Your request has been submitted successfuly");
+										} catch (error) {
+											console.error("Error submitting form data:", error);
+											setError("There is a problem submitting your request");
+											setIsLoading(false);
+										}
 									}
 								}}
 							/>
@@ -235,6 +269,26 @@ export const ContactUsSection = () => {
 				</form>
 			</div>
 			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
+			<AlertOverlay
+				heading={error || msg}
+				setShow={() => {
+					setMsg("");
+					setError("");
+					setFormData({
+						firstName: "",
+						lastName: "",
+						email: "",
+						phoneNumber: "",
+						message: "",
+					})
+					router.push(`/`);
+				}}
+				isError={!(msg?.length > 0)}
+				show={!!(error?.length > 0 || msg?.length > 0)}
+				headingCustomClass={classNames(
+					error?.length > 0 ? "!text-red-400" : "!text-gray-500",
+				)}
+			/>
 		</div>
 	);
 };
