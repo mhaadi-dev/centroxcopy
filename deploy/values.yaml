@@ -13,7 +13,7 @@ ingress:
         cert-manager.io/issue-temporary-certificate: "true"
         cert-manager.io/renew-before: 1440h
         nginx.ingress.kubernetes.io/rewrite-target: /
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        # nginx.ingress.kubernetes.io/ssl-redirect: "true"
         nginx.ingress.kubernetes.io/add-base-url: "true"
         nginx.ingress.kubernetes.io/use-regex: "true"
         nginx.ingress.kubernetes.io/proxy-body-size: "100m"
