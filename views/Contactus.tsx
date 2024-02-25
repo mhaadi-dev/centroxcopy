@@ -274,13 +274,6 @@ export const ContactUsSection = () => {
 				setShow={() => {
 					setMsg("");
 					setError("");
-					setFormData({
-						firstName: "",
-						lastName: "",
-						email: "",
-						phoneNumber: "",
-						message: "",
-					})
 					router.push(`/`);
 				}}
 				isError={!(msg?.length > 0)}
