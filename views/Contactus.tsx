@@ -9,7 +9,7 @@ import {
 	PhoneIcon,
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
-import { FocusEvent, useEffect, useState } from "react";
+import { ChangeEvent, FocusEvent, useEffect, useState } from "react";
 
 export const ContactUsSection = () => {
 	const router = useRouter();
@@ -33,6 +33,7 @@ export const ContactUsSection = () => {
 			[name]: value,
 		});
 	};
+
 	return (
 		<div className="relative isolate bg-gray-charcoal lg:h-screen lg:overflow-hidden">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:mt-[3%] 2xl:mt-[5%] 3xl:mt-[13%]">
@@ -226,12 +227,16 @@ export const ContactUsSection = () => {
 								content="Send Message"
 								className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
 								onClick={async () => {
+									const numericRegex = /^[0-9]+$/;
+									const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 									if (
 										!formData?.firstName.trim() ||
 										!formData?.lastName.trim() ||
 										!formData?.email.trim() ||
 										!formData?.phoneNumber.trim() ||
-										!formData?.message.trim()
+										!formData?.message.trim() ||
+										!numericRegex.test(formData?.phoneNumber.trim()) ||
+										!emailRegex.test(formData?.email.trim())
 									) {
 										setErrorMessage(true);
 										return;
@@ -286,11 +291,27 @@ export const ContactUsSection = () => {
 	);
 };
 
-const Input = ({
+interface InputProps {
+	label: string;
+	name: string;
+	id: string;
+	type?: string;
+	autoComplete: string;
+	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+	value: string;
+	onBlur?: (
+		event: FocusEvent<HTMLInputElement>,
+		setError: (error: string) => void,
+	) => void;
+	onFocus?: () => void;
+	isOptional?: boolean;
+	errMsg?: string | boolean;
+}
+const Input: React.FC<InputProps> = ({
 	label,
 	name,
 	id,
-	type,
+	type = "text",
 	autoComplete,
 	onChange,
 	value,
@@ -298,8 +319,8 @@ const Input = ({
 	onFocus,
 	isOptional = false,
 	errMsg,
-}: any) => {
-	const [val, setVal] = useState<string | number>("");
+}: InputProps) => {
+	const [val, setVal] = useState<string>("");
 	const [error, setError] = useState<string>("");
 
 	useEffect(() => {
@@ -310,19 +331,50 @@ const Input = ({
 
 	useEffect(() => {
 		if (errMsg && !value) {
-			if (errMsg === true || errMsg === false) {
+			if (errMsg === true) {
 				setError(`${label || name} is required`);
-			} else setError(errMsg);
+			} else {
+				setError(errMsg);
+			}
 		}
 	}, [errMsg, value]);
+
 	const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
 		if (!value && isOptional) {
 			setError(`${label || name} is required`);
+		} else if (type === "tel" || type === "number") {
+			const numericRegex = /^[0-9]+$/;
+			if (!numericRegex.test(val)) {
+				setError("Please enter numeric values only");
+			} else {
+				setError("");
+			}
+		} else if (type === "email") {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(val)) {
+				setError("Please enter a valid email");
+			} else {
+				setError("");
+			}
 		} else {
 			setError("");
 		}
 		onBlur?.(event, setError);
 	};
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+		setError("");
+		if (type === "tel" || type === "number") {
+			const numericRegex = /^[0-9]*$/;
+			if (!numericRegex.test(event.target.value)) {
+				setError("Please enter numeric values only");
+			} else {
+				setError("");
+			}
+		}
+		setVal(event.target.value);
+		onChange(event);
+	};
+
 	return (
 		<div>
 			<label
@@ -338,15 +390,16 @@ const Input = ({
 					id={id}
 					autoComplete={autoComplete}
 					className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6 ${
-						error && !val
+						error
 							? "border-2 border-red-500"
 							: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
 					}`}
-					onChange={onChange}
+					onChange={handleChange}
 					onBlur={handleBlur}
 					onFocus={onFocus}
+					value={val}
 				/>
-				{error && !val && (
+				{error && (
 					<p className="text-red-500 text-sm font-semibold font-mono mt-1">
 						{error}
 					</p>
