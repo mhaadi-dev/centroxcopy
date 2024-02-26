@@ -42,7 +42,7 @@ export const TalkAiExpert = () => {
 				</div>
 			</div>
 			{/* Section 2 */}
-			<div className="w-full flex justify-center lg:pt-60">
+			<div className="w-full flex justify-center pt-32 lg:pt-60">
 				<div className="w-[90%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between">
 					<div className="flex flex-col gap-8">
 						<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-semibold">
@@ -65,7 +65,7 @@ export const TalkAiExpert = () => {
 				</div>
 			</div>
 			{/* Section 3 */}
-			<div className="w-full flex flex-col justify-center gap-20 lg:py-60 overflow-x-hidden">
+			<div className="w-full flex flex-col justify-center gap-20 pt-32 lg:py-60 overflow-x-hidden">
 				<div className="flex justify-center">
 					<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2">
 						Counted On by The World's Most Ambitious AI Teams
@@ -75,7 +75,7 @@ export const TalkAiExpert = () => {
 			</div>
 			{/* Section 4 */}
 
-			<div className="w-full flex justify-center lg:pt-60">
+			<div className="w-full flex justify-center pt-32 lg:pt-60">
 				<div className="w-[90%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between">
 					<div className="flex flex-col gap-8">
 						<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
