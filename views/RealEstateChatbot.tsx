@@ -63,7 +63,7 @@ function StepperCom() {
 		}
 	};
 	return (
-		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  w-[45rem] h-[28rem]">
+		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  w-[48rem] h-[32rem]">
 			<div className="w-full py-4 px-8">
 				<div className="w-full px-8 py-4">
 					<div className="relative flex items-center justify-between w-full">
@@ -168,6 +168,45 @@ function StepperCom() {
 								</button>
 							</div>
 						)}
+					</div>
+					<div className="flex w-full justify-between">
+						<Button
+							content="Prev"
+							onClick={handlePrev}
+							className="w-28 !rounded-full"
+						/>
+
+						<Button
+							content="Next"
+							onClick={handleNext}
+							isDisabled={!name}
+							className="w-28 !rounded-full"
+						/>
+					</div>
+				</div>
+			)}
+			{activeStep === 2 && (
+				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
+					<div className="sm:col-span-2">
+						<label
+							htmlFor="message"
+							className="block text-lg font-semibold leading-6  text-white"
+						>
+							Ask me anything <br />
+							<span className="text-gray-400 text-sm">
+								Get any insight from the uploaded file{" "}
+							</span>
+						</label>
+						<div className="mt-2.5">
+							<textarea
+								name="message"
+								id="message"
+								rows={4}
+								className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6 ${"focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"}`}
+								// onChange={handleInputChange}
+								// value={formData.message}
+							/>
+						</div>
 					</div>
 					<div className="flex w-full justify-between">
 						<Button
