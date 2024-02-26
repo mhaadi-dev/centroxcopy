@@ -24,11 +24,11 @@ export const RealEstateChatbot = () => {
 					<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
 						Real-Estate Chatbot
 					</div>
-					<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center w-1/2 3xl:w-[40%] mt-8">
+					<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center w-[85%] lg:w-[55%] 3xl:w-[40%] mt-8">
 						Our AI-powered chatbot helps you quickly identify promising
 						properties and make informed decisions. Start your free demo today!
 					</div>
-					<div className="mt-6">
+					<div className="mt-8">
 						<StepperCom />
 					</div>
 				</div>
@@ -63,18 +63,18 @@ function StepperCom() {
 		}
 	};
 	return (
-		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  w-[48rem] h-[32rem]">
+		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  lg:w-[48rem] lg:h-[32rem]">
 			<div className="w-full py-4 px-8">
-				<div className="w-full px-8 py-4">
+				<div className="w-full  px-8 py-4">
 					<div className="relative flex items-center justify-between w-full">
 						<div className="absolute left-0 -mt-2 top-2/4 h-0.5 w-full -translate-y-2/4 bg-gray-300"></div>
 						<div
-							className="absolute left-0 top-2/4 -mt-2 h-2 w-full -translate-y-2/4 bg-blue-azure transition-all duration-500 rounded-md"
+							className="absolute left-0 top-2/4 -mt-2 h-1 sm:h-2 w-full -translate-y-2/4 bg-blue-azure transition-all duration-500 rounded-md"
 							style={{ width: `${(activeStep + 1) * 33.33}%` }}
 						></div>
 						<div className="flex flex-col justify-center items-start">
 							<div
-								className={`relative z-10 grid w-20 h-20 font-bold -ml-1 j text-white transition-all duration-300 ${
+								className={`relative z-10 grid w-10 h-10 lg:w-20 lg:h-20 font-bold -ml-1 j text-white transition-all duration-300 ${
 									activeStep >= 0 ? "bg-blue-azure" : "bg-gray-900"
 								} rounded-full place-items-center step`}
 								onClick={() => setActiveStep(0)}
@@ -85,7 +85,7 @@ function StepperCom() {
 						</div>
 						<div className="flex flex-col justify-center items-start">
 							<div
-								className={`relative z-10 grid w-20 h-20 font-bold text-white transition-all duration-300 ${
+								className={`relative z-10 grid ml-8 lg:ml-0 w-10 h-10 lg:w-20 lg:h-20 font-bold text-white transition-all duration-300 ${
 									activeStep >= 1 ? "bg-blue-azure" : "bg-gray-900"
 								} rounded-full place-items-center step`}
 								onClick={() => setActiveStep(1)}
@@ -96,7 +96,7 @@ function StepperCom() {
 						</div>
 						<div className="flex flex-col justify-center items-end">
 							<div
-								className={`relative z-10 grid w-20 h-20 -mr-1 font-bold text-white transition-all duration-300 ${
+								className={`relative z-10 grid w-10 h-10 lg:w-20 lg:h-20 -mr-1 font-bold text-white transition-all duration-300 ${
 									activeStep === 2 ? "bg-blue-azure" : "bg-gray-900"
 								} rounded-full place-items-center step`}
 								onClick={() => setActiveStep(2)}
