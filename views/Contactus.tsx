@@ -36,7 +36,7 @@ export const ContactUsSection = () => {
 	};
 
 	return (
-		<div className="relative isolate lg:h-screen">
+		<div className="relative isolate lg:h-screen bg-black">
 			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
 				<div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-72">
 					<div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">

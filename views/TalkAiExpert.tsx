@@ -3,10 +3,13 @@ import { Button } from "@/Components/Button.js/button";
 import { useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
+import harrisImg from "@/assets/harrisimg.png";
+import { LogosCarousel } from "./LogosCarousel";
 
 export const TalkAiExpert = () => {
 	return (
-		<div className="bg-gray-charcoal lg:h-screen">
+		<div className="bg-black ">
+			{/* Section 1 */}
 			<div
 				className="flex justify-center items-center relative"
 				style={{
@@ -17,18 +20,81 @@ export const TalkAiExpert = () => {
 					backgroundRepeat: "no-repeat",
 				}}
 			>
-				<Image src={Lines} alt="sorry" className="h-full w-full" />
+				<Image
+					src={Lines}
+					alt="sorry"
+					className="h-screen lg:h-full lg:w-full"
+				/>
 				<div className="absolute inset-0 flex flex-col items-center justify-center">
-					<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
+					<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
 						Speed up the Implementation
 						<br /> of Your AI Applications
 					</div>
-					<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center w-1/2 3xl:w-[35%] mt-8">
+					<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center w-1/2 3xl:w-[35%] mt-8">
 						Schedule a one-on-one demonstration for a personalized platform
 						walkthrough for your company.
 					</div>
 					<div className="mt-6">
 						<CalendlyWidget />
+					</div>
+				</div>
+			</div>
+			{/* Section 2 */}
+			<div className="w-full flex justify-center lg:py-60">
+				<div className="w-[90%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between">
+					<div className="flex flex-col gap-8">
+						<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
+							Meet Our AI Expert
+						</div>
+						<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold lg:w-[40%]">
+							Introducing M. Harris, With a wealth of expertise, M. Harris
+							brings a professional edge to AI services, Just for you. He's your
+							trusted guide to navigating the complex world of artificial
+							intelligence with ease.
+						</div>
+					</div>
+					<div>
+						<Image
+							src={harrisImg}
+							alt="sorry"
+							className="w-full lg:w-[65rem] 3xl:w-[50rem] object-cover"
+						/>
+					</div>
+				</div>
+			</div>
+			{/* Section 3 */}
+			<div className="w-full flex flex-col justify-center gap-20 lg:py-60 overflow-x-hidden">
+				<div className="flex justify-center">
+					<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2">
+						Counted On by The World's Most Ambitious AI Teams
+					</div>
+				</div>
+				<LogosCarousel />
+			</div>
+			{/* Section 4 */}
+
+			<div className="w-full flex justify-center lg:py-60">
+				<div className="w-[90%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between">
+					<div className="flex flex-col gap-8">
+						<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
+							Why Our AI Experts
+						</div>
+						<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold lg:w-[70%]">
+							We've partnered with premier AI squads worldwide for extensive
+							durations regarding unparalleled data volume surpassing all
+							others.
+						</div>
+					</div>
+					<div>
+						<div
+							className="w-96 h-32 text-white rounded-xl"
+							style={{
+								background:
+									"radial-gradient(88.47% 182.54% at 0% 0%, rgba(7, 157, 252, 0.4) 0%, rgba(7, 157, 252, 0) 100%), rgba(1, 184, 252, 0.06)",
+							}}
+						>
+							fd
+						</div>
 					</div>
 				</div>
 			</div>
