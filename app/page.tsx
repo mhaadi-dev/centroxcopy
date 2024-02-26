@@ -92,7 +92,7 @@ const PageFooter = () => {
 										Icon={Arrow}
 										isLefticon={false}
 										onClick={() => {
-											setShowToast(!showToast);
+											router.push('/aiExpert')
 										}}
 									/>
 								</div>
