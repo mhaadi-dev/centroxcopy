@@ -2,6 +2,7 @@
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import { Button } from "@/Components/Button.js/button";
 import { Toast } from "@/Components/Toast/toast";
+import { API_BASE } from "@/config/secret";
 import classNames from "@/helpers/common";
 import {
 	BuildingOffice2Icon,
@@ -246,7 +247,7 @@ export const ContactUsSection = () => {
 										setMsg("");
 										try {
 											const response = await fetch(
-												"https://staging.api.app.centrox.ai/api/v1/contact-us/create",
+												`${API_BASE}/contact-us/create`,
 												{
 													method: "POST",
 													headers: {
