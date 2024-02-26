@@ -1,12 +1,3 @@
-import { InlineWidget } from "react-calendly";
-import dynamic from "next/dynamic";
-
-const PopupButttonComp = dynamic(
-	() => import("react-calendly").then((mod) => mod.PopupButton),
-	{
-		ssr: false,
-	}
-);
 export const TalkAiExpert = () => {
 	return (
 		<div id="" className="h-screen">
