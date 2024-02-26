@@ -308,7 +308,7 @@ interface InputProps {
 	isOptional?: boolean;
 	errMsg?: string | boolean;
 }
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
 	label,
 	name,
 	id,
