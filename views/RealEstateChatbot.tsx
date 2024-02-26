@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Input } from "./Contactus";
 import { Button } from "@/Components/Button.js/button";
 import XIcon from "@/assets/Xicon.svg";
+import { CHATBOT_API_BASE } from "@/config/secret";
 
 export const RealEstateChatbot = () => {
 	return (
@@ -42,6 +43,10 @@ function StepperCom() {
 	const [activeStep, setActiveStep] = useState(0);
 	const [pdfFile, setPdfFile] = useState<File | null>(null);
 	const [error, setError] = useState("");
+	const [errorMessage, setErrorMessage] = useState(false);
+	const [msg, setMsg] = useState<string>("");
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = event.target.files && event.target.files[0];
 		if (selectedFile && selectedFile.type === "application/pdf") {
@@ -62,6 +67,35 @@ function StepperCom() {
 			setActiveStep(activeStep + 1);
 		}
 	};
+	const uploadFile = async () => {
+		setIsLoading(true);
+		try {
+			const formData = new FormData();
+			formData.append("name", name);
+
+			if (pdfFile !== null) {
+				formData.append('files[]', pdfFile);
+			} else {
+				throw new Error("PDF file is missing.");
+			}
+
+			const response = await fetch(`${CHATBOT_API_BASE}/chatdoc/upload`, {
+				method: "POST",
+				body: formData,
+			});
+
+			if (!response.ok) {
+				throw new Error("Failed to submit form data");
+			}
+			setIsLoading(false);
+			setMsg("Your request has been submitted successfully");
+		} catch (error) {
+			console.error("Error submitting form data:", error);
+			setError("There is a problem submitting your request");
+			setIsLoading(false);
+		}
+	};
+
 	return (
 		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  lg:w-[48rem] lg:h-[32rem]">
 			<div className="w-full py-4 px-8">
@@ -178,8 +212,8 @@ function StepperCom() {
 
 						<Button
 							content="Next"
-							onClick={handleNext}
-							isDisabled={!name}
+							onClick={uploadFile}
+							isLoading={isLoading}
 							className="w-28 !rounded-full"
 						/>
 					</div>
