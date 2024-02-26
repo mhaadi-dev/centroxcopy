@@ -13,7 +13,7 @@ export const Footer = () => {
 	const router = useRouter();
 
 	return (
-		<footer className="py-12 bg-black sm:py-16 lg:py-20">
+		<footer className="py-12 bg-black">
 			<div className="grid gap-10 sm:gap-0 sm:flex justify-between mx-5 sm:mx-[7%] mt-20 sm:mt-60">
 				<div className="h-full">
 					<Image src={AppLogo} alt="Logo" className="w-[10rem] sm:w-60" />
