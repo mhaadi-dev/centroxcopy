@@ -1,2 +1,4 @@
 export const API_BASE = process.env["NEXT_PUBLIC_REACT_APP_API_APP_BASE"];
 export const CALENDLY_URL = process.env["NEXT_PUBLIC_REACT_APP_CALENDLY_URL"];
+export const CHATBOT_API_BASE =
+	process.env["NEXT_PUBLIC_REACT_APP_CHATBOT_API_APP_BASE"];
