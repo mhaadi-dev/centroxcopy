@@ -108,8 +108,8 @@ export const ContactUsSection = () => {
 								</dt>
 								<dd>
 									New York, NY 10001, US
-									<br />
-									Gulberg, Islamabad Pakistan
+									{/* <br />
+									Gulberg, Islamabad Pakistan */}
 								</dd>
 							</div>
 							<div className="flex gap-x-4">

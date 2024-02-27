@@ -74,7 +74,7 @@ function StepperCom() {
 			formData.append("name", name);
 
 			if (pdfFile !== null) {
-				formData.append('files[]', pdfFile);
+				formData.append('files', pdfFile);
 			} else {
 				throw new Error("PDF file is missing.");
 			}
