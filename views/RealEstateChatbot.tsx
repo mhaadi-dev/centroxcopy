@@ -49,7 +49,8 @@ function StepperCom() {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [fileSuccess, setFileSuccess] = useState(false);
 	const [message, setMessage] = useState("");
-	const [showPropmpts, setShowPropmpts] = useState(false);
+	const [userChat, setUserChat] = useState<any[]>([]);
+
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = event.target.files && event.target.files[0];
 		if (selectedFile && selectedFile.type === "application/pdf") {
@@ -102,10 +103,46 @@ function StepperCom() {
 			setFileSuccess(false);
 		}
 	};
+	const chatBotPrompts = async () => {
+		setIsLoading(true);
+		try {
+			const urlEncodedData = new URLSearchParams();
+			urlEncodedData.append("name", name);
+			if (message !== null) {
+				urlEncodedData.append("prompt", message);
+			} else {
+				throw new Error("Message is missing.");
+			}
 
+			const response = await fetch(`${CHATBOT_API_BASE}/chatdoc/chatbot`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+				},
+				body: urlEncodedData,
+			});
+
+			if (!response.ok) {
+				throw new Error("Failed to submit prompt");
+			}
+			const responseData = await response.json();
+			setIsLoading(false);
+			console.log("Response of prompt is", responseData);
+			setUserChat([
+				...userChat,
+				{ name: "user", message: message },
+				{ name: "chatbot", message: responseData.Response },
+			]);
+			setMessage("");
+		} catch (error) {
+			console.error("Error submitting form data:", error);
+			setError("There is a problem submitting your request");
+			setIsLoading(false);
+		}
+	};
 	return (
 		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  lg:w-[48rem] lg:h-[32rem]">
-			{!showPropmpts && (
+			{userChat?.length <= 0 && (
 				<div className="w-full py-4 px-8">
 					<div className="w-full  px-8 py-4">
 						<div className="relative flex items-center justify-between w-full">
@@ -153,7 +190,7 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
-			{activeStep === 0 && !showPropmpts && (
+			{activeStep === 0 && userChat?.length <= 0 && (
 				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
 					<Input
 						label="First name"
@@ -174,7 +211,7 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
-			{activeStep === 1 && !showPropmpts && (
+			{activeStep === 1 && userChat?.length <= 0 && (
 				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
 					<div>
 						{!pdfFile && (
@@ -233,7 +270,7 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
-			{activeStep === 2 && fileSuccess && !showPropmpts && (
+			{activeStep === 2 && fileSuccess && userChat?.length <= 0 && (
 				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
 					<div className="sm:col-span-2">
 						<label
@@ -266,47 +303,64 @@ function StepperCom() {
 						<Button
 							content="Next"
 							isLoading={isLoading}
-							onClick={async () => {
-								setIsLoading(true);
-								try {
-									const urlEncodedData = new URLSearchParams();
-									urlEncodedData.append("name", name);
-									if (message !== null) {
-										urlEncodedData.append("prompt", message);
-									} else {
-										throw new Error("Message is missing.");
-									}
-
-									const response = await fetch(
-										`${CHATBOT_API_BASE}/chatdoc/chatbot`,
-										{
-											method: "POST",
-											headers: {
-												"Content-Type": "application/x-www-form-urlencoded",
-											},
-											body: urlEncodedData,
-										},
-									);
-
-									if (!response.ok) {
-										throw new Error("Failed to submit prompt");
-									}
-									const responseData = await response.json(); // Parse response body as JSON
-									setIsLoading(false);
-									console.log("Response of prompt is", responseData);
-								} catch (error) {
-									console.error("Error submitting form data:", error);
-									setError("There is a problem submitting your request");
-									setIsLoading(false);
-								}
-							}}
+							onClick={chatBotPrompts}
 							isDisabled={!message}
 							className="w-28 !rounded-full"
 						/>
 					</div>
 				</div>
 			)}
-			{showPropmpts && <div></div>}
+			{userChat?.length > 0 && (
+				<div className="relative h-96">
+					<div className="absolute inset-0 overflow-auto pb-16 w-full h-full px-4">
+						{userChat?.map((chat, index) => (
+							<div
+								key={index}
+								className={classNames(
+									"flex items-center w-full p-4 text-white justify-start mt-2 rounded-3xl",
+									chat?.name === "user"
+										? "bg-[#079DFC33] bg-opacity-20"
+										: "bg-[#72EFDD] bg-opacity-20",
+								)}
+							>
+								<span
+									className={classNames(
+										"text-lg font-semibold",
+										chat?.name === "user"
+											? "text-blue-azure"
+											: "text-[#72EFDD] ",
+									)}
+								>
+									{chat.name === "user"
+										? name.charAt(0).toUpperCase() + name.slice(1)
+										: "Bot"}
+									:
+								</span>{" "}
+								{chat.message}
+							</div>
+						))}
+					</div>
+				</div>
+			)}
+					{userChat?.length > 0&&<div className=" w-full px-4">
+						<Input
+							label="Type Another Inquire/Response"
+							name="prompt"
+							id="prompt"
+							type="text"
+							autoComplete="given-name"
+							onChange={({ target }) => setMessage(target.value)}
+							value={message}
+						/>
+						<div className="flex w-full justify-end mt-2">
+							<Button
+								content="Submit"
+								isLoading={isLoading}
+								onClick={chatBotPrompts}
+								className="!rounded-full w-28"
+							/>
+						</div>
+					</div>}
 			<AlertOverlay
 				heading={error || msg}
 				setShow={() => {
