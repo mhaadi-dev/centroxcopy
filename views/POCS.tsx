@@ -10,6 +10,7 @@ import POCImage3 from "@/assets/FPOC3.png";
 import POC3Image3 from "@/assets/FPOC3.svg";
 import POCImage4 from "@/assets/FPOC4.png";
 import POC4Image4 from "@/assets/FPOC4.svg";
+import { useRouter } from "next/navigation";
 
 interface GradientCardProps {
 	tabName: string;
@@ -47,6 +48,7 @@ const GradientTab: React.FC<GradientCardProps> = ({
 };
 
 export const POCS = () => {
+	const router = useRouter();
 	const [showToast, setShowToast] = useState<boolean>(false);
 	const [hoveredCard, setHoveredCard] = useState<number>(1);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
@@ -106,7 +108,7 @@ export const POCS = () => {
 						onMouseEnter={() => setHoveredCard(2)}
 						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
-							setShowToast(!showToast);
+							router.push("/chatbotRealEstate");
 						}}
 					/>
 					<GradientTab

@@ -2,6 +2,7 @@
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import { Button } from "@/Components/Button.js/button";
 import { Toast } from "@/Components/Toast/toast";
+import { API_BASE } from "@/config/secret";
 import classNames from "@/helpers/common";
 import {
 	BuildingOffice2Icon,
@@ -35,9 +36,9 @@ export const ContactUsSection = () => {
 	};
 
 	return (
-		<div className="relative isolate bg-gray-charcoal lg:h-screen lg:overflow-hidden">
-			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 lg:mt-[3%] 2xl:mt-[5%] 3xl:mt-[13%]">
-				<div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
+		<div className="relative isolate lg:h-screen bg-black">
+			<div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+				<div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-72">
 					<div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
 						<div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden ring-1 ring-white/5 lg:w-1/2">
 							<svg
@@ -145,7 +146,7 @@ export const ContactUsSection = () => {
 
 				<form
 					onSubmit={() => {}}
-					className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+					className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-72"
 				>
 					<div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
 						<div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -246,7 +247,7 @@ export const ContactUsSection = () => {
 										setMsg("");
 										try {
 											const response = await fetch(
-												"https://staging.api.app.centrox.ai/api/v1/contact-us/create",
+												`${API_BASE}/contact-us/create`,
 												{
 													method: "POST",
 													headers: {
@@ -307,7 +308,7 @@ interface InputProps {
 	isOptional?: boolean;
 	errMsg?: string | boolean;
 }
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
 	label,
 	name,
 	id,
