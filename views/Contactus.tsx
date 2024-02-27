@@ -108,8 +108,8 @@ export const ContactUsSection = () => {
 								</dt>
 								<dd>
 									New York, NY 10001, US
-									<br />
-									Gulberg, Islamabad Pakistan
+									{/* <br />
+									Gulberg, Islamabad Pakistan */}
 								</dd>
 							</div>
 							<div className="flex gap-x-4">
@@ -308,7 +308,7 @@ interface InputProps {
 	isOptional?: boolean;
 	errMsg?: string | boolean;
 }
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
 	label,
 	name,
 	id,

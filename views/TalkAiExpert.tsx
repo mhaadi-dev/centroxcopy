@@ -7,10 +7,11 @@ import harrisImg from "@/assets/harrisimg.png";
 import { LogosCarousel } from "./LogosCarousel";
 import PlusColor from "@/assets/PlusColor.svg";
 import Background from "@/assets/Background.svg";
+import { CALENDLY_URL } from "@/config/secret";
 
 export const TalkAiExpert = () => {
 	return (
-		<div className="bg-black ">
+		<div className="bg-black">
 			{/* Section 1 */}
 			<div
 				className="flex justify-center items-center relative"
@@ -160,7 +161,7 @@ const CalendlyWidget = () => {
 							&times;
 						</span>
 						<iframe
-							src="https://calendly.com/hamzahejaz88"
+							src={CALENDLY_URL}
 							style={{ width: "100%", height: "100%", border: "none" }}
 							scrolling="auto"
 							title="Calendly Scheduling"

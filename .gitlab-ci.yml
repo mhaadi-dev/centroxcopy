@@ -71,24 +71,27 @@ prerelease:
 build-release:
     stage: build-release
     image:
-        name: gcr.io/kaniko-project/executor:debug
+        name: docker:24.0.5-dind
         entrypoint: [""]
+    before_script:
+        - docker info
+        - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+
     script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - ENV_PATH="${CI_PROJECT_DIR}/.env"
         - printf "%s" "${PRODUCTION_ENV}" > "$ENV_PATH"
         - cat "$ENV_PATH"
-        - mkdir -p /kaniko/.docker
-        - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+
         - tag="$CI_REGISTRY_IMAGE:${BUILD_VERSION}"
-        - >-
-            /kaniko/executor
-            --context "${CI_PROJECT_DIR}"
-            --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-            --destination "$tag"
-            --destination "${CI_REGISTRY_IMAGE}:latest"
-            --cache=true
-            --cache-ttl=6h
+        - echo $tag
+
+        - docker pull $CI_REGISTRY_IMAGE:latest || true
+        - docker image ls
+        - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $tag --tag $CI_REGISTRY_IMAGE:latest .
+        - docker push $tag
+        - docker push $CI_REGISTRY_IMAGE:latest
+
         - echo "Docker Image pushed"
     only:
         - main
@@ -104,7 +107,7 @@ deploy-release:
     before_script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - kubectl config get-contexts
-        - kubectl config use-context  centrox-data-products/ai/body-measurements/bodymeasurements-cluster-agent:centrox-ai-cluster-agent
+        - kubectl config use-context  centrox-data-products/ai/centrox-ai-cluster-agent:centrox-ai-cluster-agent
         - kubectl get pods -A
         - KUBE_NAMESPACE="$NAMESPASE_PRODUCTION"
         - kubectl create namespace "$KUBE_NAMESPACE" --dry-run=client -o yaml | kubectl apply -f -
@@ -122,24 +125,27 @@ deploy-release:
 build:
     stage: build
     image:
-        name: gcr.io/kaniko-project/executor:debug
+        name: docker:24.0.5-dind
         entrypoint: [""]
+    before_script:
+        - docker info
+        - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
     script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - ENV_PATH="${CI_PROJECT_DIR}/.env"
         - printf "%s" "${STAGING_ENV}" > "$ENV_PATH"
         - cat "$ENV_PATH"
-        - mkdir -p /kaniko/.docker
-        - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+
         - tag="$CI_REGISTRY_IMAGE:${BUILD_VERSION}"
-        - >-
-            /kaniko/executor
-            --context "${CI_PROJECT_DIR}"
-            --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-            --destination "$tag"
-            --destination "${CI_REGISTRY_IMAGE}:latest"
-            --cache=true
-            --cache-ttl=6h
+        - echo $tag
+
+        - docker pull $CI_REGISTRY_IMAGE:latest || true
+        - docker image ls
+        - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $tag --tag $CI_REGISTRY_IMAGE:latest .
+        - docker push $tag
+        - docker push $CI_REGISTRY_IMAGE:latest
+        
+        - echo "Docker Image pushed"
     only:
         - staging
     tags:
@@ -154,7 +160,7 @@ deploy:
     before_script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - kubectl config get-contexts
-        - kubectl config use-context  centrox-data-products/ai/body-measurements/bodymeasurements-cluster-agent:centrox-ai-cluster-agent
+        - kubectl config use-context  centrox-data-products/ai/centrox-ai-cluster-agent:centrox-ai-cluster-agent
         - kubectl get pods -A
         - KUBE_NAMESPACE="$NAMESPASE_STAGING"
         - kubectl create namespace "$KUBE_NAMESPACE" --dry-run=client -o yaml | kubectl apply -f -
