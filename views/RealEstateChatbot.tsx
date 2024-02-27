@@ -94,7 +94,7 @@ function StepperCom() {
 			setIsLoading(false);
 			setFileSuccess(true);
 			handleNext();
-			setMsg("Your request has been submitted successfully");
+			// setMsg("Your request has been submitted successfully");
 			console.log("Response is", response);
 		} catch (error) {
 			console.error("Error submitting form data:", error);
@@ -317,7 +317,7 @@ function StepperCom() {
 							<div
 								key={index}
 								className={classNames(
-									"flex items-center w-full p-4 text-white justify-start mt-2 rounded-3xl",
+									"flex items-center w-full p-4 text-white justify-start mt-2 rounded-3xl ",
 									chat?.name === "user"
 										? "bg-[#079DFC33] bg-opacity-20"
 										: "bg-[#72EFDD] bg-opacity-20",
@@ -325,7 +325,7 @@ function StepperCom() {
 							>
 								<span
 									className={classNames(
-										"text-lg font-semibold",
+										"text-md sm:text-xl font-semibold mr-3",
 										chat?.name === "user"
 											? "text-blue-azure"
 											: "text-[#72EFDD] ",
@@ -355,6 +355,7 @@ function StepperCom() {
 						<div className="flex w-full justify-end mt-2">
 							<Button
 								content="Submit"
+								isDisabled={!message}
 								isLoading={isLoading}
 								onClick={chatBotPrompts}
 								className="!rounded-full w-28"
