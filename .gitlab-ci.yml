@@ -160,7 +160,7 @@ deploy:
     before_script:
         - echo "Recevied build version => '${BUILD_VERSION}'"
         - kubectl config get-contexts
-        - kubectl config use-context  centrox-data-products/ai/body-measurements/bodymeasurements-cluster-agent:centrox-ai-cluster-agent
+        - kubectl config use-context  centrox-data-products/ai/centrox-ai-cluster-agent:centrox-ai-cluster-agent
         - kubectl get pods -A
         - KUBE_NAMESPACE="$NAMESPASE_STAGING"
         - kubectl create namespace "$KUBE_NAMESPACE" --dry-run=client -o yaml | kubectl apply -f -
