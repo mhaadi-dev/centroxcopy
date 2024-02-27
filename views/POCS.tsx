@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+import Image from "next/image";
 import { ReactEventHandler, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
 import { generateBlurDataURL } from "@/helpers/common";
@@ -130,7 +130,8 @@ export const POCS = () => {
 					/>
 				</div>
 				<div className="lg:w-[35%] flex justify-center">
-					<NextImage
+					<Image
+						unoptimized
 						src={
 							hoveredCard === 4
 								? POCImage4
@@ -168,7 +169,8 @@ export const POCS = () => {
 								: "It's an advanced AI B2B product designed to tackle complex challenges in the fashion-retail and fitness domains."}
 						</div>
 					</div>
-					<NextImage
+					<Image
+						unoptimized
 						src={
 							hoveredCard === 4
 								? POC4Image4

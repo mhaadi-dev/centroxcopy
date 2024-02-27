@@ -62,6 +62,7 @@ export const LogosCarousel = () => {
 		return logosSet.map((logo: any, index: any) => {
 			return (
 				<Image
+					unoptimized
 					key={index}
 					src={logo.src}
 					alt="Logo"
