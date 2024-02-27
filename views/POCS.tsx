@@ -2,13 +2,13 @@ import NextImage from "next/image";
 import { ReactEventHandler, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
 import { generateBlurDataURL } from "@/helpers/common";
-import POC1Image from "@/assets/FPOC.png";
+import POC1Image from "@/assets/FPOC.webp";
 import POC1Image1 from "@/assets/FPOC.svg";
-import POCImage2 from "@/assets/FPOC2.png";
+import POCImage2 from "@/assets/FPOC2.webp";
 import POC2Image2 from "@/assets/FPOC2.svg";
-import POCImage3 from "@/assets/FPOC3.png";
+import POCImage3 from "@/assets/FPOC3.webp";
 import POC3Image3 from "@/assets/FPOC3.svg";
-import POCImage4 from "@/assets/FPOC4.png";
+import POCImage4 from "@/assets/FPOC4.webp";
 import POC4Image4 from "@/assets/FPOC4.svg";
 import { useRouter } from "next/navigation";
 
