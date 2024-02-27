@@ -169,7 +169,7 @@ export const Section3 = () => {
 			</div>
 			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
 				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
-					<Image className="w-auto" src={BackgroundImage as never} alt="" />
+					<Image className="w-auto" src={BackgroundImage as never} alt="" unoptimized/>
 				</div>
 
 				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
@@ -275,6 +275,7 @@ export const Section3 = () => {
 										<Image
 											className="w-full h-auto lg:mt-9 3xl:mt-14"
 											loading="eager"
+											unoptimized
 											src={
 												hoveredCard === 3
 													? CustomDataImage
