@@ -99,7 +99,7 @@ export const POCS = () => {
 						onMouseEnter={() => setHoveredCard(1)}
 						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
-							setShowToast(!showToast);
+							router.push("/bodyMeasurements");
 						}}
 					/>
 					<GradientTab
