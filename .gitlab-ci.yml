@@ -175,6 +175,7 @@ deploy:
     tags:
         - any
 
+
 release:
     image: node:21-slim
     stage: release
