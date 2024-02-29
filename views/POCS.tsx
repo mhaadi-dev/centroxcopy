@@ -164,7 +164,7 @@ export const POCS = () => {
 								: hoveredCard === 3
 								? "AI Dress Labeling Seamlessly deploys our AI solution by uploading an image.This has utilized the 'test' parameter with the base64-converted image to receive a dictionary featuring an property, showcasing a list of up to three dress characteristics."
 								: hoveredCard === 2
-								? "This demonstrating how users can effortlessly find their ideal property by querying the chatbot. The  property information is made  accurate and aligns with user preferences for a seamless property search experience."
+								? "This demonstrates how users can effortlessly find their ideal property by querying the chatbot. The  property information is made  accurate and aligns with user preferences for a seamless property search experience."
 								: "It's an advanced AI B2B product designed to tackle complex challenges in the fashion-retail and fitness domains."}
 						</div>
 					</div>
