@@ -19,6 +19,7 @@ const config: Config = {
 				blue: {
 					azure: "#056EE1",
 					bright:"#079DFC",
+					dark:"#079DFC4D"
 				},
 				white: {
 					DEFAULT: "#FFFFFF",
