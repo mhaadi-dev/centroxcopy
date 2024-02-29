@@ -1,5 +1,5 @@
 import classNames from "@/helpers/common";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
 import { Input } from "./Contactus";
@@ -24,11 +24,11 @@ export const RealEstateChatbot = () => {
 				<Image src={Lines} alt="sorry" className="h-screen w-full" />
 				<div className="absolute inset-0 flex flex-col items-center justify-center">
 					<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
-						Real-Estate Chatbot
+						Smart Chat bot Agent
 					</div>
 					<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center w-[85%] lg:w-[55%] 3xl:w-[40%] mt-8">
-						Our AI-powered chatbot helps you quickly identify promising
-						properties and make informed decisions. Start your free demo today!
+						Our AI-powered chat-bot helps you get swift and prompt responses to
+						make informed decisions. Try our demo now!
 					</div>
 					<div className="mt-8">
 						<StepperCom />
@@ -140,8 +140,46 @@ function StepperCom() {
 			setIsLoading(false);
 		}
 	};
+
+	const downloadAndUploadPDF = (pdfUrl: string, fileName: string) => {
+		setPdfFile(null);
+		setFileSuccess(false);
+		fetch(pdfUrl)
+			.then((response) => response.blob())
+			.then((blob) => {
+				const url = URL.createObjectURL(blob);
+				const link = document.createElement("a");
+				link.href = url;
+				link.download = fileName; // Use download attribute to force download
+				link.style.display = "none";
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+
+				const fileInput = document.createElement("input");
+				fileInput.type = "file";
+				fileInput.accept = "application/pdf";
+				fileInput.style.display = "none";
+				fileInput.addEventListener("change", (event) => {
+					const inputElement = event.target as HTMLInputElement;
+					if (inputElement.files && inputElement.files.length > 0) {
+						const uploadedFile = inputElement.files[0];
+						console.log("Uploaded file is in:", uploadedFile);
+						setPdfFile(uploadedFile);
+					}
+				});
+				document.body.appendChild(fileInput);
+				fileInput.click();
+			})
+			.catch((error) => console.error("Error downloading PDF file:", error));
+	};
+
+	useEffect(() => {
+		console.log("File selected", pdfFile);
+	}, [pdfFile]);
+
 	return (
-		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col  lg:w-[48rem] lg:h-[32rem]">
+		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col h-full  lg:w-[48rem] lg:h-[32rem] lg:overflow-y-auto">
 			{userChat?.length <= 0 && (
 				<div className="w-full py-4 px-8">
 					<div className="w-full  px-8 py-4">
@@ -213,6 +251,56 @@ function StepperCom() {
 			)}
 			{activeStep === 1 && userChat?.length <= 0 && (
 				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
+					<div className="flex flex-wrap lg:flex-nowrap gap-y-4 gap-x-2 justify-between">
+						<div
+							className={classNames(
+								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer",
+								pdfFile?.name === "Warren_Buffett.pdf"
+									? "border-blue-azure border-opacity-80"
+									: "border-white-offWhite",
+							)}
+							onClick={() =>
+								downloadAndUploadPDF(
+									"https://dreamlamp-files.fra1.digitaloceanspaces.com/images/Pdf1.pdf",
+									"Warren_Buffett.pdf",
+								)
+							}
+						>
+							Warren_Buffett.pdf
+						</div>
+						<div
+							className={classNames(
+								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer",
+								pdfFile?.name === "Jamie Dimon.pdf"
+									? "border-blue-azure border-opacity-80"
+									: "border-white-offWhite",
+							)}
+							onClick={() =>
+								downloadAndUploadPDF(
+									"https://dreamlamp-files.fra1.digitaloceanspaces.com/images/Pdf2.pdf",
+									"Jamie Dimon.pdf",
+								)
+							}
+						>
+							Jamie Dimon.pdf
+						</div>
+						<div
+							className={classNames(
+								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer",
+								pdfFile?.name === "Real Estate.pdf"
+									? "border-blue-azure border-opacity-80"
+									: "border-white-offWhite",
+							)}
+							onClick={() =>
+								downloadAndUploadPDF(
+									"https://dreamlamp-files.fra1.digitaloceanspaces.com/images/Pdf3.pdf",
+									"Real Estate.pdf",
+								)
+							}
+						>
+							Real Estate.pdf
+						</div>
+					</div>
 					<div>
 						{!pdfFile && (
 							<label htmlFor="file-uploader" className="cursor-pointer">
@@ -237,16 +325,16 @@ function StepperCom() {
 								<p className="text-lg font-semibold mr-2">
 									Selected PDF: {pdfFile.name}
 								</p>
-								<button
-									onClick={() => setPdfFile(null)}
-									className="focus:outline-none"
-								>
-									<Image
-										src={XIcon}
-										alt="sorry"
-										className="h-5 w-5 text-red-500 cursor-pointer"
-									/>
-								</button>
+
+								<Image
+									src={XIcon}
+									alt="sorry"
+									className="h-5 w-5 text-red-500 cursor-pointer"
+									onClick={() => {
+										setFileSuccess(false);
+										setPdfFile(null);
+									}}
+								/>
 							</div>
 						)}
 					</div>
@@ -260,7 +348,7 @@ function StepperCom() {
 						<Button
 							content="Next"
 							onClick={() => {
-								if (fileSuccess) {
+								if (fileSuccess && pdfFile) {
 									setActiveStep(activeStep + 1);
 								} else uploadFile();
 							}}
@@ -342,26 +430,28 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
-					{userChat?.length > 0&&<div className=" w-full px-4">
-						<Input
-							label="Type Another Inquire/Response"
-							name="prompt"
-							id="prompt"
-							type="text"
-							autoComplete="given-name"
-							onChange={({ target }) => setMessage(target.value)}
-							value={message}
+			{userChat?.length > 0 && (
+				<div className=" w-full px-4">
+					<Input
+						label="Type Another Inquire/Response"
+						name="prompt"
+						id="prompt"
+						type="text"
+						autoComplete="given-name"
+						onChange={({ target }) => setMessage(target.value)}
+						value={message}
+					/>
+					<div className="flex w-full justify-end mt-2">
+						<Button
+							content="Submit"
+							isDisabled={!message}
+							isLoading={isLoading}
+							onClick={chatBotPrompts}
+							className="!rounded-full w-28"
 						/>
-						<div className="flex w-full justify-end mt-2">
-							<Button
-								content="Submit"
-								isDisabled={!message}
-								isLoading={isLoading}
-								onClick={chatBotPrompts}
-								className="!rounded-full w-28"
-							/>
-						</div>
-					</div>}
+					</div>
+				</div>
+			)}
 			<AlertOverlay
 				heading={error || msg}
 				setShow={() => {
