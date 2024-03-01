@@ -88,11 +88,11 @@ const PageFooter = () => {
 								<div className="flex-1 mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center ">
 									<Button
 										content="Talk to our AI expert"
-										className="bg-blue-azure border-0 w-60 !rounded-full font-semibold"
+										className="bg-blue-azure border-0 w-64 !rounded-full font-semibold"
 										Icon={Arrow}
 										isLefticon={false}
 										onClick={() => {
-											router.push('/aiExpert')
+											router.push("/aiExpert");
 										}}
 									/>
 								</div>
@@ -106,16 +106,17 @@ const PageFooter = () => {
 					<Image src={AppLogo} alt="Logo" className="w-[10rem] sm:w-60" />
 				</div>
 				<div className="flex flex-col gap-5">
-					<div
-						className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer ml-10 sm:ml-0"
-						onClick={() => {
-							setShowToast(!showToast);
-						}}
-					>
+					<div className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer ml-10 sm:ml-0">
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
-								setShowToast(!showToast);
+								const solutionsComponent = document.getElementById("services");
+								if (solutionsComponent) {
+									solutionsComponent.scrollIntoView({
+										behavior: "smooth",
+										block: "start",
+									});
+								}
 							}}
 						>
 							Services
@@ -123,19 +124,25 @@ const PageFooter = () => {
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
-								setShowToast(!showToast);
+								const solutionsComponent = document.getElementById("solutions");
+								if (solutionsComponent) {
+									solutionsComponent.scrollIntoView({
+										behavior: "smooth",
+										block: "start",
+									});
+								}
 							}}
 						>
 							Solutions
 						</span>
-						<span
+						{/* <span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
 								setShowToast(!showToast);
 							}}
 						>
 							APIs
-						</span>
+						</span> */}
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
@@ -155,7 +162,6 @@ const PageFooter = () => {
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => router.push(`/team`)}
-
 						>
 							About Us{" "}
 						</span>
@@ -170,30 +176,28 @@ const PageFooter = () => {
 					</div>
 					<div className="flex  items-center sm:justify-end gap-4 sm:mt-14 sm:gap-10 cursor-pointer ml-10 sm:ml-0">
 						{/* <div className="flex items-center justify-end gap-10 mt-14 cursor-pointer"> */}
-						<Image
-							src={TwitterIcon}
-							alt="Logo"
-							className="w-4 sm:w-8"
-							onClick={() => {
-								setShowToast(!showToast);
-							}}
-						/>
-						<Image
-							src={LinkedinIcon}
-							alt="Logo"
-							className="w-4 sm:w-8"
-							onClick={() => {
-								setShowToast(!showToast);
-							}}
-						/>
-						<Image
+						<a
+							href="https://twitter.com/CentroxAI"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Image src={TwitterIcon} alt="Logo" className="w-4 sm:w-8" />
+						</a>
+						<a
+							href=" https://www.linkedin.com/company/centroxai"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Image src={LinkedinIcon} alt="Logo" className="w-4 sm:w-8" />
+						</a>
+						{/* <Image
 							src={MsgIcon}
 							alt="Logo"
 							className="w-6 sm:w-10"
 							onClick={() => {
 								setShowToast(!showToast);
 							}}
-						/>
+						/> */}
 					</div>
 					<div className="flex  items-center mt-2 justify-end">
 						<span className="text-white font-bold sm:text-xl ml-10 sm:ml-0">

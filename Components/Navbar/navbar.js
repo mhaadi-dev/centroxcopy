@@ -21,7 +21,7 @@ export const Navbar = () => {
 				<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[33rem] sm:-ml-[7%]">
 					<NavLink text="Solutions" />
 					<NavLink text="Services" />
-					<NavLink text="APIs" />
+					{/* <NavLink text="APIs" /> */}
 					<NavLink text="Team" onClick={() => router.push(`/team`)} />
 				</div>
 

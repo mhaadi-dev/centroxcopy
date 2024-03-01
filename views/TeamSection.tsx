@@ -153,7 +153,7 @@ export const TeamUsSection = () => {
 		}
 	};
 	return (
-		<div className="flex flex-col gap-40 bg-gray-charcoal">
+		<div className="flex flex-col gap-40">
 			<div className="">
 				<Image
 					src={HeroImage}
@@ -216,7 +216,7 @@ export const TeamUsSection = () => {
 			<div className="text-xl lg:text-4xl text-white font-bold flex justify-center ">
 				Meet Our Team
 			</div>
-			<div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 px-[5%] lg:px-[15%] text-white">
+			<div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 px-[5%] lg:px-[15%] text-white pb-60">
 				{team.map((el, index) => {
 					return (
 						<div
