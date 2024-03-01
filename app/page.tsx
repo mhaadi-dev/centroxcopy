@@ -10,14 +10,56 @@ import LinkedinIcon from "@/assets/linkedin.svg";
 import MsgIcon from "@/assets/msg.svg";
 import { SnapMeasure } from "@/views/SnapandMeasure";
 import { Testimonial } from "@/views/Testimonial";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
 import { useRouter } from "next/navigation";
 import { POCS } from "@/views/POCS";
 import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
+import { SHOW_SERVICES, SHOW_SOLUTIONS } from "@/helpers/enums";
 
 export default function Home() {
+	useEffect(() => {
+		const storedServices = localStorage.getItem(SHOW_SERVICES);
+		const storedSolutions = localStorage.getItem(SHOW_SOLUTIONS);
+
+		const scrollToServices = storedServices
+			? JSON.parse(storedServices)
+			: false;
+		const scrollToSolutions = storedSolutions
+			? JSON.parse(storedSolutions)
+			: false;
+
+		const scrollToElement = (elementId: string) => {
+			const element = document.getElementById(elementId);
+			if (element) {
+				element.scrollIntoView({
+					behavior: "smooth",
+					block: "start",
+				});
+			}
+		};
+
+		const resetLocalStorage = () => {
+			localStorage.setItem(SHOW_SERVICES, JSON.stringify(false));
+			localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(false));
+		};
+
+		if (scrollToServices) {
+			setTimeout(() => {
+				scrollToElement("services");
+				resetLocalStorage();
+			}, 15);
+		}
+
+		if (scrollToSolutions) {
+			setTimeout(() => {
+				scrollToElement("solutions");
+				resetLocalStorage();
+			}, 15);
+		}
+	}, []);
+
 	return (
 		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
 			<Navbar />

@@ -5,8 +5,8 @@ import Image from "next/image";
 import AppLogo from "@/assets/LogoWhite.png";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
-import MsgIcon from "@/assets/msg.svg";
 import { Toast } from "@/Components/Toast/toast";
+import { SHOW_SERVICES, SHOW_SOLUTIONS } from "@/helpers/enums";
 
 export const Footer = () => {
 	const [showToast, setShowToast] = useState(false);
@@ -23,7 +23,9 @@ export const Footer = () => {
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
-								setShowToast(!showToast);
+								// setShowToast(!showToast);
+								router.push(`/`);
+								localStorage.setItem(SHOW_SERVICES, JSON.stringify(true));
 							}}
 						>
 							Services
@@ -31,7 +33,9 @@ export const Footer = () => {
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
-								setShowToast(!showToast);
+								// setShowToast(!showToast);
+								router.push(`/`);
+								localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
 							}}
 						>
 							Solutions
