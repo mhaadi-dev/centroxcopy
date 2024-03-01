@@ -1,5 +1,5 @@
 import classNames from "@/helpers/common";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
 import { Input } from "./Contactus";
@@ -44,7 +44,6 @@ function StepperCom() {
 	const [activeStep, setActiveStep] = useState(0);
 	const [pdfFile, setPdfFile] = useState<File | null>(null);
 	const [error, setError] = useState("");
-	const [errorMessage, setErrorMessage] = useState(false);
 	const [msg, setMsg] = useState<string>("");
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [fileSuccess, setFileSuccess] = useState(false);
@@ -173,10 +172,6 @@ function StepperCom() {
 			})
 			.catch((error) => console.error("Error downloading PDF file:", error));
 	};
-
-	useEffect(() => {
-		console.log("File selected", pdfFile);
-	}, [pdfFile]);
 
 	return (
 		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col h-full  lg:w-[48rem] lg:h-[32rem] lg:overflow-y-auto">
