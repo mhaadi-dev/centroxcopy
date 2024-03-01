@@ -7,6 +7,7 @@ import { Input } from "./Contactus";
 import classNames from "@/helpers/common";
 import { HEALTH_CHATBOT_API_BASE } from "@/config/secret";
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
+import CentroxWhiteLogo from "@/assets/centroxLogo.svg";
 export const HealthChatbotView = () => {
 	return (
 		<div className="bg-black">
@@ -46,6 +47,7 @@ function StepperCom() {
 	const [message, setMessage] = useState("");
 	const [userChat, setUserChat] = useState<any[]>([]);
 
+	
 	const handlePrev = () => {
 		if (activeStep > 0) {
 			setActiveStep(activeStep - 1);
@@ -65,7 +67,7 @@ function StepperCom() {
 				throw new Error("Message is missing.");
 			}
 			const queryParams = new URLSearchParams({
-				user_id: name
+				user_id: name,
 			});
 			const response = await fetch(
 				`${HEALTH_CHATBOT_API_BASE}chatbot?${queryParams}`,
@@ -74,7 +76,7 @@ function StepperCom() {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({user_id:name, input_text: message }),
+					body: JSON.stringify({ user_id: name, input_text: message }),
 				},
 			);
 
@@ -167,7 +169,7 @@ function StepperCom() {
 						>
 							Ask me anything <br />
 							<span className="text-gray-400 text-sm">
-							Tell us mental health questions and inquires here.
+								Tell us mental health questions and inquires here.
 							</span>
 						</label>
 						<div className="mt-2.5">
@@ -203,28 +205,43 @@ function StepperCom() {
 					<div className="absolute inset-0 overflow-auto pb-16 w-full h-full px-4">
 						{userChat?.map((chat, index) => (
 							<div
-								key={index}
 								className={classNames(
-									"flex items-center w-full p-4 text-white justify-start mt-2 rounded-3xl ",
-									chat?.name === "user"
-										? "bg-[#079DFC33] bg-opacity-20"
-										: "bg-[#72EFDD] bg-opacity-20",
+									"flex flex-col",
+									chat?.name === "user" ? "items-end" : "items-start",
 								)}
 							>
 								<span
 									className={classNames(
-										"text-md sm:text-xl font-semibold mr-3",
-										chat?.name === "user"
-											? "text-blue-azure"
-											: "text-[#72EFDD] ",
+										"text-lg font-semibold mr-2 text-white flex",
+										chat?.name === "user" ? "justify-end mt-2" : "mt-2",
 									)}
 								>
-									{chat.name === "user"
-										? name.charAt(0).toUpperCase() + name.slice(1)
-										: "Bot"}
-									:
+									{chat.name === "user" ? (
+										<div className="flex gap-1 rounded-full bg-[#079DFC33] bg-opacity-20 px-4 py-1">
+											{name.charAt(0).toUpperCase() + name.slice(1)}
+										</div>
+									) : (
+										<div className="flex gap-1 rounded-full bg-[#72EFDD] bg-opacity-20 px-4 py-1">
+											<Image
+												src={CentroxWhiteLogo}
+												alt="sorry"
+												className="w-3"
+											/>
+											Bot
+										</div>
+									)}
 								</span>{" "}
-								{chat.message}
+								<div
+									key={index}
+									className={classNames(
+										"flex items-center min-w-44 max-w-fit p-4 text-white justify-start rounded-2xl mt-1.5 mr-2",
+										chat?.name === "user"
+											? "bg-[#079DFC33] bg-opacity-20 rounded-tr-none"
+											: "bg-[#72EFDD] bg-opacity-20 rounded-tl-none",
+									)}
+								>
+									{chat.message}
+								</div>
 							</div>
 						))}
 					</div>

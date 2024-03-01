@@ -79,7 +79,7 @@ export const POCS = () => {
 	};
 
 	return (
-		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-60">
+		<div className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-60"  id="solutions">
 			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
 				<div className="text-2xl md:text-6xl text-white font-semibold text-center">
 					Our specialized AI products
