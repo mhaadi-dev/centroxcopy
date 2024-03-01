@@ -148,7 +148,7 @@ export const Section3 = () => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60">
+			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60" id="services">
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
 					Accelerate <span className="font-semibold">AI Deployment</span> with
 					Lighting <span className="font-semibold">Fast</span> Annotation
