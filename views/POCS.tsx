@@ -125,7 +125,7 @@ export const POCS = () => {
 						onMouseEnter={() => setHoveredCard(4)}
 						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
-							setShowToast(!showToast);
+							router.push("/healthChatbot");
 						}}
 					/>
 				</div>
