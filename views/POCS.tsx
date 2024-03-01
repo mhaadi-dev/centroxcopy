@@ -103,7 +103,7 @@ export const POCS = () => {
 						}}
 					/>
 					<GradientTab
-						tabName="Real-estate Chatbot"
+						tabName="Smart Chatbot"
 						isLeftGradient
 						onMouseEnter={() => setHoveredCard(2)}
 						onMouseLeave={() => setHoveredCard(0)}
@@ -125,7 +125,7 @@ export const POCS = () => {
 						onMouseEnter={() => setHoveredCard(4)}
 						onMouseLeave={() => setHoveredCard(0)}
 						onClick={() => {
-							setShowToast(!showToast);
+							router.push("/healthChatbot");
 						}}
 					/>
 				</div>
