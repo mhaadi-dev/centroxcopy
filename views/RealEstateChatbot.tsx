@@ -1,5 +1,5 @@
 import classNames from "@/helpers/common";
-import { useState } from "react";
+import {  useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
 import { Input } from "./Contactus";
@@ -7,6 +7,7 @@ import { Button } from "@/Components/Button.js/button";
 import XIcon from "@/assets/Xicon.svg";
 import { CHATBOT_API_BASE } from "@/config/secret";
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
+import CentroxWhiteLogo from "@/assets/centroxLogo.svg";
 
 export const RealEstateChatbot = () => {
 	return (
@@ -49,7 +50,8 @@ function StepperCom() {
 	const [fileSuccess, setFileSuccess] = useState(false);
 	const [message, setMessage] = useState("");
 	const [userChat, setUserChat] = useState<any[]>([]);
-
+	
+	
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = event.target.files && event.target.files[0];
 		if (selectedFile && selectedFile.type === "application/pdf") {
@@ -393,33 +395,48 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
-			{userChat?.length > 0 && (
+				{userChat?.length > 0 && (
 				<div className="relative h-96">
 					<div className="absolute inset-0 overflow-auto pb-16 w-full h-full px-4">
 						{userChat?.map((chat, index) => (
 							<div
-								key={index}
 								className={classNames(
-									"flex items-center w-full p-4 text-white justify-start mt-2 rounded-3xl ",
-									chat?.name === "user"
-										? "bg-[#079DFC33] bg-opacity-20"
-										: "bg-[#72EFDD] bg-opacity-20",
+									"flex flex-col",
+									chat?.name === "user" ? "items-end" : "items-start",
 								)}
 							>
 								<span
 									className={classNames(
-										"text-md sm:text-xl font-semibold mr-3",
-										chat?.name === "user"
-											? "text-blue-azure"
-											: "text-[#72EFDD] ",
+										"text-lg font-semibold mr-2 text-white flex",
+										chat?.name === "user" ? "justify-end mt-2" : "mt-2",
 									)}
 								>
-									{chat.name === "user"
-										? name.charAt(0).toUpperCase() + name.slice(1)
-										: "Bot"}
-									:
+									{chat.name === "user" ? (
+										<div className="flex gap-1 rounded-full bg-[#079DFC33] bg-opacity-20 px-4 py-1">
+											{name.charAt(0).toUpperCase() + name.slice(1)}
+										</div>
+									) : (
+										<div className="flex gap-1 rounded-full bg-[#72EFDD] bg-opacity-20 px-4 py-1">
+											<Image
+												src={CentroxWhiteLogo}
+												alt="sorry"
+												className="w-3"
+											/>
+											Bot
+										</div>
+									)}
 								</span>{" "}
-								{chat.message}
+								<div
+									key={index}
+									className={classNames(
+										"flex items-center min-w-44 max-w-fit p-4 text-white justify-start rounded-2xl mt-1.5 mr-2",
+										chat?.name === "user"
+											? "bg-[#079DFC33] bg-opacity-20 rounded-tr-none"
+											: "bg-[#72EFDD] bg-opacity-20 rounded-tl-none",
+									)}
+								>
+									{chat.message}
+								</div>
 							</div>
 						))}
 					</div>
