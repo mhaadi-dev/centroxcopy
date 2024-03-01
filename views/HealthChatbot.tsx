@@ -43,7 +43,6 @@ function StepperCom() {
 	const [error, setError] = useState("");
 	const [msg, setMsg] = useState<string>("");
 	const [isLoading, setIsLoading] = useState<boolean>(false);
-	const [fileSuccess, setFileSuccess] = useState(false);
 	const [message, setMessage] = useState("");
 	const [userChat, setUserChat] = useState<any[]>([]);
 
@@ -65,15 +64,17 @@ function StepperCom() {
 			if (!message) {
 				throw new Error("Message is missing.");
 			}
-
+			const queryParams = new URLSearchParams({
+				user_id: name
+			});
 			const response = await fetch(
-				`${HEALTH_CHATBOT_API_BASE}chatbot`,
+				`${HEALTH_CHATBOT_API_BASE}chatbot?${queryParams}`,
 				{
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ input_text: message }),
+					body: JSON.stringify({user_id:name, input_text: message }),
 				},
 			);
 
@@ -87,7 +88,7 @@ function StepperCom() {
 			setUserChat([
 				...userChat,
 				{ name: "user", message: message },
-				{ name: "chatbot", message: responseData.Response },
+				{ name: "chatbot", message: responseData.response },
 			]);
 			setMessage("");
 		} catch (error) {
