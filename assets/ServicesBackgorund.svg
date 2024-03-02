@@ -1,23 +1,23 @@
 <svg width="1920" height="1529" viewBox="0 0 1920 1529" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_426_3825)">
-<rect width="1920" height="1529" fill="#121212"/>
+<g clip-path="url(#clip0_1578_14540)">
+<rect width="1920" height="1529" fill="#060606"/>
 <path opacity="0.2" d="M-117.632 664.218L1770.74 1583.65" stroke="white" stroke-width="1.2616"/>
-<path opacity="0.2" d="M-228.713 718.302L1659.66 1637.73" stroke="white" stroke-width="1.2616"/>
+<path opacity="0.2" d="M-228.712 718.302L1659.66 1637.73" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-339.793 772.386L1548.58 1691.82" stroke="white" stroke-width="1.2616"/>
-<path opacity="0.2" d="M-450.874 826.47L1437.5 1745.9" stroke="white" stroke-width="1.2616"/>
+<path opacity="0.2" d="M-450.874 826.47L1437.49 1745.9" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-561.954 880.554L1326.41 1799.98" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-673.034 934.638L1215.33 1854.07" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-784.114 988.723L1104.25 1908.15" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-895.196 1042.81L993.173 1962.24" stroke="white" stroke-width="1.2616"/>
-<path opacity="0.2" d="M-1006.28 1096.89L882.092 2016.32" stroke="white" stroke-width="1.2616"/>
-<path opacity="0.2" d="M-1117.36 1150.98L771.013 2070.41" stroke="white" stroke-width="1.2616"/>
+<path opacity="0.2" d="M-1006.28 1096.89L882.093 2016.32" stroke="white" stroke-width="1.2616"/>
+<path opacity="0.2" d="M-1117.36 1150.98L771.012 2070.41" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-1228.44 1205.06L659.932 2124.49" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-1339.52 1259.14L548.852 2178.57" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-1450.6 1313.23L437.771 2232.66" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-1561.68 1367.31L326.69 2286.74" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-1672.76 1421.4L215.609 2340.83" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M-1783.84 1475.48L104.529 2394.91" stroke="white" stroke-width="1.2616"/>
-<path opacity="0.2" d="M104.53 772.386L-1783.84 1691.82" stroke="white" stroke-width="1.2616"/>
+<path opacity="0.2" d="M104.529 772.386L-1783.84 1691.82" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M215.61 826.47L-1672.76 1745.9" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M326.69 880.554L-1561.68 1799.98" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M437.771 934.638L-1450.6 1854.07" stroke="white" stroke-width="1.2616"/>
@@ -25,7 +25,7 @@
 <path opacity="0.2" d="M659.932 1042.81L-1228.44 1962.24" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M771.012 1096.89L-1117.36 2016.32" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M882.071 1150.98L-1006.3 2070.41" stroke="white" stroke-width="1.2616"/>
-<path opacity="0.2" d="M993.151 1205.06L-895.217 2124.49" stroke="white" stroke-width="1.2616"/>
+<path opacity="0.2" d="M993.151 1205.06L-895.218 2124.49" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M1104.23 1259.14L-784.137 2178.57" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M1215.31 1313.23L-673.056 2232.66" stroke="white" stroke-width="1.2616"/>
 <path opacity="0.2" d="M1326.39 1367.31L-561.976 2286.74" stroke="white" stroke-width="1.2616"/>
@@ -33,7 +33,7 @@
 <path opacity="0.2" d="M1548.55 1475.48L-339.815 2394.91" stroke="white" stroke-width="1.2616"/>
 </g>
 <defs>
-<clipPath id="clip0_426_3825">
+<clipPath id="clip0_1578_14540">
 <rect width="1920" height="1529" fill="white"/>
 </clipPath>
 </defs>

@@ -1,11 +1,13 @@
+"use client"
 import { HealthChatbotView } from "@/views/HealthChatbot";
-import LandingLayout from "../layoutPage";
+import { Navbar } from "@/Components/Navbar/navbar";
 
 const MentalHealthChatbot = () => {
 	return (
-		<LandingLayout>
+		<>
+			<Navbar />
 			<HealthChatbotView />
-		</LandingLayout>
+		</>
 	);
 };
 
