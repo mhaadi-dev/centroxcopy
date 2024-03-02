@@ -1,4 +1,4 @@
-import BackgroundImage from "@/assets/Services BackGround.png";
+import BackgroundImage from "@/assets/ServicesLines.svg";
 import DataCurationImage from "@/assets/DataCuration.png";
 import DataLabelingImage from "../assets/DataLabelling.png";
 import CustomDataImage from "@/assets/CustomDataWorkflow.png";
@@ -194,7 +194,7 @@ export const Section3 = () => {
 					}}
 				/>
 			</div>
-			<section className="relative py-12 overflow-hidden bg-gray-charcoal sm:py-16 lg:py-20 3xl:px-[15%]">
+			<section className="relative py-12 overflow-hidden bg-black sm:py-16 lg:py-20 3xl:px-[15%]">
 				<div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
 					<Image className="w-auto" src={BackgroundImage as never} alt="" />
 				</div>
