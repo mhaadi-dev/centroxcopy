@@ -210,7 +210,7 @@ const PageFooter = () => {
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
-								setShowToast(!showToast);
+								router.push("/aiExpert");
 							}}
 						>
 							Talk to an Expert
