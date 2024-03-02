@@ -3,10 +3,15 @@ import DataCurationImage from "@/assets/DataCuration.png";
 import DataLabelingImage from "../assets/DataLabelling.png";
 import CustomDataImage from "@/assets/CustomDataWorkflow.png";
 import BuildingAi from "@/assets/BuildingAI.png";
+import ArrowIcon from "@/assets/POCArrow.svg";
+import ModDev2 from "@/assets/ModDev2.webp";
+import ModDev3 from "@/assets/ModDev3.webp";
+import AIDev2 from "@/assets/AI2.webp";
+import AIDev3 from "@/assets/AI3.webp";
 import DeployingAi from "@/assets/DeployingAI.png";
 import Arrow from "@/assets/RightArrow.svg";
 
-import { ReactEventHandler, useState } from "react";
+import { ReactEventHandler, useCallback, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
 import classNames, { generateBlurDataURL } from "@/helpers/common";
 import Image from "next/image";
@@ -14,6 +19,8 @@ import { Toast } from "@/Components/Toast/toast";
 interface GradientCardProps {
 	title: string;
 	description: string;
+	showHoverState?: boolean;
+	hoveredCard?: number;
 	onMouseEnter?: ReactEventHandler;
 	onMouseLeave?: ReactEventHandler;
 	onClick?: () => void;
@@ -25,18 +32,31 @@ const GradientCard: React.FC<GradientCardProps> = ({
 	onMouseEnter,
 	onMouseLeave,
 	onClick,
+	showHoverState,
+	hoveredCard,
 }) => (
 	<div
-		className="rounded-2xl border border-solid border-blue-500 bg-blue-gradient  flex flex-col gap-3 p-5 mt-10 box-shadow-initial cursor-pointer border-opacity-50 hover:border-opacity-100 hover:border-2"
+		className={classNames(
+			"rounded-xl  flex flex-col gap-3 p-5 mt-10 cursor-pointer",
+		)}
 		style={{
 			background:
 				"radial-gradient(88.47% 182.54% at 0% 0%, rgba(6, 119, 230, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
+			boxShadow: showHoverState
+				? "0px 0px 15px 6px rgba(6, 119, 230, 0.4)"
+				: "",
+			border: "2px solid rgba(6, 119, 230, 0.2)",
 		}}
 		onMouseEnter={onMouseEnter}
 		onMouseLeave={onMouseLeave}
 		onClick={() => onClick?.()}
 	>
-		<span className="text-xl md:text-3xl text-white font-bold">{title}</span>
+		<div className="flex justify-between items-center">
+			<span className="text-xl md:text-3xl text-white font-bold">{title}</span>
+			{hoveredCard !== 0 && showHoverState && (
+				<Image src={ArrowIcon} alt="" className="w-9" />
+			)}
+		</div>
 		<span className="text-md md:text-xl text-white-offWhite font-normal">
 			{description}
 		</span>
@@ -114,14 +134,24 @@ export const Section3 = () => {
 		{ name: "Model Dev", href: "#", current: false },
 		{ name: "MLOps", href: "#", current: false },
 	]);
-	const [hoveredCard, setHoveredCard] = useState<number>(1);
+	const [lastHoveredCard, setLastHoveredCard] = useState<number>(1);
+	const [currentHoverCard, setCurrentHoverCard] = useState<number>(0);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
-	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
+
+	const handleMouseEnter = useCallback((cardNumber: number) => {
+		setLastHoveredCard(cardNumber);
+		setCurrentHoverCard(cardNumber);
+	}, []);
+
+	const handleMouseLeave = useCallback((cardNumber: number) => {
+		setLastHoveredCard(cardNumber);
+		setCurrentHoverCard(0);
+	}, []);
 
 	const handleImageLoad = async () => {
-		if (!blurDataURLs[hoveredCard]) {
+		if (!blurDataURLs[currentHoverCard]) {
 			let imageUrl = "";
-			switch (hoveredCard) {
+			switch (currentHoverCard) {
 				case 3:
 					imageUrl = CustomDataImage.src;
 					break;
@@ -135,20 +165,17 @@ export const Section3 = () => {
 			const blurredBase64 = await generateBlurDataURL(imageUrl);
 			setBlurDataURLs((prevBlurDataURLs) => ({
 				...prevBlurDataURLs,
-				[hoveredCard]: blurredBase64,
+				[currentHoverCard]: blurredBase64,
 			}));
-		}
-	};
-	const singleImageLoad = async (imageSrc: string) => {
-		if (!blurDataURL) {
-			const blurredBase64 = await generateBlurDataURL(imageSrc);
-			setBlurDataURL(blurredBase64);
 		}
 	};
 
 	return (
 		<>
-			<div className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60" id="services">
+			<div
+				className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60"
+				id="services"
+			>
 				<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
 					Accelerate <span className="font-semibold">AI Deployment</span> with
 					Lighting <span className="font-semibold">Fast</span> Annotation
@@ -175,10 +202,11 @@ export const Section3 = () => {
 				<div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
 					<div className="container mx-auto">
 						<div
-							className="border-2 border-blue-azure text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] shadow-2xl border-opacity-40"
+							className="text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] border-opacity-40"
 							style={{
 								backdropFilter: "blur(10px)",
 								background: "rgba(5, 110, 225, 0.03)",
+								boxShadow: "0px 0px 14px 0px rgba(5, 110, 225, 0.3)",
 							}}
 						>
 							<Tabs tabs={tabs} setTabs={setTabs} />
@@ -219,8 +247,10 @@ export const Section3 = () => {
 															? "Design state of the art algorithm or enhance your existing architecture."
 															: "Name the technology and we will serve your model the right way."
 													}
-													onMouseEnter={() => setHoveredCard(1)}
-													onMouseLeave={() => setHoveredCard(0)}
+													showHoverState={lastHoveredCard === 1}
+													hoveredCard={currentHoverCard}
+													onMouseEnter={() => handleMouseEnter(1)}
+													onMouseLeave={() => handleMouseLeave(1)}
 													onClick={() => {
 														setShowToast(!showToast);
 													}}
@@ -240,8 +270,10 @@ export const Section3 = () => {
 															? "Build your model in an accustomed AI Environment ready to improve."
 															: "Deploy your model On-premise or want us to set up your ML-Cloud?"
 													}
-													onMouseEnter={() => setHoveredCard(2)}
-													onMouseLeave={() => setHoveredCard(0)}
+													showHoverState={lastHoveredCard === 2}
+													hoveredCard={currentHoverCard}
+													onMouseEnter={() => handleMouseEnter(2)}
+													onMouseLeave={() => handleMouseLeave(2)}
 													onClick={() => {
 														setShowToast(!showToast);
 													}}
@@ -261,8 +293,10 @@ export const Section3 = () => {
 															? "Train your model for experiments and analysis."
 															: "We can help optimize your model to perform in less time with better results."
 													}
-													onMouseEnter={() => setHoveredCard(3)}
-													onMouseLeave={() => setHoveredCard(0)}
+													showHoverState={lastHoveredCard === 3}
+													hoveredCard={currentHoverCard}
+													onMouseEnter={() => handleMouseEnter(3)}
+													onMouseLeave={() => handleMouseLeave(3)}
 													onClick={() => {
 														setShowToast(!showToast);
 													}}
@@ -270,47 +304,61 @@ export const Section3 = () => {
 											</div>
 										),
 								)}
-								<div className="flex items-center h-full sm:mt-10 py-5">
+							<div className="flex items-end">
+							<div className="flex items-end lg:h-[80%] sm:mt-10 py-5">
 									{tabs[0]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-9 3xl:mt-14"
+											className="w-full h-[100%]"
 											loading="eager"
 											src={
-												hoveredCard === 3
+												lastHoveredCard === 3
 													? CustomDataImage
-													: hoveredCard === 2
+													: lastHoveredCard === 2
 													? DataLabelingImage
 													: DataCurationImage
 											}
 											alt=""
 											placeholder="blur"
 											onLoad={handleImageLoad}
-											blurDataURL={blurDataURLs[hoveredCard]}
+											blurDataURL={blurDataURLs[currentHoverCard]}
 										/>
 									)}
 									{tabs[1]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-9 3xl:mt-14"
-											src={BuildingAi}
+											className="w-full h-[100%] lg:pt-3"
+											src={
+												lastHoveredCard === 3
+													? ModDev3
+													: lastHoveredCard === 2
+													? ModDev2
+													: BuildingAi
+											}
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={() => singleImageLoad(BuildingAi.src)}
-											blurDataURL={blurDataURL}
+											onLoad={handleImageLoad}
+											blurDataURL={blurDataURLs[currentHoverCard]}
 										/>
 									)}
 									{tabs[2]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-9 3xl:mt-14"
-											src={DeployingAi}
+											className="w-full h-[100%] lg:pt-2"
+											src={
+												lastHoveredCard === 3
+													? AIDev3
+													: lastHoveredCard === 2
+													? AIDev2
+													: DeployingAi
+											}
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={() => singleImageLoad(DeployingAi.src)}
-											blurDataURL={blurDataURL}
+											onLoad={handleImageLoad}
+											blurDataURL={blurDataURLs[currentHoverCard]}
 										/>
 									)}
 								</div>
+							</div>
 							</div>
 						</div>
 					</div>
