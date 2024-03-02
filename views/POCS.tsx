@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import { ReactEventHandler, useCallback, useEffect, useState } from "react";
+import { ReactEventHandler, useCallback, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
 import classNames, { generateBlurDataURL } from "@/helpers/common";
 import POC1Image from "@/assets/FPOC.webp";
@@ -38,14 +38,18 @@ const GradientTab: React.FC<GradientCardProps> = ({
 			onClick={() => onClick?.()}
 			className={classNames(
 				"rounded-lg text-white font-bold text-xl md:text-3xl p-10 cursor-pointer flex justify-between items-center",
-				showHoverState &&
-					"order-opacity-50 border-opacity-80 shadow-md shadow-blue-azure border-2 border-blue-500",
+				// showHoverState &&
+				// 	"order-opacity-50 border-opacity-80 shadow-md shadow-blue-azure border-2 border-blue-500",
 			)}
 			style={{
 				background: isLeftGradient
 					? "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)"
 					: "radial-gradient(112.77% 124.52% at 0% 0%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
 				backdropFilter: "blur(18px)",
+				boxShadow: showHoverState
+				? "0px 0px 15px 8px rgba(3, 34, 182, 0.4)"
+				: "",
+			border: "1px solid rgba(3, 34, 182, 0.2)"
 			}}
 		>
 			{tabName}
@@ -78,9 +82,9 @@ export const POCS = () => {
 	}, [showToast]);
 
 	const handleImageLoad = async () => {
-		if (!blurDataURLs[lastHoveredCard]) {
+		if (!blurDataURLs[currentHoverCard]) {
 			let imageUrl = "";
-			switch (lastHoveredCard) {
+			switch (currentHoverCard) {
 				case 2:
 					imageUrl = POCImage2.src;
 					break;
@@ -97,14 +101,10 @@ export const POCS = () => {
 			const blurredBase64 = await generateBlurDataURL(imageUrl);
 			setBlurDataURLs((prevBlurDataURLs) => ({
 				...prevBlurDataURLs,
-				[lastHoveredCard]: blurredBase64,
+				[currentHoverCard]: blurredBase64,
 			}));
 		}
 	};
-
-	useEffect(() => {
-		console.log("Last hovered card is", lastHoveredCard);
-	}, [lastHoveredCard]);
 
 	return (
 		<div
@@ -124,62 +124,6 @@ export const POCS = () => {
 			</div>
 
 			<div className=" w-[90%] grid grid-cols-1 lg:flex justify-between mt-14 gap-10 sm:gap-0">
-				{/* <div className="flex flex-col gap-4 justify-between w-full lg:w-[35%] py-6">
-					<GradientTab
-						tabName="Snap and Measurement"
-						hoveredCard={hoveredCard}
-						onMouseEnter={() => setHoveredCard(1)}
-						showHoverState={lastHoveredCard === 1}
-						onMouseLeave={() => {
-							setHoveredCard(0);
-							setLastHoveredCard(1);
-						}}
-						onClick={() => {
-							setShowToast(!showToast);
-						}}
-					/>
-					<GradientTab
-						tabName="Smart Chatbot"
-						hoveredCard={hoveredCard}
-						isLeftGradient
-						showHoverState={lastHoveredCard === 2}
-						onMouseEnter={() => setHoveredCard(2)}
-						onMouseLeave={() => {
-							setHoveredCard(0);
-							setLastHoveredCard(2);
-						}}
-						onClick={() => {
-							router.push("/chatbotRealEstate");
-						}}
-					/>
-					<GradientTab
-						tabName="Labeling Dresses with AI"
-						hoveredCard={hoveredCard}
-						showHoverState={lastHoveredCard === 3}
-						onMouseEnter={() => setHoveredCard(3)}
-						onMouseLeave={() => {
-							setHoveredCard(0);
-							setLastHoveredCard(3);
-						}}
-						onClick={() => {
-							setShowToast(!showToast);
-						}}
-					/>
-					<GradientTab
-						tabName="LLM Based Health Chatbot"
-						hoveredCard={hoveredCard}
-						isLeftGradient
-						showHoverState={lastHoveredCard === 4}
-						onMouseEnter={() => setHoveredCard(4)}
-						onMouseLeave={() => {
-							setHoveredCard(0);
-							setLastHoveredCard(4);
-						}}
-						onClick={() => {
-							router.push("/healthChatbot");
-						}}
-					/>
-				</div> */}
 				<div className="flex flex-col gap-4 justify-between w-full lg:w-[35%] py-6">
 					<GradientTab
 						tabName="Snap and Measurement"
@@ -228,7 +172,7 @@ export const POCS = () => {
 								: POC1Image
 						}
 						alt="sorry"
-						className="w-auto h-full p-4"
+						className="w-auto h-full py-4 px-12"
 						placeholder="blur"
 						onLoad={handleImageLoad}
 						blurDataURL={blurDataURLs[lastHoveredCard]}
