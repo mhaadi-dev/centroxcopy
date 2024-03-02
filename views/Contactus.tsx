@@ -298,7 +298,7 @@ interface InputProps {
 	id: string;
 	placeholder?: string;
 	type?: string;
-	autoComplete: string;
+	autoComplete?: string;
 	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 	value: string;
 	onBlur?: (
@@ -326,9 +326,11 @@ export const Input: React.FC<InputProps> = ({
 	children,
 	placeholder,
 }) => {
-	const [val, setVal] = useState<string>(value); // Removed unnecessary useEffect
+	const [val, setVal] = useState<string>("");
 	const [error, setError] = useState<string>("");
-
+	useEffect(() => {
+		setVal(value);
+	  }, [value]);
 	const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
 		if (!val && isOptional) {
 			setError(`${label || name} is required`);
