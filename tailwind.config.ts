@@ -15,6 +15,8 @@ const config: Config = {
 					charcoal: "#121212",
 					dark: "#181818",
 					light: "#D1D5DB",
+					cool:"#E5E7EB",
+					disabled:"#6B6B6B"
 				},
 				blue: {
 					azure: "#056EE1",
