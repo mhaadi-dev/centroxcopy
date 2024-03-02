@@ -4,6 +4,10 @@ import DataLabelingImage from "../assets/DataLabelling.png";
 import CustomDataImage from "@/assets/CustomDataWorkflow.png";
 import BuildingAi from "@/assets/BuildingAI.png";
 import ArrowIcon from "@/assets/POCArrow.svg";
+import ModDev2 from "@/assets/ModDev2.webp";
+import ModDev3 from "@/assets/ModDev3.webp";
+import AIDev2 from "@/assets/AI2.webp";
+import AIDev3 from "@/assets/AI3.webp";
 import DeployingAi from "@/assets/DeployingAI.png";
 import Arrow from "@/assets/RightArrow.svg";
 
@@ -130,11 +134,9 @@ export const Section3 = () => {
 		{ name: "Model Dev", href: "#", current: false },
 		{ name: "MLOps", href: "#", current: false },
 	]);
-	const [hoveredCard, setHoveredCard] = useState<number>(1);
 	const [lastHoveredCard, setLastHoveredCard] = useState<number>(1);
 	const [currentHoverCard, setCurrentHoverCard] = useState<number>(0);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
-	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
 
 	const handleMouseEnter = useCallback((cardNumber: number) => {
 		setLastHoveredCard(cardNumber);
@@ -165,12 +167,6 @@ export const Section3 = () => {
 				...prevBlurDataURLs,
 				[currentHoverCard]: blurredBase64,
 			}));
-		}
-	};
-	const singleImageLoad = async (imageSrc: string) => {
-		if (!blurDataURL) {
-			const blurredBase64 = await generateBlurDataURL(imageSrc);
-			setBlurDataURL(blurredBase64);
 		}
 	};
 
@@ -210,8 +206,7 @@ export const Section3 = () => {
 							style={{
 								backdropFilter: "blur(10px)",
 								background: "rgba(5, 110, 225, 0.03)",
-								boxShadow: "0px 0px 14px 0px rgba(5, 110, 225, 0.3)"
-
+								boxShadow: "0px 0px 14px 0px rgba(5, 110, 225, 0.3)",
 							}}
 						>
 							<Tabs tabs={tabs} setTabs={setTabs} />
@@ -309,10 +304,11 @@ export const Section3 = () => {
 											</div>
 										),
 								)}
-								<div className="flex items-center h-full sm:mt-10 py-5">
+							<div className="flex items-end">
+							<div className="flex items-end lg:h-[80%] sm:mt-10 py-5">
 									{tabs[0]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-9 3xl:mt-14"
+											className="w-full h-[100%]"
 											loading="eager"
 											src={
 												lastHoveredCard === 3
@@ -324,32 +320,45 @@ export const Section3 = () => {
 											alt=""
 											placeholder="blur"
 											onLoad={handleImageLoad}
-											blurDataURL={blurDataURLs[hoveredCard]}
+											blurDataURL={blurDataURLs[currentHoverCard]}
 										/>
 									)}
 									{tabs[1]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-9 3xl:mt-14"
-											src={BuildingAi}
+											className="w-full h-[100%] lg:pt-3"
+											src={
+												lastHoveredCard === 3
+													? ModDev3
+													: lastHoveredCard === 2
+													? ModDev2
+													: BuildingAi
+											}
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={() => singleImageLoad(BuildingAi.src)}
-											blurDataURL={blurDataURL}
+											onLoad={handleImageLoad}
+											blurDataURL={blurDataURLs[currentHoverCard]}
 										/>
 									)}
 									{tabs[2]?.current && (
 										<Image
-											className="w-full h-auto lg:mt-9 3xl:mt-14"
-											src={DeployingAi}
+											className="w-full h-[100%] lg:pt-2"
+											src={
+												lastHoveredCard === 3
+													? AIDev3
+													: lastHoveredCard === 2
+													? AIDev2
+													: DeployingAi
+											}
 											alt=""
 											loading="eager"
 											placeholder="blur"
-											onLoad={() => singleImageLoad(DeployingAi.src)}
-											blurDataURL={blurDataURL}
+											onLoad={handleImageLoad}
+											blurDataURL={blurDataURLs[currentHoverCard]}
 										/>
 									)}
 								</div>
+							</div>
 							</div>
 						</div>
 					</div>
