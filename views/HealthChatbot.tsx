@@ -2,35 +2,39 @@
 import { Button } from "@/Components/Button.js/button";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "./Contactus";
 import classNames from "@/helpers/common";
 import { HEALTH_CHATBOT_API_BASE } from "@/config/secret";
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import CentroxWhiteLogo from "@/assets/centroxLogo.svg";
+import MsgSend from "@/assets/msgSendGray.svg";
+import MsgSendActivate from "@/assets/msgSendWhite.svg";
+
 export const HealthChatbotView = () => {
 	return (
-		<div className="bg-black">
+		<div className="bg-black overflow-y-auto">
 			<div
-				className="relative overflow-hidden"
+				className="relative overflow-x-hidden "
 				style={{
 					background:
-						"radial-gradient(88.47% 182.54% at 0% 0%, rgba(7, 157, 252, 0.2) 0%, rgba(7, 157, 252, 0) 100%), rgba(6, 6, 6, 1)",
+						"radial-gradient(62.17% 53.99% at 0% 0%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), radial-gradient(61.14% 51.41% at 100% 77%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), #060606",
 					backgroundPosition: "center",
 					backgroundSize: "cover",
 					backgroundRepeat: "no-repeat",
 				}}
 			>
 				<Image src={Lines} alt="sorry" className="h-screen w-full" />
-				<div className="absolute inset-0 flex flex-col items-center justify-center">
+				<div className="absolute inset-0 flex flex-col items-center justify-center mt-32 lg:mt-36">
 					<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
-						Smart Chat bot Agent
+						Mental Health Chat-bot
+						<br /> Companion
 					</div>
 					<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold text-center w-[85%] lg:w-[55%] 3xl:w-[40%] mt-8">
 						Mental health support, anytime, anywhere. Chat with our AI mental
 						health assistant and gain resources to manage your well-being.
 					</div>
-					<div className="mt-8">
+					<div className="mt-8 px-5 lg:px-0 pb-10">
 						<StepperCom />
 					</div>
 				</div>
@@ -47,7 +51,6 @@ function StepperCom() {
 	const [message, setMessage] = useState("");
 	const [userChat, setUserChat] = useState<any[]>([]);
 
-	
 	const handlePrev = () => {
 		if (activeStep > 0) {
 			setActiveStep(activeStep - 1);
@@ -60,10 +63,10 @@ function StepperCom() {
 		}
 	};
 
-	const chatBotPrompts = async () => {
+	const chatBotPrompts = async (chatmsg = "") => {
 		setIsLoading(true);
 		try {
-			if (!message) {
+			if (!message && !chatmsg) {
 				throw new Error("Message is missing.");
 			}
 			const queryParams = new URLSearchParams({
@@ -76,7 +79,10 @@ function StepperCom() {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify({ user_id: name, input_text: message }),
+					body: JSON.stringify({
+						user_id: name,
+						input_text: message || chatmsg,
+					}),
 				},
 			);
 
@@ -89,7 +95,7 @@ function StepperCom() {
 			console.log("Response of prompt is", responseData);
 			setUserChat([
 				...userChat,
-				{ name: "user", message: message },
+				{ name: "user", message: message||chatmsg },
 				{ name: "chatbot", message: responseData.response },
 			]);
 			setMessage("");
@@ -97,40 +103,58 @@ function StepperCom() {
 			console.error("Error submitting form data:", error);
 			setError("There is a problem submitting your request");
 			setIsLoading(false);
+			setMessage("");
 		}
 	};
+useEffect(() => {
+console.log("Messafe is",message)
+}, [message])
 
 	return (
-		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col h-full  lg:w-[48rem] lg:h-[32rem] lg:overflow-y-auto">
+		<div
+			className="py-10 gap-10 flex flex-col items-center h-full sm:w-[35rem] lg:w-[50rem]"
+			style={{
+				borderRadius: "48px",
+				background: "rgba(6, 6, 6, 0.10)",
+				boxShadow: "0px 0px 17px 0px rgba(7, 157, 252, 0.40)",
+				backdropFilter: "blur(6px)",
+			}}
+		>
 			{userChat?.length <= 0 && (
-				<div className="w-full py-4 px-8">
-					<div className="w-full  px-8 py-4">
+				<div className="w-[80%]  px-2 lg:px-12">
+					<div className="w-full px-8">
 						<div className="relative flex items-center justify-between w-full">
 							<div className="absolute left-0 -mt-2 top-2/4 h-0.5 w-full -translate-y-full bg-gray-300"></div>
 							<div
-								className="absolute left-0 top-2/4 -mt-2 h-1 sm:h-2 w-full -translate-y-full bg-blue-azure transition-all duration-500 rounded-md"
+								className="absolute left-0 top-2/4 -mt-1.5 h-1 sm:h-2 w-full -translate-y-full bg-blue-azure transition-all duration-500 rounded-md"
 								style={{ width: `${(activeStep + 1) * (100 / 2)}%` }}
 							></div>
 							<div className="flex flex-col justify-center items-start">
 								<div
-									className={`relative z-10 grid w-10 h-10 lg:w-20 lg:h-20 font-bold -ml-1 j text-white transition-all duration-300 ${
+									className={`relative z-10 grid w-12 h-12 lg:w-20 lg:h-20 font-bold -ml-1 j text-white transition-all duration-300 ${
 										activeStep >= 0 ? "bg-blue-azure" : "bg-gray-900"
 									} rounded-full place-items-center step`}
-									// onClick={() => setActiveStep(0)}
+									onClick={() => {
+										if (name) {
+											setActiveStep(0);
+										}
+									}}
 								>
 									1
 								</div>
-								<div className="text-xs text-white mt-2">Enter Your Name</div>{" "}
+								<div className="text-xs text-white mt-2 -ml-6 lg:-ml-2">
+									Enter Your Name
+								</div>{" "}
 							</div>
 							<div className="flex flex-col justify-center items-end">
 								<div
-									className={`relative z-10 grid w-10 h-10 lg:w-20 lg:h-20 -mr-1 font-bold text-white transition-all duration-300 ${
+									className={`relative z-10 grid w-12 h-12 lg:w-20 lg:h-20 -mr-1 font-bold text-white transition-all duration-300 ${
 										activeStep === 2 ? "bg-blue-azure" : "bg-gray-900"
 									} rounded-full place-items-center step`}
 								>
 									2
 								</div>
-								<div className="text-xs text-white mt-2">
+								<div className="text-xs text-white mt-2 -mr-7 lg:-mr-4">
 									Input your Inquiry
 								</div>{" "}
 							</div>
@@ -138,73 +162,120 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
+			{userChat?.length <= 0 && (
+				<div className="px-8 lg:px-0">
+					<div
+						className="flex flex-col gap-4 justify-center items-center py-5 w-full text-white"
+						style={{
+							borderRadius: "24px",
+							background:
+								"radial-gradient(63.05% 132.04% at 50.07% -40.41%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), rgba(0, 0, 0, 0.10)",
+							boxShadow: "0px 0px 5px 10px rgba(7, 157, 252, 0.10)",
+						}}
+					>
+						<Image src={CentroxWhiteLogo} alt="" className="w-12" />
+						<div className="flex flex-col gap-1 items-center justify-center text-center">
+							<div className="text-lg sm:text-xl lg:text-2xl px-4 lg:px-0">
+								Welcome! How can I assist you today?
+							</div>
+							<div className="text-gray-300 text-xs sm:text-sm lg:text-md px-[10%] text-center">
+								If you have questions, need help, or just want to chat, I'm here
+								to help. Feel free to ask me anything!
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+			{activeStep === 1 && userChat?.length <= 0 && (
+				<div className="grid grid-cols-1 gap-5 lg:grid-cols-2 w-full px-12">
+					<Card
+						title="Understanding mental health:"
+						description="Learn about mental health and why it's important."
+						onCardClick={() => {
+							chatBotPrompts("Tell me about mental health");
+						}}
+					/>
+					<Card
+						title="Self-Care Tips:"
+						description="Discover simple ways to improve your mental health."
+						onCardClick={() => {
+							chatBotPrompts("Simple ways to improve your mental health");
+						}}
+					/>
+					<Card
+						title="Finding Support:"
+						description="Find professional help and support resources..."
+						onCardClick={() => {
+							chatBotPrompts(
+								"Find professional help and support resources for mental health",
+							);
+						}}
+					/>
+					<Card
+						title="Building Resilience:"
+						description="Learn how to cope with challenges and build..."
+						onCardClick={() => {
+							chatBotPrompts(
+								"Tell me how to cope with challenges and build my mental health",
+							);
+						}}
+					/>
+				</div>
+			)}
 			{activeStep === 0 && userChat?.length <= 0 && (
-				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
+				<div className="text-white flex flex-col justify-center h-full gap-10 px-5 lg:px-14 w-full lg:w-[47rem]">
 					<Input
-						label="First name"
+						placeholder="Enter your name here"
 						name="firstName"
 						id="first-name"
 						type="text"
-						autoComplete="given-name"
 						onChange={({ target }) => setName(target.value)}
 						value={name}
-					/>
-					<div className="flex w-full justify-end">
+					>
 						<Button
-							content="Next"
+							Icon={!name ? MsgSend : MsgSendActivate}
 							onClick={handleNext}
 							isDisabled={!name}
-							className="w-28 !rounded-full"
+							iconClassName="ml-4"
+							className="flex items-center justify-center !px-1 !py-1"
 						/>
-					</div>
+					</Input>
 				</div>
 			)}
 
 			{activeStep === 1 && userChat?.length <= 0 && (
-				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
-					<div className="sm:col-span-2">
-						<label
-							htmlFor="message"
-							className="block text-lg font-semibold leading-6  text-white"
-						>
-							Ask me anything <br />
-							<span className="text-gray-400 text-sm">
-								Tell us mental health questions and inquires here.
-							</span>
-						</label>
-						<div className="mt-2.5">
-							<textarea
-								name="message"
-								id="message"
-								rows={4}
-								className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6 ${"focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"}`}
-								onChange={({ target }) => setMessage(target.value)}
-								value={message}
-							/>
-						</div>
-					</div>
-					<div className="flex w-full justify-between">
+				<div className="text-white flex flex-col justify-center h-full gap-10 px-5 lg:px-14 w-full lg:w-[51rem]">
+					<Input
+						name="message"
+						id="message"
+						placeholder="Type your message here"
+						type="text"
+						autoComplete="given-name"
+						onChange={({ target }) => setMessage(target.value)}
+						value={message}
+					>
 						<Button
-							content="Prev"
-							onClick={handlePrev}
-							className="w-28 !rounded-full"
-						/>
-
-						<Button
-							content="Next"
-							isLoading={isLoading}
+							Icon={
+								!isLoading && !message ? MsgSend : !isLoading && MsgSendActivate
+							}
 							onClick={chatBotPrompts}
+							isLoading={isLoading}
 							isDisabled={!message}
-							className="w-28 !rounded-full"
+							iconClassName="ml-4"
+							className={classNames(
+								"flex items-center justify-center",
+								isLoading?"!px-2 !py-2":"!px-1 !py-1"
+							)}
 						/>
-					</div>
+					</Input>
 				</div>
 			)}
 			{userChat?.length > 0 && (
-				<div className="relative h-96">
+				<div className="relative w-full h-96">
 					<div className="absolute inset-0 overflow-auto pb-16 w-full h-full px-4">
 						{userChat?.map((chat, index) => (
 							<div
+								key={index}
 								className={classNames(
 									"flex flex-col",
 									chat?.name === "user" ? "items-end" : "items-start",
@@ -248,25 +319,30 @@ function StepperCom() {
 				</div>
 			)}
 			{userChat?.length > 0 && (
-				<div className=" w-full px-4">
+				<div className=" w-full px-4 lg:[45rem]">
 					<Input
-						label="Type Another Inquire/Response"
-						name="prompt"
-						id="prompt"
+						name="message"
+						id="message-2"
+						placeholder="Type your message here"
 						type="text"
 						autoComplete="given-name"
 						onChange={({ target }) => setMessage(target.value)}
 						value={message}
-					/>
-					<div className="flex w-full justify-end mt-2">
+					>
 						<Button
-							content="Submit"
+							Icon={
+								!isLoading && !message ? MsgSend : !isLoading && MsgSendActivate
+							}
+							onClick={chatBotPrompts}
 							isDisabled={!message}
 							isLoading={isLoading}
-							onClick={chatBotPrompts}
-							className="!rounded-full w-28"
+							iconClassName="ml-4"
+							className={classNames(
+								"flex items-center justify-center",
+								isLoading?"!px-2 !py-2":"!px-1 !py-1"
+							)}
 						/>
-					</div>
+					</Input>
 				</div>
 			)}
 			<AlertOverlay
@@ -284,3 +360,13 @@ function StepperCom() {
 		</div>
 	);
 }
+
+const Card = ({ title, description, onCardClick }: any) => (
+	<div
+		className="flex flex-col rounded-lg h-fit p-2 gap-2 border border-gray-cool hover:cursor-pointer hover:bg-gray-800"
+		onClick={() => onCardClick?.()}
+	>
+		<div className="text-white text-sm font-semibold">{title}</div>
+		<div className="text-gray-400 text-xs">{description}</div>
+	</div>
+);

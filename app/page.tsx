@@ -61,7 +61,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div className="flex min-h-screen flex-col bg-gray-charcoal overflow-x-hidden gap-10">
+		<div className="flex min-h-screen flex-col bg-black overflow-x-hidden gap-10">
 			<Navbar />
 			<VideoComponent />
 			<LogosCarousel />
@@ -106,7 +106,7 @@ const PageFooter = () => {
 	const router = useRouter();
 
 	return (
-		<footer className="py-12 bg-gray-charcoal sm:py-16 lg:py-20 mt-40 md:mt-80">
+		<footer className="py-12 bg-black sm:py-16 lg:py-20 mt-40 md:mt-80">
 			<div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
 				<div className="relative">
 					<div className="absolute -inset-2">
@@ -210,7 +210,7 @@ const PageFooter = () => {
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
-								setShowToast(!showToast);
+								router.push("/aiExpert");
 							}}
 						>
 							Talk to an Expert
