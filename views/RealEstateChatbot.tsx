@@ -439,24 +439,7 @@ function StepperCom() {
 							/>
 						</div>
 					</div>
-					{/* <div className="flex w-full justify-between">
-						<Button
-							content="Prev"
-							onClick={handlePrev}
-							className="w-28 !rounded-full"
-						/>
-
-						<Button
-							content="Next"
-							onClick={() => {
-								if (fileSuccess && pdfFile) {
-									setActiveStep(activeStep + 1);
-								} else uploadFile();
-							}}
-							isLoading={isLoading}
-							className="w-28 !rounded-full"
-						/>
-					</div> */}
+					
 				</div>
 			)}
 				{activeStep === 2 && userChat?.length <= 0 && (
