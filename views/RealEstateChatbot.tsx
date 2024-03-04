@@ -1,5 +1,5 @@
 import classNames from "@/helpers/common";
-import {  useState } from "react";
+import { useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
 import { Input } from "./Contactus";
@@ -8,7 +8,12 @@ import XIcon from "@/assets/Xicon.svg";
 import { CHATBOT_API_BASE } from "@/config/secret";
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import CentroxWhiteLogo from "@/assets/centroxLogo.svg";
-
+import MsgSend from "@/assets/msgSendGray.svg";
+import MsgSendActivate from "@/assets/msgSendWhite.svg";
+import UploadDark from "@/assets/UplaodGrey.svg";
+import UploadWhite from "@/assets/UplaodWhite.svg";
+import DownloadIcon from "@/assets/Download.svg";
+import { Card } from "./HealthChatbot";
 export const RealEstateChatbot = () => {
 	return (
 		<div className="bg-black">
@@ -31,7 +36,7 @@ export const RealEstateChatbot = () => {
 						Our AI-powered chat-bot helps you get swift and prompt responses to
 						make informed decisions. Try our demo now!
 					</div>
-					<div className="mt-8">
+					<div className="mt-8 px-5 lg:px-0 pb-10">
 						<StepperCom />
 					</div>
 				</div>
@@ -50,8 +55,9 @@ function StepperCom() {
 	const [fileSuccess, setFileSuccess] = useState(false);
 	const [message, setMessage] = useState("");
 	const [userChat, setUserChat] = useState<any[]>([]);
-	
-	
+	const [isFileDownloading, setFileDownloading] = useState(false);
+	const [selectedCard, setSelectedCard] = useState<number>(0);
+
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = event.target.files && event.target.files[0];
 		if (selectedFile && selectedFile.type === "application/pdf") {
@@ -104,13 +110,13 @@ function StepperCom() {
 			setFileSuccess(false);
 		}
 	};
-	const chatBotPrompts = async () => {
+	const chatBotPrompts = async (chatmsg = "") => {
 		setIsLoading(true);
 		try {
 			const urlEncodedData = new URLSearchParams();
 			urlEncodedData.append("name", name);
-			if (message !== null) {
-				urlEncodedData.append("prompt", message);
+			if (message !== null||chatmsg !== null) {
+				urlEncodedData.append("prompt", message||chatmsg);
 			} else {
 				throw new Error("Message is missing.");
 			}
@@ -131,7 +137,7 @@ function StepperCom() {
 			console.log("Response of prompt is", responseData);
 			setUserChat([
 				...userChat,
-				{ name: "user", message: message },
+				{ name: "user", message: message||chatmsg },
 				{ name: "chatbot", message: responseData.Response },
 			]);
 			setMessage("");
@@ -145,6 +151,7 @@ function StepperCom() {
 	const downloadAndUploadPDF = (pdfUrl: string, fileName: string) => {
 		setPdfFile(null);
 		setFileSuccess(false);
+		setFileDownloading(true);
 		fetch(pdfUrl)
 			.then((response) => response.blob())
 			.then((blob) => {
@@ -170,16 +177,28 @@ function StepperCom() {
 					}
 				});
 				document.body.appendChild(fileInput);
+				setFileDownloading(false);
 				fileInput.click();
 			})
-			.catch((error) => console.error("Error downloading PDF file:", error));
+			.catch((error) => {
+				console.error("Error downloading PDF file:", error);
+				setFileDownloading(false);
+			});
 	};
 
 	return (
-		<div className="border-2 border-blue-500 shadow-blue-azure shadow-lg border-opacity-50 rounded-xl py-4 flex flex-col h-full  lg:w-[48rem] lg:h-[32rem] lg:overflow-y-auto">
+		<div
+			className="py-10 gap-10 flex flex-col items-center h-full sm:w-[35rem] lg:w-[50rem]"
+			style={{
+				borderRadius: "48px",
+				background: "rgba(6, 6, 6, 0.10)",
+				boxShadow: "0px 0px 17px 0px rgba(7, 157, 252, 0.40)",
+				backdropFilter: "blur(6px)",
+			}}
+		>
 			{userChat?.length <= 0 && (
-				<div className="w-full py-4 px-8">
-					<div className="w-full  px-8 py-4">
+				<div className="w-[80%]  px-2 lg:px-12">
+					<div className="w-full px-8">
 						<div className="relative flex items-center justify-between w-full">
 							<div className="absolute left-0 -mt-2 top-2/4 h-0.5 w-full -translate-y-2/4 bg-gray-300"></div>
 							<div
@@ -188,36 +207,47 @@ function StepperCom() {
 							></div>
 							<div className="flex flex-col justify-center items-start">
 								<div
-									className={`relative z-10 grid w-10 h-10 lg:w-20 lg:h-20 font-bold -ml-1 j text-white transition-all duration-300 ${
+									className={`relative cursor-pointer z-10 grid w-10 h-10 lg:w-20 lg:h-20 font-bold -ml-1 j text-white transition-all duration-300 ${
 										activeStep >= 0 ? "bg-blue-azure" : "bg-gray-900"
 									} rounded-full place-items-center step`}
-									// onClick={() => setActiveStep(0)}
+									onClick={() => {
+										if (name) {
+											setActiveStep(0);
+										}
+									}}
 								>
 									1
 								</div>
-								<div className="text-xs text-white mt-2">Enter Your Name</div>{" "}
+								<div className="text-xs text-white mt-2 -ml-6 lg:-ml-3">
+									Enter Your Name
+								</div>{" "}
 							</div>
 							<div className="flex flex-col justify-center items-start">
 								<div
-									className={`relative z-10 grid ml-8 lg:ml-0 w-10 h-10 lg:w-20 lg:h-20 font-bold text-white transition-all duration-300 ${
+									className={`relative cursor-pointer z-10 grid ml-8 lg:ml-0 w-10 h-10 lg:w-20 lg:h-20 font-bold text-white transition-all duration-300 ${
 										activeStep >= 1 ? "bg-blue-azure" : "bg-gray-900"
 									} rounded-full place-items-center step`}
-									// onClick={() => setActiveStep(1)}
+									onClick={() => {
+										if (pdfFile !== null) {
+											setActiveStep(1);
+										}
+									}}
 								>
 									2
 								</div>
-								<div className="text-xs text-white mt-2">Upload your Files</div>{" "}
+								<div className="text-xs text-white mt-2  lg:-ml-3">
+									Upload your Files
+								</div>{" "}
 							</div>
 							<div className="flex flex-col justify-center items-end">
 								<div
-									className={`relative z-10 grid w-10 h-10 lg:w-20 lg:h-20 -mr-1 font-bold text-white transition-all duration-300 ${
+									className={`relative cursor-pointer z-10 grid w-10 h-10 lg:w-20 lg:h-20 -mr-1 font-bold text-white transition-all duration-300 ${
 										activeStep === 2 ? "bg-blue-azure" : "bg-gray-900"
 									} rounded-full place-items-center step`}
-									// onClick={() => setActiveStep(2)}
 								>
 									3
 								</div>
-								<div className="text-xs text-white mt-2">
+								<div className="text-xs text-white mt-2 -mr-6 lg:-mr-0">
 									Input your Inquiry
 								</div>{" "}
 							</div>
@@ -225,36 +255,66 @@ function StepperCom() {
 					</div>
 				</div>
 			)}
+			{userChat?.length <= 0 && (
+				<div className="px-8 lg:px-0">
+					<div
+						className="flex flex-col gap-4 justify-center items-center py-5 w-full text-white"
+						style={{
+							borderRadius: "24px",
+							background:
+								"radial-gradient(63.05% 132.04% at 50.07% -40.41%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), rgba(0, 0, 0, 0.10)",
+							boxShadow: "0px 0px 5px 10px rgba(7, 157, 252, 0.10)",
+						}}
+					>
+						<Image src={CentroxWhiteLogo} alt="" className="w-12" />
+						<div className="flex flex-col gap-1 items-center justify-center text-center">
+							<div className="text-lg sm:text-xl lg:text-2xl px-4 lg:px-0">
+								Welcome! How can I assist you today?
+							</div>
+							<div className="text-gray-300 text-xs sm:text-sm lg:text-md px-[10%] text-center">
+								If you have questions, need help, or just want to chat, I'm here
+								to help. Feel free to ask me anything!
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 			{activeStep === 0 && userChat?.length <= 0 && (
-				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
+				<div className="text-white flex flex-col justify-center h-full gap-10 px-5 lg:px-14 w-full lg:w-[47rem]">
 					<Input
-						label="First name"
+						placeholder="Enter your name here"
 						name="firstName"
 						id="first-name"
 						type="text"
-						autoComplete="given-name"
 						onChange={({ target }) => setName(target.value)}
 						value={name}
-					/>
-					<div className="flex w-full justify-end">
+					>
 						<Button
-							content="Next"
+							Icon={!name ? MsgSend : MsgSendActivate}
 							onClick={handleNext}
 							isDisabled={!name}
-							className="w-28 !rounded-full"
+							iconClassName="ml-4"
+							className="flex items-center justify-center !px-1 !py-1"
 						/>
-					</div>
+					</Input>
 				</div>
 			)}
 			{activeStep === 1 && userChat?.length <= 0 && (
 				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
-					<div className="flex flex-wrap lg:flex-nowrap gap-y-4 gap-x-2 justify-between">
+					<label
+						htmlFor="file-uploader1"
+						className="cursor-pointer font-semibold text-lg -mb-7 lg:px-10"
+					>
+						Download one of these files to upload
+					</label>
+					<div className="flex flex-wrap lg:flex-nowrap gap-y-4 gap-x-2 justify-between lg:px-10 w-full lg:w-[47rem]">
 						<div
 							className={classNames(
-								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer",
+								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer hover:bg-gray-800",
 								pdfFile?.name === "Warren_Buffett.pdf"
 									? "border-blue-azure border-opacity-80"
 									: "border-white-offWhite",
+								isFileDownloading && "cursor-wait",
 							)}
 							onClick={() =>
 								downloadAndUploadPDF(
@@ -263,14 +323,20 @@ function StepperCom() {
 								)
 							}
 						>
-							Warren_Buffett.pdf
+							<div className="flex justify-between items-center">
+								Warren_Buffett.pdf{" "}
+								<div className="p-2 bg-gray-downloadDark rounded-md">
+									<Image src={DownloadIcon} alt="" />
+								</div>
+							</div>
 						</div>
 						<div
 							className={classNames(
-								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer",
+								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer hover:bg-gray-800",
 								pdfFile?.name === "Jamie Dimon.pdf"
 									? "border-blue-azure border-opacity-80"
 									: "border-white-offWhite",
+								isFileDownloading && "cursor-wait",
 							)}
 							onClick={() =>
 								downloadAndUploadPDF(
@@ -279,14 +345,20 @@ function StepperCom() {
 								)
 							}
 						>
-							Jamie Dimon.pdf
+							<div className="flex justify-between items-center">
+								Jamie Dimon.pdf{" "}
+								<div className="p-2 bg-gray-downloadDark rounded-md">
+									<Image src={DownloadIcon} alt="" />
+								</div>
+							</div>
 						</div>
 						<div
 							className={classNames(
-								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer",
+								"p-2 rounded-xl border-2 font-semibold w-full cursor-pointer hover:bg-gray-800",
 								pdfFile?.name === "Real Estate.pdf"
 									? "border-blue-azure border-opacity-80"
 									: "border-white-offWhite",
+								isFileDownloading && "cursor-wait",
 							)}
 							onClick={() =>
 								downloadAndUploadPDF(
@@ -295,47 +367,79 @@ function StepperCom() {
 								)
 							}
 						>
-							Real Estate.pdf
+							<div className="flex justify-between items-center">
+								Real Estate.pdf{" "}
+								<div className="p-2 bg-gray-downloadDark rounded-md">
+									<Image src={DownloadIcon} alt="" />
+								</div>
+							</div>
 						</div>
 					</div>
-					<div>
+					<div className="lg:px-10 w-full lg:w-[47rem]">
 						{!pdfFile && (
-							<label htmlFor="file-uploader" className="cursor-pointer">
-								Upload PDF File
+							<label
+								htmlFor="file-uploader"
+								className="cursor-pointer font-semibold text-lg"
+							>
+								Choose and Upload file (.PDF Format, Max File Size 20MB )
 							</label>
 						)}
-						{!pdfFile && (
-							<input
-								type="file"
-								accept=".pdf"
-								className={`block w-full mt-2 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6 ${
-									error
-										? "border-2 border-red-500"
-										: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
-								}`}
-								onChange={handleFileChange}
-								id="file-uploader"
-							/>
-						)}
-						{pdfFile && (
-							<div className="flex items-center  justify-between mt-2">
-								<p className="text-lg font-semibold mr-2">
-									Selected PDF: {pdfFile.name}
-								</p>
+						<div
+							className={classNames(
+								"mt-2.5",
+								"flex items-center justify-between w-full  text-white shadow-sm rounded-md focus:outline-none sm:text-sm sm:leading-6 p-2 ",
+								error ? "border border-red-500" : "border border-gray-cool",
+							)}
+						>
+							{!pdfFile && (
+								<label htmlFor="formId9" className="cursor-pointer">
+									<input
+										type="file"
+										accept=".pdf"
+										onChange={handleFileChange}
+										id="formId9"
+										hidden
+									/>
+									<div className="rounded-full py-1.5 px-4 border-2 border-gray-cool">
+										Choose your file
+									</div>
+								</label>
+							)}
+							{pdfFile && (
+								<div className="flex items-center border border-gray-cool rounded-full justify-between py-2 px-4 bg-gray-800">
+									<p className="text-lg font-semibold mr-2">
+										Selected PDF: {pdfFile.name}
+									</p>
 
-								<Image
-									src={XIcon}
-									alt="sorry"
-									className="h-5 w-5 text-red-500 cursor-pointer"
-									onClick={() => {
-										setFileSuccess(false);
-										setPdfFile(null);
-									}}
-								/>
-							</div>
-						)}
+									<Image
+										src={XIcon}
+										alt="sorry"
+										className="h-3 w-3 text-red-500 cursor-pointer"
+										onClick={() => {
+											setFileSuccess(false);
+											setPdfFile(null);
+										}}
+									/>
+								</div>
+							)}
+							<Button
+								Icon={!isLoading&&!pdfFile ? UploadDark : !isLoading&&UploadWhite}
+								onClick={() => {
+									if (fileSuccess && pdfFile) {
+										setActiveStep(activeStep + 1);
+									} else uploadFile();
+								}}
+								isLoading={isLoading}
+								isDisabled={!pdfFile}
+								iconClassName="ml-4"
+								className={classNames(
+									"flex items-center justify-center",
+									isLoading ? "!px-2 !py-2" : "!px-1 !py-1",
+								)}
+							/>
+						</div>
 					</div>
-					<div className="flex w-full justify-between">
+					{/* <div className="flex w-full justify-between">
 						<Button
 							content="Prev"
 							onClick={handlePrev}
@@ -352,52 +456,84 @@ function StepperCom() {
 							isLoading={isLoading}
 							className="w-28 !rounded-full"
 						/>
-					</div>
+					</div> */}
+				</div>
+			)}
+				{activeStep === 2 && userChat?.length <= 0 && (
+				<div className="grid grid-cols-1 gap-5 lg:grid-cols-2 w-full px-12">
+					<Card
+						title="Understanding mental health:"
+						description="Learn about mental health and why it's important."
+						selected={selectedCard === 1}
+						onCardClick={() => {
+							setSelectedCard(1);
+							chatBotPrompts("Tell me about mental health");
+						}}
+					/>
+					<Card
+						title="Self-Care Tips:"
+						description="Discover simple ways to improve your mental health."
+						selected={selectedCard === 2}
+						onCardClick={() => {
+							setSelectedCard(2);
+							chatBotPrompts("Simple ways to improve your mental health");
+						}}
+					/>
+					<Card
+						title="Finding Support:"
+						description="Find professional help and support resources..."
+						selected={selectedCard === 3}
+						onCardClick={() => {
+							setSelectedCard(3);
+							chatBotPrompts(
+								"Find professional help and support resources for mental health",
+							);
+						}}
+					/>
+					<Card
+						title="Building Resilience:"
+						description="Learn how to cope with challenges and build..."
+						selected={selectedCard === 4}
+						onCardClick={() => {
+							setSelectedCard(4);
+							chatBotPrompts(
+								"Tell me how to cope with challenges and build my mental health",
+							);
+						}}
+					/>
 				</div>
 			)}
 			{activeStep === 2 && fileSuccess && userChat?.length <= 0 && (
-				<div className="text-white flex flex-col justify-center h-full gap-10 px-14">
-					<div className="sm:col-span-2">
-						<label
-							htmlFor="message"
-							className="block text-lg font-semibold leading-6  text-white"
-						>
-							Ask me anything <br />
-							<span className="text-gray-400 text-sm">
-								Get any insight from the uploaded file{" "}
-							</span>
-						</label>
-						<div className="mt-2.5">
-							<textarea
-								name="message"
-								id="message"
-								rows={4}
-								className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50 sm:text-sm sm:leading-6 ${"focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"}`}
-								onChange={({ target }) => setMessage(target.value)}
+				<div className="text-white flex flex-col justify-center h-full gap-10 px-5 lg:px-14 w-full lg:w-[51rem]">
+				<Input
+					name="message"
+					id="message"
+					placeholder="Type your message here"
+					type="text"
+					autoComplete="given-name"
+					onChange={({ target }) => setMessage(target.value)}
 								value={message}
-							/>
-						</div>
-					</div>
-					<div className="flex w-full justify-between">
-						<Button
-							content="Prev"
-							onClick={handlePrev}
-							className="w-28 !rounded-full"
-						/>
-
-						<Button
-							content="Next"
-							isLoading={isLoading}
-							onClick={chatBotPrompts}
-							isDisabled={!message}
-							className="w-28 !rounded-full"
-						/>
-					</div>
-				</div>
+				>
+					<Button
+						Icon={
+							!isLoading && !message ? MsgSend : !isLoading && MsgSendActivate
+						}
+						onClick={chatBotPrompts}
+						isLoading={isLoading}
+						isDisabled={!message}
+						iconClassName="ml-4"
+						className={classNames(
+							"flex items-center justify-center",
+							isLoading ? "!px-2 !py-2" : "!px-1 !py-1",
+						)}
+					/>
+				</Input>
+			</div>
 			)}
-				{userChat?.length > 0 && (
-				<div className="relative h-96">
-					<div className="absolute inset-0 overflow-auto pb-16 w-full h-full px-4">
+				
+			{userChat?.length > 0 && (
+				<div className="relative w-full h-96">
+				<div className="absolute inset-0 overflow-auto pb-16 w-full h-full px-4">
 						{userChat?.map((chat, index) => (
 							<div
 								className={classNames(
@@ -443,27 +579,33 @@ function StepperCom() {
 				</div>
 			)}
 			{userChat?.length > 0 && (
-				<div className=" w-full px-4">
+				<div className=" w-full px-4 lg:[45rem]">
 					<Input
-						label="Type Another Inquire/Response"
-						name="prompt"
-						id="prompt"
+						name="message"
+						id="message-2"
+						placeholder="Type your message here"
 						type="text"
 						autoComplete="given-name"
 						onChange={({ target }) => setMessage(target.value)}
 						value={message}
-					/>
-					<div className="flex w-full justify-end mt-2">
+					>
 						<Button
-							content="Submit"
+							Icon={
+								!isLoading && !message ? MsgSend : !isLoading && MsgSendActivate
+							}
+							onClick={chatBotPrompts}
 							isDisabled={!message}
 							isLoading={isLoading}
-							onClick={chatBotPrompts}
-							className="!rounded-full w-28"
+							iconClassName="ml-4"
+							className={classNames(
+								"flex items-center justify-center",
+								isLoading ? "!px-2 !py-2" : "!px-1 !py-1",
+							)}
 						/>
-					</div>
+					</Input>
 				</div>
 			)}
+			
 			<AlertOverlay
 				heading={error || msg}
 				setShow={() => {

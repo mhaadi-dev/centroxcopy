@@ -16,11 +16,13 @@ const config: Config = {
 					dark: "#181818",
 					light: "#D1D5DB",
 					cool:"#E5E7EB",
-					disabled:"#6B6B6B"
+					disabled:"#6B6B6B",
+					downloadDark:"#101010"
 				},
 				blue: {
 					azure: "#056EE1",
 					bright:"#079DFC",
+					dark:"#163BED"
 				},
 				white: {
 					DEFAULT: "#FFFFFF",

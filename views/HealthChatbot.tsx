@@ -367,7 +367,7 @@ function StepperCom() {
 	);
 }
 
-const Card = ({ title, description, onCardClick, selected = false }: any) => (
+export const Card = ({ title, description, onCardClick, selected = false }: any) => (
 	<div
 		className={classNames(
 			"flex flex-col rounded-lg h-fit p-2 gap-2 border border-gray-cool hover:cursor-pointer hover:bg-gray-800",
