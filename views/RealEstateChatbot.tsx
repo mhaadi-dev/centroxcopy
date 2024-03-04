@@ -462,42 +462,42 @@ function StepperCom() {
 				{activeStep === 2 && userChat?.length <= 0 && (
 				<div className="grid grid-cols-1 gap-5 lg:grid-cols-2 w-full px-12">
 					<Card
-						title="Understanding mental health:"
-						description="Learn about mental health and why it's important."
+						title="Hire a Construction firm"
+						description="How to build projects professionally"
 						selected={selectedCard === 1}
 						onCardClick={() => {
 							setSelectedCard(1);
-							chatBotPrompts("Tell me about mental health");
+							chatBotPrompts("I am looking for key factors to consider when purchasing a home");
 						}}
 					/>
 					<Card
-						title="Self-Care Tips:"
-						description="Discover simple ways to improve your mental health."
+						title="Furnish Your Living"
+						description="How to enhance your living space "
 						selected={selectedCard === 2}
 						onCardClick={() => {
 							setSelectedCard(2);
-							chatBotPrompts("Simple ways to improve your mental health");
+							chatBotPrompts("I am looking for a twin bed apartment for rent in Rawalpindi/Islamabad.");
 						}}
 					/>
 					<Card
-						title="Finding Support:"
-						description="Find professional help and support resources..."
+						title="Real Estate"
+						description="Buy/Sell property, land, and buildings collectively"
 						selected={selectedCard === 3}
 						onCardClick={() => {
 							setSelectedCard(3);
 							chatBotPrompts(
-								"Find professional help and support resources for mental health",
+								"How much is the rent for a portion (ground floor) for 15*20?",
 							);
 						}}
 					/>
 					<Card
-						title="Building Resilience:"
-						description="Learn how to cope with challenges and build..."
+						title="Aesthetically Design Buildings"
+						description="for pleasing architectural structures"
 						selected={selectedCard === 4}
 						onCardClick={() => {
 							setSelectedCard(4);
 							chatBotPrompts(
-								"Tell me how to cope with challenges and build my mental health",
+								"What are some negotiation strategies to use when buying or selling a property?",
 							);
 						}}
 					/>
