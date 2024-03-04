@@ -37,7 +37,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
 }) => (
 	<div
 		className={classNames(
-			"rounded-xl  flex flex-col gap-3 p-5 mt-10 cursor-pointer",
+			"rounded-xl flex flex-col gap-3 p-5 mt-10 cursor-pointer",
 		)}
 		style={{
 			background:
@@ -210,7 +210,7 @@ export const Section3 = () => {
 							}}
 						>
 							<Tabs tabs={tabs} setTabs={setTabs} />
-							<div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+							<div className="grid grid-cols-1 2xl:grid-cols-2 gap-10">
 								{tabs.map(
 									(tab, index) =>
 										tab?.current && (
@@ -304,61 +304,61 @@ export const Section3 = () => {
 											</div>
 										),
 								)}
-							<div className="flex items-end">
-							<div className="flex items-end lg:h-[80%] sm:mt-10 py-5">
-									{tabs[0]?.current && (
-										<Image
-											className="w-full h-[100%]"
-											loading="eager"
-											src={
-												lastHoveredCard === 3
-													? CustomDataImage
-													: lastHoveredCard === 2
-													? DataLabelingImage
-													: DataCurationImage
-											}
-											alt=""
-											placeholder="blur"
-											onLoad={handleImageLoad}
-											blurDataURL={blurDataURLs[currentHoverCard]}
-										/>
-									)}
-									{tabs[1]?.current && (
-										<Image
-											className="w-full h-[100%] lg:pt-3"
-											src={
-												lastHoveredCard === 3
-													? ModDev3
-													: lastHoveredCard === 2
-													? ModDev2
-													: BuildingAi
-											}
-											alt=""
-											loading="eager"
-											placeholder="blur"
-											onLoad={handleImageLoad}
-											blurDataURL={blurDataURLs[currentHoverCard]}
-										/>
-									)}
-									{tabs[2]?.current && (
-										<Image
-											className="w-full h-[100%] lg:pt-2"
-											src={
-												lastHoveredCard === 3
-													? AIDev3
-													: lastHoveredCard === 2
-													? AIDev2
-													: DeployingAi
-											}
-											alt=""
-											loading="eager"
-											placeholder="blur"
-											onLoad={handleImageLoad}
-											blurDataURL={blurDataURLs[currentHoverCard]}
-										/>
-									)}
+								<div className="flex items-center justify-center 2xl:items-end">
+									<div className="flex items-end lg:h-[80%] sm:mt-10 py-5">
+										{tabs[0]?.current && (
+											<Image
+												className="w-full h-[100%]"
+												loading="eager"
+												src={
+													lastHoveredCard === 3
+														? CustomDataImage
+														: lastHoveredCard === 2
+														? DataLabelingImage
+														: DataCurationImage
+												}
+												alt=""
+												placeholder="blur"
+												onLoad={handleImageLoad}
+												blurDataURL={blurDataURLs[currentHoverCard]}
+											/>
+										)}
+										{tabs[1]?.current && (
+											<Image
+												className="w-full h-[100%] lg:pt-3"
+												src={
+													lastHoveredCard === 3
+														? ModDev3
+														: lastHoveredCard === 2
+														? ModDev2
+														: BuildingAi
+												}
+												alt=""
+												loading="eager"
+												placeholder="blur"
+												onLoad={handleImageLoad}
+												blurDataURL={blurDataURLs[currentHoverCard]}
+											/>
+										)}
+										{tabs[2]?.current && (
+											<Image
+												className="w-full h-[100%] lg:pt-2"
+												src={
+													lastHoveredCard === 3
+														? AIDev3
+														: lastHoveredCard === 2
+														? AIDev2
+														: DeployingAi
+												}
+												alt=""
+												loading="eager"
+												placeholder="blur"
+												onLoad={handleImageLoad}
+												blurDataURL={blurDataURLs[currentHoverCard]}
+											/>
+										)}
+									</div>
 								</div>
-							</div>
 							</div>
 						</div>
 					</div>

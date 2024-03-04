@@ -330,7 +330,7 @@ export const Input: React.FC<InputProps> = ({
 	const [error, setError] = useState<string>("");
 	useEffect(() => {
 		setVal(value);
-	  }, [value]);
+	}, [value]);
 	const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
 		if (!val && isOptional) {
 			setError(`${label || name} is required`);
@@ -380,7 +380,7 @@ export const Input: React.FC<InputProps> = ({
 				className={classNames(
 					"mt-2.5",
 					children &&
-						"flex items-center w-full border border-gray-cool  text-white shadow-sm rounded-md focus:outline-none sm:text-sm sm:leading-6 p-2 ",
+						"flex items-center w-full border border-gray-cool text-white shadow-sm rounded-md focus:outline-none sm:text-sm sm:leading-6 p-2 ",
 				)}
 			>
 				<input
