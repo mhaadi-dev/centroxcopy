@@ -2,7 +2,7 @@
 import { Button } from "@/Components/Button.js/button";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Input } from "./Contactus";
 import classNames from "@/helpers/common";
 import { HEALTH_CHATBOT_API_BASE } from "@/config/secret";
@@ -50,6 +50,7 @@ function StepperCom() {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [message, setMessage] = useState("");
 	const [userChat, setUserChat] = useState<any[]>([]);
+	const [selectedCard, setSelectedCard] = useState<number>(0);
 
 	const handlePrev = () => {
 		if (activeStep > 0) {
@@ -95,7 +96,7 @@ function StepperCom() {
 			console.log("Response of prompt is", responseData);
 			setUserChat([
 				...userChat,
-				{ name: "user", message: message||chatmsg },
+				{ name: "user", message: message || chatmsg },
 				{ name: "chatbot", message: responseData.response },
 			]);
 			setMessage("");
@@ -106,9 +107,6 @@ function StepperCom() {
 			setMessage("");
 		}
 	};
-useEffect(() => {
-console.log("Messafe is",message)
-}, [message])
 
 	return (
 		<div
@@ -191,21 +189,27 @@ console.log("Messafe is",message)
 					<Card
 						title="Understanding mental health:"
 						description="Learn about mental health and why it's important."
+						selected={selectedCard === 1}
 						onCardClick={() => {
+							setSelectedCard(1);
 							chatBotPrompts("Tell me about mental health");
 						}}
 					/>
 					<Card
 						title="Self-Care Tips:"
 						description="Discover simple ways to improve your mental health."
+						selected={selectedCard === 2}
 						onCardClick={() => {
+							setSelectedCard(2);
 							chatBotPrompts("Simple ways to improve your mental health");
 						}}
 					/>
 					<Card
 						title="Finding Support:"
 						description="Find professional help and support resources..."
+						selected={selectedCard === 3}
 						onCardClick={() => {
+							setSelectedCard(3);
 							chatBotPrompts(
 								"Find professional help and support resources for mental health",
 							);
@@ -214,7 +218,9 @@ console.log("Messafe is",message)
 					<Card
 						title="Building Resilience:"
 						description="Learn how to cope with challenges and build..."
+						selected={selectedCard === 4}
 						onCardClick={() => {
+							setSelectedCard(4);
 							chatBotPrompts(
 								"Tell me how to cope with challenges and build my mental health",
 							);
@@ -264,7 +270,7 @@ console.log("Messafe is",message)
 							iconClassName="ml-4"
 							className={classNames(
 								"flex items-center justify-center",
-								isLoading?"!px-2 !py-2":"!px-1 !py-1"
+								isLoading ? "!px-2 !py-2" : "!px-1 !py-1",
 							)}
 						/>
 					</Input>
@@ -339,7 +345,7 @@ console.log("Messafe is",message)
 							iconClassName="ml-4"
 							className={classNames(
 								"flex items-center justify-center",
-								isLoading?"!px-2 !py-2":"!px-1 !py-1"
+								isLoading ? "!px-2 !py-2" : "!px-1 !py-1",
 							)}
 						/>
 					</Input>
@@ -361,9 +367,12 @@ console.log("Messafe is",message)
 	);
 }
 
-const Card = ({ title, description, onCardClick }: any) => (
+const Card = ({ title, description, onCardClick, selected = false }: any) => (
 	<div
-		className="flex flex-col rounded-lg h-fit p-2 gap-2 border border-gray-cool hover:cursor-pointer hover:bg-gray-800"
+		className={classNames(
+			"flex flex-col rounded-lg h-fit p-2 gap-2 border border-gray-cool hover:cursor-pointer hover:bg-gray-800",
+			selected && "bg-gray-800",
+		)}
 		onClick={() => onCardClick?.()}
 	>
 		<div className="text-white text-sm font-semibold">{title}</div>
