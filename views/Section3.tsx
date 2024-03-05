@@ -5,9 +5,9 @@ import CustomDataImage from "@/assets/CustomDataWorkflow.png";
 import BuildingAi from "@/assets/BuildingAI.png";
 import ArrowIcon from "@/assets/POCArrow.svg";
 import ModDev2 from "@/assets/ModDev2.webp";
-import ModDev3 from "@/assets/ModDev3.webp";
+import AIDev3 from "@/assets/ModDev3.webp";
 import AIDev2 from "@/assets/AI2.webp";
-import AIDev3 from "@/assets/AI3.webp";
+import ModDev3 from "@/assets/AI3.webp";
 import DeployingAi from "@/assets/DeployingAI.png";
 import Arrow from "@/assets/RightArrow.svg";
 
