@@ -2,10 +2,12 @@ import AppLogo from "@/assets/LogoWhite.png";
 import { Button } from "../Button.js/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { SHOW_SERVICES, SHOW_SOLUTIONS } from "@/helpers/enums";
 
 export const Navbar = () => {
+	const pathname = usePathname();
 	const router = useRouter();
-
 	return (
 		<div className="flex justify-center fixed z-10 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
 			<div className="flex items-center justify-between w-[90%]">
@@ -19,15 +21,47 @@ export const Navbar = () => {
 				/>
 
 				<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[33rem] sm:-ml-[7%]">
-					<NavLink text="Solutions" />
-					<NavLink text="Services" />
+					<NavLink
+						text="Solutions"
+						onClick={() => {
+							if (pathname === "/") {
+								const solutionsComponent = document.getElementById("solutions");
+								if (solutionsComponent) {
+									solutionsComponent.scrollIntoView({
+										behavior: "smooth",
+										block: "start",
+									});
+								}
+							} else {
+								localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+								router.push(`/`);
+							}
+						}}
+					/>
+					<NavLink
+						text="Services"
+						onClick={() => {
+							if (pathname === "/") {
+								const solutionsComponent = document.getElementById("services");
+								if (solutionsComponent) {
+									solutionsComponent.scrollIntoView({
+										behavior: "smooth",
+										block: "start",
+									});
+								}
+							} else {
+								localStorage.setItem(SHOW_SERVICES, JSON.stringify(true));
+								router.push(`/`);
+							}
+						}}
+					/>
 					{/* <NavLink text="APIs" /> */}
 					<NavLink text="Team" onClick={() => router.push(`/team`)} />
 				</div>
 
 				<Button
 					content="Contact Us"
-					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
+					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal border-2 border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
 					onClick={() => router.push(`/contact`)}
 				/>
 			</div>

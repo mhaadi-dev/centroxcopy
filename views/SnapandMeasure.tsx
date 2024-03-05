@@ -39,7 +39,7 @@ export const SnapMeasure = () => {
 					}}
 				/>
 			</div>
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-20 3xl:gap-10  sm:mt-14 sm:w-[89%] py-10 sm:px-20">
+			<div className="grid grid-cols-1 2xl:grid-cols-2 gap-20 3xl:gap-10  sm:mt-14 sm:w-[89%] py-10 sm:px-20">
 				<div className="flex flex-col gap-5 items-start h-full">
 					<div className="text-2xl md:text-5xl text-white font-semibold mx-5 sm:mx-0">
 						<span className="!font-thin">Exclusive</span> solution
@@ -64,7 +64,7 @@ export const SnapMeasure = () => {
 						</ul>
 					</div>
 				</div>
-				<div className="flex justify-center lg:justify-start">
+				<div className="flex justify-center 2xl:justify-start">
 					<Image
 						alt=""
 						src={SnapMeasureSVG}
