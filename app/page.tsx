@@ -99,8 +99,8 @@ const VideoComponent = () => {
           <Image
             src={myGif}
             alt="Description of the GIF"
-            layout="fill"
             objectFit="cover"
+			loading="lazy"
           />
         </div>
       )}
