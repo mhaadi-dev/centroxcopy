@@ -7,7 +7,6 @@ import { Section3 } from "@/views/Section3";
 import AppLogo from "@/assets/LogoWhite.png";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
-import MsgIcon from "@/assets/msg.svg";
 import { SnapMeasure } from "@/views/SnapandMeasure";
 import { Testimonial } from "@/views/Testimonial";
 import { useEffect, useState } from "react";
@@ -74,33 +73,64 @@ export default function Home() {
 	);
 }
 
-const VideoComponent = () => {
-	return (
-		<div>
-			<Image
-				src={myGif}
-				priority
-				alt="Description of the GIF"
-				objectFit="cover"
-				loading="eager"
-				className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover"
-			/>
-			{/* backdrop-filter backdrop-blur-xl */}
-			<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[32%] 2xl:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
-				<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-thin tracking-normal">
-					Leading <span className="font-extrabold">Innovation</span> with
-					<span className="font-extrabold ml-1 sm:ml-3">
-						Artificial Intelligence
-					</span>
-				</div>
-				<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
-					Unleashing Potential: ML Community's Hub for Models and Applications.
-				</div>
-			</div>
-		</div>
-	);
-};
 
+const VideoComponent = () => {
+	const [videoLoaded, setVideoLoaded] = useState(false);
+
+	useEffect(() => {
+	  const video = document.getElementById('video') as HTMLVideoElement; // Cast to HTMLVideoElement
+  
+	  const handleVideoLoad = () => {
+		setVideoLoaded(true);
+		video.play();
+	  };
+  
+	  video.addEventListener('loadeddata', handleVideoLoad);
+  
+	  return () => {
+		video.removeEventListener('loadeddata', handleVideoLoad);
+	  };
+	}, []);
+  
+	return (
+	  <div>
+		 {!videoLoaded && (
+        <div className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover">
+          <Image
+            src={myGif}
+            alt="Description of the GIF"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      )}
+		<video
+		  id="video"
+		  src='../assets/heroSec.mp4'
+		  autoPlay
+		  muted
+		  loop
+		  className={`h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover ${
+			videoLoaded ? 'visible' : 'hidden'
+		  }`}
+		>
+		  Your browser does not support the video tag.
+		</video>
+		<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[32%] 2xl:-mt-[28%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
+		  <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-thin tracking-normal">
+			Leading{' '}
+			<span className="font-extrabold">Innovation</span> with
+			<span className="font-extrabold ml-1 sm:ml-3">
+			  Artificial Intelligence
+			</span>
+		  </div>
+		  <div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
+			Unleashing Potential: ML Community's Hub for Models and Applications.
+		  </div>
+		</div>
+	  </div>
+	);
+  };
 const PageFooter = () => {
 	const [showToast, setShowToast] = useState(false);
 	const router = useRouter();
