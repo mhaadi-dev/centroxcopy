@@ -146,7 +146,7 @@ export const BodyMeaurementsView = () => {
 			</div>
 			{/* Section 3 */}
 			<div
-				className="flex flex-col items-center justify-center"
+				className="flex flex-col items-center justify-center py-40"
 				style={{
 					background:
 						"radial-gradient(70.34% 71.45% at 50.94% 114.76%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), #060606",

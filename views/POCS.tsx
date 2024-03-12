@@ -47,9 +47,9 @@ const GradientTab: React.FC<GradientCardProps> = ({
 					: "radial-gradient(112.77% 124.52% at 0% 0%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
 				backdropFilter: "blur(18px)",
 				boxShadow: showHoverState
-				? "0px 0px 15px 8px rgba(3, 34, 182, 0.4)"
-				: "",
-			border: "1px solid rgba(3, 34, 182, 0.2)"
+					? "0px 0px 15px 8px rgba(3, 34, 182, 0.4)"
+					: "",
+				border: "1px solid rgba(3, 34, 182, 0.2)",
 			}}
 		>
 			{tabName}
@@ -131,7 +131,7 @@ export const POCS = () => {
 						hoveredCard={currentHoverCard}
 						onMouseEnter={() => handleMouseEnter(1)}
 						onMouseLeave={() => handleMouseLeave(1)}
-						onClick={handleClick}
+						onClick={() => router.push("/bodyMeasurements")}
 					/>
 					<GradientTab
 						tabName="Smart Chatbot"
