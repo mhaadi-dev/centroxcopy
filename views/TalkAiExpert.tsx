@@ -82,7 +82,7 @@ export const TalkAiExpert = () => {
 						<div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
 							Why Centrox
 						</div>
-						<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-semibold lg:w-[70%]">
+						<div className="text-white text-xl lg:text-2xl 2xl:text-3xl font-medium lg:w-[70%]">
 							We've partnered with premier AI squads worldwide for extensive
 							durations regarding unparalleled data volume surpassing all
 							others.

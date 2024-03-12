@@ -293,11 +293,12 @@ export const ContactUsSection = () => {
 };
 
 interface InputProps {
-	label: string;
+	label?: string;
 	name: string;
 	id: string;
+	placeholder?: string;
 	type?: string;
-	autoComplete: string;
+	autoComplete?: string;
 	onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 	value: string;
 	onBlur?: (
@@ -307,7 +308,9 @@ interface InputProps {
 	onFocus?: () => void;
 	isOptional?: boolean;
 	errMsg?: string | boolean;
+	children?: React.ReactNode; // Corrected the type for children
 }
+
 export const Input: React.FC<InputProps> = ({
 	label,
 	name,
@@ -320,28 +323,16 @@ export const Input: React.FC<InputProps> = ({
 	onFocus,
 	isOptional = false,
 	errMsg,
-}: InputProps) => {
+	children,
+	placeholder,
+}) => {
 	const [val, setVal] = useState<string>("");
 	const [error, setError] = useState<string>("");
-
 	useEffect(() => {
-		if (value !== null && value !== undefined) {
-			setVal(value);
-		}
+		setVal(value);
 	}, [value]);
-
-	useEffect(() => {
-		if (errMsg && !value) {
-			if (errMsg === true) {
-				setError(`${label || name} is required`);
-			} else {
-				setError(errMsg);
-			}
-		}
-	}, [errMsg, value]);
-
 	const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
-		if (!value && isOptional) {
+		if (!val && isOptional) {
 			setError(`${label || name} is required`);
 		} else if (type === "tel" || type === "number") {
 			const numericRegex = /^[0-9]+$/;
@@ -362,9 +353,10 @@ export const Input: React.FC<InputProps> = ({
 		}
 		onBlur?.(event, setError);
 	};
+
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setError("");
-		if (type === "tel" || type === "number") {
+		if ((type === "tel" || type === "number") && event.target.value !== "") {
 			const numericRegex = /^[0-9]*$/;
 			if (!numericRegex.test(event.target.value)) {
 				setError("Please enter numeric values only");
@@ -384,22 +376,35 @@ export const Input: React.FC<InputProps> = ({
 			>
 				{label}
 			</label>
-			<div className="mt-2.5">
+			<div
+				className={classNames(
+					"mt-2.5",
+					children &&
+						"flex items-center w-full border border-gray-cool text-white shadow-sm rounded-md focus:outline-none sm:text-sm sm:leading-6 p-2 ",
+				)}
+			>
 				<input
 					type={type}
 					name={name}
 					id={id}
 					autoComplete={autoComplete}
-					className={`block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6 ${
+					placeholder={placeholder}
+					className={classNames(
+						children &&
+							"w-full h-10 border-0 bg-transparent focus:outline-none px-2 placeholder:text-gray-400",
+						!children &&
+							"block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 placeholder:text-gray-400 ring-inset ring-white/10 focus:outline-none sm:text-sm sm:leading-6",
 						error
 							? "border-2 border-red-500"
-							: "focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50"
-					}`}
+							: !children &&
+									"focus:ring-2 focus:ring-white focus:ring-opacity-90 focus:shadow-md focus:shadow-yellow-50",
+					)}
 					onChange={handleChange}
 					onBlur={handleBlur}
 					onFocus={onFocus}
 					value={val}
 				/>
+				{children}
 				{error && (
 					<p className="text-red-500 text-sm font-semibold font-mono mt-1">
 						{error}
