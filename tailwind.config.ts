@@ -23,7 +23,7 @@ const config: Config = {
 					azure: "#056EE1",
 					bright:"#079DFC",
 					dark:"#079DFC4D",
-					// dark:"#163BED"
+					darkBtn:"#163BED"
 				},
 				white: {
 					DEFAULT: "#FFFFFF",
