@@ -94,7 +94,6 @@ const VideoComponent = () => {
 	return (
 	  <div>
 		 {/* {!videoLoaded && (
-        <div className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover">
           <Image
             src={myGif}
             alt="Description of the GIF"
@@ -105,12 +104,12 @@ const VideoComponent = () => {
       )} */}
 		<video
 		  id="video"
-		  src='https://res.cloudinary.com/dptdgpwtu/video/upload/v1720607084/heroSec_euq39g.mp4'
+		  src='./videos/heroSec.mp4'
 		  autoPlay
 		  muted
 		  loop
 		  className={`h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover ${
-			videoLoaded ? 'visible' : 'hidden'
+			videoLoaded ? 'visible' : 'visible'
 		  }`}
 		>
 		  Your browser does not support the video tag.
