@@ -68,9 +68,9 @@ export const SnapMeasure = () => {
 					<Image
 						alt=""
 						src={SnapMeasureSVG}
-						loading="eager"
+						// loading="eager"
 						className="w-[90%] 2xl:w-full"
-						placeholder="blur"
+						// placeholder="blur"
 						onLoad={() => singleImageLoad(SnapMeasureSVG.src)}
 						blurDataURL={blurDataURL}
 					/>

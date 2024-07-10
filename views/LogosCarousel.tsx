@@ -65,8 +65,8 @@ export const LogosCarousel = () => {
 					key={index}
 					src={logo.src}
 					alt="Logo"
-					loading="eager"
-					priority={true}
+					// loading="eager"
+					// priority={true}
 					className={`w-auto mt-${logo.marginTop}`}
 					blurDataURL={linearGradientBlurDataURL}
 				/>

@@ -15,6 +15,7 @@ import { POCS } from "@/views/POCS";
 import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import { SHOW_SERVICES, SHOW_SOLUTIONS } from "@/helpers/enums";
+import dynamic from "next/dynamic";
 
 export default function Home() {
 	useEffect(() => {
@@ -74,22 +75,22 @@ export default function Home() {
 
 
 const VideoComponent = () => {
-	const [videoLoaded, setVideoLoaded] = useState(false);
+	const [videoLoaded, setVideoLoaded] = useState(true);
 
-	useEffect(() => {
-	  const video = document.getElementById('video') as HTMLVideoElement; // Cast to HTMLVideoElement
+	// useEffect(() => {
+	//   const video = document.getElementById('video') as HTMLVideoElement; // Cast to HTMLVideoElement
   
-	  const handleVideoLoad = () => {
-		setVideoLoaded(true);
-		video.play();
-	  };
+	//   const handleVideoLoad = () => {
+	// 	setVideoLoaded(true);
+	// 	video.play();
+	//   };
   
-	  video.addEventListener('loadeddata', handleVideoLoad);
+	//   video.addEventListener('loadeddata', handleVideoLoad);
   
-	  return () => {
-		video.removeEventListener('loadeddata', handleVideoLoad);
-	  };
-	}, []);
+	//   return () => {
+	// 	video.removeEventListener('loadeddata', handleVideoLoad);
+	//   };
+	// }, []);
   
 	return (
 	  <div>
@@ -104,7 +105,7 @@ const VideoComponent = () => {
       )} */}
 		<video
 		  id="video"
-		  src='./videos/heroSec.mp4'
+		  src='https://res.cloudinary.com/dptdgpwtu/video/upload/v1720607084/heroSec_euq39g.mp4'
 		  autoPlay
 		  muted
 		  loop

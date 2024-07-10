@@ -309,7 +309,7 @@ export const Section3 = () => {
 										{tabs[0]?.current && (
 											<Image
 												className="w-full h-[100%]"
-												loading="eager"
+												// loading="eager"
 												src={
 													lastHoveredCard === 3
 														? CustomDataImage
@@ -334,7 +334,7 @@ export const Section3 = () => {
 														: BuildingAi
 												}
 												alt=""
-												loading="eager"
+												// loading="eager"
 												placeholder="blur"
 												onLoad={handleImageLoad}
 												blurDataURL={blurDataURLs[currentHoverCard]}
@@ -351,7 +351,7 @@ export const Section3 = () => {
 														: DeployingAi
 												}
 												alt=""
-												loading="eager"
+												// loading="eager"
 												placeholder="blur"
 												onLoad={handleImageLoad}
 												blurDataURL={blurDataURLs[currentHoverCard]}
