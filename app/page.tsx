@@ -1,7 +1,6 @@
 "use client";
 import { Navbar } from "@/Components/Navbar/navbar";
 import Image from "next/image";
-import myGif from "@/assets/Video.gif";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { Section3 } from "@/views/Section3";
 import AppLogo from "@/assets/LogoWhite.png";
@@ -94,7 +93,7 @@ const VideoComponent = () => {
   
 	return (
 	  <div>
-		 {!videoLoaded && (
+		 {/* {!videoLoaded && (
         <div className="h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover">
           <Image
             src={myGif}
@@ -103,7 +102,7 @@ const VideoComponent = () => {
 			loading="lazy"
           />
         </div>
-      )}
+      )} */}
 		<video
 		  id="video"
 		  src='https://res.cloudinary.com/dptdgpwtu/video/upload/v1720607084/heroSec_euq39g.mp4'

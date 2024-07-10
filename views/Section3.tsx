@@ -260,8 +260,8 @@ export const Section3 = () => {
 														index === 0
 															? "Data Labeling"
 															: index === 1
-															? "Model Development"
-															: "Model Development"
+															? "Model Deployment"
+															: "Model Deployment"
 													}
 													description={
 														index === 0
