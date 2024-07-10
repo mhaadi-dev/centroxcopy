@@ -106,7 +106,7 @@ const VideoComponent = () => {
       )}
 		<video
 		  id="video"
-		  src='../assets/heroSec.mp4'
+		  src='https://res.cloudinary.com/dptdgpwtu/video/upload/v1720607084/heroSec_euq39g.mp4'
 		  autoPlay
 		  muted
 		  loop

@@ -94,7 +94,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 			<div className="hidden sm:flex w-full justify-center">
 				<div className="border-b-4  border-gray-800">
 					<nav
-						className="-mb-px flex justify-center items-center space-x-8"
+						className=" flex justify-center px-4 items-center space-x-8"
 						aria-label="Tabs"
 					>
 						{tabs.map((tab: any) => (
