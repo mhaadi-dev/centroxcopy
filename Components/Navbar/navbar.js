@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const router = useRouter();
 	return (
 		<div className="flex justify-center fixed z-10 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
-			<div className="flex items-center justify-between w-[90%]">
+			<div className="flex items-center justify-between w-4/5">
 				<Image
 					src={AppLogo}
 					alt="Logo"

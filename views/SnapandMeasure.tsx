@@ -35,7 +35,7 @@ export const SnapMeasure = () => {
 					Icon={Arrow}
 					className="bg-blue-azure border-0 w-44 !rounded-full mt-3 sm:mt-4"
 					onClick={() => {
-						window.open("https://bm.centrox.ai/", "_blank");
+						window.open("https://staging.bm.centrox.ai/", "_blank");
 					}}
 				/>
 			</div>

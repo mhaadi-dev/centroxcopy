@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 
-import AppLogo from "@/assets/LogoWhite.png";
+import AppLogo from "../../public/images/updatedCentroxLogo.svg";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
 import { Toast } from "@/Components/Toast/toast";
@@ -14,12 +14,22 @@ export const Footer = () => {
 
 	return (
 		<footer className="py-12 bg-black">
-			<div className="grid gap-10 sm:gap-0 sm:flex justify-between mx-5 sm:mx-[7%] mt-20 sm:mt-60">
+			<div className="grid gap-10 sm:gap-0 sm:flex justify-between  mt-20 sm:mt-60  w-4/5 mx-auto py-4">
 				<div className="h-full">
-					<Image src={AppLogo} alt="Logo" className="w-[10rem] sm:w-60" />
+					<Image src={AppLogo} alt="Logo"  className="w-[10rem] sm:w-80" />
 				</div>
 				<div className="flex flex-col gap-5">
 					<div className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer ml-10 sm:ml-0">
+					<span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								// setShowToast(!showToast);
+								router.push(`/`);
+								localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+							}}
+						>
+							Solutions
+						</span>
 						<span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {
@@ -31,15 +41,13 @@ export const Footer = () => {
 							Services
 						</span>
 						<span
-							className="text-white font-semibold sm:text-2xl"
-							onClick={() => {
-								// setShowToast(!showToast);
-								router.push(`/`);
-								localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-							}}
-						>
-							Solutions
-						</span>
+                                  className="text-white font-semibold sm:text-2xl"
+                                  onClick={() => {
+                                    setShowToast(!showToast);
+                                  }}
+                                >
+                                  API
+                                </span>
 						{/* <span
 							className="text-white font-semibold sm:text-2xl"
 							onClick={() => {

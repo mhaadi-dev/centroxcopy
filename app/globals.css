@@ -26,6 +26,9 @@
 		-o-transform: translateX(50%);
 	}
 }
+html{
+	background-color: black;
+}
 
 .animate-move {
 	animation: move 25s infinite linear;
@@ -76,3 +79,34 @@
 textarea {
 	resize: none;
   }
+.react-international-phone-input-container{
+	background-color: rgb(255 255 255 / 0.05);
+	border-radius: 8px;
+	/* border: 0.1rem solid gray; */
+	/* overflow: hidden; */
+	/* --tw-border-opacity: 1; */
+    /* border-color: rgb(209 213 219 / 1)  */
+} 
+
+.react-international-phone-input{
+	background-color: rgb(255 255 255 / 0.01) !important;
+	border: none !important;
+	outline: none !important;
+	width: 100% !important;
+	height: 2.6rem !important;
+
+	color: white !important;
+
+} 
+.react-international-phone-country-selector-button{
+	background-color: rgb(255 255 255 / 0.01) !important;
+	outline: none !important;
+	border: none !important;
+	height: 2.6rem !important;
+
+
+}
+/* .react-international-phone-country-selector{
+	background-color: rgb(255 255 255 / 0.05) !important;
+	color:white !important;
+} */

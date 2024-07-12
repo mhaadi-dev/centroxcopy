@@ -111,7 +111,7 @@ export const POCS = () => {
 			className="flex flex-col gap-16 justify-center items-center mt-10 sm:mt-60"
 			id="solutions"
 		>
-			<div className="flex flex-col gap-4 items-center sm:w-[89%]">
+			<div className="flex flex-col gap-4 items-center sm:w-4/5 ">
 				<div className="text-2xl md:text-6xl text-white font-semibold text-center">
 					Our specialized AI products
 				</div>
@@ -123,7 +123,7 @@ export const POCS = () => {
 				</div>
 			</div>
 
-			<div className=" w-[90%] grid grid-cols-1 lg:flex justify-between mt-14 gap-10 sm:gap-0">
+			<div className=" w-4/5 grid grid-cols-1 lg:flex justify-between mt-14 gap-10 sm:gap-0">
 				<div className="flex flex-col gap-4 justify-between w-full lg:w-[35%] py-6">
 					<GradientTab
 						tabName="Snap and Measurement"

@@ -5,7 +5,7 @@ export const Testimonial = () => {
 	return (
 		<div className="px-5 p-32 lg:px-0 w-full flex justify-center mt-40 md:mt-60">
 			<div
-				className="p-10 lg:w-1/2 text-xl sm:text-3xl text-white text-center rounded-2xl tracking-wide"
+				className="p-20 lg:w-4/5 text-xl sm:text-3xl text-white text-center rounded-2xl tracking-wide"
 				style={{
 					background: "radial-gradient(96.8% 144.22% at 50.91% 1.68%, rgba(7, 157, 252, 0.30) 0%, rgba(114, 239, 221, 0.13) 100%), radial-gradient(67.13% 100% at 50.91% 100%, rgba(7, 157, 252, 0.70) 0%, rgba(114, 239, 221, 0.00) 100%), rgba(6, 6, 6, 0.20)"
 					// backgroundImage:
