@@ -67,14 +67,14 @@ const Tabs = ({ tabs, setTabs }: any) => {
     tabs.find((tab: any) => tab.current)?.name || tabs[0].name;
   return (
     <div>
-      <div className="sm:hidden">
+      <div className="sm:hidden ">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
         </label>
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-2 border-blue-azure py-2 pl-3 pr-10 text-base  focus:outline-none bg-transparent sm:text-sm"
+          className="block w-full rounded-md border-2 border-blue-azure py-2 pl-3 pr-10 text-base  focus:outline-none  bg-black text-white sm:text-sm"
           defaultValue={selectedTab}
           onChange={(e: any) => {
             const selectedTabName = e.target.value;
@@ -173,7 +173,7 @@ export const Section3 = () => {
   return (
     <>
       <div
-        className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 sm:w-[50%] sm:ml-[25%] mt-60"
+        className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 w-full lg:w-4/5 mx-auto mt-12 lg:mt-60"
         id="services"
       >
         <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl text-center font-thin">
@@ -194,15 +194,15 @@ export const Section3 = () => {
           }}
         />
       </div>
-      <section className="relative py-12 overflow-hidden bg-black sm:py-16 lg:py-20 3xl:px-[15%]">
-        <div className="hidden sm:block  absolute bottom-0 right-0 ml-4 overflow-hidden">
+      <section className="relative py-12 w-4/5 mx-auto overflow-hidden bg-black sm:py-16 lg:py-20 ">
+        <div className="hidden sm:block  absolute bottom-0 right-0 overflow-hidden">
           <Image className="w-auto" src={BackgroundImage as never} alt="" />
         </div>
 
-        <div className="px-5 sm:px-[7%] 3xl:px-[0%] 2xl:-ml-[5%] 3xl:-ml-[0%]">
+        <div className="">
           <div className="container mx-auto">
             <div
-              className="text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%] 2xl:ml-[5%] border-opacity-40"
+              className="text-white md:p-16 p-4 sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%]  border-opacity-40"
               style={{
                 backdropFilter: "blur(10px)",
                 background: "rgba(5, 110, 225, 0.03)",
@@ -216,7 +216,7 @@ export const Section3 = () => {
                     tab?.current && (
                       <div
                         key={index}
-                        className="flex flex-col sm:gap-4 -mt-7 sm:-mt-0 3xl:justify-around 3xl:-mt-[13%]"
+                        className="flex flex-col sm:gap-4  3xl:justify-around "
                       >
                         <span className="text-2xl md:text-5xl text-white font-bold flex justify-start">
                           {index === 0
@@ -319,6 +319,7 @@ export const Section3 = () => {
                                   }
                                   alt=""
                                   placeholder="blur"
+                                  priority
                                   onLoad={handleImageLoad}
                                   blurDataURL={blurDataURLs[currentHoverCard]}
                                 />

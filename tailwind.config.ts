@@ -10,6 +10,15 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			grayscale: {
+				'100': '100%',
+			  },
+			  contrast: {
+				'100': '100%',
+			  },
+			  brightness: {
+				'100': '100%',
+			  },
 			colors: {
 				gray: {
 					charcoal: "#121212",
@@ -17,6 +26,7 @@ const config: Config = {
 					light: "#D1D5DB",
 					cool:"#E5E7EB",
 					disabled:"#6B6B6B",
+					gray2:"#6B7280",
 					downloadDark:"#101010"
 				},
 				blue: {

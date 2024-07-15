@@ -4,6 +4,7 @@ import Conjion from "@/assets/Conjion.svg";
 import BlueCore from "@/assets/Bluecore.svg";
 import Nooberly from "@/assets/Nooblerly.svg";
 import Instacured from "@/assets/InstaCure.svg";
+import StockApp from "@/assets/stockAppIcon.svg"
 import Dreamlamp from "@/assets/Dream Lamp.svg";
 import React, { useEffect, useState } from "react";
 import { generateLinearGradientBase64 } from "@/helpers/common";
@@ -16,6 +17,8 @@ const logosSets = [
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
+		{ src: StockApp, marginTop: 0 },
+
 	],
 	[
 		{ src: Dreamlamp, marginTop: 0 },
@@ -24,6 +27,8 @@ const logosSets = [
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
+		{ src: StockApp, marginTop: 0 },
+
 	],
 	[
 		{ src: Dreamlamp, marginTop: 0 },
@@ -32,6 +37,8 @@ const logosSets = [
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
+		{ src: StockApp, marginTop: 0 },
+
 	],
 	[
 		{ src: Dreamlamp, marginTop: 0 },
@@ -40,6 +47,8 @@ const logosSets = [
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
+		{ src: StockApp, marginTop: 0 },
+
 	],
 	[
 		{ src: Dreamlamp, marginTop: 0 },
@@ -48,6 +57,8 @@ const logosSets = [
 		{ src: Instacured, marginTop: 0 },
 		{ src: Conjion, marginTop: 0 },
 		{ src: BlueCore, marginTop: 0 },
+		{ src: StockApp, marginTop: 0 },
+
 	],
 ];
 

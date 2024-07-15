@@ -27,7 +27,7 @@ export const ContactUsSection = () => {
   });
   const [errorMessage, setErrorMessage] = useState(false);
   const [error, setError] = useState<string>("");
-  const [msg, setMsg] = useState<string>("");
+  const [msg, setMsg] = useState<string>("asdsad");
   const [apiResponseError,setApiError ] = useState<string>("")
 
   const handleInputChange = (e: any) => {
@@ -155,6 +155,8 @@ export const ContactUsSection = () => {
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div className="flex flex-col gap-2">
+                
               <Input
                 label="First name"
                 name="firstName"
@@ -164,7 +166,13 @@ export const ContactUsSection = () => {
                 onChange={handleInputChange}
                 value={formData.firstName}
                 errMsg={errorMessage}
-              />
+                />{errorMessage && !formData.firstName && (
+                  <p className="text-red-500 text-sm font-semibold font-mono mt-3">
+                  {"First Name is required"}
+                </p>
+              )}
+              </div>
+              <div className="flex flex-col gap-2">
               <Input
                 label="Last name"
                 name="lastName"
@@ -174,7 +182,13 @@ export const ContactUsSection = () => {
                 autoComplete="family-name"
                 onChange={handleInputChange}
                 errMsg={errorMessage}
-              />
+                />
+              {errorMessage && !formData.lastName && (
+                <p className="text-red-500 text-sm font-semibold font-mono mt-3">
+                      {"Last Name is required"}
+                    </p>
+                  )}
+                  </div>
               <div className="sm:col-span-2">
                 <Input
                   label="Email"
@@ -186,6 +200,11 @@ export const ContactUsSection = () => {
                   onChange={handleInputChange}
                   errMsg={errorMessage}
                 />
+                 {errorMessage && !formData.email && (
+                    <p className="text-red-500 text-sm font-semibold font-mono mt-3">
+                      {"Email is required"}
+                    </p>
+                  )}
               </div>
               <div className="sm:col-span-2">
                 <div className="flex flex-col gap-2">
@@ -242,7 +261,7 @@ export const ContactUsSection = () => {
 
               <Button
                 isLoading={isLoading}
-			isDisabled={disabled}
+			// isDisabled={disabled || errorMessage }
                 content="Send Message"
                 className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
                 onClick={async () => {
@@ -257,6 +276,7 @@ export const ContactUsSection = () => {
                     // !numericRegex.test(formData?.phoneNumber.trim()) ||
                     !emailRegex.test(formData?.email.trim())
                   ) {
+                    debugger
                     setErrorMessage(true);
                     return;
                   } else {
@@ -320,7 +340,7 @@ export const ContactUsSection = () => {
           isError={!(msg?.length > 0)}
           show={!!(error?.length > 0 || msg?.length > 0)}
           headingCustomClass={classNames(
-            error?.length > 0 ? "!text-red-400" : "!text-gray-500"
+            error?.length > 0 ? "!text-red-400" : "!text-white  !border-none !font-medium"
           )}
         />
       )}

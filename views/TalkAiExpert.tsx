@@ -4,6 +4,8 @@ import { useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
 import harrisImg from "@/assets/harrisimg.png";
+import Arrow from "@/assets/RightArrow.svg";
+
 import { LogosCarousel } from "./LogosCarousel";
 import PlusColor from "@/assets/PlusColor.svg";
 import Background from "@/assets/Background.svg";
@@ -16,7 +18,7 @@ export const TalkAiExpert = () => {
     <div className="bg-black">
       {/* Section 1 */}
       <div
-        className="flex justify-center items-center relative"
+        className="flex justify-center items-center relative h-screen"
         style={{
           background:
             "radial-gradient(88.47% 182.54% at 0% 0%, rgba(7, 157, 252, 0.2) 0%, rgba(7, 157, 252, 0) 100%), rgba(6, 6, 6, 1)",
@@ -28,9 +30,9 @@ export const TalkAiExpert = () => {
         <Image
           src={Lines}
           alt="sorry"
-          className="h-screen lg:h-full lg:w-full"
+          className="h-screen  lg:h-full object-cover lg:w-full"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center h-full ">
           <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
             Speed up the Implementation
             <br /> of Your AI Applications
@@ -45,8 +47,8 @@ export const TalkAiExpert = () => {
         </div>
       </div>
       {/* Section 2 */}
-      <div className="w-full flex justify-center pt-32 lg:pt-60">
-        <div className="w-[90%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between">
+      <div className="w-full flex justify-center py-32 lg:py-40">
+        <div className="w-[80%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between items-center ">
           <div className="flex flex-col gap-8">
             <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-semibold">
               Meet Our AI Expert
@@ -73,9 +75,13 @@ export const TalkAiExpert = () => {
         <Image
           src={Lines}
           alt="sorry"
-          className="h-screen lg:h-full lg:w-full absolute z-20"
+          className="h-screen lg:h-full lg:w-full object-cover absolute z-20"
         />
-        <div className="w-full  flex justify-center pt-32 lg:pt-60">
+        <div className="w-full  flex justify-center py-32 lg:pt-48 lg:pb-56 "
+        style={{
+          background: "radial-gradient(59.24% 25.3% at 50% 100%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), #060606"
+        }}
+        >
           <div className="w-[90%]   ">
             <div className="flex flex-col gap-12">
               <div className="text-white text-center text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
@@ -87,7 +93,7 @@ export const TalkAiExpert = () => {
                 others
               </div>
 
-              <div className="flex  w-3/4 mx-auto  mt-12 justify-between">
+              <div className="flex flex-col gap-4  lg:flex-row w-full  lg:w-4/5 mx-auto  mt-12 justify-between">
                 <GradientBox
                   heading="32"
                   className="!lg:w-full"
@@ -107,7 +113,7 @@ Projects Deployed"
       </div>
 
       {/* Section 3 */}
-      <div className="w-full flex flex-col justify-center gap-20 pt-32 lg:py-60 overflow-x-hidden">
+      <div className="w-full flex flex-col justify-center gap-20 pt-32 lg:py-60 overflow-x-hidden ">
         <div className="flex justify-center">
           <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2">
             Counted On by The World's Most Ambitious AI Teams
@@ -134,7 +140,11 @@ const CalendlyWidget = () => {
       <Button
         onClick={openCalendlyPopup}
         content="Schedule a Session"
+        iconClassName="-mt-1"
+        isLefticon={false}
+
         className="!rounded-full"
+        Icon={Arrow}
       />
       {isOpen && (
         <div
@@ -194,7 +204,7 @@ const GradientBox = ({ heading, text, className }: any) => {
       <div className="flex justify-center items-center relative">
         <div
           className={classNames(
-            "w-96 lg:w-[30rem] h-32 border-2 text-white rounded-2xl py-20  flex justify-center items-center",
+            "w-[21rem] lg:w-[30rem] h-32  text-white rounded-3xl py-20  flex justify-center items-center",
             className
           )}
           style={{

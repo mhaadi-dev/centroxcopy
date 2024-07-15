@@ -2,6 +2,7 @@
 
 import { RealEstateChatbot } from "@/views/RealEstateChatbot";
 import { Navbar } from "@/Components/Navbar/navbar";
+import WebsiteFooter from "@/Components/common/WebsiteFooter";
 
 function ReaslEstateChat() {
 	return (
@@ -13,7 +14,8 @@ function ReaslEstateChat() {
 			}}
 		>
 			<Navbar />
-			<RealEstateChatbot />;
+			<RealEstateChatbot />
+			<WebsiteFooter/>
 		</div>
 	);
 }

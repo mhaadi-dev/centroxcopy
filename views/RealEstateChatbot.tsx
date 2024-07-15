@@ -27,7 +27,7 @@ export const RealEstateChatbot = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <Image src={Lines} alt="sorry" className="h-screen w-full" />
+        <Image src={Lines} alt="sorry" className="h-screen object-cover w-full" />
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center">
             Smart Chat bot Agent

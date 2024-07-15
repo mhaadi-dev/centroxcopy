@@ -27,7 +27,7 @@ export const AlertOverlay: React.FC<AlertOverlayProps> = ({
       if (heading) {
         setShow?.();
       }
-    }, 3000);
+    }, 20000);
 
     return () => {
       clearTimeout(alertTimer);
@@ -58,7 +58,7 @@ export const AlertOverlay: React.FC<AlertOverlayProps> = ({
               )}
             >
               <div
-                className="flex items-center p-2 h-full bg-red-700 "
+                className="flex items-center p-2 h-full bg-teal-500 text-white text-sm border-none "
                 // style={{
                 //   background:
                 //     "radial-gradient(88.47% 182.54% at 0% 0%, rgba(7, 157, 252, 0.4) 0%, rgba(7, 157, 252, 0) 100%), rgba(1, 184, 252, 0.06)",

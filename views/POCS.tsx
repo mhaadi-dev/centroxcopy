@@ -175,6 +175,7 @@ export const POCS = () => {
 						className="w-auto h-full py-4 px-12"
 						placeholder="blur"
 						onLoad={handleImageLoad}
+						priority
 						blurDataURL={blurDataURLs[lastHoveredCard]}
 					/>
 				</div>
@@ -210,6 +211,7 @@ export const POCS = () => {
 								: POC1Image1
 						}
 						alt="sorry"
+						priority
 						className="w-full lg:w-auto h-1/2 mt-10 lg:mt-0"
 					/>
 				</div>

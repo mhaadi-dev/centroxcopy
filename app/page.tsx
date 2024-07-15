@@ -16,6 +16,7 @@ import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import { SHOW_SERVICES, SHOW_SOLUTIONS } from "@/helpers/enums";
 import Link from "next/link";
+import WebsiteFooter from "@/Components/common/WebsiteFooter";
 
 export default function Home() {
   useEffect(() => {
@@ -68,7 +69,224 @@ export default function Home() {
       <Section3 />
       <POCS />
       <Testimonial />
-      <PageFooter />
+      <div className="relative">
+          <div className="absolute -inset-2">
+            <div
+              className="w-4/5 mx-auto h-full  opacity-30 blur-lg filter"
+              style={{
+                background:
+                  "linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)",
+              }}
+            ></div>
+          </div>
+
+          <div className="relative overflow-hidden w-4/5 mx-auto text-center bg-gray-900 rounded-3xl lg:text-left ">
+            <div className="p-6 lg:py-8 lg:px-14 ">
+              <div className="grid lg:flex   w-full items-center justify-center">
+                <h5 className="text-sm sm:text-3xl font-bold text-white">
+                  Get an expert help in constructing your own models or
+                  utilizing foundational models for your business
+                </h5>
+
+                <div className="flex-1  mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center ">
+                  <Link href={"/aiExpert"}>
+                    <Button
+                      content="Talk to our AI expert"
+                      className="bg-blue-azure border-0 w-40 sm:w-64 !rounded-full font-semibold"
+                      Icon={
+                        <footer className="py-12 bg-black sm:py-16 lg:py-20 mt-40 md:mt-40">
+                          <div className="px-4 mx-auto w-4/5 ">
+                            <div className="relative">
+                              <div className="absolute -inset-2">
+                                <div
+                                  className="w-full h-full mx-auto opacity-30 blur-lg filter"
+                                  style={{
+                                    background:
+                                      "linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)",
+                                  }}
+                                ></div>
+                              </div>
+
+                              <div className="relative overflow-hidden text-center bg-gray-900 rounded-3xl lg:text-left ">
+                                <div className="p-6 lg:py-8 lg:px-14">
+                                  <div className="grid lg:flex  w-full items-center justify-center">
+                                    <h5 className="text-xl sm:text-3xl font-bold text-white">
+                                      Get an expert help in constructing your
+                                      own models or utilizing foundational
+                                      models for your business
+                                    </h5>
+
+                                    <div className="flex-1 mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center ">
+                                      <Link href={"/aiExpert"}>
+                                        <Button
+                                          content="Talk to our AI expert"
+                                          className="bg-blue-azure border-0 w-64 !rounded-full font-semibold"
+                                          Icon={Arrow}
+                                          isLefticon={false}
+                                          // onClick={() => {
+                                          // 	router.push("/aiExpert");
+                                          // }}
+                                        />
+                                      </Link>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="grid gap-10 sm:gap-0 sm:flex justify-between  mt-20 sm:mt-60  w-4/5 mx-auto py-4">
+                            <div className="h-full">
+                              <Image
+                                src={AppLogo}
+                                alt="Logo"
+                                className="w-[10rem] sm:w-80"
+                              />
+                            </div>
+                            <div className="flex flex-col gap-5">
+                              <div className="grid sm:flex  items-center gap-4 sm:gap-28 cursor-pointer ml-10 sm:ml-0">
+                                <span
+                                  className="text-white font-semibold sm:text-2xl"
+                                  onClick={() => {
+                                    const solutionsComponent =
+                                      document.getElementById("solutions");
+                                    if (solutionsComponent) {
+                                      solutionsComponent.scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "start",
+                                      });
+                                    }
+                                  }}
+                                >
+                                  Solutions
+                                </span>
+                                <span
+                                  className="text-white font-semibold sm:text-2xl"
+                                  onClick={() => {
+                                    const solutionsComponent =
+                                      document.getElementById("services");
+                                    if (solutionsComponent) {
+                                      solutionsComponent.scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "start",
+                                      });
+                                    }
+                                  }}
+                                >
+                                  Services
+                                </span>
+
+                                {/* <span
+                                  className="text-white font-semibold sm:text-2xl"
+                                  onClick={() => {
+                                    setShowToast(!showToast);
+                                  }}
+                                >
+                                  API
+                                </span> */}
+                                {/* <span
+							className="text-white font-semibold sm:text-2xl"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						>
+							APIs
+						</span> */}
+                                <Link
+                                  href="/team"
+                                  className="text-white font-semibold sm:text-2xl"
+                                  //   onClick={() => {
+                                  //     setShowToast(!showToast);
+                                  //   }}
+                                >
+                                  Team
+                                </Link>
+                              </div>
+                              <div className="grid sm:flex  items-center gap-4 sm:gap-20 cursor-pointer ml-10 sm:ml-0">
+                                <Link
+                                  href="/contact"
+                                  className="text-white font-semibold sm:text-2xl"
+                                  //   onClick={() => router.push(`/contact`)}
+                                >
+                                  Contact Us
+                                </Link>
+                                <Link
+                                  href="/team"
+                                  className="text-white font-semibold sm:text-2xl"
+                                >
+                                  About Us{" "}
+                                </Link>
+                                <Link
+                                  href="/aiExpert"
+                                  className="text-white font-semibold sm:text-2xl"
+                                  // onClick={() => {
+                                  // 	router.push("/aiExpert");
+                                  // }}
+                                >
+                                  Talk to an Expert
+                                </Link>
+                              </div>
+                              <div className="flex  items-center sm:justify-end gap-4 sm:mt-14 sm:gap-10 cursor-pointer ml-10 sm:ml-0">
+                                {/* <div className="flex items-center justify-end gap-10 mt-14 cursor-pointer"> */}
+                                <a
+                                  href="https://twitter.com/CentroxAI"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Image
+                                    src={TwitterIcon}
+                                    alt="Logo"
+                                    className="w-4 sm:w-8"
+                                  />
+                                </a>
+                                <a
+                                  href=" https://www.linkedin.com/company/centroxai"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Image
+                                    src={LinkedinIcon}
+                                    alt="Logo"
+                                    className="w-4 sm:w-8"
+                                  />
+                                </a>
+                                {/* <Image
+							src={MsgIcon}
+							alt="Logo"
+							className="w-6 sm:w-10"
+							onClick={() => {
+								setShowToast(!showToast);
+							}}
+						/> */}
+                              </div>
+                              <div className="flex  items-center mt-2 justify-end">
+                                <span className="text-white font-bold sm:text-xl ml-10 sm:ml-0">
+                                  © 2024 Centrox Technologies, Inc.All rights
+                                  reserved.
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* {showToast && (
+                            <Toast
+                              showToast={showToast}
+                              setShowToast={setShowToast}
+                            />
+                          )} */}
+                        </footer>
+                      }
+                      isLefticon={false}
+                      // onClick={() => {
+                      // 	router.push("/aiExpert");
+                      // }}
+                    />
+                  </Link>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <WebsiteFooter />
     </div>
   );
 }
@@ -147,18 +365,18 @@ const PageFooter = () => {
           </div>
 
           <div className="relative overflow-hidden text-center bg-gray-900 rounded-3xl lg:text-left ">
-            <div className="p-6 lg:py-8 lg:px-14">
-              <div className="grid lg:flex  w-full items-center justify-center">
-                <h5 className="text-xl sm:text-3xl font-bold text-white">
+            <div className="p-6 lg:py-8 lg:px-14 ">
+              <div className="grid lg:flex   w-full items-center justify-center">
+                <h5 className="text-sm sm:text-3xl font-bold text-white">
                   Get an expert help in constructing your own models or
                   utilizing foundational models for your business
                 </h5>
 
-                <div className="flex-1 mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center ">
+                <div className="flex-1  mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center ">
                   <Link href={"/aiExpert"}>
                     <Button
                       content="Talk to our AI expert"
-                      className="bg-blue-azure border-0 w-64 !rounded-full font-semibold"
+                      className="bg-blue-azure border-0 w-40 sm:w-64 !rounded-full font-semibold"
                       Icon={
                         <footer className="py-12 bg-black sm:py-16 lg:py-20 mt-40 md:mt-40">
                           <div className="px-4 mx-auto w-4/5 ">
@@ -346,7 +564,7 @@ const PageFooter = () => {
                       // }}
                     />
                   </Link>
-                </div>
+                </div> 
               </div>
             </div>
           </div>
