@@ -27,7 +27,7 @@ export const ContactUsSection = () => {
   });
   const [errorMessage, setErrorMessage] = useState(false);
   const [error, setError] = useState<string>("");
-  const [msg, setMsg] = useState<string>("asdsad");
+  const [msg, setMsg] = useState<string>("");
   const [apiResponseError,setApiError ] = useState<string>("")
 
   const handleInputChange = (e: any) => {

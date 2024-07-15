@@ -90,7 +90,7 @@ export const POCS = () => {
 					break;
 				case 3:
 					imageUrl = POCImage3.src;
-					break;
+				break;
 				case 4:
 					imageUrl = POCImage4.src;
 					break;

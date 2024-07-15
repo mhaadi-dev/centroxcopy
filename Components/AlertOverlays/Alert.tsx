@@ -27,11 +27,11 @@ export const AlertOverlay: React.FC<AlertOverlayProps> = ({
       if (heading) {
         setShow?.();
       }
-    }, 20000);
+    }, 2000);
 
     return () => {
       clearTimeout(alertTimer);
-    };
+  };
   }, [heading]);
 
   return (
