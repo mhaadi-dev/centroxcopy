@@ -39,7 +39,7 @@ export const Button = ({
 			className={classNames(
 				defaultClass &&
 					"flex items-center justify-center gap-3 rounded-lg  px-2 py-2 text-white hover:bg-blue-darkBtn lg:px-3 lg:py-3 bg-blue-azure",
-				isDisabled ? "bg-gray-disabled" : "bg-blue-azure",
+				isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : "bg-blue-azure",
 				className,
 			)}
 			disabled={isDisabled}

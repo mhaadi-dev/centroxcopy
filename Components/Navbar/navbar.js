@@ -9,18 +9,18 @@ export const Navbar = () => {
 	const pathname = usePathname();
 	const router = useRouter();
 	return (
-		<div className="flex justify-center fixed z-10 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
-			<div className="flex items-center justify-between w-[90%]">
+		<nav className="flex justify-center fixed z-10 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
+			<div className="flex items-center justify-between w-4/5 ">
 				<Image
 					src={AppLogo}
 					alt="Logo"
 					priority={true}
 					loading="eager"
-					className="w-[10rem] sm:w-[20%] lg:w-[15%] 2xl:w-[12%] cursor-pointer"
+					className="w-[10rem] sm:w-[20%] lg:w-[15%] 2xl:w-[12%]  cursor-pointer"
 					onClick={() => router.push(`/`)}
 				/>
 
-				<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[33rem] sm:-ml-[7%]">
+				<div className="hidden md:flex justify-between w-full sm:px-10 lg:px-0 md:w-[33rem] sm:-ml-[7%] ">
 					<NavLink
 						text="Solutions"
 						onClick={() => {
@@ -61,11 +61,11 @@ export const Navbar = () => {
 
 				<Button
 					content="Contact Us"
-					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal border-2 border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
+					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal  border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
 					onClick={() => router.push(`/contact`)}
 				/>
 			</div>
-		</div>
+		</nav>
 	);
 };
 

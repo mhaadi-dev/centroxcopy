@@ -23,3 +23,7 @@ export const generateBlurDataURL = async (imageUrl) => {
 	}
 	return "";
 };
+
+
+export const sectionHeadings = "text-center lg:text-left text-white text-2xl lg:text-4xl font-bold"
+export const sectionDiscriptions = "text-center lg:text-left text-md lg:text-xl text-white"

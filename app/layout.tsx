@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Head from "next/head";
+import { ServiceViewProvider } from "@/store/ServiceViewProivder";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -54,7 +55,11 @@ export default function RootLayout({
 				/>
 				{/* {twitterMetadata.site && <meta name="twitter:site" content={twitterMetadata.site} />} */}
 			</Head>
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<ServiceViewProvider>
+				{children}
+				</ServiceViewProvider>
+				</body>
 		</html>
 	);
 }
