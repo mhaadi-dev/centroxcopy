@@ -11,11 +11,18 @@ import ModDev3 from "@/assets/AI3.webp";
 import DeployingAi from "@/assets/DeployingAI.webp";
 import Arrow from "@/assets/RightArrow.svg";
 
-import { ReactEventHandler, useCallback, useState } from "react";
+import {
+  ReactEventHandler,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Button } from "@/Components/Button.js/button";
 import classNames, { generateBlurDataURL } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
+import { ServiceViewContext } from "@/store/ServiceViewProivder";
 interface GradientCardProps {
   title: string;
   description: string;
@@ -35,7 +42,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
   showHoverState,
   hoveredCard,
 }) => (
-  <div
+  <section
     className={classNames(
       "rounded-xl flex flex-col gap-3 p-5 mt-10 cursor-pointer"
     )}
@@ -60,7 +67,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
     <span className="text-md md:text-xl text-white-offWhite font-normal">
       {description}
     </span>
-  </div>
+  </section>
 );
 const Tabs = ({ tabs, setTabs }: any) => {
   const selectedTab =
@@ -128,12 +135,32 @@ const Tabs = ({ tabs, setTabs }: any) => {
 };
 
 export const Section3 = () => {
+  const { view } = useContext(ServiceViewContext);
+  console.log("view in section 3  is ", view);
+
   const [showToast, setShowToast] = useState(false);
   const [tabs, setTabs] = useState([
     { name: "Solving Data", href: "#", current: true },
     { name: "Model Dev", href: "#", current: false },
     { name: "MLOps", href: "#", current: false },
   ]);
+
+  useEffect(() => {
+    let newTabs = [...tabs];
+    let updatedTabs = newTabs?.map((x) => {
+      if (view === x.name) {
+        x.current = true;
+        return x;
+      }
+      return {
+        ...x,
+        current: false,
+      };
+    });
+    console.log("new tabs is", updatedTabs, view);
+    setTabs(updatedTabs);
+  }, [view]);
+
   const [lastHoveredCard, setLastHoveredCard] = useState<number>(1);
   const [currentHoverCard, setCurrentHoverCard] = useState<number>(0);
   const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
@@ -172,7 +199,7 @@ export const Section3 = () => {
 
   return (
     <>
-      <div
+      <section
         className="flex flex-col gap-4 sm:gap-9 items-center px-5 sm:px-0 w-full lg:w-4/5 mx-auto mt-12 lg:mt-60"
         id="services"
       >
@@ -193,11 +220,11 @@ export const Section3 = () => {
             setShowToast(!showToast);
           }}
         />
-      </div>
+      </section>
       <section className="relative py-12 w-4/5 mx-auto overflow-hidden bg-black sm:py-16 lg:py-20 ">
-        <div className="hidden sm:block  absolute bottom-0 right-0 overflow-hidden">
+        <figure className="hidden sm:block  absolute bottom-0 right-0 overflow-hidden">
           <Image className="w-auto" src={BackgroundImage as never} alt="" />
-        </div>
+        </figure>
 
         <div className="">
           <div className="container mx-auto">
@@ -211,7 +238,7 @@ export const Section3 = () => {
             >
               <Tabs tabs={tabs} setTabs={setTabs} />
               <div>
-                {tabs.map(
+                {tabs?.map(
                   (tab, index) =>
                     tab?.current && (
                       <div
@@ -308,15 +335,42 @@ export const Section3 = () => {
                             <div className="flex items-end  h-full sm:mt-5  py-2">
                               {tabs[0]?.current && (
                                 <Image
-                                  className="w-full h-full"
+                                  className={classNames(
+                                    "w-full h-full",
+                                    lastHoveredCard === 1 ? "block" : "hidden"
+                                  )}
                                   // loading="eager"
-                                  src={
-                                    lastHoveredCard === 3
-                                      ? CustomDataImage
-                                      : lastHoveredCard === 2
-                                      ? DataLabelingImage
-                                      : DataCurationImage
-                                  }
+                                  src={DataCurationImage}
+                                  alt=""
+                                  placeholder="blur"
+                                  priority
+                                  onLoad={handleImageLoad}
+                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                />
+                              )}
+                              {tabs[0]?.current && (
+                                <Image
+                                  className={classNames(
+                                    "w-full h-full",
+                                    lastHoveredCard === 2 ? "block" : "hidden"
+                                  )}
+                                  // loading="eager"
+                                  src={DataLabelingImage}
+                                  alt=""
+                                  placeholder="blur"
+                                  priority
+                                  onLoad={handleImageLoad}
+                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                />
+                              )}
+                              {tabs[0]?.current && (
+                                <Image
+                                  className={classNames(
+                                    "w-full h-full",
+                                    lastHoveredCard === 3 ? "block" : "hidden"
+                                  )}
+                                  // loading="eager"
+                                  src={CustomDataImage}
                                   alt=""
                                   placeholder="blur"
                                   priority
@@ -326,14 +380,39 @@ export const Section3 = () => {
                               )}
                               {tabs[1]?.current && (
                                 <Image
-                                  className="w-full h-[100%] lg:pt-3"
-                                  src={
-                                    lastHoveredCard === 3
-                                      ? ModDev3
-                                      : lastHoveredCard === 2
-                                      ? ModDev2
-                                      : BuildingAi
-                                  }
+                                  className={classNames(
+                                    "w-full h-[100%] lg:pt-3",
+                                    lastHoveredCard === 1 ? "block" : "hidden"
+                                  )}
+                                  src={BuildingAi}
+                                  alt=""
+                                  // loading="eager"
+                                  placeholder="blur"
+                                  onLoad={handleImageLoad}
+                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                />
+                              )}
+                              {tabs[1]?.current && (
+                                <Image
+                                  className={classNames(
+                                    "w-full h-[100%] lg:pt-3",
+                                    lastHoveredCard === 2 ? "block" : "hidden"
+                                  )}
+                                  src={ModDev2}
+                                  alt=""
+                                  // loading="eager"
+                                  placeholder="blur"
+                                  onLoad={handleImageLoad}
+                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                />
+                              )}
+                              {tabs[1]?.current && (
+                                <Image
+                                  className={classNames(
+                                    "w-full h-[100%] lg:pt-3",
+                                    lastHoveredCard === 3 ? "block" : "hidden"
+                                  )}
+                                  src={ModDev3}
                                   alt=""
                                   // loading="eager"
                                   placeholder="blur"
@@ -343,14 +422,39 @@ export const Section3 = () => {
                               )}
                               {tabs[2]?.current && (
                                 <Image
-                                  className="w-full h-[100%] lg:pt-2"
-                                  src={
-                                    lastHoveredCard === 3
-                                      ? AIDev3
-                                      : lastHoveredCard === 2
-                                      ? AIDev2
-                                      : DeployingAi
-                                  }
+                                  className={classNames(
+                                    "w-full h-[100%] lg:pt-2",
+                                    lastHoveredCard === 1 ? "block" : "hidden"
+                                  )}
+                                  src={DeployingAi}
+                                  alt=""
+                                  // loading="eager"
+                                  placeholder="blur"
+                                  onLoad={handleImageLoad}
+                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                />
+                              )}
+                              {tabs[2]?.current && (
+                                <Image
+                                  className={classNames(
+                                    "w-full h-[100%] lg:pt-2",
+                                    lastHoveredCard === 2 ? "block" : "hidden"
+                                  )}
+                                  src={AIDev2}
+                                  alt=""
+                                  // loading="eager"
+                                  placeholder="blur"
+                                  onLoad={handleImageLoad}
+                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                />
+                              )}
+                              {tabs[2]?.current && (
+                                <Image
+                                  className={classNames(
+                                    "w-full h-[100%] lg:pt-2",
+                                    lastHoveredCard === 3 ? "block" : "hidden"
+                                  )}
+                                  src={AIDev3}
                                   alt=""
                                   // loading="eager"
                                   placeholder="blur"

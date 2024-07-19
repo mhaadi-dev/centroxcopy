@@ -202,7 +202,7 @@ const team = [
 export const MainAboutUs = () => {
   return (
     <>
-      <div className="flex flex-col gap-24 lg:gap-40">
+      <main className="flex flex-col gap-24 lg:gap-40">
         <div className="">
           <Image
             src={HeroImage}
@@ -295,7 +295,7 @@ export const MainAboutUs = () => {
         <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-4/5 mx-auto text-white pb-60 ">
           {team.map((el, index) => {
             return (
-              <div
+              <figure
                 key={index}
                 className="flex flex-col justify-center items-center p-4 rounded-xl"
                 style={{
@@ -326,13 +326,13 @@ export const MainAboutUs = () => {
                     <Image src={LinkedIn} className="w-5" alt="" />
                   </a>
                 </div>
-              </div>
+              </figure>
             );
           })}
         </div>
 
         {/* {showToast && <Toast showToast={showToast} setShowToast={setShowToast} />} */}
-      </div>
+      </main>
     </>
   );
 };

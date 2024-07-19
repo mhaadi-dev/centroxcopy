@@ -3,12 +3,15 @@ import AppLogo from "../../public/images/updatedCentroxLogo.svg";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useContext } from "react";
+import { ServiceViewContext } from "@/store/ServiceViewProivder";
+import { SHOW_SERVICES } from "@/helpers/enums";
 const navigation = {
   services: [
     { name: "Solving Data", href: "#" },
     { name: "Model Dev", href: "#" },
-    { name: "AI Ops", href: "#" },
+    { name: "MLOps", href: "#" },
     //   { name: 'Insights', href: '#' },
   ],
 
@@ -22,7 +25,7 @@ const navigation = {
   company: [
     { name: "Talk to An Expert", href: "/aiExpert" },
     { name: "Contact Us", href: "/contact" },
-    { name: "Abouts Us ", href: "/about" },
+    { name: "About Us ", href: "/about" },
     { name: "Team ", href: "/team" },
     { name: "Why Us", href: "#" },
   ],
@@ -30,6 +33,9 @@ const navigation = {
 
 export default function WebsiteFooter() {
     const router = useRouter();
+    const {setView} = useContext(ServiceViewContext)
+    const pathname = usePathname();
+    console.log("pathname is",pathname)
   return (
     <footer aria-labelledby="footer-heading" className="bg-black my-12">
       <h2 id="footer-heading" className="sr-only">
@@ -37,7 +43,7 @@ export default function WebsiteFooter() {
       </h2>
       <div className="mx-auto  border-blue-200   pb-8 pt-16 sm:pt-24 lg:pt-32 w-4/5  ">
         <div className="flex flex-col lg:flex-row justify-between  gap-12">
-          <div className="space-y-8 w-4/5 flex justify-center lg:items-start lg:justify-start mx-auto  lg:w-2/5 ">
+          <figure className="space-y-8 w-4/5 flex justify-center lg:items-start lg:justify-start mx-auto  lg:w-2/5 ">
             <Image
               alt="Company name"
               src={AppLogo}
@@ -47,7 +53,7 @@ export default function WebsiteFooter() {
                 
               }}
             />
-          </div>
+          </figure>
 
           <div className="mt-8 lg:mt-16 flex flex-col lg:flex-row justify-between  gap-8 xl:col-span-2 xl:mt-0 w-full lg:w-3/5">
             <div className=" w-full  flex justify-start  lg:justify-center">
@@ -63,8 +69,15 @@ export default function WebsiteFooter() {
                     <li key={item.name}
                     className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white cursor-pointer"
                     onClick={() => {
+                      if (pathname !== "/"){
+                        router.push(`/`);
+                        localStorage.setItem(SHOW_SERVICES, JSON.stringify(true));
+                      }
+                     
+
+                      setView(item.name)
                         const solutionsComponent =
-                          document.getElementById("solutions");
+                          document.getElementById("services");
                         if (solutionsComponent) {
                           solutionsComponent.scrollIntoView({
                             behavior: "smooth",

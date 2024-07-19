@@ -19,6 +19,7 @@ import Link from "next/link";
 import WebsiteFooter from "@/Components/common/WebsiteFooter";
 
 export default function Home() {
+
   useEffect(() => {
     const storedServices = localStorage.getItem(SHOW_SERVICES);
     const storedSolutions = localStorage.getItem(SHOW_SOLUTIONS);
@@ -61,7 +62,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-black overflow-x-hidden gap-10 max-w-[2500px] mx-auto">
+
+    <main className="flex min-h-screen flex-col bg-black overflow-x-hidden gap-10 max-w-[2500px] mx-auto">
       <Navbar />
       <VideoComponent />
       <LogosCarousel />
@@ -69,7 +71,7 @@ export default function Home() {
       <Section3 />
       <POCS />
       <Testimonial />
-      <div className="relative">
+      <section className="relative">
           <div className="absolute -inset-2">
             <div
               className="w-4/5 mx-auto h-full  opacity-30 blur-lg filter"
@@ -284,10 +286,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       
       <WebsiteFooter />
-    </div>
+    </main>
   );
 }
 
@@ -310,7 +312,7 @@ const VideoComponent = () => {
   // }, []);
 
   return (
-    <div>
+    <section>
       {/* {!videoLoaded && (
           <Image
             src={myGif}
@@ -343,7 +345,7 @@ const VideoComponent = () => {
           Unleashing Potential: ML Community's Hub for Models and Applications.
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 const PageFooter = () => {

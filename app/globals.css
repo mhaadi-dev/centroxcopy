@@ -31,8 +31,9 @@ html{
 }
 
 .animate-move {
-	animation: move 25s infinite linear;
-	-webkit-animation: move 25s infinite linear;
+	animation: move 35s infinite linear;
+	animation-delay: 2s;
+	-webkit-animation: move 35s infinite linear;
 }
 
 .highlighted-bar {
@@ -110,3 +111,8 @@ textarea {
 	background-color: rgb(255 255 255 / 0.05) !important;
 	color:white !important;
 } */
+
+
+
+
+
