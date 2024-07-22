@@ -24,6 +24,7 @@ import classNames, { generateBlurDataURL } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
 import { ServiceViewContext } from "@/store/ServiceViewProivder";
+import useSize from "@/helpers/customHooks/useWidthHook";
 interface GradientCardProps {
   title: string;
   description: string;
@@ -33,6 +34,9 @@ interface GradientCardProps {
   onMouseLeave?: ReactEventHandler;
   onClick?: () => void;
 }
+
+
+const mobileWidth = 800;
 
 const GradientCard: React.FC<GradientCardProps> = ({
   title,
@@ -131,7 +135,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
               <hr
             className={classNames(
               "bg-blue-azure h-2 rounded-xl   w-full hrclass border-none",
-              tabs[1].current
+               tabs[1].current
                 ? "ml-[100%]"
                 : tabs[2].current
                 ? "ml-[200%]"
@@ -151,6 +155,8 @@ const Tabs = ({ tabs, setTabs }: any) => {
 
 export const Section3 = () => {
   const { view } = useContext(ServiceViewContext);
+  const {width} = useSize();
+
   console.log("view in section 3  is ", view);
 
   const [showToast, setShowToast] = useState(false);
@@ -357,8 +363,8 @@ export const Section3 = () => {
                                   // loading="eager"
                                   src={DataCurationImage}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
                                   // placeholder="blur"
-                                  priority
                                   // onLoad={handleImageLoad}
                                   // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
@@ -372,8 +378,9 @@ export const Section3 = () => {
                                   // loading="eager"
                                   src={DataLabelingImage}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // placeholder="blur"
-                                  priority
                                   // onLoad={handleImageLoad}
                                   // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
@@ -386,9 +393,10 @@ export const Section3 = () => {
                                   )}
                                   // loading="eager"
                                   src={CustomDataImage}
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   alt=""
                                   placeholder="blur"
-                                  priority
                                   // onLoad={handleImageLoad}
                                   // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
@@ -401,6 +409,8 @@ export const Section3 = () => {
                                   )}
                                   src={BuildingAi}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // loading="eager"
                                   // placeholder="blur"
                                   // onLoad={handleImageLoad}
@@ -415,6 +425,8 @@ export const Section3 = () => {
                                   )}
                                   src={ModDev2}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // loading="eager"
                                   // placeholder="blur"
                                   // onLoad={handleImageLoad}
@@ -429,6 +441,8 @@ export const Section3 = () => {
                                   )}
                                   src={ModDev3}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // loading="eager"
                                   // placeholder="blur"
                                   // onLoad={handleImageLoad}
@@ -443,6 +457,8 @@ export const Section3 = () => {
                                   )}
                                   src={DeployingAi}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // loading="eager"
                                   // placeholder="blur"
                                   // onLoad={handleImageLoad}
@@ -457,6 +473,8 @@ export const Section3 = () => {
                                   )}
                                   src={AIDev2}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // loading="eager"
                                   // placeholder="blur"
                                   // onLoad={handleImageLoad}
@@ -471,6 +489,8 @@ export const Section3 = () => {
                                   )}
                                   src={AIDev3}
                                   alt=""
+                                  loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
                                   // loading="eager"
                                   // placeholder="blur"
                                   // onLoad={handleImageLoad}

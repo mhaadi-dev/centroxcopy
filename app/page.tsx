@@ -10,6 +10,7 @@ import { POCS } from "@/views/POCS";
 // import WebsiteFooter from "@/Components/common/WebsiteFooter";
 // import  BannerSection  from "@/Components/MainPageComponents/Banner";
 import dynamic from "next/dynamic";
+import useScrollToElement from "@/deploy/hooks/useScrollToElement";
 
 const WebsiteFooter = dynamic (()=>import("@/Components/common/WebsiteFooter"),{ssr:false})
 
