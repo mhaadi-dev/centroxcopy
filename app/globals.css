@@ -59,7 +59,6 @@ html{
 	width: 8px;
 	height: 3px;
 }
-/* ::-webkit-scrollbar-button {  background-color: #666; } */
 ::-webkit-scrollbar-track {
 	background-color: #646464;
 }
@@ -72,7 +71,6 @@ html{
 	background-color: #666;
 	border-radius: 3px;
 }
-/* ::-webkit-scrollbar-corner { background-color: #646464;} */
 ::-webkit-resizer {
 	background-color: #666;
 }
@@ -83,10 +81,7 @@ textarea {
 .react-international-phone-input-container{
 	background-color: rgb(255 255 255 / 0.05);
 	border-radius: 8px;
-	/* border: 0.1rem solid gray; */
-	/* overflow: hidden; */
-	/* --tw-border-opacity: 1; */
-    /* border-color: rgb(209 213 219 / 1)  */
+
 } 
 
 .react-international-phone-input{
@@ -107,12 +102,11 @@ textarea {
 
 
 }
-/* .react-international-phone-country-selector{
-	background-color: rgb(255 255 255 / 0.05) !important;
-	color:white !important;
-} */
 
 
+.hrclass{
+	transition: all 0.4s ease-in-out;
+}
 
 
 

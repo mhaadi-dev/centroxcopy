@@ -1,3 +1,4 @@
+"use client";
 import BackgroundImage from "@/assets/ServicesLines.svg";
 import DataCurationImage from "@/assets/DataCuration.webp";
 import DataLabelingImage from "../assets/DataLabelling.webp";
@@ -99,9 +100,9 @@ const Tabs = ({ tabs, setTabs }: any) => {
         </select>
       </div>
       <div className="hidden sm:flex w-full justify-center">
-        <div className="border-b-4  border-gray-800">
+        <div className="">
           <nav
-            className=" flex justify-center px-4 items-center space-x-8"
+            className=" grid grid-cols-3  items-center "
             aria-label="Tabs"
           >
             {tabs.map((tab: any) => (
@@ -110,9 +111,9 @@ const Tabs = ({ tabs, setTabs }: any) => {
                 // href={tab.href}
                 className={classNames(
                   tab.current
-                    ? "border-blue-azure text-blue-azure z-30"
-                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-                  "whitespace-nowrap border-b-2 sm:py-4 px-1 text-2xl font-semibold cursor-pointer"
+                    ? " text-blue-azure z-30  border-none "
+                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 ",
+                  "whitespace-nowrap border-b-2 sm:py-4 px-4 text-2xl font-semibold cursor-pointer border-none justify-self-center "
                 )}
                 aria-current={tab.current ? "page" : undefined}
                 onClick={() =>
@@ -127,8 +128,22 @@ const Tabs = ({ tabs, setTabs }: any) => {
                 {tab.name}
               </a>
             ))}
+              <hr
+            className={classNames(
+              "bg-blue-azure h-2 rounded-xl   w-full hrclass border-none",
+              tabs[1].current
+                ? "ml-[100%]"
+                : tabs[2].current
+                ? "ml-[200%]"
+                
+                : ""
+            )}
+          />
           </nav>
+          <div className="w-full bg-gray-700 rounded-lg border-none overflow-hidden h-2 -mt-2 "></div>
+        
         </div>
+        
       </div>
     </div>
   );
@@ -163,7 +178,7 @@ export const Section3 = () => {
 
   const [lastHoveredCard, setLastHoveredCard] = useState<number>(1);
   const [currentHoverCard, setCurrentHoverCard] = useState<number>(0);
-  const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
+  // const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
 
   const handleMouseEnter = useCallback((cardNumber: number) => {
     setLastHoveredCard(cardNumber);
@@ -175,27 +190,27 @@ export const Section3 = () => {
     setCurrentHoverCard(0);
   }, []);
 
-  const handleImageLoad = async () => {
-    if (!blurDataURLs[currentHoverCard]) {
-      let imageUrl = "";
-      switch (currentHoverCard) {
-        case 3:
-          imageUrl = CustomDataImage.src;
-          break;
-        case 3:
-          imageUrl = DataLabelingImage.src;
-          break;
-        default:
-          imageUrl = DataCurationImage.src;
-          break;
-      }
-      const blurredBase64 = await generateBlurDataURL(imageUrl);
-      setBlurDataURLs((prevBlurDataURLs) => ({
-        ...prevBlurDataURLs,
-        [currentHoverCard]: blurredBase64,
-      }));
-    }
-  };
+  // const handleImageLoad = async () => {
+  //   if (!blurDataURLs[currentHoverCard]) {
+  //     let imageUrl = "";
+  //     switch (currentHoverCard) {
+  //       case 3:
+  //         imageUrl = CustomDataImage.src;
+  //         break;
+  //       case 3:
+  //         imageUrl = DataLabelingImage.src;
+  //         break;
+  //       default:
+  //         imageUrl = DataCurationImage.src;
+  //         break;
+  //     }
+  //     const blurredBase64 = await generateBlurDataURL(imageUrl);
+  //     setBlurDataURLs((prevBlurDataURLs) => ({
+  //       ...prevBlurDataURLs,
+  //       [currentHoverCard]: blurredBase64,
+  //     }));
+  //   }
+  // };
 
   return (
     <>
@@ -243,7 +258,7 @@ export const Section3 = () => {
                     tab?.current && (
                       <div
                         key={index}
-                        className="flex flex-col sm:gap-4  3xl:justify-around "
+                        className="flex flex-col sm:gap-4  3xl:justify-around  "
                       >
                         <span className="text-2xl md:text-5xl text-white font-bold flex justify-start">
                           {index === 0
@@ -342,10 +357,10 @@ export const Section3 = () => {
                                   // loading="eager"
                                   src={DataCurationImage}
                                   alt=""
-                                  placeholder="blur"
+                                  // placeholder="blur"
                                   priority
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[0]?.current && (
@@ -357,10 +372,10 @@ export const Section3 = () => {
                                   // loading="eager"
                                   src={DataLabelingImage}
                                   alt=""
-                                  placeholder="blur"
+                                  // placeholder="blur"
                                   priority
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[0]?.current && (
@@ -374,8 +389,8 @@ export const Section3 = () => {
                                   alt=""
                                   placeholder="blur"
                                   priority
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[1]?.current && (
@@ -387,9 +402,9 @@ export const Section3 = () => {
                                   src={BuildingAi}
                                   alt=""
                                   // loading="eager"
-                                  placeholder="blur"
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // placeholder="blur"
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[1]?.current && (
@@ -401,9 +416,9 @@ export const Section3 = () => {
                                   src={ModDev2}
                                   alt=""
                                   // loading="eager"
-                                  placeholder="blur"
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // placeholder="blur"
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[1]?.current && (
@@ -415,9 +430,9 @@ export const Section3 = () => {
                                   src={ModDev3}
                                   alt=""
                                   // loading="eager"
-                                  placeholder="blur"
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // placeholder="blur"
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[2]?.current && (
@@ -429,9 +444,9 @@ export const Section3 = () => {
                                   src={DeployingAi}
                                   alt=""
                                   // loading="eager"
-                                  placeholder="blur"
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // placeholder="blur"
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[2]?.current && (
@@ -443,9 +458,9 @@ export const Section3 = () => {
                                   src={AIDev2}
                                   alt=""
                                   // loading="eager"
-                                  placeholder="blur"
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // placeholder="blur"
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                               {tabs[2]?.current && (
@@ -457,9 +472,9 @@ export const Section3 = () => {
                                   src={AIDev3}
                                   alt=""
                                   // loading="eager"
-                                  placeholder="blur"
-                                  onLoad={handleImageLoad}
-                                  blurDataURL={blurDataURLs[currentHoverCard]}
+                                  // placeholder="blur"
+                                  // onLoad={handleImageLoad}
+                                  // blurDataURL={blurDataURLs[currentHoverCard]}
                                 />
                               )}
                             </div>

@@ -55,9 +55,9 @@ const config: Config = {
         "3xl": { min: "2000px" },
         "4xl": { min: "2500px" },
 		
-		// "smallLaptops":"1366px" ,
-		// "mediumLaptops":"1500px",
-		// "largeLaptops":"2300px",
+			// "smallLaptops":"1366px" ,
+			// "mediumLaptops":"1500px",
+			// "largeLaptops":"2300px",
       },
     },
   },

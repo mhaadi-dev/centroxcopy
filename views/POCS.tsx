@@ -1,3 +1,4 @@
+"use client"
 import NextImage from "next/image";
 import { ReactEventHandler, useCallback, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";

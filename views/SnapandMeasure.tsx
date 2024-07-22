@@ -1,9 +1,11 @@
+"use client"
 import { Button } from "@/Components/Button.js/button";
 import SnapMeasureSVG from "@/assets/Snap.webp";
 import Arrow from "@/assets/RightArrow.svg";
 import Image from "next/image";
 import { useState } from "react";
 import { generateBlurDataURL } from "@/helpers/common";
+import Link from "next/link";
 
 export const SnapMeasure = () => {
 	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
@@ -28,16 +30,18 @@ export const SnapMeasure = () => {
 						with a simple snap from your camera.
 					</div>
 				</div>
+				<Link href ="https://staging.bm.centrox.ai/" target="_blank">
 				<Button
 					content="Measure Now"
 					isLefticon={false}
 					iconClassName="-mt-1"
 					Icon={Arrow}
 					className="bg-blue-azure border-0 w-44 !rounded-full mt-3 sm:mt-4"
-					onClick={() => {
-						window.open("https://staging.bm.centrox.ai/", "_blank");
-					}}
+					// onClick={() => {
+					// 	window.open("https://staging.bm.centrox.ai/", "_blank");
+					// }}
 				/>
+				</Link>
 			</div>
 			<summary className="grid grid-cols-1 2xl:grid-cols-2 gap-20 3xl:gap-10  sm:mt-14 sm:w-[89%] py-10 sm:px-20">
 				<div className="flex flex-col gap-5 items-start h-full">

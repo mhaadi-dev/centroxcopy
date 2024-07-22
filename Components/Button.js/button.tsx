@@ -1,3 +1,4 @@
+"use client"
 import classNames from "@/helpers/common";
 import Image from "next/image";
 
