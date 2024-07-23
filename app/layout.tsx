@@ -3,69 +3,79 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Head from "next/head";
 import { ServiceViewProvider } from "@/store/ServiceViewProivder";
-import { GoogleTagManager } from '@next/third-parties/google' 
-
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
-let gtmId = process.env["NEXT_PUBLIC_REACT_APP_GTM_ID"]
+let gtmId = process.env["NEXT_PUBLIC_REACT_APP_GTM_ID"];
+let analyticsId = process.env["NEXT_PUBLIC_REACT_APP_ANALYTICS_ID"]
 export const metadata: Metadata = {
-	title: "Centrox AI - AI & Machine Learning Services",
-	description:
-		"Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions.",
-	icons: {
-		icon: `/public/favicon.ico`,
-	},
+  title: "Centrox AI - AI & Machine Learning Services",
+  description:
+    "Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions.",
+  icons: {
+    icon: `/public/favicon.ico`,
+  },
 };
 
 const ogMetadata = {
-	title: "Centrox AI - AI & Machine Learning Services",
-	description:
-		"Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions can benefit your business.",
-	url: "https://centrox.io/",
-	image: "https://centrox.io/images/homepage.jpg",
-	type: "website",
+  title: "Centrox AI - AI & Machine Learning Services",
+  description:
+    "Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions can benefit your business.",
+  url: "https://centrox.io/",
+  image: "https://centrox.io/images/homepage.jpg",
+  type: "website",
 };
 const twitterMetadata = {
-	card: "summary_large_image",
-	title: "Centrox AI - AI & Machine Learning Services",
-	description:
-		"Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions can benefit your business.",
-	// site: '@your_twitter_handle',
+  card: "summary_large_image",
+  title: "Centrox AI - AI & Machine Learning Services",
+  description:
+    "Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions can benefit your business.",
+  // site: '@your_twitter_handle',
 };
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<html lang="en">
-			<link rel="icon" href="/favicon.ico"/>
-			<Head>
-				<title>{metadata.title as never}</title>
+  return (
+    <html lang="en">
+      <link rel="icon" href="/favicon.ico" />
+      <Head>
+        <title>{metadata.title as never}</title>
 
-				<meta property="og:title" content={ogMetadata.title} />
-				<meta property="og:description" content={ogMetadata.description} />
-				<meta property="og:url" content={ogMetadata.url} />
-				<meta property="og:image" content={ogMetadata.image} />
-				<meta property="og:type" content={ogMetadata.type} />
-				{/* Twitter site meta data */}
-				<meta name="twitter:card" content={twitterMetadata.card} />
-				<meta name="twitter:title" content={twitterMetadata.title} />
-				<meta
-					name="twitter:description"
-					content={twitterMetadata.description}
-				/>
-				{/* {twitterMetadata.site && <meta name="twitter:site" content={twitterMetadata.site} />} */}
-			</Head>
-			<GoogleTagManager gtmId={gtmId as string}/>
-			<body className={inter.className}>
-			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF7GSRF2"
-height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
-				<ServiceViewProvider>
-				{children}
-				</ServiceViewProvider>
-				</body>
-		</html>
-	);
+        <meta property="og:title" content={ogMetadata.title} />
+        <meta property="og:description" content={ogMetadata.description} />
+        <meta property="og:url" content={ogMetadata.url} />
+        <meta property="og:image" content={ogMetadata.image} />
+        <meta property="og:type" content={ogMetadata.type} />
+        {/* Twitter site meta data */}
+        <meta name="twitter:card" content={twitterMetadata.card} />
+        <meta name="twitter:title" content={twitterMetadata.title} />
+        <meta
+          name="twitter:description"
+          content={twitterMetadata.description}
+        />
+        {/* {twitterMetadata.site && <meta name="twitter:site" content={twitterMetadata.site} />} */}
+      </Head>
+      <GoogleTagManager gtmId={gtmId as string} />
+	  <GoogleAnalytics gaId={analyticsId as string} />
+
+      <body className={inter.className}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TF7GSRF2"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+			{/* <Script id="clarity-script" strategy="afterInteractive">
+				
+				</Script> */}
+
+        <ServiceViewProvider>{children}</ServiceViewProvider>
+      </body>
+    </html>
+  );
 }
