@@ -4,11 +4,13 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Head from "next/head";
 import { ServiceViewProvider } from "@/store/ServiceViewProivder";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 let gtmId = process.env["NEXT_PUBLIC_REACT_APP_GTM_ID"];
 let analyticsId = process.env["NEXT_PUBLIC_REACT_APP_ANALYTICS_ID"]
+let clarityId = process.env["NEXT_PUBLIC_REACT_APP_CLARITY_ID"]
 export const metadata: Metadata = {
   title: "Centrox AI - AI & Machine Learning Services",
   description:
@@ -70,9 +72,16 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-			{/* <Script id="clarity-script" strategy="afterInteractive">
+			<Script id="clarity-script" strategy="afterInteractive">
 				
-				</Script> */}
+				{`
+				 (function(c,l,a,r,i,t,y){
+					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+					t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+					y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+				})(window, document, "clarity", "script", "${clarityId}");
+				`}
+				</Script>
 
         <ServiceViewProvider>{children}</ServiceViewProvider>
       </body>
