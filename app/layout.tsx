@@ -3,9 +3,12 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Head from "next/head";
 import { ServiceViewProvider } from "@/store/ServiceViewProivder";
+import { GoogleTagManager } from '@next/third-parties/google' 
+
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
+let gtmId = process.env["NEXT_PUBLIC_REACT_APP_GTM_ID"]
 export const metadata: Metadata = {
 	title: "Centrox AI - AI & Machine Learning Services",
 	description:
@@ -55,7 +58,10 @@ export default function RootLayout({
 				/>
 				{/* {twitterMetadata.site && <meta name="twitter:site" content={twitterMetadata.site} />} */}
 			</Head>
+			<GoogleTagManager gtmId={gtmId as string}/>
 			<body className={inter.className}>
+			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF7GSRF2"
+height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
 				<ServiceViewProvider>
 				{children}
 				</ServiceViewProvider>
