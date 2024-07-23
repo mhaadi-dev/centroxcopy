@@ -1,3 +1,4 @@
+"use client"
 import NextImage from "next/image";
 import { ReactEventHandler, useCallback, useState } from "react";
 import { Toast } from "@/Components/Toast/toast";
@@ -12,6 +13,7 @@ import POCImage4 from "@/assets/FPOC4.webp";
 import ArrowIcon from "@/assets/POCArrow.svg";
 import POC4Image4 from "@/assets/FPOC4.svg";
 import { useRouter } from "next/navigation";
+import useSize from "@/helpers/windowWidth";
 
 interface GradientCardProps {
   tabName: string;
@@ -59,9 +61,12 @@ const GradientTab: React.FC<GradientCardProps> = ({
     </div>
   );
 };
+const mobileWidth = 700;
 
 export const POCS = () => {
   const router = useRouter();
+  const {width} = useSize();
+
   const [showToast, setShowToast] = useState<boolean>(false);
   const [lastHoveredCard, setLastHoveredCard] = useState<number>(1);
   const [currentHoverCard, setCurrentHoverCard] = useState<number>(0);
@@ -163,6 +168,8 @@ export const POCS = () => {
         <figure className="lg:w-[35%] flex justify-center ">
           <NextImage
             src={POC1Image}
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
             alt="sorry"
             className={classNames(
               "w-auto h-full py-4 px-12",
@@ -170,19 +177,20 @@ export const POCS = () => {
             )}
             // placeholder="blur"
             onLoad={handleImageLoad}
-            priority
+            
             // blurDataURL={blurDataURLs[lastHoveredCard]}
           />
           <NextImage
             src={POCImage2}
             alt="sorry"
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
             className={classNames(
               "w-auto h-full py-4 px-12",
               lastHoveredCard === 2 ? "block" : "hidden"
             )}
             // placeholder="blur"
             onLoad={handleImageLoad}
-            priority
             // blurDataURL={blurDataURLs[lastHoveredCard]}
           />
           <NextImage
@@ -193,8 +201,9 @@ export const POCS = () => {
               lastHoveredCard === 3 ? "block" : "hidden"
             )}
             // placeholder="blur"
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
             onLoad={handleImageLoad}
-            priority
             // blurDataURL={blurDataURLs[lastHoveredCard]}
           />
           <NextImage
@@ -204,9 +213,10 @@ export const POCS = () => {
               "w-auto h-full py-4 px-12",
               lastHoveredCard === 4 ? "block" : "hidden"
             )}
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
             // placeholder="blur"
             onLoad={handleImageLoad}
-            priority
             // blurDataURL={blurDataURLs[lastHoveredCard]}
           />
         </figure>
@@ -235,23 +245,28 @@ export const POCS = () => {
           <NextImage
             src={POC1Image1}
             alt="sorry"
-            priority
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
+            
             className={classNames("w-full lg:w-auto h-1/2 mt-10 lg:mt-0",lastHoveredCard == 1 ? "block" : "hidden")}
           />
           <NextImage
             src={POC2Image2}
             alt="sorry"
-            priority
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
 			className={classNames("w-full lg:w-auto h-1/2 mt-10 lg:mt-0",lastHoveredCard == 2 ? "block" : "hidden")}          />
           <NextImage
             src={POC3Image3}
             alt="sorry"
-            priority
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
 			className={classNames("w-full lg:w-auto h-1/2 mt-10 lg:mt-0",lastHoveredCard == 3 ? "block" : "hidden")}          />
           <NextImage
             src={POC4Image4}
             alt="sorry"
-            priority
+            loading={width && width <= mobileWidth ? "lazy" : "eager"}
+
 			className={classNames("w-full lg:w-auto h-1/2 mt-10 lg:mt-0",lastHoveredCard == 4 ? "block" : "hidden")}          />
         </div>
       </div>

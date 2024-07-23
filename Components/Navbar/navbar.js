@@ -1,3 +1,4 @@
+"use client"
 import AppLogo from "@/assets/LogoWhite.png";
 import { Button } from "../Button.js/button";
 import Image from "next/image";

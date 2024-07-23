@@ -1,7 +1,7 @@
 import Conjion from "@/assets/Conjion.svg";
 import Image from "next/image";
 
-export const Testimonial = () => {
+ const Testimonial = () => {
 	return (
 		<section className="px-5 lg:p-32 lg:px-0 w-full flex justify-center mt-20 md:mt-60">
 			<div
@@ -32,3 +32,4 @@ export const Testimonial = () => {
 		</section>
 	);
 };
+export default Testimonial;

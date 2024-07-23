@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import AppLogo from "../../public/images/updatedCentroxLogo.svg";
 import TwitterIcon from "@/assets/twitter.svg";
@@ -27,7 +28,7 @@ const navigation = {
     { name: "Contact Us", href: "/contact" },
     { name: "About Us ", href: "/about" },
     { name: "Team ", href: "/team" },
-    { name: "Why Us", href: "#" },
+    // { name: "Why Us", href: "#" },
   ],
 };
 
