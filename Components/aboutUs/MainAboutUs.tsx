@@ -138,24 +138,24 @@ const team = [
     link: "http://www.linkedin.com/in/nida-abid-100",
     img: nidaImg,
   },
-  // {
-  //   name: "Asad Khan",
-  //   designation: "Mobile App Engineer",
-  //   link: "https://www.linkedin.com/in/abdullah-qureshi5",
-  //   img: asadKhanIMg,
-  // },
-  // {
-  //   name: "Alishba Naveed",
-  //   designation: "Frontend Engineer",
-  //   link: "https://www.linkedin.com/in/abdullah-qureshi5",
-  //   img: alishbaImg,
-  // },
-  // {
-  //   name: "Syed Wasi Ur Rehman",
-  //   designation: "UI/UX Designer",
-  //   link: "https://www.linkedin.com/in/abdullah-qureshi5",
-  //   img: wasayImg,
-  // },
+  {
+    name: "Asad Khan",
+    designation: "Mobile App Engineer",
+    link: "https://www.linkedin.com/in/asad-khan-a63480198/",
+    img: asadKhanIMg,
+  },
+  {
+    name: "Alishba Naveed",
+    designation: "Mobile Engineer",
+    link: "https://www.linkedin.com/in/alishbah-naveed/",
+    img: alishbaImg,
+  },
+  {
+    name: "Syed Wasi Ur Rehman",
+    designation: "UI/UX Designer",
+    link: "https://www.linkedin.com/in/syedwasi73/",
+    img: wasayImg,
+  },
   {
     name: "Ali Zain",
     designation: "QA Engineer",

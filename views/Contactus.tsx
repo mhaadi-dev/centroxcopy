@@ -10,6 +10,7 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
+import { sendGAEvent } from '@next/third-parties/google'
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FocusEvent, useEffect, useState } from "react";
 
@@ -265,6 +266,8 @@ export const ContactUsSection = () => {
                 content="Send Message"
                 className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
                 onClick={async () => {
+                  sendGAEvent({ event: 'Contact-us form clicked', value: 1 })
+
                   const numericRegex = /^[0-9]+$/;
                   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                   if (
