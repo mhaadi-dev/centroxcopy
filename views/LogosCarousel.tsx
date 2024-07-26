@@ -28,13 +28,13 @@ export const LogosCarousel = () => {
 
 
   return (
-	<section className="w-full inline-flex  flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]  my-12">
+	<section className="w-full pt-24 lg:pt-40  inline-flex  flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]  ">
 	<ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll gap-12">
 	  {logosSets.map((logo, index) => (
 		<li key={index} >
 			<figure>
 		  <Image src={logo.src} alt={logo.alt} />
-			</figure>
+		</figure>
 		</li>
 	  ))}
 	</ul>

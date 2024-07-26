@@ -1,6 +1,7 @@
 "use client";
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import { Button } from "@/Components/Button.js/button";
+import { FormSubmissionModal } from "@/Components/common/FormSubmissionModal";
 import { PhoneNumber } from "@/Components/PhoneInput/PhoneInput";
 import { Toast } from "@/Components/Toast/toast";
 import { API_BASE } from "@/config/secret";
@@ -30,6 +31,7 @@ export const ContactUsSection = () => {
   const [error, setError] = useState<string>("");
   const [msg, setMsg] = useState<string>("");
   const [apiResponseError,setApiError ] = useState<string>("")
+  const [formModal,setFormModal]  = useState(true)
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -41,6 +43,8 @@ export const ContactUsSection = () => {
 
   console.log("form data value is", formData);
   return (
+    <>
+    {formModal && <FormSubmissionModal onClose={()=>{setFormModal(false)}}/>}
     <div className="relative isolate lg:h-screen bg-black">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-72">
@@ -266,8 +270,7 @@ export const ContactUsSection = () => {
                 content="Send Message"
                 className="font-bold bg-gray-charcoal border-2 border-white-offWhite opacity-70 border-opacity-70"
                 onClick={async () => {
-                  sendGAEvent({ event: 'Contact-us form clicked', value: 1 })
-
+                  sendGAEvent('event', 'formSubmitted', { value: 1 })
                   const numericRegex = /^[0-9]+$/;
                   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                   if (
@@ -279,7 +282,6 @@ export const ContactUsSection = () => {
                     // !numericRegex.test(formData?.phoneNumber.trim()) ||
                     !emailRegex.test(formData?.email.trim())
                   ) {
-                    debugger
                     setErrorMessage(true);
                     return;
                   } else {
@@ -311,7 +313,8 @@ export const ContactUsSection = () => {
                         message: "",
                       });
                       setIsLoading(false);
-                      setMsg("Your request has been submitted successfuly");
+                      setFormModal(true)
+                      // setMsg("Your request has been submitted successfuly");
                     } catch (error) {
 						setApiError("There was a problem submitting the form")
 
@@ -348,6 +351,7 @@ export const ContactUsSection = () => {
         />
       )}
     </div>
+    </>
   );
 };
 

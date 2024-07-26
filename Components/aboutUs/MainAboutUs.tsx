@@ -11,6 +11,7 @@ import alishbaImg from "@/assets/AlishbaImg.svg";
 import asadKhanIMg from "@/assets/asadkhanImg.svg";
 
 import aliZainIMg from "@/assets/alizainimg.svg";
+import ahmadImg from "@/assets/muhammadahman.jpg";
 
 import SaadAliImg from "@/assets/saadali.jpeg";
 import HamzaShahbazImg from "@/assets/hamzashahbazImg.jpg";
@@ -30,6 +31,8 @@ import faseehImg from "@/assets/faseehImg.png";
 import wahabImg from "@/assets/wahabImg.png";
 import asadImg from "@/assets/asadImg.png";
 import saadImg from "@/assets/saadImg.png";
+import hadiImg from "@/assets/mhadiimg.jpeg";
+
 import { Toast } from "../Toast/toast";
 import { sectionDiscriptions, sectionHeadings } from "@/helpers/common";
 const owners = [
@@ -64,14 +67,14 @@ const team = [
 
   {
     name: "Hamzah Ejaz",
-    designation: "Web Engineer",
+    designation: "Sr. Web Engineer",
     link: "https://www.linkedin.com/in/hamzah-ejaz",
     img: hamzaEjImg,
   },
 
   {
     name: "Hibba Saleem",
-    designation: "QA Executive",
+    designation: "Project Manager",
     link: "https://www.linkedin.com/in/hibba-saleem-a38433130",
     img: hibbaImg,
   },
@@ -83,7 +86,7 @@ const team = [
     img: khalidImg,
   },
   {
-    name: "Adeel Irshad",
+    name: " Adeel Irshad",
     designation: "Backend Engineer",
     link: "https://www.linkedin.com/in/adeelirshad808",
     img: adeelImg,
@@ -97,16 +100,10 @@ const team = [
 
   {
     name: "Faseeh Abbas",
-    designation: "Mobile Engineer",
+    designation: "Sr. Mobile Engineer",
     link: "https://www.linkedin.com/in/faseeh-abbas-khan-196544202",
     img: faseehImg,
   },
-  // {
-  //   name: "Muhammad Hadi Akhtar",
-  //   designation: "UX/UI Designer",
-  //   link: "https://www.linkedin.com/in/muhammad-hadi-akhtar-933273194",
-  //   img: hadiImg,
-  // },
 
   {
     name: "Abdul Wahab",
@@ -191,6 +188,19 @@ const team = [
     designation: "Backend Engineer",
     link: "https://www.linkedin.com/in/ahmed-imran-5236bb160/",
     img: AhmedImranImg,
+  },
+  {
+    name: "Muhammad Hadi ",
+    designation: "Web Developer",
+    link: "https://www.linkedin.com/in/muhammad-hadi-09a7a2251/",
+    img: hadiImg,
+  },
+
+  {
+    name: "Muhammad Ahmad ",
+    designation: "Digital Marketing Executive",
+    link: "https://www.linkedin.com/in/muhammad-ahmad-52ba4a235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    img: ahmadImg,
   },
   {
     name: "Muhammad Aftab",

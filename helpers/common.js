@@ -27,3 +27,10 @@ export const generateBlurDataURL = async (imageUrl) => {
 
 export const sectionHeadings = "text-center lg:text-left text-white text-2xl lg:text-4xl font-bold"
 export const sectionDiscriptions = "text-center lg:text-left text-md lg:text-xl text-white"
+
+export const sectionheadings = "w-full lg:w-[55%] mx-auto text-2xl lg:text-5xl text-white text-center font-bold "
+export const sectionsubheadings = "text-xl  text-white text-center w-full lg:w-3/5 mx-auto "
+
+export const sectionsSectionHeadings = "text-4xl text-white font-bold"
+
+export const sectionSectionDescription = "text-md lg:text-lg lg:text-xl text-white font-medium"

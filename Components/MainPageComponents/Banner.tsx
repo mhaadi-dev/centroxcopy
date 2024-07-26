@@ -10,7 +10,7 @@ import LinkedinIcon from "@/assets/linkedin.svg";
 
 const  BannerSection = ()=>{
     return <>
-       <section className="relative">
+       <section className="relative mt-24 lg:mt-60 w-[99%] mx-auto">
           <div className="absolute -inset-2">
             <div
               className="w-4/5 mx-auto h-full  opacity-30 blur-lg filter"
