@@ -27,6 +27,7 @@ export const SolvingDataHeroSection = () => {
           <Image
             src={img}
             alt="solving-data img "
+            loading = "eager"
             className="rounded-xl mt-4 lg:mt-0  w-full lg:w-4/5"
           />
         </figure>

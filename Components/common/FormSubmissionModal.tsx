@@ -9,7 +9,7 @@ export const FormSubmissionModal = ({onClose}:PropsI) => {
   return (
     <>
       <Modal onClick={onClose}>
-        <div className="flex flex-col gap-4 justify-center items-center py-6     "
+        <div className="flex flex-col gap-4 justify-center items-center py-12     "
         style={{
           
         }}

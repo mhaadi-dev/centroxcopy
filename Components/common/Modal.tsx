@@ -49,7 +49,7 @@ export default function Modal({ onClick, children, className }: Props) {
             >
               <Dialog.Panel
                 className={classNames(
-                  "relative transform overflow-hidden rounded-lg px-4 pt-5  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6 py-8 max-h-[45rem] overflow-y-auto side_bar bg-black ",
+                  "relative transform overflow-hidden rounded-lg px-4 pt-5  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6 py-8 max-h-[45rem]  overflow-y-auto side_bar bg-black ",
                   className
                 )}
                 // style={{

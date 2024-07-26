@@ -31,7 +31,7 @@ export const ContactUsSection = () => {
   const [error, setError] = useState<string>("");
   const [msg, setMsg] = useState<string>("");
   const [apiResponseError,setApiError ] = useState<string>("")
-  const [formModal,setFormModal]  = useState(false)
+  const [formModal,setFormModal]  = useState(true)
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
