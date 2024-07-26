@@ -6,10 +6,10 @@ import classNames, {
   sectionsubheadings,
 } from "@/helpers/common";
 import { useEffect, useState } from "react";
-import textExtractionImg from "@/public/images/solvingdata/updatedTextExtractionImg.webp";
-import twodBoudingImg from "@/public/images/solvingdata/updated2Dboxesimg.webp";
-import ImageSegmentation from "@/public/images/solvingdata/updatedImageSegmentationImg.webp";
-import RareEventImg from "@/public/images/solvingdata/updatedRareEventImg.webp";
+import textExtractionImg from "@/public/images/solvingdata/newtextExtaractionImg.webp";
+import twodBoudingImg from "@/public/images/solvingdata/new2dBouncingBoxesimg.webp";
+import ImageSegmentation from "@/public/images/solvingdata/newimagesegmentionimg.webp";
+import RareEventImg from "@/public/images/solvingdata/newrareeventimg.webp";
 import { Button } from "@/Components/Button.js/button";
 import Image from "next/image";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
@@ -127,7 +127,7 @@ export const Carousal = () => {
           </div>
 
           <div
-                  className="flex flex-col-reverse lg:flex-row w-[90%] gap-2 py-12 items-center mx-auto"
+                  className="flex flex-col-reverse lg:flex-row w-[90%] gap-2 py-2 items-center mx-auto"
                 >
           {CarousalData?.map((cars, index) => {
             if (index === activeIndex) {
@@ -157,12 +157,12 @@ export const Carousal = () => {
               );
             }
           })}
-            <div className="w-full  lg:w-1/2  flex justify-end">
+            <div className="w-full  lg:w-1/2  flex justify-end overflow-hidden bg-black rounded-3xl">
                   <Image
                        src={CarousalData?.[0]?.img}
                        alt="carousal-img"
                        loading="eager"
-                       className={classNames("w-full  object-cover h-full", activeIndex === 0 ? "block" :"hidden")}
+                       className={classNames("w-full  object-cover h-full ", activeIndex === 0 ? "block" :"hidden")}
                      />
                        <Image
                        src={CarousalData?.[1]?.img}
@@ -188,7 +188,7 @@ export const Carousal = () => {
 
           {width && width > 900 && (
             <ArrowRightIcon
-              className="absolute top-1/2 right-10 text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in "
+              className="absolute top-1/2 right-10 text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in active:border-2 active:border-blue-500"
               onClick={() => {
                 setActiveIndex((prev) => (prev + 1) % CarousalData?.length);
               }}
@@ -196,7 +196,7 @@ export const Carousal = () => {
           )}
           {width && width > 900 && (
             <ArrowLeftIcon
-              className="absolute top-1/2 left-10 text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in"
+              className="absolute top-1/2 left-10 text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in active:border-2 active:border-blue-500"
               onClick={() => {
                 setActiveIndex(
                   (prev) =>

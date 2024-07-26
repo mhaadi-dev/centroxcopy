@@ -29,7 +29,7 @@ export const  ComprehensiveDataAnnotatoinsSection = () => {
           {gradientCardData?.map((data, index) => {
             return (
               <div
-                className="flex flex-col rounded-xl gap-4 p-6 w-full justify-center items-center  "
+                className="flex flex-col rounded-xl gap-4 p-8 w-full justify-center items-center  "
                 key={index}
                 style={{
                   background:
@@ -39,7 +39,9 @@ export const  ComprehensiveDataAnnotatoinsSection = () => {
                   backgroundRepeat: "no-repeat",
                 }}
               >
-                <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-blue-500 text-3xl lg:text-5xl font-bold">
+                <h3 className=" bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-blue-500 text-3xl lg:text-5xl font-bold"
+               
+                >
                   {data.figures}
                 </h3>
                 <h3 className="text-white text-md lg:text-3xl text-center">{data.description}</h3>

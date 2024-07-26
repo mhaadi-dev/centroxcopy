@@ -67,7 +67,7 @@ export const HowWeWorkSection = () => {
                 }}
               >
                 <div className="flex justify-between ">
-                  <Image src={card.img} className="w-8" alt="icon" />
+                  <Image src={card.img} className="w-10" alt="icon" />
                   <div
                     style={{
                       background:
