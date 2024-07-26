@@ -10,7 +10,7 @@ import { ServiceViewContext } from "@/store/ServiceViewProivder";
 import { SHOW_SERVICES } from "@/helpers/enums";
 const navigation = {
   services: [
-    { name: "Solving Data", href: "#" },
+    { name: "Solving Data", href: "/solving-data" },
     { name: "Model Dev", href: "#" },
     { name: "MLOps", href: "#" },
     //   { name: 'Insights', href: '#' },
@@ -67,25 +67,31 @@ export default function WebsiteFooter() {
                   className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
                 >
                   {navigation.services.map((item) => (
-                    <li key={item.name}
+                    <li  key={item.name}
                     className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white cursor-pointer"
                     onClick={() => {
-                      if (pathname !== "/"){
+                      if (pathname !== "/" && item.name !== "Solving Data"){
                         router.push(`/`);
                         localStorage.setItem(SHOW_SERVICES, JSON.stringify(true));
                       }
                      
-
-                      setView(item.name)
-                        const solutionsComponent =
-                          document.getElementById("services");
-                        if (solutionsComponent) {
-                          solutionsComponent.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                          });
+                        if (item.name !== "Solving Data"){
+                          setView(item.name)
+                          const solutionsComponent =
+                            document.getElementById("services");
+                          if (solutionsComponent) {
+                            solutionsComponent.scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                            });
+                          }
                         }
-                      }} >
+                        if (item.name == "Solving Data"){
+                          router.push("/solving-data")
+
+                        }
+                      }} 
+                      >
                         {item.name}
                     </li>
                   ))}
