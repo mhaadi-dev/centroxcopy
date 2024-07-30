@@ -22,7 +22,7 @@ export const CustomChatbotHeroSection = () => {
         </Link>
 
         <figure className="w-[98%] lg:w-3/4  mx-auto">
-          <Image src={img} alt="img" className="w-full" />
+          <Image src={img} alt="img" className="w-full" loading="eager" />
         </figure>
 
         {/* <div className="w-3/4 mx-auto bg-white h-[30rem] flex justify-center items-end border-2 px-12  rounded-xl">
