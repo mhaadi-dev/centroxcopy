@@ -62,7 +62,7 @@ export const Navbar = () => {
 
 				<Button
 					content="Contact Us"
-					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal  border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
+					className="w-32 !rounded-2xl font-semibold bg-blue-azure  border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
 					onClick={() => router.push(`/contact`)}
 				/>
 			</div>
