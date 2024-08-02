@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const pathname = usePathname();
 	const router = useRouter();
 	return (
-		<nav className="flex justify-center fixed z-10 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
+		<nav className="flex justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl">
 			<div className="flex items-center justify-between w-4/5 ">
 				<Image
 					src={AppLogo}
@@ -62,7 +62,7 @@ export const Navbar = () => {
 
 				<Button
 					content="Contact Us"
-					className="w-32 !rounded-2xl font-semibold bg-gray-charcoal  border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
+					className="w-32 !rounded-2xl font-semibold bg-blue-azure  border-white-offWhite opacity-70 hover:!bg-gray-charcoal border-opacity-70"
 					onClick={() => router.push(`/contact`)}
 				/>
 			</div>

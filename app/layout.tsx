@@ -82,7 +82,7 @@ export default function RootLayout({
 				})(window, document, "clarity", "script", "${clarityId}");
 				`}
 				</Script>
-
+        
         <ServiceViewProvider>{children}</ServiceViewProvider>
       </body>
     </html>

@@ -13,7 +13,7 @@ const navigation = {
     { name: "Solving Data", href: "/solving-data" },
     { name: "Model Dev", href: "#" },
     { name: "MLOps", href: "#" },
-    //   { name: 'Insights', href: '#' },
+      { name: 'Custom Chatbot', href: '/custom-chatbot' },
   ],
 
   products: [
@@ -38,7 +38,7 @@ export default function WebsiteFooter() {
     const pathname = usePathname();
     console.log("pathname is",pathname)
   return (
-    <footer aria-labelledby="footer-heading" className="bg-black my-12">
+    <footer aria-labelledby="footer-heading" className="bg-black my-12 max-w-[2500px] ">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -89,6 +89,9 @@ export default function WebsiteFooter() {
                         if (item.name == "Solving Data"){
                           router.push("/solving-data")
 
+                        }
+                        if (item.name === "Custom Chatbot"){
+                          router.push("/custom-chatbot")
                         }
                       }} 
                       >

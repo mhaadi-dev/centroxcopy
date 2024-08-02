@@ -24,13 +24,23 @@ export const generateBlurDataURL = async (imageUrl) => {
 	return "";
 };
 
+export 	const debounce = (func, delay) => {
+	let timer;
+	return function(...args) {
+	  clearTimeout(timer);
+	  timer = setTimeout(() => {
+		func.apply(this, args);
+	  }, delay);
+	};
+  };
+
 
 export const sectionHeadings = "text-center lg:text-left text-white text-2xl lg:text-4xl font-bold"
 export const sectionDiscriptions = "text-center lg:text-left text-md lg:text-xl text-white"
 
-export const sectionheadings = "w-full lg:w-[55%] mx-auto text-2xl lg:text-5xl text-white text-center font-bold "
-export const sectionsubheadings = "text-xl  text-white text-center w-full lg:w-3/5 mx-auto "
+export const sectionheadings = "w-full lg:w-3/5 mx-auto text-2xl lg:text-3xl text-white text-center font-bold 2xl:text-4xl "
+export const sectionsubheadings = "text-md lg:text-xl  text-white text-center w-full lg:w-3/5 mx-auto "
 
-export const sectionsSectionHeadings = "text-4xl text-white font-bold"
+export const sectionsSectionHeadings = "text-sm lg:text-2xl lg:text-3xl 2xl:text-4xl text-white font-semibold   w-4/5 text-center lg:text-left mx-auto lg:mx-0" 
 
-export const sectionSectionDescription = "text-md lg:text-lg lg:text-xl text-white font-medium"
+export const sectionSectionDescription = "text-md lg:text-lg 2xl:text-xl text-white font-medium w-4/5  text-center lg:text-left mx-auto lg:mx-0"

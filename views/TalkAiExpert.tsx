@@ -4,7 +4,6 @@ import { useState } from "react";
 import Lines from "@/assets/Lines.svg";
 import Image from "next/image";
 import harrisImg from "@/assets/harrisimg.png";
-import Arrow from "@/assets/RightArrow.svg";
 
 import { LogosCarousel } from "./LogosCarousel";
 import PlusColor from "@/assets/PlusColor.svg";
@@ -12,13 +11,15 @@ import Background from "@/assets/Background.svg";
 import { CALENDLY_URL } from "@/config/secret";
 import classNames from "@/helpers/common";
 import { url } from "inspector";
+import Testimonial from "./Testimonial";
+import { CalendlyWidget } from "@/Components/common/Calendly";
 
 export const TalkAiExpert = () => {
   return (
     <div className="bg-black">
       {/* Section 1 */}
       <div
-        className="flex justify-center items-center relative h-screen"
+        className="flex justify-center items-center relative h-[80vh]"
         style={{
           background:
             "radial-gradient(88.47% 182.54% at 0% 0%, rgba(7, 157, 252, 0.2) 0%, rgba(7, 157, 252, 0) 100%), rgba(6, 6, 6, 1)",
@@ -47,7 +48,7 @@ export const TalkAiExpert = () => {
         </div>
       </div>
       {/* Section 2 */}
-      <div className="w-full flex justify-center py-32 lg:py-40">
+      <div className="w-full flex justify-center mt-20 lg:mt-44">
         <div className="w-[80%] grid grid-cols-1 gap-10 lg:gap-0 lg:flex justify-between items-center ">
           <div className="flex flex-col gap-8">
             <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-semibold">
@@ -77,14 +78,14 @@ export const TalkAiExpert = () => {
           alt="sorry"
           className="h-screen lg:h-full lg:w-full object-cover absolute z-20"
         />
-        <div className="w-full  flex justify-center py-32 lg:pt-48 lg:pb-56 "
+        <div className="w-full  flex justify-center mt-20 lg:mt-44 py-20 "
         style={{
           background: "radial-gradient(59.24% 25.3% at 50% 100%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), #060606"
         }}
         >
           <div className="w-[90%]   ">
             <div className="flex flex-col gap-12">
-              <div className="text-white text-center text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
+              <div className="text-white text-center text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold ">
                 Why Centrox
               </div>
               <div className="text-white text-xl text-center w-3/5 mx-auto   lg:text-2xl 2xl:text-3xl font-medium ">
@@ -113,9 +114,9 @@ Projects Deployed"
       </div>
 
       {/* Section 3 */}
-      <div className="w-full flex flex-col justify-center gap-20 pt-32 lg:py-60 overflow-x-hidden ">
+      <div className="w-full flex flex-col justify-center gap-20 mt-20 lg:mt-44 overflow-x-hidden ">
         <div className="flex justify-center">
-          <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2">
+          <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2 -mb-32">
             Counted On by The World's Most Ambitious AI Teams
           </div>
         </div>
@@ -125,78 +126,7 @@ Projects Deployed"
   );
 };
 
-const CalendlyWidget = () => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const openCalendlyPopup = () => {
-    setIsOpen(true);
-  };
-
-  const closeCalendlyPopup = () => {
-    setIsOpen(false);
-  };
-  return (
-    <div>
-      <Button
-        onClick={openCalendlyPopup}
-        content="Schedule a Session"
-        iconClassName="-mt-1"
-        isLefticon={false}
-
-        className="!rounded-full"
-        Icon={Arrow}
-      />
-      {isOpen && (
-        <div
-          className="calendly-popup"
-          style={{
-            backgroundColor: "#121212",
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: 9999,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div
-            className="calendly-popup-content"
-            style={{
-              width: "100%",
-              maxWidth: "800px",
-              height: "800px",
-              border: "none",
-              overflow: "hidden",
-            }}
-          >
-            <span
-              className="calendly-popup-close text-3xl"
-              style={{
-                position: "absolute",
-                top: "10px",
-                right: "10px",
-                cursor: "pointer",
-                color: "#ffffff",
-              }}
-              onClick={closeCalendlyPopup}
-            >
-              &times;
-            </span>
-            <iframe
-              src={CALENDLY_URL}
-              style={{ width: "100%", height: "100%", border: "none" }}
-              scrolling="auto"
-              title="Calendly Scheduling"
-            ></iframe>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 const GradientBox = ({ heading, text, className }: any) => {
   return (
