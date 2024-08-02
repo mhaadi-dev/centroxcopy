@@ -7,7 +7,7 @@ export const CustomChatbotHeroSection = () => {
     <>
       <section className="bg-black flex  flex-col gap-4  lg:gap-12 justify-center items-center pb-20"
       style={{
-        background:" linear-gradient(180deg, rgba(7, 157, 252, 0.00) 58.61%, #079DFC 100%), radial-gradient(70.34% 71.45% at 50.94% 114.76%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), #060606;"
+        background:"linear-gradient(180deg, rgba(7, 157, 252, 0.00) 58.61%, #079DFC 100%), radial-gradient(70.34% 71.45% at 50.94% 114.76%, rgba(7, 157, 252, 0.20) 0%, rgba(7, 157, 252, 0.00) 100%), #060606;"
       }}>
         <h1 className="w-4/5 mx-auto  lg:w-full 2xl:w-1/2 text-2xl lg:text-4xl text-center lg:text-center  2xl:text-6xl text-white  font-bold mt-20 lg:mt-32 ">
           Be Available For Your Customers 24/7, 365

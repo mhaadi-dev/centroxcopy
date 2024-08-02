@@ -35,7 +35,7 @@ export const Stepper = ({ data }: PropsI) => {
                 )}
               </div>
               {/* <div className="w-4 h-4 bg-red-200 rounded-full">123</div> */}
-              <h3 className="font-semibold text-white  leading-tight">
+              <h3 className="font-semibold text-white  lg:text-lg leading-tight">
                 {x.title}
               </h3>
               <p className="font-medium text-white text-sm  lg:text-md">

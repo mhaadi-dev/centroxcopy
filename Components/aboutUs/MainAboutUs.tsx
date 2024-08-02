@@ -2,7 +2,7 @@ import mhbImg from "@/assets/mhbnimg.png";
 import harrisImg from "@/assets/harrisimg.png";
 import zainRazaImg from "@/assets/zainrazaupdatedImage.svg";
 import Image from "next/image";
-import HeroImage from "@/assets/teamHero.jpg";
+import HeroImage from "@/public/images/updatedAboutUs.webp";
 import sectionImg from "@/assets/aboutusbackground.webp";
 
 import wasayImg from "@/assets/wasayimg.svg";
@@ -223,7 +223,7 @@ export const MainAboutUs = () => {
             // blurDataURL={blurDataURL}
             className="opacity-50 h-screen lg:h-full"
           />
-          <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[50%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
+          <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[30%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
             <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
               About Us
             </div>

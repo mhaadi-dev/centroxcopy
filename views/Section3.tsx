@@ -310,7 +310,7 @@ export const Section3 = () => {
                                 index === 0
                                   ? "Data Labeling"
                                   : index === 1
-                                  ? "Model Deployment"
+                                  ? "Model Development"
                                   : "Model Deployment"
                               }
                               description={
