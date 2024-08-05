@@ -4,6 +4,7 @@ import Image from "next/image"
 import img from "@/public/images/customchatbot/newgenericChatbot.webp"
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp"
 import Link from "next/link"
+import { CalendlyWidget } from "@/Components/common/Calendly"
 
 export const GenericChatbotCustomChatbox = ()=>{
     return <section className="flex flex-col lg:flex-row gap-12  w-4/5 mx-auto mt-24  lg:mt-40 2xl:mt-60 lg:items-center relative   ">
@@ -18,9 +19,10 @@ export const GenericChatbotCustomChatbox = ()=>{
                 We can help you overcome that by building a GPT/chatbot that will be available 24/7 365 to communicate with your customers as if you’re directly communicating with them.
                 </p>
                 </div>
-              <Link href="/aiExpert" className="z-10">
+                <CalendlyWidget btnText="Explore Custom Solutions"/>
+              {/* <Link href="/aiExpert" className="z-10">
               <Button content="Explore Custom Solutions" className="w-4/5 lg:w-1/2 mx-auto lg:mx-0 !rounded-full z-10 mt-4 "    />
-              </Link>
+              </Link> */}
 
             </div>
 

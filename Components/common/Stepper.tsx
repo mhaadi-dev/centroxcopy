@@ -16,7 +16,7 @@ export const Stepper = ({ data }: PropsI) => {
         return (
           <div
             className={classNames(
-              "pl-12 -ml-12  ",
+              "pl-12 -ml-12   ",
               x.status == true ? " lg:py-1 border-2 activeStepper" : ""
             )}
           >

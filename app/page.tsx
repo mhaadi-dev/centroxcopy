@@ -55,7 +55,7 @@ const VideoComponent = () => {
         autoPlay
         muted
         loop
-        className={`h-screen sm:h-[50rem] 3xl:h-[70rem] w-full object-cover visible `}
+        className={`h-screen sm:h-[50rem] 3xl:h-[75vh] w-full object-cover visible `}
       >
         Your browser does not support the video tag.
       </video>

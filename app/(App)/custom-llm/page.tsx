@@ -11,21 +11,29 @@ import { ReadytoBuildChatbot } from "@/views/CustomChatbot/Readytobuild";
 export default function Page() {
   return (
     <main>
-      {/* <LandingLayout>
+      <LandingLayout>
         <LLmHeroSection />
         <LlmSection2 />
         <Llmsection3 />
         <LLmSection4 />
-        <OurWorkCustomChatbot />
+        <div
+          style={{
+            backgroundImage: "radial-gradient(60.34% 71.45% at 60.94% -3.76%, rgba(7, 157, 252, 0.30) 0%, rgba(7, 157, 252, 0.00) 100%)",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "#000000"
+          }}
+        className="h-full " >
+          <OurWorkCustomChatbot />
+        </div>
         <Testimonial />
-      
-          <ReadytoBuildChatbot /> */}
+
+        <ReadytoBuildChatbot />
         {/* <div className="bg-white">
 
         <HubSpotForm/>
 
     </div> */}
-      {/* </LandingLayout> */}
+      </LandingLayout>
     </main>
   );
 }

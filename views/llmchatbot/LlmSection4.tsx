@@ -1,5 +1,8 @@
 import { sectionheadings, sectionHeadings, sectionSectionDescription, sectionsSectionHeadings } from "@/helpers/common";
-import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
+import FineTuningExpertiseImg from "@/public/images/llmchatbot/corefinetuning.webp"
+import RetreivalImg from "@/public/images/llmchatbot/corerage.webp"
+import aiAgentImg from "@/public/images/llmchatbot/coreAiagents.webp"
+import bgImg from "@/public/images/customchatbot/customchatbotbg.webp"
 import Image from "next/image";
 // const Data = [
 //   {
@@ -73,32 +76,35 @@ const Data = [
     title: "Fine-Tuning Expertise",
     description:
       "We choose open-source foundation models and tailor them precisely to your specific use-cases.",
+      img: FineTuningExpertiseImg,
   },
   {
     title: "Retrieval Augmented Generation (RAG)",
     description:
       "We can augment existing LLMs with  your proprietary knowledge base enabling them to respond more intelligently to your business-specific queries.",
+      img: RetreivalImg,
   },
   {
     title: "AI Agents",
     description:
       "We can build AI agents for you that fetch real time data from the internet and answer your user queries with the latest information.",
+      img: aiAgentImg
   },
 ];
 export const LLmSection4 = () => {
   return (
     <section className="w-4/5 mx-auto mt-20 lg:mt-44 flex flex-col gap-12 relative pb-20">
-      {/* <Image
-        className="absolute w-full h-[80%]  bottom-0  left-[10%] "
+      <Image
+        className="absolute w-full object-fill h-[70vh]  top-[20%]  left-[10%] "
         src={bgImg}
         alt="bg-img"
-      /> */}
+      />
       <h2 className={sectionheadings}>Our Core Offerings</h2>
       <div className="w-full mx-auto flex flex-col gap-12 ">
 
       {Data.map((x,index)=>{
-        return (<div key={index} className={`w-full rounded-xl p-4 border border-gray-500 flex ${index === 1  ? "flex-row-reverse" : "" }   gap-12`}>
-          <div className="flex flex-col justify-center gap-4 w-2/5" >
+        return (<div key={index} className={`w-full rounded-xl p-6 border border-gray-500 z-10 flex flex-col lg:flex-row ${index === 1  ? "flex-col-reverse lg:flex-row-reverse " : "" }  gap-6 lg:gap-12`}>
+          <div className="flex flex-col justify-center gap-2 lg:sgap-4 w-full lg:w-2/5 " >
             <h3 className={sectionsSectionHeadings}>
               {x.title}
             </h3>
@@ -106,7 +112,9 @@ export const LLmSection4 = () => {
               {x.description}
             </p>
           </div>
-          <div className="w-3/5 h-[15rem] bg-blue-200"/>
+          <div className="w-full lg:w-3/5">
+            <Image src={x.img} alt="ai-img" className="w-full "/>
+          </div>
           
         </div>)
       })}

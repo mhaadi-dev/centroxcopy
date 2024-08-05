@@ -72,7 +72,7 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-			<Script id="clarity-script" strategy="afterInteractive">
+			{/* <Script id="clarity-script" strategy="afterInteractive">
 				
 				{`
 				 (function(c,l,a,r,i,t,y){
@@ -82,7 +82,7 @@ export default function RootLayout({
 				})(window, document, "clarity", "script", "${clarityId}");
 				`}
 				</Script>
-        
+         */}
         <ServiceViewProvider>{children}</ServiceViewProvider>
       </body>
     </html>

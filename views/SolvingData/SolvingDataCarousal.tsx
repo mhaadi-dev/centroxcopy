@@ -16,6 +16,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import useSize from "@/helpers/windowWidth";
 import { useRouter } from "next/navigation";
+import { CalendlyWidget } from "@/Components/common/Calendly";
 
 const CarousalData = [
   {
@@ -134,7 +135,7 @@ export const Carousal = () => {
               return (
                
                   <div className="w-full lg:w-1/2 flex flex-col gap-2 lg:gap-6  " key={index}>
-                    <h3 className="text-xl lg:text-4xl font-bold mt-4 lg:mt-0 text-white ">
+                    <h3 className="text-xl lg:text-4xl font-bold mt-4 lg:mt-0 text-white text-center lg:text-left ">
                       {cars.title}
                     </h3>
                     <p
@@ -145,13 +146,17 @@ export const Carousal = () => {
                     >
                       {cars.description}
                     </p>
-                    <Button
+                    <div className="flex justify-center lg:justify-start">
+
+                    <CalendlyWidget btnText="Request a Demo" btnClassName="!px-4"/>
+                    </div>
+                    {/* <Button
                       content="Request a demo "
                       onClick={()=>{
                         router.push('/aiExpert')
                       }}
                       className="w-4/5 lg:w-2/5 mx-auto !rounded-full lg:mx-0 "
-                    />
+                    /> */}
                   </div>
                  
               );

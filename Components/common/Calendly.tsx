@@ -1,9 +1,20 @@
-import { useState } from "react";
+"use client"
+
+interface PropsI{
+  btnText?:string,
+  btnClassName? :string,
+  isArrow?:boolean,
+}
+
+import { Fragment, useState } from "react";
 import { Button } from "../Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import { CALENDLY_URL } from "@/config/secret";
+import classNames from "@/helpers/common";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
  
-export const CalendlyWidget = () => {
+export const CalendlyWidget = ({btnText,btnClassName,isArrow = false}:PropsI) => {
   
     const [isOpen, setIsOpen] = useState(false);
   
@@ -13,66 +24,73 @@ export const CalendlyWidget = () => {
   
     const closeCalendlyPopup = () => {
       setIsOpen(false);
-    };
+  };
     return (
       <div>
         <Button
           onClick={openCalendlyPopup}
-          content="Schedule a Session"
+          content={btnText || "Schedule a Session"}
           iconClassName="-mt-1"
           isLefticon={false}
   
-          className="!rounded-full"
-          Icon={Arrow}
+          className={classNames("!rounded-full cursor-pointer relative !z-20",btnClassName)}
+            Icon={isArrow ? Arrow : ""}
         />
-        {isOpen && (
-          <div
-            className="calendly-popup"
-            style={{
-              backgroundColor: "#121212",
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              zIndex: 9999,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <div
-              className="calendly-popup-content"
-              style={{
-                width: "100%",
-                maxWidth: "800px",
-                height: "800px",
-                border: "none",
-                overflow: "hidden",
-              }}
-            >
-              <span
-                className="calendly-popup-close text-3xl"
-                style={{
-                  position: "absolute",
-                  top: "10px",
-                  right: "10px",
-                  cursor: "pointer",
-                  color: "#ffffff",
-                }}
-                onClick={closeCalendlyPopup}
-              >
-                &times;
-              </span>
-              <iframe
+       <Transition.Root show={isOpen} as={Fragment}>
+   
+   <Dialog as="div" className="relative z-[1000] bg-black" onClose={closeCalendlyPopup}>
+     <Transition.Child
+       as={Fragment}
+       enter="ease-out duration-300"
+       enterFrom="opacity-0"
+       enterTo="opacity-100"
+       leave="ease-in duration-200"
+       leaveFrom="opacity-100"
+       leaveTo="opacity-0"
+     >
+       <div className="fixed inset-0 bg-gray-800  transition-opacity" />
+     </Transition.Child>
+
+     <div className="fixed inset-0 z-10 overflow-y-auto ">
+       <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0 ">
+         <Transition.Child
+           as={Fragment}
+           enter="ease-out duration-300"
+           enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+           enterTo="opacity-100 translate-y-0 sm:scale-100"
+           leave="ease-in duration-200"
+           leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+           leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+         >
+           <Dialog.Panel
+             className={classNames(
+               "relative transform overflow-hidden rounded-lg bg-white px-4 pt-5  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:p-6 py-8 border-2 h-[50rem]  ",
+             )}
+           >
+             <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block ">
+               <button
+                 type="button"
+                 className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none "
+                 onClick={closeCalendlyPopup}
+               >
+                 <span className="sr-only">Close</span>
+                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+               </button>
+             </div>
+             <iframe
                 src={CALENDLY_URL}
                 style={{ width: "100%", height: "100%", border: "none" }}
                 scrolling="auto"
                 title="Calendly Scheduling"
               ></iframe>
-            </div>
-          </div>
-        )}
+
+           </Dialog.Panel>
+         </Transition.Child>
+       </div>
+     </div>
+   </Dialog>
+ </Transition.Root>
+
       </div>
     );
   };

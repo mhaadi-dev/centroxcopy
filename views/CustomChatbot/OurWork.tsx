@@ -6,10 +6,11 @@ import Link from "next/link";
 import chatbotImg from "@/public/images/customchatbot/newSmartChatbot.webp"
 import leftMockupImg from "@/public/images/customchatbot/newleftphone.webp";
 import rightMockupImg from "@/public/images/customchatbot/newrightphone.webp"
+import { CalendlyWidget } from "@/Components/common/Calendly";
 
 export const OurWorkCustomChatbot = () => {
   return (
-    <section className="w-3/4 mx-auto flex flex-col items-center gap-8 mt-20 lg:mt-40 2xl:mt-44">
+    <section className="w-3/4 pt-12 mx-auto flex flex-col items-center gap-8 mt-20 lg:mt-40 2xl:mt-44">
       <h2 className={sectionheadings}>
         Our Work
       </h2>
@@ -25,9 +26,8 @@ export const OurWorkCustomChatbot = () => {
         serving. We have build such custom chatbots for a number of our clients 
       </h3>
       </div>
-      <Link href={"/aiExpert"}>
-      <Button content="Book Your 1:1 Call"  className="!rounded-full"/>
-      </Link>
+        <CalendlyWidget btnText="Book Your 1:1 Call" />
+      {/* <Button content="Book Your 1:1 Call"  className="!rounded-full"/> */}
         <div className="w-[90%] lg:w-[85%] flex justify-between  bg-white relative rounded-xl  ">
            
             <figure className="w-full rounded-2xl  border-2">
