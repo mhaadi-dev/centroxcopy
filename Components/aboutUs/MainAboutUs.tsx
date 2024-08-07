@@ -9,7 +9,7 @@ import wasayImg from "@/assets/wasayimg.svg";
 import nidaImg from "@/assets/nidaImg.svg";
 import alishbaImg from "@/assets/AlishbaImg.svg";
 import asadKhanIMg from "@/assets/asadkhanImg.svg";
-
+import moqImg from "@/assets/moq.webp";
 import aliZainIMg from "@/assets/alizainimg.svg";
 import ahmadImg from "@/assets/muhammadahman.jpg";
 
@@ -71,7 +71,12 @@ const team = [
     link: "https://www.linkedin.com/in/hamzah-ejaz",
     img: hamzaEjImg,
   },
-
+  {
+    name: "Muhammad Omer Qasim Khan",
+    designation: "Backend Developer",
+    link: "https://www.linkedin.com/in/muhammad-omer-qasim-03a218242?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    img: moqImg,
+  },
   {
     name: "Hibba Saleem",
     designation: "Project Manager",
@@ -225,7 +230,7 @@ export const MainAboutUs = () => {
           />
           <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[30%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
             <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
-              About Us
+              Our Team
             </div>
             <div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
               We aim to speed up AI application development and our exceptional
@@ -248,7 +253,8 @@ export const MainAboutUs = () => {
 
                   background:
                     "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-                  boxShadow: "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
+                  boxShadow:
+                    "0px 0px 16px 0px rgba(255,  255, 255, 0.10) inset",
                   backdropFilter: "blur(18px)",
                 }}
               >

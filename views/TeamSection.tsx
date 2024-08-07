@@ -21,6 +21,7 @@ import wahabImg from "@/assets/wahabImg.png";
 import hamzaImranImg from "@/assets/hamzaImranimg.png";
 import asadImg from "@/assets/asadImg.png";
 import saadImg from "@/assets/saadImg.png";
+import { MainAboutUs } from "@/Components/aboutUs/MainAboutUs";
 const owners = [
 	{
 		name: "Muhammad Harris Bin Naeem",
@@ -153,109 +154,6 @@ export const TeamUsSection = () => {
 		}
 	};
 	return (
-		<div className="flex flex-col gap-40">
-			<div className="">
-				<Image
-					src={HeroImage}
-					alt="sorry"
-					loading="eager"
-					placeholder="blur"
-					onLoad={() => singleImageLoad(HeroImage.src)}
-					blurDataURL={blurDataURL}
-					className="opacity-50 h-screen lg:h-full"
-				/>
-				<div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[50%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
-					<div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
-						About Us
-					</div>
-					<div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
-						We aim to speed up AI application development and our exceptional
-						team is here playing a crucial role in achieving this goal with
-						great confidence
-					</div>
-				</div>
-			</div>
-			<div className="flex justify-around flex-wrap text-white">
-				{owners.map((el, index) => {
-					return (
-						<div
-							key={index}
-							className="flex flex-col justify-center items-center p-4 rounded-xl"
-							style={{
-								border: "1px solid rgba(3, 34, 182, 0.20)",
-
-								background:
-									"radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-								boxShadow: "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
-								backdropFilter: "blur(18px)",
-							}}
-						>
-							<Image
-								src={el.img}
-								alt="image-data"
-								placeholder="blur"
-								blurDataURL={blurDataURLs[index]}
-								onLoad={() => handleImageLoad(index, el.img.src)}
-								className="rounded-2xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
-							/>
-							<p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
-								{el.name}
-							</p>
-							<div className="flex justify-between items-left w-full mt-1">
-								<p className=" font-medium text-xs md:text-sm  text-blue-secondary">
-									{el.designation}
-								</p>
-								<a href={el.link} target="_blank" rel="noreferrer">
-									<Image src={LinkedIn} className="w-5" alt="" />
-								</a>
-							</div>
-						</div>
-					);
-				})}
-			</div>
-			<div className="text-xl lg:text-4xl text-white font-bold flex justify-center ">
-				Meet Our Team
-			</div>
-			<div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 px-[5%] lg:px-[15%] text-white pb-60">
-				{team.map((el, index) => {
-					return (
-						<div
-							key={index}
-							className="flex flex-col justify-center items-center p-4 rounded-xl"
-							style={{
-								border: "1px solid rgba(3, 34, 182, 0.20)",
-
-								background:
-									"radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-								boxShadow: "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
-								backdropFilter: "blur(18px)",
-							}}
-						>
-							<Image
-								src={el.img}
-								alt="image-data"
-								placeholder="blur"
-								blurDataURL={teamblurDataURLs[index]}
-								onLoad={() => handleTeamImageLoad(index, el.img.src)}
-								className="rounded-xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover"
-							/>
-							<p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
-								{el.name}
-							</p>
-							<div className="flex justify-between items-left w-full mt-1">
-								<p className=" font-medium text-xs md:text-sm  text-blue-secondary">
-									{el.designation}
-								</p>
-								<a href={el.link} target="_blank" rel="noreferrer">
-									<Image src={LinkedIn} className="w-5" alt="" />
-								</a>
-							</div>
-						</div>
-					);
-				})}
-			</div>
-
-			{showToast && <Toast showToast={showToast} setShowToast={setShowToast} />}
-		</div>
+		<MainAboutUs/>
 	);
 };
