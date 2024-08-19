@@ -26,7 +26,6 @@ export const Stepper = ({ data }: PropsI) => {
                   "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-green-900 text-white border-none ",
                   x.status ? "bg-blue-bright ml-12" : "bg-gray-800"
                 )}
-              
               >
                 {x.status ? (
                   <CheckIcon className="text-white" />
@@ -35,11 +34,14 @@ export const Stepper = ({ data }: PropsI) => {
                 )}
               </div>
               {/* <div className="w-4 h-4 bg-red-200 rounded-full">123</div> */}
-              <h3 className="font-semibold text-white  lg:text-lg leading-tight">
+              <h3 className="font-semibold text-white  lg:text-2xl leading-tight">
                 {x.title}
               </h3>
-              <p className="font-medium text-white text-sm  lg:text-md">
-                {x.status ? x.description : ""}
+              <p
+                className="font-medium text-white text-sm  lg:text-md"
+                dangerouslySetInnerHTML={{ __html: x.status ?  x.description  : ""}}
+              >
+                {/* {x.status ? x.description : ""} */}
               </p>
             </li>
           </div>

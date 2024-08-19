@@ -17,7 +17,7 @@ export const SolvingDataHeroSection = () => {
             data of unmatched quality, scalability, and efficiency.
           </p>
           <div className="flex flex-col lg:flex-row w-3/4 mx-auto lg:w-full gap-4">
-            <div className="flex justify-center lg:jus">
+            <div className="flex justify-center lg:justify-start w-full">
               
             <CalendlyWidget btnText="Label My Data" btnClassName=" px-16 lg:!py-4 lg:!px-6"/>
 

@@ -121,3 +121,13 @@ backdrop-filter: blur(46px)
   }
 
   /* .fade-in-image { animation: fadeIn 3s ease-in; }	 */
+
+  .slick-test .slick-track {
+    background: none !important;
+}
+
+.slick-test .slick-slide {
+   background-color: #556677 !important;
+   margin-right: 5px;
+   padding: 3px;
+}

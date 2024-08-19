@@ -8,8 +8,17 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'tailwindui.com',
+
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+
       },
     ],
+  },
+  experimental: {
+    taint: true,
   },
   reactStrictMode: false,
   webpack: (config, { dev, isServer }) => {
