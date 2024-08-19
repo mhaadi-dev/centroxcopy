@@ -10,7 +10,7 @@ ADD ./package.json ./package.json
 ADD ./package-lock.json ./package-lock.json
 
 
-RUN npm install
+RUN npm install 
 ADD . /app
 
 RUN npm run build
