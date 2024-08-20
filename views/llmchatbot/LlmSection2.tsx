@@ -12,7 +12,20 @@ import rightUnion from "@/public/images/llmchatbot/rightunion.png"
 import icon from "@/public/images/llmchatbot/sectionIcon.svg";
 import results from "@/public/images/llmchatbot/results.webp"
 import Image from "next/image";
-export const LlmSection2 = () => {
+
+ interface DataI{
+  icon:any,
+  description:string
+}
+
+interface PropsI{
+  heading?:string,
+  data?:DataI[],
+  description?:string,
+  img?:any
+
+}
+export const LlmSection2 = (props:PropsI) => {
   return (
     <div className="w-full pb-20 pt-4" 
     style={{

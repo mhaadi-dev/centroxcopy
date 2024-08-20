@@ -1,3 +1,4 @@
+import { CalendlyWidget } from "@/Components/common/Calendly";
 import {
   sectionheadings,
   sectionHeadings,
@@ -9,34 +10,42 @@ import {
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
 import Image from "next/image";
 
-
-
 interface DataI {
   title: string;
   description: string;
   img: any;
 }
 interface PropsI {
-  data:DataI[],
-  heading:string,
-  subHeading?:string,
-  background?:boolean,
-
+  data: DataI[];
+  heading: string;
+  subHeading?: string;
+  background?: boolean;
+  topButton?: string;
 }
-export const BorderedTextImageSection = ({data,heading,subHeading ,background=false}:PropsI) => {
+export const BorderedTextImageSection = ({
+  data,
+  heading,
+  subHeading,
+  background = false,
+  topButton,
+
+}: PropsI) => {
   return (
     <section className="w-4/5 mx-auto mt-20 lg:mt-44 flex flex-col gap-12 relative pb-20">
-    { background &&   <Image
-        className="absolute w-full object-fill h-[70vh]  top-[20%]  left-[10%] "
-        src={bgImg}
-        alt="bg-img"
-      />
-    }
-    <div className="flex flex-col gap-4">
-      
-      <h2 className={sectionheadings}>{heading}</h2>
-      <h5 className={sectionsubheadings}>{subHeading}</h5>
-    </div>
+      {background && (
+        <Image
+          className="absolute w-full object-fill h-[70vh]  top-[20%]  left-[10%] "
+          src={bgImg}
+          alt="bg-img"
+        />
+      )}
+      <div className="flex flex-col gap-4">
+        <h2 className={sectionheadings}>{heading}</h2>
+        <h5 className={sectionsubheadings}>{subHeading}</h5>
+        {topButton && <div className="flex justify-center">
+          <CalendlyWidget btnText={topButton}/>
+          </div>}
+      </div>
       <div className="w-full mx-auto flex flex-col gap-12 ">
         {data.map((x, index) => {
           return (
