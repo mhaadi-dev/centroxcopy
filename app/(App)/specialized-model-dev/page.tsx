@@ -154,7 +154,7 @@ export default function Page() {
           bgShape
         />
         <ComputerVisoinSection4 />
-        {/* <ComputerVisionSection5 /> */}
+        <ComputerVisionSection5 />
         <PointsandImagesSection
           data={section6Data}
           heading=" Why Work With Us?"

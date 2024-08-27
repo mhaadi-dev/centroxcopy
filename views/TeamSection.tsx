@@ -121,7 +121,7 @@ const team = [
 		img: saadImg,
 	},
 ];
-export const TeamUsSection = () => {
+export const TeamUsSection = (props:any) => {
 	const [showToast, setShowToast] = useState(false);
 	const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
 	const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
@@ -154,6 +154,6 @@ export const TeamUsSection = () => {
 		}
 	};
 	return (
-		<MainAboutUs/>
+		<MainAboutUs props={{...props}}/>
 	);
 };

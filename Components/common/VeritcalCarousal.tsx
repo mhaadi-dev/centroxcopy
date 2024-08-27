@@ -1,10 +1,39 @@
 "use client";
 import Slider from "react-slick";
 
-interface PropsI{
-  isReverse?:boolean
+import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
+import Image from "next/image";
+
+const Data = [
+  {
+    img: img,
+    title: "Data Annotations",
+  },
+  {
+    img: img,
+    title: "Data Annotations",
+  },{
+    img: img,
+    title: "Data Annotations",
+  },{
+    img: img,
+    title: "Data Annotations",
+  },{
+    img: img,
+    title: "Data Annotations",
+  },{
+    img: img,
+    title: "Data Annotations",
+  },{
+    img: img,
+    title: "Data Annotations",
+  },
+];
+
+interface PropsI {
+  isReverse?: boolean;
 }
-export const VerticalCarousal = ({isReverse = false}:PropsI) => {
+export const VerticalCarousal = ({ isReverse = false }: PropsI) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -13,9 +42,10 @@ export const VerticalCarousal = ({isReverse = false}:PropsI) => {
     vertical: true,
     autoplay: true,
     arrows: false,
+    pauseOnHover:false,
     autoplaySpeed: 0,
-    speed: 3000,
-    cssEase: 'linear',
+    speed: 8000,
+    cssEase: "linear",
     verticalSwiping: true,
     beforeChange: function (currentSlide: any, nextSlide: any) {
       console.log("before change", currentSlide, nextSlide);
@@ -25,26 +55,19 @@ export const VerticalCarousal = ({isReverse = false}:PropsI) => {
     },
   };
   return (
-    <div className="slider-container w-full border-2">
+    <div className="slider-container w-full ">
       <Slider {...settings}>
-        <div className=" bg-green-200 h-24 mt-8">
-          <h3>a</h3>
-        </div>
-        <div className=" bg-green-200 h-24 mt-8">
-          <h3>s</h3>
-        </div>
-        <div className=" bg-green-200 h-24 mt-8">
-          <h3>d</h3>
-        </div>
-        <div className=" bg-green-200 h-24 mt-8">
-          <h3>f</h3>
-        </div>
-        <div className=" bg-green-200 h-24 mt-8">
-          <h3>g</h3>
-        </div>
-        <div className=" bg-green-200 h-24 mt-8">
-          <h3>h</h3>
-        </div>
+        {Data.map((x, index) => {
+          return (
+            <div className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
+              <figure className="w-full h-[85%] relative">
+                <Image alt="img" src={img} className="object-fill rounded-2xl" fill />
+              </figure>
+              <p className="text-black font-semibold text-xl text-center my-2">{x.title}</p>
+
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

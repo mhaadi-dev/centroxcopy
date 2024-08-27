@@ -5,6 +5,8 @@ import Head from "next/head";
 import { ServiceViewProvider } from "@/store/ServiceViewProivder";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
 
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -35,6 +37,7 @@ const twitterMetadata = {
     "Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions can benefit your business.",
   // site: '@your_twitter_handle',
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -59,20 +62,31 @@ export default function RootLayout({
           content={twitterMetadata.description}
         />
         {/* {twitterMetadata.site && <meta name="twitter:site" content={twitterMetadata.site} />} */}
+        {/* Slick Carousel CSS */}
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
       </Head>
       <GoogleTagManager gtmId={gtmId as string} />
-	  <GoogleAnalytics gaId={analyticsId as string} />
+      <GoogleAnalytics gaId={analyticsId as string} />
 
       <body className={inter.className}>
         <noscript>
-          <iframe
+        <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TF7GSRF2"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-			{/* <Script id="clarity-script" strategy="afterInteractive">
+        {/* <Script id="clarity-script" strategy="afterInteractive">
 				
 				{`
 				 (function(c,l,a,r,i,t,y){
@@ -83,7 +97,18 @@ export default function RootLayout({
 				`}
 				</Script>
          */}
-        <ServiceViewProvider>{children}</ServiceViewProvider>
+        <ServiceViewProvider>
+          {draftMode().isEnabled && (
+            <a
+              className="fixed right-0 bottom-0 bg-blue-500 text-white p-4 m-4"
+              href="/api/draft-mode/disable"
+            >
+              Disable preview mode
+            </a>
+          )}
+          {children}
+          {draftMode().isEnabled && <VisualEditing />}
+        </ServiceViewProvider>
       </body>
     </html>
   );

@@ -32,3 +32,28 @@ export const POSTS_QUERY =    groq`*[_type == "profile"]{
   socialLinks,
   skills
 }`;
+
+
+export const TEAM_SECTION_QUERY = groq`*[_type == "teamSection"]{
+  _id,
+  mainSectionheading,
+  description,
+  "bgImage": bgImage.asset->url,
+  secondSectionHeading,
+  LeadersImgs[] {
+    name,
+    "img": img.asset->url,
+    designation,
+    linkedINUrl
+  },
+  thirdSectionheading,
+  thirdSectionDescription,
+  "thirdSectoinImg": thirdSectoinImg.asset->url,
+  teamSectionHeading,
+  teamSectionImgs[] {
+    name,
+    "img": img.asset->url,
+    designation,
+    linkedINUrl
+  }
+}`;

@@ -8,6 +8,7 @@ interface PropsI {
 	content?: string;
 	content1?: string;
 	onClick?: () => void;
+	htmlFor?:any,
 	className?: string;
 	customClassName?: string;
 	iconClassName?: string;
@@ -27,6 +28,7 @@ export const Button = ({
 	onClick,
 	className,
 	customClassName,
+	htmlFor,
 	isDisabled = false,
 	isLoading = false,
 	defaultClass = true,
@@ -48,9 +50,9 @@ export const Button = ({
 			{Icon && isLefticon && (
 				<Image src={Icon} className={classNames(iconClassName)} alt="" />
 			)}
-			<div className="flex flex-col items-center justify-center text-sm lg:text-base">
+			<div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-base">
 				{isLoading ? (
-					<div className="b bg-blackorder-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
+					<div className="bg-blackorder-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
 				) : (
 					<div
 						className={classNames(
@@ -63,7 +65,7 @@ export const Button = ({
 				)}
 			</div>
 			{Icon && !isLefticon && (
-				<Image src={Icon} className={classNames(iconClassName)} alt="" />
+				<Image src={Icon} className={classNames(iconClassName,"-ml-2")} alt="" />
 			)}
 		</button>
 	);

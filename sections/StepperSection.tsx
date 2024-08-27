@@ -1,7 +1,7 @@
 "use client"
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import { Stepper, StepperDataI } from "@/Components/common/Stepper";
-import classNames, { sectionheadings, sectionsubheadings } from "@/helpers/common";
+import classNames, { h2ClassName, p2ClassName, sectionheadings, sectionsubheadings } from "@/helpers/common";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -69,13 +69,13 @@ export const StepperSection = (props:PropsI) => {
             )}
           >
             <div className="flex flex-col gap-4 items-center w-4/5 mx-auto  ">
-              <h2 className={sectionheadings}>{props.heading}</h2>
-              <p className={sectionsubheadings}>
+              <h2 className={h2ClassName}>{props.heading}</h2>
+              <p className={classNames(p2ClassName,"!text-center")}>
              {props.description}
               </p>
               {/* <CalendlyWidget btnText="Let's Build One For You" /> */}
             </div>
-            <div className="flex flex-col lg:flex-row w-4/5 mx-auto justify-between mt-12 gap-4 items-center">
+            <div className="flex flex-col lg:flex-row w-4/5 mx-auto justify-between mt-12 gap-4 items-center ">
               <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-1/2  ">
                 <Stepper data={stepperData} />
                 {props.button && <div className=" mt-12 flex justify-center lg:justify-start ">
@@ -83,13 +83,16 @@ export const StepperSection = (props:PropsI) => {
                     </div>}
               </div>
               <figure
-                className="w-full lg:w-2/5 flex  p-4  justify-center items-center border border-gray-600 rounded-lg shadow-sm"
+                className="w-full lg:w-2/5 pt-[100%]  lg:pt-[50%] relative flex shadow-sm rounded-lg overflow-hidden"
                 style={{
                   background: "#0A0A0A",
                   backdropFilter: "blur(2.213500738143921px)",
                 }}
               >
-                <Image src={props.img} alt="journey-img" className="w-full " />
+                <Image src={props.img} alt="journey-img" className="w-full h-full  "
+                objectFit="fill"
+                fill
+                />
               </figure>
             </div>
           </div>

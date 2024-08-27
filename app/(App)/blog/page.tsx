@@ -1,27 +1,16 @@
+// ./src/app/(blog)/page.tsx
 
-import { getProfile } from "@/sanity/query";
-
-import { sanityFetch } from "@/helpers/configSanity";
-import { POSTS_QUERY } from "@/sanity/query";
-import Image from "next/image";
+import { sanityFetch } from "@/sanity/lib/client";
+import { POSTS_QUERY } from "@/sanity/lib/queries";
+import { POSTS_QUERYResult } from "../../../sanity.types";
+import { Posts } from "@/Components/delete/posts";
 
 export default async function Page() {
-  const posts: any = await sanityFetch({
+  const posts = await sanityFetch<POSTS_QUERYResult>({
     query: POSTS_QUERY,
-   
-
   });
-  console.log("porsts is", posts);
-  return (
-    <div className="bg-white h-screen">
-        <p>Nmae</p>
-      <p className="">{posts[0].fullName}</p>
-        <p className="">{posts[0].shortBio}</p>
 
-    <div className="w-1/2 h-1/2 border-2 relative">
-      <Image src={posts[0].profileImage.image} alt="alt"  layout="fill" // Fill the parent container
-    objectFit=" "/>
-      </div>
-    </div>
-  );
+  return (<div className="h-screen bg-white">
+  <Posts posts={posts} />;
+</div>)
 }

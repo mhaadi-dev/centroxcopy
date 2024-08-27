@@ -20,6 +20,16 @@ import dataBaseIcon from "@/public/images/datavalidation/Database.svg"
 import questionIcon from "@/public/images/datavalidation/Question.svg";
 import humanIcon from "@/public/images/datavalidation/Vector.svg"
 
+import CustomArrows from "@/sections/SlickCarousal";
+import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
+import { HorizentalBar } from "@/sections/HorizentalBarSection";
+import { BenefitsSection } from "@/sections/BenefitsSection";
+import { OppositeCarousal } from "@/sections/OppositeCarousal";
+import { ProductsCarousal } from "@/Components/common/ProductsCarousal";
+import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
+import { ServiceCarousalSection } from "@/sections/ServicesCarousalSection";
+import { HoveredTextSection } from "@/sections/HoveredTextSection";
+
 const accordianData = [
   {
     title: "Enhanced Accuracy",
@@ -145,7 +155,7 @@ const PointsData2 = [
 
 export default function Page() {
   return (
-    <>
+    <div className="">
       <LandingLayout>
         <DataValidationHeroSection />
         <PointsandImagesSection
@@ -159,7 +169,7 @@ export default function Page() {
           bgShape
         />
         {/* <DataValidationSection2 /> */}
-        <DataValidationSection3 />
+        {/* <DataValidationSection3 /> */}
         <AccordoinImageSection
           heading="Transform Data into a Strategic Advantage
 "
@@ -201,7 +211,21 @@ and timely delivery with ongoing support."
           <DataValidationSection8 />
           <DataValidationSection9 />
         </div>
+        <div className="w-full overflow-x-hidden">
+        <div className="w-full lg:ml-[10%]  mx-auto  relative  overflow-x-hidden pb-32 ">
+          {/* <VerticalCarousal/> */}
+
+
+          
+        <CustomArrows />
+        </div>
+        </div>
+        {/* <HorizentalBar/> */}
+        {/* <BenefitsSection/> */}
+        {/* <OppositeCarousal/> */}
+        {/* <HoveredTextSection/> */}
+
       </LandingLayout>
-    </>
+    </div>
   );
 }

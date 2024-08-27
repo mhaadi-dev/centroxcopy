@@ -13,11 +13,9 @@ interface PropsI{
 export const FaqsSection = ({heading,faqsData}:PropsI)=>{
     return (
       <div className="relative overflow-hidden pb-12 "
-      style={{
-        backgroundImage:   "radial-gradient(60.34% 40.45% at 60.94% 104.76%, rgba(7, 157, 252, 0.30) 0%, rgba(7, 157, 252, 0.00) 100%)" ,
-        backgroundRepeat:  "no-repeat",
-        backgroundColor:   "#000000"
-      }}
+        style={{
+          background: "linear-gradient(180deg, rgba(7, 157, 252, 0.00) 53.06%, rgba(7, 157, 252, 0.40) 72.78%, #060606 100%), #060606"
+        }}
       >
     <section className={basicLayoutclass} 
    

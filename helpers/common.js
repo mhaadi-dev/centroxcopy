@@ -50,3 +50,24 @@ export const basicLayoutclass = "mt-24 lg:mt-44 flex flex-col  gap-12 w-4/5 mx-a
 export const subsectionheadings = "text-sm text-white font-bold lg:text-xl 2xl:text-2xl w-full "
 
 export const subsectiondescriptions = "text-xs text-white  lg:text-xl 2xl:text-xl font-medium w-full "
+
+
+
+
+export const h1className = "text-center lg:text-left text-white-light text-2xl font-bold lg:text-6xl"
+
+
+export const h2ClassName = "text-center  text-white-light text-2xl  font-bold lg:text-5xl"
+
+
+export const h3ClassName = "text-center  text-white-light text-2xl  font-bold lg:text-3xl"
+
+export const h4ClassName = "text-center  text-white-light text-xl  font-bold lg:text-2xl"
+
+
+
+export const p2ClassName = "text-md  lg:text-2xl  text-white-light text-left w-full lg:w-4/5 "
+
+export const p3ClassName = "text-md  lg:text-xl  text-white-light text-left w-full lg:w-4/5 "
+
+export const p4ClassName = "text-md  lg:text-base  text-white-light text-left w-full lg:w-4/5 "

@@ -1,5 +1,6 @@
 "use client";
 
+import classNames, { h4ClassName, p3ClassName, p4ClassName } from "@/helpers/common";
 import { useState, useEffect } from "react";
 
 type AccordionpProps = {
@@ -41,7 +42,7 @@ export default function Accordion({
             aria-expanded={accordionOpen}
             aria-controls={`accordion-text-${id}`}
           >
-            <span className="text-white text-xl font-extrabold">{title}</span>
+            <span className={p3ClassName}>{title}</span>
             <svg
               className="fill-white shrink-0 ml-8"
               width="16"
@@ -80,7 +81,7 @@ export default function Accordion({
           }`}
         >
           <div className="overflow-hidden">
-            <p className="pb-3 text-white">{children}</p>
+            <p className={classNames(p4ClassName,"pb-3")}>{children}</p>
           </div>
         </div>
       </div>

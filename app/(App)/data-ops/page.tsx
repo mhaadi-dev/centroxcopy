@@ -1,3 +1,4 @@
+// "use client"
 import { DataOpsHeroSection } from "@/views/DataOps/HeroSection";
 import { DataOpsSection2 } from "@/views/DataOps/Section2";
 import { DataOpsSection3 } from "@/views/DataOps/Section3";
@@ -9,6 +10,7 @@ import { DataOpsAccordianSection } from "@/views/DataOps/Section8";
 import { DataOpsSection4 } from "@/views/DataOps/Section4";
 import { DataOpsCarousal1 } from "@/views/DataOps/DataOpsCarousal1";
 import { DataOpsCarousal2 } from "@/views/DataOps/DataOpsCarousal2";
+import MultipleItems from "@/sections/SlickCarousal";
 
 export default function Page(){
     return <>
@@ -18,7 +20,7 @@ export default function Page(){
     <DataOpsHeroSection/>
         <DataOpsSection2/>
         {/* <DataOpsSection3/> */}
-        <DataOpsSection4/>
+        <DataOpsSection4/>  
         <DataOpsCarousal1/>
         <DataOpsCarousal2/>
         <DataOpsSection6/>

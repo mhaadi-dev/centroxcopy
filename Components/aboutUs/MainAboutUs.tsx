@@ -214,7 +214,12 @@ const team = [
     img: aftabImg,
   },
 ];
-export const MainAboutUs = () => {
+export const MainAboutUs = (props: any) => {
+  console.log(
+    "props.props.props[0] here are",
+    props.props.props[0].LeadersImgs
+  );
+
   return (
     <>
       <main className="flex flex-col gap-24 lg:gap-40">
@@ -226,28 +231,29 @@ export const MainAboutUs = () => {
             // placeholder="blur"
             // onLoad={() => singleImageLoad(HeroImage.src)}
             // blurDataURL={blurDataURL}
-            className="opacity-50 h-screen lg:h-full"
+            className="opacity-50 ob h-screen lg:h-full"
           />
           <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[30%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
             <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
-              Our Team
+              {props.props.props[0]?.mainSectionheading}
             </div>
             <div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
-              We aim to speed up AI application development and our exceptional
-              team is here playing a crucial role in achieving this goal with
-              great confidence
+              {props.props.props[0]?.description}
             </div>
           </div>
         </div>
         <h1 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white">
-          Leaders of Centrox
+          {props.props.props[0]?.secondSectionHeading}
         </h1>
-        <div className="flex justify-between w-4/5 mx-auto flex-wrap text-white">
-          {owners.map((el, index) => {
+        <div className="grid grid-cols-3  w-4/5 gap-40 mx-auto flex-wrap text-white">
+          {props?.props?.props[0]?.LeadersImgs?.map((el: any, index: any) => {
+              if (!el?.img && !el?.name && !el?.designation && !el.linkedINUrl) {
+                return null; // Skip rendering this item if all properties are null
+              }
             return (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center p-4 rounded-xl"
+                className="flex w-full border-2 border-red-200 flex-col justify-center items-center p-4 rounded-xl"
                 style={{
                   border: "1px solid rgba(3, 34, 182, 0.20)",
 
@@ -256,16 +262,23 @@ export const MainAboutUs = () => {
                   boxShadow:
                     "0px 0px 16px 0px rgba(255,  255, 255, 0.10) inset",
                   backdropFilter: "blur(18px)",
+
+                  
                 }}
               >
-                <Image
+                <div className="relative  h-96 w-full   ">
+                  {el.img &&    <Image
                   src={el.img}
                   alt="image-data"
+                  fill
+                  
                   //   placeholder="blur"
                   // blurDataURL={blurDataURLs[index]}
                   // onLoad={() => handleImageLoad(index, el.img.src)}
-                  className="rounded-2xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover "
-                />
+                  className="rounded-2xl  object-cover "
+                /> }
+             
+                </div>
                 <p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
                   {el.name}
                 </p>
@@ -273,7 +286,7 @@ export const MainAboutUs = () => {
                   <p className=" font-medium text-xs md:text-sm  text-blue-secondary">
                     {el.designation}
                   </p>
-                  <a href={el.link} target="_blank" rel="noreferrer">
+                  <a href={el.linkedINUrl} target="_blank" rel="noreferrer">
                     <Image src={LinkedIn} className="w-5" alt="" />
                   </a>
                 </div>
@@ -287,12 +300,10 @@ export const MainAboutUs = () => {
         <section className="w-4/5 flex flex-col mx-auto items-center lg:flex-row gap-12">
           <div className="flex flex-col gap-8 w-full">
             <h1 className={sectionHeadings}>
-              We work together, as a seemless remote team
+              {props.props.props[0]?.thirdSectionheading}
             </h1>
             <p className={sectionDiscriptions}>
-              Our team thrives on collaboration and innovation, no matter where
-              we are. By leveraging cutting-edge tools and a unified vision, we
-              deliver outstanding results from across the globe.
+              {props.props.props[0]?.thirdSectionDescription}
             </p>
             {/* <p className={sectionDiscriptions}>
               Proin faucibus nibh et sagittis a. Lacinia purus ac amet
@@ -306,45 +317,59 @@ export const MainAboutUs = () => {
         </section>
 
         <div className="text-xl lg:text-4xl text-white font-bold flex justify-center ">
-          Meet Our Team
+          {props.props.props[0]?.teamSectionHeading}
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-4/5 mx-auto text-white pb-60 ">
-          {team.map((el, index) => {
-            return (
-              <figure
-                key={index}
-                className="flex flex-col justify-center items-center p-4 rounded-xl"
-                style={{
-                  border: "1px solid rgba(3, 34, 182, 0.20)",
+          {props.props.props[0]?.teamSectionImgs?.map(
+            (el: any, index: number) => {
+              if (!el?.img && !el?.name && !el?.designation && !el.linkedINUrl) {
+                return null; // Skip rendering this item if all properties are null
+              }
+              return (
+                
+                <figure
+                
+                  key={index}
+                  className="flex flex-col justify-center items-center p-4 rounded-xl"
+                  style={{
+                    border: "1px solid rgba(3, 34, 182, 0.20)",
 
-                  background:
-                    "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-                  boxShadow: "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
-                  backdropFilter: "blur(18px)",
-                }}
-              >
-                <Image
-                  src={el.img}
-                  alt="image-data"
-                  // placeholder="blur"
-                  // blurDataURL={teamblurDataURLs[index]}
-                  // onLoad={() => handleTeamImageLoad(index, el.img.src)}
-                  className="rounded-xl md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 object-cover grayscale-100 contrast-100 brightness-100 mix-blend-multiply"
-                />
-                <p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
-                  {el.name}
-                </p>
-                <div className="flex justify-between items-left w-full mt-1">
-                  <p className=" font-medium text-xs md:text-sm  text-blue-secondary">
-                    {el.designation}
+                    background:
+                      "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
+                    boxShadow:
+                      "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
+                    backdropFilter: "blur(18px)",
+                  }}
+                >
+                  <div className="md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 relative">
+                    {el.img && 
+                  <Image
+                    src={el.img }
+                    alt="image-data"
+                    fill
+                    // placeholder="blur"
+                    // blurDataURL={teamblurDataURLs[index]}
+                    // onLoad={() => handleTeamImageLoad(index, el.img.src)}
+                    className="rounded-xl object-cover grayscale-100 contrast-100 brightness-100 mix-blend-multiply"
+                  />
+                    }
+                  </div>
+
+                  <p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
+                    {el.name}
                   </p>
-                  <a href={el.link} target="_blank" rel="noreferrer">
-                    <Image src={LinkedIn} className="w-5" alt="" />
-                  </a>
-                </div>
-              </figure>
-            );
-          })}
+                  <div className="flex justify-between items-left w-full mt-1">
+                    <p className=" font-medium text-xs md:text-sm  text-blue-secondary">
+                      {el.designation}
+                    </p>
+                    <a href={el.linkedINUrl} target="_blank" rel="noreferrer">
+                      <Image src={LinkedIn} className="w-5" alt="" />
+                    </a>
+                  </div>
+                </figure>
+              );
+            }
+          )}
         </div>
 
         {/* {showToast && <Toast showToast={showToast} setShowToast={setShowToast} />} */}

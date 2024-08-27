@@ -1,4 +1,4 @@
-import classNames from "@/helpers/common";
+import classNames, { h3ClassName, h4ClassName, p4ClassName } from "@/helpers/common";
 import { CheckIcon } from "@heroicons/react/24/outline";
 export interface StepperDataI {
   status: boolean;
@@ -34,11 +34,11 @@ export const Stepper = ({ data }: PropsI) => {
                 )}
               </div>
               {/* <div className="w-4 h-4 bg-red-200 rounded-full">123</div> */}
-              <h3 className="font-semibold text-white  lg:text-2xl leading-tight">
+              <h3 className={classNames(h4ClassName,"lg:!text-left")}>
                 {x.title}
               </h3>
               <p
-                className="font-medium text-white text-sm  lg:text-md"
+                className={classNames(p4ClassName)}
                 dangerouslySetInnerHTML={{ __html: x.status ?  x.description  : ""}}
               >
                 {/* {x.status ? x.description : ""} */}

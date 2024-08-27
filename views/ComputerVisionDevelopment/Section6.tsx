@@ -1,5 +1,9 @@
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import classNames, {
+  h2ClassName,
+  h3ClassName,
+  p2ClassName,
+  p3ClassName,
   sectionheadings,
   sectionSectionDescription,
   sectionsSectionHeadings,
@@ -78,16 +82,17 @@ export const PointsandImagesSection = ({
       )}{" "}
       <section className="w-4/5 mx-auto mt-24 lg:mt-40  ">
         <div className="flex flex-col gap-8">
-          {mainHeading && <h2 className={sectionheadings}>{mainHeading}</h2>}
+          {mainHeading && <h2 className={h2ClassName}>{mainHeading}</h2>}
           {mainDescription && (
-            <h4 className={sectionsubheadings}>{mainDescription}</h4>
+            <h4 className={classNames(p2ClassName,"lg:!text-left lg:!w-full")}>{mainDescription}</h4>
           )}
         </div>
         <div className={classNames("flex flex-col lg:flex-row gap-12 items-center  mt-12 ",reverse ? "lg:!flex-row-reverse" : "")}>
-          <figure className="w-full lg:w-1/2 z-10 ">
-            <Image src={dataImg} alt="hero-img " />
+          <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
+            <Image src={img} alt="hero-img " className="object-fill w-full h-full" 
+            objectFit="fill" fill />
           </figure>
-          <div className="w-ful lg:w-1/2 flex flex-col gap-8 z-10">
+          <div className="w-ful lg:w-1/2 flex flex-col gap-12 z-10">
             <h2
               className={classNames(
                 sectionheadings,
@@ -112,16 +117,15 @@ export const PointsandImagesSection = ({
                 return (
                   <div className="flex gap-2 items-start " key={index}>
                     {el.icon && <Image src={el.icon} className="w-6 mt-[0.4rem]" alt="icons"/>}
-                  <div className="w-full flex-col gap-4" >
+                  <div className="w-full flex flex-col  gap-2  " >
                     <h4
                       className={classNames(
-                        subsectionheadings,
-                        "2xl:!text-3xl"
+                        h3ClassName,"lg:!w-full lg:!text-left"
                       )}
                     >
                       {el.title}
                     </h4>
-                    <p className={subsectiondescriptions}>{el.description}</p>
+                    <p className={p3ClassName}>{el.description}</p>
                   </div>
                   </div>
                 );

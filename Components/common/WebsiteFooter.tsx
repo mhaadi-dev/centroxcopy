@@ -40,7 +40,7 @@ export default function WebsiteFooter() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className="bg-black my-12 max-w-[2500px] "
+      className="my-12 max-w-[2500px] "
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
