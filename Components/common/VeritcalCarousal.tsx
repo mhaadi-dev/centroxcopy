@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import Image from "next/image";
+import classNames, { p3ClassName } from "@/helpers/common";
 
 const Data = [
   {
@@ -33,7 +34,7 @@ const Data = [
 interface PropsI {
   isReverse?: boolean;
 }
-export const VerticalCarousal = ({ isReverse = false }: PropsI) => {
+export const VerticalCarousal = ({ data, isReverse = false }: any) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -57,13 +58,15 @@ export const VerticalCarousal = ({ isReverse = false }: PropsI) => {
   return (
     <div className="slider-container w-full ">
       <Slider {...settings}>
-        {Data.map((x, index) => {
+        {data?.map((x:any, index:number) => {
           return (
             <div className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
               <figure className="w-full h-[85%] relative">
-                <Image alt="img" src={img} className="object-fill rounded-2xl" fill />
+                {x.img && 
+                <Image alt={x.alt} src={x.img} className="object-fill rounded-2xl" fill />
+                }
               </figure>
-              <p className="text-black font-semibold text-xl text-center my-2">{x.title}</p>
+              <p className={classNames(p3ClassName,"mt-2 !w-full !text-black !font-semibold !text-center")}>{x.caption}</p>
 
             </div>
           );

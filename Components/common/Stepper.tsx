@@ -1,5 +1,10 @@
+//@ts-nocheck
 import classNames, { h3ClassName, h4ClassName, p4ClassName } from "@/helpers/common";
 import { CheckIcon } from "@heroicons/react/24/outline";
+import { PortableText } from "@portabletext/react";
+import {PortableComponent} from "@/Components/common/PortableText"
+
+
 export interface StepperDataI {
   status: boolean;
   title: string;
@@ -9,10 +14,11 @@ export interface StepperDataI {
 interface PropsI {
   data: StepperDataI[];
 }
-export const Stepper = ({ data }: PropsI) => {
+export const Stepper = ({ data }: any) => {
+  console.log("data in stepper data is",data)
   return (
     <ol className="relative text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400  w-full lg:w-3/4">
-      {data?.map((x, index) => {
+      {data?.map((x:any, index:number) => {
         return (
           <div
             className={classNames(
@@ -37,12 +43,13 @@ export const Stepper = ({ data }: PropsI) => {
               <h3 className={classNames(h4ClassName,"lg:!text-left")}>
                 {x.title}
               </h3>
-              <p
+              {(x.content && x.status) ? <PortableText value={x.content} components={PortableComponent} /> : null}
+              {/* {x.} */}
+              {/* <p
                 className={classNames(p4ClassName)}
                 dangerouslySetInnerHTML={{ __html: x.status ?  x.description  : ""}}
               >
-                {/* {x.status ? x.description : ""} */}
-              </p>
+              </p> */}
             </li>
           </div>
         );

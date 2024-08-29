@@ -10,7 +10,8 @@ interface PropsI{
     heading?:string,
     faqsData:FaqsI[],
 }
-export const FaqsSection = ({heading,faqsData}:PropsI)=>{
+export const FaqsSection = ({heading,data}:any)=>{
+  console.log('data in faqs section is',data)
     return (
       <div className="relative overflow-hidden pb-12 "
         style={{
@@ -22,14 +23,14 @@ export const FaqsSection = ({heading,faqsData}:PropsI)=>{
     >
         <h2 className={sectionheadings}>{heading}</h2>
         <div>
-        {faqsData.map((faq, index) => (
+        {data?.map((faq:any, index:number) => (
         <Accordion
           key={index}
-          title={faq.title}
+          title={faq.question}
           id={`faqs-${index}`}
           active={faq.active}
         >
-          {faq.text}
+          {faq.question}
         </Accordion>
       ))}
       </div>

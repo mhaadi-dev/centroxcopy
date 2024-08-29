@@ -66,8 +66,8 @@ export const h4ClassName = "text-center  text-white-light text-xl  font-bold lg:
 
 
 
-export const p2ClassName = "text-md  lg:text-2xl  text-white-light text-left w-full lg:w-4/5 "
+export const p2ClassName = "text-center text-md  lg:text-2xl  text-white-light lg:text-left w-full lg:w-4/5 "
 
 export const p3ClassName = "text-md  lg:text-xl  text-white-light text-left w-full lg:w-4/5 "
 
-export const p4ClassName = "text-md  lg:text-base  text-white-light text-left w-full lg:w-4/5 "
+export const p4ClassName = "text-center text-md  lg:text-base  text-white-light lg:text-left w-full lg:w-4/5 "

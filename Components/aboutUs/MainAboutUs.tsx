@@ -215,10 +215,7 @@ const team = [
   },
 ];
 export const MainAboutUs = (props: any) => {
-  console.log(
-    "props.props.props[0] here are",
-    props.props.props[0].LeadersImgs
-  );
+  
 
   return (
     <>
@@ -235,15 +232,15 @@ export const MainAboutUs = (props: any) => {
           />
           <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[30%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
             <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
-              {props.props.props[0]?.mainSectionheading}
+              {props?.props?.props[0]?.mainSectionheading}
             </div>
             <div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
-              {props.props.props[0]?.description}
+              {props?.props?.props[0]?.description}
             </div>
           </div>
         </div>
         <h1 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white">
-          {props.props.props[0]?.secondSectionHeading}
+          {props?.props?.props[0]?.secondSectionHeading}
         </h1>
         <div className="grid grid-cols-3  w-4/5 gap-40 mx-auto flex-wrap text-white">
           {props?.props?.props[0]?.LeadersImgs?.map((el: any, index: any) => {
@@ -300,10 +297,10 @@ export const MainAboutUs = (props: any) => {
         <section className="w-4/5 flex flex-col mx-auto items-center lg:flex-row gap-12">
           <div className="flex flex-col gap-8 w-full">
             <h1 className={sectionHeadings}>
-              {props.props.props[0]?.thirdSectionheading}
+              {props?.props?.props?.[0]?.thirdSectionheading}
             </h1>
             <p className={sectionDiscriptions}>
-              {props.props.props[0]?.thirdSectionDescription}
+              {props?.props?.props?.[0]?.thirdSectionDescription}
             </p>
             {/* <p className={sectionDiscriptions}>
               Proin faucibus nibh et sagittis a. Lacinia purus ac amet
@@ -317,10 +314,10 @@ export const MainAboutUs = (props: any) => {
         </section>
 
         <div className="text-xl lg:text-4xl text-white font-bold flex justify-center ">
-          {props.props.props[0]?.teamSectionHeading}
+          {props?.props?.props?.[0]?.teamSectionHeading}
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-4/5 mx-auto text-white pb-60 ">
-          {props.props.props[0]?.teamSectionImgs?.map(
+          {props?.props?.props?.[0]?.teamSectionImgs?.map(
             (el: any, index: number) => {
               if (!el?.img && !el?.name && !el?.designation && !el.linkedINUrl) {
                 return null; // Skip rendering this item if all properties are null

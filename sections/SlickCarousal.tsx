@@ -9,6 +9,8 @@ import Image from "next/image";
 import leftIcon from "@/public/images/template/carousalLeftArrow.svg";
 import rightIcon from "@/public/images/template/carousalRightArrow.svg";
 import classNames, { p3ClassName, p4ClassName } from "@/helpers/common";
+import { PortableText } from "@portabletext/react";
+import {PortableComponent} from "@/Components/common/PortableText"
 
 const data = [
   {
@@ -60,7 +62,8 @@ const data = [
     img: img,
   },
 ];
-function MultipleItems() {
+function MultipleItems({data}:any) {
+  console.log("data in cases studies seciton is",data)
   const settings = {
     dots: true,
     infinite: true,
@@ -110,7 +113,7 @@ function MultipleItems() {
   return (
     <div className="slider-container h-auto  w-4/5 mx-auto lg:w-full ">
       <Slider ref={slider} {...settings} >
-        {data.map((x, index) => {
+        {data?.map((x, index) => {
           return (
             <div
               className="flex flex-col w-full h-full  border border-gray-300 p-4 rounded-2xl bg-gray-gray3 pb-12 hover:bg-gray-gray4   "
@@ -121,20 +124,26 @@ function MultipleItems() {
               // }}
             >
                 <div className="h-60 w-full mx-auto relative">
+                {x.img && 
               <Image
-                src={img}
+                src={x.img}
                 fill
-                className="   object-cover rounded-xl "
+                className="   object-fill rounded-xl "
                 alt="img-alt"
               />
+                }
               </div>
-              <h4 className={classNames(p4ClassName,"mt-4 !w-full font-semibold ")}>
-                How is AI going to change the industry standard for chatbot
-                development
-              </h4>
+              <div className="h-20  mt-2">
+              {x.title ? <PortableText value={x.title} components={PortableComponent} /> : null}
+
+              </div>
+              
+              {/* <h4 className={classNames(p4ClassName,"mt-4 !w-full font-semibold ")}>
+                {x.title}
+              </h4> */}
               <div className="flex gap-2 w-full flex-wrap mt-4">
-                {x.tabs.map((y) => (
-                  <div className="bg-gray-gray3 border border-gray-300 text-white px-2 py-1 rounded-lg">
+                {x?.tags?.map((y) => (
+                  <div className="bg-gray-gray3 border border-gray-300 text-white px-2 py-1 rounded-lg text-xs lg:text-base">
                     {y}
                   </div>
                 ))}

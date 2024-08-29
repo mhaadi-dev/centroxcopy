@@ -12,9 +12,15 @@ interface PropsI{
     data:StepperDataI[],
     button?:string,
 }
-export const StepperSection = (props:PropsI) => {
+export const StepperSection = ({heading,description,data,img,button}:any) => {
    
-    const [stepperData, setStepperData] = useState(props.data);
+    const [stepperData, setStepperData] = useState(data);
+
+    useEffect(()=>{
+      let updatedData = [...data];
+      let newData = updatedData.map(x=>({...x,status:false}))
+        setStepperData(newData)
+    },[data.length])
     const topRef = useRef<HTMLDivElement>(null);
     const [scrollPercentage, setScrollPercentage] = useState(0);
   
@@ -40,11 +46,11 @@ export const StepperSection = (props:PropsI) => {
     }, []);
   
     useEffect(() => {
-      const numSteps = stepperData.length;
+      const numSteps = stepperData?.length;
       const firstStepRange = 220 / numSteps; // Give the first step a larger percentage range
       const otherStepRange = (100 - firstStepRange) / (numSteps - 1);
   
-      const updatedData = stepperData.map((step, index) => {
+      const updatedData = stepperData?.map((step:any, index:number) => {
         let isActive = false;
   
         if (index === 0) {
@@ -69,17 +75,17 @@ export const StepperSection = (props:PropsI) => {
             )}
           >
             <div className="flex flex-col gap-4 items-center w-4/5 mx-auto  ">
-              <h2 className={h2ClassName}>{props.heading}</h2>
+              <h2 className={h2ClassName}>{heading}</h2>
               <p className={classNames(p2ClassName,"!text-center")}>
-             {props.description}
+             {description}
               </p>
               {/* <CalendlyWidget btnText="Let's Build One For You" /> */}
             </div>
             <div className="flex flex-col lg:flex-row w-4/5 mx-auto justify-between mt-12 gap-4 items-center ">
               <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-1/2  ">
                 <Stepper data={stepperData} />
-                {props.button && <div className=" mt-12 flex justify-center lg:justify-start ">
-                    <CalendlyWidget btnText={props.button}/>
+                {button && <div className=" mt-12 flex justify-center lg:justify-start ">
+                    <CalendlyWidget btnText={button}/>
                     </div>}
               </div>
               <figure
@@ -89,7 +95,7 @@ export const StepperSection = (props:PropsI) => {
                   backdropFilter: "blur(2.213500738143921px)",
                 }}
               >
-                <Image src={props.img} alt="journey-img" className="w-full h-full  "
+                <Image src={img} alt="journey-img" className="w-full h-full  "
                 objectFit="fill"
                 fill
                 />

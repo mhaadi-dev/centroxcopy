@@ -10,7 +10,9 @@ export default async function Page() {
     query: POSTS_QUERY,
   });
 
-  return (<div className="h-screen bg-white">
-  <Posts posts={posts} />;
-</div>)
+  return (
+    <div className="h-screen bg-white">
+      <Posts posts={posts} />;
+    </div>
+  );
 }

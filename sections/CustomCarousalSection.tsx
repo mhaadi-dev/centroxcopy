@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client";
 import classNames, {
   h2ClassName,
@@ -14,15 +15,17 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import useSize from "@/helpers/windowWidth";
 import { useRouter } from "next/navigation";
 import { CalendlyWidget } from "@/Components/common/Calendly";
+import { PortableText } from "@portabletext/react";
+import { PortableComponent } from "@/Components/common/PortableText";
 
 interface PropsI {
-  data: dataI[];
+  data: any;
   autoplay?: boolean;
   style?: boolean;
   colsClassName?: string;
   tabsClassName?: string;
   widthClassName?: string;
-  heading?: boolean;
+  heading?: string;
 }
 interface dataI {
   title: string;
@@ -37,7 +40,7 @@ export const CustomCarousalSection = ({
   widthClassName,
   colsClassName,
   tabsClassName,
-  heading = false,
+  heading = "",
 }: PropsI) => {
   const [hoverIndex, setHoverIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -48,6 +51,8 @@ export const CustomCarousalSection = ({
     setHoverIndex(activeIndex);
   }, [activeIndex]);
 
+  let gridClass = `grid-cols-${data.length}`
+  console.log("grid class is",gridClass)
   useEffect(() => {
     let timer: any;
 
@@ -61,14 +66,12 @@ export const CustomCarousalSection = ({
       clearInterval(timer);
     };
   }, [autoplay, data.length]);
-
+  console.log("data in cusotm carousal is ", data);
   return (
     <div
       style={{
         background: `${style ? "rgba(5, 110, 225, 0.03)" : ""}`,
-        boxShadow: `${
-          style ? "0px 0px 64px 8px rgba(5, 110, 225, 0.20)" : ""
-        }`,
+        boxShadow: `${style ? "0px 0px 64px 8px rgba(5, 110, 225, 0.20)" : ""}`,
       }}
       className={classNames(
         "w-[85%] mx-auto mt-24 lg:mt-40 overflow-hidden rounded-xl",
@@ -77,7 +80,7 @@ export const CustomCarousalSection = ({
     >
       <section
         className={classNames(
-          "w-full mx-auto flex flex-col gap-12 rounded-xl relative py-4 px-2 lg:p-12"
+          "w-full mx-auto flex flex-col  gap-8 lg:gap-12 rounded-xl relative py-4 px-2 lg:p-12"
         )}
         // style={{
         //   background: "rgba(5, 110, 225, 0.03)",
@@ -85,7 +88,8 @@ export const CustomCarousalSection = ({
       >
         {heading && (
           <>
-            <h2 className={h2ClassName}>What Centrox annotation offers</h2>
+            <h2 className={h2ClassName}>{heading}</h2>
+
             {/* <p className={sectionsubheadings}>
               Our data labeling services are tailored to accommodate a multitude
               of training datasets.
@@ -95,8 +99,8 @@ export const CustomCarousalSection = ({
         <div className="flex flex-col gap-2 w-[90%] mx-auto">
           {width && width > 900 && (
             <>
-              <div className={classNames("grid grid-cols-4 ", colsClassName)}>
-                {data?.map((carousal, index) => (
+              <div className={classNames("grid ", colsClassName ,gridClass)}>
+                {data?.map((carousal: any, index: number) => (
                   <div
                     key={index}
                     style={{
@@ -104,8 +108,8 @@ export const CustomCarousalSection = ({
                         index === activeIndex
                           ? "radial-gradient(205.46% 176.53% at 50% 100%, #0071B9 0%, rgba(0, 8, 14, 0.00) 100%), rgba(0, 0, 0, 0.10)"
                           : index === hoverIndex
-                          ? "radial-gradient(205.46% 176.53% at 50% 100%, rgba(0, 113, 185, 0.10) 0%, rgba(75, 75, 75, 0.00) 100%), rgba(0, 0, 0, 0.10)"
-                          : ""
+                            ? "radial-gradient(205.46% 176.53% at 50% 100%, rgba(0, 113, 185, 0.10) 0%, rgba(75, 75, 75, 0.00) 100%), rgba(0, 0, 0, 0.10)"
+                            : ""
                       }`,
                     }}
                     className={classNames(
@@ -116,7 +120,7 @@ export const CustomCarousalSection = ({
                     onMouseLeave={() => setHoverIndex(activeIndex)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    {carousal.title}
+                    {carousal.heading}
                   </div>
                 ))}
                 <hr
@@ -133,28 +137,43 @@ export const CustomCarousalSection = ({
           )}
         </div>
 
-        <div className="flex flex-col-reverse lg:flex-row w-[90%] gap-2 py-2 items-center mx-auto">
-          {data?.map((cars, index) => {
+        <div className="flex flex-col-reverse lg:flex-row w-[90%] gap-4 py-2 items-center mx-auto">
+          {data?.map((cars: any, index: number) => {
             if (index === activeIndex) {
               return (
                 <div
                   key={index}
                   className="w-full lg:w-1/2 flex flex-col gap-2 lg:gap-6"
                 >
-                  <h3 className={classNames(h3ClassName,"lg:!text-left lg:!w-full")}>
-                    {cars.title}
+                  <div className="flex flex-col gap-2">
+                  <h3
+                    className={classNames(
+                      h3ClassName,
+                      "lg:!text-left lg:!w-full"
+                    )}
+                  >
+                    {cars.heading}
                   </h3>
-                  <p
+                  {/* <p
                     className={classNames(
                       p3ClassName,
                       "min-h-[7rem] "
                     )}
                   >
-                    {cars.description}
-                  </p>
+                    {cars.heading}
+                  </p> */}
+                  <div>
+                  {cars.description ? (
+                    <PortableText
+                      value={cars.description}
+                      components={PortableComponent}
+                    />
+                  ) : null}
+                  </div>
+                  </div>
                   <div className="flex justify-center lg:justify-start">
                     <CalendlyWidget
-                      btnText="Request a Demo"
+                      btnText={cars.btnText}
                       btnClassName="!px-4"
                     />
                   </div>
@@ -163,20 +182,24 @@ export const CustomCarousalSection = ({
             }
           })}
           <figure className="w-full lg:w-1/2 h-3/4 relative pt-[100%] lg:pt-[40%]   overflow-hidden  ">
-            {data?.map((cars, index) => (
-              <Image
-                key={index}
-                src={cars.img}
-                alt={`carousel-img-${index}`}
-                loading="eager"
-                fill
-                objectFit="fill"
-                className={classNames(
-                  "w-full  h-full top-0 left-0",
-                  activeIndex === index ? "block" : "hidden"
-                )}
-              />
-            ))}
+            {data?.map((cars: any, index: number) => {
+              return (
+                cars.img && (
+                  <Image
+                    key={index}
+                    src={cars.img}
+                    alt={`carousel-img-${index}`}
+                    loading="eager"
+                    fill
+                    objectFit="fill"
+                    className={classNames(
+                      "w-full h-full top-0 left-0",
+                      activeIndex === index ? "block" : "hidden"
+                    )}
+                  />
+                )
+              );
+            })}
           </figure>
         </div>
 
@@ -205,7 +228,7 @@ export const CustomCarousalSection = ({
             />
           )}
           <div className="flex gap-2">
-            {data?.map((_, index) => (
+            {data?.map((_: any, index: number) => (
               <div
                 key={index}
                 className={classNames(
@@ -219,9 +242,7 @@ export const CustomCarousalSection = ({
           {!autoplay && (
             <ArrowRightIcon
               className="text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in lg:hidden"
-              onClick={() =>
-                setActiveIndex((prev) => (prev + 1) % data.length)
-              }
+              onClick={() => setActiveIndex((prev) => (prev + 1) % data.length)}
             />
           )}
         </div>

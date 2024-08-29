@@ -27,19 +27,19 @@ const data = [
   },
 ];
 
-export const HoveredTextSection = () => {
+export const HoveredTextSection = ({heading,data}:any) => {
   const [hoveredIndex, setHoveredIndex] = useState<number>();
-
+  console.log("data in hovereds eciotn is",data);
   console.log("hovered index is", hoveredIndex);
   return (
     <section className="mt-24 lg:mt-40 flex flex-col gap-12 w-4/5 mx-auto">
-      <h2 className={h2ClassName}>Computer Vision Development</h2>
+      <h2 className={h2ClassName}>{heading}</h2>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-        {data.map((x, index) => {
+        {data?.map((x:any, index:any) => {
           return (
-            <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-col gap-2 w-full overflow-hidden">
               <figure
-                className=" h-80 lg:h-60  2xl:h-96 w-full relative rounded-xl border-2 overflow-hidden  "
+                className=" h-80 lg:h-60  2xl:h-96 w-full relative rounded-xl    "
                 onMouseEnter={() => {
                   setHoveredIndex(index);
                 }}
@@ -54,7 +54,7 @@ export const HoveredTextSection = () => {
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-full"
                   }`}>
-                    {x.hoveredPoints.map((points,idx)=>{
+                    {x?.details?.map((points:any,idx:any)=>{
                         return (<div className="flex gap-12 items-center">
                             {/* <div className=" w-4 h-4 rounded-full text-red-200"/> */}
                             <p className="text-white font-bold">{points}</p>
@@ -62,14 +62,15 @@ export const HoveredTextSection = () => {
                     })}
                   </div>
                 )}
-                <Image
+              {x.img &&   <Image
                   src={x.img}
                   alt="img-alt"
-                  className="object-cover "
+                  className="object-fill "
                   fill
                 />
+              } 
               </figure>
-              <p className={classNames(p3ClassName,"underline !text-center !w-full")}>{x.title}</p>
+              <p className={classNames(p3ClassName,"underline !text-center !w-full")}>{x.caption}</p>
             </div>
           );
         })}

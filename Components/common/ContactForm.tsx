@@ -1,3 +1,4 @@
+//@ts-nocheck
 "use client";
 
 import classNames, {
@@ -18,7 +19,12 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { DropDown } from "./DropDown";
 import { FormSubmissionModal } from "./FormSubmissionModal";
 
-export const ContactForm = () => {
+import { PortableText } from "@portabletext/react";
+import {PortableComponent} from "@/Components/common/PortableText"
+import Image from "next/image";
+
+
+export const ContactForm = ({heading,description,disclaimer,img}:any) => {
   const [formModal, setFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -147,14 +153,15 @@ export const ContactForm = () => {
           }}
         />
       )}
-      <section className="flex  flex-col mx-auto w-4/5 mt-24 lg:mt-40">
+      <section className="flex  flex-col lg:flex-row gap-12 mx-auto w-4/5 mt-24 lg:mt-40">
         <div className="w-full lg:w-1/2 flex flex-col gap-12">
           <h2
             className={classNames(h2ClassName, "lg:!w-full lg:!text-left")}
           >
-            Contact Us!
+            {heading}
           </h2>
-          <p className={classNames(p2ClassName,"lg:!w-full lg:!text-left")}>Book a call or fill out the form below and we’ll get back to you once we’ve processed your request. </p>
+          {description ? <PortableText value={description} components={PortableComponent} /> : null}
+          {/* <p className={classNames(p2ClassName,"lg:!w-full lg:!text-left")}>Book a call or fill out the form below and we’ll get back to you once we’ve processed your request. </p> */}
           <form className="grid lg:grid-cols-2 gap-12 ">
             <div className="col-span-2 lg:col-span-1">
             <CommonInput
@@ -286,9 +293,10 @@ export const ContactForm = () => {
               )}
             </div>
             <div className="flex justify-between gap-12 items-center col-span-2">
-              <p className={classNames(p4ClassName,"flex-1")}>
+              {/* <p className={classNames(p4ClassName,"flex-1")}>
               Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information.
-              </p>
+              </p> */}
+               {disclaimer ? <PortableText value={disclaimer} components={PortableComponent} /> : null}
               <Button
                 isLoading={isLoading}
                 onClick={submitBtnHandler}
@@ -313,6 +321,17 @@ export const ContactForm = () => {
             {/* <TextArea className="border-b !border-white !bg-gray-graydark w-full !text-white col-span-2"  placeholder="Describe your needs in detail"/> */}
           </form>
         </div>
+        <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
+            {img && (
+              <Image
+                src={img}
+                alt="form-img "
+                className="object-fill w-full h-full"
+               
+                fill
+              />
+            )}
+        </figure>
       </section>
     </>
   );

@@ -157,7 +157,8 @@ const faqsData = [
 export default function Page() {
   return (
     <>
-      <LandingLayout>
+    asd
+      {/* <LandingLayout>
         <GenAiHeroSectoin />
         <VerticalMultipleImagesSection
         description="Making the most out of generative AI requires more than just deploying off-the-shelf models. Pre-trained models often fall short when applied to novel tasks or domain-specific data. The true power of Generative AI lies in customization and optimization"
@@ -191,7 +192,7 @@ export default function Page() {
         {/* <StepperSection 
         /> */}
 
-        <ReadytoBuildChatbot
+        {/* <ReadytoBuildChatbot
           heading="Let's Build the Future of Generative AI Together"
           description="If you're serious about pushing the boundaries of Generative AI, we're ready to collaborate. Schedule a FREE technical consultation with our team to discuss your project and explore the possibilities."
           btnText="Book Your 1:1 Session"
@@ -199,8 +200,7 @@ export default function Page() {
 
         <Testimonial />
 
-        <FaqsSection heading="We're often asked" faqsData={faqsData} />
-      </LandingLayout>
+        <FaqsSection heading="We're often asked" faqsData={faqsData} /> */}
     </>
   );
 }
