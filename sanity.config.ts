@@ -17,7 +17,10 @@ export default defineConfig({
   plugins: [
     structureTool(),
     presentationTool({
+
       previewUrl: {
+      origin: 'https://staging.centrox.ai/',
+
         draftMode: {
           enable: "/api/draft-mode/enable",
         },
