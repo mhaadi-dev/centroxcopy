@@ -52,6 +52,7 @@ export const BenefitsSection = ({data,mainHeading,mainDescription}:PropsI) => {
         <Image
           src={x.icon}
           alt={x.alt}
+          loading="lazy"
           fill
           className="object-fill w-full h-full"
         />

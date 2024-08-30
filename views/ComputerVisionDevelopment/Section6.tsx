@@ -108,6 +108,7 @@ export const PointsandImagesSection = ({
                 className="object-fill w-full h-full"
                 objectFit="fill"
                 fill
+                loading="lazy"
               />
             )}
           </figure>

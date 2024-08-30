@@ -65,6 +65,7 @@ export const HoveredTextSection = ({heading,data}:any) => {
               {x.img &&   <Image
                   src={x.img}
                   alt="img-alt"
+                  loading="lazy"
                   className="object-fill "
                   fill
                 />

@@ -63,7 +63,8 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
             <div className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
               <figure className="w-full h-[85%] relative">
                 {x.img && 
-                <Image alt={x.alt} src={x.img} className="object-fill rounded-2xl" fill />
+                <Image alt={x.alt} src={x.img} className="object-fill rounded-2xl" fill 
+                loading="lazy" />
                 }
               </figure>
               <p className={classNames(p3ClassName,"mt-2 !w-full !text-black !font-semibold !text-center")}>{x.caption}</p>

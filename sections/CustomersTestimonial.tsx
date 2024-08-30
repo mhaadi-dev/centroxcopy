@@ -34,7 +34,7 @@ export const CustomerTestimonials = ({data}:any) => {
       <div className="grid grid-cols-1 lg:grid-cols-3  gap-12 ">
         {data?.map((x:any, index:number) => {
           return <div className=" pl-[12%] pt-20 border-2 rounded-2xl flex flex-col gap-4 w-full bg-gray-gray3 p-8 relative">
-        <Image alt="icon" src={icon} className="absolute top-10 left-10"/>
+        <Image alt="icon" src={icon} className="absolute top-10 left-10" loading="lazy"/>
 
             <h3 className="text-white">{x.name}</h3>
             <div className="flex justify-between">

@@ -189,7 +189,7 @@ export const CustomCarousalSection = ({
                     key={index}
                     src={cars.img}
                     alt={`carousel-img-${index}`}
-                    loading="eager"
+                    loading="lazy"
                     fill
                     objectFit="fill"
                     className={classNames(

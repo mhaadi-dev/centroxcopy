@@ -118,6 +118,7 @@ export const StepperSection = ({
                   src={img.asset.url}
                   alt="journey-img"
                   className="w-full h-full  "
+                  loading="lazy"
                   objectFit="fill"
                   fill
                 />

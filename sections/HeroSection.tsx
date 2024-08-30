@@ -31,6 +31,7 @@ export const HeroSection = (props: PropsI) => {
       {props?.includeDots && (
         <Image
           src={bgImg}
+          loading="lazy"
           className="w-full h-full object-cover absolute top-[10%] left-0"
           alt="bg-img"
         />

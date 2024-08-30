@@ -326,6 +326,7 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
               <Image
                 src={img}
                 alt="form-img "
+                loading="lazy"
                 className="object-fill w-full h-full"
                
                 fill

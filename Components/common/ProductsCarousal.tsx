@@ -84,6 +84,7 @@ export const ProductsCarousal = ({data}:any) => {
              {x.img  && <Image
                 src={x.img}
                 fill
+                loading="lazy"
                 className="   object-fill rounded-xl "
                 alt="img-alt"
               />} 

@@ -132,6 +132,7 @@ function MultipleItems({ data }: any) {
                 {x.img && (
                   <Image
                     src={x.img}
+                    loading="lazy"
                     fill
                     className="   object-fill rounded-xl "
                     alt="img-alt"
