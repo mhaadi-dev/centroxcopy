@@ -17,9 +17,8 @@ export async function getProfile() {
       skills
     }`
   );
-  
 }
-export const POSTS_QUERY =    groq`*[_type == "profile"]{
+export const POSTS_QUERY = groq`*[_type == "profile"]{
   _id,
   fullName,
   headline,
@@ -32,7 +31,6 @@ export const POSTS_QUERY =    groq`*[_type == "profile"]{
   socialLinks,
   skills
 }`;
-
 
 export const TEAM_SECTION_QUERY = groq`*[_type == "teamSection"]{
   _id,
@@ -73,10 +71,9 @@ export const SERVICES_PAGE_QUERY = groq`
     includeDots,
     reverse
   },
-  logoCarousal[] {
+  logoCarousal {
     includeSection,
-    "icon": icon.asset->url,
-    alt
+   
   },
   customCarousal {
     heading,
@@ -141,12 +138,19 @@ export const SERVICES_PAGE_QUERY = groq`
     isReverse,
     heading,
     description,
+    image {
+      asset->{
+        _id,
+        url
+      }
+    },
     data[] {
       title,
       content
     },
     btnText
-  },
+  }
+,  
   servicesSection {
     heading,
     data[] {
@@ -164,27 +168,36 @@ export const SERVICES_PAGE_QUERY = groq`
       "img": img.asset->url
     }
   },
-  customerTestimonialSection[] {
+  customerTestimonialSection {
     includeSection,
-    content,
-    name,
-    designation,
-    companyName
-  },
-  productsSection[] {
+    testimonials[] {
+      content,
+      name,
+      designation,
+      companyName
+    }
+  }
+,  
+  
+  productsSection {
     includeSection,
-    title,
-    "img": img.asset->url,
-    category,
-    date
+    heading,
+    products[] {
+      title,
+      "img": img.asset->url,
+      category,
+      date
+    }
   },
   faqsSection {
+    includeSection,
     heading,
     data[] {
       question,
       answer
     }
   },
+  
   contactUsSection {
     includeSection,
     heading,
@@ -199,9 +212,7 @@ export const SERVICES_PAGE_QUERY = groq`
     "bgImage": bgImage.asset->url
   }
 }
-`
-
-
+`;
 
 export const ALL_LANDING_PAGE_QUERY = groq`*[_type == "servicesPages" && defined(slug.current)][0...12] {
   _id,

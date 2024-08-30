@@ -10,7 +10,7 @@ import leftIcon from "@/public/images/template/carousalLeftArrow.svg";
 import rightIcon from "@/public/images/template/carousalRightArrow.svg";
 import classNames, { p3ClassName, p4ClassName } from "@/helpers/common";
 import { PortableText } from "@portabletext/react";
-import {PortableComponent} from "@/Components/common/PortableText"
+import { PortableComponent } from "@/Components/common/PortableText";
 
 const data = [
   {
@@ -62,82 +62,91 @@ const data = [
     img: img,
   },
 ];
-function MultipleItems({data}:any) {
-  console.log("data in cases studies seciton is",data)
+function MultipleItems({ data }: any) {
+  console.log("data in cases studies seciton is", data);
   const settings = {
     dots: true,
     infinite: true,
-    arrows:false,
+    arrows: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
-        {
-            breakpoint: 1600,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: true
-            }
-          },
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
         },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            initialSlide: 2
-          }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
         },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const slider = React.useRef(null);
 
   return (
     <div className="slider-container h-auto  w-4/5 mx-auto lg:w-full ">
-      <Slider ref={slider} {...settings} >
+      <Slider ref={slider} {...settings}>
         {data?.map((x, index) => {
           return (
             <div
               className="flex flex-col w-full h-full  border border-gray-300 p-4 rounded-2xl bg-gray-gray3 pb-12 hover:bg-gray-gray4   "
               key={index}
-
+              style={{
+                borderRadius: "16px",
+                background: "#060606",
+                boxShadow:
+                  "0px 0px 20px 0px #079DFC, 0px 0px 12px 0px #079DFC inset, 0px -8px 24px 0px rgba(128, 255, 219, 0.40) inset",
+              }}
               // style={{
               //   boxShadow: "0px 0px 20px 0px #079DFC, 0px 0px 12px 0px #079DFC inset, 0px -8px 24px 0px rgba(128, 255, 219, 0.40) inset"
               // }}
             >
-                <div className="h-60 w-full mx-auto relative">
-                {x.img && 
-              <Image
-                src={x.img}
-                fill
-                className="   object-fill rounded-xl "
-                alt="img-alt"
-              />
-                }
+              <div className="h-60 w-full mx-auto relative">
+                {x.img && (
+                  <Image
+                    src={x.img}
+                    fill
+                    className="   object-fill rounded-xl "
+                    alt="img-alt"
+                  />
+                )}
               </div>
-              <div className="h-20  mt-2">
-              {x.title ? <PortableText value={x.title} components={PortableComponent} /> : null}
+              <div className="h-20  mt-4">
+                {x.title ? (
+                  <PortableText
+                    value={x.title}
+                    components={PortableComponent}
+                  />
+                ) : null}
+              </div>
 
-              </div>
-              
               {/* <h4 className={classNames(p4ClassName,"mt-4 !w-full font-semibold ")}>
                 {x.title}
               </h4> */}

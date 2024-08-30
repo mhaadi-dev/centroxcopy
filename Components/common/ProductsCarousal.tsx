@@ -88,7 +88,7 @@ export const ProductsCarousal = ({data}:any) => {
                 alt="img-alt"
               />} 
               </div>
-              <h4 className={classNames(p4ClassName,"h-20")}>
+              <h4 className={classNames(p4ClassName,"h-16 mt-4")}>
                {x.title}
               </h4>
               <div className="flex gap-2 w-full justify-between mt-4">

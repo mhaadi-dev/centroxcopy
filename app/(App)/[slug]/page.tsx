@@ -1,22 +1,12 @@
 import { sanityFetch } from "@/sanity/lib/client";
 import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
-import heroImg from "@/public/images/genAi/genAIheroSection.webp";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-
-import textExtractionImg from "@/public/images/solvingdata/newtextExtaractionImg.webp";
-import twodBoudingImg from "@/public/images/solvingdata/new2dBouncingBoxesimg.webp";
-import ImageSegmentation from "@/public/images/solvingdata/newimagesegmentionimg.webp";
-import RareEventImg from "@/public/images/solvingdata/newrareeventimg.webp";
-import { HorizentalBar } from "@/sections/HorizentalBarSection";
 import { BenefitsSection } from "@/sections/BenefitsSection";
-import CheckIcon from "@/public/images/genAi/awsicon.svg";
 import { OppositeCarousal } from "@/sections/OppositeCarousal";
 import { StepperSection } from "@/sections/StepperSection";
-import { StepperDataI } from "@/Components/common/Stepper";
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import MultipleItems from "@/sections/SlickCarousal";
 import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
 import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
 import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
@@ -24,10 +14,9 @@ import { FaqsSection } from "@/sections/FaqsSection";
 import { ContactForm } from "@/Components/common/ContactForm";
 import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import { ServiceCarousalSection } from "@/sections/ServicesCarousalSection";
+import bgImage from "@/public/images/customchatbot/customchatbotbg.webp"
 
 // import { LANDING_PAGE_QUERY } from '@/sanity/query';
-import { useParams } from "next/navigation";
 import LandingLayout from "../layoutPage";
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -44,16 +33,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           {landingPageData?.[0]?.heroSection?.includeSection && (
             <HeroSection
-              heading={landingPageData?.[0]?.heroSection?.heading}
+            heading={landingPageData?.[0]?.heroSection?.heading}
+
+            includeDots={landingPageData?.[0]?.heroSection?.includeDots}
               description={landingPageData?.[0]?.heroSection?.description}
               btnText={landingPageData?.[0]?.heroSection?.btnText}
               reverse={landingPageData?.[0]?.heroSection?.reverse}
-
               img={landingPageData?.[0]?.heroSection?.img}
             />
           )}
-          <LogosCarousel
-           data = {landingPageData?.[0]?.logoCarousal} />
+          {landingPageData?.[0]?.logoCarousal?.includeSection && (
+            <LogosCarousel data={landingPageData?.[0]?.logoCarousal?.logos} />
+          )}
           {landingPageData?.[0]?.customCarousal?.includeSection && (
             <CustomCarousalSection
               data={landingPageData?.[0]?.customCarousal?.data}
@@ -87,9 +78,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {landingPageData?.[0]?.stepperSection?.includeSection && (
             <StepperSection
               heading={landingPageData?.[0]?.stepperSection?.heading}
+              reverse={landingPageData?.[0]?.stepperSection?.isReverse}
+
               description={landingPageData?.[0]?.stepperSection?.description}
               data={landingPageData?.[0]?.stepperSection?.data}
-              img={heroImg}
+              img={landingPageData?.[0]?.stepperSection?.image}
               button={landingPageData?.[0]?.stepperSection?.btnText}
             />
           )}
@@ -106,15 +99,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {/* {landingPageData?.[0]?.customerTestimonialSection?.includeSection && ( */}
+          {landingPageData?.[0]?.customerTestimonialSection?.includeSection && (
             <CustomerTestimonials
-              data={landingPageData?.[0]?.customerTestimonialSection}
+              data={
+                landingPageData?.[0]?.customerTestimonialSection?.testimonials
+              }
             />
-          {/* )} */}
-        {/* {landingPageData?.[0]?.productsSection?.includeSection && ( */}
-              <ProductsCarousalSection
-                data={landingPageData?.[0]?.productsSection}
-              />
+          )}
+          {landingPageData?.[0]?.productsSection?.includeSection && (
+            <ProductsCarousalSection
+              heading={landingPageData?.[0]?.productsSection.heading}
+              data={landingPageData?.[0]?.productsSection.products}
+            />
+          )}
           {/* )}ProductsCarousalSection */}
           {landingPageData?.[0]?.faqsSection?.includeSection && (
             <FaqsSection

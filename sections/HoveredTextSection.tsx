@@ -39,7 +39,7 @@ export const HoveredTextSection = ({heading,data}:any) => {
           return (
             <div className="flex flex-col gap-2 w-full overflow-hidden">
               <figure
-                className=" h-80 lg:h-60  2xl:h-96 w-full relative rounded-xl    "
+                className=" h-80 lg:h-60  overflow-hidden  2xl:h-96 w-full relative rounded-xl    "
                 onMouseEnter={() => {
                   setHoveredIndex(index);
                 }}
