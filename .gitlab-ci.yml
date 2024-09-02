@@ -98,7 +98,7 @@ build-release:
     tags:
         - any
 
-deploy-release:SLACK_TEMPALTE_PATH
+deploy-release:
     stage: deploy-release
     image: dtzar/helm-kubectl:3.7.1
     environment:
