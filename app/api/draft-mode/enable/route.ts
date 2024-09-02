@@ -11,6 +11,9 @@ const clientWithToken = client.withConfig({ token });
 
 export async function GET(request: NextRequest) {
   console.log("request url is",request.url)
+  let url = request.url;
+  url = url.replace('localhost:3000', 'staging.centrox.ai');
+
   if (!process.env.SANITY_API_READ_TOKEN) {
     console.log("Missing environment variable SANITY_API_READ_TOKEN")
 
@@ -21,7 +24,7 @@ export async function GET(request: NextRequest) {
 
   const { isValid, redirectTo = "/" ,studioOrigin} = await validatePreviewUrl(
     clientWithToken,
-    request.url
+    url
   );
   console.log("STUDIO ORDIGIN ISSSSSSSSSSSSSS",studioOrigin)
   if (!isValid) {
