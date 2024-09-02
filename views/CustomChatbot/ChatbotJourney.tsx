@@ -1,5 +1,5 @@
 "use client";
-import { Stepper, StepperDataI } from "@/Components/common/Stepper";
+import { Stepper } from "@/Components/common/Stepper";
 import classNames, {
   sectionheadings,
   sectionsubheadings,
@@ -9,7 +9,7 @@ import img from "@/public/images/customchatbot/chatbotjourneyImg.webp"
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export const ChatbotJourneySection = () => {
-  const data : StepperDataI[] = [
+  const data  = [
     {
       status: false,
       title: "Discuss Your Vision",

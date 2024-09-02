@@ -10,21 +10,8 @@ import leftIcon from "@/public/images/template/carousalLeftArrow.svg";
 import rightIcon from "@/public/images/template/carousalRightArrow.svg";
 import classNames, { h3ClassName, p4ClassName } from "@/helpers/common";
 
-const mewdata = [
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    product:"Product",
-    date:"18-August-2024",
-    img: img,
-  },
-  
-  
-  
- 
-];
+
 export const ProductsCarousal = ({data}:any) => {
-  console.log("data in products sectoin is",data)
   const settings = {
     dots: true,
     infinite: true,

@@ -12,58 +12,8 @@ import classNames, { p3ClassName, p4ClassName } from "@/helpers/common";
 import { PortableText } from "@portabletext/react";
 import { PortableComponent } from "@/Components/common/PortableText";
 
-const data = [
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-  {
-    title:
-      "How is AI going to change the industry standard for chatbot development",
-    tabs: ["AI", "ML Ops", "AWS", "GANs", "CVS"],
-    img: img,
-  },
-];
+
 function MultipleItems({ data }: any) {
-  console.log("data in cases studies seciton is", data);
   const settings = {
     dots: true,
     infinite: true,

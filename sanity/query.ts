@@ -58,161 +58,411 @@ export const TEAM_SECTION_QUERY = groq`*[_type == "teamSection"]{
 
 // && slug.current == $slug
 
-export const SERVICES_PAGE_QUERY = groq`
-*[_type == "servicesPages" && slug.current == $slug] {
-  _id,
-  slug,
-  heroSection {
-    includeSection,
-    heading,
-    description,
-    btnText,
-    "img": img.asset->url,
-    includeDots,
-    reverse
-  },
-  logoCarousal {
-    includeSection,
-   
-  },
-  customCarousal {
-    heading,
-    includeSection,
-    description,
-    data[] {
+  export const SERVICES_PAGE_QUERY = groq`
+  *[_type == "servicesPages" && slug.current == $slug] {
+    _id,
+    slug,
+    heroSection {
+      includeSection,
+      order,
       heading,
       description,
       btnText,
-      "img": img.asset->url
-    },
-    btnText
-  },
-  benefitsSection {
-    heading,
-    description,
-    includeSection,
-    data[] {
-      "icon": icon.asset->url,
-      alt,
-      heading,
-      description
-    }
-  },
-  verticalCarouselSection {
-    includeSection,
-    heading,
-    images[] {
       "img": img.asset->url,
-      alt,
-      caption
+      includeDots,
+      reverse
     },
-    data[] {
-      "img": img.asset->url,
-      alt,
-      content
-    }
-  },
-  hoverAnimationSection {
-    includeSection,
-    heading,
-    data[] {
-      "img": img.asset->url,
-      alt,
-      caption,
-      details
-    }
-  },
-  whyUsSection {
-    includeSection,
-    heading,
-    description,
-    content[] {
-      heading,
-      description
-    },
-    btntext,
-    "img": img.asset->url
-  },
-  stepperSection {
-    includeSection,
-    isReverse,
-    heading,
-    description,
-    image {
-      asset->{
-        _id,
-        url
+    logoCarousal {
+      includeSection,
+      order,
+
+      content[] {
+        "icon": icon.asset->url,
+        alt
       }
     },
-    data[] {
-      title,
-      content
+    
+    customCarousal {
+      heading,
+      includeSection,
+      order,
+
+      description,
+      data[] {
+        heading,
+        description,
+        btnText,
+        "img": img.asset->url
+      },
+      btnText
     },
-    btnText
-  }
-,  
-  servicesSection {
-    heading,
-    data[] {
-      title,
-      content
-    }
-  },
-  caseStudiesSection {
-    includeSection,
-    heading,
-    description,
-    data[] {
-      title,
-      tags,
+    benefitsSection {
+      heading,
+      description,
+      order,
+
+      includeSection,
+      data[] {
+        "icon": icon.asset->url,
+        alt,
+        heading,
+        description
+      }
+    },
+    verticalCarouselSection {
+      includeSection,
+      order,
+
+      heading,
+      images[] {
+        "img": img.asset->url,
+        alt,
+        caption
+      },
+      data[] {
+        "img": img.asset->url,
+        alt,
+        content
+      }
+    },
+    hoverAnimationSection {
+      includeSection,
+      order,
+
+      heading,
+      data[] {
+        "img": img.asset->url,
+        alt,
+        caption,
+        details
+      }
+    },
+    whyUsSection {
+      includeSection,
+      order,
+
+      heading,
+      description,
+      content[] {
+        heading,
+        description
+      },
+      btntext,
       "img": img.asset->url
+    },
+    stepperSection {
+      includeSection,
+      order,
+
+      isReverse,
+      heading,
+      description,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      },
+      data[] {
+        title,
+        content
+      },
+      btnText
     }
-  },
-  customerTestimonialSection {
-    includeSection,
-    testimonials[] {
-      content,
-      name,
-      designation,
-      companyName
+  ,  
+    servicesSection {
+      heading,
+      order,
+
+      data[] {
+        title,
+        content
+      }
+    },
+    caseStudiesSection {
+      includeSection,
+      order,
+
+      heading,
+      description,
+      data[] {
+        title,
+        tags,
+        "img": img.asset->url
+      }
+    },
+    customerTestimonialSection {
+      includeSection,
+      order,
+
+      testimonials[] {
+        content,
+        name,
+        designation,
+        companyName
+      }
+    }
+  ,  
+    
+    productsSection {
+      includeSection,
+      order,
+
+      heading,
+      products[] {
+        title,
+        "img": img.asset->url,
+        category,
+        date
+      }
+    },
+    faqsSection {
+      includeSection,
+      order,
+
+      heading,
+      data[] {
+        question,
+        answer
+      }
+    },
+    techStackSection {
+      heading,
+      includeSection,
+      order,
+
+      description,
+      data[] {
+        title,
+        content[] {
+          "img": img.asset->url,
+          alt,
+          caption
+        }
+      }
+    },
+    contactUsSection {
+      includeSection,
+      order,
+
+      heading,
+      description,
+      disclaimer,
+      "img": img.asset->url
+    },
+    bannerSection {
+      includeSection,
+      order,
+
+      heading,
+      btnText,
+      "bgImage": bgImage.asset->url
     }
   }
-,  
-  
-  productsSection {
-    includeSection,
-    heading,
-    products[] {
-      title,
+  `;
+
+  export const NESTED_SERVICE_PAGE_QUERY = groq`
+  *[_type == "nestedservicesPages" && slug.current == $slug && customSlug.current == $subslug] {
+    _id,
+    slug,
+    heroSection {
+      includeSection,
+      order,
+      heading,
+      description,
+      btnText,
       "img": img.asset->url,
-      category,
-      date
+      includeDots,
+      reverse
+    },
+    logoCarousal {
+      includeSection,
+      order,
+
+      content[] {
+        "icon": icon.asset->url,
+        alt
+      }
+    },
+    
+    customCarousal {
+      heading,
+      includeSection,
+      order,
+
+      description,
+      data[] {
+        heading,
+        description,
+        btnText,
+        "img": img.asset->url
+      },
+      btnText
+    },
+    benefitsSection {
+      heading,
+      description,
+      order,
+
+      includeSection,
+      data[] {
+        "icon": icon.asset->url,
+        alt,
+        heading,
+        description
+      }
+    },
+    verticalCarouselSection {
+      includeSection,
+      order,
+
+      heading,
+      images[] {
+        "img": img.asset->url,
+        alt,
+        caption
+      },
+      data[] {
+        "img": img.asset->url,
+        alt,
+        content
+      }
+    },
+    hoverAnimationSection {
+      includeSection,
+      order,
+
+      heading,
+      data[] {
+        "img": img.asset->url,
+        alt,
+        caption,
+        details
+      }
+    },
+    whyUsSection {
+      includeSection,
+      order,
+
+      heading,
+      description,
+      content[] {
+        heading,
+        description
+      },
+      btntext,
+      "img": img.asset->url
+    },
+    stepperSection {
+      includeSection,
+      order,
+
+      isReverse,
+      heading,
+      description,
+      image {
+        asset->{
+          _id,
+          url
+        }
+      },
+      data[] {
+        title,
+        content
+      },
+      btnText
     }
-  },
-  faqsSection {
-    includeSection,
-    heading,
-    data[] {
-      question,
-      answer
+  ,  
+    servicesSection {
+      heading,
+      order,
+
+      data[] {
+        title,
+        content
+      }
+    },
+    caseStudiesSection {
+      includeSection,
+      order,
+
+      heading,
+      description,
+      data[] {
+        title,
+        tags,
+        "img": img.asset->url
+      }
+    },
+    customerTestimonialSection {
+      includeSection,
+      order,
+
+      testimonials[] {
+        content,
+        name,
+        designation,
+        companyName
+      }
     }
-  },
-  
-  contactUsSection {
-    includeSection,
-    heading,
-    description,
-    disclaimer,
-    "img": img.asset->url
-  },
-  bannerSection {
-    includeSection,
-    heading,
-    btnText,
-    "bgImage": bgImage.asset->url
+  ,  
+    
+    productsSection {
+      includeSection,
+      order,
+
+      heading,
+      products[] {
+        title,
+        "img": img.asset->url,
+        category,
+        date
+      }
+    },
+    faqsSection {
+      includeSection,
+      order,
+
+      heading,
+      data[] {
+        question,
+        answer
+      }
+    },
+    techStackSection {
+      heading,
+      includeSection,
+      order,
+
+      description,
+      data[] {
+        title,
+        content[] {
+          "img": img.asset->url,
+          alt,
+          caption
+        }
+      }
+    },
+    contactUsSection {
+      includeSection,
+      order,
+
+      heading,
+      description,
+      disclaimer,
+      "img": img.asset->url
+    },
+    bannerSection {
+      includeSection,
+      order,
+
+      heading,
+      btnText,
+      "bgImage": bgImage.asset->url
+    }
   }
-}
-`;
+  `;
 
 export const ALL_LANDING_PAGE_QUERY = groq`*[_type == "servicesPages" && defined(slug.current)][0...12] {
   _id,

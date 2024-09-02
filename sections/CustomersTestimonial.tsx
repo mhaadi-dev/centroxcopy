@@ -1,32 +1,8 @@
 import classNames, { h2ClassName, p3ClassName, p4ClassName, sectionheadings } from "@/helpers/common";
 import icon from "@/public/images/template/customerTestimonial.svg"
 import Image from "next/image";
-const TestimonialData = [
-  {
-    testimonialData:
-      "When the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is small",
-    testimonialName: "Dr. Ahmed Butt",
-    testimonialDesgination: "Director",
-    testimonialCompany: "Centrox Ai",
-  },
-  {
-    testimonialData:
-      "When the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is small",
-    testimonialName: "Dr. Ahmed Butt",
-    testimonialDesgination: "Director",
-    testimonialCompany: "Centrox Ai",
-  },
-  {
-    testimonialData:
-      "When the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is smallWhen the Title is small",
-    testimonialName: "Dr. Ahmed Butt",
-    testimonialDesgination: "Director",
-    testimonialCompany: "Centrox Ai",
-  },
-];
 
 export const CustomerTestimonials = ({data}:any) => {
-  console.log("data in customer Carousal is",data)
   return (
     <section className="w-4/5 mx-auto  mt:24 pt-12 lg:mt-40  ">
       <div className="flex flex-col gap-12">

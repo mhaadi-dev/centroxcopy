@@ -1,36 +1,12 @@
 "use client";
 import classNames, { h2ClassName, p2ClassName, p3ClassName, sectionheadings } from "@/helpers/common";
-import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import Image from "next/image";
 import { useState } from "react";
 
-const data = [
-  {
-    img: img,
-    title: "Fine Tech",
-    hoveredPoints: ["This is bullet 1", "This is bullet 2", "This is bullet 3"],
-  },
-  {
-    img: img,
-    title: "Fine Tech",
-    hoveredPoints: ["This is bullet 1", "This is bullet 2", "This is bullet 3"],
-  },
-  {
-    img: img,
-    title: "Fine Tech",
-    hoveredPoints: ["This is bullet 1", "This is bullet 2", "This is bullet 3"],
-  },
-  {
-    img: img,
-    title: "Fine Tech",
-    hoveredPoints: ["This is bullet 1", "This is bullet 2", "This is bullet 3"],
-  },
-];
+
 
 export const HoveredTextSection = ({heading,data}:any) => {
   const [hoveredIndex, setHoveredIndex] = useState<number>();
-  console.log("data in hovereds eciotn is",data);
-  console.log("hovered index is", hoveredIndex);
   return (
     <section className="mt-24 lg:mt-40 flex flex-col gap-12 w-4/5 mx-auto">
       <h2 className={h2ClassName}>{heading}</h2>

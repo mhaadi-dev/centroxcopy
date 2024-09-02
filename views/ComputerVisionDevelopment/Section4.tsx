@@ -1,5 +1,5 @@
 "use client";
-import { Stepper, StepperDataI } from "@/Components/common/Stepper";
+import { Stepper } from "@/Components/common/Stepper";
 import classNames, {
   sectionheadings,
   sectionsubheadings,
@@ -11,7 +11,7 @@ import { Button } from "@/Components/Button.js/button";
 import { CalendlyWidget } from "@/Components/common/Calendly";
 
 export const ComputerVisoinSection4 = () => {
-  const data: StepperDataI[] = [
+  const data = [
     {
       status: false,
       title: "In-depth Requirements Analysis",

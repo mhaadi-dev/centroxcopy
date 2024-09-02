@@ -52,7 +52,6 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
     return priceRegex.test(val);
   };
 
-  console.log("form data is", formData);
   const submitBtnHandler = async () => {
     let missingData = [];
 

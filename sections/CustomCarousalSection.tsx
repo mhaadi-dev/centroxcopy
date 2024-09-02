@@ -51,7 +51,7 @@ export const CustomCarousalSection = ({
     setHoverIndex(activeIndex);
   }, [activeIndex]);
 
-  let gridClass = `grid-cols-${data.length}`
+  let gridClass = `grid-cols-${data?.length}`
   console.log("grid class is",gridClass)
   useEffect(() => {
     let timer: any;
@@ -65,8 +65,7 @@ export const CustomCarousalSection = ({
     return () => {
       clearInterval(timer);
     };
-  }, [autoplay, data.length]);
-  console.log("data in cusotm carousal is ", data);
+  }, [autoplay, data?.length]);
   return (
     <div
       style={{
@@ -207,12 +206,12 @@ export const CustomCarousalSection = ({
           <>
             <ArrowRightIcon
               className="absolute top-1/2 right-10 text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in active:border-2 active:border-blue-500 hidden lg:block"
-              onClick={() => setActiveIndex((prev) => (prev + 1) % data.length)}
+              onClick={() => setActiveIndex((prev) => (prev + 1) % data?.length)}
             />
             <ArrowLeftIcon
               className="absolute top-1/2 left-10 text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in active:border-2 active:border-blue-500 hidden lg:block"
               onClick={() =>
-                setActiveIndex((prev) => (prev - 1 + data.length) % data.length)
+                setActiveIndex((prev) => (prev - 1 + data?.length) % data?.length)
               }
             />
           </>
@@ -223,7 +222,7 @@ export const CustomCarousalSection = ({
             <ArrowLeftIcon
               className="text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in lg:hidden"
               onClick={() =>
-                setActiveIndex((prev) => (prev - 1 + data.length) % data.length)
+                setActiveIndex((prev) => (prev - 1 + data?.length) % data?.length)
               }
             />
           )}
@@ -242,7 +241,7 @@ export const CustomCarousalSection = ({
           {!autoplay && (
             <ArrowRightIcon
               className="text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in lg:hidden"
-              onClick={() => setActiveIndex((prev) => (prev + 1) % data.length)}
+              onClick={() => setActiveIndex((prev) => (prev + 1) % data?.length)}
             />
           )}
         </div>

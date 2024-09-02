@@ -8,34 +8,14 @@ import classNames, {
   p4ClassName,
   sectionheadings,
   sectionSectionDescription,
-  sectionsSectionHeadings,
-  sectionsubheadings,
-  subsectiondescriptions,
-  subsectionheadings,
+ 
 } from "@/helpers/common";
 
 import dataImg from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import Image from "next/image";
 
-interface DataI {
-  title: string;
-  icon?: string;
-  description: string;
-}
-interface PropsI {
-  data: DataI[];
-  heading?: string;
-  description?: string;
-  mainHeading?: string;
-  mainDescription?: string;
-  subDescription?: string;
-  img?: any;
-  reverse?: boolean;
-  bgImge?: boolean;
-  button?: any;
-  gradient?: boolean;
-  bgShape?: boolean;
-}
+
+
 export const PointsandImagesSection = ({
   data,
   heading,
@@ -50,7 +30,6 @@ export const PointsandImagesSection = ({
   reverse,
   bgShape,
 }: any) => {
-  console.log("data in points section is", data);
   return (
     <div
       className="relative overflow-hidden mt-8 pb-12 "
@@ -88,10 +67,10 @@ export const PointsandImagesSection = ({
       )}{" "}
       <section className="w-4/5 mx-auto mt-24 lg:mt-40  ">
         <div className="flex flex-col gap-2 lg:gap-8">
-          <h2 className={h2ClassName}>{data.heading}</h2>
+          <h2 className={h2ClassName}>{data?.heading}</h2>
 
           <h4 className={classNames(p2ClassName, "lg:!text-center  ")}>
-            {data.description}
+            {data?.description}
           </h4>
         </div>
         <div
@@ -101,9 +80,9 @@ export const PointsandImagesSection = ({
           )}
         >
           <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
-            {data.img && (
+            {data?.img && (
               <Image
-                src={data.img}
+                src={data?.img}
                 alt="hero-img "
                 className="object-fill w-full h-full"
                 objectFit="fill"
@@ -167,7 +146,7 @@ export const PointsandImagesSection = ({
             </div>
             {button && (
               <div className="flex justify-center lg:justify-start">
-                <CalendlyWidget btnText={data.btntext} />
+                <CalendlyWidget btnText={data?.btntext} />
               </div>
             )}
           </div>

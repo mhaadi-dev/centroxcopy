@@ -1,22 +1,14 @@
 "use client";
 import { CalendlyWidget } from "@/Components/common/Calendly";
-import { Stepper, StepperDataI } from "@/Components/common/Stepper";
+import { Stepper } from "@/Components/common/Stepper";
 import classNames, {
   h2ClassName,
   p2ClassName,
-  sectionheadings,
-  sectionsubheadings,
+
 } from "@/helpers/common";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-interface PropsI {
-  heading: string;
-  description: string;
-  img: any;
-  data: StepperDataI[];
-  button?: string;
-}
 export const StepperSection = ({
   heading,
   description,
@@ -26,12 +18,14 @@ export const StepperSection = ({
   button,
 }: any) => {
   const [stepperData, setStepperData] = useState(data);
-    console.log("image in stepper sectoin is",img)
   useEffect(() => {
-    let updatedData = [...data];
-    let newData = updatedData.map((x) => ({ ...x, status: false }));
-    setStepperData(newData);
-  }, [data.length]);
+    if (data?.length >=1){
+      let updatedData = [...data];
+      let newData = updatedData?.map((x) => ({ ...x, status: false }));
+      setStepperData(newData);
+    }
+ 
+  }, [data?.length]);
   const topRef = useRef<HTMLDivElement>(null);
   const [scrollPercentage, setScrollPercentage] = useState(0);
 

@@ -10,18 +10,22 @@ import { token } from "@/sanity/lib/token";
 const clientWithToken = client.withConfig({ token });
 
 export async function GET(request: NextRequest) {
+  console.log("request url is",request.url)
   if (!process.env.SANITY_API_READ_TOKEN) {
+    console.log("Missing environment variable SANITY_API_READ_TOKEN")
+
     return new Response("Missing environment variable SANITY_API_READ_TOKEN", {
       status: 500,
     });
   }
 
-  const { isValid, redirectTo = "/" } = await validatePreviewUrl(
+  const { isValid, redirectTo = "/" ,studioOrigin} = await validatePreviewUrl(
     clientWithToken,
     request.url
   );
-
+  console.log("STUDIO ORDIGIN ISSSSSSSSSSSSSS",studioOrigin)
   if (!isValid) {
+    console.log("invalid secretttt")
     return new Response("Invalid secret", { status: 401 });
   }
 

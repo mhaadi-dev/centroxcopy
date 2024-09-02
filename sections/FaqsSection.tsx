@@ -1,17 +1,8 @@
 import Accordion from "@/Components/common/Accordian"
 import classNames, { basicLayoutclass, sectionheadings } from "@/helpers/common"
 
-interface FaqsI{
-    title:string,
-    text:string,
-    active:boolean
-}
-interface PropsI{
-    heading?:string,
-    faqsData:FaqsI[],
-}
+
 export const FaqsSection = ({heading,data}:any)=>{
-  console.log('data in faqs section is',data)
     return (
       <div className="relative overflow-hidden pb-12 "
         style={{

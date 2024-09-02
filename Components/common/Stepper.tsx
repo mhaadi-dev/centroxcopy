@@ -5,17 +5,8 @@ import { PortableText } from "@portabletext/react";
 import {PortableComponent} from "@/Components/common/PortableText"
 
 
-export interface StepperDataI {
-  status: boolean;
-  title: string;
-  description: string;
-}
-[];
-interface PropsI {
-  data: StepperDataI[];
-}
+
 export const Stepper = ({ data }: any) => {
-  console.log("data in stepper data is",data)
   return (
     <ol className="relative text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400  w-full lg:w-3/4">
       {data?.map((x:any, index:number) => {

@@ -2,7 +2,6 @@ import { ProductsCarousal } from "@/Components/common/ProductsCarousal"
 import classNames, { h3ClassName, sectionheadings } from "@/helpers/common"
 
 export const ProductsCarousalSection = ({data,heading}:any)=>{
-    console.log("data in products sesion is",data);
     return (
         <div className="w-full overflow-hidden mt-24 lg:mt-40 ">
             

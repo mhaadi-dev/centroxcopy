@@ -1,9 +1,7 @@
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import classNames, {
   h1className,
-  sectionDiscriptions,
-  sectionheadings,
-  sectionHeadings,
+ 
   sectionsubheadings,
 } from "@/helpers/common";
 
@@ -20,19 +18,18 @@ interface PropsI {
 
 import Image from "next/image";
 export const HeroSection = (props: PropsI) => {
-    console.log("include dots in hero section is",props.includeDots)
   return (
+    <div className="w-full pb-10 relative">
     <section
       className={classNames(
-        "flex mt-24 lg:mt-40 w-4/5 mx-auto  flex-col lg:flex-row gap-12 justify-between items-center relative",
+        "flex mt-24 lg:mt-40 w-4/5 mx-auto  flex-col lg:flex-row gap-12 justify-between items-center ",
         props.reverse ? "lg:!flex-row-reverse" : ""
       )}
     >
       {props?.includeDots && (
         <Image
           src={bgImg}
-          loading="lazy"
-          className="w-full h-full object-cover absolute top-[10%] left-0"
+          className="w-full h-full object-cover absolute top-4 left-0"
           alt="bg-img"
         />
       )}
@@ -71,5 +68,6 @@ export const HeroSection = (props: PropsI) => {
         )}
       </figure>
     </section>
+    </div>
   );
 };

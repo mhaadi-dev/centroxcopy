@@ -63,6 +63,17 @@ interface data {
     };
     btnText: string;
   };
+  techStackSection: {
+    includeSection: boolean;
+    heading: string;
+    description: string;
+    data: [
+      {
+        title: string;
+        content: { img: Image; alt: string; caption: string }[];
+      }[],
+    ];
+  };
   benefitsSection: {
     heading: string;
     paragraph: string;
@@ -74,11 +85,9 @@ interface data {
   };
 }
 
-
-
 interface DataI {
   heroSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     description: string;
     btnText: string;
@@ -87,12 +96,14 @@ interface DataI {
     reverse: boolean;
   };
   logoCarousal: {
-    includeSection:boolean
-    icon: any;
-    alt: string;
-  }[];
+    includeSection: boolean;
+    content: {
+      icon: Image;
+      alt: string;
+    }[];
+  };
   customCarousal: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     description: string;
     data: {
@@ -103,7 +114,7 @@ interface DataI {
     }[];
   };
   benefitsSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     description: string;
     data: {
@@ -114,7 +125,7 @@ interface DataI {
     }[];
   };
   veritcalCarousalSectoin: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     images: {
       img: Image;
@@ -128,7 +139,7 @@ interface DataI {
     };
   };
   hoverAnimationSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     data: {
       img: Image;
@@ -138,7 +149,7 @@ interface DataI {
     };
   };
   stepperSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     description: string;
     data: {
@@ -147,18 +158,18 @@ interface DataI {
     }[];
     btnText: string;
   };
-  whyUsSection:{
-    heading:string,
-    description:string,
-    content:{
-      heading:string, 
-      description:string,
-    }[],
-    btntext:string,
-    img:Image
-  }
+  whyUsSection: {
+    heading: string;
+    description: string;
+    content: {
+      heading: string;
+      description: string;
+    }[];
+    btntext: string;
+    img: Image;
+  };
   servicesSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     data: {
       title: string;
@@ -166,7 +177,7 @@ interface DataI {
     }[];
   };
   caseStudiesSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     description: string;
     data: {
@@ -175,37 +186,37 @@ interface DataI {
     }[];
   };
   customerTestimonialSection: {
-    includeSection:boolean
+    includeSection: boolean;
     content: richTextEditor;
     name: string;
     designation: string;
     companyName: string;
   }[];
   productsSection: {
-    includeSection:boolean
+    includeSection: boolean;
     title: string;
     img: Image;
     category: string;
     date: string;
   }[];
   faqsSection: {
-    includeSection:boolean
+    includeSection: boolean;
     heading: string;
     data: {
       question: string;
       answer: richTextEditor;
     }[];
   };
-  contactUsSection:{
-    includeSection:boolean
-    heading:string,
-    description:richTextEditor,
-    disclaimer:richTextEditor
-  }
-  bannerSection:{
-    includeSection:boolean
-    heading:string,
-    btnText:string,
-    bgImage:image
-  }
+  contactUsSection: {
+    includeSection: boolean;
+    heading: string;
+    description: richTextEditor;
+    disclaimer: richTextEditor;
+  };
+  bannerSection: {
+    includeSection: boolean;
+    heading: string;
+    btnText: string;
+    bgImage: image;
+  };
 }

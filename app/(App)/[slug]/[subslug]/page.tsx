@@ -1,8 +1,6 @@
 //@ts-nocheck
 import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from 'next/dynamic';
-
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
+import { NESTED_SERVICE_PAGE_QUERY, SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
@@ -13,39 +11,23 @@ import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Sectio
 import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
 import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
 import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
-import { LogosSection } from "@/sections/LogosSection";
 import { FaqsSection } from "@/sections/FaqsSection";
 import { ContactForm } from "@/Components/common/ContactForm";
 import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../layoutPage";
+import { LogosSection } from "@/sections/LogosSection";
+import LandingLayout from "../../layoutPage";
 
-// const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
-// const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
-// const BannerSection = dynamic(() => import('@/sections/TestimonialSection'));
-// const HoveredTextSection = dynamic(() => import('@/sections/HoveredTextSection'));
-// const LogosCarousel = dynamic(() => import('@/views/LogosCarousel'));
-// const CustomCarousalSection = dynamic(() => import('@/sections/CustomCarousalSection'));
-// const BenefitsSection = dynamic(() => import('@/sections/BenefitsSection'));
-// const OppositeCarousal = dynamic(() => import('@/sections/OppositeCarousal'));
-// const StepperSection = dynamic(() => import('@/sections/StepperSection'));
-// const PointsandImagesSection = dynamic(() => import('@/views/ComputerVisionDevelopment/Section6'));
-// const CustomerTestimonials = dynamic(() => import('@/sections/CustomersTestimonial'));
-// const ProductsCarousalSection = dynamic(() => import('@/sections/ProducstsCarousal'));
-// const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
-// const LogosSection = dynamic(() => import('@/sections/LogosSection'));
-
-export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  console.log("slug is", slug);
+export default async function Page({ params }: { params: any }) {
+  const { slug , subslug } = params;
   let landingPageData;
   let data;
   try {
     landingPageData = await sanityFetch({
-      query: SERVICES_PAGE_QUERY,
-      params: { slug },
+      query: NESTED_SERVICE_PAGE_QUERY,
+      params: { slug ,subslug },
     });
 
     if (
@@ -76,9 +58,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     console.error("Error fetching or processing landing page data:", error);
   }
   return (
-    <div>
+    <div >
       <LandingLayout>
-        <main className="max-w-[2500px] mx-auto bg-[#060606] ">
+      <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           {data?.map((val, index) => {
             switch (val[0]) {
               case "logoCarousal":

@@ -1,7 +1,6 @@
 import { GenAiHeroSectoin } from "@/views/genai/HeroSection";
 import LandingLayout from "../layoutPage";
 import { StepperSection } from "@/sections/StepperSection";
-import { StepperDataI } from "@/Components/common/Stepper";
 import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import FineTuningExpertiseImg from "@/public/images/llmchatbot/corefinetuning.webp";
 import RetreivalImg from "@/public/images/llmchatbot/corerage.webp";
@@ -39,39 +38,7 @@ import { LogosSection } from "@/sections/LogosSection";
 
 
 
-const stepperData: StepperDataI[] = [
-  {
-    status: false,
-    title: "Problem Formulation",
-    description:
-      "We start with a deep dive into your problem space. We analyze your data, understand your constraints, and define clear success metrics.",
-  },
-  {
-    status: false,
 
-    title: "Architecture Design",
-    description:
-      "We leverage our expertise in Generative AI architectures to design a solution tailored to your specific needs. We explore novel techniques and stay abreast of the latest research to ensure optimal performance.",
-  },
-  {
-    status: false,
-    title: "Model Training & Fine-tuning",
-    description:
-      "We train and fine-tune your model using best practices and techniques, leveraging your domain-specific data to maximise accuracy and relevance.",
-  },
-  {
-    status: false,
-    title: "Evaluation & Validation",
-    description:
-      "We rigorously evaluate model performance using established benchmarks and your own custom metrics. We iterate on the design and training process until we achieve results that meet or exceed your expectations.",
-  },
-  {
-    status: false,
-    title: "Deployment & Optimization",
-    description:
-      "We deploy your model into your production environment, ensuring seamless integration and scalability. We continue to monitor performance and make optimizations as needed to maintain peak efficiency.",
-  },
-];
 
 const BorderedSectionData = [
   {

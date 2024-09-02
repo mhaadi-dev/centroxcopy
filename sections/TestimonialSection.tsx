@@ -2,7 +2,7 @@ import { Button } from "@/Components/Button.js/button"
 import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp"
 import Image from "next/image"
 import Arrow from "@/assets/RightArrow.svg";
-import classNames, { h2ClassName, sectionDiscriptions, sectionsubheadings } from "@/helpers/common";
+import classNames, { h2ClassName } from "@/helpers/common";
 
 export const BannerSection =({heading,btnText,bgImage}:any)=>{
     return (<section className="mt-24   lg:mt-40 flex w-4/5 mx-auto flex-col">

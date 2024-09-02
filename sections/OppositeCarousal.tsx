@@ -14,42 +14,17 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import {PortableComponent} from "@/Components/common/PortableText"
 
-interface PropsI{
-
-}
-const data = {
-  heading:"Industries we have worked with",
-    details: [
-      {
-        img: icon,
-        heading: "Health Care",
-        description: "We deliver precise annotations",
-      },
-      {
-        img: icon,
-        heading: "Health Care",
-        description: "We deliver precise annotations",
-      },
-      {
-        img: icon,
-        heading: "Health Care",
-        description: "We deliver precise annotations",
-      },
-    ],
-  }
-
 export const OppositeCarousal = ({data}:any) => {
-  console.log("data in opposit carousal is",data)
 
   return (
     <section className="mt-24 lg:mt-40 w-4/5 mx-auto flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-24 ">
       <div className="w-full lg:w-2/5 bg-black overflow-hidden flex gap-4   h-[80vh]  ">
         <div className="w-full ">
-          <VerticalCarousal  data = {data.images} />
+          <VerticalCarousal  data = {data?.images} />
         </div>
 
         <div className="w-full ">
-          <VerticalCarousal isReverse={true} data = {data.images} />
+          <VerticalCarousal isReverse={true} data = {data?.images} />
         </div>
       </div>
 

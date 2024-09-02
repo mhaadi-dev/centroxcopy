@@ -25,6 +25,7 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
         { name: "heading", title: "Heading", type: "string" },
         { name: "description", title: "Description", type: "string" },
         { name: "btnText", title: "Button Text", type: "string" },
@@ -34,18 +35,30 @@ export const servicesPages = defineType({
       ],
     }),
     defineField({
-      name: "logoCarousal",
-      title: "Logo Carousel",
-      type: "object",
+      name: 'logoCarousal',
+      title: 'Logo Carousel',
+      type: 'object',
       fields: [
+        defineField({ name: 'includeSection', title: 'Include Section', type: 'boolean' }),
+        defineField({ name : "order", title: "Order", type: "number" }),
+
         defineField({
-          name: "includeSection",
-          title: "Include Section",
-          type: "boolean",
+          name: 'content',
+          title: 'Content',
+          type: 'array',
+          of: [
+            defineField({
+              type: 'object',
+              fields: [
+                defineField({ name: 'icon', title: 'Icon', type: 'image' }),
+                defineField({ name: 'alt', title: 'Alt Text', type: 'string' }),
+              ],
+            }),
+          ],
         }),
-    
       ],
     }),
+    
 
     defineField({
       name: "customCarousal",
@@ -53,6 +66,8 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
+
         { name: "heading", title: "Heading", type: "string" },
         { name: "description", title: "Description", type: "string" },
         {
@@ -84,6 +99,8 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
+
         { name: "heading", title: "Heading", type: "string" },
         { name: "description", title: "Description", type: "string" },
         {
@@ -115,6 +132,7 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
 
         { name: "heading", title: "Heading", type: "string" },
         { name: "description", title: "Description", type: "string" },
@@ -142,6 +160,8 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
+
         { name: "heading", title: "Heading", type: "string" },
         {
           name: "images",
@@ -186,6 +206,8 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
+
         { name: "heading", title: "Heading", type: "string" },
         {
           name: "data",
@@ -216,6 +238,8 @@ export const servicesPages = defineType({
         type: "object",
         fields: [
           defineField({ name: "includeSection", title: "Include Section", type: "boolean" }),
+          defineField({ name : "order", title: "Order", type: "number" }),
+
           defineField({ name: "isReverse", title: "Is Reverse", type: "boolean" }),
           defineField({ name: "heading", title: "Heading", type: "string" }),
           defineField({ name: "description", title: "Description", type: "string" }),
@@ -249,6 +273,8 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
+
         { name: "heading", title: "Heading", type: "string" },
         {
           name: "data",
@@ -277,6 +303,8 @@ export const servicesPages = defineType({
       type: "object",
       fields: [
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
+
         { name: "heading", title: "Heading", type: "string" },
         { name: "description", title: "Description", type: "string" },
         {
@@ -316,6 +344,8 @@ export const servicesPages = defineType({
           title: "Include Section",
           type: "boolean",
         }),
+        defineField({ name : "order", title: "Order", type: "number" }),
+
         defineField({
           name: "testimonials",
           title: "Testimonials",
@@ -350,6 +380,8 @@ export const servicesPages = defineType({
           title: "Include Section",
           type: "boolean",
         }),
+        defineField({ name : "order", title: "Order", type: "number" }),
+
         defineField({ name: "heading", title: "Heading", type: "string" }),
         defineField({
           name: "products",
@@ -369,7 +401,54 @@ export const servicesPages = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'techStackSection',
+      title: 'Tech Stack Section',
+      type: 'object',
+      fields: [
+        defineField({ name: 'includeSection', title: 'Include Section', type: 'boolean' }),
+        defineField({ name : "order", title: "Order", type: "number" }),
 
+        defineField({ name: 'heading', title: 'Heading', type: 'string' }),
+        defineField({ name: 'description', title: 'Description', type: 'string' }),
+        defineField({
+          name: 'data',
+          title: 'Data',
+          type: 'array',
+          of: [
+            defineField({
+              type: 'object',
+              fields: [
+                defineField({ name: 'title', title: 'Title', type: 'string' }),
+                defineField({
+                  name: 'content',
+                  title: 'Content',
+                  type: 'array',
+                  of: [
+                    defineField({
+                      type: 'object',
+                      fields: [
+                        defineField({ name: 'img', title: 'Image', type: 'image' }),
+                        defineField({
+                          name: 'description',
+                          title: 'Description',
+                          type: 'array',
+                          of: [{ type: 'block' }],
+                        }),
+                        defineField({ name: 'alt', title: 'Alt Text', type: 'string' }),
+                        defineField({ name: 'caption', title: 'Caption', type: 'string' }),
+                      ],
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    
+      
 
     defineField({
         name: "faqsSection",
@@ -377,6 +456,8 @@ export const servicesPages = defineType({
         type: "object",
         fields: [
           defineField({ name: "includeSection", title: "Include Section", type: "boolean" }),
+          defineField({ name : "order", title: "Order", type: "number" }),
+
           defineField({ name: "heading", title: "Heading", type: "string" }),
           defineField({
             name: "data",
@@ -405,7 +486,9 @@ export const servicesPages = defineType({
       title: "Banner Section",
       type: "object",
       fields: [
+
         { name: "includeSection", title: "Include Section", type: "boolean" },
+        { name : "order", title: "Order", type: "number" },
         { name: "heading", title: "Heading", type: "string" },
         { name: "btnText", title: "Button Text", type: "string" },
         { name: "bgImage", title: "Background Image", type: "image" },

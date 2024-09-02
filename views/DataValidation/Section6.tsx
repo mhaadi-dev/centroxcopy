@@ -1,6 +1,6 @@
 "use client";
 import { CalendlyWidget } from "@/Components/common/Calendly";
-import { Stepper, StepperDataI } from "@/Components/common/Stepper";
+import { Stepper } from "@/Components/common/Stepper";
 import classNames, {
   basicLayoutclass,
   sectionDiscriptions,
@@ -10,7 +10,7 @@ import classNames, {
 } from "@/helpers/common";
 import { useEffect, useRef, useState } from "react";
 
-const data: StepperDataI[] = [
+const data = [
   {
     status: false,
     title: "Data Ingestion",

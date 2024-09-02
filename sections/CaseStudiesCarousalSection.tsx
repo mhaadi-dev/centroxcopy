@@ -1,9 +1,7 @@
 import classNames, { h2ClassName, sectionheadings } from "@/helpers/common";
 import MultipleItems from "./SlickCarousal";
 
-interface PropsI{
-    heading:string
-}
+
 export const CaseStudiesCarousalSection = ({heading,description,data}:any) => {
   return (
     <div className="w-full overflow-x-hidden mt-20 lg:mt-44 ">
