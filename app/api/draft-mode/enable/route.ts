@@ -10,10 +10,10 @@ import { token } from "@/sanity/lib/token";
 const clientWithToken = client.withConfig({ token });
 
 export async function GET(request: NextRequest) {
-  console.log("request url is",request.url)
   let url = request.url;
-  url = url.replace('localhost:3000', 'staging.centrox.ai');
-
+  url = url.replace('http://localhost:3000', 'https://staging.centrox.ai');
+  
+  console.log("request url is",url)
   if (!process.env.SANITY_API_READ_TOKEN) {
     console.log("Missing environment variable SANITY_API_READ_TOKEN")
 
