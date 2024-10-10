@@ -65,7 +65,7 @@ export const ProductsCarousal = ({ data }: any) => {
         <Slider ref={slider} {...settings}>
           {data?.map((x, index) => {
             return (
-              <CommonCard title={x.title} category={x.category} date={x.date} image={x.img}/>
+              <CommonCard key={index} title={x.title} category={x.category} date={x.date} image={x.img}/>
             );
           })}
         </Slider>

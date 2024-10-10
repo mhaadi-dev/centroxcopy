@@ -14,7 +14,7 @@ const DropdownListItem = ({ listData, mainHeading }: Props) => {
         listData.map((item, i) => {
           console.log("oooooooooo",item)
           return (
-           item.isCardNavItem ?  <div className=" h-48 min-w-[10rem] max-w-[12rem] p-1 bg-none relative"     
+           item.isCardNavItem ?  <div key={i} className=" h-48 min-w-[10rem] max-w-[12rem] p-1 bg-none relative"     
         >
           <Image src={item?.bg_img} alt="bg" className="absolute bottom-0 right-0"></Image>
             {item?.image && i === 0 && (
