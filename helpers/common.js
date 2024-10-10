@@ -45,7 +45,7 @@ export const sectionsSectionHeadings = "text-sm lg:text-2xl lg:text-3xl 2xl:text
 
 export const sectionSectionDescription = "text-sm lg:text-lg 2xl:text-xl text-white font-medium w-4/5  text-center lg:text-left mx-auto lg:mx-0"
 
-export const basicLayoutclass = "mt-24 lg:mt-44 flex flex-col  gap-12 w-4/5 mx-auto"
+export const basicLayoutclass = "mt-24 lg:mt-32 flex flex-col  gap-8 w-4/5 mx-auto"
 
 export const subsectionheadings = "text-sm text-white font-bold lg:text-xl 2xl:text-2xl w-full "
 
@@ -68,6 +68,6 @@ export const h4ClassName = "text-center  text-white-light text-xl  font-bold lg:
 
 export const p2ClassName = "text-center text-md  lg:text-2xl  text-white-light lg:text-left w-full lg:w-4/5 "
 
-export const p3ClassName = "text-md  lg:text-xl  text-white-light text-left w-full lg:w-4/5 "
+export const p3ClassName = "text-sm  lg:text-xl  text-white-light text-left w-full lg:w-4/5 "
 
 export const p4ClassName = "text-center text-md  lg:text-base  text-white-light lg:text-left w-full lg:w-4/5 "

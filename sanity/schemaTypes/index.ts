@@ -7,7 +7,10 @@ import {authorType} from './authorType'
 import { teamSectionType } from './pages/teamType'
 import { servicesPages } from './pages/landingPage'
 import { nestedServicePage } from './pages/nestedLandingPage'
+import  landingPage  from './landingPage'
+import { landingLogosCarousel } from './LandingLogosCarousel';
+
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType,teamSectionType,servicesPages,nestedServicePage],
+  types: [blockContentType, categoryType, postType, authorType,teamSectionType,servicesPages,nestedServicePage,landingPage,landingLogosCarousel],
 }

@@ -24,7 +24,7 @@ export default function Accordion({
 
   return (
     <div className="relative">
-      <div className="p-4 lg:p-12 w-[90%] lg:w-3/5 mx-auto border-2 border-gray-300 mt-4 rounded-xl"
+      <div className="p-4 lg:p-8 w-[90%] lg:w-5/5 mx-auto border-2 border-gray-300 mt-4 rounded-xl"
       style={{
         borderRadius: "12px",
         // border: 1px solid var(--gray-200, #E5E7EB);
@@ -81,7 +81,7 @@ export default function Accordion({
           }`}
         >
           <div className="overflow-hidden">
-            <p className={classNames(p4ClassName,"pb-3")}>{children}</p>
+            <p className={classNames("text-start text-md  lg:text-base  text-white-light lg:text-left w-full lg:w-4/5","pb-3")}>{typeof children !=="object" ? children:""}</p>
           </div>
         </div>
       </div>

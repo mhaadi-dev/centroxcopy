@@ -2,7 +2,7 @@ import Accordion from "@/Components/common/Accordian"
 import classNames, { basicLayoutclass, sectionheadings } from "@/helpers/common"
 
 
-export const FaqsSection = ({heading,data}:any)=>{
+export const FaqsSection = ({heading,subHeading,data}:any)=>{
     return (
       <div className="relative overflow-hidden pb-12 "
         style={{
@@ -13,6 +13,7 @@ export const FaqsSection = ({heading,data}:any)=>{
    
     >
         <h2 className={sectionheadings}>{heading}</h2>
+       {subHeading &&  <p className="text-gray-100 text-[1.5rem] mx-auto">{subHeading}</p>}
         <div>
         {data?.map((faq:any, index:number) => (
         <Accordion
@@ -21,7 +22,7 @@ export const FaqsSection = ({heading,data}:any)=>{
           id={`faqs-${index}`}
           active={faq.active}
         >
-          {faq.question}
+          {faq.answer}
         </Accordion>
       ))}
       </div>

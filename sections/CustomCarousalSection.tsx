@@ -3,11 +3,7 @@
 import classNames, {
   h2ClassName,
   h3ClassName,
-  p2ClassName,
-  p3ClassName,
   sectionheadings,
-  sectionSectionDescription,
-  sectionsubheadings,
 } from "@/helpers/common";
 import { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
@@ -27,6 +23,7 @@ interface PropsI {
   widthClassName?: string;
   heading?: string;
 }
+
 interface dataI {
   title: string;
   description: string;
@@ -44,15 +41,19 @@ export const CustomCarousalSection = ({
 }: PropsI) => {
   const [hoverIndex, setHoverIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isClient, setIsClient] = useState(false); // Add state to track mounting
   const router = useRouter();
   const { width } = useSize();
+
+  useEffect(() => {
+    setIsClient(true); // Component has mounted, now we are on the client
+  }, []);
 
   useEffect(() => {
     setHoverIndex(activeIndex);
   }, [activeIndex]);
 
-  let gridClass = `grid-cols-${data?.length}`
-  console.log("grid class is",gridClass)
+  let gridClass = `grid-cols-${data?.length}`;
   useEffect(() => {
     let timer: any;
 
@@ -66,6 +67,11 @@ export const CustomCarousalSection = ({
       clearInterval(timer);
     };
   }, [autoplay, data?.length]);
+
+  if (!isClient) {
+    return null; 
+  }
+
   return (
     <div
       style={{
@@ -81,24 +87,16 @@ export const CustomCarousalSection = ({
         className={classNames(
           "w-full mx-auto flex flex-col  gap-8 lg:gap-12 rounded-xl relative py-4 px-2 lg:p-12"
         )}
-        // style={{
-        //   background: "rgba(5, 110, 225, 0.03)",
-        // }}
       >
         {heading && (
           <>
             <h2 className={h2ClassName}>{heading}</h2>
-
-            {/* <p className={sectionsubheadings}>
-              Our data labeling services are tailored to accommodate a multitude
-              of training datasets.
-            </p> */}
           </>
         )}
-        <div className="flex flex-col gap-2 w-[90%] mx-auto">
+        <div className="flex flex-col gap-2 w-[90%] mx-auto ">
           {width && width > 900 && (
             <>
-              <div className={classNames("grid ", colsClassName ,gridClass)}>
+              <div className={classNames("grid ", colsClassName, gridClass)}>
                 {data?.map((carousal: any, index: number) => (
                   <div
                     key={index}
@@ -107,8 +105,8 @@ export const CustomCarousalSection = ({
                         index === activeIndex
                           ? "radial-gradient(205.46% 176.53% at 50% 100%, #0071B9 0%, rgba(0, 8, 14, 0.00) 100%), rgba(0, 0, 0, 0.10)"
                           : index === hoverIndex
-                            ? "radial-gradient(205.46% 176.53% at 50% 100%, rgba(0, 113, 185, 0.10) 0%, rgba(75, 75, 75, 0.00) 100%), rgba(0, 0, 0, 0.10)"
-                            : ""
+                          ? "radial-gradient(205.46% 176.53% at 50% 100%, rgba(0, 113, 185, 0.10) 0%, rgba(75, 75, 75, 0.00) 100%), rgba(0, 0, 0, 0.10)"
+                          : ""
                       }`,
                     }}
                     className={classNames(
@@ -145,30 +143,24 @@ export const CustomCarousalSection = ({
                   className="w-full lg:w-1/2 flex flex-col gap-2 lg:gap-6"
                 >
                   <div className="flex flex-col gap-2">
-                  <h3
-                    className={classNames(
-                      h3ClassName,
-                      "lg:!text-left lg:!w-full"
-                    )}
-                  >
-                    {cars.heading}
-                  </h3>
-                  {/* <p
-                    className={classNames(
-                      p3ClassName,
-                      "min-h-[7rem] "
-                    )}
-                  >
-                    {cars.heading}
-                  </p> */}
-                  <div>
-                  {cars.description ? (
-                    <PortableText
-                      value={cars.description}
-                      components={PortableComponent}
-                    />
-                  ) : null}
-                  </div>
+                    <h3
+                      className={classNames(
+                        h3ClassName,
+                        "lg:!text-left lg:!w-full"
+                      )}
+                    >
+                      {cars.heading}
+                    </h3>
+                    <div>
+                      {cars.description ? (
+                        <PortableText
+                          value={cars.description}
+                          components={PortableComponent}
+                        />
+                      ) : (
+                        "ooo"
+                      )}
+                    </div>
                   </div>
                   <div className="flex justify-center lg:justify-start">
                     <CalendlyWidget
@@ -226,22 +218,24 @@ export const CustomCarousalSection = ({
               }
             />
           )}
-          <div className="flex gap-2">
-            {data?.map((_: any, index: number) => (
+          {data?.map((_, index: number) => {
+            return (
               <div
                 key={index}
+                onClick={() => setActiveIndex(index)}
                 className={classNames(
-                  index === activeIndex
-                    ? "bg-[#079DFC] w-12 h-2 rounded-2xl"
-                    : "bg-gray-200 w-2 h-2 rounded-full"
+                  "w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-white",
+                  activeIndex == index ? "bg-[#079DFC]" : ""
                 )}
-              />
-            ))}
-          </div>
+              ></div>
+            );
+          })}
           {!autoplay && (
             <ArrowRightIcon
               className="text-white w-12 cursor-pointer p-2 rounded-full bg-[#3C3C3C] hover:scale-125 ease-in lg:hidden"
-              onClick={() => setActiveIndex((prev) => (prev + 1) % data?.length)}
+              onClick={() =>
+                setActiveIndex((prev) => (prev + 1) % data?.length)
+              }
             />
           )}
         </div>

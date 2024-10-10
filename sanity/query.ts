@@ -495,3 +495,21 @@ export const ALL_LANDING_PAGE_QUERY = groq`*[_type == "servicesPages" && defined
     }
   }
 }`;
+
+export const LANDING_LOGOS_CAROUSEL = '*[_type == "landingLogosCarousel"]{logos[]{icon{asset->{_id, url}}, alt}}';
+export const LANDING_PAGE_QUERY = `*[_type == "landingPage"]{
+  title,
+  description,
+  logosCarousel->{
+    logos[]{
+      icon{
+        asset->{
+          _id,
+          url
+        }
+      },
+      alt
+    }
+  },
+
+}`;

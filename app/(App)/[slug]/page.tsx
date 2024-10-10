@@ -75,11 +75,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
   } catch (error) {
     console.error("Error fetching or processing landing page data:", error);
   }
+  console.log("data is",data,)
   return (
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          {data?.map((val, index) => {
+          {data.length>0? data.map((val, index) => {
+            
             switch (val[0]) {
               case "logoCarousal":
                 return val[1]?.includeSection && (<LogosCarousel data={val[1]?.content} />);
@@ -180,7 +182,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 );
             }
-          })}
+          }):""}
         </main>
       </LandingLayout>
     </div>
