@@ -16,6 +16,7 @@ export const Stepper = ({ data }: any) => {
               "pl-12 -ml-12   ",
               x.status == true ? " lg:py-1 border-2 activeStepper" : ""
             )}
+            key={index}
           >
             <li className="mb-10 lg:mb-12 mt-6 ms-8  ">
               <div

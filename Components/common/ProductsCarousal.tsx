@@ -9,103 +9,81 @@ import Image from "next/image";
 import leftIcon from "@/public/images/template/carousalLeftArrow.svg";
 import rightIcon from "@/public/images/template/carousalRightArrow.svg";
 import classNames, { h3ClassName, p4ClassName } from "@/helpers/common";
+import CommonCard from "./CommonCard";
 
-
-export const ProductsCarousal = ({data}:any) => {
+export const ProductsCarousal = ({ data }: any) => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    arrows:false,
-    slidesToShow: 3,
+    arrows: false,
+    slidesToShow: 3, // Default number of slides for large screens
     slidesToScroll: 1,
     responsive: [
-        {
-            breakpoint: 1600,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: true
-            }
-          },
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
+      {
+        breakpoint: 1600, // For large screens, show 3 slides
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
         },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            initialSlide: 2
-          }
+      },
+      {
+        breakpoint: 1024, // For medium screens, show 2 slides
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
         },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+      },
+      {
+        breakpoint: 768, // For tablets, show 1.5 slides
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 640, // For small screens (mobile), show 1 slide
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const slider = React.useRef(null);
 
   return (
-    <div className="slider-container h-auto w-4/5 mx-auto lg:w-full  ">
-      <Slider ref={slider} {...settings} >
-        {data?.map((x, index) => {
-          return (
-            <div
-              className="flex flex-col w-full h-full    p-4 rounded-2xl bg-gray-gray4   hover:bg-[#079DFC1A] "
-              key={index}
-            >
-                <div className="h-80  w-full mx-auto relative ">
-             {x.img  && <Image
-                src={x.img}
-                fill
-                loading="lazy"
-                className="   object-fill rounded-xl "
-                alt="img-alt"
-              />} 
-              </div>
-              <h4 className={classNames(p4ClassName,"h-16 mt-4")}>
-               {x.title}
-              </h4>
-              <div className="flex gap-2 w-full justify-between mt-4">
-                <h3 className={classNames(p4ClassName,"!font-semibold !text-left !text-blue-bright")}>
-                  {x.category}
-                </h3>
-                <h3 className={classNames(p4ClassName,"font-semibold text-white")}>
-                  {x.date}
-                </h3>
-              </div>
-            </div>
-          );
-        })}
-      </Slider>
-      <div className="flex w-4/5 mx-auto  justify-between lg:justify-start lg:gap-4 absolute lg:left-0  bottom-0">
-        <Image
-          src={leftIcon}
-          onClick={() => slider?.current?.slickPrev()}
-          className="w-12 cursor-pointer"
-          alt="left-icon"
-        />
-        <Image
-          src={rightIcon}
-          onClick={() => slider?.current?.slickNext()}
-          className=" w-12 cursor-pointer"
-          alt="right-ci"
-        />
+    <>
+      <div className="sm:max-w-[1681px] overflow-hidden mx-[0rem] my-5 sm:-mr-[15rem] 3xl:mx-auto ">
+        <Slider ref={slider} {...settings}>
+          {data?.map((x, index) => {
+            return (
+              <CommonCard key={index} title={x.title} category={x.category} date={x.date} image={x.img}/>
+            );
+          })}
+        </Slider>
+        <div className="flex mt-2 md:mt-4 justify-center  md:justify-start gap-6">
+          <Image
+            src={leftIcon}
+            onClick={() => slider?.current?.slickPrev()}
+            className="w-12 cursor-pointer"
+            alt="left-icon"
+          />
+          <Image
+            src={rightIcon}
+            onClick={() => slider?.current?.slickNext()}
+            className="w-12 cursor-pointer"
+            alt="right-ci"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
-}
-
+};

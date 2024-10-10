@@ -1,38 +1,46 @@
 import Image from "next/image";
-
-import React, { useEffect, useState } from "react";
-import { generateLinearGradientBase64 } from "@/helpers/common";
+import React from "react";
 
 
+export async function LogosCarousel() {
 
 
-
-
-
-export const LogosCarousel = ({data}:any) => {
-
-
-
+  const logos:any = [];
   return (
-	<section className="w-full  pt-24 lg:pt-0  lg:mt-24 inline-flex  flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]  ">
-	<ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll gap-12">
-	  {data?.map((logo:any, index:number) => (
-		<li key={index} >
-			<figure className="h-20 w-20 relative">
-		  <Image src={logo.icon} alt={logo.alt} className="w-full object-cover" fill />
-		</figure>
-		</li>
-	  ))}
-	</ul>
-	<ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll gap-12 ml-[3rem]" aria-hidden="true">
-	  {data?.map((logo:any, index:number) => (
-		<li key={index} >
-			<figure className="h-20 w-20 relative">
-		  <Image src={logo.icon} alt={logo.alt} fill/>
-			</figure>
-		</li>
-	  ))}
-	</ul>
-  </section>
+    <>
+      <section className="w-full flex lg:mt-10 overflow-hidden relative">
+        <div className="w-full bg-gradient-to-r from-black  via-transparent to-black absolute left-0 right-0 h-full top-0 z-[1]"  />
+        
+        <div className="flex items-center bg-transparent w-full animate-marquee animate-infinite-scroll gap-x-12 whitespace-nowrap">
+          {logos.length > 0
+            ? logos.map((logo: any, index: number) => (
+                <div key={index} className="relative w-[100vw] md:w-[80%] lg:w-[100%]  h-auto">
+                  <Image
+                    src={logo.icon.asset.url}
+                    alt={logo.alt}
+                    className="object-contain top-0"
+                    width={300}
+                    height={100}
+                  />
+                </div>
+              ))
+            : ""}
+        </div>
+
+        <div className="flex items-center w-full animate-marquee animate-infinite-scroll gap-x-12 ml-4 whitespace-nowrap">
+          {logos.map((logo: any, index: number) => (
+            <div key={index} className="relative w-[100vw] md:w-[80%] lg:w-[100%] h-auto">
+              <Image
+                src={logo.icon.asset.url}
+                alt={logo.alt}
+                className="object-contain"
+                width={300}
+                height={100}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
-};
+}

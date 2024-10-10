@@ -60,7 +60,7 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
       <Slider {...settings}>
         {data?.map((x:any, index:number) => {
           return (
-            <div className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
+            <div key={index} className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
               <figure className="w-full h-[85%] relative">
                 {x.img && 
                 <Image alt={x.alt} src={x.img} className="object-fill rounded-2xl" fill 

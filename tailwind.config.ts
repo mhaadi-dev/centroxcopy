@@ -46,7 +46,8 @@ const config: Config = {
           gray3:"#272727",
           gray4:"#060606",
           downloadDark: "#101010",
-          graydark:"#060606"
+          graydark:"#060606",
+          cardgray:"#0A0A0A"
         },
         
         blue: {
@@ -60,6 +61,10 @@ const config: Config = {
           offWhite: "#F9FAFB",
           light:"#FCFCFC"
         },
+        text_gradient:{
+          primary:"#056EE1",
+          faded:"#6EB4EB"
+        }
       },
       screens: {
         xlc: { min: "1919" },

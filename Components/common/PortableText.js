@@ -22,7 +22,7 @@ export const PortableComponent = {
     h5: ({ children }) => <h5 className="text-2xl font-medium my-4 text-white">{children}</h5>,
     h6: ({ children }) => <h6 className="text-xl font-medium my-4 text-white">{children}</h6>,
     p: ({ children }) => <p className="text-base font-medium my-4 text-white lg:text-lg">{children}</p>,
-    normal: ({ children }) => <p className="text-base text-center lg:text-left lg:text-lg text-white">{children}</p>,
+    normal: ({ children }) => <p className="text-base text-start lg:text-left lg:text-lg text-white">{children}</p>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-white">{children}</blockquote>
     ),
