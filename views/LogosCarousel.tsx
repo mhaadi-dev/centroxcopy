@@ -1,14 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import { sanityFetch } from "@/sanity/lib/client";
-import { LANDING_PAGE_QUERY } from "@/sanity/query";
+
 
 export async function LogosCarousel() {
-  const data: any = await sanityFetch({
-    query: LANDING_PAGE_QUERY,
-  });
 
-  const logos = data?.[0]?.logosCarousel?.logos || [];
+
+  const logos:any = [];
   return (
     <>
       <section className="w-full flex lg:mt-10 overflow-hidden relative">

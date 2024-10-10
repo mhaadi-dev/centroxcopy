@@ -248,27 +248,27 @@ export const TabCarousel = ({
                         {isCardLayout && (
                           <>
                             <h3 className="text-[2rem] text-white font-semibold">
-                              Data Solutions: The Foundation of High-Performing
-                              LLMs
+                              {cardsData[index]?.subInfo?.heading}
                             </h3>
                             <p className="text-[1.3rem] text-gray-100">
-                              Lorem ipsum dolor sit amet consectetur adipisicing
-                              elit. Magnam, sunt! Assumenda veritatis tempore
-                              porro magnam neque labore, itaque magni eum.
+                             This is placeholder description of the card
                             </p>
                             <div
                               className={`grid grid-cols-1 sm:grid-cols-2   lg:${`grid-cols-${Math.min(cardsData.length, 3)}`} mt-4 2xl:grid-cols-auto gap-4`}
                             >
                               {cardsData?.map((card: any, index: any) => {
                                 return (
-                                  <CommonCardwithIcon
+                                  card.data.map((card:any,index:any)=>{
+                                    return   <CommonCardwithIcon
                                     key={index}
-                                    Icon={LabelIcon}
-                                    heading="Annotation & Labelling"
-                                    description="We leverage cutting-edge AI-powered annotation tools to efficiently process and label your data. But we don’t stop there, Our team of annotators then meticulously cross-verifies and refines the AI-generated annotations, ensuring the highest level of accuracy, consistency, and alignment with your specific use case."
+                                    Icon={card?.icon}
+                                    heading={card.heading}
+                                    description={card.description}
                                     linkText="Learn More"
                                     linkWithIcon={true}
                                   />
+                                  })
+                               
                                 );
                               })}
                             </div>

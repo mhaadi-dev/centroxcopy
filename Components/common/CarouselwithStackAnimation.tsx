@@ -123,7 +123,7 @@ export const CarouselwithStackAnimation = ({
                     onMouseLeave={() => setHoverIndex(activeIndex)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    {carousal.heading}
+                    {carousal.heading.length>20 ? carousal.heading.substring(0,12)+"...":carousal.heading}
                   </div>
                 ))}
                 <hr
@@ -203,7 +203,7 @@ export const CarouselwithStackAnimation = ({
                   </div>
                 </div>
 
-                <figure className="w-full  h-full object-contain  relative pt-[100%] lg:pt-[40%]">
+                <figure className="w-full  h-full object-contain  relative pt-[100%] lg:pt-[40%] ">
                   {cars.img && (
                     <Image
                       src={cars.img}

@@ -3,7 +3,8 @@ import { LogosCarousel } from "@/views/LogosCarousel";
 import { Section3 } from "@/views/Section3";
 import { LandingAboutUs } from "@/views/LandingAboutUs";
 import dummyDisplay from "@/assets/dummyDisplay.webp";
-
+import { sanityFetch } from "@/sanity/lib/client";
+import { LANDING_PAGE_QUERY } from "@/sanity/query";
 // import { Testimonial } from "@/views/Testimonial";
 
 import { POCS } from "@/views/POCS";
@@ -60,6 +61,12 @@ const data = [
   },
 ];
 export default async function Home() {
+
+
+  const data: any = await sanityFetch({
+    query: LANDING_PAGE_QUERY,
+  });
+
   //  useScrollToElement();
 
   return (
