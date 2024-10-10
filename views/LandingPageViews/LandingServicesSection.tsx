@@ -7,6 +7,7 @@ import menubars from "@/assets/menubars.webp";
 
 
 const LandingServicesSection = () => {
+  // data
   const cardsData = [
     {
       subInfo:{
