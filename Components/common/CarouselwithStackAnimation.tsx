@@ -119,7 +119,7 @@ export const CarouselwithStackAnimation = ({
                       }`,
                     }}
                     className={classNames(
-                      "text-white text-[0.6rem] sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer whitespace-nowrap",
+                      "text-white text-[0.6rem]  sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer ",
                       tabsClassName
                     )}
                     onMouseEnter={() => setHoverIndex(index)}

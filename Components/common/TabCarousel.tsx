@@ -120,7 +120,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
               tab.current
                 ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
                 : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 px-6 text-base font-semibold cursor-pointer text-center transition-colors duration-100"
+              "whitespace-nowrap py-2 px-6 text-sm font-semibold cursor-pointer text-center transition-colors duration-100"
             )}
             aria-current={tab.current ? "page" : undefined}
             onClick={() =>

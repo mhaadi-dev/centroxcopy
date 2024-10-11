@@ -93,7 +93,7 @@ console.log("imgg",LandingAboutUsPattern)
             <Image
               alt=""
               src={LandingAboutUsBg}
-              className="w-[80%] 2xl:w-full z-[2]"
+              className="w-[80%] object-contain  2xl:w-full z-[2]"
               onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
               blurDataURL={blurDataURL}
             />
