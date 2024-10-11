@@ -16,7 +16,7 @@ interface Props {
 
 
 export const NavLink = ({ text, onClick,columnData,isMobileView=false }: Props) => {
-  console.log("ccccccc",columnData)
+  // console.log("ccccccc",columnData)
   return (
     <div className="relative group">
       <span

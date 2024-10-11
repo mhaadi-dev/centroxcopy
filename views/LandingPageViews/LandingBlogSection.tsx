@@ -49,7 +49,7 @@ const LandingBlogSection = () => (
     <section className='w-[90%] sm:w-auto mx-[1.5rem] lg:mx-[15rem] mt-8'>
         <SectionTag text="Blogs"/>
        <section aria-label="Centrox Blog" className='text-white ' > 
-       <h2 className='font-semibold text-center text-5xl my-4'>Centrox Blog Stay Ahead of the Curve</h2>
+       <h2 className='font-semibold text-center text-2xl lg:text-5xl my-4'>Centrox Blog Stay Ahead of the Curve</h2>
        <p className='text-center w-full text-[1rem] sm:w-[60%] mx-auto sm:text-[1.5rem]'> Our AI engineers are active contributors in the community and regularly share their insights and expertise on our blog. Explore their latest articles on Generative AI and LLM.</p>
        </section> 
        

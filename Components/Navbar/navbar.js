@@ -34,7 +34,7 @@ export const Navbar = () => {
       navItemText: "Services",
       onClick: () => {
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("solutions");
+          const solutionsComponent = document.getElementById("services");
           if (solutionsComponent) {
             solutionsComponent.scrollIntoView({
               behavior: "smooth",
@@ -191,7 +191,7 @@ export const Navbar = () => {
       navItemText: "Industries",
       onClick: () => {
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("solutions");
+          const solutionsComponent = document.getElementById("industries");
           if (solutionsComponent) {
             solutionsComponent.scrollIntoView({
               behavior: "smooth",
@@ -232,7 +232,7 @@ export const Navbar = () => {
       navItemText: "Resources",
       onClick: () => {
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("solutions");
+          const solutionsComponent = document.getElementById("");
           if (solutionsComponent) {
             solutionsComponent.scrollIntoView({
               behavior: "smooth",
@@ -273,7 +273,7 @@ export const Navbar = () => {
       navItemText: "Company",
       onClick: () => {
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("solutions");
+          const solutionsComponent = document.getElementById("");
           if (solutionsComponent) {
             solutionsComponent.scrollIntoView({
               behavior: "smooth",
@@ -364,7 +364,7 @@ export const Navbar = () => {
           {/* IN MOBILE VIEW */}
           <nav
   className={`bg-black px-3 z-[1] py-4 overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
-    showMenu ? "translate-y-0 opacity-100" : "-translate-y-[1000px] opacity-0"
+    showMenu ? "translate-y-0 opacity-100" : "-translate-y-[10000px] opacity-0"
   }`}
   style={{ height: "calc(100vh - 85px)" }}
 >

@@ -31,7 +31,7 @@ interface GradientCardProps {
   title: string;
   description: string;
   showHoverState?: boolean;
-  hoveredCard?: number;
+  hoveredCard?: number |null;
   onMouseEnter?: ReactEventHandler;
   onMouseLeave?: ReactEventHandler;
   onClick?: () => void;
@@ -77,6 +77,17 @@ const GradientCard: React.FC<GradientCardProps> = ({
   </section>
 );
 const Tabs = ({ tabs, setTabs }: any) => {
+  useEffect(() => {
+    if (!tabs.some((tab: any) => tab.current)) {
+      setTabs((prevTabs: any) =>
+        prevTabs.map((tab: any, index: number) => ({
+          ...tab,
+          current: index === 0,
+        }))
+      );
+    }
+  }, [setTabs, tabs]);
+
   const selectedTab =
     tabs.find((tab: any) => tab.current)?.name || tabs[0].name;
 
@@ -90,13 +101,14 @@ const Tabs = ({ tabs, setTabs }: any) => {
           current: index === nextIndex,
         }));
       });
-    }, 7000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [setTabs]);
 
   return (
     <div className="w-full">
+      {/* Mobile Tabs */}
       <nav
         className="grid grid-cols-2 gap-2 w-full lg:hidden"
         aria-label="Tabs"
@@ -125,8 +137,9 @@ const Tabs = ({ tabs, setTabs }: any) => {
         ))}
       </nav>
 
+      {/* Desktop Tabs */}
       <nav
-        className=" hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-2 items-center w-full"
+        className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-2 items-center w-full"
         aria-label="Tabs"
       >
         {tabs.map((tab: any) => (
@@ -156,27 +169,38 @@ const Tabs = ({ tabs, setTabs }: any) => {
   );
 };
 
+export default Tabs;
 interface TabCarouselProps {
   isCardLayout?: boolean;
   isGradientCardsLayoutwithImage?: boolean;
   cardsData?: any;
+  gradientCardData?: any;
+  headerTabs?:any
 }
 export const TabCarousel = ({
   isCardLayout = false,
   isGradientCardsLayoutwithImage = false,
-  cardsData,
+  cardsData=[],
+  gradientCardData=[],
+  headerTabs=[]
 }: TabCarouselProps) => {
   const { view } = useContext(ServiceViewContext);
   const { width } = useSize();
   const [showToast, setShowToast] = useState(false);
-  const industriesTabs=[ { name: "Healthcare", href: "#", current: true },
-  { name: "Fashion/Retail", href: "#", current: false },
-  { name: "Real Estate", href: "#", current: false },
-  { name: "Fintech", href: "#", current: false },]
-  const servicesTabs=[{ name: "Data Annotations", href: "#", current: true },
-  { name: "LLM Development", href: "#", current: false },
-  { name: "ML Ops", href: "#", current: false },]
-  const [tabs, setTabs] = useState(isCardLayout ? servicesTabs  : industriesTabs);
+  // const industriesTabs = [
+  //   { name: "Healthcare", href: "#", current: true },
+  //   { name: "Fashion Retail", href: "#", current: false },
+  //   { name: "Real Estate", href: "#", current: false },
+  //   { name: "Fintech", href: "#", current: false },
+  // ];
+  // const servicesTabs = [
+  //   { name: "Data Annotations", href: "#", current: true },
+  //   { name: "LLM Development", href: "#", current: false },
+  //   { name: "ML Ops", href: "#", current: false },
+  // ];
+  const [tabs, setTabs] = useState(
+    headerTabs
+  );
 
   useEffect(() => {
     let newTabs = [...tabs];
@@ -194,8 +218,8 @@ export const TabCarousel = ({
     setTabs(updatedTabs);
   }, [view]);
 
-  const [lastHoveredCard, setLastHoveredCard] = useState<number>(1);
-  const [currentHoverCard, setCurrentHoverCard] = useState<number>(0);
+  const [lastHoveredCard, setLastHoveredCard] = useState<number | null>(null);
+  const [currentHoverCard, setCurrentHoverCard] = useState<number | null>(0);
   // const [blurDataURLs, setBlurDataURLs] = useState<Record<number, string>>({});
 
   const handleMouseEnter = useCallback((cardNumber: number) => {
@@ -204,8 +228,8 @@ export const TabCarousel = ({
   }, []);
 
   const handleMouseLeave = useCallback((cardNumber: number) => {
-    setLastHoveredCard(0);
-    setCurrentHoverCard(0);
+    setLastHoveredCard(null);
+    setCurrentHoverCard(null);
   }, []);
 
   // const handleImageLoad = async () => {
@@ -235,11 +259,11 @@ export const TabCarousel = ({
       <section className="relative py-12 w-5/5 mx-auto overflow-hidden bg-black sm:py-16 lg:py-4 ">
         <div className="">
           <div className="container mx-auto">
-            <div className="text-white md:p-16  sm:p-8 rounded-3xl flex flex-col gap-20 h-full xlc:w-full max-w-[100%]  border-opacity-40">
+            <div className="text-white p-0 lg:px-0 xl:px-16  rounded-3xl flex flex-col gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
               <Tabs tabs={tabs} setTabs={setTabs} />
               <div className="">
                 {tabs?.map(
-                  (tab, index) =>
+                  (tab:any, index:number) =>
                     tab?.current && (
                       <div
                         key={index}
@@ -247,30 +271,38 @@ export const TabCarousel = ({
                       >
                         {isCardLayout && (
                           <>
-                            <h3 className="text-[2rem] text-white font-semibold">
+                            <h3 className=" text-[1rem] lg:text-[2rem] text-white font-semibold">
                               {cardsData[index]?.subInfo?.heading}
                             </h3>
-                            <p className="text-[1.3rem] text-gray-100">
-                             This is placeholder description of the card
+                            <p className="text-[1rem] mb-2 lg:text-[1.3rem] text-gray-100">
+                              Read in detail about our services.
                             </p>
                             <div
-                              className={`grid grid-cols-1 sm:grid-cols-2   lg:${`grid-cols-${Math.min(cardsData.length, 3)}`} mt-4 2xl:grid-cols-auto gap-4`}
+                              // className={`grid grid-cols-1 sm:grid-cols-2   lg:${`grid-cols-${Math.min(cardsData.length, 3)}`} mt-4 2xl:grid-cols-auto gap-4`}
+                              // className={`flex flex-wrap  gap-4`}
                             >
-                              {cardsData?.map((card: any, index: any) => {
-                                return (
-                                  card.data.map((card:any,index:any)=>{
-                                    return   <CommonCardwithIcon
-                                    key={index}
-                                    Icon={card?.icon}
-                                    heading={card.heading}
-                                    description={card.description}
-                                    linkText="Learn More"
-                                    linkWithIcon={true}
-                                  />
-                                  })
-                               
-                                );
-                              })}
+                              <div
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full"
+                                style={{
+                                  gridTemplateColumns:
+                                    "repeat(auto-fit, minmax(300px, 1fr))",
+                                }}
+                              >
+                                {cardsData?.[index]?.data.map(
+                                  (card: any, index: any) => {
+                                    return (
+                                      <CommonCardwithIcon
+                                        key={index}
+                                        Icon={card?.icon}
+                                        heading={card.heading}
+                                        description={card.description}
+                                        linkText="Learn More"
+                                        linkWithIcon={true}
+                                      />
+                                    );
+                                  }
+                                )}
+                              </div>
                             </div>
                           </>
                         )}
@@ -279,9 +311,27 @@ export const TabCarousel = ({
                         >
                           {isGradientCardsLayoutwithImage && (
                             <>
-                              {" "}
+                              
                               <div className="w-full  flex flex-col gap-4">
-                                <GradientCard
+                                {gradientCardData?.length > 0 && headerTabs?.length>0 ? gradientCardData[index]?.data?.map((card:any,i:number)=>{
+                                  return  <GradientCard
+                                  title={
+                                    card?.heading
+                                  }
+                                  description={
+                                   card?.description
+                                  }
+                                  showHoverState={lastHoveredCard === i}
+                                  hoveredCard={currentHoverCard}
+                                  onMouseEnter={() => handleMouseEnter(i)}
+                                  onMouseLeave={() => handleMouseLeave(i)}
+                                  onClick={() => {
+                                    setShowToast(!showToast);
+                                  }}
+                                  hoverOnGradient={true}
+                                />
+                                }):""}
+                                {/* <GradientCard
                                   title={
                                     index === 0
                                       ? "Medical Text Generation"
@@ -352,11 +402,29 @@ export const TabCarousel = ({
                                     setShowToast(!showToast);
                                   }}
                                   hoverOnGradient={true}
-                                />
+                                /> */}
                               </div>
                               <div className="flex w-full items-center justify-center 2xl:items-end">
                                 <div className="flex items-end  h-full sm:mt-5  py-2">
-                                  {tabs[0]?.current && (
+                                  <Image
+                                    className={classNames(
+                                      "w-full h-full",
+                                      "block"
+                                    )}
+                                    // loading="eager"
+                                    src={tabs[index]?.current && gradientCardData[index]?.image}
+                                    alt="image"
+                                    loading={
+                                      width && width <= mobileWidth
+                                        ? "lazy"
+                                        : "eager"
+                                    }
+                                    // placeholder="blur"
+                                    // onLoad={handleImageLoad}
+                                    // blurDataURL={blurDataURLs[currentHoverCard]}
+                                  />
+                                 
+                                  {/* {tabs[0]?.current && (
                                     <Image
                                       className={classNames(
                                         "w-full h-full",
@@ -415,7 +483,7 @@ export const TabCarousel = ({
                                       // onLoad={handleImageLoad}
                                       // blurDataURL={blurDataURLs[currentHoverCard]}
                                     />
-                                  )}
+                                  )} */}
                                 </div>
                               </div>
                             </>
