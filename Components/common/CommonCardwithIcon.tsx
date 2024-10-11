@@ -43,8 +43,8 @@ const CommonCardwithIcon = ({
           <p className="text-[1.5rem] font-semibold">{heading}</p>
           <p className="text-[1rem]">{description}</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Link href={"/"}>{linkText}</Link>{" "}
+        <div className="flex items-center gap-2 hover:text-blue-azure">
+          <Link href={"/"}>{linkText}</Link>
           {linkWithIcon && <Image src={Arrow} alt="arrow" />}
         </div>
       </div>

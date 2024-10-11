@@ -16,8 +16,8 @@ const TestimonialCarousel = ({imagesArray,dataArray}:Props) => {
       setTimeout(() => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % imagesArray.length);
         setIsAnimating(false);
-      }, 700);
-    }, 5000);
+      }, 1200);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -34,7 +34,7 @@ const TestimonialCarousel = ({imagesArray,dataArray}:Props) => {
 
   return (
     <div className="w-full mt-10 relative pt-[1.5rem] lg:pt-[2.5rem] overflow-hidden flex flex-col gap-[0rem] lg:gap-[2rem] h-auto  lg:h-[672px] bg-gradient-to-b from-[#079DFC00] to-[#079DFC33] rounded-2xl bg-clip-padding border-[2px] border-[#079DFC4D] ">
-    <Image src={TestimonialBG} alt="bg" className="absolute bottom-0 left-0 right-0"></Image>
+    <Image src={TestimonialBG} alt="bg" className="absolute mx-auto bottom-0 left-0 right-0"></Image>
     <div className="flex flex-wrap gap-y-4 items-center  gap-x-4 justify-center space-x-4 my-[0rem] lg:my-[1.5rem] ">
       {imagesArray?.map((image:any, index:number) => (
         <div

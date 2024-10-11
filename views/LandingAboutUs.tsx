@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import classNames, { generateBlurDataURL } from "@/helpers/common";
 import LandingAboutUsBg from "@/assets/genai.webp";
 import LandingAboutUsPattern from "@/assets/LandingAboutUsPattern.webp";
+import Link from "next/link";
 
 export const LandingAboutUs = () => {
   const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
@@ -32,7 +33,7 @@ console.log("imgg",LandingAboutUsPattern)
   }, []);
 
   return (
-    <section className="w-[94%] lg:w-auto flex flex-col gap-4 justify-center items-center mt-10  relative  mx-[1.5rem] 2xl:mx-[15rem]  "  
+    <section id="services" className="w-[100%] lg:w-auto flex flex-col gap-4 justify-center items-center mt-10  relative  mx-[0rem] 2xl:mx-[15rem]  "  
     > <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
       <summary
         className={classNames(
@@ -75,13 +76,16 @@ console.log("imgg",LandingAboutUsPattern)
               by helping you out.
             </p>
           </div>
-          <Button
+          <Link href="/contact" className="z-[1]">
+             <Button
             content="Contact Us"
             Icon={Arrow}
             iconClassName="-mt-1"
             isLefticon={false}
             className="mt-2 sm:mt-10 mx-0"
           />
+          </Link>
+         
         </div>
 
         {windowWidth > 1023 ? (

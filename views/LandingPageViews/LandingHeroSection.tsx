@@ -6,7 +6,7 @@ import Arrow from "@/assets/RightArrow.svg";
 
 const LandingHeroSection = () => {
     return (
-        <section className="relative w-full h-auto py-4 sm:h-screen pt-24 sm:pt-32">
+        <section className="relative w-full h-auto py-4 sm:h-screen pt-32 sm:pt-32">
           <Image
             id="hero-bg"
             src={heroBg}

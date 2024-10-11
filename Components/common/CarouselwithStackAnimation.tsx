@@ -13,6 +13,9 @@ import { useRouter } from "next/navigation";
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import { PortableText } from "@portabletext/react";
 import { PortableComponent } from "@/Components/common/PortableText";
+import Link from "next/link";
+import { Button } from "../Button.js/button";
+import Arrow from "@/assets/RightArrow.svg"
 
 interface PropsI {
   data: any;
@@ -44,7 +47,7 @@ export const CarouselwithStackAnimation = ({
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
   const { width } = useSize();
-  console.log(data, "dttttt");
+  // console.log(data, "dttttt");
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -79,7 +82,7 @@ export const CarouselwithStackAnimation = ({
         boxShadow: `${style ? "0px 0px 64px 8px rgba(5, 110, 225, 0.20)" : ""}`,
       }}
       className={classNames(
-        "w-[90%]  lg:w-[73%] mx-auto md:mx-auto xl:mx-[15rem] mt-12 lg:mt-12 overflow-hidden rounded-xl",
+        "w-[90%]  lg:w-[73%] mx-auto md:mx-auto xl:mx-[auto] mt-0 lg:mt-0 overflow-hidden rounded-xl",
         widthClassName
       )}
     >
@@ -116,14 +119,14 @@ export const CarouselwithStackAnimation = ({
                       }`,
                     }}
                     className={classNames(
-                      "text-white text-sm lg:text-md 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer whitespace-nowrap",
+                      "text-white text-[0.6rem] sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer whitespace-nowrap",
                       tabsClassName
                     )}
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(activeIndex)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    {carousal.heading.length>20 ? carousal.heading.substring(0,12)+"...":carousal.heading}
+                    {carousal.heading}
                   </div>
                 ))}
                 <hr
@@ -193,24 +196,30 @@ export const CarouselwithStackAnimation = ({
                           ""
                         )}
                       </div>
+                     
                       <div className="flex justify-center md:justify-start ">
-                        <CalendlyWidget
-                          btnText={"Try For Free"}
-                          btnClassName="!px-4 mt-2"
+                      <Link href={"/"}>
+                      <Button
+                          content={"Try For Free"}
+                          // btnClassName="!px-4 mt-2"
+                          Icon={Arrow}
+                          isLefticon={false}
+                          iconClassName="!-mt-1"
                         />
+                      </Link>
+                        
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <figure className="w-full  h-full object-contain  relative pt-[100%] lg:pt-[40%] ">
+                <figure className="w-full object-contain  relative pt-[100%] lg:pt-[40%] ">
                   {cars.img && (
                     <Image
                       src={cars.img}
                       alt={`carousel-img-${index}`}
                       loading="lazy"
                       fill
-                      className="w-full h-full object-fill sm:object-cover lg:object-fill top-0 left-0 rounded-xl  bg-blue-300  md:rounded-none md:rounded-tr-xl"
+                      className="w-full h-full object-fill sm:object-cover lg:object-fill top-0 left-0 rounded-xl  md:rounded-none md:rounded-tr-xl"
                     />
                   )}
                 </figure>

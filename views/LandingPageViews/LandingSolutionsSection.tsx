@@ -39,11 +39,11 @@ const LandingSolutionsSection = () => {
   return (
     <>
       <SectionTag text="Solutions" />
-      <section aria-label="Centrox Blog" className="text-white ">
+      <section id="solutions" aria-label="Centrox Blog" className="text-white ">
         <h2 className="font-semibold text-center text-5xl my-4">
           Centrox&apos;s Solutions
         </h2>
-        <p className="text-center w-full text-[1rem] sm:w-[60%] mx-auto sm:text-[1.5rem]">
+        <p className="text-center w-full text-[1rem] sm:w-[60%] px-[1rem] sm:px-0 mx-auto sm:text-[1.5rem]">
         Explore our suite of production-ready Generative AI products, 
       built to address real-world challenges across diverse industries
         </p>

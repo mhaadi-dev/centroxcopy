@@ -1,11 +1,20 @@
 import Image from "next/image";
 import React from "react";
+import rankPage from "@/assets/Rank Page.webp";
+import instaCure from "@/assets/InstaCure.webp";
+import DERQ from "@/assets/Derq.webp";
+import conjoin from "@/assets/Conjion.webp";
+import stockAppIcon from "@/assets/stockAppIcon.webp";
+
+
+
+
 
 
 export async function LogosCarousel() {
 
 
-  const logos:any = [];
+  const logos:any = [rankPage,conjoin,stockAppIcon,instaCure,DERQ];
   return (
     <>
       <section className="w-full flex lg:mt-10 overflow-hidden relative">
@@ -16,26 +25,24 @@ export async function LogosCarousel() {
             ? logos.map((logo: any, index: number) => (
                 <div key={index} className="relative w-[100vw] md:w-[80%] lg:w-[100%]  h-auto">
                   <Image
-                    src={logo.icon.asset.url}
-                    alt={logo.alt}
-                    className="object-contain top-0"
-                    width={300}
-                    height={100}
+                    src={logo}
+                    alt={"logo"}
+                    className=" top-0"
+                  
                   />
                 </div>
               ))
             : ""}
         </div>
 
-        <div className="flex items-center w-full animate-marquee animate-infinite-scroll gap-x-12 ml-4 whitespace-nowrap">
+        <div className="flex items-center w-full animate-marquee animate-infinite-scroll gap-x-12 ml-8 whitespace-nowrap">
           {logos.map((logo: any, index: number) => (
             <div key={index} className="relative w-[100vw] md:w-[80%] lg:w-[100%] h-auto">
               <Image
-                src={logo.icon.asset.url}
-                alt={logo.alt}
-                className="object-contain"
-                width={300}
-                height={100}
+                src={logo}
+                alt={"logo"}
+                className=""
+
               />
             </div>
           ))}
