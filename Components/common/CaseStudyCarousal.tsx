@@ -67,10 +67,10 @@ export const CaseStudyCarousal = ({ data }: any) => {
                 content="Check Out Our Work"
                 Icon={Arrow}
                 isLefticon={false}
-                className="py-3 lg:!py-4 mt-[2rem]"
+                className="px-[1.5rem] !py-[0.8rem] mt-4 2xl:mt-8"
                 iconClassName="!-mt-1"
               />
-              <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex items-center gap-4 mt-4 ">
+              <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex items-center gap-4 mt-4 2xl:mt-8 ">
                 <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AI</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> ML Ops</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AWS</div>

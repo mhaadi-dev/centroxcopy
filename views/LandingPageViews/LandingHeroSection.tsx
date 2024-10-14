@@ -2,11 +2,12 @@ import Image from 'next/image';
 import heroBg from "@/assets/hero-bg.webp";
 import { Button } from '@/Components/Button.js/button';
 import Arrow from "@/assets/RightArrow.svg";
+import { CalendlyWidget } from '@/Components/common/Calendly';
 
 
 const LandingHeroSection = () => {
     return (
-        <section className="relative w-full h-auto py-4 sm:h-screen pt-32 sm:pt-32">
+        <section className="relative w-full h-auto py-4 sm:h-[85vh] pt-32 sm:pt-32">
           <Image
             id="hero-bg"
             src={heroBg}
@@ -30,7 +31,7 @@ const LandingHeroSection = () => {
               deployment, so you can accelerate your time-to-market and gain a
               competitive edge.
             </div>
-            <Button content="Meet Our AI Expert" Icon={Arrow} isLefticon={false} 	iconClassName="-mt-1"/>
+            <CalendlyWidget btnText='Meet Our AI Expert' btnClassName='!px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem]'/>
           </div>
         </section>
       );

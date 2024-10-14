@@ -36,11 +36,12 @@ const LandingFAQSection = () => {
   ];
   return (
     <section>
-      <SectionTag text="FAQs" />
+      
       <FaqsSection
         heading="Your Questions, Answered"
         subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
         data={data}
+        addTag={true}
       />
     </section>
   );

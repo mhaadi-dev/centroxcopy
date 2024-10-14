@@ -31,18 +31,19 @@ console.log("imgg",LandingAboutUsPattern)
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
+ 
   return (
-    <section id="services" className="w-[100%] lg:w-auto flex flex-col gap-4 justify-center items-center mt-10  relative  mx-[0rem] 2xl:mx-[15rem]  "  
-    > <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
+    <section id="services" className=" w-[90%] sm:w-auto flex flex-col gap-4 justify-center items-center mt-0  relative  mx-[1.5rem] 2xl:mx-[15rem]  "  
+    > 
+    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
       <summary
         className={classNames(
-          "grid grid-cols-1 lg:grid-cols-2 gap-y-20  lg:gap-0 3xl:gap-10 sm:mt-0 sm:w-[90%] py-0 sm:px-0",
-          "mx-[1.5rem] sm:mx-0"
+          "flex sm:mt-0  py-0 sm:px-0",
+          " sm:mx-0"
         )}
      
       >
-        <div className="flex flex-col gap-5 items-start h-full py-6 w-[90%] mx-[1.5rem] sm:mx-0">
+        <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 mx-[1.5rem] sm:mx-0">
           <h1 className="text-2xl sm:text-5xl text-white font-semibold capitalize 3xl:text-6xl">
             Bridging the Gap between research and real-world applications
           </h1>
@@ -56,19 +57,21 @@ console.log("imgg",LandingAboutUsPattern)
             </p>
             <br />
             {windowWidth <= 1023 ? (
-              <figure className="flex justify-start 2xl:justify-start my-6 mx-auto">
-                <Image
-                  alt=""
-                  src={LandingAboutUsBg}
-                  className="w-full 2xl:w-full z-[2]"
-                  onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
-                  blurDataURL={blurDataURL}
-                />
-              </figure>
+               <div className="w-full mx-[0.5rem]  lg:w-1/2  z-[2]">  
+               <figure className=" w-4/4">
+                 <Image
+                   alt=""
+                   src={LandingAboutUsBg}
+                   className="w-full  2xl:w-full z-[2]"
+                   onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
+                   blurDataURL={blurDataURL}
+                 />
+               </figure>
+               </div>
             ) : (
               ""
             )}
-            <p className="w-full">
+            <p className="w-full mt-4 lg:mt-0">
               We want to enable you to focus on your core product and achieve
               your business goals faster while we take over your Gen AI
               development life cycle. We want to put our AI technical depth,
@@ -78,26 +81,29 @@ console.log("imgg",LandingAboutUsPattern)
           </div>
           <Link href="/contact" className="z-[1]">
              <Button
-            content="Contact Us"
+            content="Contact Us Now"
             Icon={Arrow}
             iconClassName="-mt-1"
             isLefticon={false}
-            className="mt-2 sm:mt-10 mx-0"
+            className="mt-2 !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem] sm:mt-10 mx-0"
           />
           </Link>
          
         </div>
 
         {windowWidth > 1023 ? (
-          <figure className="flex justify-center 2xl:justify-start">
+          <div className=" w-1/2  z-[2]">  
+          <figure className=" w-4/4">
             <Image
               alt=""
               src={LandingAboutUsBg}
-              className="w-[80%] 2xl:w-full z-[2]"
+              className="w-full  2xl:w-full z-[2]"
               onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
               blurDataURL={blurDataURL}
             />
           </figure>
+          </div>
+        
         ) : (
           ""
         )}
