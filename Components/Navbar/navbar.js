@@ -307,8 +307,8 @@ export const Navbar = () => {
     },
   ];
   return (
-    <nav className="flex justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
-      <div className="flex items-center justify-between w-[90%] mx-auto  relative  ">
+    <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
+      <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
         <Image
           src={AppLogo}
           alt="Logo"
@@ -319,13 +319,14 @@ export const Navbar = () => {
         />
 
         <div className="hidden xl:flex gap-x-[5%]  xl:gap-x-[4rem] justify-between w-full sm:px-10 lg:px-0 md:w-[auto]">
-          {data.map((navItem) => {
+          {data.map((navItem,index) => {
             return (
               <NavLink
                 text={navItem.navItemText}
                 onClick={navItem.onClick}
                 columnData={navItem?.columnData}
                 isMobileView={showMenu}
+                key={index}
               />
             );
           })}
@@ -335,10 +336,10 @@ export const Navbar = () => {
             <Button
               content="Contact Us"
               onClick={() => router.push(`/contact`)}
-              Icon={Arrow}
+              Icon={ width >1279?  Arrow:""}
               isLefticon={false}
               iconClassName="-mt-1"
-              className="z-[1] !py-1 transition-opacity duration-500 opacity-100"
+              className="z-[1] !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem] transition-opacity duration-500 opacity-100"
             />
           )}
           <div

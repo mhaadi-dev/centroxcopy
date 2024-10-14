@@ -101,7 +101,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
           current: index === nextIndex,
         }));
       });
-    }, 10000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [setTabs]);
@@ -120,7 +120,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
               tab.current
                 ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
                 : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 px-6 text-sm font-semibold cursor-pointer text-center transition-colors duration-100"
+              "whitespace-nowrap py-2 px-6 text-[0.7rem] font-semibold cursor-pointer text-center transition-colors duration-100"
             )}
             aria-current={tab.current ? "page" : undefined}
             onClick={() =>
@@ -139,7 +139,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 
       {/* Desktop Tabs */}
       <nav
-        className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-2 items-center w-full"
+        className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 mx-[2rem] gap-y-2 items-center w-[92%]"
         aria-label="Tabs"
       >
         {tabs.map((tab: any) => (
@@ -285,7 +285,7 @@ export const TabCarousel = ({
                                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full"
                                 style={{
                                   gridTemplateColumns:
-                                    "repeat(auto-fit, minmax(300px, 1fr))",
+                                    "repeat(auto-fit, minmax(320px, 1fr))",
                                 }}
                               >
                                 {cardsData?.[index]?.data.map(
@@ -307,12 +307,12 @@ export const TabCarousel = ({
                           </>
                         )}
                         <div
-                          className={`grid  ${isGradientCardsLayoutwithImage && "grid-cols-1"}  ${isGradientCardsLayoutwithImage && "2xl:grid-cols-2"} gap-10`}
+                          className="flex flex-col gap-4 xl:flex-row"
                         >
                           {isGradientCardsLayoutwithImage && (
                             <>
                               
-                              <div className="w-full  flex flex-col gap-4">
+                              <div className=" w-full xl:w-1/2 flex flex-col gap-4">
                                 {gradientCardData?.length > 0 && headerTabs?.length>0 ? gradientCardData[index]?.data?.map((card:any,i:number)=>{
                                   return  <GradientCard
                                   title={
@@ -404,8 +404,8 @@ export const TabCarousel = ({
                                   hoverOnGradient={true}
                                 /> */}
                               </div>
-                              <div className="flex w-full items-center justify-center 2xl:items-end">
-                                <div className="flex items-end  h-full sm:mt-5  py-2">
+                              <div className="w-full flex xl:w-1/2 mt-10  items-start justify-center">
+                                <div className="w-full">
                                   <Image
                                     className={classNames(
                                       "w-full h-full",

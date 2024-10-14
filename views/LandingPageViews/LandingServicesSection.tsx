@@ -113,7 +113,7 @@ const LandingServicesSection = () => {
   return (
     <>
     <div className='sr-only'>Centrox services</div>
-    <section aria-label='landing services' className='w-[90%] sm:w-auto  mx-[1.5rem] 2xl:mx-[15rem] mt-12'>
+    <section aria-label='landing services' className=' w-[90%] sm:w-auto  mx-[1.5rem] 2xl:mx-[15rem] mt-12'>
         <SectionTag text='Services' className="justify-start"/>
         <section aria-label="Centrox Services" className="text-white mx-auto lg:pl-14 ">
         <h2 className="font-semibold text-start text-[1.5rem] lg:text-5xl my-4">

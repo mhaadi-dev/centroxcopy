@@ -26,7 +26,7 @@ const data = [
   ];
 const LandingCaseStudySection = () => {
   return (
-    <section className='text-white w-[90%] sm:w-auto mx-[1.5rem] lg:mx-[15rem] mt-12'>
+    <section className='text-white w-[90%] sm:w-auto mx-[1.5rem] 2xl:mx-[15rem] mt-12'>
       <SectionTag text="Case Studies"/>
     <header aria-label="Centrox case studies" className="text-white ">
         <h2 className="font-semibold text-center text-[1.5rem] lg:text-5xl my-4">

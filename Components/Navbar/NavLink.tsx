@@ -26,7 +26,7 @@ export const NavLink = ({ text, onClick,columnData,isMobileView=false }: Props) 
         {text}
       </span>
 
-      <div className="absolute rounded-b-2xl left-1/2 transform -translate-x-[40%] pt-7 bg-[#0A0A0A] w-[40%] md:w-auto text-white px-6 py-4 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out scale-95">
+      <div className="absolute rounded-b-2xl left-1/2 transform -translate-x-[20%] pt-7 bg-[#0A0A0A] w-[40%] md:w-auto text-white px-6 py-4 rounded-md shadow-lg invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out scale-95">
         <div className="text-[1rem] font-semibold uppercase">{text}</div>
         <div className="flex  flex-wrap lg:flex-nowrap gap-x-[2rem]">
             {columnData.length && columnData.map((dt:any,i:any)=>{

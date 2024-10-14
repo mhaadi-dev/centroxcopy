@@ -5,7 +5,7 @@ import classNames, {
   h3ClassName,
   sectionheadings,
 } from "@/helpers/common";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import useSize from "@/helpers/windowWidth";
@@ -47,6 +47,46 @@ export const CarouselwithStackAnimation = ({
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
   const { width } = useSize();
+  const topRef = useRef<HTMLDivElement>(null);
+
+  const [scrollPercentage, setScrollPercentage] = useState(0);
+useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const handleScroll = () => {
+    if (topRef.current) {
+      const rect = topRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const totalHeight = rect.height;
+      const scrolledY = windowHeight - rect.top;
+      const percentage = Math.min(
+        100,
+        Math.max(0, (scrolledY / totalHeight) * 100)
+      );
+      setScrollPercentage(percentage);
+    }
+  };
+// useEffect(() => {
+//     const numSteps = data?.length;
+//     const firstStepRange = 220 / numSteps; // Give the first step a larger percentage range
+//     const otherStepRange = (100 - firstStepRange) / (numSteps - 1);
+//     if (scrollPercentage > 0 && scrollPercentage <= 55){
+//       setActiveIndex(0)
+//     }
+//     if (scrollPercentage > 60 && scrollPercentage <= 70){
+//       setActiveIndex(1)
+//     }
+//     if (scrollPercentage > 70 && scrollPercentage <= 85){
+//       setActiveIndex(2)
+//     }
+//     if (scrollPercentage > 85 && scrollPercentage <= 100){
+//       setActiveIndex(3)
+//     }
+//   }, [scrollPercentage]);
+
   // console.log(data, "dttttt");
   useEffect(() => {
     setIsClient(true);
@@ -76,13 +116,17 @@ export const CarouselwithStackAnimation = ({
   }
 
   return (
+    <div className="h-auto   relative "
+    ref={topRef}
+    >
+      <div className="sticky top-[50px] ">
     <div
       style={{
         background: `${style ? "rgba(5, 110, 225, 0.03)" : ""}`,
         boxShadow: `${style ? "0px 0px 64px 8px rgba(5, 110, 225, 0.20)" : ""}`,
       }}
       className={classNames(
-        "w-[90%]  lg:w-[73%] mx-auto md:mx-auto xl:mx-[auto] mt-0 lg:mt-0 overflow-hidden rounded-xl",
+        "w-full mx-auto md:mx-auto xl:mx-[auto] mt-0 lg:mt-0 overflow-hidden rounded-xl",
         widthClassName
       )}
     >
@@ -142,10 +186,10 @@ export const CarouselwithStackAnimation = ({
             </>
           )}
         </div>
-        <div className=" min-h-[540px] overflow-hidden lg:h-[640px] relative flex flex-col space-y-8">
+        <div className=" max-h-auto min-h-[100dvh] overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8">
           {data?.map((cars: any, index: number) => (
             <div
-              className="absolute flex left-0 right-0 transition-transform duration-500 ease-in-out my-8  bg-black h-[80%]  overflow-hidden w-[90%] mx-auto border-4 border-gray-800 rounded-3xl "
+              className=" absolute top-0  left-0 right-0 transition-transform duration-500 ease-in-out my-8 h-auto lg:h-[80%]  bg-black   overflow-hidden  mx-auto border-4 border-gray-800 rounded-3xl "
               style={{
                 transform:
                   activeIndex === index
@@ -161,7 +205,7 @@ export const CarouselwithStackAnimation = ({
                 key={index}
                 className="flex flex-col-reverse xl:flex-row w-full h-full "
               >
-                <div className="w-full flex flex-col gap-2 lg:gap-6 bg-gray-900 h-full">
+                <div className="w-full  xl:w-1/2 flex flex-col gap-2 lg:gap-6 bg-gray-900 ">
                   <div className="flex w-full  flex-col space-y-4 justify-center  mx-auto h-full pt-4 md:pt-24">
                     <div className=" max-w-[24rem]  h-full flex flex-col gap-2 mx-[1.5rem] mb-4 xl:mx-[3rem]">
                       <p className="text-base uppercase text-blue-azure font-semibold">
@@ -170,12 +214,12 @@ export const CarouselwithStackAnimation = ({
                       <h3
                         className={classNames(
                           h3ClassName,
-                          "!text-start lg:!text-left lg:!w-full "
+                          "!text-start text-[1.2rem] lg:text-[2rem] lg:!text-left lg:!w-full "
                         )}
                       >
                         {cars.heading}
                       </h3>
-                      <div>
+                      <div className="text-2xl">
                         {cars.description ? (
                           <PortableText
                             value={[
@@ -201,7 +245,7 @@ export const CarouselwithStackAnimation = ({
                       <Link href={"/"}>
                       <Button
                           content={"Try For Free"}
-                          // btnClassName="!px-4 mt-2"
+                          btnClassName="!px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem]"
                           Icon={Arrow}
                           isLefticon={false}
                           iconClassName="!-mt-1"
@@ -212,17 +256,20 @@ export const CarouselwithStackAnimation = ({
                     </div>
                   </div>
                 </div>
-                <figure className="w-full object-contain  relative pt-[100%] lg:pt-[40%] ">
+                <div className="w-full flex items-center justify-center  xl:w-1/2">
+                  <figure className=" w-full 3xl:w-3/4">
                   {cars.img && (
                     <Image
                       src={cars.img}
                       alt={`carousel-img-${index}`}
                       loading="lazy"
-                      fill
-                      className="w-full h-full object-fill sm:object-cover lg:object-fill top-0 left-0 rounded-xl  md:rounded-none md:rounded-tr-xl"
+                    
+                      className="w-full rounded-xl  md:rounded-none md:rounded-tr-xl"
                     />
                   )}
                 </figure>
+                </div>
+              
               </div>
             </div>
           ))}
@@ -247,6 +294,8 @@ export const CarouselwithStackAnimation = ({
           )}
         </div> */}
       </section>
+    </div>
+    </div>
     </div>
   );
 };

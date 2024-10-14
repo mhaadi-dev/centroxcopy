@@ -38,8 +38,9 @@ const data = [
 const LandingSolutionsSection = () => {
   return (
     <>
+   
+      <section id="solutions" aria-label="Centrox Blog" className=" text-white w-[90%] sm:w-auto  mx-[1.5rem] 2xl:mx-[15rem] mt-12">
       <SectionTag text="Solutions" />
-      <section id="solutions" aria-label="Centrox Blog" className="text-white ">
         <h2 className="font-semibold text-center text-5xl my-4">
           Centrox&apos;s Solutions
         </h2>
@@ -47,8 +48,9 @@ const LandingSolutionsSection = () => {
         Explore our suite of production-ready Generative AI products, 
       built to address real-world challenges across diverse industries
         </p>
+        <CarouselwithStackAnimation data={data} />
       </section>
-      <CarouselwithStackAnimation data={data} />
+      
     </>
   );
 };

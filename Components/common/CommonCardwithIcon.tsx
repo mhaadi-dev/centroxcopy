@@ -22,10 +22,10 @@ const CommonCardwithIcon = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="flex flex-col cursor-default">
+    <div className="flex flex-col cursor-default ">
       <div
         aria-label="centrox-services"
-        className="bg-gray-900 px-8 py-8 rounded-xl flex flex-col gap-y-4 transition-all ease-in duration-200"
+        className="bg-gray-900 relative px-8 py-8 rounded-xl flex flex-col gap-y-4 transition-all ease-in duration-200 h-[auto] 2xl:h-[26rem]"
         style={{
           background: isHovering
             ? "radial-gradient(39.43% 34.74% at -0.94% 0%, rgba(7, 157, 252, 0.18) 0%, rgba(4, 93, 150, 0.06) 100%), #060606"
@@ -43,7 +43,7 @@ const CommonCardwithIcon = ({
           <p className="text-[1.5rem] font-semibold">{heading}</p>
           <p className="text-[1rem]">{description}</p>
         </div>
-        <div className="flex items-center gap-2 hover:text-blue-azure">
+        <div className="flex items-center gap-2 hover:text-blue-azure ">
           <Link href={"/"}>{linkText}</Link>
           {linkWithIcon && <Image src={Arrow} alt="arrow" />}
         </div>

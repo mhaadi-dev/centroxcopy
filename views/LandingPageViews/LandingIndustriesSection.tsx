@@ -85,7 +85,7 @@ const LandingIndustriesSection = () => {
   ]
   return (
     <>
-      <section id="industries" className="w-[90%] sm:w-auto mx-[1.5rem] lg:mx-[15rem] mt-12 "
+      <section id="industries" className="w-[90%] sm:w-auto mx-[1.5rem] 2xl:mx-[15rem] mt-12 "
       aria-label="centrox-industries">
 
     <SectionTag text="Industries"/>

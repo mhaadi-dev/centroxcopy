@@ -38,7 +38,7 @@ export 	const debounce = (func, delay) => {
 export const sectionHeadings = "text-center lg:text-left text-white text-2xl lg:text-4xl font-bold"
 export const sectionDiscriptions = "text-center lg:text-left text-md lg:text-xl text-white"
 
-export const sectionheadings = "w-full lg:w-3/5  mx-auto text-2xl lg:text-4xl text-white text-center font-bold 2xl:text-5xl "
+export const sectionheadings = "w-full lg:w-3/5 mt-4  mx-auto text-2xl lg:text-4xl text-white text-center font-bold 2xl:text-5xl "
 export const sectionsubheadings = "text-md  lg:text-2xl  text-white text-center w-full lg:w-3/5 mx-auto "
 
 export const sectionsSectionHeadings = "text-sm lg:text-2xl lg:text-3xl 2xl:text-4xl text-white font-semibold   w-4/5 text-center lg:text-left mx-auto lg:mx-0" 
