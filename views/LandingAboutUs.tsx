@@ -33,7 +33,7 @@ console.log("imgg",LandingAboutUsPattern)
   }, []);
  
   return (
-    <section id="services" className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
+    <section className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
     > 
     <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
       <summary

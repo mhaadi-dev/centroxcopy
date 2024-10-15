@@ -375,7 +375,7 @@ export const Navbar = () => {
 >
   {data?.map((navItem, index) => (
     <div key={index} className="text-gray-100">
-      <p className="font-semibold mt-4 uppercase hover:text-blue-azure" onClick={navItem?.onClick}>{navItem.navItemText}</p>
+      <p className="font-semibold mt-4 uppercase hover:text-blue-azure" onClick={()=>{navItem?.onClick();  setShowMenu((prev) => !prev);}}>{navItem.navItemText}</p>
       {/* {index === 0
         ? navItem?.columnData?.map((subItems, index) => {
             return subItems.map((item, index) => (
