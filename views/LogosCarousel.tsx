@@ -1,50 +1,40 @@
 import Image from "next/image";
-import Derq from "@/assets/DERQ.svg";
-import Conjion from "@/assets/Conjion.svg";
-import BlueCore from "@/assets/Bluecore.svg";
-import Nooberly from "@/assets/Nooblerly.svg";
-import Instacured from "@/assets/InstaCure.svg";
-import StockApp from "@/assets/stockAppIcon.svg";
-import Dreamlamp from "@/assets/Dream Lamp.svg";
-import React, { useEffect, useState } from "react";
-import { generateLinearGradientBase64 } from "@/helpers/common";
-
-const logosSets = 
-  [
-    { src: Dreamlamp, alt: "no-image" },
-    { src: Derq, alt: "no-image" },
-    { src: Nooberly, alt: "no-image" },
-    { src: Instacured, alt: "no-image" },
-    { src: Conjion, alt: "no-image" },
-    { src: BlueCore, alt: "no-image" },
-    { src: StockApp, alt: "no-image" },
-  ]
+import React from "react";
+import rankPage from "@/assets/Rank Page.webp";
+import instaCure from "@/assets/InstaCure.webp";
+import DERQ from "@/assets/derqlogo.webp";
+import conjoin from "@/assets/Conjion.webp";
+import stockAppIcon from "@/assets/stockAppIcon.webp";
+import bluecore from "@/assets/Bluecore.webp";
 
 
 
-export const LogosCarousel = () => {
-  const linearGradientBlurDataURL = generateLinearGradientBase64();
 
 
 
+export async function LogosCarousel() {
+
+
+  const logos:any = [bluecore,rankPage,conjoin,stockAppIcon,instaCure,DERQ,bluecore];
   return (
-	<section className="w-full pt-24 lg:pt-20  inline-flex  flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]  ">
-	<ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll gap-12">
-	  {logosSets.map((logo, index) => (
-		<li key={index} >
-			<figure>
-		  <Image src={logo.src} alt={logo.alt} />
-		</figure>
-		</li>
-	  ))}
-	</ul>
-	<ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll gap-12 ml-[3rem]" aria-hidden="true">
-	  {logosSets.map((logo, index) => (
-		<li key={index} >
-		  <Image src={logo.src} alt={logo.alt} />
-		</li>
-	  ))}
-	</ul>
-  </section>
+    <>
+      <section className="w-full  flex  gap-10 lg:mt-0 relative">
+        <div className="w-full bg-gradient-to-r from-black  via-transparent to-black absolute left-0 right-0 h-full top-0 z-[2]"  />
+        
+        <div className="flex justify-center items-center w-[100%] animate-marquee animate-infinite-scroll gap-x-4 lg:gap-x-10 ">
+          {logos.length > 0
+            ? logos.map((logo: any, index: number) => (
+                < >
+                  <Image
+                    src={logo}
+                    alt={"logo"}
+                    className="inline-block w-[80%] lg:w-[15%]"
+                  />
+                </>
+              ))
+            : ""}
+        </div> 
+      </section>
+    </>
   );
-};
+}

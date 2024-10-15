@@ -2,6 +2,7 @@ import { Button } from "@/Components/Button.js/button";
 import { sectionheadings, sectionsubheadings } from "@/helpers/common";
 import Arrow from "@/assets/RightArrow.svg";
 import Link from "next/link";
+import { CalendlyWidget } from "@/Components/common/Calendly";
 
 const gradientCardData = [
   {
@@ -50,7 +51,8 @@ export const  ComprehensiveDataAnnotatoinsSection = () => {
           })}
         </div>
         <div className="flex justify-center">
-          <Link href={"/aiExpert"}>
+          <CalendlyWidget btnText="Book a Demo " isArrow/>
+          {/* <Link href={"/aiExpert"}>
         <Button
           content="Book a Demo"
           isLefticon={false}
@@ -61,7 +63,7 @@ export const  ComprehensiveDataAnnotatoinsSection = () => {
           // 	window.open("https://staging.bm.centrox.ai/", "_blank");
           // }}
         />
-        </Link>
+        </Link> */}
         </div>
       </section>
     </>

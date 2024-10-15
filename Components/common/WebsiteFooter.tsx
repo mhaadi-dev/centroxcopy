@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import AppLogo from "../../public/images/updatedCentroxLogo.svg";
 import TwitterIcon from "@/assets/twitter.svg";
@@ -13,7 +13,7 @@ const navigation = {
     { name: "Solving Data", href: "/solving-data" },
     { name: "Model Dev", href: "#" },
     { name: "MLOps", href: "#" },
-      { name: 'Custom Chatbot', href: '/custom-chatbot' },
+    { name: "Custom Chatbot", href: "/custom-chatbot" },
   ],
 
   products: [
@@ -24,21 +24,30 @@ const navigation = {
     //   { name: 'Partners', href: '#' },
   ],
   company: [
-    { name: "Talk to An Expert", href: "/aiExpert" },
+    // { name: "Talk to An Expert", href: "/aiExpert" },
+    { name: "Talk to An Expert", href: "/" },
+
     { name: "Contact Us", href: "/contact" },
-    { name: "About Us ", href: "/about" },
-    { name: "Team ", href: "/team" },
+    // { name: "About Us ", href: "/about" },
+    { name: "About Us ", href: "/" },
+
+    // { name: "Team ", href: "/team" },
+    { name: "Team ", href: "/" },
+
     // { name: "Why Us", href: "#" },
   ],
 };
 
 export default function WebsiteFooter() {
-    const router = useRouter();
-    const {setView} = useContext(ServiceViewContext)
-    const pathname = usePathname();
-    console.log("pathname is",pathname)
+  const router = useRouter();
+  const { setView } = useContext(ServiceViewContext);
+  const pathname = usePathname();
+  console.log("pathname is", pathname);
   return (
-    <footer aria-labelledby="footer-heading" className="bg-black my-12 max-w-[2500px] ">
+    <footer
+      aria-labelledby="footer-heading"
+      className="my-12 max-w-[2500px] "
+    >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -49,9 +58,8 @@ export default function WebsiteFooter() {
               alt="Company name"
               src={AppLogo}
               className="w-[10rem] sm:w-80 cursor-pointer  "
-              onClick={()=>{
-                router.push("/")
-                
+              onClick={() => {
+                router.push("/");
               }}
             />
           </figure>
@@ -67,35 +75,38 @@ export default function WebsiteFooter() {
                   className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
                 >
                   {navigation.services.map((item) => (
-                    <li  key={item.name}
-                    className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white cursor-pointer"
-                    onClick={() => {
-                      if (pathname !== "/" && item.name !== "Solving Data"){
-                        router.push(`/`);
-                        localStorage.setItem(SHOW_SERVICES, JSON.stringify(true));
-                      }
-                     
-                        if (item.name !== "Solving Data"){
-                          setView(item.name)
-                          const solutionsComponent =
-                            document.getElementById("services");
-                          if (solutionsComponent) {
-                            solutionsComponent.scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                            });
-                          }
-                        }
-                        if (item.name == "Solving Data"){
-                          router.push("/solving-data")
-
-                        }
-                        if (item.name === "Custom Chatbot"){
-                          router.push("/custom-chatbot")
-                        }
-                      }} 
-                      >
-                        {item.name}
+                    <li
+                      key={item.name}
+                      className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white cursor-pointer"
+                      // onClick={() => {
+                      //   if (pathname !== "/" && item.name !== "Solving Data") {
+                      //     router.push(`/`);
+                      //     localStorage.setItem(
+                      //       SHOW_SERVICES,
+                      //       JSON.stringify(true)
+                      //     );
+                      //   }
+                      //   //@ts-ignore
+                      //   if (item.name !== "Solving Data" ||  item.name !== "Custom Chatbot") {
+                      //     setView(item.name);
+                      //     const solutionsComponent =
+                      //       document.getElementById("services");
+                      //     if (solutionsComponent) {
+                      //       solutionsComponent.scrollIntoView({
+                      //         behavior: "smooth",
+                      //         block: "start",
+                      //       });
+                      //     }
+                      //   }
+                      //   if (item.name == "Solving Data") {
+                      //     router.push("/solving-data");
+                      //   }
+                      //   if (item.name === "Custom Chatbot") {
+                      //     router.push("/custom-chatbot");
+                      //   }
+                      // }}
+                    >
+                      {item.name}
                     </li>
                   ))}
                 </ul>
@@ -113,7 +124,8 @@ export default function WebsiteFooter() {
                   {navigation.products.map((item) => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        // href={item.href}
+                        href={""}
                         className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white"
                       >
                         {item.name}
@@ -136,6 +148,7 @@ export default function WebsiteFooter() {
                     <li key={item.name}>
                       <a
                         href={item.href}
+                        // href=""
                         className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white"
                       >
                         {item.name}
@@ -156,13 +169,18 @@ export default function WebsiteFooter() {
               href="https://www.linkedin.com/company/centroxai"
               target="_blank"
             >
-              <Image src={LinkedinIcon} alt="Logo" className="w-4 sm:w-8 cursor-pointer" />
+              <Image
+                src={LinkedinIcon}
+                alt="Logo"
+                className="w-4 sm:w-8 cursor-pointer"
+              />
             </Link>
-            <Link
-              href="https://twitter.com/CentroxAI"
-              target="_blank"
-            >
-              <Image src={TwitterIcon} alt="Logo" className="w-4 sm:w-8 cursor-pointer" />
+            <Link href="https://twitter.com/CentroxAI" target="_blank">
+              <Image
+                src={TwitterIcon}
+                alt="Logo"
+                className="w-4 sm:w-8 cursor-pointer"
+              />
             </Link>
           </div>
         </div>

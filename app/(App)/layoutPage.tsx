@@ -8,7 +8,7 @@ export default function LandingLayout({ children }: { children: any }) {
 	return (
 		<>
 			<Navbar />
-			<div className="bg-black">{children}</div>
+			<div className="bg-[#060606]">{children}</div>
 			<WebsiteFooter />
 		</>
 	);

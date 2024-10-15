@@ -8,6 +8,7 @@ interface PropsI {
 	content?: string;
 	content1?: string;
 	onClick?: () => void;
+	htmlFor?:any,
 	className?: string;
 	customClassName?: string;
 	iconClassName?: string;
@@ -18,6 +19,59 @@ interface PropsI {
 	id?: string;
 }
 
+// export const Button = ({
+// 	id = "btn",
+// 	Icon,
+// 	iconClassName,
+// 	type = "button",
+// 	content,
+// 	onClick,
+// 	className,
+// 	customClassName,
+// 	htmlFor,
+// 	isDisabled = false,
+// 	isLoading = false,
+// 	defaultClass = true,
+// 	isLefticon = true,
+// }: PropsI) => {
+// 	return (
+// 		<button
+// 			id={id}
+// 			type={type}
+// 			onClick={onClick}
+// 			className={classNames(
+// 				defaultClass &&
+// 					"flex items-center justify-center gap-3 rounded-full  px-2 py-2 text-white hover:bg-blue-darkBtn lg:px-3 lg:py-3 bg-blue-azure",
+// 				isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : "bg-blue-azure",
+// 				className,
+// 			)}
+// 			disabled={isDisabled}
+// 		>
+// 			{Icon && isLefticon && (
+// 				<Image src={Icon} className={classNames(iconClassName)} alt="" />
+// 			)}
+// 			<div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-base ">
+// 				{isLoading ? (
+// 					<div className="bg-blackorder-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
+// 				) : (
+// 					<div
+// 						className={classNames(
+// 							"flex items-center justify-center",
+// 							customClassName,
+// 						)}
+// 					>
+// 						{content}
+// 					</div>
+// 				)}
+// 			</div>
+// 			{Icon && !isLefticon && (
+// 				<Image src={Icon} className={classNames(iconClassName,"-ml-2")} alt="" />
+// 			)}
+// 		</button>
+// 	);
+// };
+
+
 export const Button = ({
 	id = "btn",
 	Icon,
@@ -27,44 +81,48 @@ export const Button = ({
 	onClick,
 	className,
 	customClassName,
+	htmlFor,
 	isDisabled = false,
 	isLoading = false,
 	defaultClass = true,
 	isLefticon = true,
-}: PropsI) => {
+  }: PropsI) => {
 	return (
-		<button
-			id={id}
-			type={type}
-			onClick={onClick}
-			className={classNames(
-				defaultClass &&
-					"flex items-center justify-center gap-3 rounded-lg  px-2 py-2 text-white hover:bg-blue-darkBtn lg:px-3 lg:py-3 bg-blue-azure",
-				isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : "bg-blue-azure",
-				className,
-			)}
-			disabled={isDisabled}
-		>
-			{Icon && isLefticon && (
-				<Image src={Icon} className={classNames(iconClassName)} alt="" />
-			)}
-			<div className="flex flex-col items-center justify-center text-sm lg:text-base">
-				{isLoading ? (
-					<div className="b bg-blackorder-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
-				) : (
-					<div
-						className={classNames(
-							"flex items-center justify-center",
-							customClassName,
-						)}
-					>
-						{content}
-					</div>
-				)}
+	  <button
+		id={id}
+		type={type}
+		onClick={onClick}
+		className={classNames(
+		  defaultClass &&
+			"flex items-center justify-center gap-3 rounded-full px-2 py-2 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
+		  isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : 
+		  "bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] border-[2px] border-[#056EE199] rounded-full ease-in transition-all",
+		  className
+		)}
+		disabled={isDisabled}
+	  >
+		{Icon && isLefticon && (
+		  <Image src={Icon} className={classNames(iconClassName)} alt="" />
+		)}
+		<div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
+		  {isLoading ? (
+			<div className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
+		  ) : (
+			<div
+			  className={classNames(
+				"flex items-center justify-center",
+				customClassName
+			  )}
+			>
+			  {content}
 			</div>
-			{Icon && !isLefticon && (
-				<Image src={Icon} className={classNames(iconClassName)} alt="" />
-			)}
-		</button>
+		  )}
+		</div>
+		{Icon && !isLefticon && (
+		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
+		)}
+	  </button>
 	);
-};
+  };
+  
+

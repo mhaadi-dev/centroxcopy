@@ -28,6 +28,7 @@ export const TalkAiExpert = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
+        
         <Image
           src={Lines}
           alt="sorry"
@@ -116,7 +117,7 @@ Projects Deployed"
       {/* Section 3 */}
       <div className="w-full flex flex-col justify-center gap-20 mt-20 lg:mt-44 overflow-x-hidden ">
         <div className="flex justify-center">
-          <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2 -mb-32">
+          <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-center tracking-wide w-1/2 -mb-12">
             Counted On by The World's Most Ambitious AI Teams
           </div>
         </div>

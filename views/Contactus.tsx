@@ -1,6 +1,7 @@
 "use client";
 import { AlertOverlay } from "@/Components/AlertOverlays/Alert";
 import { Button } from "@/Components/Button.js/button";
+import { ContactForm } from "@/Components/common/ContactForm";
 import { FormSubmissionModal } from "@/Components/common/FormSubmissionModal";
 import { PhoneNumber } from "@/Components/PhoneInput/PhoneInput";
 import { Toast } from "@/Components/Toast/toast";
@@ -20,10 +21,12 @@ export const ContactUsSection = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [disabled, setDisabled] = useState(false);
   const [showToast, setShowToast] = useState(false);
+
+  const [userEmail,setUserEmail]=useState("")
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
+    email:  "",
     phoneNumber: "",
     message: "",
   });
@@ -40,8 +43,20 @@ export const ContactUsSection = () => {
       [name]: value,
     });
   };
-
-  console.log("form data value is", formData);
+useEffect(()=>{
+const usermail=localStorage.getItem("usermail")
+if(usermail){
+setUserEmail(usermail)
+  
+}
+},[])
+useEffect(()=>{
+if(userEmail){
+    setFormData(prev=>{
+      return {...prev,email:userEmail}
+    })
+}
+},[userEmail])
   return (
     <>
       {formModal && (
@@ -513,6 +528,7 @@ export const Input: React.FC<InputProps> = ({
           </p>
         )}
       </div>
+     
     </div>
   );
 };

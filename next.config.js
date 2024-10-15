@@ -4,12 +4,27 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   images: {
+
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'tailwindui.com',
+
+      },
+      {
+        protocol: 'https',
+        hostname: 'unsplash.com',
+
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+
       },
     ],
+  },
+  experimental: {
+    taint: true,
   },
   reactStrictMode: false,
   webpack: (config, { dev, isServer }) => {

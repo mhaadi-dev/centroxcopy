@@ -1,5 +1,5 @@
 "use client";
-import { Stepper, StepperDataI } from "@/Components/common/Stepper";
+import { Stepper } from "@/Components/common/Stepper";
 import classNames, {
   sectionheadings,
   sectionsubheadings,
@@ -8,9 +8,10 @@ import Image from "next/image";
 import img from "@/public/images/llmchatbot/llmjournyImg.webp";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/Components/Button.js/button";
+import { CalendlyWidget } from "@/Components/common/Calendly";
 
 export const Llmsection3 = () => {
-  const data: StepperDataI[] = [
+  const data = [
     {
       status: false,
       title: "Scoping & Strategy",
@@ -19,6 +20,7 @@ export const Llmsection3 = () => {
     },
     {
       status: false,
+      
       title: "Open-Source Model Selection",
       description:
         "We evaluate performance, size and licensing of open-source/proprietary models to choose the best option for your use case.",
@@ -127,22 +129,24 @@ export const Llmsection3 = () => {
   console.log("stepper data now is", stepperData);
   return (
     <section>
-      <div className="h-[300vh] mt-20 lg:mt-40 2xl:mt-44 " ref={topRef}>
+      <div className="h-[300vh] mt-20 lg:mt-40 2xl:mt-44 relatives " ref={topRef}>
         <div
           className={classNames(
             "my-12 sticky top-[50px] flex  flex-col  gap-6"
           )}
         >
-            <div className="flex flex-col gap-4 items-center  ">
+            <div className="flex flex-col gap-4 items-center w-4/5 mx-auto  ">
           <h2 className={sectionheadings}> Our Full-Cycle Process</h2>
           <p className={sectionsubheadings}>
             We offer a comprehensive, end-to-end approach to tackle the
             complexities of bringing generative AI solutions to life. 
           </p>
-          <Button content="Let's Build One For You" className="!rounded-full " />
+          <CalendlyWidget btnText="Let's Build One For You"/>
+
+          {/* <Button content="Let's Build One For You" className="!rounded-full " /> */}
           </div>
           <div className="flex flex-col lg:flex-row w-4/5 mx-auto justify-between mt-12 gap-4 items-center">
-            <div className="w-4/5 mx-auto lg:mx-0 lg:w-1/2  ">
+            <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-1/2  ">
               <Stepper data={stepperData} />
             </div>
             <figure

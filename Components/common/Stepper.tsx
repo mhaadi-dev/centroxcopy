@@ -1,24 +1,22 @@
-import classNames from "@/helpers/common";
+//@ts-nocheck
+import classNames, { h3ClassName, h4ClassName, p4ClassName } from "@/helpers/common";
 import { CheckIcon } from "@heroicons/react/24/outline";
-export interface StepperDataI {
-  status: boolean;
-  title: string;
-  description: string;
-}
-[];
-interface PropsI {
-  data: StepperDataI[];
-}
-export const Stepper = ({ data }: PropsI) => {
+import { PortableText } from "@portabletext/react";
+import {PortableComponent} from "@/Components/common/PortableText"
+
+
+
+export const Stepper = ({ data }: any) => {
   return (
     <ol className="relative text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400  w-full lg:w-3/4">
-      {data?.map((x, index) => {
+      {data?.map((x:any, index:number) => {
         return (
           <div
             className={classNames(
-              "pl-12 -ml-12  ",
+              "pl-12 -ml-12   ",
               x.status == true ? " lg:py-1 border-2 activeStepper" : ""
             )}
+            key={index}
           >
             <li className="mb-10 lg:mb-12 mt-6 ms-8  ">
               <div
@@ -26,7 +24,6 @@ export const Stepper = ({ data }: PropsI) => {
                   "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-green-900 text-white border-none ",
                   x.status ? "bg-blue-bright ml-12" : "bg-gray-800"
                 )}
-              
               >
                 {x.status ? (
                   <CheckIcon className="text-white" />
@@ -35,12 +32,16 @@ export const Stepper = ({ data }: PropsI) => {
                 )}
               </div>
               {/* <div className="w-4 h-4 bg-red-200 rounded-full">123</div> */}
-              <h3 className="font-semibold text-white  lg:text-lg leading-tight">
+              <h3 className={classNames(h4ClassName,"lg:!text-left")}>
                 {x.title}
               </h3>
-              <p className="font-medium text-white text-sm  lg:text-md">
-                {x.status ? x.description : ""}
-              </p>
+              {(x.content && x.status) ? <PortableText value={x.content} components={PortableComponent} /> : null}
+              {/* {x.} */}
+              {/* <p
+                className={classNames(p4ClassName)}
+                dangerouslySetInnerHTML={{ __html: x.status ?  x.description  : ""}}
+              >
+              </p> */}
             </li>
           </div>
         );

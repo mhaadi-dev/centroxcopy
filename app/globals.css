@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @keyframes move {
 	0% {
-		transform: translateX(100%);
+		transform: translateX(90%);
 	}
 	20% {
 		transform: translateX(80%);
@@ -27,12 +29,14 @@
 	}
 }
 html{
-	background-color: black;
-}
+	background-color:  #060606;
 
+}
+body{
+}
 .animate-move {
 	animation: move 35s infinite linear;
-	animation-delay: 2s;
+	animation-delay: 1s;
 	-webkit-animation: move 35s infinite linear;
 }
 
@@ -79,14 +83,15 @@ textarea {
 	resize: none;
   }
 .react-international-phone-input-container{
-	background-color: rgb(255 255 255 / 0.05);
+	background-color: #060606 !important;
 	border-radius: 8px;
 
 } 
 
 .react-international-phone-input{
-	background-color: rgb(255 255 255 / 0.01) !important;
+	background-color:#060606  !important;
 	border: none !important;
+	border-bottom: 1px solid white !important;
 	outline: none !important;
 	width: 100% !important;
 	height: 2.6rem !important;
@@ -98,6 +103,8 @@ textarea {
 	background-color: rgb(255 255 255 / 0.01) !important;
 	outline: none !important;
 	border: none !important;
+	border-bottom: 1px solid white !important;
+
 	height: 2.6rem !important;
 
 
@@ -121,3 +128,29 @@ backdrop-filter: blur(46px)
   }
 
   /* .fade-in-image { animation: fadeIn 3s ease-in; }	 */
+
+  .slick-test .slick-track {
+    background: none !important;
+}
+
+.slick-test .slick-slide {
+   background-color: #556677 !important;
+   margin-right: 5px;
+   padding: 3px;
+}
+
+
+
+
+& .slick-list { margin: 0 -10px; & .slick-slide > div { padding: 0 10px; } }
+
+
+.slick-track,
+.slick-list {
+-webkit-perspective: 2000;
+-webkit-backface-visibility: hidden;
+}
+
+.carousalHoverShadow{
+	box-shadow: 0px 0px 20px 0px #079DFC, 0px 0px 12px 0px #079DFC inset, 0px -8px 24px 0px rgba(128, 255, 219, 0.40) inset;
+}
