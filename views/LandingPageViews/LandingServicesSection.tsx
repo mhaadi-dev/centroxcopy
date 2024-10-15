@@ -116,7 +116,7 @@ const LandingServicesSection = () => {
   return (
     <>
     <div className='sr-only'>Centrox services</div>
-    <section aria-label='landing services' className={classNames(section_wrapper_class,"")}>
+    <section id="services" aria-label='landing services' className={classNames(section_wrapper_class,"")}>
        
         <section aria-label="Centrox Services" className="text-white flex flex-col gap-y-[1rem] ">
         <SectionTag text='Services' className="!justify-start"/>

@@ -67,7 +67,7 @@ export const CalendlyWidget = ({btnText,btnClassName,isArrow = false}:PropsI) =>
                "relative transform overflow-hidden rounded-lg bg-white px-4 pt-5  text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl sm:p-6 py-8 border-2 h-[50rem]  ",
              )}
            >
-             <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block  ">
+             <div className="absolute top-0 right-0 pt-4 pr-4 sm:block  ">
                <button
                  type="button"
                  className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none "
