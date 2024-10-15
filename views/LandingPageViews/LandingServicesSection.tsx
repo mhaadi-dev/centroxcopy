@@ -1,15 +1,18 @@
 import SectionTag from '@/Components/common/SectionTag'
 import { TabCarousel } from '@/Components/common/TabCarousel'
 import React from 'react'
-import LabelIcon from "@/assets/labelIcon.webp";
-import gear from "@/assets/gear.webp";
+
 import menubars from "@/assets/barsmenu.webp";
-import equalizer from "@/assets/equalizer.webp";
-import robot from "@/assets/robot.webp";
-import usericon from "@/assets/usericon.webp";
-import loop from "@/assets/loop.webp";
-import rocket from "@/assets/rocket.webp";
-import progressbars from "@/assets/progressbars.webp";
+
+import Icon from "@/assets/Icon.webp";
+import Icon2 from "@/assets/Icon-1.webp";
+import Icon3 from "@/assets/Icon-3.webp";
+import Icon4 from "@/assets/Icon-4.webp";
+import Icon5 from "@/assets/Icon-5.webp";
+import Icon6 from "@/assets/Icon-6.webp";
+import Icon7 from "@/assets/Icon-7.webp";
+import Icon8 from "@/assets/Icon-8.webp";
+import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from '@/helpers/common';
 
 const LandingServicesSection = () => {
   const servicesTabs = [
@@ -26,14 +29,14 @@ const LandingServicesSection = () => {
       },
       data:[
         {
-           icon:LabelIcon,
+           icon:Icon,
            heading:"Annotation & Labeling",
            description:"We leverage cutting-edge AI-powered annotation tools to efficiently process and label your data. But we don’t stop there, Our team of annotators then meticulously cross-verifies and refines the AI-generated annotations, ensuring the highest level of accuracy, consistency, and alignment with your specific use case.",
            linkText:"Learn More",
            linkWithIcon:true
         },
         {
-          icon:gear,
+          icon:Icon2,
           heading:"Data Validation & Quality Assurance",
           description:"We implement rigorous quality assurance processes to validate your data, identify and address any inconsistencies, and ensure your LLM is trained on the most reliable information.",
           linkText:"Learn More",
@@ -56,21 +59,21 @@ const LandingServicesSection = () => {
            linkWithIcon:true
         },
         {
-          icon:robot,
+          icon:Icon3,
           heading:"Custom Chatbot Development",
           description:"We'll build intelligent conversational AI solutions that seamlessly integrate into your existing product and provide natural language understanding, engaging interactions, and actionable insights. We'll ensure your chatbot aligns with your brand voice and delivers a superior user experience.",
           linkText:"Learn More",
           linkWithIcon:true
         },
         {
-          icon:equalizer,
+          icon:Icon4,
           heading:"Fine-Tuning & Optimization",
           description:"We'll fine-tune pre-trained LLMs on your proprietary data, enabling them to adapt to your domain-specific language and tasks. We'll employ cutting-edge optimization techniques to maximize efficiency, reduce inference latency, and minimize computational costs.",
           linkText:"Learn More",
           linkWithIcon:true
         },
         {
-          icon:usericon,
+          icon:Icon5,
           heading:"Agentic AI",
           description:"Partner with Centrox AI to develop intelligent AI agents and workflows that automate tasks, make decisions, and drive business growth. With our expertise in Agentic AI workflows, we can help you with developing custom solutions tailored to your specific needs.",
           linkText:"Learn More",
@@ -86,21 +89,21 @@ const LandingServicesSection = () => {
       },
       data:[
         {
-           icon:rocket,
+           icon:Icon6,
            heading:"Deployment & Scaling",
            description:"We'll deploy your LLM into your production environment, handling infrastructure provisioning, scaling, and monitoring to ensure high availability and optimal performance. We'll work with you to address any security or compliance concerns.",
            linkText:"Learn More",
            linkWithIcon:true
         },
         {
-          icon:loop,
+          icon:Icon7,
           heading:"Optimization",
           description:"We'll continuously monitor your LLM's performance and implement fine-tuning and retraining strategies to enhance accuracy, reduce bias, and ensure your LLM adapts to evolving user needs and data distributions.",
           linkText:"Learn More",
           linkWithIcon:true
         },
         {
-          icon:progressbars,
+          icon:Icon8,
           heading:"Evaluation",
           description:"We'll leverage advanced analytics and visualization tools to provide detailed metrics and insights into your LLM's performance, enabling you to track progress, identify areas for improvement and make data-driven decisions.",
           linkText:"Learn More",
@@ -113,13 +116,14 @@ const LandingServicesSection = () => {
   return (
     <>
     <div className='sr-only'>Centrox services</div>
-    <section aria-label='landing services' className=' w-[90%] sm:w-auto  mx-[1.5rem] 2xl:mx-[15rem] mt-12'>
-        <SectionTag text='Services' className="justify-start"/>
-        <section aria-label="Centrox Services" className="text-white mx-auto lg:pl-14 ">
-        <h2 className="font-semibold text-start text-[1.5rem] lg:text-5xl my-4">
+    <section aria-label='landing services' className={classNames(section_wrapper_class,"")}>
+       
+        <section aria-label="Centrox Services" className="text-white flex flex-col gap-y-[1rem] ">
+        <SectionTag text='Services' className="!justify-start"/>
+        <h2 className={classNames(text_h2_class)}>
         End-to-End Gen AI Services From Idea To Impact
         </h2>
-        <p className="text-start w-full text-[1rem] lg:w-[60%]  sm:text-[1.5rem]">
+        <p className={classNames(text_para_2,"w-[80%]")}>
         Centrox AI offers full-cycle Gen AI development services designed to meet your specific needs and accelerate your product roadmap.
         </p>
       </section>

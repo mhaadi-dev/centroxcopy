@@ -5,6 +5,7 @@ import SolutionsImage1 from "@/assets/solutionpic1.webp"
 import SolutionsImage2 from "@/assets/solutionPic2.webp"
 import SolutionsImage3 from "@/assets/solutionPic3.webp"
 import SolutionsImage4 from "@/assets/solutionPic4.webp"
+import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
 
 const data = [
   {
@@ -39,12 +40,12 @@ const LandingSolutionsSection = () => {
   return (
     <>
    
-      <section id="solutions" aria-label="Centrox Blog" className=" text-white w-[90%] sm:w-auto  mx-[1.5rem] 2xl:mx-[15rem] mt-12">
+      <section id="solutions" aria-label="Centrox Blog" className={classNames(section_wrapper_class,"flex flex-col gap-y-4 mx-auto")}>
       <SectionTag text="Solutions" />
-        <h2 className="font-semibold text-center text-5xl my-4">
+        <h2 className={classNames(text_h2_class,"text-center")}>
           Centrox&apos;s Solutions
         </h2>
-        <p className="text-center w-full text-[1rem] sm:w-[60%] px-[1rem] sm:px-0 mx-auto sm:text-[1.5rem]">
+        <p className={classNames(text_para_2,"sm:w-[60%] text-center mx-auto")}>
         Explore our suite of production-ready Generative AI products, 
       built to address real-world challenges across diverse industries
         </p>

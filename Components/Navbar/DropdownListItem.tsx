@@ -12,7 +12,7 @@ const DropdownListItem = ({ listData, mainHeading }: Props) => {
     <>
       {listData.length > 0 &&
         listData.map((item, i) => {
-          console.log("oooooooooo",item)
+          // console.log("oooooooooo",item)
           return (
            item.isCardNavItem ?  <div key={i} className=" h-48 min-w-[13rem] max-w-[12rem] p-1 bg-none relative"     
         >

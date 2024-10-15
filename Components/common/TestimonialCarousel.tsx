@@ -1,5 +1,6 @@
 "use client";
 import TestimonialBG from "@/assets/testimonialBG.webp";
+import classNames, { text_para_2 } from "@/helpers/common";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 interface Props{
@@ -33,7 +34,7 @@ const TestimonialCarousel = ({imagesArray,dataArray}:Props) => {
   };
 
   return (
-    <div className="w-full mt-10 relative pt-[1.5rem] lg:pt-[2.5rem] overflow-hidden flex flex-col gap-[0rem] lg:gap-[2rem] h-auto  lg:h-[672px] bg-gradient-to-b from-[#079DFC00] to-[#079DFC33] rounded-2xl bg-clip-padding border-[2px] border-[#079DFC4D] ">
+    <div className="w-full mx-auto mt-10 relative pt-[1.5rem] lg:pt-[2.5rem] overflow-hidden flex flex-col gap-[0rem] lg:gap-[2rem] h-auto  lg:h-[672px] bg-gradient-to-b from-[#079DFC00] to-[#079DFC33] rounded-2xl bg-clip-padding border-[2px] border-[#079DFC4D] ">
     <Image src={TestimonialBG} alt="bg" className="absolute mx-auto bottom-0 left-0 right-0"></Image>
     <div className="flex flex-wrap gap-y-4 items-center  gap-x-4 justify-center space-x-4 my-[0rem] lg:my-[1.5rem] ">
       {imagesArray?.map((image:any, index:number) => (
@@ -57,7 +58,7 @@ const TestimonialCarousel = ({imagesArray,dataArray}:Props) => {
             : "translate-y-0 opacity-100"
         }`}
       >
-        <p className="w-[90%] lg:w-[60%] mx-auto text-center text-[1rem] lg:text-[1.5rem] text-[#E5E7EB]">
+        <p className={classNames(text_para_2,"w-[90%] lg:w-[60%] mx-auto ")}>
           {dataArray[activeIndex].description}
         </p>
         <div>

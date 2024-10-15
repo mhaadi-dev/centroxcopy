@@ -8,6 +8,7 @@ import dummyDisplay from "@/assets/dummyDisplay.webp";
 import caseStudyBG from "@/assets/caseStudyBG.webp";
 import { Button } from "../Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
+import classNames, { text_h2_class, text_para_2 } from "@/helpers/common";
 
 export const CaseStudyCarousal = ({ data }: any) => {
   const [gradientAngle, setGradientAngle] = useState(96);
@@ -48,18 +49,18 @@ export const CaseStudyCarousal = ({ data }: any) => {
           />
           
           <div
-            className="p-[1rem] lg:py-[3rem] lg:px-[4rem] transition-all duration-500 flex-col-reverse flex xl:flex-row items-center justify-between gap-4 rounded-3xl w-full h-full text-3xl text-black"
+            className="p-[1rem] lg:py-[3rem] lg:px-[4rem] transition-all duration-500 flex-col-reverse flex xl:flex-row items-center justify-between gap-4 2xl:gap-x-[3rem] rounded-3xl w-full h-full text-3xl text-black"
             style={backgroundStyle}
           >
             <section aria-label="case studies" className="w-full bg-transparent bg-none z-[10] relative">
-              <header>
+              <header className="flex flex-col gap-y-4">
                 <h5 className="text-blue-azure text-[0.9rem] uppercase">
                   Case Study
                 </h5>
-                <h2 className="text-[1.5rem] lg:text-5xl leading-[2rem] lg:leading-[3.8rem] font-semibold text-white">
+                <h2 className={classNames(text_h2_class)}>
                   {data[currentIndex].title}
                 </h2>
-                <p className="text-[0.8rem] lg:text-[1.5rem] leading-[1rem] lg:leading-[2.1rem] text-gray-100 ">
+                <p className={classNames(text_para_2)}>
                   {data[currentIndex].description}
                 </p>
               </header>

@@ -24,11 +24,15 @@ export const Navbar = () => {
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const { width } = useSize();
+  const [isClient,setIsClient]=useState(false)
   useEffect(() => {
     if (width != null && width > 1024 && showMenu == true) {
       setShowMenu(false);
     }
   }, [width]);
+  useEffect(()=>{
+   setIsClient(true)
+  },[])
   const data = [
     {
       navItemText: "Services",
@@ -314,7 +318,7 @@ export const Navbar = () => {
           alt="Logo"
           priority={true}
           loading="eager"
-          className="w-[7rem] sm:w-[20%] lg:w-[15%] 2xl:w-[12%]  cursor-pointer"
+          className="w-[6rem] sm:w-[15%] lg:w-[9%] 2xl:w-[10%]  cursor-pointer"
           onClick={() => router.push(`/`)}
         />
 
@@ -332,14 +336,14 @@ export const Navbar = () => {
           })}
         </div>
         <div className="flex items-center gap-x-1 sm:gap-x-6">
-          {!showMenu && (
+          {isClient && !showMenu && (
             <Button
               content="Contact Us"
               onClick={() => router.push(`/contact`)}
-              Icon={ width >1279?  Arrow:""}
+              Icon={width!=null && width>650 && Arrow}
               isLefticon={false}
               iconClassName="-mt-1"
-              className="z-[1] !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem] transition-opacity duration-500 opacity-100"
+              className="z-[1] !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.6rem] transition-opacity duration-500 opacity-100"
             />
           )}
           <div
@@ -351,9 +355,9 @@ export const Navbar = () => {
             {showMenu && <XMarkIcon className="text-white w-6" />}
             {!showMenu && (
               <>
-                <span className="w-5 h-1 bg-white"></span>
-                <span className="w-5 h-1 bg-white"></span>
-                <span className="w-5 h-1 bg-white"></span>
+                <span className="w-4 h-[2px] bg-white rounded-[3px]"></span>
+                <span className="w-4 h-[2px] bg-white rounded-[3px]"></span>
+                <span className="w-4 h-[2px] bg-white rounded-[3px]"></span>
               </>
             )}
           </div>
@@ -371,11 +375,11 @@ export const Navbar = () => {
 >
   {data?.map((navItem, index) => (
     <div key={index} className="text-gray-100">
-      <p className="font-semibold my-2 uppercase">{navItem.navItemText}</p>
+      <p className="font-semibold mt-4 uppercase">{navItem.navItemText}</p>
       {index === 0
         ? navItem?.columnData?.map((subItems, index) => {
             return subItems.map((item, index) => (
-              <div className="my-2" key={index}>
+              <div className="my-[0.3rem]" key={index}>
                 <h3 className="w-full flex gap-x-2">
                   <span
                     className={`${

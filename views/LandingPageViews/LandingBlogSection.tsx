@@ -8,6 +8,7 @@ import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
 import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
 import { ProductsCarousal } from "@/Components/common/ProductsCarousal"
 import SectionTag from "@/Components/common/SectionTag";
+import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
 // import Cards from "./Cards";
 
 
@@ -46,11 +47,12 @@ import SectionTag from "@/Components/common/SectionTag";
 const LandingBlogSection = () => (
   <>
   
-    <section className='w-[90%] sm:w-auto mx-[1.5rem] lg:mx-[15rem] mt-8'>
-        <SectionTag text="Blogs"/>
-       <section aria-label="Centrox Blog" className='text-white ' > 
-       <h2 className='font-semibold text-center text-2xl lg:text-5xl my-4'>Centrox Blog Stay Ahead of the Curve</h2>
-       <p className='text-center w-full text-[1rem] sm:w-[60%] mx-auto sm:text-[1.5rem]'> Our AI engineers are active contributors in the community and regularly share their insights and expertise on our blog. Explore their latest articles on Generative AI and LLM.</p>
+    <section className={classNames(section_wrapper_class)}>
+        
+       <section aria-label="Centrox Blog" className="flex flex-col gap-y-4" > 
+       <SectionTag text="Blogs"/>
+       <h2 className={classNames(text_h2_class,"text-center")}>Centrox Blog Stay Ahead of the Curve</h2>
+       <p className={classNames(text_para_2,"text-center w-full sm:w-[60%] mx-auto")}> Our AI engineers are active contributors in the community and regularly share their insights and expertise on our blog. Explore their latest articles on Generative AI and LLM.</p>
        </section> 
        
        {/* <section aria-label='Blogs' className=' w-[1681px] grid grid-rows-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5 sm:-mr-[15rem]'>

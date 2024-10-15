@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Arrow from "@/assets/RightArrow.svg";
+import classNames, { text_h4_class, text_para_3 } from "@/helpers/common";
 
 interface CardProps {
   Icon?: any;
@@ -22,7 +23,7 @@ const CommonCardwithIcon = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="flex flex-col cursor-default ">
+    <div className=" mx-auto flex flex-col cursor-default ">
       <div
         aria-label="centrox-services"
         className="bg-gray-900 relative px-8 py-8 rounded-xl flex flex-col gap-y-4 transition-all ease-in duration-200 h-[auto] 2xl:h-[26rem]"
@@ -39,9 +40,9 @@ const CommonCardwithIcon = ({
         onMouseLeave={() => setIsHovering(false)}
       >
         {Icon && <Image loading="lazy" src={Icon} alt="Icon" />}
-        <div>
-          <p className="text-[1.5rem] font-semibold">{heading}</p>
-          <p className="text-[1rem]">{description}</p>
+        <div className="flex flex-col gap-y-4">
+          <p className={classNames(text_h4_class)}>{heading}</p>
+          <p className={classNames(text_para_3)}>{description}</p>
         </div>
         <div className="flex items-center gap-2 hover:text-blue-azure ">
           <Link href={"/"}>{linkText}</Link>

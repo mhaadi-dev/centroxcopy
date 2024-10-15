@@ -6,8 +6,8 @@ interface Props{
 const SectionTag = ({text,className}:Props) => {
   return (
     <div className={`flex justify-center w-full  ${className}`}>
-    <div className={`bg-[#079DFC1A] inline-block  rounded-[0.3rem] px-8 py-1`}>
-        <div className='text-blue-azure tracking-[3px] uppercase '>
+    <div className={`bg-[#079DFC1A] inline-block  rounded-[0.3rem] px-4 lg:px-6 py-1`}>
+        <div className='text-blue-azure text-[0.75rem] tracking-[3px] uppercase '>
             {text || ""}
         </div>
     </div>

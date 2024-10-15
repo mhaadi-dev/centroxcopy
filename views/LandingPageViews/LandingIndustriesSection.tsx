@@ -1,17 +1,18 @@
 import IndustryBanner from "@/Components/common/IndustryBanner"
 import SectionTag from "@/Components/common/SectionTag"
 import { TabCarousel } from "@/Components/common/TabCarousel"
-import industryPic1 from "@/assets/industryPic1.webp"
-import industryPic2 from "@/assets/industryPic2.webp"
-import industryPic3 from "@/assets/industryPic3.webp"
-import industryPic4 from "@/assets/industryPic4.webp"
+import industryPic1 from "@/assets/industry1.webp"
+import industryPic2 from "@/assets/industry2.webp"
+import industryPic3 from "@/assets/industry3.webp"
+import industryPic4 from "@/assets/industry4.webp"
+import classNames, { section_wrapper_class } from "@/helpers/common"
 
 const LandingIndustriesSection = () => {
   const tabs = [
-    { name: "Healthcare", href: "#", current: true },
-    { name: "Fashion Retail", href: "#", current: false },
-    { name: "Real Estate", href: "#", current: false },
-    { name: "Fintech", href: "#", current: false },
+    { name: "Healthcare", href: "#", current: true,cta:"Try Our Mental Health Chatbot" },
+    { name: "Fashion Retail", href: "#", current: false,cta:"Try Our Body Measurement Tool" },
+    { name: "Real Estate", href: "#", current: false,cta:"Try Our Real Estate Chatbot" },
+    { name: "Fintech", href: "#", current: false,cta:"Learn more about AI in Fintech" },
   ];
   const gradientCardData=[
     {
@@ -85,7 +86,7 @@ const LandingIndustriesSection = () => {
   ]
   return (
     <>
-      <section id="industries" className="w-[90%] sm:w-auto mx-[1.5rem] 2xl:mx-[15rem] mt-12 "
+      <section id="industries" className={classNames(section_wrapper_class," mx-auto")}
       aria-label="centrox-industries">
 
     <SectionTag text="Industries"/>

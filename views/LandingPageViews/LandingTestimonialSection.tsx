@@ -5,6 +5,7 @@ import Bluecore from "@/assets/Bluecore.svg";
 import Rankpage from "@/assets/Rank Page.svg";
 
 import TestimonialCarousel from "@/Components/common/TestimonialCarousel";
+import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
 
 const imagesArray = [Derq, InstaCure, Bluecore, Rankpage];
 
@@ -28,7 +29,7 @@ const dataArray = [
       "Centrox AI has helped us to unlock the full potential of our data. Their AI-powered tools and services have enabled us to gain valuable insights that we would never have been able to uncover on our own. We're grateful for their partnership and look forward to continuing to work with them in the future.",
   },
   {
-    name: "Khalid Khushal",
+    name: "Waleed",
     position: "CEO RANKPAGE",
     description:
       "We were initially skeptical about outsourcing our AI projects, but Centrox AI quickly changed our minds. Their team is highly skilled and knowledgeable, and they have a proven track record of delivering successful AI solutions. We're confident that they will continue to be a valuable partner for our organization",
@@ -37,13 +38,14 @@ const dataArray = [
 
 const LandingTestimonialSection = () => {
   return (
-    <section className="text-white w-[90%] sm:w-auto mx-[1.5rem] lg:mx-[15rem] mt-12">
+    <section className={classNames(section_wrapper_class)}>
+      
+      <header aria-label="Centrox case studies" className="text-white flex flex-col gap-y-4 ">
       <SectionTag text="Testimonials" />
-      <header aria-label="Centrox case studies" className="text-white ">
-        <h2 className="font-semibold text-center text-[1.5rem] lg:text-5xl my-4">
+        <h2 className={classNames(text_h2_class,"text-center")}>
           What Our Clients Say
         </h2>
-        <p className="text-center w-full text-[1rem] sm:w-[100%] mx-auto sm:text-[1.5rem]">
+        <p className={classNames(text_para_2,"text-center w-full mx-auto")}>
           Hear from tech leaders who trusted us and have partnered with us to
           achieve their Gen AI goals
         </p>

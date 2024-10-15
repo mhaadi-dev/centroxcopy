@@ -3,7 +3,7 @@ import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import classNames, { generateBlurDataURL } from "@/helpers/common";
+import classNames, { generateBlurDataURL, section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
 import LandingAboutUsBg from "@/assets/genai.webp";
 import LandingAboutUsPattern from "@/assets/LandingAboutUsPattern.webp";
 import Link from "next/link";
@@ -33,7 +33,7 @@ console.log("imgg",LandingAboutUsPattern)
   }, []);
  
   return (
-    <section id="services" className=" w-[90%] sm:w-auto flex flex-col gap-4 justify-center items-center mt-0  relative  mx-[1.5rem] 2xl:mx-[15rem]  "  
+    <section id="services" className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
     > 
     <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
       <summary
@@ -44,12 +44,12 @@ console.log("imgg",LandingAboutUsPattern)
      
       >
         <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 mx-[1.5rem] sm:mx-0">
-          <h1 className="text-2xl sm:text-5xl text-white font-semibold capitalize 3xl:text-6xl">
+          <h3 className={classNames(text_h2_class)}>
             Bridging the Gap between research and real-world applications
-          </h1>
+          </h3>
 
-          <div className="sm:mt-10 3xl:mt-10 w-[95%] 2xl:w-[83%] 3xl:w-[85%] text-lg sm:text-2xl 3xl:text-4xl text-white leading-6">
-            <p className="w-full">
+          <div className="sm:mt-8 3xl:mt-10 w-[95%] 2xl:w-[83%] 3xl:w-[85%] text-lg sm:text-2xl 3xl:text-4xl text-white leading-6">
+            <p className={classNames(text_para_2)}>
               We at Centrox AI understand the challenges companies face when
               navigating the complexities of Gen AI development and deployment.
               Centrox AI is a full-cycle AI development company on a mission to
@@ -71,7 +71,7 @@ console.log("imgg",LandingAboutUsPattern)
             ) : (
               ""
             )}
-            <p className="w-full mt-4 lg:mt-0">
+            <p className={classNames(text_para_2,"mt-4")}>
               We want to enable you to focus on your core product and achieve
               your business goals faster while we take over your Gen AI
               development life cycle. We want to put our AI technical depth,
@@ -85,7 +85,7 @@ console.log("imgg",LandingAboutUsPattern)
             Icon={Arrow}
             iconClassName="-mt-1"
             isLefticon={false}
-            className="mt-2 !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem] sm:mt-10 mx-0"
+            className="mt-2 !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem] sm:mt-8 mx-0"
           />
           </Link>
          
