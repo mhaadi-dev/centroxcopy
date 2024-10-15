@@ -2,6 +2,7 @@ import { ProductsCarousal } from '@/Components/common/ProductsCarousal'
 import SectionTag from '@/Components/common/SectionTag'
 import dummyDisplay from "@/assets/dummyDisplay.webp";
 import {CaseStudyCarousal} from "@/Components/common/CaseStudyCarousal"
+import classNames, { text_h2_class, text_para_2 } from '@/helpers/common';
 const data = [
     {
       title:
@@ -27,12 +28,13 @@ const data = [
 const LandingCaseStudySection = () => {
   return (
     <section className='text-white w-[90%] sm:w-auto mx-[1.5rem] 2xl:mx-[15rem] mt-12'>
-      <SectionTag text="Case Studies"/>
-    <header aria-label="Centrox case studies" className="text-white ">
-        <h2 className="font-semibold text-center text-[1.5rem] lg:text-5xl my-4">
+      
+    <header aria-label="Centrox case studies" className="text-white flex flex-col gap-y-4 ">
+    <SectionTag text="Case Studies"/>
+        <h2 className={classNames(text_h2_class,"text-center")}>
         Real-World Results
         </h2>
-        <p className="text-center w-full text-[1rem] sm:w-[70%] mx-auto sm:text-[1.5rem]">
+        <p className={classNames(text_para_2,"text-center")}>
         Explore how we've partnered with startups to think, build and ship Gen AI solutions faster
         </p>
       </header>

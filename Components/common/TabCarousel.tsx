@@ -21,7 +21,7 @@ import {
   useState,
 } from "react";
 import { Button } from "@/Components/Button.js/button";
-import classNames, { generateBlurDataURL } from "@/helpers/common";
+import classNames, { generateBlurDataURL, text_h3_class, text_h4_class, text_para_3 } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
 import { ServiceViewContext } from "@/store/ServiceViewProivder";
@@ -52,7 +52,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
 }) => (
   <section
     className={classNames(
-      "rounded-xl flex flex-col gap-3 p-5 mt-10 cursor-pointer "
+      "rounded-3xl flex flex-col gap-3 p-5 mt-10 cursor-pointer "
     )}
     style={{
       background:
@@ -68,15 +68,15 @@ const GradientCard: React.FC<GradientCardProps> = ({
     onMouseLeave={onMouseLeave}
     onClick={() => onClick?.()}
   >
-    <div className="flex justify-between items-center">
-      <span className="text-xl md:text-3xl text-white font-bold">{title}</span>
+    <div className={classNames(text_h4_class)}>
+      <span className="">{title}</span>
     </div>
-    <span className="text-md md:text-xl text-white-offWhite font-normal">
+    <span className={classNames(text_para_3)}>
       {description}
     </span>
   </section>
 );
-const Tabs = ({ tabs, setTabs }: any) => {
+const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
   useEffect(() => {
     if (!tabs.some((tab: any) => tab.current)) {
       setTabs((prevTabs: any) =>
@@ -120,7 +120,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
               tab.current
                 ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
                 : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 px-6 text-[0.7rem] font-semibold cursor-pointer text-center transition-colors duration-100"
+              "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100"
             )}
             aria-current={tab.current ? "page" : undefined}
             onClick={() =>
@@ -139,7 +139,7 @@ const Tabs = ({ tabs, setTabs }: any) => {
 
       {/* Desktop Tabs */}
       <nav
-        className="hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 mx-[2rem] gap-y-2 items-center w-[92%]"
+        className={classNames(isGradientCardLayout && "px-[3rem]","hidden  lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4  gap-y-2 items-center w-full")}
         aria-label="Tabs"
       >
         {tabs.map((tab: any) => (
@@ -256,11 +256,11 @@ export const TabCarousel = ({
 
   return (
     <>
-      <section className="relative py-12 w-5/5 mx-auto overflow-hidden bg-black sm:py-16 lg:py-4 ">
-        <div className="">
-          <div className="container mx-auto">
-            <div className="text-white p-0 lg:px-0 xl:px-16  rounded-3xl flex flex-col gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
-              <Tabs tabs={tabs} setTabs={setTabs} />
+      <section className="relative py-12  w-full md:w-5/5 mx-auto 2xl:w-full  overflow-hidden bg-black sm:py-16 lg:py-4 ">
+        <div className=" p-2">
+          <div className="container  ">
+            <div className="text-white   rounded-3xl flex flex-col gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
+              <Tabs tabs={tabs} setTabs={setTabs} isGradientCardLayout={isGradientCardsLayoutwithImage} />
               <div className="">
                 {tabs?.map(
                   (tab:any, index:number) =>
@@ -271,21 +271,24 @@ export const TabCarousel = ({
                       >
                         {isCardLayout && (
                           <>
-                            <h3 className=" text-[1rem] lg:text-[2rem] text-white font-semibold">
+                          <div className="flex flex-col gap-y-2">
+                            <h3 className={classNames(text_h3_class)}>
                               {cardsData[index]?.subInfo?.heading}
                             </h3>
-                            <p className="text-[1rem] mb-2 lg:text-[1.3rem] text-gray-100">
+                            <p className={classNames(text_para_3)}>
                               Read in detail about our services.
                             </p>
+                          </div>
+                            
                             <div
                               // className={`grid grid-cols-1 sm:grid-cols-2   lg:${`grid-cols-${Math.min(cardsData.length, 3)}`} mt-4 2xl:grid-cols-auto gap-4`}
                               // className={`flex flex-wrap  gap-4`}
                             >
                               <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full"
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto "
                                 style={{
-                                  gridTemplateColumns:
-                                    "repeat(auto-fit, minmax(320px, 1fr))",
+                                  gridTemplateColumns: width!=null && width > 650 ? 
+                                    "repeat(auto-fit, minmax(350px, 1fr))":"repeat(auto-fit, minmax(300px, 1fr))",
                                 }}
                               >
                                 {cardsData?.[index]?.data.map(
@@ -307,12 +310,12 @@ export const TabCarousel = ({
                           </>
                         )}
                         <div
-                          className="flex flex-col gap-4 xl:flex-row"
+                          className="flex flex-col gap-4 xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
                         >
                           {isGradientCardsLayoutwithImage && (
                             <>
                               
-                              <div className=" w-full xl:w-1/2 flex flex-col gap-4">
+                              <div className=" w-full xl:w-1/2 flex flex-col gap-y-0">
                                 {gradientCardData?.length > 0 && headerTabs?.length>0 ? gradientCardData[index]?.data?.map((card:any,i:number)=>{
                                   return  <GradientCard
                                   title={
@@ -404,8 +407,8 @@ export const TabCarousel = ({
                                   hoverOnGradient={true}
                                 /> */}
                               </div>
-                              <div className="w-full flex xl:w-1/2 mt-10  items-start justify-center">
-                                <div className="w-full">
+                              <div className="w-full flex xl:w-1/2 mt-10  items-center justify-center">
+                                <div className="w-full" >
                                   <Image
                                     className={classNames(
                                       "w-full h-full",
@@ -419,9 +422,7 @@ export const TabCarousel = ({
                                         ? "lazy"
                                         : "eager"
                                     }
-                                    // placeholder="blur"
-                                    // onLoad={handleImageLoad}
-                                    // blurDataURL={blurDataURLs[currentHoverCard]}
+                                 
                                   />
                                  
                                   {/* {tabs[0]?.current && (
@@ -491,8 +492,8 @@ export const TabCarousel = ({
                         </div>
                         {!isCardLayout && (
                           <Button
-                            content="Try Our AI Chatbot"
-                            className="!w-[auto] mx-auto my-4"
+                            content={tab.current?  tab?.cta : "Get Started"}
+                            className="!w-[auto] mx-auto my-4 !py-[0.5rem] !px-[1rem] 2xl:!py-[1rem] 2xl:!px-[2rem]"
                             Icon={Arrow}
                             isLefticon={false}
                           />

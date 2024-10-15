@@ -9,11 +9,13 @@ const config: Config = {
     "./views/**/*.{js,ts,jsx,tsx,mdx}",
     "./sections/**/*.{js,ts,jsx,tsx,mdx}",
     "./helpers/**/*.{js,ts,jsx,tsx,mdx}",
-
-
   ],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+        paragraph: ['"Inter"', 'sans-serif'], 
+      },
       boxShadow: {
         'custom': '0px 0px 20px 0px #079DFC, 0px 0px 12px 0px #079DFC inset, 0px -8px 24px 0px rgba(128, 255, 219, 0.40) inset',
       },
@@ -70,13 +72,10 @@ const config: Config = {
         xlc: { min: "1919" },
         "3xl": { min: "2000px" },
         "4xl": { min: "2500px" },
-		
-			// "smallLaptops":"1366px" ,
-			// "mediumLaptops":"1500px",
-			// "largeLaptops":"2300px",
       },
     },
   },
   plugins: [require('@tailwindcss/typography')],
 };
+
 export default config;

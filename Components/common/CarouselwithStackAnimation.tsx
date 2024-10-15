@@ -4,6 +4,9 @@ import classNames, {
   h2ClassName,
   h3ClassName,
   sectionheadings,
+  text_h3_class,
+  text_para_2,
+  text_para_3,
 } from "@/helpers/common";
 import { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
@@ -163,7 +166,7 @@ useEffect(() => {
                       }`,
                     }}
                     className={classNames(
-                      "text-white text-[0.6rem]  sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer ",
+                      "text-white text-[0.6rem]  sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer whitespace-nowrap ",
                       tabsClassName
                     )}
                     onMouseEnter={() => setHoverIndex(index)}
@@ -207,19 +210,19 @@ useEffect(() => {
               >
                 <div className="w-full  xl:w-1/2 flex flex-col gap-2 lg:gap-6 bg-gray-900 ">
                   <div className="flex w-full  flex-col space-y-4 justify-center  mx-auto h-full pt-4 md:pt-24">
-                    <div className=" max-w-[24rem]  h-full flex flex-col gap-2 mx-[1.5rem] mb-4 xl:mx-[3rem]">
+                    <div className="   h-full flex flex-col gap-y-4 py-2 mx-[1.5rem] mb-4 xl:mx-[3rem]">
                       <p className="text-base uppercase text-blue-azure font-semibold">
                         Solution
                       </p>
                       <h3
                         className={classNames(
-                          h3ClassName,
-                          "!text-start text-[1.2rem] lg:text-[2rem] lg:!text-left lg:!w-full "
+                          text_h3_class,
+                          
                         )}
                       >
                         {cars.heading}
                       </h3>
-                      <div className="text-2xl">
+                      <div className={classNames(text_para_3)}>
                         {cars.description ? (
                           <PortableText
                             value={[
