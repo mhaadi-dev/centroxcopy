@@ -244,7 +244,7 @@ useEffect(() => {
                         )}
                       </div>
                      
-                      <div className="flex justify-center md:justify-start ">
+                      {/* <div className="flex justify-center md:justify-start ">
                       <Link href={"/"}>
                       <Button
                           content={"Try For Free"}
@@ -255,7 +255,7 @@ useEffect(() => {
                         />
                       </Link>
                         
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

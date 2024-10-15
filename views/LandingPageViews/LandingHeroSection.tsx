@@ -18,7 +18,7 @@ const LandingHeroSection = () => {
           />
     
           <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">
-            <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold">
+            <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold">
               Ship Production-Ready <br />
               <span className="bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text text-transparent">
                 Gen AI
