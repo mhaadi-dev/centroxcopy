@@ -232,83 +232,83 @@ export const Navbar = () => {
         ],
       ],
     },
-    {
-      navItemText: "Resources",
-      onClick: () => {
-        if (pathname === "/") {
-          const solutionsComponent = document.getElementById("");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-          router.push(`/`);
-        }
-      },
-      columnData: [
-        [
-          {
-            heading: "Blogs",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "Case Studies",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "Guides",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "White Papers",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
-      ],
-    },
-    {
-      navItemText: "Company",
-      onClick: () => {
-        if (pathname === "/") {
-          const solutionsComponent = document.getElementById("");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-          router.push(`/`);
-        }
-      },
-      columnData: [
-        [
-          {
-            heading: "About Us",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "Team",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "Careers",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
-      ],
-    },
+    // {
+    //   navItemText: "Resources",
+    //   onClick: () => {
+    //     if (pathname === "/") {
+    //       const solutionsComponent = document.getElementById("");
+    //       if (solutionsComponent) {
+    //         solutionsComponent.scrollIntoView({
+    //           behavior: "smooth",
+    //           block: "start",
+    //         });
+    //       }
+    //     } else {
+    //       localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+    //       router.push(`/`);
+    //     }
+    //   },
+    //   columnData: [
+    //     [
+    //       {
+    //         heading: "Blogs",
+    //         description: "Description here,,,",
+    //         image: ShootingStar,
+    //       },
+    //       {
+    //         heading: "Case Studies",
+    //         description: "Description here,,,",
+    //         image: "",
+    //       },
+    //       {
+    //         heading: "Guides",
+    //         description: "Description here,,,",
+    //         image: "",
+    //       },
+    //       {
+    //         heading: "White Papers",
+    //         description: "Description here,,,",
+    //         image: "",
+    //       },
+    //     ],
+    //   ],
+    // },
+    // {
+    //   navItemText: "Company",
+    //   onClick: () => {
+    //     if (pathname === "/") {
+    //       const solutionsComponent = document.getElementById("");
+    //       if (solutionsComponent) {
+    //         solutionsComponent.scrollIntoView({
+    //           behavior: "smooth",
+    //           block: "start",
+    //         });
+    //       }
+    //     } else {
+    //       localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+    //       router.push(`/`);
+    //     }
+    //   },
+    //   columnData: [
+    //     [
+    //       {
+    //         heading: "About Us",
+    //         description: "Description here,,,",
+    //         image: ShootingStar,
+    //       },
+    //       {
+    //         heading: "Team",
+    //         description: "Description here,,,",
+    //         image: "",
+    //       },
+    //       {
+    //         heading: "Careers",
+    //         description: "Description here,,,",
+    //         image: "",
+    //       },
+    //     ],
+    //   ],
+    // },
   ];
   return (
     <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
@@ -375,8 +375,8 @@ export const Navbar = () => {
 >
   {data?.map((navItem, index) => (
     <div key={index} className="text-gray-100">
-      <p className="font-semibold mt-4 uppercase">{navItem.navItemText}</p>
-      {index === 0
+      <p className="font-semibold mt-4 uppercase hover:text-blue-azure" onClick={navItem?.onClick}>{navItem.navItemText}</p>
+      {/* {index === 0
         ? navItem?.columnData?.map((subItems, index) => {
             return subItems.map((item, index) => (
               <div className="my-[0.3rem]" key={index}>
@@ -404,7 +404,7 @@ export const Navbar = () => {
                 </h3>
               </div>
             ));
-          })}
+          })} */}
     </div>
   ))}
 </nav>
