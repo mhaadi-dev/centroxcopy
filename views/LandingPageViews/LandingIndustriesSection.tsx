@@ -100,7 +100,7 @@ const LandingIndustriesSection = () => {
         </p>
       </section>
      <TabCarousel isGradientCardsLayoutwithImage={true} gradientCardData={gradientCardData} headerTabs={tabs}/>
-     <IndustryBanner/>
+     {/* <IndustryBanner/> */}
      
       </section>
     </>

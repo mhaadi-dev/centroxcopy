@@ -78,9 +78,9 @@ export default async function Home() {
       <LandingServicesSection/>
       <LandingSolutionsSection/>
       <LandingIndustriesSection/>
-      <LandingCaseStudySection/>
+      {/* <LandingCaseStudySection/> */}
       <LandingTestimonialSection/>
-      <LandingBlogSection/>
+      {/* <LandingBlogSection/> */}
       <LandingContactSection/>
       <LandingFAQSection/>
       

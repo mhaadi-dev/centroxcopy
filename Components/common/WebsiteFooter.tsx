@@ -24,10 +24,16 @@ const navigation = {
     //   { name: 'Partners', href: '#' },
   ],
   company: [
-    { name: "Talk to An Expert", href: "/aiExpert" },
+    // { name: "Talk to An Expert", href: "/aiExpert" },
+    { name: "Talk to An Expert", href: "/" },
+
     { name: "Contact Us", href: "/contact" },
-    { name: "About Us ", href: "/about" },
-    { name: "Team ", href: "/team" },
+    // { name: "About Us ", href: "/about" },
+    { name: "About Us ", href: "/" },
+
+    // { name: "Team ", href: "/team" },
+    { name: "Team ", href: "/" },
+
     // { name: "Why Us", href: "#" },
   ],
 };
@@ -72,33 +78,33 @@ export default function WebsiteFooter() {
                     <li
                       key={item.name}
                       className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white cursor-pointer"
-                      onClick={() => {
-                        if (pathname !== "/" && item.name !== "Solving Data") {
-                          router.push(`/`);
-                          localStorage.setItem(
-                            SHOW_SERVICES,
-                            JSON.stringify(true)
-                          );
-                        }
-                        //@ts-ignore
-                        if (item.name !== "Solving Data" ||  item.name !== "Custom Chatbot") {
-                          setView(item.name);
-                          const solutionsComponent =
-                            document.getElementById("services");
-                          if (solutionsComponent) {
-                            solutionsComponent.scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                            });
-                          }
-                        }
-                        if (item.name == "Solving Data") {
-                          router.push("/solving-data");
-                        }
-                        if (item.name === "Custom Chatbot") {
-                          router.push("/custom-chatbot");
-                        }
-                      }}
+                      // onClick={() => {
+                      //   if (pathname !== "/" && item.name !== "Solving Data") {
+                      //     router.push(`/`);
+                      //     localStorage.setItem(
+                      //       SHOW_SERVICES,
+                      //       JSON.stringify(true)
+                      //     );
+                      //   }
+                      //   //@ts-ignore
+                      //   if (item.name !== "Solving Data" ||  item.name !== "Custom Chatbot") {
+                      //     setView(item.name);
+                      //     const solutionsComponent =
+                      //       document.getElementById("services");
+                      //     if (solutionsComponent) {
+                      //       solutionsComponent.scrollIntoView({
+                      //         behavior: "smooth",
+                      //         block: "start",
+                      //       });
+                      //     }
+                      //   }
+                      //   if (item.name == "Solving Data") {
+                      //     router.push("/solving-data");
+                      //   }
+                      //   if (item.name === "Custom Chatbot") {
+                      //     router.push("/custom-chatbot");
+                      //   }
+                      // }}
                     >
                       {item.name}
                     </li>
@@ -118,7 +124,8 @@ export default function WebsiteFooter() {
                   {navigation.products.map((item) => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        // href={item.href}
+                        href={""}
                         className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white"
                       >
                         {item.name}
@@ -141,6 +148,7 @@ export default function WebsiteFooter() {
                     <li key={item.name}>
                       <a
                         href={item.href}
+                        // href=""
                         className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white"
                       >
                         {item.name}

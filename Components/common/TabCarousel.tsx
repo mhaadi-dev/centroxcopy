@@ -490,14 +490,14 @@ export const TabCarousel = ({
                             </>
                           )}
                         </div>
-                        {!isCardLayout && (
+                        {/* {!isCardLayout && (
                           <Button
                             content={tab.current?  tab?.cta : "Get Started"}
                             className="!w-[auto] mx-auto my-4 !py-[0.5rem] !px-[1rem] 2xl:!py-[1rem] 2xl:!px-[2rem]"
                             Icon={Arrow}
                             isLefticon={false}
                           />
-                        )}
+                        )} */}
                       </div>
                     )
                 )}
