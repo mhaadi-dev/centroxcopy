@@ -76,8 +76,12 @@ const GradientCard: React.FC<GradientCardProps> = ({
     </span>
   </section>
 );
-const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
+const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
+  const [intervalDuration, setIntervalDuration] = useState(15000); 
+  const [resetTimeout, setResetTimeout] = useState<NodeJS.Timeout | null>(null); 
+  
   useEffect(() => {
+    // Set the first tab as current if no tab is currently selected
     if (!tabs.some((tab: any) => tab.current)) {
       setTabs((prevTabs: any) =>
         prevTabs.map((tab: any, index: number) => ({
@@ -92,7 +96,7 @@ const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
     tabs.find((tab: any) => tab.current)?.name || tabs[0].name;
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const switchTab = () => {
       setTabs((prevTabs: any) => {
         const currentIndex = prevTabs.findIndex((tab: any) => tab.current);
         const nextIndex = (currentIndex + 1) % prevTabs.length;
@@ -101,10 +105,34 @@ const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
           current: index === nextIndex,
         }));
       });
-    }, 15000);
+    };
 
-    return () => clearInterval(interval);
-  }, [setTabs]);
+
+    const interval = setInterval(() => {
+      switchTab();
+    }, intervalDuration);
+
+    return () => clearInterval(interval); 
+  }, [setTabs, intervalDuration]);
+
+  const handleTabClick = (tabName: string) => {
+  
+    setTabs((prevTabs: any) =>
+      prevTabs.map((prevTab: any) => ({
+        ...prevTab,
+        current: prevTab.name === tabName,
+      }))
+    );
+
+    setIntervalDuration(20000);
+    if (resetTimeout) clearTimeout(resetTimeout);
+
+    const timeout = setTimeout(() => {
+      setIntervalDuration(15000); 
+    }, 20000);
+
+    setResetTimeout(timeout); 
+  };
 
   return (
     <div className="w-full">
@@ -123,14 +151,7 @@ const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
               "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100"
             )}
             aria-current={tab.current ? "page" : undefined}
-            onClick={() =>
-              setTabs((prevTabs: any) =>
-                prevTabs.map((prevTab: any) => ({
-                  ...prevTab,
-                  current: prevTab.name === tab.name,
-                }))
-              )
-            }
+            onClick={() => handleTabClick(tab.name)}
           >
             {tab.name}
           </a>
@@ -139,7 +160,10 @@ const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
 
       {/* Desktop Tabs */}
       <nav
-        className={classNames(isGradientCardLayout && "px-[3rem]","hidden  lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4  gap-y-2 items-center w-full")}
+        className={classNames(
+          isGradientCardLayout && "px-[3rem]",
+          "hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-2 items-center w-full"
+        )}
         aria-label="Tabs"
       >
         {tabs.map((tab: any) => (
@@ -152,14 +176,7 @@ const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
               "whitespace-nowrap py-2 px-2 text-2xl font-semibold cursor-pointer text-center transition-colors duration-100 z-10 w-full"
             )}
             aria-current={tab.current ? "page" : undefined}
-            onClick={() =>
-              setTabs((prevTabs: any) =>
-                prevTabs.map((prevTab: any) => ({
-                  ...prevTab,
-                  current: prevTab.name === tab.name,
-                }))
-              )
-            }
+            onClick={() => handleTabClick(tab.name)}
           >
             {tab.name}
           </a>
@@ -168,6 +185,8 @@ const Tabs = ({ tabs, setTabs,isGradientCardLayout=false }: any) => {
     </div>
   );
 };
+
+
 
 export default Tabs;
 interface TabCarouselProps {
