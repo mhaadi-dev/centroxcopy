@@ -18,10 +18,10 @@ export async function LogosCarousel() {
   const logos:any = [bluecore,rankPage,conjoin,stockAppIcon,instaCure,DERQ,bluecore];
   return (
     <>
-      <section className="w-full  flex  gap-10 lg:mt-0 relative">
+      <section className="w-full overflow-hidden  flex  gap-10 lg:mt-0 relative">
         <div className="w-full bg-gradient-to-r from-black  via-transparent to-black absolute left-0 right-0 h-full top-0 z-[2]"  />
         
-        <div className="flex justify-center items-center w-[100%] animate-marquee animate-infinite-scroll gap-x-4 lg:gap-x-10 ">
+        <div className="flex justify-center items-center w-[100%]  animate-marquee animate-infinite-scroll gap-x-4 lg:gap-x-10 ">
           {logos.length > 0
             ? logos.map((logo: any, index: number) => (
                 < >

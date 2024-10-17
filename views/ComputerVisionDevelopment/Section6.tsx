@@ -8,11 +8,16 @@ import classNames, {
   p4ClassName,
   sectionheadings,
   sectionSectionDescription,
+  text_h3_class,
+  text_para_2,
+  text_para_3,
  
 } from "@/helpers/common";
 
 import dataImg from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import Image from "next/image";
+import advantages from "@/assets/advantages.webp"
+import SectionHeader from "@/Components/common/SectionHeader";
 
 
 
@@ -30,6 +35,28 @@ export const PointsandImagesSection = ({
   reverse,
   bgShape,
 }: any) => {
+      const arrayData =[
+        {
+          heading:"Focus on Core Innovation​​​​‌‍​‍​‍‌‍‌​‍‌‍‍‌‌‍‌‌‍‍‌‌‍‍​‍​‍​‍‍​‍​‍‌​‌‍​‌‌‍‍‌‍‍‌‌‌​‌‍‌​‍‍‌‍‍‌‌‍​‍​‍​‍​​‍​‍‌‍‍​‌​‍‌‍‌‌‌‍‌‍​‍​‍​‍‍​‍​‍​‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‍‌‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‍‌‌‌‍‌​‌‍‍‌‌‌​​‍‌‍‌‌‍‌‍‌​‌‍‌‌​‌‌​​‌​‍‌‍‌‌‌​‌‍‌‌‌‍‍‌‌​‌‍​‌‌‌​‌‍‍‌‌‍‌‍‍​‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​​​‌‍​​‌‌​​‍​‌‌​‍‌‌‍​‍​​‌​​​‍‌‌‍‌‍​‍‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‌‍​‍‌‍​‌‌​‌‍‌‌‌‌‌‌‌​‍‌‍​​‌​‍‌‌​​‍‌​‌‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​​​‌‍​​‌‌​​‍​‌‌​‍‌‌‍​‍​​‌​​​‍‌‌‍‌‍​‍‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‍​‍‌‌",
+          description:"Free up your internal resources to focus on your core product and research, while we handle the complexities of LLM engineering. This allows you to accelerate your development cycles and bring your AI innovations to market faster."
+        },
+        {
+         heading:"Achieve Superior Performance",
+         description:"Leverage fine-tuned models that outperform generic solutions, delivering higher accuracy, relevance, and efficiency. This translates to better user experiences, improved decision-making, and increased business value.​​"
+        },
+        {
+           heading:"Unlock New Capabilities",
+           description:"Build intelligent automation, generative AI tools, research assistants, and more, expanding your AI toolkit and opening up new possibilities for your product or service.​​"
+        },
+      {
+       heading:"Mitigate Risks",
+       description:"Address challenges like bias, data security, and scalability with our expertise and proven processes. We ensure your AI solutions are robust, reliable, and compliant with industry standards."
+      },
+      {
+        heading:"Gain a Competitive Edge​​​​‌‍​‍​‍‌‍‌​‍‌‍‍‌‌‍‌‌‍‍‌‌‍‍​‍​‍​‍‍​‍​‍‌​‌‍​‌‌‍‍‌‍‍‌‌‌​‌‍‌​‍‍‌‍‍‌‌‍​‍​‍​‍​​‍​‍‌‍‍​‌​‍‌‍‌‌‌‍‌‍​‍​‍​‍‍​‍​‍​‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‍‌‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‍‌‌‌‍‌​‌‍‍‌‌‌​​‍‌‍‌‌‍‌‍‌​‌‍‌‌​‌‌​​‌​‍‌‍‌‌‌​‌‍‌‌‌‍‍‌‌​‌‍​‌‌‌​‌‍‍‌‌‍‌‍‍​‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​‌‌​‌​​​‌​​‍​​‌‍​‌‍​​‍​​​‍​​​​​‌​‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‌‍​‍‌‍​‌‌​‌‍‌‌‌‌‌‌‌​‍‌‍​​‌​‍‌‌​​‍‌​‌‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​‌‌​‌​​​‌​​‍​​‌‍​‌‍​​‍​​​‍​​​​​‌​‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‍​‍‌‌",
+        description:"Leverage the power of custom LLMs to differentiate your product, provide unique value to your customers, and stay ahead of the competition in the rapidly evolving AI landscape."
+      }
+      ]
   return (
     <div
       className="relative overflow-hidden mt-8 pb-12 "
@@ -66,23 +93,25 @@ export const PointsandImagesSection = ({
         />
       )}{" "}
       <section className="w-4/5 mx-auto mt-24 lg:mt-40  ">
-        <div className="flex flex-col gap-2 lg:gap-8">
+        {/* <div className="flex flex-col gap-2 lg:gap-8">
           <h2 className={h2ClassName}>{data?.heading}</h2>
 
           <h4 className={classNames(p2ClassName, "lg:!text-center  ")}>
             {data?.description}
           </h4>
-        </div>
+        </div> */}
+            <SectionHeader headingText="What You Gain" tagText="advantages" para1Text="Partnering with Centrox AI for custom LLM development empowers your team to:"/>
+
         <div
           className={classNames(
             "flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mt-6 lg:mt-12 ",
-            reverse ? "lg:!flex-row-reverse" : ""
+            true ? "lg:!flex-row-reverse" : ""
           )}
         >
           <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
-            {data?.img && (
+            {true && (
               <Image
-                src={data?.img}
+                src={advantages||data?.img}
                 alt="hero-img "
                 className="object-fill w-full h-full"
                 objectFit="fill"
@@ -92,7 +121,7 @@ export const PointsandImagesSection = ({
             )}
           </figure>
           <div className="w-ful lg:w-1/2 flex flex-col gap-6 lg:gap-12 z-10">
-            <h2
+            {/* <h2
               className={classNames(
                 sectionheadings,
                 "lg:!mx-0 lg:!w-full lg:!text-left"
@@ -111,15 +140,15 @@ export const PointsandImagesSection = ({
             {subDescription && (
               <p
                 className={classNames(
-                  sectionSectionDescription,
+                  text_para_3,
                   "!text-[#D1D5DB]"
                 )}
               >
                 {subDescription}
               </p>
-            )}
+            )} */}
             <div className="flex flex-col gap-6">
-              {data?.content?.map((el: any, index: number) => {
+              {arrayData?.map((el: any, index: number) => {
                 return (
                   <div className="flex gap-2 items-start " key={index}>
                     {el.icon && (
@@ -132,13 +161,13 @@ export const PointsandImagesSection = ({
                     <div className="w-full flex flex-col  gap-2  ">
                       <h4
                         className={classNames(
-                          h3ClassName,
+                          text_h3_class,
                           "lg:!w-full lg:!text-left"
                         )}
                       >
                         {el.heading}
                       </h4>
-                      <p className={p4ClassName}>{el.description}</p>
+                      <p className={text_para_2}>{el.description}</p>
                     </div>
                   </div>
                 );
@@ -146,7 +175,7 @@ export const PointsandImagesSection = ({
             </div>
             {button && (
               <div className="flex justify-center lg:justify-start">
-                <CalendlyWidget btnText={data?.btntext} />
+                <CalendlyWidget btnText={data?.btntext} isArrow={true} />
               </div>
             )}
           </div>

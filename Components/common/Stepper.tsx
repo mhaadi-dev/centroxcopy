@@ -7,6 +7,10 @@ import {PortableComponent} from "@/Components/common/PortableText"
 
 
 export const Stepper = ({ data }: any) => {
+  console.log("stepper data",data)
+
+
+
   return (
     <ol className="relative text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400  w-full lg:w-3/4">
       {data?.map((x:any, index:number) => {
@@ -26,13 +30,13 @@ export const Stepper = ({ data }: any) => {
                 )}
               >
                 {x.status ? (
-                  <CheckIcon className="text-white" />
+                  <CheckIcon className="text-white p-1" />
                 ) : (
                   <span> {index + 1} </span>
                 )}
               </div>
               {/* <div className="w-4 h-4 bg-red-200 rounded-full">123</div> */}
-              <h3 className={classNames(h4ClassName,"lg:!text-left")}>
+              <h3 className={classNames(h4ClassName,"!text-left")}>
                 {x.title}
               </h3>
               {(x.content && x.status) ? <PortableText value={x.content} components={PortableComponent} /> : null}

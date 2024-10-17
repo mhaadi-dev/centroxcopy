@@ -21,6 +21,11 @@ import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
 import LandingLayout from "../layoutPage";
+import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
+import BenefitSection from "@/views/ServicePageViews/BenefitSection";
+import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
+import Icon from "@/assets/Icon.webp";
+import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
@@ -76,17 +81,106 @@ export default async function Page({ params }: { params: { slug: string } }) {
     console.error("Error fetching or processing landing page data:", error);
   }
   console.log("data is",data,)
+
+
+  const benefitsData = [
+    {
+      icon: Icon,
+      heading: "Deeply Integrated",
+      description:
+        "We meticulously analyze your codebase, data pipelines, and research objectives to create LLMs that seamlessly fit into your existing workflows and infrastructure. This ensures smooth integration and minimizes disruptions.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+    {
+      icon: Icon,
+      heading: "Optimized for Performance",
+      description:
+        "We employ advanced techniques like quantization, distillation, and parallelization to ensure maximum efficiency on your hardware, even with large-scale models. This results in faster inference times, reduced costs, and improved user experience.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+    {
+      icon: Icon,
+      heading: "Adaptable & Scalable",
+      description:
+        "Your AI needs evolve, and so should your models. We build LLMs that can learn and grow alongside your projects, effortlessly integrating with your existing systems and scaling to handle increasing demands",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+    {
+      icon: Icon,
+      heading: "Cutting-Edge",
+      description:
+        "We're on the top of latest advancements in LLM which has made us adept in incorporating the latest research in transformer architectures, RLHF, chain-of-thought prompting, and retrieval-augmented generation (RAG). This ensures your solutions are always at the cutting edge of AI innovation.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+  ];
+  const benefitHeaderData={
+    tagText:"Benefits",
+    headingText:"Tailor-Made LLMs",
+    para1Text:"For startups like you, the best foot forward is to customise existing LLMs according to your unique business needs. We collaborate deeply with your team throughout the entire development lifecycle, ensuring your LLM is deeply integrated, optimised, adaptable, and cutting-edge.",
+    heading2Text:"Key Features & Benefits"
+  }
+  const challengesHeaderData={
+    tagText:"Challenges",
+    headingText:"The Challenge of Generic LLMs",
+    para1Text:"Are you pushing the boundaries of what's possible with AI, but pre-trained models are holding you back?",
+    para2Text:"You're not alone. Many startups are facing the limitations of generic LLMs:",
+  }
+
+  const challengeData = [
+    {
+      icon: Icon,
+      heading: "Domain-Specific Challenges",
+      description:
+        "Generic models often struggle with industry-specific jargon, terminology, and nuanced context, leading to inaccurate or irrelevant outputs. This can severely impact the user experience and hinder the effectiveness of your AI applications.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+    {
+      icon: Icon,
+      heading: "Performance Bottlenecks",
+      description:
+        "Large pre-trained models can be computationally expensive and slow, making them impractical for real-time applications or deployment on resource-constrained environments. This can lead to delays, increased costs, and frustrated users.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+    {
+      icon: Icon,
+      heading: "Data Scarcity",
+      description:
+        "Training effective LLMs typically requires vast amounts of high-quality, labeled data, which can be costly and time-consuming to acquire. This can significantly slow down your development process and limit the potential of your AI solutions.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+    {
+      icon: Icon,
+      heading: "Bias & Fairness",
+      description:
+        "Pre-trained models can inherit biases from their training data, leading to unfair or discriminatory outputs. This can have serious ethical and legal implications for your business.",
+      linkText: "Learn More",
+      linkWithIcon: true,
+    },
+  ];
   return (
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
+          <HeroSection/>
+          <LogosCarousel/>
+          <CommonDisplayCardsGrid cardsData={challengeData} headerData={challengesHeaderData} includeButton={true} buttonText="Schedule A Discussion" cardsCaption="Centrox AI understands these pain points. We have the expertise to build custom LLMs that overcome these limitations and deliver exceptional results for your specific needs."/>
+          <CommonDisplayCardsGrid cardsData={benefitsData} headerData={benefitHeaderData} includeButton={true} buttonText="Book Free Technical Consultation"/>
+          <LandingCaseStudySection/>
+     
           {data.length>0? data.map((val, index) => {
             
             switch (val[0]) {
               case "logoCarousal":
-                return val[1]?.includeSection && (<LogosCarousel data={val[1]?.content} />);
+                return false && (<LogosCarousel data={val[1]?.content} />);
               case "heroSection":
-                return  val[1]?.includeSection && (
+                return  false && (
                   <HeroSection
                     heading={val[1]?.heading}
                     includeDots={val[1]?.includeDots}
@@ -97,7 +191,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />) 
                 
               case "benefitsSection":
-                return val[1]?.includeSection && (
+                return false && (
                   <BenefitsSection
                     mainDescription={val[1]?.description}
                     mainHeading={val[1]?.heading}
@@ -105,26 +199,26 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 );
               case "customCarousal":
-                return val[1]?.includeSection &&  (
+                return false &&  (
                   <CustomCarousalSection
                     data={val[1]?.data}
                     heading={val[1]?.heading}
                   />
                 );
               case "whyUsSection":
-                return val[1]?.includeSection && ( <PointsandImagesSection data={val[1]} />);
+                return true && ( <PointsandImagesSection data={val[1]} />);
 
               case "verticalCarouselSection":
-                return val[1]?.includeSection && (<OppositeCarousal data={val[1]} />);
+                return false && (<OppositeCarousal data={val[1]} />);
               case "hoverAnimationSection":
-                return val[1]?.includeSection && (
+                return false && (
                   <HoveredTextSection
                     heading={val[1]?.heading}
                     data={val[1]?.data}
                   />
                 );
               case "stepperSection":
-                return val[1]?.includeSection && (
+                return true && (
                   <StepperSection
                     heading={val[1]?.heading}
                     reverse={val[1]?.isReverse}
@@ -135,7 +229,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 );
               case "caseStudiesSection":
-                return val[1]?.includeSection && (
+                return false && (
                   <CaseStudiesCarousalSection
                     heading={val[1]?.heading}
                     description={val[1]?.description}
@@ -143,9 +237,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 );
               case "customerTestimonialSection":
-                return val[1]?.includeSection && (<CustomerTestimonials data={val[1]?.testimonials} />);
+                return false && (<CustomerTestimonials data={val[1]?.testimonials} />);
               case "productsSection":
-                return val[1].includeSection && (
+                return false && (
                   <ProductsCarousalSection
                     heading={val[1]?.heading}
                     data={val[1]?.products}
@@ -153,7 +247,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 );
 
               case "techStackSection":
-                return  val[1]?.includeSection && (
+                return  false && (
                   <LogosSection
                     heading={val[1]?.heading}
                     description={val[1]?.description}
@@ -161,11 +255,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 );
               case "faqsSection":
-                return val[1]?.includeSection && (
+                return true && (
                   <FaqsSection heading={val[1]?.heading} data={val[1]?.data} />
                 );
               case "bannerSection":
-                return  val[1]?.includeSection &&(
+                return  false &&(
                   <BannerSection
                     heading={val[1]?.heading}
                     btnText={val[1]?.btnText}
@@ -173,7 +267,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   />
                 );
               case "contactUsSection":
-                return  val[1]?.includeSection &&(
+                return  false &&(
                   <ContactForm
                     heading={val[1]?.heading}
                     description={val[1]?.description}
