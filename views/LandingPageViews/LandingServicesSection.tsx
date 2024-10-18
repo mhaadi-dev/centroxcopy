@@ -33,6 +33,7 @@ const LandingServicesSection = () => {
            heading:"Annotation & Labeling",
            description:"We leverage cutting-edge AI-powered annotation tools to efficiently process and label your data. But we don’t stop there, Our team of annotators then meticulously cross-verifies and refines the AI-generated annotations, ensuring the highest level of accuracy, consistency, and alignment with your specific use case.",
            linkText:"Learn More",
+           link:"data-annotations-&-labelling",
            linkWithIcon:true
         },
         {
@@ -40,6 +41,7 @@ const LandingServicesSection = () => {
           heading:"Data Validation & Quality Assurance",
           description:"We implement rigorous quality assurance processes to validate your data, identify and address any inconsistencies, and ensure your LLM is trained on the most reliable information.",
           linkText:"Learn More",
+          link:"validate-data",
           linkWithIcon:true
         }
 
@@ -56,6 +58,7 @@ const LandingServicesSection = () => {
            heading:"Custom LLM Development",
            description:"We'll collaborate closely with your team to design and develop a custom LLM architecture optimized for your specific domain and use case. We'll leverage advanced techniques such as transfer learning, fine-tuning, and reinforcement learning to ensure your model achieves state-of-the-art performance.",
            linkText:"Learn More",
+           link:"/custom-llm-dev",
            linkWithIcon:true
         },
         {
@@ -63,6 +66,7 @@ const LandingServicesSection = () => {
           heading:"Custom Chatbot Development",
           description:"We'll build intelligent conversational AI solutions that seamlessly integrate into your existing product and provide natural language understanding, engaging interactions, and actionable insights. We'll ensure your chatbot aligns with your brand voice and delivers a superior user experience.",
           linkText:"Learn More",
+          link:"/custom-chatbot-dev",
           linkWithIcon:true
         },
         {
@@ -70,6 +74,7 @@ const LandingServicesSection = () => {
           heading:"Fine-Tuning & Optimization",
           description:"We'll fine-tune pre-trained LLMs on your proprietary data, enabling them to adapt to your domain-specific language and tasks. We'll employ cutting-edge optimization techniques to maximize efficiency, reduce inference latency, and minimize computational costs.",
           linkText:"Learn More",
+          link:"/ai-finetuning",
           linkWithIcon:true
         },
         {
@@ -77,6 +82,7 @@ const LandingServicesSection = () => {
           heading:"Agentic AI",
           description:"Partner with Centrox AI to develop intelligent AI agents and workflows that automate tasks, make decisions, and drive business growth. With our expertise in Agentic AI workflows, we can help you with developing custom solutions tailored to your specific needs.",
           linkText:"Learn More",
+          link:"/ai-agents",
           linkWithIcon:true
         }
 
@@ -93,6 +99,7 @@ const LandingServicesSection = () => {
            heading:"Deployment & Scaling",
            description:"We'll deploy your LLM into your production environment, handling infrastructure provisioning, scaling, and monitoring to ensure high availability and optimal performance. We'll work with you to address any security or compliance concerns.",
            linkText:"Learn More",
+           link:"ai-model-deployment",
            linkWithIcon:true
         },
         {
@@ -100,6 +107,7 @@ const LandingServicesSection = () => {
           heading:"Optimization",
           description:"We'll continuously monitor your LLM's performance and implement fine-tuning and retraining strategies to enhance accuracy, reduce bias, and ensure your LLM adapts to evolving user needs and data distributions.",
           linkText:"Learn More",
+          link:"model-optimization",
           linkWithIcon:true
         },
         {
@@ -107,6 +115,7 @@ const LandingServicesSection = () => {
           heading:"Evaluation",
           description:"We'll leverage advanced analytics and visualization tools to provide detailed metrics and insights into your LLM's performance, enabling you to track progress, identify areas for improvement and make data-driven decisions.",
           linkText:"Learn More",
+          link:"",
           linkWithIcon:true
         }
 
