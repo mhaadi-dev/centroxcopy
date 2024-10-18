@@ -7,8 +7,8 @@ import {PortableComponent} from "@/Components/common/PortableText"
 
 
 export const Stepper = ({ data }: any) => {
-  console.log("stepper data",data)
-
+  // console.log("stepper data",data)
+ 
 
 
   return (
@@ -17,12 +17,12 @@ export const Stepper = ({ data }: any) => {
         return (
           <div
             className={classNames(
-              "pl-12 -ml-12   ",
+              "pl-12 -ml-12    ",
               x.status == true ? " lg:py-1 border-2 activeStepper" : ""
             )}
             key={index}
           >
-            <li className="mb-10 lg:mb-12 mt-6 ms-8  ">
+            <li className="mb-10 lg:mb-12 mt-6 ms-6 px-3  ">
               <div
                 className={classNames(
                   "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-green-900 text-white border-none ",

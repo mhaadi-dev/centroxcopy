@@ -4,6 +4,7 @@ import { Stepper } from "@/Components/common/Stepper";
 import classNames, {
   h2ClassName,
   p2ClassName,
+  section_wrapper_class,
   text_para_2,
 
 } from "@/helpers/common";
@@ -140,7 +141,7 @@ export const StepperSection = ({
 
   useEffect(() => {
     if (stepperdata?.length >=1){
-      let updatedData = [...data];
+      let updatedData = [...stepperdata];
       let newData = updatedData?.map((x) => ({ ...x, status: false }));
       setStepperData(newData);
     }
@@ -194,9 +195,9 @@ export const StepperSection = ({
   }, [scrollPercentage]);
  
   return (
-    <section>
+    <section className={classNames(section_wrapper_class)}>
       <div
-        className="min-h-[300vh]  p-2 mt-20 lg:mt-40 2xl:mt-44 relative "
+        className="min-h-[300vh] mt-20 lg:mt-40 2xl:mt-44 relative "
         ref={topRef}
       >
         <div
@@ -214,12 +215,12 @@ export const StepperSection = ({
           <SectionHeader headingText="How We Work" tagText="Process" para1Text="Our collaborative, iterative process ensures a tailored and effective LLM solution:"/>
           <div className=" flex flex-col lg:flex-row w-full">
              <div className={classNames("  flex flex-col lg:flex-row w-full lg:w-2/5 mx-auto justify-between mt-12 gap-4 items-center ",reverse ? "lg:!flex-row-reverse" : "")}>
-            <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-full  ">
+            <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-full min-h-[90vh]  ">
               <p className={classNames(text_para_2)}>Our Process includes:</p>
               <Stepper data={stepperData} />
-              {button && (
-                <div className=" mt-12 flex justify-center lg:justify-start ">
-                  <CalendlyWidget btnText={"Let's Discuss Your Project"||button} />
+              {true && (
+                <div className=" my-8 flex justify-start lg:justify-start ">
+                  <CalendlyWidget btnText={"Let's Discuss Your Project"||button} isArrow />
                 </div>
               )}
             </div>

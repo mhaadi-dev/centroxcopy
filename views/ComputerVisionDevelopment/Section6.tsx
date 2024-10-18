@@ -6,6 +6,7 @@ import classNames, {
   p2ClassName,
   p3ClassName,
   p4ClassName,
+  section_wrapper_class,
   sectionheadings,
   sectionSectionDescription,
   text_h3_class,
@@ -92,7 +93,7 @@ export const PointsandImagesSection = ({
           }}
         />
       )}{" "}
-      <section className="w-4/5 mx-auto mt-24 lg:mt-40  ">
+      <section className={classNames(section_wrapper_class)}>
         {/* <div className="flex flex-col gap-2 lg:gap-8">
           <h2 className={h2ClassName}>{data?.heading}</h2>
 

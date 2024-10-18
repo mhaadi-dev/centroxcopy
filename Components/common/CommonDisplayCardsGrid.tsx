@@ -6,6 +6,7 @@ import classNames, {
 import Icon from "@/assets/Icon.webp";
 import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg"
+import { CalendlyWidget } from "./Calendly";
 interface Props{
    cardsData?:any
    headerData?:any
@@ -45,7 +46,7 @@ const CommonDisplayCardsGrid = ({cardsData=[],headerData,cardsCaption="",include
         ))}
       </div>
      {cardsCaption && <p className={classNames(text_para_2,"text-center my-4")}>{cardsCaption}</p>}
-{ includeButton &&  <div className="flex justify-center items-center my-6"><Button content={buttonText} Icon={Arrow} iconClassName="!-mt-1" isLefticon={false}/></div>
+{ includeButton &&  <div className="flex justify-center items-center my-6"><CalendlyWidget btnText={buttonText} isArrow/></div>
 }    </section>
   );
 };
