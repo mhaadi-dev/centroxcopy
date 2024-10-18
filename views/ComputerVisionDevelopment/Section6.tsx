@@ -35,29 +35,9 @@ export const PointsandImagesSection = ({
   gradient,
   reverse,
   bgShape,
+  arrayData
 }: any) => {
-      const arrayData =[
-        {
-          heading:"Focus on Core Innovation​​​​‌‍​‍​‍‌‍‌​‍‌‍‍‌‌‍‌‌‍‍‌‌‍‍​‍​‍​‍‍​‍​‍‌​‌‍​‌‌‍‍‌‍‍‌‌‌​‌‍‌​‍‍‌‍‍‌‌‍​‍​‍​‍​​‍​‍‌‍‍​‌​‍‌‍‌‌‌‍‌‍​‍​‍​‍‍​‍​‍​‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‍‌‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‍‌‌‌‍‌​‌‍‍‌‌‌​​‍‌‍‌‌‍‌‍‌​‌‍‌‌​‌‌​​‌​‍‌‍‌‌‌​‌‍‌‌‌‍‍‌‌​‌‍​‌‌‌​‌‍‍‌‌‍‌‍‍​‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​​​‌‍​​‌‌​​‍​‌‌​‍‌‌‍​‍​​‌​​​‍‌‌‍‌‍​‍‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‌‍​‍‌‍​‌‌​‌‍‌‌‌‌‌‌‌​‍‌‍​​‌​‍‌‌​​‍‌​‌‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​​​‌‍​​‌‌​​‍​‌‌​‍‌‌‍​‍​​‌​​​‍‌‌‍‌‍​‍‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‍​‍‌‌",
-          description:"Free up your internal resources to focus on your core product and research, while we handle the complexities of LLM engineering. This allows you to accelerate your development cycles and bring your AI innovations to market faster."
-        },
-        {
-         heading:"Achieve Superior Performance",
-         description:"Leverage fine-tuned models that outperform generic solutions, delivering higher accuracy, relevance, and efficiency. This translates to better user experiences, improved decision-making, and increased business value.​​"
-        },
-        {
-           heading:"Unlock New Capabilities",
-           description:"Build intelligent automation, generative AI tools, research assistants, and more, expanding your AI toolkit and opening up new possibilities for your product or service.​​"
-        },
-      {
-       heading:"Mitigate Risks",
-       description:"Address challenges like bias, data security, and scalability with our expertise and proven processes. We ensure your AI solutions are robust, reliable, and compliant with industry standards."
-      },
-      {
-        heading:"Gain a Competitive Edge​​​​‌‍​‍​‍‌‍‌​‍‌‍‍‌‌‍‌‌‍‍‌‌‍‍​‍​‍​‍‍​‍​‍‌​‌‍​‌‌‍‍‌‍‍‌‌‌​‌‍‌​‍‍‌‍‍‌‌‍​‍​‍​‍​​‍​‍‌‍‍​‌​‍‌‍‌‌‌‍‌‍​‍​‍​‍‍​‍​‍​‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‍‌‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‍‌‌‌‍‌​‌‍‍‌‌‌​​‍‌‍‌‌‍‌‍‌​‌‍‌‌​‌‌​​‌​‍‌‍‌‌‌​‌‍‌‌‌‍‍‌‌​‌‍​‌‌‌​‌‍‍‌‌‍‌‍‍​‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​‌‌​‌​​​‌​​‍​​‌‍​‌‍​​‍​​​‍​​​​​‌​‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‌‍​‍‌‍​‌‌​‌‍‌‌‌‌‌‌‌​‍‌‍​​‌​‍‌‌​​‍‌​‌‍‌​‌‌​‌‌‌‌‍‌​‌‍‍‌‌‍​‍‌‍‌‍‍‌‌‍‌​​‌​​‌‍​‌​​‌​​‌​​‍‌‍​‌​‌​‌‍‌‍​‍‌‌‍‌‌‌‍‌​​​​​​​​‍‌​‌​​​​​‌​‌‍​‍‌‌‍​‌‌‍​‌‍‌‍‌‍​‍​‍‌​​​‌‌‌‍‌​​‌​‌‍‌‍‌‍​‌‌‍‌‍​​‌​​‍​‌‍​‌​​​‌​‍‌‍‌‌​‌‍‌‌​​‌‍‌‌​‌‌​‌‍‌‌‌​‍‌‌‍‌‍‍‌‌‍​‌‍‌‌‌​‌‌​​‌‍​‌‌‍‌‌‍‌‌‌​​‍‌‍‌​​‌‍​‌‌‌​‌‍‍​​‌‌‌‌‍‍​‌‍‌‌‌‌‌‌​‌‌​‌‍‌‌‌‍​‌‌​‌‍‍‌‌‍‌‍‍​‍‍‌‍​‌‍‌‍‍‌‌​‌‍‌‌‌‍‍‌‌​​‍‌‌​‌‌‌​​‍‌‌‌‍‍‌‍‌‌‌‍‌​‍‌‌​​‌​‌​​‍‌‌​​‌​‌​​‍‌‌​​‍​​‍​‌‌​‌​​​‌​​‍​​‌‍​‌‍​​‍​​​‍​​​​​‌​‌​‍‌‌​​‍​​‍​‍‌‌​‌‌‌​‌​​‍‍‌‍‍​‌‍‌‌‌‍​‌‌‍‌​‌‍‍‌‌‍‍‌‍‌​‍​‍‌‌",
-        description:"Leverage the power of custom LLMs to differentiate your product, provide unique value to your customers, and stay ahead of the competition in the rapidly evolving AI landscape."
-      }
-      ]
+     
   return (
     <div
       className="relative overflow-hidden mt-8 pb-12 "
@@ -101,8 +81,9 @@ export const PointsandImagesSection = ({
             {data?.description}
           </h4>
         </div> */}
-            <SectionHeader headingText="What You Gain" tagText="advantages" para1Text="Partnering with Centrox AI for custom LLM development empowers your team to:"/>
-
+       
+            <SectionHeader headingText={heading} tagText="advantages" para1Text={description}/>
+         
         <div
           className={classNames(
             "flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mt-6 lg:mt-12 ",

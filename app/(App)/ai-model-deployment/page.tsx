@@ -41,7 +41,7 @@ import gptneox from "@/assets/GPT-NeoX.webp"
 
 import pytorch from "@/assets/pytorchlogo.webp"
 import huggingface from "@/assets/huggingfacelogo.webp"
-import deepseed from "@/assets/deepseed.webp"
+import tensorflow from "@/assets/tensorflow.webp"
 
 import aws from "@/assets/awslogo.webp"
 import azure from "@/assets/azure-plainlogo.webp"
@@ -71,44 +71,44 @@ import kubeflow from "@/assets/kubeflowlogo.webp"
 // const LogosSection = dynamic(() => import('@/sections/LogosSection'));
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  console.log("slug is", slug);
-  let landingPageData;
-  let data;
-  try {
-    landingPageData = await sanityFetch({
-      query: SERVICES_PAGE_QUERY,
-      params: { slug },
-    });
+//   const { slug } = params;
+//   console.log("slug is", slug);
+//   let landingPageData;
+//   let data;
+//   try {
+//     landingPageData = await sanityFetch({
+//       query: SERVICES_PAGE_QUERY,
+//       params: { slug },
+//     });
 
-    if (
-      landingPageData &&
-      Array.isArray(landingPageData) &&
-      landingPageData.length > 0
-    ) {
-      let obj = landingPageData[0];
+//     if (
+//       landingPageData &&
+//       Array.isArray(landingPageData) &&
+//       landingPageData.length > 0
+//     ) {
+//       let obj = landingPageData[0];
 
-      if (obj) {
-        const entries = Object.entries(obj);
+//       if (obj) {
+//         const entries = Object.entries(obj);
 
-        const sortedEntries = entries.sort((a, b) => {
-          const orderA = a[1]?.order ?? Number.MAX_VALUE;
-          const orderB = b[1]?.order ?? Number.MAX_VALUE;
-          return orderA - orderB;
-        });
+//         const sortedEntries = entries.sort((a, b) => {
+//           const orderA = a[1]?.order ?? Number.MAX_VALUE;
+//           const orderB = b[1]?.order ?? Number.MAX_VALUE;
+//           return orderA - orderB;
+//         });
 
-        data = sortedEntries;
-        console.log("new data is", data[0][1]);
-      } else {
-        console.log("No valid data found in landingPageData");
-      }
-    } else {
-      console.log("No data received or data is not an array");
-    }
-  } catch (error) {
-    console.error("Error fetching or processing landing page data:", error);
-  }
-  console.log("data is",data,)
+//         data = sortedEntries;
+//         console.log("new data is", data[0][1]);
+//       } else {
+//         console.log("No valid data found in landingPageData");
+//       }
+//     } else {
+//       console.log("No data received or data is not an array");
+//     }
+//   } catch (error) {
+//     console.error("Error fetching or processing landing page data:", error);
+//   }
+//   console.log("data is",data,)
 
 
   const benefitsData = [
@@ -224,7 +224,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       content: [
         {
           alt: "icon",
-          caption: "Liama 2",
+          caption: "Liama",
           img: liama,
         },
         {
@@ -234,7 +234,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           alt: "icon",
-          caption: "GPT-NeoX",
+          caption: "Qwen",
           img: gptneox,
         },
       ],
@@ -254,8 +254,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           alt: "Icon",
-          caption: "DeepSpeed",
-          img: deepseed,
+          caption: "Tensorflow",
+          img: tensorflow,
         },
       ],
     },
@@ -295,6 +295,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
   ];
+
+ 
   return (
     <div>
       <LandingLayout>
@@ -306,112 +308,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <StepperSection/>
           <LogosSection data={techStackData}/>
           <PointsandImagesSection data={[]} />
-          <LandingCaseStudySection/>
+          {/* <LandingCaseStudySection/> */}
           <FaqsSection addTag={true} heading="We're Often Asked" subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns" data={questions} />
-     
-          {/* {data?.length>0? data.map((val, index) => {
-            
-            switch (val[0]) {
-              case "logoCarousal":
-                return false && (<LogosCarousel data={val[1]?.content} />);
-              case "heroSection":
-                return  false && (
-                  <HeroSection
-                    heading={val[1]?.heading}
-                    includeDots={val[1]?.includeDots}
-                    description={val[1]?.description}
-                    btnText={val[1]?.btnText}
-                    reverse={val[1]?.reverse}
-                    img={val[1]?.img}
-                  />) 
-                
-              case "benefitsSection":
-                return false && (
-                  <BenefitsSection
-                    mainDescription={val[1]?.description}
-                    mainHeading={val[1]?.heading}
-                    data={val[1]?.data}
-                  />
-                );
-              case "customCarousal":
-                return false &&  (
-                  <CustomCarousalSection
-                    data={val[1]?.data}
-                    heading={val[1]?.heading}
-                  />
-                );
-              case "whyUsSection":
-                return false && ( <PointsandImagesSection data={val[1]} />);
-
-              case "verticalCarouselSection":
-                return false && (<OppositeCarousal data={val[1]} />);
-              case "hoverAnimationSection":
-                return false && (
-                  <HoveredTextSection
-                    heading={val[1]?.heading}
-                    data={val[1]?.data}
-                  />
-                );
-              case "stepperSection":
-                return false && (
-                  <StepperSection
-                    heading={val[1]?.heading}
-                    reverse={val[1]?.isReverse}
-                    description={val[1]?.description}
-                    data={val[1]?.data}
-                    img={val[1]?.image}
-                    button={val[1]?.btnText}
-                  />
-                );
-              case "caseStudiesSection":
-                return false && (
-                  <CaseStudiesCarousalSection
-                    heading={val[1]?.heading}
-                    description={val[1]?.description}
-                    data={val[1]?.data}
-                  />
-                );
-              case "customerTestimonialSection":
-                return false && (<CustomerTestimonials data={val[1]?.testimonials} />);
-              case "productsSection":
-                return false && (
-                  <ProductsCarousalSection
-                    heading={val[1]?.heading}
-                    data={val[1]?.products}
-                  />
-                );
-
-              case "techStackSection":
-                return  true && (
-                  <LogosSection
-                    heading={"HELOOOOO"||val[1]?.heading}
-                    description={val[1]?.description}
-                    data={val[1]?.data}
-                  />
-                );
-              case "faqsSection":
-                return false && (
-                  <FaqsSection heading={val[1]?.heading} data={questions} />
-                );
-              case "bannerSection":
-                return  false &&(
-                  <BannerSection
-                    heading={val[1]?.heading}
-                    btnText={val[1]?.btnText}
-                    bgImage={val[1]?.bgImage}
-                  />
-                );
-              case "contactUsSection":
-                return  false &&(
-                  <ContactForm
-                    heading={val[1]?.heading}
-                    description={val[1]?.description}
-                    disclaimer={val[1]?.disclaimer}
-                    img={val[1]?.img}
-                  />
-                );
-            }
-          }):""} */}
         </main>
       </LandingLayout>
     </div>

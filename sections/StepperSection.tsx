@@ -227,10 +227,9 @@ export const StepperSection = ({
           </div>
            <div className=" flex mx-auto  w-full lg:w-2/5">
               <figure
-              className="w-full lg:w-5/5    shadow-sm rounded-lg "
+              className="w-full lg:w-5/5  shadow-sm rounded-lg "
               style={{
-                background: "#0A0A0A",
-                backdropFilter: "blur(2.213500738143921px)",
+             
               }}
             >
               {true && (
@@ -239,8 +238,6 @@ export const StepperSection = ({
                   alt="journey-img"
                   className="w-full lg:w-4/5  "
                   loading="lazy"
-                
-                  
                 />
               )}
             </figure>

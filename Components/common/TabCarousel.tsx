@@ -319,6 +319,7 @@ export const TabCarousel = ({
                                         heading={card.heading}
                                         description={card.description}
                                         linkText="Learn More"
+                                        link={card?.link}
                                         linkWithIcon={true}
                                       />
                                     );

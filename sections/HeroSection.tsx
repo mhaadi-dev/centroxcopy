@@ -10,6 +10,7 @@ import classNames, {
 
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.webp"
+import servicebg from "@/assets/Servicebg.webp"
 
 interface PropsI {
   heading: string;
@@ -26,13 +27,13 @@ export const HeroSection = (props: PropsI) => {
     <div className="w-full pb-10 relative">
     <section
       className={classNames(
-        "flex mt-24 lg:mt-40 w-4/5 mx-auto  flex-col lg:flex-row gap-12 justify-between items-center ",
+        "flex pt-32 lg:pt-40 w-full lg:w-4/5 mx-auto pl-4 lg:pl-10   flex-col lg:flex-row gap-12 justify-between items-center",
         props.reverse ? "lg:!flex-row-reverse" : ""
       )}
     >
-      {props?.includeDots && (
+      {true && (
         <Image
-          src={bgImg}
+          src={servicebg}
           className="w-full h-full object-cover absolute top-4 left-0"
           alt="bg-img"
         />
@@ -44,7 +45,7 @@ export const HeroSection = (props: PropsI) => {
             "!text-left lg:!mx-0  lg:!w-full "
           )}
         >
-          {<><span className="bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text text-transparent">Engineering Custom LLMs</span> <span>from Ideation to Implementation</span> </> ||props?.heading}
+          {<><span className="bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text text-transparent">{props?.heading?.split(" ")?.slice(0,3)?.join(" ")}</span> <span>{props?.heading?.split(" ")?.slice(3)?.join(" ")}</span> </> ||props?.heading}
         </h1>
         <p
           className={classNames(
@@ -52,25 +53,27 @@ export const HeroSection = (props: PropsI) => {
             "lg:!text-left lg:!mx-0 lg:!w-4/5"
           )}
         >
-          {"Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives." ||props?.description}
+          {props?.description||"Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives." }
         </p>
         {props?.btnText && (
           <div className="flex  justify-start">
-            <CalendlyWidget btnText={"Book FREE strategy call"||props.btnText} isArrow={true} />
+            <CalendlyWidget btnText={props.btnText || "Book FREE strategy call"} isArrow={true} />
           </div>
         )}
       </div>
-      <figure className="w-full -mt-[1.5rem]  lg:w-1/2 flex justify-center relative  pt-[100%] lg:pt-[50%]  rounded-2xl ">
+      <div className="w-full lg:w-1/2">
         {true && (
           <Image
             src={serviceHeroImg || props?.img}
             alt="hero-img"
             objectFit="fill"
-            className="w-full h-full top-0 left-0 roudned-2xl  "
-            fill
+            className="w-full lg:w-5/6 roudned-2xl  "
+          
           />
         )}
-      </figure>
+    
+      </div>
+     
     </section>
     </div>
   );
