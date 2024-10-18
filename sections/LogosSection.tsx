@@ -16,7 +16,7 @@ export const LogosSection = ({heading,description,data}:any) => {
         {description}
       </p> */}
       <SectionHeader tagText="Tech Stack" headingText="Our Tech Stack" para1Text="We leverage a powerful and flexible tech stack to build high-performing chatbots:"/>
-      <div className="grid grid-cols-1 w-full lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 w-full lg:grid-cols-2 gap-8 mt-8">
         {data?.map((x:any, index:any) => {
           return (
             <div

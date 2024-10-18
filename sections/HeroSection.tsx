@@ -60,7 +60,7 @@ export const HeroSection = (props: PropsI) => {
           </div>
         )}
       </div>
-      <figure className="w-full  lg:w-1/2 flex justify-center relative  pt-[100%] lg:pt-[50%]  rounded-2xl ">
+      <figure className="w-full -mt-[1.5rem]  lg:w-1/2 flex justify-center relative  pt-[100%] lg:pt-[50%]  rounded-2xl ">
         {true && (
           <Image
             src={serviceHeroImg || props?.img}
