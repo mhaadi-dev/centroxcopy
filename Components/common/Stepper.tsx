@@ -7,18 +7,22 @@ import {PortableComponent} from "@/Components/common/PortableText"
 
 
 export const Stepper = ({ data }: any) => {
+  // console.log("stepper data",data)
+ 
+
+
   return (
     <ol className="relative text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400  w-full lg:w-3/4">
       {data?.map((x:any, index:number) => {
         return (
           <div
             className={classNames(
-              "pl-12 -ml-12   ",
+              "pl-12 -ml-12    ",
               x.status == true ? " lg:py-1 border-2 activeStepper" : ""
             )}
             key={index}
           >
-            <li className="mb-10 lg:mb-12 mt-6 ms-8  ">
+            <li className="mb-10 lg:mb-12 mt-6 ms-6 px-3  ">
               <div
                 className={classNames(
                   "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-green-900 text-white border-none ",
@@ -26,13 +30,13 @@ export const Stepper = ({ data }: any) => {
                 )}
               >
                 {x.status ? (
-                  <CheckIcon className="text-white" />
+                  <CheckIcon className="text-white p-1" />
                 ) : (
                   <span> {index + 1} </span>
                 )}
               </div>
               {/* <div className="w-4 h-4 bg-red-200 rounded-full">123</div> */}
-              <h3 className={classNames(h4ClassName,"lg:!text-left")}>
+              <h3 className={classNames(h4ClassName,"!text-left")}>
                 {x.title}
               </h3>
               {(x.content && x.status) ? <PortableText value={x.content} components={PortableComponent} /> : null}

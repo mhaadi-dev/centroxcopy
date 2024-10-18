@@ -1,4 +1,6 @@
+import SectionHeader from "@/Components/common/SectionHeader";
 import classNames, {
+  section_wrapper_class,
     sectionheadings,
   sectionsubheadings,
 } from "@/helpers/common";
@@ -8,12 +10,13 @@ import Image from "next/image";
 
 export const LogosSection = ({heading,description,data}:any) => {
   return (
-    <section className="w-4/5 mx-auto  mt-24 lg:mt-40 flex flex-col gap-12">
-      <h2 className={sectionheadings}>   {heading}</h2>
+    <section className={classNames(section_wrapper_class)}>
+      {/* <h2 className={sectionheadings}>   {heading}</h2>
       <p className={sectionsubheadings}>
         {description}
-      </p>
-      <div className="grid grid-cols-2 gap-8">
+      </p> */}
+      <SectionHeader tagText="Tech Stack" headingText="Our Tech Stack" para1Text="We leverage a powerful and flexible tech stack to build high-performing chatbots:"/>
+      <div className="grid grid-cols-1 w-full lg:grid-cols-2 gap-8 mt-8">
         {data?.map((x:any, index:any) => {
           return (
             <div
@@ -24,11 +27,11 @@ export const LogosSection = ({heading,description,data}:any) => {
               }}
               key={index}
               className={classNames(
-                " p-6  rounded-xl w-full flex flex-col gap-6",
+                " p-4 lg:p-6  rounded-xl w-full flex flex-col gap-6",
                 (index === data.length - 1 && index%2 == 0) ? "!col-span-2" : ""
               )}
             >
-              <div className="flex justify-center  items-center">
+              <div className="flex h-[6rem] lg:h-auto overflow-hidden justify-center  items-center">
                 {x?.content?.map((el:any, idx:any) => {
                   return (
                     <div
@@ -38,7 +41,7 @@ export const LogosSection = ({heading,description,data}:any) => {
                     >
                       <div
                         className={classNames(
-                          "flex w-full flex-col gap-2 items-center justify-center  py-4",
+                          "flex w-full flex-col gap-2 items-center justify-center   py-4",
                           idx !== x.content.length - 1 ? "border-r-2 " : ""
                         )}
                       >
@@ -53,7 +56,7 @@ export const LogosSection = ({heading,description,data}:any) => {
                 }
                         </figure>
 
-                        <h5 className="text-white font-semibold text-xs text-center">
+                        <h5 className="text-white font-semibold text-[0.6rem] lg:text-xs text-center">
                           {el.caption}
                         </h5>
                       </div>

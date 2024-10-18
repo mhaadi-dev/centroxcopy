@@ -11,6 +11,8 @@ interface CardProps {
   description?: string;
   linkText?: string;
   linkWithIcon?: boolean;
+  className?:string
+  isGradientBg?:boolean
 }
 
 const CommonCardwithIcon = ({
@@ -19,6 +21,8 @@ const CommonCardwithIcon = ({
   description,
   linkText,
   linkWithIcon,
+  className="",
+  isGradientBg = false,
 }: CardProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -26,12 +30,12 @@ const CommonCardwithIcon = ({
     <div className=" mx-auto flex flex-col cursor-default ">
       <div
         aria-label="centrox-services"
-        className="bg-gray-900 relative px-8 py-8 rounded-xl flex flex-col gap-y-4 transition-all ease-in duration-200 h-[auto] 2xl:h-[26rem]"
+        className={classNames("bg-gray-900 relative px-8 py-8 rounded-xl flex flex-col gap-y-4 transition-all ease-in duration-200 h-[auto] 2xl:h-[26rem]",className)}
         style={{
-          background: isHovering
+          background: isHovering || isGradientBg
             ? "radial-gradient(39.43% 34.74% at -0.94% 0%, rgba(7, 157, 252, 0.18) 0%, rgba(4, 93, 150, 0.06) 100%), #060606"
             : "",
-          border: isHovering
+          border: isHovering ||isGradientBg
             ? "1px solid rgba(6, 119, 230, 0.8)"
             : "1px solid transparent",
           boxSizing: "border-box",
