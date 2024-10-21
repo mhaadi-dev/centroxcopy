@@ -50,10 +50,10 @@ const CommonCardwithIcon = ({
           <p className={classNames(text_h4_class)}>{heading}</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
-        <div className="flex items-center gap-2 hover:text-blue-azure ">
-          <Link href={link}>{linkText}</Link>
+       {linkText &&  <div className="flex items-center gap-2 text-gray-light hover:text-blue-azure ">
+          <Link href={link || ""}>{linkText}</Link>
           {linkWithIcon && <Image src={Arrow} alt="arrow" />}
-        </div>
+        </div>}
       </div>
     </div>
   );
