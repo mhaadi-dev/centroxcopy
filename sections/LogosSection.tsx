@@ -15,7 +15,7 @@ export const LogosSection = ({heading,description,data}:any) => {
       <p className={sectionsubheadings}>
         {description}
       </p> */}
-      <SectionHeader tagText="Tech Stack" headingText="Our Tech Stack" para1Text="We leverage a powerful and flexible tech stack to build high-performing chatbots:"/>
+      <SectionHeader tagText="Tech Stack" headingText={heading} para1Text={description}/>
       <div className="grid grid-cols-1 w-full lg:grid-cols-2 gap-8 mt-8">
         {data?.map((x:any, index:any) => {
           return (
@@ -28,10 +28,10 @@ export const LogosSection = ({heading,description,data}:any) => {
               key={index}
               className={classNames(
                 " p-4 lg:p-6  rounded-xl w-full flex flex-col gap-6",
-                (index === data.length - 1 && index%2 == 0) ? "!col-span-2" : ""
+                (index === data.length - 1 && index%2 == 0) ? "lg:!col-span-2" : ""
               )}
             >
-              <div className="flex h-[6rem] lg:h-auto overflow-hidden justify-center  items-center">
+              <div className="flex h-[6.5rem] lg:h-auto w-full lg:w-4/5 mx-auto overflow-hidden   justify-center  items-center">
                 {x?.content?.map((el:any, idx:any) => {
                   return (
                     <div
@@ -56,7 +56,7 @@ export const LogosSection = ({heading,description,data}:any) => {
                 }
                         </figure>
 
-                        <h5 className="text-white font-semibold text-[0.6rem] lg:text-xs text-center">
+                        <h5 className="text-white font-semibold  text-[0.55rem] lg:text-xs text-center">
                           {el.caption}
                         </h5>
                       </div>

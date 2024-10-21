@@ -27,7 +27,7 @@ export const HeroSection = (props: PropsI) => {
     <div className="w-full pb-10 relative">
     <section
       className={classNames(
-        "flex pt-32 lg:pt-40 w-full lg:w-4/5 mx-auto pl-4 lg:pl-10   flex-col lg:flex-row gap-12 justify-between items-center",
+        "flex pt-32 lg:pt-40 w-full lg:w-4/5 mx-auto pl-4 lg:pl-10   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
         props.reverse ? "lg:!flex-row-reverse" : ""
       )}
     >
@@ -50,10 +50,10 @@ export const HeroSection = (props: PropsI) => {
         <p
           className={classNames(
             text_para_2,
-            "lg:!text-left lg:!mx-0 lg:!w-4/5"
+            "lg:!text-left px-2 lg:!mx-0 lg:!w-4/5"
           )}
         >
-          {props?.description||"Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives." }
+          {props?.description||"" }
         </p>
         {props?.btnText && (
           <div className="flex  justify-start">
@@ -67,7 +67,7 @@ export const HeroSection = (props: PropsI) => {
             src={serviceHeroImg || props?.img}
             alt="hero-img"
             objectFit="fill"
-            className="w-full lg:w-5/6 roudned-2xl  "
+            className="w-full lg:w-5/7 roudned-2xl  "
           
           />
         )}

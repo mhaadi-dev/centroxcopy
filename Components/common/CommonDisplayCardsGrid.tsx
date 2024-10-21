@@ -8,33 +8,30 @@ import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg"
 import { CalendlyWidget } from "./Calendly";
 interface Props{
-   cardsData?:any
-   headerData?:any
-   includeButton?:boolean
-   cardsCaption?:string
-   buttonText?:string
+  data:any
 }
-const CommonDisplayCardsGrid = ({cardsData=[],headerData,cardsCaption="",includeButton=false,buttonText=""}:Props) => {
-  
-
+const CommonDisplayCardsGrid = ({data}:Props) => {
+if(!data){
+  return null
+}
   return (
     <section
       id="challenges"
       className={classNames(section_wrapper_class, "mx-auto")}
     >
       <SectionHeader
-        tagText={headerData?.tagText}
-        headingText={headerData?.headingText}
-        para1Text={headerData?.para1Text}
-        para2Text={headerData?.para2Text}
-        heading2Text={headerData?.heading2Text}
+        tagText={data?.[0]?.headerData?.tagText}
+        headingText={data?.[0]?.headerData?.headingText}
+        para1Text={data?.[0]?.headerData?.para1Text}
+        para2Text={data?.[0]?.headerData?.para2Text}
+        heading2Text={data?.[0]?.headerData?.heading2Text}
       />
       
      
       <div
-        className="grid my-6 grid-cols-1 lg:grid-cols-2 gap-8 w-full "
+        className="grid my-8 grid-cols-1 lg:grid-cols-2 gap-8 w-full "
       >
-        {cardsData.map((card:any, index:number) => (
+        {data?.[0]?.data?.length>0? data?.[0].data?.map((card:any, index:number) => (
           <CommonCardwithIcon
             key={index}
             isGradientBg={true}
@@ -42,11 +39,12 @@ const CommonDisplayCardsGrid = ({cardsData=[],headerData,cardsCaption="",include
             heading={card?.heading}
             description={card?.description}
             className="h-auto lg:!h-[20rem] !rounded-3xl w-full"
+            linkText={card?.linkText}
           />
-        ))}
+        )): "" }
       </div>
-     {cardsCaption && <p className={classNames(text_para_2,"text-center my-4")}>{cardsCaption}</p>}
-{ includeButton &&  <div className="flex justify-center items-center my-6"><CalendlyWidget btnText={buttonText} isArrow/></div>
+     {data?.[0]?.caption && <p className={classNames(text_para_2,"text-center my-4")}>{data?.[0]?.caption}</p>}
+{ data?.[0]?.btnText &&  <div className="flex justify-center items-center my-6"><CalendlyWidget btnText={data?.[0]?.btnText} isArrow/></div>
 }    </section>
   );
 };
