@@ -568,7 +568,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
-            subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
+            subHeading=""
             data={questions}
           />
         </main>

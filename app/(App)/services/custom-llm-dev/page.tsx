@@ -49,21 +49,8 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingLayout from "../../layoutPage";
+import qwen from "@/assets/qwen.webp"
 
-// const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
-// const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
-// const BannerSection = dynamic(() => import('@/sections/TestimonialSection'));
-// const HoveredTextSection = dynamic(() => import('@/sections/HoveredTextSection'));
-// const LogosCarousel = dynamic(() => import('@/views/LogosCarousel'));
-// const CustomCarousalSection = dynamic(() => import('@/sections/CustomCarousalSection'));
-// const BenefitsSection = dynamic(() => import('@/sections/BenefitsSection'));
-// const OppositeCarousal = dynamic(() => import('@/sections/OppositeCarousal'));
-// const StepperSection = dynamic(() => import('@/sections/StepperSection'));
-// const PointsandImagesSection = dynamic(() => import('@/views/ComputerVisionDevelopment/Section6'));
-// const CustomerTestimonials = dynamic(() => import('@/sections/CustomersTestimonial'));
-// const ProductsCarousalSection = dynamic(() => import('@/sections/ProducstsCarousal'));
-// const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
-// const LogosSection = dynamic(() => import('@/sections/LogosSection'));
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
@@ -81,7 +68,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Deeply Integrated",
           description:
             "We meticulously analyze your codebase, data pipelines, and research objectives to create LLMs that seamlessly fit into your existing workflows and infrastructure. This ensures smooth integration and minimizes disruptions.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -89,7 +76,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Optimized for Performance",
           description:
             "We employ advanced techniques like quantization, distillation, and parallelization to ensure maximum efficiency on your hardware, even with large-scale models. This results in faster inference times, reduced costs, and improved user experience.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -97,7 +84,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Adaptable & Scalable",
           description:
             "Your AI needs evolve, and so should your models. We build LLMs that can learn and grow alongside your projects, effortlessly integrating with your existing systems and scaling to handle increasing demands",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -105,7 +92,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Cutting-Edge",
           description:
             "We're on the top of latest advancements in LLM which has made us adept in incorporating the latest research in transformer architectures, RLHF, chain-of-thought prompting, and retrieval-augmented generation (RAG). This ensures your solutions are always at the cutting edge of AI innovation.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
       ],
@@ -130,7 +117,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Domain-Speum-pagecific Challenges",
           description:
             "Generic models often struggle with industry-specific jargon, terminology, and nuanced context, leading to inaccurate or irrelevant outputs. This can severely impact the user experience and hinder the effectiveness of your AI applications.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -138,7 +125,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Performance Bottlenecks",
           description:
             "Large pre-trained models can be computationally expensive and slow, making them impractical for real-time applications or deployment on resource-constrained environments. This can lead to delays, increased costs, and frustrated users.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -146,7 +133,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Data Scarcity",
           description:
             "Training effective LLMs typically requires vast amounts of high-quality, labeled data, which can be costly and time-consuming to acquire. This can significantly slow down your development process and limit the potential of your AI solutions.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -154,7 +141,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Bias & Fairness",
           description:
             "Pre-trained models can inherit biases from their training data, leading to unfair or discriminatory outputs. This can have serious ethical and legal implications for your business.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
       ],
@@ -166,30 +153,36 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const questions = [
     {
       question: "What kind of data do you need to train a custom LLM?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "We typically require a variety of proprietary data from your business, including FAQs, product documentation, and customer interaction logs.",
     },
     {
       question: "How long does it take to develop a custom LLM?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "The development timeline depends on the complexity of the project and data availability, usually ranging from 6 to 12 weeks.",
     },
     {
       question: "What is the cost of custom LLM development?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "Costs vary based on project requirements, including data processing, model fine-tuning, and integration needs.",
     },
     {
-      question:
-        "How do you ensure data security and privacy during the development process?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "How do you ensure data security and privacy?",
+      answer:
+        "We follow strict data security protocols, including encryption, secure storage, and access control, to safeguard your data.",
     },
     {
-      question: "What level of involvement will my team have in the project?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "What level of involvement will my team have?",
+      answer:
+        "We work collaboratively with your team throughout the project, ensuring alignment and allowing for iterative feedback.",
     },
     {
-      question: "Can you help us with ongoing model maintenance and updates?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "Can you help with ongoing maintenance and updates?",
+      answer:
+        "Yes, we offer post-launch support, including model monitoring, updates, and retraining as needed to maintain high performance.",
     },
   ];
+
   const techStackData = [
     {
       title: "Foundation Models",
@@ -207,7 +200,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "icon",
           caption: "Qwen",
-          img: gptneox,
+          img: qwen,
         },
       ],
     },

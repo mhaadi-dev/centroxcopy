@@ -1,14 +1,16 @@
+import { CalendlyWidget } from "@/Components/common/Calendly";
 import SectionHeader from "@/Components/common/SectionHeader";
 import classNames, {
   section_wrapper_class,
     sectionheadings,
   sectionsubheadings,
+  text_para_2,
 } from "@/helpers/common";
 
 
 import Image from "next/image";
 
-export const LogosSection = ({heading,description,data}:any) => {
+export const LogosSection = ({heading,description,data,btnText="",caption=""}:any) => {
   return (
     <section className={classNames(section_wrapper_class)}>
       {/* <h2 className={sectionheadings}>   {heading}</h2>
@@ -45,12 +47,12 @@ export const LogosSection = ({heading,description,data}:any) => {
                           idx !== x.content.length - 1 ? "border-r-2 " : ""
                         )}
                       >
-                        <figure className="h-12 w-12 relative">
+                        <figure className="h-12 w-14 relative ">
                         {el.img && 
                         <Image
                           src={el.img}
-                          className={classNames("h-full w-full object-cover ")}
-                          fill
+                          className={classNames("h-full w-full object-contain ")}
+                          
                           alt="icon"
                         />
                 }
@@ -71,6 +73,9 @@ export const LogosSection = ({heading,description,data}:any) => {
           );
         })}
       </div>
+{  caption &&    <p className={classNames(text_para_2,"text-center w-full my-6 mx-auto")}>{caption}</p>
+}
+{btnText &&  <div className="flex justify-center py-5"><CalendlyWidget btnText={btnText} isArrow/></div> }
     </section>
   );
 };

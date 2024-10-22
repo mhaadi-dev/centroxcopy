@@ -49,6 +49,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -154,31 +155,32 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const questions = [
     {
-      question: "What kind of data do you need to train a custom LLM?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "What specific AI models and tasks can you fine-tune?",
+      answer:
+        "We specialize in fine-tuning a range of models, including transformer-based architectures like BERT, GPT, and T5, as well as computer vision models like ResNet and EfficientNet. Our expertise covers tasks like natural language understanding, sentiment analysis, image classification, object detection, and industry-specific domains that require specialized adaptation.",
     },
     {
-      question: "How long does it take to develop a custom LLM?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "How much data do I need for effective fine-tuning?",
+      answer:
+        "The amount of data required depends on the complexity of the task and the model you're working with. In many cases, effective fine-tuning can be achieved with a few thousand high-quality labeled examples. For niche or specialized domains, even a few hundred samples, when paired with techniques like transfer learning, can yield good results.",
     },
     {
-      question: "What is the cost of custom LLM development?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "Can you help us with data preparation and augmentation?",
+      answer:
+        "Yes, we handle the entire data preparation process. This includes cleaning, preprocessing, and applying augmentation techniques like oversampling, synthetic data generation, and contextual data enrichment to ensure your dataset is ready for optimal model training.",
     },
     {
-      question:
-        "How do you ensure data security and privacy during the development process?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "What techniques do you use to optimize hyperparameters?",
+      answer:
+        "We use a combination of grid search, random search, and Bayesian optimization to fine-tune hyperparameters. These methods allow us to systematically explore the hyperparameter space, focusing on the configurations that maximize your model’s performance while maintaining efficiency.",
     },
     {
-      question: "What level of involvement will my team have in the project?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      question: "Can you help us with ongoing model maintenance and updates?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "How do you ensure the fine-tuned model generalizes well to new data?",
+      answer:
+        "We take several steps to promote generalization, including using cross-validation, monitoring training for overfitting signs, and applying regularization techniques. Additionally, we incorporate diverse data sources during training and use iterative evaluation on real-world samples to make sure the model performs consistently across different scenarios.",
     },
   ];
+  
   const techStackData = [
     {
       title: "Foundation Models",
@@ -426,10 +428,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {/* <LogosSection data={techStackData} /> */}
           <PointsandImagesSection arrayData={arrayData} />
           {/* <LandingCaseStudySection /> */}
+          <IndustryBanner heading="Your AI Journey Starts Here" description="Ready to unleash the full potential of your AI models?
+Schedule a technical deep-dive with our team to discuss your fine-tuning needs and explore how we can collaborate to achieve your goals.
+" isBooking btnText="Book a Technical Discussion"/>
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
-            subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
+            subHeading=""
             data={questions}
           />
         </main>

@@ -1,15 +1,15 @@
 "use client"
 import Image from "next/image";
 import React from "react";
-import rankPage from "@/assets/Rank Page.webp";
-import instaCure from "@/assets/InstaCure.webp";
-import DERQ from "@/assets/derqlogo.webp";
-import conjoin from "@/assets/Conjion.webp";
-import stockAppIcon from "@/assets/stockAppIcon.webp";
+import rankPage from "@/assets/Rank Page6.webp";
+import instaCure from "@/assets/InstaCure4.webp";
+import DERQ from "@/assets/DERQ2.webp";
+import conjoin from "@/assets/Conjion1.webp";
+import stockAppIcon from "@/assets/Stock App Icon7.webp";
 import bluecore from "@/assets/Bluecore.webp";
-import teksoul from "@/assets/TekSoul.svg"
-import nooblerly from "@/assets/Nooblerly.svg"
-import dreamlamp from "@/assets/Dream Lamp.svg"
+import teksoul from "@/assets/TekSoul8.webp"
+import nooblerly from "@/assets/Nooblerly5.webp"
+import dreamlamp from "@/assets/Dream Lamp3.webp"
 import {motion} from "framer-motion"
 
 
@@ -22,8 +22,8 @@ export async function LogosCarousel() {
 
   const logos:any = [bluecore,rankPage,dreamlamp,conjoin,stockAppIcon,instaCure,DERQ,teksoul,nooblerly];
   return (
-    <div className="py-2 bg-black">
-      <section className="w-full overflow-hidden  flex  gap-10 lg:mt-0 relative">
+    <div className="py-0 bg-black">
+      {/* <section className="w-full overflow-hidden  flex  gap-10 lg:mt-0 relative">
         <div className="w-full bg-gradient-to-r from-black  via-transparent to-black absolute left-0 right-0 h-full top-0 z-[2]"  />
         
         <div className="flex justify-center items-center w-[100%]  animate-marquee animate-infinite-scroll gap-x-4 lg:gap-x-10 ">
@@ -39,18 +39,18 @@ export async function LogosCarousel() {
               ))
             : ""}
         </div> 
-      </section>
+      </section> */}
 
-       {/* <section className="container-fluid">
+       <section className="w-full">
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
-           <motion.div className="flex items-center gap-14 flex-none pr-14 " 
+           <motion.div className="flex items-center gap-x-4 lg:gap-x-10 flex-none pr-10" 
            animate={
             {
               translateX:"-50%",
             }
            }
            transition={{
-            duration:15,
+            duration:25,
             repeat:Infinity,
             ease:"linear",
             repeatType:"loop"
@@ -62,7 +62,9 @@ export async function LogosCarousel() {
                   <Image
                     src={logo}
                     alt={"logo"}
-                    className="h-8 w-auto"
+                    className="h-auto  w-auto"
+                    key={index}
+                    loading="lazy"
                   />
                 </>
               ))
@@ -73,14 +75,16 @@ export async function LogosCarousel() {
                   <Image
                     src={logo}
                     alt={"logo"}
-                    className="h-8 w-auto"
+                    className="h-auto  w-auto"
+                    key={index}
+                    loading="lazy"
                   />
                 </>
               ))
             : ""}
         </motion.div> 
         </div>
-      </section> */}
+      </section>
 
       
     </div>

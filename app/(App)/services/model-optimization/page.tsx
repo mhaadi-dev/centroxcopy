@@ -256,25 +256,31 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const questions = [
     {
       question: "What types of AI models can you optimize?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "We specialize in optimizing a broad spectrum of models, from traditional machine learning to state-of-the-art deep learning architectures. Whether it’s CNNs for computer vision, LSTMs and Transformers for NLP, or reinforcement learning agents, our techniques are adaptable to the unique demands of each model architecture.",
     },
     {
       question: "What specific optimization techniques do you specialize in?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "We leverage a range of advanced techniques such as quantization, pruning, sparsity, knowledge distillation, and hardware-specific optimizations (e.g., for GPUs, TPUs). We also refine algorithms and architectures to explore novel approaches that maintain or enhance performance while reducing computational overhead. Our focus is on practical trade-offs that maximize model efficiency without compromising accuracy.",
     },
     {
       question: "How much improvement in performance can I expect?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "Performance gains vary based on the model and use case, but our optimization processes typically result in up to 2-5x faster inference times and a reduction in model size by 50-70%, all while maintaining accuracy within a margin that won’t degrade user experience. We aim to push the efficiency frontier while respecting the complexity of your real-world deployment constraints.",
     },
     {
       question: "How do you ensure that model accuracy is not compromised during optimization?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "We adopt a rigorous approach to ensure accuracy is preserved. By using methods like knowledge distillation, we maintain the original model’s predictive power while compressing and optimizing its structure. Every optimization step is evaluated against a comprehensive test suite to guarantee that the trade-offs we introduce have minimal impact on accuracy.",
     },
     {
       question: "Can you help us optimize models for deployment on edge devices?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      answer:
+        "Absolutely. Optimizing for edge deployments is one of our core strengths. We specialize in making models lightweight and efficient enough to run on resource-constrained environments without sacrificing performance, through techniques like quantization and pruning tailored for edge hardware.",
     },
   ];
+  
   
   const techStackData = [
     {
@@ -541,7 +547,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
-            subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
+            subHeading=""
             data={questions}
           />
         </main>

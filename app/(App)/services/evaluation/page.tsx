@@ -56,6 +56,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
@@ -199,100 +200,97 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const questions = [
     {
-      question: "What kind of data do you need to train a custom LLM?",
+      question: "What MLOps tools and platforms do you specialize in?",
       answer:
-        "We typically require a variety of proprietary data from your business, including FAQs, product documentation, and customer interaction logs.",
+        "We specialize in a variety of industry-leading MLOps tools such as Kubeflow, Airflow, and Argo Workflows for orchestration, TensorFlow Serving and KServe for model deployment, Prometheus and Grafana for monitoring, and MLflow and Weights & Biases for experiment tracking. Additionally, we leverage cloud platforms like AWS, GCP, and Azure to ensure seamless scalability and integration with your existing workflows.",
     },
     {
-      question: "How long does it take to develop a custom LLM?",
+      question: "How do you ensure the security and privacy of our models and data?",
       answer:
-        "The development timeline depends on the complexity of the project and data availability, usually ranging from 6 to 12 weeks.",
+        "Security and privacy are paramount in every solution we design. We implement robust access control mechanisms, data encryption at rest and in transit, and adhere to best practices in cloud security. We also ensure compliance with relevant regulations such as GDPR, HIPAA, and industry-specific standards to protect your models and data throughout the MLOps lifecycle.",
     },
     {
-      question: "What is the cost of custom LLM development?",
+      question: "Can you help us implement MLOps best practices within our existing infrastructure?",
       answer:
-        "Costs vary based on project requirements, including data processing, model fine-tuning, and integration needs.",
+        "Absolutely. We tailor our MLOps consulting services to fit within your current infrastructure, whether it’s on-premise, cloud-based, or hybrid. We assess your existing setup, identify gaps, and recommend optimizations without disrupting your operations. Our goal is to integrate MLOps best practices that enhance efficiency and scalability while minimizing overhead.",
     },
     {
-      question: "How do you ensure data security and privacy?",
+      question: "How do you measure and track the success of your MLOps solutions?",
       answer:
-        "We follow strict data security protocols, including encryption, secure storage, and access control, to safeguard your data.",
+        "We establish clear key performance indicators (KPIs) aligned with your business goals, such as reduced deployment times, improved model accuracy, and streamlined workflows. We also set up monitoring and reporting systems that provide real-time insights into model performance, resource utilization, and system health, enabling you to track success and iterate as needed.",
     },
     {
-      question: "What level of involvement will my team have?",
+      question: "What experience do you have in working with [specific industry or application]?",
       answer:
-        "We work collaboratively with your team throughout the project, ensuring alignment and allowing for iterative feedback.",
-    },
-    {
-      question: "Can you help with ongoing maintenance and updates?",
-      answer:
-        "Yes, we offer post-launch support, including model monitoring, updates, and retraining as needed to maintain high performance.",
+        "Our team has a wealth of experience across industries such as healthcare, finance, e-commerce, and technology. We tailor our MLOps strategies to meet the specific challenges of your industry, whether it’s ensuring compliance in highly regulated sectors, optimizing for real-time decision-making, or scaling AI to meet growing user demand. We can provide case studies and examples relevant to your field.",
     },
   ];
+  
+  
 
   const techStackData = [
     {
-      title: "Foundation Models",
+      title: "Orchestration & Automation",
       content: [
         {
-          alt: "icon",
-          caption: "Liama",
-          img: liama,
+          alt: "Icon",
+          caption: "Kubeflow",
+          img: kubeflow,
         },
         {
-          alt: "icon",
-          caption: "Falcon",
-          img: falcon,
+          alt: "Icon",
+          caption: "Airflow",
+          img: mlflow,
         },
         {
-          alt: "icon",
-          caption: "Qwen",
-          img: gptneox,
+          alt: "Icon",
+          caption: "Argo Workflows",
+          img: mlflow,
         },
       ],
     },
     {
-      title: "Frameworks",
+      title: "Model Deployment & Serving",
       content: [
         {
           alt: "Icon",
-          caption: "PyTorch",
-          img: pytorch,
+          caption: "TensorFlow Serving",
+          img: mlflow,
         },
         {
           alt: "Icon",
-          caption: "Hugging Face Transformers",
-          img: huggingface,
+          caption: "KServe",
+          img: mlflow,
         },
         {
           alt: "Icon",
-          caption: "Tensorflow",
-          img: tensorflow,
+          caption: "Seldon Core",
+          img: mlflow,
         },
       ],
     },
     {
-      title: "Infrastructure",
+      title: "Monitoring & Observability",
       content: [
         {
           alt: "Icon",
-          caption: "AWS",
-          img: aws,
+          caption: "Prometheus",
+          img: mlflow,
         },
         {
           alt: "Icon",
-          caption: "Azure",
-          img: azure,
+          caption: "Grafana",
+          img: mlflow,
         },
         {
           alt: "Icon",
-          caption: "Google Cloud",
-          img: googlecloud,
+          caption: "MLflow",
+          img: mlflow,
         },
       ],
     },
     {
-      title: "MLOps Tools",
+      title: "Experiment Tracking",
       content: [
         {
           alt: "Icon",
@@ -301,12 +299,78 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           alt: "Icon",
-          caption: "Kubeflow",
-          img: kubeflow,
+          caption: "Weights & Biases",
+          img: mlflow,
+        },
+        {
+          alt: "Icon",
+          caption: "CometML",
+          img: mlflow,
+        },
+      ],
+    },
+    {
+      title: "Data Versioning & Management",
+      content: [
+        {
+          alt: "Icon",
+          caption: "DVC",
+          img: mlflow,
+        },
+        {
+          alt: "Icon",
+          caption: "Git LFS",
+          img: mlflow,
+        },
+        {
+          alt: "Icon",
+          caption: "Pachyderm",
+          img: mlflow,
+        },
+      ],
+    },
+    {
+      title: "Cloud Platforms",
+      content: [
+        {
+          alt: "Icon",
+          caption: "AWS",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "GCP",
+          img: mlflow,
+        },
+        {
+          alt: "Icon",
+          caption: "Azure",
+          img: azure,
+        },
+      ],
+    },
+    {
+      title: "CI/CD Tools",
+      content: [
+        {
+          alt: "Icon",
+          caption: "Jenkins",
+          img: mlflow,
+        },
+        {
+          alt: "Icon",
+          caption: "GitLab CI",
+          img: mlflow,
+        },
+        {
+          alt: "Icon",
+          caption: "CircleCI",
+          img: mlflow,
         },
       ],
     },
   ];
+  
   const heroData = {
     heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
     description:
@@ -451,13 +515,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={benefitsData} />
           {/* <StepperSection data={stepperdata} /> */}
-          {/* <LogosSection
+          <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
+              "We leverage a powerful and flexible tech stack to deliver the best possible results:"
             }
-          /> */}
+          />
           <PointsandImagesSection
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
@@ -470,9 +534,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
-            subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
+            subHeading=""
             data={questions}
           />
+          <IndustryBanner heading="Take the Next Step" description="Ready to streamline your AI pipelines and accelerate your time-to-market?
+Schedule a free consultation with our MLOps experts today." isBooking btnText="Book Your Free Consultation"/>
         </main>
       </LandingLayout>
     </div>
