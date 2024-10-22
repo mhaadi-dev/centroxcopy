@@ -37,7 +37,7 @@ import Icon13 from "@/assets/Icon-13.webp";
 import Icon14 from "@/assets/Icon-14.webp";
 import liama from "@/assets/liama.webp";
 import falcon from "@/assets/falcon.webp";
-import gptneox from "@/assets/GPT-NeoX.webp";
+import qwen from "@/assets/qwen.webp";
 
 import pytorch from "@/assets/pytorchlogo.webp";
 import huggingface from "@/assets/huggingfacelogo.webp";
@@ -50,21 +50,10 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
+import rasa from "@/assets/Rasa-white.webp"
+import dialogflow from "@/assets/dialogflow.svg"
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
-// const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
-// const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
-// const BannerSection = dynamic(() => import('@/sections/TestimonialSection'));
-// const HoveredTextSection = dynamic(() => import('@/sections/HoveredTextSection'));
-// const LogosCarousel = dynamic(() => import('@/views/LogosCarousel'));
-// const CustomCarousalSection = dynamic(() => import('@/sections/CustomCarousalSection'));
-// const BenefitsSection = dynamic(() => import('@/sections/BenefitsSection'));
-// const OppositeCarousal = dynamic(() => import('@/sections/OppositeCarousal'));
-// const StepperSection = dynamic(() => import('@/sections/StepperSection'));
-// const PointsandImagesSection = dynamic(() => import('@/views/ComputerVisionDevelopment/Section6'));
-// const CustomerTestimonials = dynamic(() => import('@/sections/CustomersTestimonial'));
-// const ProductsCarousalSection = dynamic(() => import('@/sections/ProducstsCarousal'));
-// const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
-// const LogosSection = dynamic(() => import('@/sections/LogosSection'));
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -186,36 +175,38 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const questions = [
     {
-      question: "What kind of data do you need to train a custom LLM?",
+      question: "What kind of data do you need to train a custom chatbot?",
       answer:
-        "We typically require a variety of proprietary data from your business, including FAQs, product documentation, and customer interaction logs.",
+        "To train a custom chatbot, we primarily use your business’s proprietary data, such as customer interactions, FAQs, product information, support tickets, and knowledge base. The richer and more specific the data, the better the chatbot can understand and respond to your customers with accurate, contextually appropriate answers.",
     },
     {
-      question: "How long does it take to develop a custom LLM?",
+      question: "How long does it take to develop a custom chatbot?",
       answer:
-        "The development timeline depends on the complexity of the project and data availability, usually ranging from 6 to 12 weeks.",
+        "The timeline depends on the complexity of the project, the level of customization required, and the integration needs. Typically, development can range from 4 to 12 weeks, including the design, training, testing, and deployment phases.",
     },
     {
-      question: "What is the cost of custom LLM development?",
+      question: "What is the cost of custom chatbot development?",
       answer:
-        "Costs vary based on project requirements, including data processing, model fine-tuning, and integration needs.",
+        "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
     },
     {
-      question: "How do you ensure data security and privacy?",
+      question: "How do you ensure data security and privacy during the development process?",
       answer:
-        "We follow strict data security protocols, including encryption, secure storage, and access control, to safeguard your data.",
+        "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
     },
     {
-      question: "What level of involvement will my team have?",
+      question: "What level of involvement will my team have in the project?",
       answer:
-        "We work collaboratively with your team throughout the project, ensuring alignment and allowing for iterative feedback.",
+        "We collaborate closely with your team throughout the project to ensure the chatbot aligns with your goals and vision. Your input is crucial during the needs assessment, design, and testing phases, and we provide regular updates to ensure transparency and effective communication.",
     },
     {
-      question: "Can you help with ongoing maintenance and updates?",
+      question: "Can you help us with ongoing chatbot maintenance and updates?",
       answer:
-        "Yes, we offer post-launch support, including model monitoring, updates, and retraining as needed to maintain high performance.",
+        "Yes, we offer ongoing maintenance and support services to keep your chatbot up-to-date and performing optimally. This includes regular updates, fine-tuning based on user feedback, and continuous monitoring to ensure the chatbot adapts to evolving business needs.",
     },
   ];
+  
+  
 
   const techStackData = [
     {
@@ -234,7 +225,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "icon",
           caption: "Qwen",
-          img: gptneox,
+          img: qwen,
         },
       ],
     },
@@ -275,6 +266,21 @@ export default async function Page({ params }: { params: { slug: string } }) {
           alt: "Icon",
           caption: "Google Cloud",
           img: googlecloud,
+        },
+      ],
+    },
+    {
+      title: "Conversational AI Platforms",
+      content: [
+        {
+          alt: "Icon",
+          caption: "Rasa",
+          img: rasa,
+        },
+        {
+          alt: "Icon",
+          caption: "Dialogflow",
+          img: dialogflow,
         },
       ],
     },
@@ -443,6 +449,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description={
               "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
             }
+            caption=""
+            btnText="Let’s Discuss Further"
           />
           <PointsandImagesSection
             arrayData={arrayData}
@@ -455,9 +463,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
-            subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
+            subHeading=""
             data={questions}
           />
+          <IndustryBanner heading="Ready To Build A Better Connection With Your Customers?" description="Book an exclusive 1:1 call with us today and discuss how we can help you retain current customers and win new ones by communicating better through a GPT you can call your own." btnText="Book Your 1:1 Session" isBooking/>
         </main>
       </LandingLayout>
     </div>

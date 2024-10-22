@@ -3,10 +3,11 @@ import Arrow from "@/assets/RightArrow.svg";
 import bannerBg from "@/assets/bannerBG.webp";
 import Image from "next/image";
 import { CalendlyWidget } from "./Calendly";
+import classNames, { text_h3_class, text_para_3 } from "@/helpers/common";
 const IndustryBanner = (props?: any) => {
   return (
     <div
-      className="text-white w-[90%]  lg:w-[75%] mx-auto px-8 py-8 rounded-2xl relative mt-4 flex flex-col justify-center"
+      className="text-white w-[90%]  lg:w-[75%] mx-auto px-3 py-3 lg:p-6 rounded-2xl relative mt-4 flex flex-col justify-center"
       style={{
         backgroundImage: `url(${bannerBg.src})`,
         backgroundRepeat: "no-repeat",
@@ -14,12 +15,12 @@ const IndustryBanner = (props?: any) => {
     >
       <div className="bg-gray-600/20 backdrop-blur-[5px] w-full md:w-[50%] flex flex-col gap-3 p-6 rounded-2xl">
         {props?.heading && (
-          <h3 className="text-[1.5rem] font-semibold">
+          <h3 className={classNames(text_h3_class)}>
             {props?.heading} 
           </h3>
         )}
         {props?.description && (
-          <p className="text-md">
+          <p className={classNames(text_para_3)}>
             {" "}
             {props?.description} 
           </p>

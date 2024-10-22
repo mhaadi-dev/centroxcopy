@@ -1,3 +1,5 @@
+import classNames, { text_h1_main, text_h2_class, text_h3_class, text_para_2, text_para_3 } from "@/helpers/common";
+
 export const PortableComponent = {
   types: {
     image: ({ value }) => {
@@ -15,13 +17,13 @@ export const PortableComponent = {
     // Other custom types can be added here
   },
   block: {
-    h1: ({ children }) => <h1 className="text-6xl font-bold my-4 text-white">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-5xl font-semibold my-4 text-white">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-4xl font-medium my-4 text-white">{children}</h3>,
+    h1: ({ children }) => <h1 className={classNames(text_h1_main)}>{children}</h1>,
+    h2: ({ children }) => <h2 className={classNames(text_h2_class)}>{children}</h2>,
+    h3: ({ children }) => <h3 className={classNames(text_h3_class)}>{children}</h3>,
     h4: ({ children }) => <h4 className="text-3xl font-medium my-4 text-white">{children}</h4>,
     h5: ({ children }) => <h5 className="text-2xl font-medium my-4 text-white">{children}</h5>,
     h6: ({ children }) => <h6 className="text-xl font-medium my-4 text-white">{children}</h6>,
-    p: ({ children }) => <p className="text-base font-medium my-4 text-white lg:text-lg">{children}</p>,
+    p: ({ children }) => <p className={classNames(text_para_3)}>{children}</p>,
     normal: ({ children }) => <p className="text-base text-start lg:text-left lg:text-lg text-white">{children}</p>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-white">{children}</blockquote>

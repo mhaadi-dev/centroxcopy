@@ -263,31 +263,42 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const questions = [
     {
-      question: "What kind of data do you need to train a custom LLM?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "What Are the Real-World Limitations of LLMs in Task Automation, and How Do Agentic AI Solutions Address Them?",
+      answer:
+        "Agentic AI surpasses the limitations of standard LLMs, which often struggle with complex, evolving tasks that require learning from experience. Unlike LLMs that rely on static responses, AI agents can adapt, learn over time, and make autonomous decisions, enabling them to handle unpredictable real-world scenarios.",
     },
     {
-      question: "How long does it take to develop a custom LLM?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "How Does Reinforcement Learning Enhance the Decision-Making Abilities of AI Agents?",
+      answer:
+        "Reinforcement learning empowers AI agents to optimize their actions based on trial-and-error feedback. This continuous learning loop enables the agent to make more accurate decisions over time, evolving as it encounters new challenges and environments, which is crucial for dynamic, data-rich contexts.",
     },
     {
-      question: "What is the cost of custom LLM development?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "What Steps Are Involved in Developing a Scalable AI Workflow That Integrates Multiple AI Agents?",
+      answer:
+        "Creating a scalable AI workflow involves defining roles, facilitating data flow between agents, and ensuring fault tolerance. Using orchestration tools, we design workflows that allow agents to communicate and collaborate, dynamically adjusting based on real-time data to handle complex multi-step tasks efficiently.",
     },
     {
-      question:
-        "How do you ensure data security and privacy during the development process?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "How Do AI Agents Ensure Transparency in Decision-Making to Gain Stakeholder Trust?",
+      answer:
+        "Transparency is built into AI agents through explainability features that provide clear insights into decision-making processes. By using knowledge graphs and advanced reasoning techniques, agents can articulate the rationale behind actions, promoting trust and allowing you to trace decision paths with clarity.",
     },
     {
-      question: "What level of involvement will my team have in the project?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "What Kind of Infrastructure is Required to Deploy and Scale Agentic AI Systems Efficiently?",
+      answer:
+        "Deploying Agentic AI requires a well-structured infrastructure, including distributed systems, microservices architecture, and cloud or on-premise orchestration tools. This setup allows for scalable, fault-tolerant operations, ensuring that AI agents can handle large volumes of data and complex tasks without downtime.",
     },
     {
-      question: "Can you help us with ongoing model maintenance and updates?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      question: "How Can Agentic AI Integrate with Existing Systems to Improve Operational Efficiency Without Causing Disruptions?",
+      answer:
+        "Agentic AI is designed to seamlessly integrate with existing systems, using APIs, microservices, and modular architecture. This ensures that AI agents can function alongside legacy systems, allowing incremental upgrades without disrupting current workflows while boosting overall operational efficiency.",
+    },
+    {
+      question: "What Are the Best Practices for Testing and Validating the Performance of AI Agents in Complex Environments?",
+      answer:
+        "Testing involves a rigorous validation phase across multiple scenarios, ensuring reliability and accuracy. This includes setting up CI/CD pipelines for continuous testing, real-world simulation environments, and A/B testing for performance benchmarking, all aimed at minimizing biases and ensuring consistent results under varying conditions.",
     },
   ];
+  
   const techStackData = [
     {
       title: "Foundation Models",
@@ -554,7 +565,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
-            subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
+            subHeading=""
             data={questions}
           />
         </main>
