@@ -342,94 +342,133 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },],btnText:"Schedule a Session"}
   
     const stepperdata = {
-        heading: "How We Build AI Chatbots",
-        description:
-          "We offer comprehensive chatbot development services tailored to your unique needs.",
-        data: [
-          {
-            title: "Needs Assessment & Conversational Design",
-            content: [
-              {
-                _type: "block",
-                style: "normal",
-                _key: "step1",
-                markDefs: [],
-                children: [
-                  {
-                    _type: "span",
-                    marks: [],
-                    text:
-                      "We collaborate closely with your team to define your chatbot's goals, target audience, and desired capabilities. We conduct user research and analyze customer interactions to understand their needs, pain points, and communication styles. Using this information, we craft natural and intuitive dialogues that guide users toward their goals, providing a seamless and enjoyable experience.",
-                  },
-                ],
-              },
-            ],
-            status: false,
-          },
-          {
-            title: "LLM Selection & Fine-Tuning",
-            content: [
-              {
-                _type: "block",
-                style: "normal",
-                _key: "step2",
-                markDefs: [],
-                children: [
-                  {
-                    _type: "span",
-                    marks: [],
-                    text:
-                      "We leverage powerful LLMs like GPT-3.5, GPT-4, or other open-source models to power your chatbot's intelligence. Our team fine-tunes the model on your proprietary data, ensuring it understands your industry-specific jargon, product offerings, and customer needs. We also employ prompt engineering, few-shot learning, and other advanced techniques to optimize the model's performance and adaptability.",
-                  },
-                ],
-              },
-            ],
-            status: false,
-          },
-          {
-            title: "Integration & Deployment",
-            content: [
-              {
-                _type: "block",
-                style: "normal",
-                _key: "step3",
-                markDefs: [],
-                children: [
-                  {
-                    _type: "span",
-                    marks: [],
-                    text:
-                      "We integrate your chatbot into your website, mobile app, messaging platforms (like WhatsApp, Facebook Messenger, etc.), and other channels to provide a consistent user experience across all touchpoints. We ensure that the chatbot is scalable and reliable, capable of handling high volumes of inquiries without sacrificing performance. Additionally, we connect your chatbot to your CRM, knowledge base, or other backend systems, enabling real-time access to customer data and automated actions.",
-                  },
-                ],
-              },
-            ],
-            status: false,
-          },
-          {
-            title: "Testing & Refinement",
-            content: [
-              {
-                _type: "block",
-                style: "normal",
-                _key: "step4",
-                markDefs: [],
-                children: [
-                  {
-                    _type: "span",
-                    marks: [],
-                    text:
-                      "We conduct extensive testing to identify and address any potential errors, inconsistencies, or biases in the chatbot's responses. Based on user feedback and data analytics, we continuously monitor and refine the chatbot's performance to ensure it stays aligned with your evolving business needs.",
-                  },
-                ],
-              },
-            ],
-            status: false,
-          },
-        ],
-        btnText: "Schedule A Discussion",
-      };
-      
+      heading: "How We Build AI Chatbots",
+      description: "We offer comprehensive chatbot development services tailored to your unique needs.",
+      data: [
+        {
+          title: "Needs Assessment",
+          content: [
+            {
+              _type: "block",
+              style: "normal",
+              _key: "step1",
+              markDefs: [],
+              children: [
+                {
+                  _type: "span",
+                  marks: [],
+                  text:
+                    "We begin our journey towards building the AI chatbot by closely collaborating with your team to understand and define your chatbot's goals, target audience, and desired capabilities.",
+                },
+              ],
+            },
+          ],
+          status: false,
+        },
+        {
+          title: "Conversational Design",
+          content: [
+            {
+              _type: "block",
+              style: "normal",
+              _key: "step2",
+              markDefs: [],
+              children: [
+                {
+                  _type: "span",
+                  marks: [],
+                  text:
+                    "We conduct thorough research and analysis around customers' latest interest trends to provide an engaging design that translates your vision.",
+                },
+              ],
+            },
+          ],
+          status: false,
+        },
+        {
+          title: "LLM Selection",
+          content: [
+            {
+              _type: "block",
+              style: "normal",
+              _key: "step3",
+              markDefs: [],
+              children: [
+                {
+                  _type: "span",
+                  marks: [],
+                  text:
+                    "We leverage powerful LLMs like GPT-3.5, GPT-4, or other open-source models to power your chatbot's intelligence that ensures prompt engineering.",
+                },
+              ],
+            },
+          ],
+          status: false,
+        },
+        {
+          title: "Fine-Tuning",
+          content: [
+            {
+              _type: "block",
+              style: "normal",
+              _key: "step4",
+              markDefs: [],
+              children: [
+                {
+                  _type: "span",
+                  marks: [],
+                  text:
+                    "We fine-tune the model on your proprietary data, ensuring it understands your industry-specific jargon, product offerings, and customer needs and has the ability to adapt.",
+                },
+              ],
+            },
+          ],
+          status: false,
+        },
+        {
+          title: "Integration & Deployment",
+          content: [
+            {
+              _type: "block",
+              style: "normal",
+              _key: "step5",
+              markDefs: [],
+              children: [
+                {
+                  _type: "span",
+                  marks: [],
+                  text:
+                    "We integrate your chatbot into your website, mobile app, messaging platforms (like WhatsApp, Facebook Messenger, etc.), and other channels, providing a consistent user experience, along with ensuring seamless backend integration that ensures scalability and reliability.",
+                },
+              ],
+            },
+          ],
+          status: false,
+        },
+        {
+          title: "Testing & Refinement",
+          content: [
+            {
+              _type: "block",
+              style: "normal",
+              _key: "step6",
+              markDefs: [],
+              children: [
+                {
+                  _type: "span",
+                  marks: [],
+                  text:
+                    "We conduct extensive testing to identify and address any potential errors, inconsistencies, or biases in the chatbot's responses. We also utilize feedback and data analytics to keep up your chatbot performance with the evolving trends.",
+                },
+              ],
+            },
+          ],
+          status: false,
+        },
+      ],
+      btnText: "Schedule A Discussion",
+    };
+    
   return (
     <div>
       <LandingLayout>

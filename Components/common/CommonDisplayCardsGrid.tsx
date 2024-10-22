@@ -29,7 +29,7 @@ if(!data){
       
      
       <div
-        className="grid my-8 grid-cols-1 lg:grid-cols-2 gap-8 w-full "
+        className={classNames("grid my-8 grid-cols-1 lg:grid-cols-2 gap-8 w-full")}
       >
         {data?.[0]?.data?.length>0? data?.[0].data?.map((card:any, index:number) => (
           <CommonCardwithIcon

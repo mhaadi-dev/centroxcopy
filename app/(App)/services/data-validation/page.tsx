@@ -59,6 +59,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
@@ -127,52 +128,48 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const challengeData = [
     {
       headerData: {
-        tagText: "Challenges",
-        headingText: "The Challenge of Generic LLMs",
+        tagText: "Service Offerings", 
+        headingText: "Drive Performance with Data Excellence",
         para1Text:
-          "Are you pushing the boundaries of what's possible with AI, but pre-trained models are holding you back?",
-        para2Text:
-          "You're not alone. Many startups are facing the limitations of generic LLMs:",
+          "Here’s how our approach ensures your data effectively supports your AI models:",
+        para2Text: "", // Removed as not needed
       },
       data: [
         {
           icon: Icon9,
-          heading: "Domain-Speum-pagecific Challenges",
-          description:
-            "Generic models often struggle with industry-specific jargon, terminology, and nuanced context, leading to inaccurate or irrelevant outputs. This can severely impact the user experience and hinder the effectiveness of your AI applications.",
-          linkText: "Learn More",
+          heading: "Data Ingestion", // Combined under the main heading
+          description: `
+            We begin by integrating seamlessly with your current data sources.Gathering data from multiple sources to ensure it’s comprehensive and accurate. Structuring and formatting the data to make it ready for thorough validation. Ensures your data is precise. We use advanced algorithms for error detection, bias identification, and data cleaning, improving the overall quality and usability of your dataset.
+          `,
+          linkText: "",
           linkWithIcon: true,
         },
         {
           icon: Icon10,
-          heading: "Performance Bottlenecks",
-          description:
-            "Large pre-trained models can be computationally expensive and slow, making them impractical for real-time applications or deployment on resource-constrained environments. This can lead to delays, increased costs, and frustrated users.",
-          linkText: "Learn More",
+          heading: "Real-Time Monitoring", // Combined under the main heading
+          description: `
+            To keep data quality high,
+            Monitoring systems that catch and address issues as they occur.
+          `,
+          linkText: "",
           linkWithIcon: true,
         },
         {
           icon: Icon11,
-          heading: "Data Scarcity",
-          description:
-            "Training effective LLMs typically requires vast amounts of high-quality, labeled data, which can be costly and time-consuming to acquire. This can significantly slow down your development process and limit the potential of your AI solutions.",
-          linkText: "Learn More",
-          linkWithIcon: true,
-        },
-        {
-          icon: Icon4,
-          heading: "Bias & Fairness",
-          description:
-            "Pre-trained models can inherit biases from their training data, leading to unfair or discriminatory outputs. This can have serious ethical and legal implications for your business.",
-          linkText: "Learn More",
+          heading: "Reporting and Insights", // Combined under the main heading
+          description: `
+            We’re committed to providing actionable insights: Highlighting key data quality metrics and validation outcomes, with recommendations for data improvements to enhance data quality further.
+          `,
+          linkText: "",
           linkWithIcon: true,
         },
       ],
       caption:
-        "Centrox AI understands these pain points. We have the expertise to build custom LLMs that overcome these limitations and deliver exceptional results for your specific needs.",
-      btnText: "Schedule A Discussion",
+        "It's time for you to drive performance with data excellence through our comprehensive approach to data management.",
+      btnText: "Optimize your data",
     },
   ];
+  
   const questions = [
     {
       question:
@@ -610,7 +607,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Service Offerings"
             description="Here’s how our approach ensures your data effectively supports your AI models:"
           /> */}
-
+          <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={benefitsData} />
           <StepperSection data={stepperdata} />
           {/* <LogosSection
@@ -628,6 +625,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
+          <IndustryBanner heading="Do you have any queries around your data validation process?" description="Let's discuss over a 30-mins call around how we can help you
+" btnText="Book A Call" isBooking/>
         </main>
       </LandingLayout>
     </div>
