@@ -20,7 +20,7 @@ import {motion} from "framer-motion"
 export async function LogosCarousel() {
 
 
-  const logos:any = [bluecore,rankPage,dreamlamp,conjoin,stockAppIcon,instaCure,DERQ,teksoul,nooblerly];
+  const logos:any = [bluecore,conjoin,stockAppIcon,dreamlamp,instaCure,DERQ,teksoul,rankPage,nooblerly];
   return (
     <div className="py-0 bg-black">
       {/* <section className="w-full overflow-hidden  flex  gap-10 lg:mt-0 relative">

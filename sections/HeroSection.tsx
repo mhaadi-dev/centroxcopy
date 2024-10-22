@@ -56,8 +56,8 @@ export const HeroSection = (props: PropsI) => {
           {props?.description||"" }
         </p>
         {props?.btnText && (
-          <div className="flex  justify-start">
-            <CalendlyWidget btnText={props.btnText || "Book FREE strategy call"} isArrow={true} />
+          <div className="flex justify-start z-[1]">
+            <CalendlyWidget btnText={props?.btnText || "Book FREE strategy call"}  isArrow={true} />
           </div>
         )}
       </div>

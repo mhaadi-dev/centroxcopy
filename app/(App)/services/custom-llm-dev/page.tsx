@@ -265,7 +265,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tagText: "advantages",
       heading: "What You Gain",
       description:
-        "We leverage a powerful and flexible tech stack to deliver the best possible results:",
+        "Partnering with Centrox AI for custom LLM development empowers your team to:",
     },
     data: [
       {

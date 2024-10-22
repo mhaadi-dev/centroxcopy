@@ -49,6 +49,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
@@ -165,43 +166,164 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData3 = [
     {
       headerData: {
-        tagText: "Optimization Challenge",
-        headingText: "The Optimization Challenge", // Updated heading
+        tagText: "Key Characteristics",
+        headingText: "Key Characteristics of AI Agents", // Updated heading
         para1Text:
-          "Are your AI models hindering your product's performance?", // Updated para1Text
+          "", // Updated para1Text
         heading2Text: "", // Removed unnecessary second heading
       },
       data: [
         {
           icon: Icon12,
-          heading: "Slow Inference Times", // Updated heading
+          heading: "Goal-Oriented", // Updated heading
           description:
-            "Slow inference times impacting user experience?", // Updated description
+            "AI agents are designed with specific goals in mind, whether it's maximizing customer satisfaction, optimizing supply chains, or detecting fraud.", // Updated description
           linkText: "",
           linkWithIcon: true,
         },
         {
           icon: Icon13,
-          heading: "High Computational Costs", // Updated heading
+          heading: "Autonomous", // Updated heading
           description:
-            "High computational costs straining your budget?", // Updated description
+            "AI agents can operate independently, making decisions and taking actions without constant human supervision.", // Updated description
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon14,
-          heading: "Difficulty Scaling", // Updated heading
+          icon: Icon,
+          heading: "Adaptive", // Updated heading
           description:
-            "Difficulty scaling to meet growing demand?", // Updated description
+            "AI agents can learn from their experiences and adjust their behavior to achieve their goals in dynamic environments.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "Collaborative", // Updated heading
+          description:
+            "AI agents can communicate and cooperate with other AI agents to achieve complex, multi-step tasks.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "Explainable", // Updated heading
+          description:
+            "AI agents provide insights into their decision-making processes, promoting transparency and trust.", // Updated description
           linkText: "",
           linkWithIcon: true,
         },
       ],
       caption:
-        "Don't let suboptimal models hold you back. Centrox AI can help with AI model optimization, helping you extract maximum performance and efficiency from your AI investments.", // Updated caption
-      btnText: "Book A 1:1 Session", // Updated button text
+        "", // Updated caption
+      btnText: "", // Updated button text
     },
   ];
+  const benefitsData4 = [
+    {
+      headerData: {
+        tagText: "AI Workflows",
+        headingText: "Orchestrating Intelligent Action", // Updated heading
+        para1Text:
+          "", // Updated para1Text
+        heading2Text: "", // Removed unnecessary second heading
+      },
+      data: [
+        {
+          icon: Icon12,
+          heading: "Defined Roles & Responsibilities", // Updated heading
+          description:
+            "AI workflows define clear roles and responsibilities for each agent within the system, ensuring smooth operations and goal alignment.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon13,
+          heading: "Facilitated Communication", // Updated heading
+          description:
+            "AI workflows facilitate communication and data exchange between agents, ensuring collaboration and synergy across the system.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "Dynamic Decision-Making", // Updated heading
+          description:
+            "Workflows enable dynamic decision-making based on real-time data and feedback, allowing AI agents to adapt to changes and optimize outcomes.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "Scalability & Fault Tolerance", // Updated heading
+          description:
+            "AI workflows ensure scalability and fault tolerance, allowing the system to handle complex and demanding workloads without disruption.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption:
+        "", // Updated caption
+      btnText: "", // Updated button text
+    },
+  ];
+  const benefitsData5 = [
+    {
+      headerData: {
+        tagText: "Key Technologies",
+        headingText: "Key Technologies Powering Agentic AI", // Updated heading
+        para1Text:
+          "", // Removed unnecessary first paragraph
+        heading2Text: "", // Removed unnecessary second heading
+      },
+      data: [
+        {
+          icon: Icon12,
+          heading: "Reinforcement Learning", // Updated heading
+          description:
+            "Agents learn through trial and error, optimizing their actions to maximize rewards and minimize penalties.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon13,
+          heading: "Natural Language Processing (NLP)", // Updated heading
+          description:
+            "Enables agents to understand and respond to human language, facilitating seamless communication and collaboration.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "Knowledge Graphs & Reasoning", // Updated heading
+          description:
+            "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "Distributed Systems & Microservices", // Updated heading
+          description:
+            "Enable the development of scalable and fault-tolerant AI agent architectures.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon,
+          heading: "LangChain Framework", // Updated heading
+          description:
+            "A powerful framework for developing applications powered by language models, enabling seamless interaction with various tools and data sources.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption: "", // No caption needed
+      btnText: "Book A Call Now", // Updated button text
+    },
+  ];
+  
+  
   
   const challengeData = [
     {
@@ -552,9 +674,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
             btnText="Book A FREE 1:1 Session"
           />
-
+          
           <LogosCarousel />
           <CommonDisplayCardsGrid data={benefitsData} />
+          <IndustryBanner heading="Understanding the Agentic AI Paradigm" description="AI agents represent a significant advancement in artificial intelligence, moving beyond passive tools to active, intelligent entities that can operate autonomously and collaborate effectively."/>
+          <CommonDisplayCardsGrid data={benefitsData3} />
+          <CommonDisplayCardsGrid data={benefitsData4} />
+          <CommonDisplayCardsGrid data={benefitsData5} />
+          
           <CommonDisplayCardsGrid data={challengeData} />
           
           <StepperSection data={stepperData} />
