@@ -685,6 +685,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <CommonDisplayCardsGrid data={challengeData} />
           
           <StepperSection data={stepperData} />
+          <LogosSection
+            data={techStackData}
+            heading={"Our Tech Stack"}
+            description={
+              "We leverage a powerful and flexible tech stack to deliver the best possible results:"
+            }
+          />
           <CommonDisplayCardsGrid data={benefitsData2} />
           {/* <LogosSection data={techStackData} /> */}
           <PointsandImagesSection arrayData={arrayData} />
