@@ -62,9 +62,18 @@ export const HeroSection = (props: PropsI) => {
         )}
       </div>
       <div className="w-full lg:w-1/2">
-        {true && (
+        {props.img && (
           <Image
-            src={serviceHeroImg || props?.img}
+            src={ props?.img}
+            alt="hero-img"
+            objectFit="fill"
+            className="w-full lg:w-5/7 roudned-2xl  "
+          
+          />
+        )}
+         {!props.img && (
+          <Image
+            src={ serviceHeroImg}
             alt="hero-img"
             objectFit="fill"
             className="w-full lg:w-5/7 roudned-2xl  "

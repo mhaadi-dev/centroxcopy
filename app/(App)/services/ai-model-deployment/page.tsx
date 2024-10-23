@@ -155,7 +155,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     tagText:"Challenges",
     headingText:"The Challenge of Generic LLMs",
     para1Text:"Are you pushing the boundaries of what's possible with AI, but pre-trained models are holding you back?",
-    para2Text:"You're not alone. Many startups are facing the limitations of generic LLMs:",
+    para2Text:"You're not alone. Many startups are facing the limitations of generic LLMs.",
   }
 
   const challengeData = [

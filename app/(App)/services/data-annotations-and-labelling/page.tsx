@@ -561,7 +561,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
             description={
-              "We're not just another chatbot development company. We're your strategic AI partner:"
+              "We're not just another chatbot development company. We're your strategic AI partner."
             }
           />
           {/* <LandingCaseStudySection/> */}

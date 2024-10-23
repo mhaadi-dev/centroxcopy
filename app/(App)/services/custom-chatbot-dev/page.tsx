@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Benefits",
         headingText: "How Custom Chatbots Fill The Gaps",
         para1Text:
-          "Custom chatbots, fine-tuned on your data and aligned with your business objectives, offer a transformative solution:",
+          "Custom chatbots, fine-tuned on your data and aligned with your business objectives, offer a transformative solution.",
         heading2Text: "",
         para2Text:""
     },
@@ -314,7 +314,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     tagText: "advantages",
     heading: "Why Work With Centrox?",
     description:
-      "We're not just another chatbot development company. We're your strategic AI partner:",
+      "We're not just another chatbot development company. We're your strategic AI partner.",
    },data:[{
       heading: "Deep Expertise",
       description:
@@ -486,7 +486,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
+              "We leverage a powerful and flexible tech stack to build high-performing chatbots."
             }
             caption=""
             btnText="Let’s Discuss Further"
@@ -495,7 +495,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
             description={
-              "We're not just another chatbot development company. We're your strategic AI partner:"
+              "We're not just another chatbot development company. We're your strategic AI partner."
             }
           />
           {/* <LandingCaseStudySection/> */}
