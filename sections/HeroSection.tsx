@@ -27,7 +27,7 @@ export const HeroSection = (props: PropsI) => {
     <div className="w-full pb-10 relative">
     <section
       className={classNames(
-        "flex pt-32 lg:pt-40 w-full lg:w-4/5 mx-auto pl-4 lg:pl-10   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
+        "flex pt-32 lg:pt-40 w-full 2xl:w-4/5 mx-auto pl-4 lg:pl-10   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
         props.reverse ? "lg:!flex-row-reverse" : ""
       )}
     >
@@ -57,7 +57,7 @@ export const HeroSection = (props: PropsI) => {
         </p>
         {props?.btnText && (
           <div className="flex justify-start z-[1]">
-            <CalendlyWidget btnText={props?.btnText || "Book FREE strategy call"}  isArrow={true} />
+            <CalendlyWidget btnText={props?.btnText || "Book FREE Strategy call"}  isArrow={true} />
           </div>
         )}
       </div>

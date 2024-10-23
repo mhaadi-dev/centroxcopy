@@ -29,7 +29,7 @@ if(!data){
       
      
       <div
-        className={classNames("grid my-8 grid-cols-1 lg:grid-cols-2 gap-8 w-full")}
+        className={classNames("grid my-8 grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr")} 
       >
         {data?.[0]?.data?.length>0? data?.[0].data?.map((card:any, index:number) => (
           <CommonCardwithIcon
@@ -38,7 +38,7 @@ if(!data){
             Icon={card?.icon}
             heading={card?.heading}
             description={card?.description}
-            className="h-auto lg:!h-[20rem] !rounded-3xl w-full"
+            className="h-full !rounded-3xl w-full"
             linkText={card?.linkText}
           />
         )): "" }

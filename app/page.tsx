@@ -96,7 +96,7 @@ export default async function Home() {
            heading:"Annotation & Labeling",
            description:"We leverage cutting-edge AI-powered annotation tools to efficiently process and label your data. But we don’t stop there, Our team of annotators then meticulously cross-verifies and refines the AI-generated annotations, ensuring the highest level of accuracy, consistency, and alignment with your specific use case.",
            linkText:"Learn More",
-           link:"services/data-annotations-&-labelling",
+           link:"services/data-annotations-and-labelling",
            linkWithIcon:true
         },
         {

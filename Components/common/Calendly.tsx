@@ -33,7 +33,7 @@ export const CalendlyWidget = ({btnText,btnClassName,isArrow = false}:PropsI) =>
           iconClassName="-mt-1"
           isLefticon={false}
   
-          className={classNames("",btnClassName)}
+          className={classNames("text-white",btnClassName)}
             Icon={isArrow ? Arrow : ""}
         />
        <Transition.Root show={isOpen} as={Fragment}>

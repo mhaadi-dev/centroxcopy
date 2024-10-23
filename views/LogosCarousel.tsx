@@ -16,7 +16,6 @@ import {motion} from "framer-motion"
 
 
 
-
 export async function LogosCarousel() {
 
 
@@ -41,7 +40,7 @@ export async function LogosCarousel() {
         </div> 
       </section> */}
 
-       <section className="w-full">
+       <div className="w-full">
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
            <motion.div className="flex items-center gap-x-4 lg:gap-x-10 flex-none pr-10" 
            animate={
@@ -64,7 +63,7 @@ export async function LogosCarousel() {
                     alt={"logo"}
                     className="h-auto  w-auto"
                     key={index}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </>
               ))
@@ -76,15 +75,16 @@ export async function LogosCarousel() {
                     src={logo}
                     alt={"logo"}
                     className="h-auto  w-auto"
-                    key={index}
-                    loading="lazy"
+                    key={index+1}
+                    loading="eager"
+                  
                   />
                 </>
               ))
             : ""}
         </motion.div> 
         </div>
-      </section>
+      </div>
 
       
     </div>

@@ -17,7 +17,7 @@ export const Stepper = ({ data }: any) => {
         return (
           <div
             className={classNames(
-              "pl-12 -ml-12    ",
+              "pl-12 -ml-14 lg:-ml-8  ",
               x.status == true ? " lg:py-1 border-2 activeStepper" : ""
             )}
             key={index}
@@ -26,7 +26,7 @@ export const Stepper = ({ data }: any) => {
               <div
                 className={classNames(
                   "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-green-900 text-white border-none ",
-                  x.status ? "bg-blue-bright ml-12" : "bg-gray-800"
+                  x.status ? "bg-blue-bright ml-14 lg:ml-8" : "bg-gray-800"
                 )}
               >
                 {x.status ? (

@@ -304,10 +304,10 @@ export const TabCarousel = ({
                               // className={`flex flex-wrap  gap-4`}
                             >
                               <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto "
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto auto-rows-fr "
                                 style={{
                                   gridTemplateColumns: width!=null && width > 650 ? 
-                                    "repeat(auto-fit, minmax(350px, 1fr))":"repeat(auto-fit, minmax(300px, 1fr))",
+                                    "repeat(auto-fit, minmax(300px, 1fr))":"repeat(auto-fit, minmax(300px, 1fr))",
                                 }}
                               >
                                 {cardsData?.[index]?.data.map(
@@ -352,6 +352,7 @@ export const TabCarousel = ({
                                     setShowToast(!showToast);
                                   }}
                                   hoverOnGradient={true}
+                                  key={i}
                                 />
                                 }):""}
                                 {/* <GradientCard

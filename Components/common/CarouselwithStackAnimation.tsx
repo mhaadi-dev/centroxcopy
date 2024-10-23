@@ -203,6 +203,7 @@ useEffect(() => {
                 zIndex: activeIndex === index ? 1 : 1,
                 opacity: activeIndex === index ? 1 : 0.98,
               }}
+              key={index}
             >
               <div
                 key={index}

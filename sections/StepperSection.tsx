@@ -12,6 +12,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import workProcess from "@/assets/workprocess.webp"
 import SectionHeader from "@/Components/common/SectionHeader";
+import useSize from "@/helpers/windowWidth";
 
 export const StepperSection = ({
   data,
@@ -21,7 +22,7 @@ export const StepperSection = ({
 }: any) => {
   
   const [stepperData, setStepperData] = useState(data?.data);
-
+  const {width}=useSize()
   useEffect(() => {
     if (data?.data?.length >=1){
       let updatedData = [...data?.data];
@@ -56,8 +57,8 @@ export const StepperSection = ({
 
   useEffect(() => {
     const numSteps = stepperData?.length;
-    const firstStepRange = 220 / numSteps; // Give the first step a larger percentage range
-    const otherStepRange = (100 - firstStepRange) / (numSteps - 1);
+    const firstStepRange = width!=null && width>768? 500 / numSteps : 350/numSteps; // Give the first step a larger percentage range
+    const otherStepRange = width!=null && width>768 ?  (100 - firstStepRange) / (numSteps - 1):(80 - firstStepRange) / (numSteps - 1);
 
     const updatedData = stepperData?.map((step: any, index: number) => {
       let isActive = false;
