@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Benefits",
         headingText: "How We Help Your Model Speak Your Language", // Updated heading
         para1Text:
-          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in:", // Updated first paragraph
+          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in", // Updated first paragraph
         heading2Text: "Key Features & Benefits",
       },
       data: [
@@ -106,7 +106,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Challenges",
         headingText: "The Challenge of Generic AI Models",
         para1Text:
-          "Pre-trained models often fall short when it comes to real-world applications. They struggle to:",
+          "Pre-trained models often fall short when it comes to real-world applications. They struggle to.",
         para2Text: "",
       },
       data: [
@@ -258,7 +258,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const stepperData = {
     heading: "How Do We Fine-Tune?",
     description:
-      "We follow a data-driven, iterative process to ensure optimal results:",
+      "We follow a data-driven, iterative process to ensure optimal results.",
     data: [
       {
         title: "In-Depth Needs Analysis", // Updated title
@@ -382,7 +382,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tagText: "Resolving",
       heading: "Addressing Your AI Challenges",
       description:
-        "We understand the complexities of AI model development. Our fine-tuning expertise helps you overcome common challenges:        ",
+        "We understand the complexities of AI model development. Our fine-tuning expertise helps you overcome common challenges.     ",
     },
     data: [
       {
@@ -427,7 +427,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to deliver the best possible results:"
+              "We leverage a powerful and flexible tech stack to deliver the best possible results."
             }
           />
           {/* <LogosSection data={techStackData} /> */}

@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       headerData: {
         tagText: "Our flow", 
         headingText: "Optimize. Deploy. Scale.", 
-        para1Text: "We guide you through every step of the model optimization process:", // Removed previous paragraph 1 text
+        para1Text: "We guide you through every step of the model optimization process.", // Removed previous paragraph 1 text
         heading2Text: "", 
       },
       data: [
@@ -156,7 +156,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       headerData: {
         tagText: "Optimization Partner", // Updated tagText
         headingText: " Your AI Optimization Partner ", // Updated headingText
-        para1Text: "Centrox AI is your trusted collaborator in achieving AI excellence:", // Updated para1Text
+        para1Text: "Centrox AI is your trusted collaborator in achieving AI excellence.", // Updated para1Text
         heading2Text: "", 
       },
       data: [
@@ -202,7 +202,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       headerData: {
         tagText: "Performance", 
         headingText: "Unleashing Model Performance", 
-        para1Text: "We employ a range of advanced techniques to optimize your AI models:", 
+        para1Text: "We employ a range of advanced techniques to optimize your AI models.", 
         para2Text: "", 
       },
       data: [

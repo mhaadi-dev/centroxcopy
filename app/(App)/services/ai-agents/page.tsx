@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "AI Agent Advantage",
         headingText: "The AI Agent Advantage", // Updated heading
         para1Text:
-          "While large language models (LLMs) have made significant strides in natural language understanding and generation, they often fall short when faced with complex, real-world tasks that demand more than just linguistic capabilities. Traditional automation tools and even powerful LLMs often fall short when it comes to handling the complex, dynamic nature of real-world tasks. They struggle to:",
+          "While large language models (LLMs) have made significant strides in natural language understanding and generation, they often fall short when faced with complex, real-world tasks that demand more than just linguistic capabilities. Traditional automation tools and even powerful LLMs often fall short when it comes to handling the complex, dynamic nature of real-world tasks. They struggle to",
         heading2Text: "",
       },
       data: [
@@ -113,7 +113,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Benefits",
         headingText: "How Agentic AI Can Benefit You", // Updated heading
         para1Text:
-          "Imagine a workforce augmented by intelligent AI agents that can:", // Updated para1Text
+          "Imagine a workforce augmented by intelligent AI agents that can", // Updated para1Text
         heading2Text: "", // Removed unnecessary second heading
       },
       data: [
@@ -689,7 +689,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to deliver the best possible results:"
+              "We leverage a powerful and flexible tech stack to deliver the best possible results."
             }
           />
           <CommonDisplayCardsGrid data={benefitsData2} />

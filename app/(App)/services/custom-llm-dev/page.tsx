@@ -50,6 +50,8 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingLayout from "../../layoutPage";
 import qwen from "@/assets/qwen.webp"
+import customllm  from "@/assets/Custom LLM.webp"
+import servicebg from "@/assets/serviceHeroImg.webp"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -83,7 +85,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           icon: Icon14,
           heading: "Adaptable & Scalable",
           description:
-            "Your AI needs evolve, and so should your models. We build LLMs that can learn and grow alongside your projects, effortlessly integrating with your existing systems and scaling to handle increasing demands",
+            "Your AI needs evolve, and so should your models. We build LLMs that can learn and grow alongside your projects, effortlessly integrating with your existing systems and scaling to handle increasing demands.",
           linkText: "",
           linkWithIcon: true,
         },
@@ -109,7 +111,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         para1Text:
           "Are you pushing the boundaries of what's possible with AI, but pre-trained models are holding you back?",
         para2Text:
-          "You're not alone. Many startups are facing the limitations of generic LLMs:",
+          "You're not alone. Many startups are facing the limitations of generic LLMs.",
       },
       data: [
         {
@@ -154,34 +156,35 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       question: "What kind of data do you need to train a custom LLM?",
       answer:
-        "We typically require a variety of proprietary data from your business, including FAQs, product documentation, and customer interaction logs.",
+        "We require high-quality, domain-specific data relevant to your use case. This could include internal reports, technical documentation, customer interaction logs, or any data specific to your industry. The more detailed and context-specific your data, the better the LLM can be fine-tuned for accurate and relevant outputs.",
     },
     {
       question: "How long does it take to develop a custom LLM?",
       answer:
-        "The development timeline depends on the complexity of the project and data availability, usually ranging from 6 to 12 weeks.",
+        "The timeline varies based on model complexity and data readiness. Typically, it takes 3–6 months, with milestones including data preprocessing, model architecture selection, iterative fine-tuning, and testing. Each phase is optimized to ensure we meet both performance goals and deadlines.",
     },
     {
       question: "What is the cost of custom LLM development?",
       answer:
-        "Costs vary based on project requirements, including data processing, model fine-tuning, and integration needs.",
+        "Costs depend on factors such as model size, computational needs, and integration complexity. For example, fine-tuning a mid-size model on industry-specific data will cost less than developing a large-scale LLM from scratch. A precise quote is provided after understanding your requirements and technical constraints.",
     },
     {
-      question: "How do you ensure data security and privacy?",
+      question: "How do you ensure data security and privacy during the development process?",
       answer:
-        "We follow strict data security protocols, including encryption, secure storage, and access control, to safeguard your data.",
+        "We implement strict security protocols, including encryption of data in transit and at rest, secure cloud environments (e.g., AWS, Azure), and compliance with relevant data regulations (e.g., GDPR). Access to data is restricted, and model training occurs in secure, isolated environments to prevent unauthorized access.",
     },
     {
-      question: "What level of involvement will my team have?",
+      question: "What level of involvement will my team have in the project?",
       answer:
-        "We work collaboratively with your team throughout the project, ensuring alignment and allowing for iterative feedback.",
+        "Your team will be deeply involved in critical stages like data curation, validation, and model performance reviews. We collaborate on decisions regarding architecture, training parameters, and deployment to ensure the LLM aligns perfectly with your workflows.",
     },
     {
-      question: "Can you help with ongoing maintenance and updates?",
+      question: "Can you help us with ongoing model maintenance and updates?",
       answer:
-        "Yes, we offer post-launch support, including model monitoring, updates, and retraining as needed to maintain high performance.",
+        "Yes, we provide continuous support, including model retraining, optimization, and performance monitoring. As new data becomes available or requirements shift, we ensure the LLM remains up-to-date and fully functional, handling both operational scaling and adaptation needs.",
     },
   ];
+  
 
   const techStackData = [
     {
@@ -265,7 +268,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tagText: "advantages",
       heading: "What You Gain",
       description:
-        "Partnering with Centrox AI for custom LLM development empowers your team to:",
+        "Partnering with Centrox AI for custom LLM development empowers your team to",
     },
     data: [
       {
@@ -302,7 +305,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const stepperdata = {
     heading: "How We Work",
     description:
-      "Our collaborative, iterative process ensures a tailored and effective LLM solution:",
+      "Our collaborative, iterative process ensures a tailored and effective LLM solution.",
     data: [
       {
         title: "Deep Dive & Discovery",
@@ -430,6 +433,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Engineering Custom LLMs from Ideation to Implementation"
             description="Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives."
             btnText="Book a FREE Strategy Call"
+            img={customllm}
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
@@ -439,7 +443,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to deliver the best possible results:"
+              "We leverage a powerful and flexible tech stack to deliver the best possible results."
             }
           />
           <PointsandImagesSection arrayData={arrayData} />
