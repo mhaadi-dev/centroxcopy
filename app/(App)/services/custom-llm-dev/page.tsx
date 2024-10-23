@@ -429,7 +429,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <HeroSection
             heading="Engineering Custom LLMs from Ideation to Implementation"
             description="Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives."
-            btnText="Book a FREE strategy Call"
+            btnText="Book a FREE Strategy Call"
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />

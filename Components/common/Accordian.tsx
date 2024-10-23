@@ -81,7 +81,7 @@ export default function Accordion({
           }`}
         >
           <div className="overflow-hidden">
-            <p className={classNames("text-start text-md  lg:text-base  text-white-light lg:text-left w-full lg:w-4/5","pb-3")}>{typeof children !=="object" ? children:""}</p>
+            <p className={classNames("text-start text-md  lg:text-base  text-white-light lg:text-left w-full lg:w-5/5","pb-3")}>{typeof children !=="object" ? children:""}</p>
           </div>
         </div>
       </div>
