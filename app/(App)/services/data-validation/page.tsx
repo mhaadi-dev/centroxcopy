@@ -131,7 +131,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Service Offerings", 
         headingText: "Drive Performance with Data Excellence",
         para1Text:
-          "Here’s how our approach ensures your data effectively supports your AI models:",
+          "Here’s how our approach ensures your data effectively supports your AI models.",
         para2Text: "", // Removed as not needed
       },
       data: [

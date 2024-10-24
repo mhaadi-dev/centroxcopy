@@ -23,13 +23,14 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
           return (
             <div
               style={{
-                border: "3px solid rgba(1, 184, 252, 0.20)",
-                background: "rgba(1, 184, 252, 0.10)",
-                boxShadow: "0px 0px 13px 0px rgba(1, 184, 252, 0.40) inset",
+                border: "2px solid rgba(6, 119, 230, 0.8)",
+                background: "radial-gradient(270% 67.74% at 20% 100%, rgba(7, 157, 252, 0.18) 0%, rgba(4, 93, 150, 0.06) 100%), #060606",
+
+                // boxShadow: "0px 0px 13px 0px rgba(1, 184, 252, 0.40) inset",
               }}
               key={index}
               className={classNames(
-                " p-4 lg:p-6  rounded-xl w-full flex flex-col gap-6",
+                " p-4 lg:p-6  rounded-[2rem] w-full flex flex-col gap-6",
                 (index === data.length - 1 && index%2 == 0) ? "lg:!col-span-2" : ""
               )}
             >
@@ -43,7 +44,7 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
                     >
                       <div
                         className={classNames(
-                          "flex w-full flex-col gap-2 items-center justify-center   py-4",
+                          "flex w-full flex-col gap-2 items-center justify-center px-1   py-4",
                           idx !== x.content.length - 1 ? "border-r-2 " : ""
                         )}
                       >

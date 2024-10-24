@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             tagText: "Benefits", // Updated tagText
             headingText: "The Benefits of MLOps Consulting", // Updated headingText
             para1Text:
-              "Partnering with Centrox AI for MLOps consulting can help you achieve:", // Updated para1Text
+              "Partnering with Centrox AI for MLOps consulting can help you achieve.", // Updated para1Text
             heading2Text: "",
             para2Text: "",
           },
@@ -385,7 +385,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tagText: "Advantages", // Updated tagText
       heading: "The Centrox AI Difference", // Updated heading
       description:
-        "We're not just consultants; we're your MLOps partners:", // Updated description
+        "We're not just consultants; we're your MLOps partners.", // Updated description
     },
     data: [
       {
@@ -519,14 +519,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to deliver the best possible results:"
+              "We leverage a powerful and flexible tech stack to deliver the best possible results."
             }
           />
           <PointsandImagesSection
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
             description={
-              "We're not just another chatbot development company. We're your strategic AI partner:"
+              "We're not just another chatbot development company. We're your strategic AI partner."
             }
             
           />

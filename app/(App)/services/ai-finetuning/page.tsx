@@ -51,17 +51,14 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
-
 export default async function Page({ params }: { params: { slug: string } }) {
-
-
   const benefitsData = [
     {
       headerData: {
         tagText: "Benefits",
         headingText: "How We Help Your Model Speak Your Language", // Updated heading
         para1Text:
-          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in:", // Updated first paragraph
+          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in", // Updated first paragraph
         heading2Text: "Key Features & Benefits",
       },
       data: [
@@ -109,9 +106,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Challenges",
         headingText: "The Challenge of Generic AI Models",
         para1Text:
-          "Pre-trained models often fall short when it comes to real-world applications. They struggle to:",
-        para2Text:
-          "",
+          "Pre-trained models often fall short when it comes to real-world applications. They struggle to.",
+        para2Text: "",
       },
       data: [
         {
@@ -175,12 +171,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "We use a combination of grid search, random search, and Bayesian optimization to fine-tune hyperparameters. These methods allow us to systematically explore the hyperparameter space, focusing on the configurations that maximize your model’s performance while maintaining efficiency.",
     },
     {
-      question: "How do you ensure the fine-tuned model generalizes well to new data?",
+      question:
+        "How do you ensure the fine-tuned model generalizes well to new data?",
       answer:
         "We take several steps to promote generalization, including using cross-validation, monitoring training for overfitting signs, and applying regularization techniques. Additionally, we incorporate diverse data sources during training and use iterative evaluation on real-world samples to make sure the model performs consistently across different scenarios.",
     },
   ];
-  
+
   const techStackData = [
     {
       title: "Foundation Models",
@@ -261,7 +258,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const stepperData = {
     heading: "How Do We Fine-Tune?",
     description:
-      "We follow a data-driven, iterative process to ensure optimal results:",
+      "We follow a data-driven, iterative process to ensure optimal results.",
     data: [
       {
         title: "In-Depth Needs Analysis", // Updated title
@@ -380,37 +377,38 @@ export default async function Page({ params }: { params: { slug: string } }) {
     ],
     btnText: "Get Started with Fine-Tuning", // Updated button text
   };
-  const arrayData = 
-   {
-    headerData:{
-        tagText:"Resolving",
-        heading:"Addressing Your AI Challenges",
-        description:"We understand the complexities of AI model development. Our fine-tuning expertise helps you overcome common challenges:        "
-    } 
-    ,data:[{
-      heading: "Data Scarcity", // Updated heading
+  const arrayData = {
+    headerData: {
+      tagText: "Resolving",
+      heading: "Addressing Your AI Challenges",
       description:
-        "Achieve exceptional results even with limited labeled data through techniques like transfer learning and data augmentation.", // Updated description
+        "We understand the complexities of AI model development. Our fine-tuning expertise helps you overcome common challenges.     ",
     },
-    {
-      heading: "Overfitting & Generalization", // Updated heading
-      description:
-        "Prevent overfitting and ensure your model generalizes well to new, unseen data.", // Updated description
-    },
-    {
-      heading: "Bias Mitigation", // Updated heading
-      description:
-        "Identify and address potential biases in pre-trained models to ensure fair and ethical AI solutions.", // Updated description
-    },
-    {
-      heading: "Performance Bottlenecks", // Updated heading
-      description:
-        "Optimize model size and complexity for efficient inference and deployment, even on resource-constrained environments.", // Updated description
-    }],
-    btnText:"Overcome Your AI Challenges with Centrox AI"
-}
-  
-  
+    data: [
+      {
+        heading: "Data Scarcity", // Updated heading
+        description:
+          "Achieve exceptional results even with limited labeled data through techniques like transfer learning and data augmentation.", // Updated description
+      },
+      {
+        heading: "Overfitting & Generalization", // Updated heading
+        description:
+          "Prevent overfitting and ensure your model generalizes well to new, unseen data.", // Updated description
+      },
+      {
+        heading: "Bias Mitigation", // Updated heading
+        description:
+          "Identify and address potential biases in pre-trained models to ensure fair and ethical AI solutions.", // Updated description
+      },
+      {
+        heading: "Performance Bottlenecks", // Updated heading
+        description:
+          "Optimize model size and complexity for efficient inference and deployment, even on resource-constrained environments.", // Updated description
+      },
+    ],
+    btnText: "Overcome Your AI Challenges with Centrox AI",
+  };
+
   return (
     <div>
       <LandingLayout>
@@ -425,12 +423,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={benefitsData} />
           <StepperSection data={stepperData} />
+          <LogosSection
+            data={techStackData}
+            heading={"Our Tech Stack"}
+            description={
+              "We leverage a powerful and flexible tech stack to deliver the best possible results."
+            }
+          />
           {/* <LogosSection data={techStackData} /> */}
           <PointsandImagesSection arrayData={arrayData} />
           {/* <LandingCaseStudySection /> */}
-          <IndustryBanner heading="Your AI Journey Starts Here" description="Ready to unleash the full potential of your AI models?
+          <IndustryBanner
+            heading="Your AI Journey Starts Here"
+            description="Ready to unleash the full potential of your AI models?
 Schedule a technical deep-dive with our team to discuss your fine-tuning needs and explore how we can collaborate to achieve your goals.
-" isBooking btnText="Book a Technical Discussion"/>
+"
+            isBooking
+            btnText="Book a Technical Discussion"
+          />
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"
