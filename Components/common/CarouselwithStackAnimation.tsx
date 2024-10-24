@@ -28,6 +28,7 @@ interface PropsI {
   tabsClassName?: string;
   widthClassName?: string;
   heading?: string;
+  tagHeading?:string
 }
 
 interface dataI {
@@ -44,6 +45,7 @@ export const CarouselwithStackAnimation = ({
   colsClassName,
   tabsClassName,
   heading = "",
+  tagHeading=""
 }: PropsI) => {
   const [hoverIndex, setHoverIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -166,7 +168,7 @@ useEffect(() => {
                       }`,
                     }}
                     className={classNames(
-                      "text-white text-[0.6rem]  sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer whitespace-nowrap ",
+                      "text-white text-[0.6rem] flex-1   sm:text-[0.8rem] 2xl:text-xl font-semibold text-center p-3 rounded-t-xl cursor-pointer whitespace-nowrap ",
                       tabsClassName
                     )}
                     onMouseEnter={() => setHoverIndex(index)}
@@ -178,7 +180,7 @@ useEffect(() => {
                 ))}
                 <hr
                   className={classNames(
-                    "bg-[#079DFC] z-20 h-[0.3rem] w-full cursor-pointer hrclass border-none"
+                    "bg-[#079DFC] hidden lg:block z-20 h-[0.3rem] w-full cursor-pointer hrclass border-none"
                   )}
                   style={{
                     marginLeft: hoverIndex > 0 ? `${hoverIndex * 100}%` : "",
@@ -189,7 +191,7 @@ useEffect(() => {
             </>
           )}
         </div>
-        <div className=" max-h-auto min-h-[100dvh] overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8">
+        <div className=" max-h-auto min-h-[103dvh] overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8">
           {data?.map((cars: any, index: number) => (
             <div
               className=" absolute top-0  left-0 right-0 transition-transform duration-500 ease-in-out my-8 h-auto lg:h-[80%]  bg-black   overflow-hidden  mx-auto border-4 border-gray-800 rounded-3xl "
@@ -212,9 +214,9 @@ useEffect(() => {
                 <div className="w-full  xl:w-1/2 flex flex-col gap-2 lg:gap-6 bg-gray-900 ">
                   <div className="flex w-full  flex-col space-y-4 justify-center  mx-auto h-full pt-4 md:pt-24">
                     <div className="   h-full flex flex-col gap-y-4 py-2 mx-[1.5rem] mb-4 xl:mx-[3rem]">
-                      <p className="text-base uppercase text-blue-azure font-semibold">
-                        Solution
-                      </p>
+                      {tagHeading&&<p className="text-base uppercase text-blue-azure font-semibold">
+                        {tagHeading}
+                      </p>}
                       <h3
                         className={classNames(
                           text_h3_class,
@@ -245,8 +247,8 @@ useEffect(() => {
                         )}
                       </div>
                      
-                      {/* <div className="flex justify-center md:justify-start ">
-                      <Link href={"/"}>
+                      <div className="flex justify-center md:justify-start ">
+                    {cars?.btnText &&  <Link href={cars?.link}>
                       <Button
                           content={"Try For Free"}
                           btnClassName="!px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem]"
@@ -254,9 +256,9 @@ useEffect(() => {
                           isLefticon={false}
                           iconClassName="!-mt-1"
                         />
-                      </Link>
+                      </Link>}
                         
-                      </div> */}
+                      </div>
                     </div>
                   </div>
                 </div>
