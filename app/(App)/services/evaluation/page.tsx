@@ -58,20 +58,25 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
-// const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
-// const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
-// const BannerSection = dynamic(() => import('@/sections/TestimonialSection'));
-// const HoveredTextSection = dynamic(() => import('@/sections/HoveredTextSection'));
-// const LogosCarousel = dynamic(() => import('@/views/LogosCarousel'));
-// const CustomCarousalSection = dynamic(() => import('@/sections/CustomCarousalSection'));
-// const BenefitsSection = dynamic(() => import('@/sections/BenefitsSection'));
-// const OppositeCarousal = dynamic(() => import('@/sections/OppositeCarousal'));
-// const StepperSection = dynamic(() => import('@/sections/StepperSection'));
-// const PointsandImagesSection = dynamic(() => import('@/views/ComputerVisionDevelopment/Section6'));
-// const CustomerTestimonials = dynamic(() => import('@/sections/CustomersTestimonial'));
-// const ProductsCarousalSection = dynamic(() => import('@/sections/ProducstsCarousal'));
-// const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
-// const LogosSection = dynamic(() => import('@/sections/LogosSection'));
+import kserve from "@/assets/evaluationlogos/k-serve-white.webp"
+import seldon from "@/assets/evaluationlogos/seldon-logo-white.webp"
+import tensorflowserving from "@/assets/evaluationlogos/tensorflow-svgrepo-com 1.webp"
+import prometeus from "@/assets/evaluationlogos/cbi--prometheusio 1.webp"
+import grafana from "@/assets/evaluationlogos/grafana-svgrepo-com 1.webp"
+import airflow from "@/assets/evaluationlogos/airflow-svgrepo-com 1.webp"
+import argo from "@/assets/evaluationlogos/argo-removebg-preview.webp"
+import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
+import commet from "@/assets/evaluationlogos/comet-logo-1 1.webp"
+import dvc from "@/assets/evaluationlogos/dvc.webp"
+import gitlfs from "@/assets/evaluationlogos/git-lfs-logo 1.webp"
+import jenkins from "@/assets/evaluationlogos/jenkins.webp"
+import gitlab from "@/assets/evaluationlogos/gitlab-svgrepo-com 1.webp"
+import circleci from "@/assets/evaluationlogos/circleci-icon 1.webp"
+import parchiderm from "@/assets/evaluationlogos/pachyderm (1).webp"
+
+
+
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const benefitsData = [
@@ -240,12 +245,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "Airflow",
-          img: mlflow,
+          img: airflow,
         },
         {
           alt: "Icon",
           caption: "Argo Workflows",
-          img: mlflow,
+          img: argo,
         },
       ],
     },
@@ -255,17 +260,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "TensorFlow Serving",
-          img: mlflow,
+          img: tensorflowserving,
         },
         {
           alt: "Icon",
           caption: "KServe",
-          img: mlflow,
+          img: kserve,
         },
         {
           alt: "Icon",
           caption: "Seldon Core",
-          img: mlflow,
+          img: seldon,
         },
       ],
     },
@@ -275,12 +280,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "Prometheus",
-          img: mlflow,
+          img: prometeus,
         },
         {
           alt: "Icon",
           caption: "Grafana",
-          img: mlflow,
+          img: grafana,
         },
         {
           alt: "Icon",
@@ -300,12 +305,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "Weights & Biases",
-          img: mlflow,
+          img: weightandbiases,
         },
         {
           alt: "Icon",
           caption: "CometML",
-          img: mlflow,
+          img: commet,
         },
       ],
     },
@@ -315,17 +320,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "DVC",
-          img: mlflow,
+          img: dvc,
         },
         {
           alt: "Icon",
           caption: "Git LFS",
-          img: mlflow,
+          img: gitlfs,
         },
         {
           alt: "Icon",
           caption: "Pachyderm",
-          img: mlflow,
+          img: parchiderm,
         },
       ],
     },
@@ -340,7 +345,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "GCP",
-          img: mlflow,
+          img: googlecloud,
         },
         {
           alt: "Icon",
@@ -355,17 +360,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           alt: "Icon",
           caption: "Jenkins",
-          img: mlflow,
+          img: jenkins,
         },
         {
           alt: "Icon",
           caption: "GitLab CI",
-          img: mlflow,
+          img: gitlab,
         },
         {
           alt: "Icon",
           caption: "CircleCI",
-          img: mlflow,
+          img: circleci,
         },
       ],
     },
