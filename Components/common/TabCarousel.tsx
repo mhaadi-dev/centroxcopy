@@ -21,7 +21,7 @@ import {
   useState,
 } from "react";
 import { Button } from "@/Components/Button.js/button";
-import classNames, { generateBlurDataURL, text_h3_class, text_h4_class, text_para_3 } from "@/helpers/common";
+import classNames, { generateBlurDataURL, text_h3_class, text_h4_class, text_para_2, text_para_3 } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
 import { ServiceViewContext } from "@/store/ServiceViewProivder";
@@ -92,8 +92,8 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
     }
   }, [setTabs, tabs]);
 
-  const selectedTab =
-    tabs.find((tab: any) => tab.current)?.name || tabs[0].name;
+  // const selectedTab =
+  //   tabs.find((tab: any) => tab.current)?.name || tabs?.[0]?.name;
 
   useEffect(() => {
     const switchTab = () => {
@@ -138,50 +138,65 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
     <div className="w-full">
       {/* Mobile Tabs */}
       <nav
-        className="grid grid-cols-2 gap-2 w-full lg:hidden"
-        aria-label="Tabs"
-      >
-        {tabs.map((tab: any) => (
-          <a
-            key={tab.name}
-            className={classNames(
-              tab.current
-                ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
-                : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100"
-            )}
-            aria-current={tab.current ? "page" : undefined}
-            onClick={() => handleTabClick(tab.name)}
-          >
-            {tab.name}
-          </a>
-        ))}
-      </nav>
+  className={classNames(
+    "grid gap-2 w-full lg:hidden",
+    tabs.length % 2 === 0 ? "grid-cols-2" : "grid-cols-2" // Always maintain 2 columns
+  )}
+  aria-label="Tabs"
+>
+  {tabs.map((tab: any, index: number) => (
+    <a
+      key={tab.name}
+      className={classNames(
+        tab.current
+          ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
+          : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
+        "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100",
+        tabs.length % 2 !== 0 && index === tabs.length - 1 ? "col-span-2" : "" // Last tab spans full width if odd number of tabs
+      )}
+      style={{
+        wordWrap: "break-word", // Ensures text wraps inside the tab
+      }}
+      aria-current={tab.current ? "page" : undefined}
+      onClick={() => handleTabClick(tab.name)}
+    >
+      {tab.name}
+    </a>
+  ))}
+</nav>
+
+
 
       {/* Desktop Tabs */}
       <nav
-        className={classNames(
-          isGradientCardLayout && "px-[3rem]",
-          "hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-2 items-center w-full"
-        )}
-        aria-label="Tabs"
-      >
-        {tabs.map((tab: any) => (
-          <a
-            key={tab.name}
-            className={classNames(
-              tab.current
-                ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
-                : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 px-2 text-2xl font-semibold cursor-pointer text-center transition-colors duration-100 z-10 w-full"
-            )}
-            aria-current={tab.current ? "page" : undefined}
-            onClick={() => handleTabClick(tab.name)}
-          >
-            {tab.name}
-          </a>
-        ))}
-      </nav>
+  className={classNames(
+    isGradientCardLayout && "px-[3rem]",
+    "hidden lg:grid gap-x-4 gap-y-2 items-center  w-full",
+    tabs.length === 2
+      ? "lg:grid-cols-2"
+      : tabs.length === 3
+      ? "lg:grid-cols-3"
+      : "lg:grid-cols-4" 
+  )}
+  aria-label="Tabs"
+>
+  {tabs.map((tab: any) => (
+    <a
+      key={tab.name}
+      className={classNames(
+        tab.current
+          ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
+          : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
+        "whitespace-nowrap py-2 px-2 text-2xl font-semibold cursor-pointer text-center transition-colors duration-100 z-10 w-full"
+      )}
+      aria-current={tab.current ? "page" : undefined}
+      onClick={() => handleTabClick(tab.name)}
+    >
+      {tab.name}
+    </a>
+  ))}
+</nav>
+
     </div>
   );
 };
@@ -195,13 +210,15 @@ interface TabCarouselProps {
   cardsData?: any;
   gradientCardData?: any;
   headerTabs?:any
+  caption?:string
 }
 export const TabCarousel = ({
   isCardLayout = false,
   isGradientCardsLayoutwithImage = false,
   cardsData=[],
   gradientCardData=[],
-  headerTabs=[]
+  headerTabs=[],
+  caption=""
 }: TabCarouselProps) => {
   const { view } = useContext(ServiceViewContext);
   const { width } = useSize();
@@ -511,6 +528,7 @@ export const TabCarousel = ({
                             </>
                           )}
                         </div>
+                        {caption && <p className={classNames(text_para_2,"text-center my-4 w-full mx-auto lg:w-[60%]")}>{caption}</p>}
                         {/* {!isCardLayout && (
                           <Button
                             content={tab.current?  tab?.cta : "Get Started"}

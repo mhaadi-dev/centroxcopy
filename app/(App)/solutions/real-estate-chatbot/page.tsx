@@ -53,7 +53,7 @@ import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../../layoutPage";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 
@@ -284,14 +284,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
   ];
   const heroData = {
-    heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
+    heading: "Smart Chatbot for Efficient Document Assistance",
     description:
-      "Be Available For Your Customers 24/7.Partner with Centrox AI to build intelligent chatbots that know your business as well as you do,, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
-    btnText: "Book A Call Now",
+      "Centrox AI offers a Smart Chatbot designed to simplify interactions with documents. Upload a PDF and receive clear, actionable responses, insightful summaries, and easy-to-understand explanations matching exactly to your needs.",
+    btnText: "Try it for FREE",
     includeDots: false,
     img: serviceHeroImg,
     reverse: false,
   };
+  
   const arrayData = {
     headerData: {
       tagText: "advantages",

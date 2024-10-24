@@ -19,6 +19,8 @@ interface PropsI {
   includeDots?: any;
   img: any;
   reverse?: any;
+  className?:string
+
 }
 
 import Image from "next/image";
@@ -61,10 +63,10 @@ export const HeroSection = (props: PropsI) => {
           </div>
         )}
       </div>
-      <div className="w-full lg:w-1/2">
+      <div className={classNames("w-full lg:w-1/2",props?.className)}>
         {true && (
           <Image
-            src={serviceHeroImg || props?.img}
+            src={props?.img || serviceHeroImg}
             alt="hero-img"
             objectFit="fill"
             className="w-full lg:w-5/7 roudned-2xl  "
