@@ -50,6 +50,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
+import servicebg from "@/assets/Servicebg.webp"
 
 
 
@@ -526,6 +527,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Optimise Your AI Model For Maximum Performance & Efficiency." 
             description="Helping You Achieve Peak AI Performance Without Compromising Accuracy With Model Optimisation."
             btnText="Book A Call" 
+            bgimage1={servicebg}
           />
 
           <LogosCarousel />

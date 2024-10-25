@@ -31,7 +31,7 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
               key={index}
               className={classNames(
                 " p-4 lg:p-6  rounded-[2rem] w-full flex flex-col gap-6",
-                (index === data.length - 1 && index%2 == 0) ? "lg:!col-span-2" : ""
+                (index === data.length - 1 && index%2 == 0) ? "" : ""
               )}
             >
               <div className="flex h-[6.5rem] lg:h-auto w-full lg:w-4/5 mx-auto overflow-hidden   justify-center  items-center">

@@ -53,7 +53,7 @@ import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
-
+import servicebg from "@/assets/Servicebg.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -473,7 +473,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData}   bgimage1={servicebg} />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

@@ -26,6 +26,7 @@ import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 import Icon from "@/assets/Icon.webp";
 import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
+import servicebg from "@/assets/Servicebg.webp"
 import Icon4 from "@/assets/Icon-4.webp";
 import Icon6 from "@/assets/Icon-6.webp";
 import Icon9 from "@/assets/Icon-9.webp";
@@ -541,7 +542,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-        <HeroSection {...heroData} />
+        <HeroSection {...heroData}   bgimage1={servicebg}/>
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

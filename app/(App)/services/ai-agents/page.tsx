@@ -50,21 +50,8 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
+import servicebg from "@/assets/Servicebg.webp"
 
-// const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
-// const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
-// const BannerSection = dynamic(() => import('@/sections/TestimonialSection'));
-// const HoveredTextSection = dynamic(() => import('@/sections/HoveredTextSection'));
-// const LogosCarousel = dynamic(() => import('@/views/LogosCarousel'));
-// const CustomCarousalSection = dynamic(() => import('@/sections/CustomCarousalSection'));
-// const BenefitsSection = dynamic(() => import('@/sections/BenefitsSection'));
-// const OppositeCarousal = dynamic(() => import('@/sections/OppositeCarousal'));
-// const StepperSection = dynamic(() => import('@/sections/StepperSection'));
-// const PointsandImagesSection = dynamic(() => import('@/views/ComputerVisionDevelopment/Section6'));
-// const CustomerTestimonials = dynamic(() => import('@/sections/CustomersTestimonial'));
-// const ProductsCarousalSection = dynamic(() => import('@/sections/ProducstsCarousal'));
-// const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
-// const LogosSection = dynamic(() => import('@/sections/LogosSection'));
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
@@ -673,6 +660,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               "Partner with Centrox AI to develop intelligent AI agents and workflows that automate tasks, make decisions, and drive business growth. With our expertise in Agentic AI workflows, we can help you with developing custom solutions tailored to your specific needs."
             }
             btnText="Book A FREE 1:1 Session"
+            bgimage1={servicebg}
           />
           
           <LogosCarousel />

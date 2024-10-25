@@ -20,7 +20,6 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -50,109 +49,145 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
-import rasa from "@/assets/Rasa-white.webp"
-import dialogflow from "@/assets/dialogflow.svg"
+import rasa from "@/assets/Rasa-white.webp";
+import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingLayout from "../../layoutPage";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-
+import solutionbg1 from "@/assets/solutions/solutionbg1.webp";
+import solutionbg2 from "@/assets/solutions/solutionbg2.webp";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-
-
-    const cardsSolutions = [
-        {
-          headerData: {
-            tagText: "AI-powered Solution",
-            headingText: "Our AI-powered solution offers",
-            para1Text: "",
-            heading2Text: "",
-            para2Text: ""
-          },
-          data: [
-            {
-              icon: Icon, // Replace with the correct icon for Unmatched Accuracy
-              heading: "Unmatched Accuracy",
-              description:
-                "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Data Security & Privacy
-              heading: "Data Security & Privacy",
-              description:
-                "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Scalability
-              heading: "Scalability",
-              description:
-                "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Integration
-              heading: "Integration",
-              description:
-                "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
-              linkText: "",
-              linkWithIcon: true,
-            }
-          ],
-          caption: "",
-          btnText: "Get Free Body Measurements"
-        }
-      ];
-      
-
-
-
-  const challengeData = [
+  const cardsSolutions = [
     {
-    headerData: {
-    tagText:"",
-    headingText: "",
-    para1Text:
-      "Are sizing inconsistencies and high return rates impacting your bottom line?",
-    para2Text: "",
-    heading2Text:
-      "The traditional approach to apparel sizing presents significant challenges for businesses and customers alike",
+      headerData: {
+        tagText: "AI-powered Solution",
+        headingText: "Our AI-powered solution offers",
+        para1Text: "",
+        heading2Text: "",
+        para2Text: "",
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Inaccurate Measurements
-          heading: "Inaccurate Measurements",
+          icon: Icon, // Replace with the correct icon for Unmatched Accuracy
+          heading: "Unmatched Accuracy",
           description:
-            "Manual measurements, whether taken in-store or self-reported by customers, are prone to human error. This leads to inconsistent sizing, customer frustration, and ultimately, increased return rates.",
+            "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for High Return Rates
-          heading: "High Return Rates",
+          icon: Icon, // Replace with the correct icon for Data Security & Privacy
+          heading: "Data Security & Privacy",
           description:
-            "Ill-fitting garments are a major contributor to costly returns, impacting profitability and damaging customer loyalty. The environmental impact of these returns is also a growing concern.",
+            "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Limited Personalization
-          heading: "Limited Personalization",
+          icon: Icon, // Replace with the correct icon for Scalability
+          heading: "Scalability",
           description:
-            "Generic sizing charts and one-size-fits-all approaches can't cater to the diverse range of body shapes and preferences in today's market. Customers crave personalized experiences and garments that fit them perfectly.",
+            "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
           linkText: "",
           linkWithIcon: true,
-        }
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Integration
+          heading: "Integration",
+          description:
+            "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption: "",
+      btnText: "Get Free Body Measurements",
+    },
+  ];
+
+  const challengeData = [
+    {
+      headerData: {
+        tagText: "The Problem",
+        headingText: "Overcoming Obstacles in Emotional Support",
+        para1Text:
+          "In times of emotional distress, people often find themselves facing scattered information, long wait times for professional support, or inadequate resources. Traditional resources struggle with",
+        para2Text: "",
+        heading2Text: "",
+      },
+      data: [
+        {
+          icon: Icon, // Replace with the correct icon for Lack of Clarity
+          heading: "Lack of Clarity",
+          description:
+            "General support systems often flood users with excessive, irrelevant information, which can add to their confusion.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Unfiltered Advice
+          heading: "Unfiltered Advice",
+          description:
+            "Many chatbots provide vague or out-of-context responses, detracting from the user’s immediate needs.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Inappropriate Suggestions
+          heading: "Inappropriate Suggestions",
+          description:
+            "Some services may inadvertently give advice that’s beyond their scope, including medical guidance, which could mislead or overwhelm users.",
+          linkText: "",
+          linkWithIcon: true,
+        },
       ],
       caption:
-        "Centrox AI's body measurement tool addresses these challenges head-on, providing a data-driven solution to revolutionize how you capture and utilize body data. Our AI-powered technology enables you to create a more personalized, efficient, and sustainable approach to apparel sizing and shopping.",
-      btnText: "Get A Free Trial",
-      
+        "Centrox AI developed this chatbot to counter these challenges head-on, offering clear, boundary-driven assistance without prescribing medication or straying off-topic.",
+      btnText: "Talk to Our Bot now",
+    },
+  ];
+  const cardsData = [
+    {
+      headerData: {
+        tagText: "A Solution",
+        headingText:
+          "Targeted, Boundaried Support with Centrox AI's Health Chatbot",
+        para1Text:
+          "Our AI health chatbot is built on advanced prompt engineering, ensuring it delivers precise, relevant responses and disregards any irrelevant queries. Here’s how we’ve structured this tool to offer the most value:",
+        para2Text: "",
+        heading2Text: "",
+      },
+      data: [
+        {
+          icon: Icon, // Replace with the correct icon for Laser-Focused Responses
+          heading: "Laser-Focused Responses",
+          description:
+            "Users get answers to their queries that are straightforward and concise, reducing confusion and promoting clarity in times of distress.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Boundaries in Place
+          heading: "Boundaries in Place",
+          description:
+            "The chatbot will not attempt to address or provide advice on complex medical conditions or treatments—it remains firmly within the limits of general emotional support.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for No Medication Suggestions
+          heading: "No Medication Suggestions",
+          description:
+            "The chatbot is not designed to offer medical prescriptions or therapeutic treatments, ensuring users receive only appropriate guidance that aligns with their immediate emotional needs.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption:
+        "Centrox AI’s chatbot counters these challenges head-on, providing clear, boundary-driven assistance without prescribing medication or straying off-topic.",
+      btnText: "Get Instant Support",
     },
   ];
 
@@ -173,7 +208,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
     },
     {
-      question: "How do you ensure data security and privacy during the development process?",
+      question:
+        "How do you ensure data security and privacy during the development process?",
       answer:
         "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
     },
@@ -188,8 +224,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "Yes, we offer ongoing maintenance and support services to keep your chatbot up-to-date and performing optimally. This includes regular updates, fine-tuning based on user feedback, and continuous monitoring to ensure the chatbot adapts to evolving business needs.",
     },
   ];
-  
-  
 
   const techStackData = [
     {
@@ -284,14 +318,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
   ];
   const heroData = {
-    heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
+    heading: "Assistance for Emotional Support",
     description:
-      "Be Available For Your Customers 24/7.Partner with Centrox AI to build intelligent chatbots that know your business as well as you do,, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
-    btnText: "Book A Call Now",
+      "Centrox AI introduces an advanced mental health chatbot designed specifically to assist individuals who are upset and seeking general emotional support. This AI-driven tool provides quick, actionable guidance without the need for human interaction.",
+    btnText: "Talk to Our Bot Now",
     includeDots: false,
-    img: serviceHeroImg,
+    img: serviceHeroImg, // Ensure `serviceHeroImg` is the relevant image for this hero section
     reverse: false,
   };
+
   const arrayData = {
     headerData: {
       tagText: "advantages",
@@ -327,22 +362,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
     ],
     btnText: "Book A Call Today",
   };
-  
- 
-    
+
   return (
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
-          <LogosCarousel />
-          <CommonDisplayCardsGrid
-            data={challengeData}
+          <HeroSection
+            {...heroData}
+            bgimage1={solutionbg1}
+            bgimage2={solutionbg2}
+            bgClassName="opacity-30"
           />
-          <LandingSolutionsSection/>
-          <CommonDisplayCardsGrid
-            data={cardsSolutions}
-          /> 
+          <LogosCarousel />
+          <CommonDisplayCardsGrid data={challengeData} />
+          <CommonDisplayCardsGrid data={cardsData} />
+          <LandingSolutionsSection />
+          <CommonDisplayCardsGrid data={cardsSolutions} />
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}
@@ -352,14 +387,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             caption=""
             btnText="Let’s Discuss Further"
           />
-          <LandingIndustriesSection/>
-      
-         
+          <LandingIndustriesSection />
+
           <PointsandImagesSection
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
             description={
-              "We're not just another chatbot development company. We're your strategic AI partner:"
+              "We're not just another chatbot development company. We're your strategic AI partner"
             }
           />
           {/* <LandingCaseStudySection/> */}
@@ -369,8 +403,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
-          <IndustryBanner heading="Revolutionize your Business 
-with AI-Powered Body Measurements" description="Schedule a technical discussion with our experts to learn how our tool can be integrated into your existing systems." btnText="Book a Technical Demo" isBooking/>
+          <IndustryBanner
+            heading="Create Your Custom AI Chatbot"
+            description="Are you ready to develop a chatbot that delivers precise, focused support, no matter the industry?
+            Get in touch with Centrox today to see how we can build a solution tailored to your needs."
+            btnText="Book a Demo"
+            isBooking
+          />
         </main>
       </LandingLayout>
     </div>

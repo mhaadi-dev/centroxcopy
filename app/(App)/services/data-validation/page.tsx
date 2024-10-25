@@ -60,6 +60,7 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
 import IndustryBanner from "@/Components/common/IndustryBanner";
+import servicebg from "@/assets/Servicebg.webp"
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
@@ -596,6 +597,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Enhance Your AI with Unmatched Data Accuracy"
             description="Achieve better results in a smarter way. Enhance data accuracy while making processes more efficient at lower operational cost."
             btnText="Talk to Us"
+            bgimage1={servicebg}
           />
 
           <LogosCarousel />

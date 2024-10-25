@@ -207,6 +207,7 @@ export default async function Home() {
       description:
         "Provides empathetic support and personalized coping strategies for individuals experiencing emotional distress.Trained on a curated dataset of evidence-based therapeutic techniques and mental health resources.",
       heading: "Mental Health Chatbot",
+      tabheading: "Mental Health Chatbot",
       btnText: "Try for Free",
       link: "solutions/mental-health-chatbot",
     },
@@ -214,7 +215,8 @@ export default async function Home() {
       img: SolutionsImage2,
       description:
         "Provides intelligent property search, answer queries, schedule viewings, and offer tailored recommendations.Integrates with real estate databases and APIs to provide up-to-date property information and streamline the customer journey.",
-      heading: "Real-Estate Chatbot ",
+      heading: "Real-Estate Chatbot",
+      tabheading: "Real-Estate Chatbot",
       btnText: "Try for Free",
       link: "solutions/real-estate-chatbot",
     },
@@ -223,6 +225,7 @@ export default async function Home() {
       description:
         "Utilizes computer vision and deep learning algorithms to accurately estimate body dimensions from just two photos.Enables precise garment fitting, personalized recommendations, and reduced return rates for fashion retailers.",
       heading: "Body Measurements Tool",
+      tabheading: "Body Measurements Tool",
       btnText: "Try for Free",
       link: "solutions/snap-and-measure",
     },
@@ -231,6 +234,7 @@ export default async function Home() {
       description:
         "Automates the process of tagging fashion products with relevant attributes (style, color, neckline, etc.) using computer vision and image recognition techniques.Improves efficiency, accuracy, and consistency in product cataloging for fashion retailers.",
       heading: "Labelling Dresses with AI",
+      tabheading: "Labelling Dresses with AI",
       btnText: "Try for Free",
       link: "solutions/labelling-dresses-with-ai",
     },
