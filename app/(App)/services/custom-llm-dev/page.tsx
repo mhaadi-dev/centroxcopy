@@ -52,6 +52,7 @@ import LandingLayout from "../../layoutPage";
 import qwen from "@/assets/qwen.webp"
 import customllm  from "@/assets/Custom LLM.webp"
 import servicebg from "@/assets/Servicebg.webp"
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
@@ -454,6 +455,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns"
             data={questions}
           />
+          <IndustryBanner heading="Talk to Our AI Expert" description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment." btnText="Book 1:1 Call" isBooking/>
 
           {/* {data?.length>0? data.map((val, index) => {
             

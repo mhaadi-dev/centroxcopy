@@ -72,7 +72,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Domain Adaptation", // Updated heading
           description:
             "Your model will understand your industry's unique vocabulary, terminology, and context, leading to drastically improved accuracy and relevance.", // Updated description
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Enhanced Performance", // Updated heading
           description:
             "Achieve state-of-the-art results on your specific tasks, even with limited labeled data.", // Updated description
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -88,7 +88,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Reduced Bias & Improved Fairness", // Updated heading
           description:
             "Mitigate unwanted biases in pre-trained models, ensuring your AI solutions are fair and ethical.", // Updated description
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -96,7 +96,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Optimized Efficiency", // Updated heading
           description:
             "Reduce model size and computational requirements, enabling faster inference and deployment on resource-constrained environments.", // Updated description
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
       ],
@@ -120,7 +120,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Generalization",
           description:
             "Pre-trained models often struggle to adapt to your unique dataset and specific task requirements, leading to subpar performance and relevance.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -128,7 +128,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Maintaining Accuracy",
           description:
             "Delivering consistently reliable and precise outputs can be a challenge when using pre-trained models in real-world scenarios.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -136,7 +136,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Avoiding Bias",
           description:
             "Mitigating inherent biases in large pre-trained models is crucial to ensure fair and ethical AI solutions.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
         {
@@ -144,7 +144,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           heading: "Optimizing Efficiency",
           description:
             "Pre-trained models often require significant computational resources, making it difficult to run efficiently, especially with limited infrastructure.",
-          linkText: "Learn More",
+          linkText: "",
           linkWithIcon: true,
         },
       ],
@@ -425,6 +425,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
             img={finetuninghero}
             bgimage1={servicebg}
+            btnText="Schedule a Session"
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />

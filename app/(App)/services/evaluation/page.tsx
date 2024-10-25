@@ -74,6 +74,7 @@ import gitlab from "@/assets/evaluationlogos/gitlab-svgrepo-com 1.webp"
 import circleci from "@/assets/evaluationlogos/circleci-icon 1.webp"
 import parchiderm from "@/assets/evaluationlogos/pachyderm (1).webp"
 import servicebg from "@/assets/Servicebg.webp"
+import evaluation from "@/assets/Pipeline.webp"
 
 
 
@@ -517,6 +518,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Streamline Your AI Pipelines For Faster Time-To-Market"
             description="Partner with Centrox AI as we guide and consult you on streamlining your AI development lifecycle, optimizing model performance, and ensuring scalability and reliability in production."
             bgimage1={servicebg}
+            img={evaluation}
+           
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
