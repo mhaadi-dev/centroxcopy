@@ -63,8 +63,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Benefits",
         headingText: "How We Help Your Model Speak Your Language", // Updated heading
         para1Text:
-          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in", // Updated first paragraph
-        heading2Text: "Key Features & Benefits",
+          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in:", // Updated first paragraph
+        heading2Text: "",
       },
       data: [
         {

@@ -140,7 +140,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon6, // Ensure you have the correct icon for Domain-Specific Expertise
+          icon: Icon9, // Ensure you have the correct icon for Domain-Specific Expertise
           heading: "Domain-Specific Expertise",
           description:
             "Our deep understanding of NLPs fits our workflow in assisting in your critical application development.",
@@ -148,7 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon6, // Ensure you have the correct icon for Security and Compliance
+          icon: Icon12, // Ensure you have the correct icon for Security and Compliance
           heading: "Security and Compliance",
           description:
             "We safeguard the sensitive information of your data to industry standards, providing you with peace of mind.",
@@ -164,7 +164,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const challengeData = [
     {
       headerData: {
-        tagText: "Offers",
+        tagText: "Services",
         headingText: "What Centrox Annotation Offers",
         para1Text:
           "",

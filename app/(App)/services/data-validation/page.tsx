@@ -581,7 +581,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <HeroSection
             heading="Enhance Your AI with Unmatched Data Accuracy"
             description="Achieve better results in a smarter way. Enhance data accuracy while making processes more efficient at lower operational cost."
-            btnText="Talk to Us"
+            btnText="Talk to Us Now"
             bgimage1={servicebg}
             bgClassName="opacity-60" 
             img={datavalidation}
