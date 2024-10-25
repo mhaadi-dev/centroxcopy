@@ -103,7 +103,7 @@ export default async function Home() {
           icon: Icon,
           heading: "Annotation & Labeling",
           description:
-            "We leverage cutting-edge AI-powered annotation tools to efficiently process and label your data. But we don’t stop there, Our team of annotators then meticulously cross-verifies and refines the AI-generated annotations, ensuring the highest level of accuracy, consistency, and alignment with your specific use case.",
+            "Our AI-driven annotation tools streamline the processing and labeling of your data, saving you time and resources. Our skilled team of annotators reviews and fine-tunes these AI-generated annotations, guaranteeing exceptional accuracy and consistency tailored to your unique requirements. By choosing our data annotation services, you're investing in quality that enhances your project's success.",
           linkText: "Learn More",
           link: "services/data-annotations-and-labelling",
           linkWithIcon: true,

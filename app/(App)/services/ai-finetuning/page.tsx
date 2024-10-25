@@ -426,6 +426,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             img={finetuninghero}
             bgimage1={servicebg}
             btnText="Schedule a Session"
+            bgClassName="opacity-60" 
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
