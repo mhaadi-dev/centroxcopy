@@ -538,7 +538,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <HeroSection
             heading="Optimise Your AI Model For Maximum Performance & Efficiency." 
             description="Helping You Achieve Peak AI Performance Without Compromising Accuracy With Model Optimisation."
-            btnText="Book A Call" 
+            btnText="Book A Call Now" 
             bgimage1={servicebg}
             img={modeloptimization}
             bgClassName="opacity-60" 
