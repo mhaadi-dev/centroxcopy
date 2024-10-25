@@ -211,7 +211,7 @@ useEffect(() => {
                       </p>}
                      
                       <div className="flex justify-center md:justify-start ">
-                    {cars?.btnText &&  <Link href={cars?.link}>
+                    {/* {cars?.btnText &&  <Link href={cars?.link}>
                       <Button
                           content={"Try For Free"}
                           btnClassName="!px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem]"
@@ -219,7 +219,7 @@ useEffect(() => {
                           isLefticon={false}
                           iconClassName="!-mt-1"
                         />
-                      </Link>}
+                      </Link>} */}
                         
                       </div>
                     </div>
