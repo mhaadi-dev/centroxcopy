@@ -64,9 +64,8 @@ import SolutionsImage2 from "@/assets/solutionPic2.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
 import SolutionsImage4 from "@/assets/solutionPic4.webp";
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
-import industryPic2 from "@/assets/industry2.webp";
-import industryPic3 from "@/assets/industry3.webp";
-import industryPic4 from "@/assets/industry4.webp";
+import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
+import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const cardsSolutions = [
@@ -162,35 +161,30 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const questions = [
     {
-      question: "What kind of data do you need to train a custom chatbot?",
+      question: "How accurate is your body measurement tool?",
       answer:
         "To train a custom chatbot, we primarily use your business’s proprietary data, such as customer interactions, FAQs, product information, support tickets, and knowledge base. The richer and more specific the data, the better the chatbot can understand and respond to your customers with accurate, contextually appropriate answers.",
     },
     {
-      question: "How long does it take to develop a custom chatbot?",
+      question: "What types of clothing and body shapes can your tool handle?",
       answer:
         "The timeline depends on the complexity of the project, the level of customization required, and the integration needs. Typically, development can range from 4 to 12 weeks, including the design, training, testing, and deployment phases.",
     },
     {
-      question: "What is the cost of custom chatbot development?",
+      question: "How do you ensure the privacy and security of customer data?",
       answer:
         "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
     },
     {
       question:
-        "How do you ensure data security and privacy during the development process?",
+        "Can your tool be integrated with our existing e-commerce platform?",
       answer:
         "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
     },
     {
-      question: "What level of involvement will my team have in the project?",
+      question: "What kind of support do you offer after implementation?",
       answer:
         "We collaborate closely with your team throughout the project to ensure the chatbot aligns with your goals and vision. Your input is crucial during the needs assessment, design, and testing phases, and we provide regular updates to ensure transparency and effective communication.",
-    },
-    {
-      question: "Can you help us with ongoing chatbot maintenance and updates?",
-      answer:
-        "Yes, we offer ongoing maintenance and support services to keep your chatbot up-to-date and performing optimally. This includes regular updates, fine-tuning based on user feedback, and continuous monitoring to ensure the chatbot adapts to evolving business needs.",
     },
   ];
 
@@ -199,31 +193,35 @@ export default async function Page({ params }: { params: { slug: string } }) {
       img: SolutionsImage1,
       description:
         "Extract precise measurements from simple photographs, eliminating the need for physical measuring tapes or in-person fittings. Our technology uses advanced pose estimation and body landmark detection to accurately identify key points on the body, ensuring precise measurements even from standard smartphone photos.",
-      heading: "Capture Body Dimensions",
+      heading: "Accurately Capture Body Dimensions",
+      tabheading:"Capture Body Dimensions",
       btnText: "",
       link: "",
     },
     {
       img: SolutionsImage2,
       description:
-        "Provides intelligent property search, answer queries, schedule viewings, and offer tailored recommendations.Integrates with real estate databases and APIs to provide up-to-date property information and streamline the customer journey.",
-      heading: "Virtual Try-Ons",
+        "Allow customers to visualize how garments will fit and look on their own bodies in a virtual environment. This empowers customers to make more confident purchase decisions, reducing the likelihood of returns and enhancing the overall shopping experience.",
+      heading: "Enable Virtual Try-Ons",
+      tabheading: "Virtual Try-Ons",
       btnText: "",
       link: "",
     },
     {
       img: SolutionsImage3,
       description:
-        "Utilizes computer vision and deep learning algorithms to accurately estimate body dimensions from just two photos.Enables precise garment fitting, personalized recommendations, and reduced return rates for fashion retailers.",
+        " Offer tailored product suggestions based on individual body measurements and preferences, going beyond generic size charts to provide a truly personalized shopping journey.",
       heading: "Personalize Recommendations",
+      tabheading: "Personalize Recommendations",
       btnText: "",
       link: "",
     },
     {
       img: SolutionsImage4,
       description:
-        "Automates the process of tagging fashion products with relevant attributes (style, color, neckline, etc.) using computer vision and image recognition techniques.Improves efficiency, accuracy, and consistency in product cataloging for fashion retailers.",
-      heading: "Streamline Product Dev",
+        "Gain valuable insights into customer body data to inform design and sizing decisions, reducing production costs, minimizing waste, and improving fit accuracy across your product lines.",
+      heading: "Streamline Product Development",
+      tabheading: "Streamline Product Dev",
       btnText: "",
       link: "",
     },
@@ -329,13 +327,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     includeDots: false,
     img: snapmeasureHero,
     reverse: false,
-    className: "lg:!w-1/3",
+    className: "lg:!w-1/3 !w-4/5 mx-auto",
   };
   const arrayData = {
     headerData: {
       tagText: "advantages",
       heading: "The Centrox AI Advantage",
-      description: "We're your trusted partner in AI innovation:",
+      description: "We're your trusted partner in AI innovation.",
     },
     data: [
       {
@@ -411,19 +409,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
       image: industryPic1,
       data: [
         {
-          heading: "AI-Powered Design Tools",
+          heading: "Enhance In-Store Experiences",
           description:
-            "Accelerate the design process with generative models that assist in creating innovative concepts, generating unique patterns and textures, and streamlining production workflows, fostering creativity and efficiency.",
+            "Accelerate the design process with generative models that assist in creating innovative concepts, generating unique patterns and textures, and streamlining production workflows, fostering creativity and efficiency.Provide a contactless and efficient way for customers to get accurate measurements, eliminating the need for fitting rooms and improving the overall shopping experience.",
         },
         {
-          heading: "Personalized Fashion Recommendations",
+          heading: "Optimize Inventory Management",
           description:
-            "Leverage LLMs to analyze customer preferences, body measurements, and style goals to offer tailored fashion recommendations, enhancing the online shopping experience and driving conversions.",
+            "Gain data-driven insights into customer body shapes to make more informed inventory decisions, reducing overstock and stockouts.",
         },
         {
-          heading: "Dynamic Content Generation",
+          heading: "Offer Custom Tailoring",
           description:
-            "Automate the creation of product descriptions, social media captions, and marketing materials, saving time and resources while ensuring consistent brand messaging.",
+            "Leverage precise body measurements to offer personalized tailoring and alterations, creating a unique and valuable service for your customers.",
         },
       ],
     },
@@ -431,48 +429,29 @@ export default async function Page({ params }: { params: { slug: string } }) {
       image: industryPic1,
       data: [
         {
-          heading: "Property Descriptions & Listings",
+          heading: "Streamline Product Development",
           description:
-            "Utilize LLMs to generate compelling and informative property descriptions and listings, highlighting key features and attracting potential buyers.",
+            "Gather valuable data on customer body shapes and sizes to inform design and sizing decisions, leading to better-fitting garments and reduced production costs.",
         },
         {
-          heading: "Virtual Property Tours",
+          heading: "Create Inclusive Sizing",
           description:
-            "Create immersive 3D virtual tours with AI-generated environments and interactive elements, allowing potential buyers to explore properties remotely and enhancing their decision-making process.",
+            "Develop size ranges that cater to a wider variety of body shapes, promoting inclusivity and expanding your customer base.",
         },
         {
-          heading: "Personalized Property Recommendations",
+          heading: "Offer Made-to-Measure Options",
           description:
-            "Leverage LLMs to analyze user preferences and search history to provide tailored property recommendations, improving the efficiency of property search and discovery.",
+            "Leverage AI-powered body measurements to provide customers with the option for custom-made clothing, creating a truly personalized shopping experience.",
         },
       ],
     },
-    {
-      image: industryPic1,
-      data: [
-        {
-          heading: "Fraud Detection & Prevention",
-          description:
-            "Implement advanced AI models to analyze transaction data, identify patterns indicative of fraudulent activity, and proactively prevent financial losses.",
-        },
-        {
-          heading: "Personalized Financial Advice",
-          description:
-            "Leverage LLMs to provide tailored financial recommendations based on individual risk profiles, investment goals, and market trends.",
-        },
-        {
-          heading: "Customer Support Automation",
-          description:
-            "Deploy intelligent chatbots to handle routine customer inquiries, provide account information, and assist with basic transactions, improving efficiency and customer satisfaction.",
-        },
-      ],
-    },
+  
   ];
   return (
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30"/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection
@@ -495,14 +474,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
             caption="Whether you're an online retailer, a brick-and-mortar store, or a fashion brand, our AI body measurement tool can help you transform your business, improve customer satisfaction, and drive growth."
             tabs={tabs}
             heading={"Revolutionize Retail & Fashion with AI Body Measurement"}
-            description="Our AI-powered body measurement technology is a game-changerfor the retail and fashion industries"
+            description="Our AI-powered body measurement technology is a game-changerfor the retail and fashion industries."
           />
 
           <PointsandImagesSection
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
             description={
-              "We're not just another chatbot development company. We're your strategic AI partner:"
+              "We're not just another chatbot development company. We're your strategic AI partner."
             }
           />
           {/* <LandingCaseStudySection/> */}

@@ -57,7 +57,8 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingLayout from "../../layoutPage";
-
+import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
+import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -113,49 +114,107 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
 
 
-  const challengeData = [
-    {
-    headerData: {
-    tagText:"",
-    headingText: "",
-    para1Text:
-      "Are sizing inconsistencies and high return rates impacting your bottom line?",
-    para2Text: "",
-    heading2Text:
-      "The traditional approach to apparel sizing presents significant challenges for businesses and customers alike",
-      },
-      data: [
+      const challengeData = [
         {
-          icon: Icon, // Replace with the correct icon for Inaccurate Measurements
-          heading: "Inaccurate Measurements",
-          description:
-            "Manual measurements, whether taken in-store or self-reported by customers, are prone to human error. This leads to inconsistent sizing, customer frustration, and ultimately, increased return rates.",
-          linkText: "",
-          linkWithIcon: true,
+          headerData: {
+            tagText: "Attention",
+            headingText: "The Challenge of Manual Product Tagging",
+            para1Text:
+              "Is manual product tagging slowing down your e-commerce growth?",
+            para2Text:
+              "The fashion industry is dynamic and fast-paced. New styles, trends, and product variations emerge constantly, making it challenging to keep your product catalog up-to-date and organized. Manual product tagging, while necessary, can be a significant bottleneck for your business.",
+            heading2Text: "",
+          },
+          data: [
+            {
+              icon: Icon, // Replace with the correct icon for Time-Consuming & Labor-Intensive
+              heading: "Time-Consuming & Labor-Intensive",
+              description:
+                "Assigning tags and attributes to each product manually is a tedious and time-consuming process, requiring significant human resources and effort.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+            {
+              icon: Icon, // Replace with the correct icon for Prone to Human Error
+              heading: "Prone to Human Error",
+              description:
+                "Manual labeling is susceptible to inconsistencies, inaccuracies, and subjective interpretations, leading to mislabeled products and a frustrating user experience.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+            {
+              icon: Icon, // Replace with the correct icon for Limited Scalability
+              heading: "Limited Scalability",
+              description:
+                "As your product catalog grows, manual tagging becomes increasingly unsustainable, hindering your ability to expand your offerings and reach new customers.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+            {
+              icon: Icon, // Replace with the correct icon for Impact on Search & Discovery
+              heading: "Impact on Search & Discovery",
+              description:
+                "Inaccurate or incomplete product data can negatively affect search relevance and product recommendations, leading to missed sales opportunities.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+          ],
+          caption:
+            "Centrox AI's image labeling tool addresses these pain points head-on, providing an AI-powered solution to automate and streamline your product tagging process.",
+          btnText: "Try It Yourself",
         },
+      ];
+      const cardSection2data=[
         {
-          icon: Icon, // Replace with the correct icon for High Return Rates
-          heading: "High Return Rates",
-          description:
-            "Ill-fitting garments are a major contributor to costly returns, impacting profitability and damaging customer loyalty. The environmental impact of these returns is also a growing concern.",
-          linkText: "",
-          linkWithIcon: true,
+          headerData: {
+            tagText: "Transformation",
+            headingText: "Transform Your E-commerce",
+            para1Text:
+              "Our AI image labeling solution delivers tangible benefits for your business.",
+            para2Text:
+              "",
+            heading2Text: "",
+          },
+          data: [
+            {
+              icon: Icon, // Replace with the correct icon for Streamline Catalog Management
+              heading: "Streamline Catalog Management",
+              description:
+                "Automate product tagging, saving time and resources while ensuring consistency and accuracy across your catalog.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+            {
+              icon: Icon, // Replace with the correct icon for Improve Search & Discovery
+              heading: "Improve Search & Discovery",
+              description:
+                "Enhance search relevance and accuracy, helping customers find the products they're looking for quickly and easily, leading to increased conversions.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+            {
+              icon: Icon, // Replace with the correct icon for Reduce Returns
+              heading: "Reduce Returns",
+              description:
+                "Minimize returns due to product misrepresentation by providing accurate product attributes.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+            {
+              icon: Icon, // Replace with the correct icon for Accelerate Time-to-Market
+              heading: "Accelerate Time-to-Market",
+              description:
+                "Quickly onboard new products and update existing ones with minimal manual effort.",
+              linkText: "",
+              linkWithIcon: true,
+            },
+          ],
+          caption:
+            "",
+          btnText: "Check Out Free Trial",
         },
-        {
-          icon: Icon, // Replace with the correct icon for Limited Personalization
-          heading: "Limited Personalization",
-          description:
-            "Generic sizing charts and one-size-fits-all approaches can't cater to the diverse range of body shapes and preferences in today's market. Customers crave personalized experiences and garments that fit them perfectly.",
-          linkText: "",
-          linkWithIcon: true,
-        }
-      ],
-      caption:
-        "Centrox AI's body measurement tool addresses these challenges head-on, providing a data-driven solution to revolutionize how you capture and utilize body data. Our AI-powered technology enables you to create a more personalized, efficient, and sustainable approach to apparel sizing and shopping.",
-      btnText: "Get A Free Trial",
+      ];
       
-    },
-  ];
 
   const questions = [
     {
@@ -285,14 +344,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
   ];
   const heroData = {
-    heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
+    heading: "Let AI Label Your Fashion E-Commerce Products",
     description:
-      "Be Available For Your Customers 24/7.Partner with Centrox AI to build intelligent chatbots that know your business as well as you do,, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
-    btnText: "Book A Call Now",
+      "Streamline your fashion e-commerce with Centrox AI's image labeling tool. Automate product tagging, improve search accuracy, and deliver a better shopping experience.",
+    btnText: "Try It For FREE",
     includeDots: false,
     img: serviceHeroImg,
     reverse: false,
   };
+  
   const arrayData = {
     headerData: {
       tagText: "advantages",
@@ -335,10 +395,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}
+          />
+          <CommonDisplayCardsGrid
+            data={cardSection2data}
           />
           <LandingSolutionsSection/>
           <CommonDisplayCardsGrid

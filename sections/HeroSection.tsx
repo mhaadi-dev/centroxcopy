@@ -9,17 +9,20 @@ import classNames, {
 } from "@/helpers/common";
 
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp"
-import servicebg from "@/assets/Servicebg.webp"
+
+
 
 interface PropsI {
   heading: string;
   description: string;
   btnText?: string;
   includeDots?: any;
-  img: any;
+  img?: any;
   reverse?: any;
   className?:string
+  bgimage1?:any
+  bgimage2?:any
+  bgClassName?:string
 
 }
 
@@ -33,18 +36,28 @@ export const HeroSection = (props: PropsI) => {
         props.reverse ? "lg:!flex-row-reverse" : ""
       )}
     >
-      {true && (
+      <div className="flex">
+         {props.bgimage1 && (
         <Image
-          src={servicebg}
-          className="w-full h-full object-cover absolute top-4 left-0"
+          src={props?.bgimage1}
+          className={classNames("w-1/2 h-full object-cover absolute top-4 right-0",props?.bgClassName)}
           alt="bg-img"
         />
       )}
+         {props?.bgimage2 && (
+        <Image
+          src={props?.bgimage2}
+          className={classNames("w-1/2 h-full object-cover  absolute left-0 top-4",props?.bgClassName)}
+          alt="bg-img"
+        />
+      )}
+      </div>
+     
       <div className="flex flex-col w-full lg:w-1/2 gap-8 gap-y-4 ">
         <h1
           className={classNames(
             text_h1_main,
-            "!text-left lg:!mx-0  lg:!w-full "
+            "!text-left lg:!mx-0  lg:!w-full pr-2 "
           )}
         >
           {<><span className="bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text text-transparent">{props?.heading?.split(" ")?.slice(0,3)?.join(" ")}</span> <span>{props?.heading?.split(" ")?.slice(3)?.join(" ")}</span> </> ||props?.heading}
@@ -64,9 +77,9 @@ export const HeroSection = (props: PropsI) => {
         )}
       </div>
       <div className={classNames("w-full lg:w-1/2",props?.className)}>
-        {true && (
+        {props?.img && (
           <Image
-            src={props?.img || serviceHeroImg}
+            src={props?.img}
             alt="hero-img"
             objectFit="fill"
             className="w-full lg:w-5/7 roudned-2xl  "

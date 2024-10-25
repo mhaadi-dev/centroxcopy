@@ -21,7 +21,7 @@ export async function LogosCarousel() {
 
   const logos:any = [bluecore,conjoin,stockAppIcon,dreamlamp,instaCure,DERQ,teksoul,rankPage,nooblerly];
   return (
-    <div className="py-0 bg-black">
+    <div className="py-4 bg-black">
       {/* <section className="w-full overflow-hidden  flex  gap-10 lg:mt-0 relative">
         <div className="w-full bg-gradient-to-r from-black  via-transparent to-black absolute left-0 right-0 h-full top-0 z-[2]"  />
         

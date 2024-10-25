@@ -54,6 +54,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import finetuninghero from "@/assets/Fine Tuning.webp"
+import servicebg from "@/assets/Servicebg.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
@@ -423,6 +424,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               " At Centrox AI, we help you go beyond the limitations of pre-trained models and achieve peak performance on your specific tasks."
             }
             img={finetuninghero}
+            bgimage1={servicebg}
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />

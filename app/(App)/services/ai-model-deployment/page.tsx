@@ -49,26 +49,13 @@ import googlecloud from "@/assets/Googlecloud.webp"
 
 import mlflow from "@/assets/mlflowlogo.webp"
 import kubeflow from "@/assets/kubeflowlogo.webp"
+import servicebg from "@/assets/Servicebg.webp"
 
 
 
 
 
 
-// const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
-// const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));
-// const BannerSection = dynamic(() => import('@/sections/TestimonialSection'));
-// const HoveredTextSection = dynamic(() => import('@/sections/HoveredTextSection'));
-// const LogosCarousel = dynamic(() => import('@/views/LogosCarousel'));
-// const CustomCarousalSection = dynamic(() => import('@/sections/CustomCarousalSection'));
-// const BenefitsSection = dynamic(() => import('@/sections/BenefitsSection'));
-// const OppositeCarousal = dynamic(() => import('@/sections/OppositeCarousal'));
-// const StepperSection = dynamic(() => import('@/sections/StepperSection'));
-// const PointsandImagesSection = dynamic(() => import('@/views/ComputerVisionDevelopment/Section6'));
-// const CustomerTestimonials = dynamic(() => import('@/sections/CustomersTestimonial'));
-// const ProductsCarousalSection = dynamic(() => import('@/sections/ProducstsCarousal'));
-// const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
-// const LogosSection = dynamic(() => import('@/sections/LogosSection'));
 
 export default async function Page({ params }: { params: { slug: string } }) {
 //   const { slug } = params;
@@ -299,7 +286,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection/>
+          <HeroSection   bgimage1={servicebg}/>
           <LogosCarousel/>
           <CommonDisplayCardsGrid cardsData={challengeData} headerData={challengesHeaderData} includeButton={true} buttonText="Schedule A Discussion" cardsCaption="Centrox AI understands these pain points. We have the expertise to build custom LLMs that overcome these limitations and deliver exceptional results for your specific needs."/>
           <CommonDisplayCardsGrid cardsData={benefitsData} headerData={benefitHeaderData} includeButton={true} buttonText="Book Free Technical Consultation"/>

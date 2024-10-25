@@ -56,6 +56,8 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingLayout from "../../layoutPage";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
+import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
+import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -335,7 +337,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

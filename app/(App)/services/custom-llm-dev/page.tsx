@@ -51,8 +51,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingLayout from "../../layoutPage";
 import qwen from "@/assets/qwen.webp"
 import customllm  from "@/assets/Custom LLM.webp"
-import servicebg from "@/assets/serviceHeroImg.webp"
-
+import servicebg from "@/assets/Servicebg.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
@@ -434,6 +433,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description="Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives."
             btnText="Book a FREE Strategy Call"
             img={customllm}
+            bgimage1={servicebg}
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
