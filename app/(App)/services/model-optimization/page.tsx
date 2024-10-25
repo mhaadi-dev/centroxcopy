@@ -115,43 +115,54 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData2 = [
     {
       headerData: {
-        tagText: " Challenge",
-        headingText: "The Optimization Challenge", // Updated heading
-        para1Text:
-          "Are your AI models hindering your product's performance?", // Updated para1Text
-        heading2Text: "", // Removed unnecessary second heading
+        tagText: "Challenge",
+        headingText: "The Optimization Challenge",
+        para1Text: "Are your AI models hindering your product's performance?",
       },
       data: [
         {
           icon: Icon12,
-          heading: "Slow Inference Times", // Updated heading
-          description:
-            "Slow inference times impacting user experience?", // Updated description
+          heading: "Slow Inference Times",
+          description: `
+            In real-world scenarios, it's critical for your model to deliver prompt responses to user queries. Proactive responses demand heavy computations and resources, presenting a significant challenge during optimization.
+          `,
           linkText: "",
           linkWithIcon: true,
         },
         {
           icon: Icon13,
-          heading: "High Computational Costs", // Updated heading
-          description:
-            "High computational costs straining your budget?", // Updated description
+          heading: "High Computational Cost",
+          description: `
+          Heavy computations demand high computational costs, as delivering a solution which covers the specific needs efficiently utilises a good share of these resources which is a challenge that can hinder the optimization.
+          `,
           linkText: "",
           linkWithIcon: true,
         },
         {
           icon: Icon14,
-          heading: "Difficulty Scaling", // Updated heading
-          description:
-            "Difficulty scaling to meet growing demand?", // Updated description
+          heading: "Difficulty Scaling",
+          description: `
+          It is extremely important to prepare your AI model efficiently enough so that it has the potential to keep it up with the changing trends, because a model lacking the flexibility for scalability can become a challenge while optimising.
+          `,
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon10,
+          heading: "Monitoring Post-Deployment Performance",
+          description: `
+            Optimizing post-deployment performance can be challenging, especially with real-time data variations and unique environmental factors affecting model performance.
+          `,
           linkText: "",
           linkWithIcon: true,
         },
       ],
       caption:
-        "Don't let suboptimal models hold you back. Centrox AI can help with AI model optimization, helping you extract maximum performance and efficiency from your AI investments.", // Updated caption
-      btnText: "Book A 1:1 Session", // Updated button text
+        "Don't let suboptimal models hold you back. Centrox AI can help with AI model optimization, helping you extract maximum performance and efficiency from your AI investments.",
+      btnText: "Book A 1:1 Session",
     },
   ];
+  
 
   const benefitsData3 = [
     {
@@ -196,7 +207,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
       ],
       caption: "", 
-      btnText: "", 
+      btnText: "Talk to our AI Expert", 
     },
   ];
   const challengeData = [
@@ -530,6 +541,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             btnText="Book A Call" 
             bgimage1={servicebg}
             img={modeloptimization}
+            bgClassName="opacity-60" 
           
           />
 
@@ -547,7 +559,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           /> */}
           <PointsandImagesSection arrayData={arrayData} />
           <CommonDisplayCardsGrid data={benefitsData3} />
-          <IndustryBanner heading={"Take the Next Step "} description="Ready to unlock the full potential of your AI models? Schedule a technical deep-dive with our team to discuss your optimization needs and explore how we can help you achieve peak performance." isBooking={true} btnText="Book 1:1 Session"/>
           {/* <LandingCaseStudySection/> */}
           <FaqsSection
             addTag={true}
@@ -555,7 +566,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
-          <IndustryBanner heading="Talk to Our AI Expert" description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment." btnText="Book 1:1 Call" isBooking/>
+          <IndustryBanner heading={"Take the Next Step "} description="Ready to unlock the full potential of your AI models? Schedule a technical deep-dive with our team to discuss your optimization needs and explore how we can help you achieve peak performance." isBooking={true} btnText="Book 1:1 Session"/>
+
+          {/* <IndustryBanner heading="Talk to Our AI Expert" description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment." btnText="Book 1:1 Call" isBooking/> */}
         </main>
       </LandingLayout>
     </div>

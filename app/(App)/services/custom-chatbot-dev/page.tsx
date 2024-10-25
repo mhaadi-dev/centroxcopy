@@ -476,7 +476,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData}   bgimage1={servicebg} />
+          <HeroSection {...heroData}   bgimage1={servicebg} bgClassName="opacity-60"  />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

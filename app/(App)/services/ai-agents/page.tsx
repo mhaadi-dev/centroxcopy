@@ -35,6 +35,10 @@ import Icon11 from "@/assets/Icon-11.webp";
 import Icon12 from "@/assets/Icon-12.webp";
 import Icon13 from "@/assets/Icon-13.webp";
 import Icon14 from "@/assets/Icon-14.webp";
+import Icon7 from "@/assets/Icon-7.webp";
+import Icon6 from "@/assets/Icon-6.webp";
+
+
 import liama from "@/assets/liama.webp";
 import falcon from "@/assets/falcon.webp";
 import gptneox from "@/assets/GPT-NeoX.webp";
@@ -177,7 +181,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon9,
           heading: "Adaptive", // Updated heading
           description:
             "AI agents can learn from their experiences and adjust their behavior to achieve their goals in dynamic environments.", // Updated description
@@ -185,7 +189,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon6,
           heading: "Collaborative", // Updated heading
           description:
             "AI agents can communicate and cooperate with other AI agents to achieve complex, multi-step tasks.", // Updated description
@@ -193,7 +197,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon7,
           heading: "Explainable", // Updated heading
           description:
             "AI agents provide insights into their decision-making processes, promoting transparency and trust.", // Updated description
@@ -233,7 +237,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon7,
           heading: "Dynamic Decision-Making", // Updated heading
           description:
             "Workflows enable dynamic decision-making based on real-time data and feedback, allowing AI agents to adapt to changes and optimize outcomes.", // Updated description
@@ -241,7 +245,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon9,
           heading: "Scalability & Fault Tolerance", // Updated heading
           description:
             "AI workflows ensure scalability and fault tolerance, allowing the system to handle complex and demanding workloads without disruption.", // Updated description
@@ -281,7 +285,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon6,
           heading: "Knowledge Graphs & Reasoning", // Updated heading
           description:
             "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
@@ -289,7 +293,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon9,
           heading: "Distributed Systems & Microservices", // Updated heading
           description:
             "Enable the development of scalable and fault-tolerant AI agent architectures.", // Updated description
@@ -297,7 +301,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon,
+          icon: Icon14,
           heading: "LangChain Framework", // Updated heading
           description:
             "A powerful framework for developing applications powered by language models, enabling seamless interaction with various tools and data sources.", // Updated description
@@ -662,6 +666,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             btnText="Book A FREE 1:1 Session"
             bgimage1={servicebg}
             img={AIagent}
+            bgClassName="opacity-60" 
        
           />
           

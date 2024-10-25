@@ -519,6 +519,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description="Partner with Centrox AI as we guide and consult you on streamlining your AI development lifecycle, optimizing model performance, and ensuring scalability and reliability in production."
             bgimage1={servicebg}
             img={evaluation}
+            bgClassName="opacity-60" 
            
           />
           <LogosCarousel />

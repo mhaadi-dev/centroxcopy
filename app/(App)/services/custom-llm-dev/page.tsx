@@ -435,6 +435,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             btnText="Book a FREE Strategy Call"
             img={customllm}
             bgimage1={servicebg}
+            bgClassName="opacity-60" 
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />

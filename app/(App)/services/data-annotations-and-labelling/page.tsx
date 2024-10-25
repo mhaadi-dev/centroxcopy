@@ -53,6 +53,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
+import dataannotation from "@/assets/Data Annotations.webp"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -126,7 +127,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           icon: Icon14, // Ensure you have the correct icon for Competitive Pricing
           heading: "Competitive Pricing",
           description:
-            "Get high-quality annotations without bearing the hefty costs of in-house teams.",
+            "Save time, resources, and operational overhead by choosing an expert solution. Maintain high standards without the challenges of hiring, training, and managing staff. We handle the complexities while you focus on your core goals.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
         },
@@ -214,86 +215,47 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const questions = [
     {
       question: "How does Centrox handle large and complex datasets for annotation?",
-      answer:
-        "At Centrox, we scale our annotation services by utilizing a robust team of skilled annotators who can efficiently manage extensive and complex datasets. Our workflow is designed to handle high volumes of data while ensuring consistent quality and accuracy across all tasks.",
+      answer: "At Centrox, we scale our annotation services by utilizing a robust team of skilled annotators who can efficiently manage extensive and complex datasets. Our workflow is designed to handle high volumes of data while ensuring consistent quality and accuracy across all tasks."
     },
     {
       question: "What steps are taken to ensure the accuracy and relevance of annotations for specialized domains?",
-      answer:
-        "We assign domain experts or annotators with specialized knowledge to handle niche tasks. This ensures that annotations are both contextually accurate and relevant, meeting the unique requirements of specialized or technical fields.",
+      answer: "We assign domain experts or annotators with specialized knowledge to handle niche tasks. This ensures that annotations are both contextually accurate and relevant, meeting the unique requirements of specialized or technical fields."
     },
     {
       question: "How does Centrox’s feedback loop enhance the quality of annotations during a project?",
-      answer:
-        "Our feedback loop involves iterative reviews and updates based on client feedback and internal quality checks. Annotators receive continuous guidance and corrections, which helps refine and improve annotation quality throughout the project.",
+      answer: "Our feedback loop involves iterative reviews and updates based on client feedback and internal quality checks. Annotators receive continuous guidance and corrections, which helps refine and improve annotation quality throughout the project."
     },
     {
       question: "What protocols are in place to manage and correct annotation errors?",
-      answer:
-        "We have a multi-layered approach to error management, including initial quality checks, random sampling of annotated data for review, and detailed feedback mechanisms. This approach helps promptly identify and rectify errors, ensuring high-quality results.",
+      answer: "We have a multi-layered approach to error management, including initial quality checks, random sampling of annotated data for review, and detailed feedback mechanisms. This approach helps promptly identify and rectify errors, ensuring high-quality results."
     },
     {
       question: "How does Centrox train annotators for specific project requirements?",
-      answer:
-        "Annotators undergo rigorous project-specific training, which includes detailed guidelines and examples tailored to each task. We provide ongoing support to ensure that they are fully equipped to deliver accurate and high-quality annotations.",
+      answer: "Annotators undergo rigorous project-specific training, which includes detailed guidelines and examples tailored to each task. We provide ongoing support to ensure that they are fully equipped to deliver accurate and high-quality annotations."
     },
     {
       question: "What measures does Centrox take to ensure consistency in annotations across different annotators?",
-      answer:
-        "We maintain consistency by establishing clear annotation guidelines and standards. Regular calibration sessions and cross-annotator reviews are conducted to ensure that all team members adhere to the same quality benchmarks.",
+      answer: "We maintain consistency by establishing clear annotation guidelines and standards. Regular calibration sessions and cross-annotator reviews are conducted to ensure that all team members adhere to the same quality benchmarks."
     },
     {
       question: "How does Centrox manage changes in project scope or annotation guidelines during an ongoing project?",
-      answer:
-        "We employ a structured change management process to adapt to updates in guidelines or project scope. This includes revising training materials, updating annotators, and communicating changes effectively to ensure seamless transitions.",
+      answer: "We employ a structured change management process to adapt to updates in guidelines or project scope. This includes reviewing training materials, updating annotators, and communicating changes effectively to ensure seamless transitions."
     },
     {
       question: "What reporting and analytics does Centrox provide to track annotation progress and quality?",
-      answer:
-        "We offer comprehensive reporting and analytics tools that provide insights into project progress, quality metrics, and annotation performance. These reports help you monitor the status of your project and make informed decisions based on real-time data.",
+      answer: "We offer comprehensive reporting and analytics tools that provide insights into project progress, quality metrics, and annotation performance. These reports help you monitor the status of your project and make informed decisions based on real-time data."
     },
     {
       question: "How does Centrox handle urgent or high-priority annotation requests?",
-      answer:
-        "For urgent requests, we prioritize them by allocating additional resources and adjusting workflows to meet tight deadlines. Our team is adept at managing high-priority tasks efficiently while maintaining high standards of quality.",
+      answer: "For urgent requests, we prioritize them by allocating additional resources and adjusting workflows to meet tight deadlines. Our team is adept at managing high-priority tasks efficiently while maintaining high standards of quality."
     },
     {
       question: "How does Centrox approach multilingual or cross-linguistic annotation tasks?",
-      answer:
-        "We deploy annotators fluent in the relevant languages and use specialized tools to handle linguistic nuances. This ensures accurate and contextually appropriate annotations across multiple languages.",
-    },
-    {
-      question: "What kind of data do you need to train a custom LLM?",
-      answer:
-        "We typically require a variety of proprietary data from your business, including FAQs, product documentation, and customer interaction logs.",
-    },
-    {
-      question: "How long does it take to develop a custom LLM?",
-      answer:
-        "The development timeline depends on the complexity of the project and data availability, usually ranging from 6 to 12 weeks.",
-    },
-    {
-      question: "What is the cost of custom LLM development?",
-      answer:
-        "Costs vary based on project requirements, including data processing, model fine-tuning, and integration needs.",
-    },
-    {
-      question: "How do you ensure data security and privacy?",
-      answer:
-        "We follow strict data security protocols, including encryption, secure storage, and access control, to safeguard your data.",
-    },
-    {
-      question: "What level of involvement will my team have?",
-      answer:
-        "We work collaboratively with your team throughout the project, ensuring alignment and allowing for iterative feedback.",
-    },
-    {
-      question: "Can you help with ongoing maintenance and updates?",
-      answer:
-        "Yes, we offer post-launch support, including model monitoring, updates, and retraining as needed to maintain high performance.",
-    },
+      answer: "We deploy annotators fluent in the relevant languages and use specialized tools to handle linguistic nuances. This ensures accurate and contextually appropriate annotations across multiple languages."
+    }
   ];
   
+
 
   const techStackData = [
     {
@@ -387,28 +349,28 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tagText: "advantages",
       heading: "Why Us?",
       description:
-        "",
+        "Our mission lies in providing solutions that abide by international standards,We prioritise customer satisfaction, and keep them in loop until contentment has been achieved.we commit to deliver data annotation service that promises.",
     },
     data: [
       {
-        heading: "Precise AI Model Annotations",
+        heading: "Quality Annotation",
         description:
-          "We ensure your datasets are accurately labeled for optimal AI model performance.",
+          "The labelled data set we deliver to our clients are of top tier quality, ensuring a reliable training process for computing more accurate results for desired problems that the user may encounter in the real world scenario.",
       },
       {
         heading: "High-Volume Annotation Expertise",
         description:
-          "6.8 million data points labeled with Human-in-the-Loop processes.",
+          "Our data annotators possess the expertise for labelling the large and quality data, in order to ensure the provision of a dataset that is balanced and diverse while holding the ability to resolve any given query which is expected from it.",
       },
       {
         heading: "Cost-Effective Solutions",
         description:
-          "Achieve 80% cost reduction through our efficient annotation services.",
+          "We understand the importance of finances therefore we aim to introduce quality data annotation services that can encourage in producing cost effective solutions to provide it to the users.",
       },
       {
         heading: "Competitive Pricing",
         description:
-          "Benefit from an unmatched rate of just 5 cents per annotation.",
+          "Our vision is to strengthen the tech revolution where we offer our quality data annotation services at extremely competitive pricing to ensure you receive quality annotation services at best price.",
       },
  
     ],
@@ -543,7 +505,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-        <HeroSection {...heroData}   bgimage1={servicebg}   />
+        <HeroSection {...heroData}   bgimage1={servicebg} img={dataannotation} bgClassName="opacity-60"   />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}
