@@ -52,6 +52,7 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
+import IndustryBanner from "@/Components/common/IndustryBanner";
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -542,7 +543,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-        <HeroSection {...heroData}   bgimage1={servicebg}/>
+        <HeroSection {...heroData}   bgimage1={servicebg}   />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}
@@ -572,6 +573,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
+          <IndustryBanner heading="Talk to Our AI Expert" description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment." btnText="Book 1:1 Call" isBooking/>
         </main>
       </LandingLayout>
     </div>

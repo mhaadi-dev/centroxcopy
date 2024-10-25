@@ -32,7 +32,7 @@ export const HeroSection = (props: PropsI) => {
     <div className="w-full pb-10 relative">
     <section
       className={classNames(
-        "flex pt-32 lg:pt-40 w-full 2xl:w-4/5 mx-auto pl-4 lg:pl-10   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
+        "flex pt-32 lg:pt-40 w-full 2xl:w-4/5 mx-auto pl-4 lg:pl-0   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
         props.reverse ? "lg:!flex-row-reverse" : ""
       )}
     >
@@ -40,14 +40,14 @@ export const HeroSection = (props: PropsI) => {
          {props.bgimage1 && (
         <Image
           src={props?.bgimage1}
-          className={classNames("w-1/2 h-full object-cover absolute top-4 right-0",props?.bgClassName)}
+          className={classNames("w-1/2 h-full object-cover absolute top-4 right-0", props?.bgimage2? "w-1/2":"w-full",  props?.bgClassName)}
           alt="bg-img"
         />
       )}
          {props?.bgimage2 && (
         <Image
           src={props?.bgimage2}
-          className={classNames("w-1/2 h-full object-cover  absolute left-0 top-4",props?.bgClassName)}
+          className={classNames("w-1/2 h-full object-cover  absolute left-0 top-4",props?.bgimage1? "w-1/2":"w-full",props?.bgClassName)}
           alt="bg-img"
         />
       )}

@@ -54,6 +54,9 @@ import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
+import consistencyicon from "@/assets/consistency.webp"
+import insightsicon from "@/assets/Insights.webp"
+import scalibilityicon from "@/assets/Scalability & availability.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -93,7 +96,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       linkWithIcon: true,
     },
     {
-      icon: Icon6,
+      icon: scalibilityicon,
       heading: "Scalability & Availability",
       description:
         "Handle high volumes of inquiries 24/7, 365 days a year. Your customers will always receive timely and helpful support, even during peak periods, without the need for additional staffing.",
@@ -101,7 +104,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       linkWithIcon: true,
     },
     {
-      icon: Icon6,
+      icon: insightsicon,
       heading: "Data-Driven Insights",
       description:
         "Every conversation is an opportunity to learn. Our chatbots collect valuable customer data and feedback, providing actionable insights to inform your business strategies, product development, and marketing efforts.",
@@ -109,7 +112,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       linkWithIcon: true,
     },
     {
-      icon: Icon6,
+      icon: consistencyicon,
       heading: "Brand Consistency",
       description:
         "We ensure your chatbot reflects your brand's unique voice and values, building trust and fostering stronger customer relationships.",

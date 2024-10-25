@@ -51,7 +51,7 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
-
+import AIagent from "@/assets/Agentic AI.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
@@ -661,6 +661,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
             btnText="Book A FREE 1:1 Session"
             bgimage1={servicebg}
+            img={AIagent}
+       
           />
           
           <LogosCarousel />
@@ -690,6 +692,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
+          <IndustryBanner heading="Talk to Our AI Expert" description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment." btnText="Book 1:1 Call" isBooking/>
         </main>
       </LandingLayout>
     </div>
