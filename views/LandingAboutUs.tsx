@@ -17,7 +17,7 @@ export const LandingAboutUs = () => {
       setBlurDataURL(blurredBase64);
     }
   };
-console.log("imgg",LandingAboutUsPattern)
+// console.log("imgg",LandingAboutUsPattern)
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);

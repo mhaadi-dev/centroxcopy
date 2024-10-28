@@ -57,7 +57,7 @@ export const StepperSection = ({
 
   useEffect(() => {
     const numSteps = stepperData?.length;
-    const firstStepRange = width!=null && width>768? 500 / numSteps : 350/numSteps; // Give the first step a larger percentage range
+    const firstStepRange = width!=null && width>768? 450 / numSteps : 350/numSteps; // Give the first step a larger percentage range
     const otherStepRange = width!=null && width>768 ?  (100 - firstStepRange) / (numSteps - 1):(80 - firstStepRange) / (numSteps - 1);
 
     const updatedData = stepperData?.map((step: any, index: number) => {

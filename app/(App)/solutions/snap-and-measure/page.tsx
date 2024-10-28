@@ -45,7 +45,8 @@ import tensorflow from "@/assets/tensorflow.webp";
 import aws from "@/assets/awslogo.webp";
 import azure from "@/assets/azure-plainlogo.webp";
 import googlecloud from "@/assets/Googlecloud.webp";
-
+import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
+import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.webp";
@@ -59,13 +60,24 @@ import snapmeasureHero from "@/assets/solutions/snapmeasureHero.webp";
 import eggcrack from "@/assets/solutions/EggCrack.webp";
 import strategy from "@/assets/solutions/Strategy.webp";
 import checkerboard from "@/assets/solutions/Checkerboard.webp";
-import SolutionsImage1 from "@/assets/solutionpic1.webp";
-import SolutionsImage2 from "@/assets/solutionPic2.webp";
+import SolutionsImage1 from "@/assets/solutions/Capture Body Dimensions.webp";
+import SolutionsImage2 from "@/assets/solutions/Virtual tryon.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
 import SolutionsImage4 from "@/assets/solutionPic4.webp";
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
+import industryPic2 from "@/assets/solutions/Brick & mortae.webp";
+import industryPic3 from "@/assets/solutions/Fashion & brands.webp";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
+import opencv from "@/assets/opencv-plain logo.webp"
+import dockers from "@/assets/docker-icon logo.webp"
+import keras from "@/assets/keras-plain logo.webp"
+import Icon16 from "@/assets/Icon-16.webp"
+import Icon17 from "@/assets/Icon-17.webp"
+import Icon18 from "@/assets/Icon-18.webp"
+
+
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const cardsSolutions = [
@@ -79,7 +91,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Unmatched Accuracy
+          icon: Icon16, // Replace with the correct icon for Unmatched Accuracy
           heading: "Unmatched Accuracy",
           description:
             "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
@@ -87,7 +99,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Data Security & Privacy
+          icon: Icon17, // Replace with the correct icon for Data Security & Privacy
           heading: "Data Security & Privacy",
           description:
             "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
@@ -95,7 +107,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Scalability
+          icon: Icon14, // Replace with the correct icon for Scalability
           heading: "Scalability",
           description:
             "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
@@ -103,7 +115,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Integration
+          icon: Icon18, // Replace with the correct icon for Integration
           heading: "Integration",
           description:
             "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
@@ -161,32 +173,35 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const questions = [
     {
-      question: "How accurate is your body measurement tool?",
-      answer:
-        "To train a custom chatbot, we primarily use your business’s proprietary data, such as customer interactions, FAQs, product information, support tickets, and knowledge base. The richer and more specific the data, the better the chatbot can understand and respond to your customers with accurate, contextually appropriate answers.",
+      question: "How accurate is Centrox AI's body measurement tool?",
+      answer: "Our tool achieves high accuracy by using advanced computer vision and machine learning algorithms. It is designed to provide measurements comparable to those of professional tailors, ensuring a precise fit for a wide range of body shapes and clothing types."
     },
     {
-      question: "What types of clothing and body shapes can your tool handle?",
-      answer:
-        "The timeline depends on the complexity of the project, the level of customization required, and the integration needs. Typically, development can range from 4 to 12 weeks, including the design, training, testing, and deployment phases.",
+      question: "Can the body measurement tool handle different types of clothing and body shapes?",
+      answer: "Yes, our tool is versatile and can accommodate various clothing styles and body shapes. It is optimized to accurately capture measurements for different garments, enabling precise recommendations and a personalized shopping experience for diverse body types."
     },
     {
-      question: "How do you ensure the privacy and security of customer data?",
-      answer:
-        "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
+      question: "How does Centrox AI ensure the privacy and security of customer data?",
+      answer: "Data security is a top priority for us. We use strict security protocols and follow industry-standard practices to protect customer data, ensuring compliance with privacy regulations and building customer trust."
     },
     {
-      question:
-        "Can your tool be integrated with our existing e-commerce platform?",
-      answer:
-        "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
+      question: "Can the body measurement tool integrate with our existing e-commerce platform or mobile app?",
+      answer: "Yes, our tool is designed for easy integration with most e-commerce platforms and mobile apps. Our team will work with you to ensure seamless compatibility, so you can enhance your customer experience without disrupting your current systems."
     },
     {
-      question: "What kind of support do you offer after implementation?",
-      answer:
-        "We collaborate closely with your team throughout the project to ensure the chatbot aligns with your goals and vision. Your input is crucial during the needs assessment, design, and testing phases, and we provide regular updates to ensure transparency and effective communication.",
+      question: "What kind of support is provided after the tool is implemented?",
+      answer: "Centrox AI offers comprehensive post-implementation support, including troubleshooting, software updates, and adjustments as needed. Our dedicated support team ensures your tool continues to operate efficiently as your business grows."
     },
+    {
+      question: "How does the tool help reduce return rates?",
+      answer: "By providing accurate, AI-driven body measurements and size recommendations, our tool minimizes the chances of sizing issues, helping customers find their best fit on the first try. This reduces return rates, boosts customer satisfaction, and strengthens brand loyalty."
+    },
+    {
+      question: "Is the tool user-friendly for customers to use at home?",
+      answer: "Absolutely! Our body measurement tool is designed for convenience. Customers can capture measurements using their smartphones, allowing for an easy, contactless experience that can be done from anywhere."
+    }
   ];
+  
 
   const solutionsData = [
     {
@@ -228,43 +243,41 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ];
 
   const techStackData = [
+   
     {
-      title: "Foundation Models",
-      content: [
-        {
-          alt: "icon",
-          caption: "Liama",
-          img: liama,
-        },
-        {
-          alt: "icon",
-          caption: "Falcon",
-          img: falcon,
-        },
-        {
-          alt: "icon",
-          caption: "Qwen",
-          img: qwen,
-        },
-      ],
-    },
-    {
-      title: "Frameworks",
+      title: "Deep Learning Frameworks",
       content: [
         {
           alt: "Icon",
           caption: "PyTorch",
           img: pytorch,
         },
+      
+        {
+          alt: "Icon",
+          caption: "Tensorflow",
+          img: tensorflow,
+        },
+      ],
+    },
+    {
+      title: "Libraries",
+      content: [
         {
           alt: "Icon",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
+      
         {
           alt: "Icon",
-          caption: "Tensorflow",
-          img: tensorflow,
+          caption: "Keras",
+          img: keras,
+        },
+        {
+          alt: "Icon",
+          caption: "OpenCV",
+          img: opencv,
         },
       ],
     },
@@ -289,22 +302,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      title: "Conversational AI Platforms",
+      title: "Infrastructure & Orchestration",
       content: [
         {
           alt: "Icon",
-          caption: "Rasa",
-          img: rasa,
+          caption: "Kubernetes",
+          img: kubernetes,
         },
         {
           alt: "Icon",
-          caption: "Dialogflow",
-          img: dialogflow,
+          caption: "Dockers",
+          img: dockers,
         },
       ],
     },
     {
-      title: "MLOps Tools",
+      title: "Monitoring & Experiment Tracking",
       content: [
         {
           alt: "Icon",
@@ -313,8 +326,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           alt: "Icon",
-          caption: "Kubeflow",
-          img: kubeflow,
+          caption: "Weight & Biases",
+          img: weightandbiases,
+        },
+        {
+          alt: "Icon",
+          caption: "Tensorflow",
+          img: tensorflow,
         },
       ],
     },
@@ -406,7 +424,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic1,
+      image: industryPic2,
       data: [
         {
           heading: "Enhance In-Store Experiences",
@@ -426,7 +444,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic1,
+      image: industryPic3,
       data: [
         {
           heading: "Streamline Product Development",
@@ -475,6 +493,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             tabs={tabs}
             heading={"Revolutionize Retail & Fashion with AI Body Measurement"}
             description="Our AI-powered body measurement technology is a game-changerfor the retail and fashion industries."
+            isBookingButton={true}
           />
 
           <PointsandImagesSection
@@ -492,9 +511,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={questions}
           />
           <IndustryBanner
-            heading="Revolutionize your Business 
-with AI-Powered Body Measurements"
-            description="Schedule a technical discussion with our experts to learn how our tool can be integrated into your existing systems."
+            heading=" Take the Next Step"
+            description="Ready to revolutionize your business with AI-powered body measurements?
+            Schedule a technical discussion with our experts to learn how our tool can be integrated into your existing systems.
+            "
             btnText="Book a Technical Demo"
             isBooking
           />

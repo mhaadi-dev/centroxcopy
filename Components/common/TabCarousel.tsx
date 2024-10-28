@@ -27,6 +27,7 @@ import { Toast } from "@/Components/Toast/toast";
 import { ServiceViewContext } from "@/store/ServiceViewProivder";
 import useSize from "@/helpers/customHooks/useWidthHook";
 import CommonCardwithIcon from "./CommonCardwithIcon";
+import { CalendlyWidget } from "./Calendly";
 interface GradientCardProps {
   title: string;
   description: string;
@@ -211,9 +212,11 @@ interface TabCarouselProps {
   gradientCardData?: any;
   headerTabs?:any
   caption?:string
+  isBookingButton?:boolean
 }
 export const TabCarousel = ({
   isCardLayout = false,
+  isBookingButton=false,
   isGradientCardsLayoutwithImage = false,
   cardsData=[],
   gradientCardData=[],
@@ -250,7 +253,7 @@ export const TabCarousel = ({
         current: false,
       };
     });
-    console.log("new tabs is", updatedTabs, view);
+    // console.log("new tabs is", updatedTabs, view);
     setTabs(updatedTabs);
   }, [view]);
 
@@ -529,14 +532,20 @@ export const TabCarousel = ({
                           )}
                         </div>
                         {caption && <p className={classNames(text_para_2,"text-center my-4 w-full mx-auto lg:w-[60%]")}>{caption}</p>}
-                        {/* {!isCardLayout && (
+                        {!isCardLayout && !isBookingButton && (
                           <Button
                             content={tab.current?  tab?.cta : "Get Started"}
                             className="!w-[auto] mx-auto my-4 !py-[0.5rem] !px-[1rem] 2xl:!py-[1rem] 2xl:!px-[2rem]"
                             Icon={Arrow}
                             isLefticon={false}
                           />
-                        )} */}
+                        )} {!isCardLayout && isBookingButton && (
+                          <CalendlyWidget
+                            btnText="Try For Free"
+                            isArrow
+                            btnClassName="mx-auto"
+                          />
+                        )}
                       </div>
                     )
                 )}

@@ -6,9 +6,7 @@ import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
-import { StepperSection } from "@/sections/StepperSection";
+
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
 import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
 import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
@@ -57,7 +55,7 @@ import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSe
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp";
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp";
-
+import IndustryPic1 from "@/assets/industry1.webp"
 export default async function Page({ params }: { params: { slug: string } }) {
   const cardsSolutions = [
     {
@@ -190,40 +188,91 @@ export default async function Page({ params }: { params: { slug: string } }) {
       btnText: "Get Instant Support",
     },
   ];
-
-  const questions = [
+  const cardsData2 = [
     {
-      question: "What kind of data do you need to train a custom chatbot?",
-      answer:
-        "To train a custom chatbot, we primarily use your business’s proprietary data, such as customer interactions, FAQs, product information, support tickets, and knowledge base. The richer and more specific the data, the better the chatbot can understand and respond to your customers with accurate, contextually appropriate answers.",
-    },
-    {
-      question: "How long does it take to develop a custom chatbot?",
-      answer:
-        "The timeline depends on the complexity of the project, the level of customization required, and the integration needs. Typically, development can range from 4 to 12 weeks, including the design, training, testing, and deployment phases.",
-    },
-    {
-      question: "What is the cost of custom chatbot development?",
-      answer:
-        "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
-    },
-    {
-      question:
-        "How do you ensure data security and privacy during the development process?",
-      answer:
-        "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
-    },
-    {
-      question: "What level of involvement will my team have in the project?",
-      answer:
-        "We collaborate closely with your team throughout the project to ensure the chatbot aligns with your goals and vision. Your input is crucial during the needs assessment, design, and testing phases, and we provide regular updates to ensure transparency and effective communication.",
-    },
-    {
-      question: "Can you help us with ongoing chatbot maintenance and updates?",
-      answer:
-        "Yes, we offer ongoing maintenance and support services to keep your chatbot up-to-date and performing optimally. This includes regular updates, fine-tuning based on user feedback, and continuous monitoring to ensure the chatbot adapts to evolving business needs.",
+      headerData: {
+        tagText: "Adaptable AI Solution",
+        headingText: "What is it for you?",
+        para1Text:
+          "Centrox’s approach isn’t limited to health. The precision and expertise behind our chatbot can be applied to develop AI assistants for any service industry.",
+        para2Text: "",
+        heading2Text: "",
+      },
+      data: [
+        {
+          icon: Icon, // Replace with the correct icon for Contextual, Accurate Responses
+          heading: "Contextual, Accurate Responses",
+          description:
+            "Bots that deliver the exact information needed, no more, no less, tailored to specific industry needs.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Defined Boundaries
+          heading: "Defined Boundaries",
+          description:
+            "Just as our health chatbot stays within general emotional support, your service can have similarly clear operational limits for optimized user experience.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for High Scalability
+          heading: "High Scalability",
+          description:
+            "From handling a small user base to supporting a large-scale service operation, our chatbot technology adapts to your needs with ease.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption:
+        "Centrox AI provides adaptable chatbot solutions for a wide range of service industries, ensuring contextual support and scalability.",
+      btnText: "Know More",
     },
   ];
+  
+  const questions = [
+    {
+      question: "Can the chatbot handle multilingual support?",
+      answer:
+        "Yes, the chatbot developed by the AI experts at Centrox AI has the potential to handle multilingual support. If the model deployed in this chatbot is trained on the dataset of multiple languages, then this can enable the chatbot to extend its support to the customers in multiple languages according to their choice. This can significantly help in enhancing customer support by providing a reliable means that can serve its support to a diverse audience.",
+    },
+    {
+      question: "How can I customize the chatbot for my specific industry?",
+      answer:
+        "If you are convinced of our potential, then you should definitely book your consultation session with the AI experts at Centrox AI to discuss the unique idea you have for your business. Our team will get in touch with you to understand your idea and requirements for your AI-powered business solutions, and will architect and design a customized solution for your particular requirements that will utilize the resources in the most optimized way.",
+    },
+    {
+      question: "Does the chatbot offer round-the-clock assistance?",
+      answer:
+        "Yes, the AI assistant chatbot developed by the experts at Centrox AI possesses the ability to operate 24/7, ensuring continuous support without the need for additional staffing. This chatbot is a very ideal development, delivering customer service and support in industries where availability is critical.",
+    },
+    {
+      question: "How does the chatbot handle complex queries or escalations?",
+      answer:
+        "If the chatbot prepared by Centrox AI encounters a question that falls outside the defined boundaries or requires more detailed and specialized assistance needing human involvement, it will instantly suggest the user seek further assistance from human support, ensuring that the complex query is dealt with the relevant care and attention it demands.",
+    },
+    {
+      question: "What AI technology powers Centrox AI's chatbot?",
+      answer:
+        "The AI assistant chatbot prepared by our expert team at Centrox AI is powered by GPT-3.5, enabling advanced prompt engineering. This GPT-3.5 powered AI assistant is then fine-tuned to deliver accurate responses while being aware of defined boundaries. The Langchain libraries utilized enhance the chatbot's ability to manage conversations efficiently.",
+    },
+    {
+      question: "Is Centrox AI’s chatbot suitable for other industries?",
+      answer:
+        "Yes, the AI chatbot developed by the Centrox AI expert team is highly adaptable and can be applied across multiple industries, including customer service, finance, and education. The design of this AI chatbot assistant holds the flexibility for industry-specific customizations, providing it versatility.",
+    },
+    {
+      question: "How secure is the information I share with the Centrox AI chatbot?",
+      answer:
+        "The AI experts at Centrox AI realize the importance and sensitivity of ensuring security for users' confidential information. Therefore, our team prioritizes user privacy and collaborates effectively to deliver a solution that ensures promising encrypted data handling. We have designed our chatbot to maintain confidentiality and protection of users' information in all interactions.",
+    },
+    {
+      question: "How do I get started with Centrox AI’s chatbot?",
+      answer:
+        "You can begin your journey of bringing your own business requirement-specific chatbot to reality by clicking on the 'Meet our Experts' button to interact with our team. Our team will closely work together to understand your business requirements, so they can architect and deliver the customized solution catering to your desired industry-specific queries.",
+    },
+  ];
+  
 
   const techStackData = [
     {
@@ -329,40 +378,140 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const arrayData = {
     headerData: {
-      tagText: "advantages",
-      heading: "The Centrox AI Advantage",
-      description: "We're your trusted partner in AI innovation:",
+      tagText: "Advantages",
+      heading: "Why Centrox AI Stands Out?",
+      description: "Centrox provides unmatched precision in chatbot design:",
     },
     data: [
       {
-        heading: "Deep Expertise",
+        heading: "Focused and Accurate Response",
         description:
-          "Our team comprises seasoned AI researchers and engineers with a proven track record in AI solutions and services.",
+          "The chatbot’s ability to respond accurately while rejecting irrelevant queries is driven by finely tuned AI models, enabling efficient, reliable communication.",
       },
       {
-        heading: "Custom Solutions",
+        heading: "Improvised Performance",
         description:
-          "We tailor our technology to your specific needs and integrate seamlessly with your existing systems.",
+          "Whether your goal is improving customer service or offering industry-specific insights, we build AI solutions that fit seamlessly into your ecosystem.",
       },
       {
-        heading: "Collaborative Approach",
+        heading: "User Controlled Conversation",
         description:
-          "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
-      },
-      {
-        heading: "Results-Oriented",
-        description:
-          "We're committed to delivering solutions that solve real-world problems and drive business growth.",
-      },
-      {
-        heading: "Transparency & Communication",
-        description:
-          "We maintain open communication throughout the entire development process, keeping you informed and involved every step of the way.",
+          "With our chatbot, you maintain full control over the scope of conversations, ensuring users stay on topic while receiving the most relevant information.",
       },
     ],
     btnText: "Book A Call Today",
   };
-
+  
+  const tabs = [
+    {
+      name: "Healthcare",
+      href: "#",
+      current: true,
+      cta: "Get Started",
+    },
+    {
+      name: "Customer Service",
+      href: "#",
+      current: false,
+      cta: "Try For Free",
+    },
+    {
+      name: "Finance",
+      href: "#",
+      current: false,
+      cta: "Discover More",
+    },
+    {
+      name: "Education",
+      href: "#",
+      current: false,
+      cta: "Learn More",
+    },
+  ];
+  
+  const gradientCardData = [
+    {
+      image: IndustryPic1,
+      data: [
+        {
+          heading: "Symptom Checks and Triage",
+          description:
+            "This marvellous AI chatbot can be used in the health sector for creating an engaging conversation with users to provide them with basic guidance for understanding their symptoms and recommending appropriate care. ",
+        },
+        {
+          heading: "Mental Health Support",
+          description:
+            "The developed AI chatbot can be used as a mental health support chat assistant to provide you emotional support while you are going through a rough phase in your life.",
+        },
+        {
+          heading: "Appointment Scheduling and Reminders",
+          description:
+            "In today's fast paced world, where time holds prime importance this AI enabled chatbot can assist in scheduling appointments along with giving reminders, so that your health doesnt get compromised.",
+        },
+      ],
+    },
+    {
+      image: IndustryPic1,
+      data: [
+        {
+          heading: "24/7 Customer Support",
+          description:
+            "An efficient 24/7 customer support AI chatbot can significantly uplift the customer support services, with its prompt and focused response it can play a key role in strengthening service provider and client relations. ",
+        },
+        {
+          heading: "Order Tracking and Status Updates",
+          description:
+            "AI Powered chatbot which comes with the ability to keep customers in the loop by continuously keeping them updated with their order status, along with providing them real-time updates about orders delivery time.",
+        },
+        {
+          heading: "Product or Service Recommendations",
+          description:
+            "These days where everyone is falling short on time and have a brief attention span, having an AI assistant which can ensure product and service recommendation according to personalised interest can really encourage suggesting useful products. ",
+        },
+      ],
+    },
+    {
+      image: IndustryPic1,
+      data: [
+        {
+          heading: "Account Overview and Balances",
+          description:
+            "These AI chatbots can be used for keeping a track of your account information that includes: balance amounts, recent transactions, and providing your account or IBAN number which can cater basic user queries related to account overview.",
+        },
+        {
+          heading: "Fraud Alerts and Security Tips",
+          description:
+            "This automated assistant is intelligent enough to update you with the fraud and security tips to save you from any potential inconvenience which can result in loss of your valuable data or funds.",
+        },
+        {
+          heading: "Bill Payment Assistance",
+          description:
+            "Our smart AI chatbot assistant can be used to help users in their bill payment procedure by continuously reminding them about bill payments after a specific time period,so that you never miss your deadline for bill payment.",
+        },
+      ],
+    },
+    {
+      image: IndustryPic1,
+      data: [
+        {
+          heading: "Homework Assistance and Academic Q&A",
+          description:
+            "This AI chatbot assistant has great capabilities to become your dependable study partner as it can help you with your particular queries, and can really provide a comprehensive and focused response for your specific queries.",
+        },
+        {
+          heading: "Exam Preparation and Study Resources",
+          description:
+            "As a student while studying you require instant access to resources which have the ability to solve or answer your specific point of confusion, by suggesting relevant links and study material which can cover your confusion. ",
+        },
+        {
+          heading: "Progress Tracking and Reminders",
+          description:
+            "The chatbot can help you to track your study performance, which can assist you in restructuring your strategy for having more focused and productive study sessions. This can also provide you reminders for studying so that you remain on your plan without getting distracted.",
+        },
+      ],
+    },
+  ];
+  
   return (
     <div>
       <LandingLayout>
@@ -376,8 +525,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={cardsData} />
-          <LandingSolutionsSection />
-          <CommonDisplayCardsGrid data={cardsSolutions} />
+          {/* <LandingSolutionsSection /> */}
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}
@@ -387,7 +535,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             caption=""
             btnText="Let’s Discuss Further"
           />
-          <LandingIndustriesSection />
+          <CommonDisplayCardsGrid data={cardsData2} />
+
+          <LandingIndustriesSection gradientCardData={gradientCardData} tabs={tabs} isBookingButton btnText="Talk to Us Now" />
 
           <PointsandImagesSection
             arrayData={arrayData}

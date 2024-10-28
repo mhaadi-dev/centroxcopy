@@ -59,6 +59,14 @@ import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustries
 import LandingLayout from "../../layoutPage";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
+import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
+import opencv from "@/assets/opencv-plain logo.webp"
+import dockers from "@/assets/docker-icon logo.webp"
+import keras from "@/assets/keras-plain logo.webp"
+import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
+import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
+
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -127,7 +135,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: Icon, // Replace with the correct icon for Time-Consuming & Labor-Intensive
+              icon: Icon6, // Replace with the correct icon for Time-Consuming & Labor-Intensive
               heading: "Time-Consuming & Labor-Intensive",
               description:
                 "Assigning tags and attributes to each product manually is a tedious and time-consuming process, requiring significant human resources and effort.",
@@ -135,7 +143,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon, // Replace with the correct icon for Prone to Human Error
+              icon: Icon13, // Replace with the correct icon for Prone to Human Error
               heading: "Prone to Human Error",
               description:
                 "Manual labeling is susceptible to inconsistencies, inaccuracies, and subjective interpretations, leading to mislabeled products and a frustrating user experience.",
@@ -143,7 +151,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon, // Replace with the correct icon for Limited Scalability
+              icon: Icon9, // Replace with the correct icon for Limited Scalability
               heading: "Limited Scalability",
               description:
                 "As your product catalog grows, manual tagging becomes increasingly unsustainable, hindering your ability to expand your offerings and reach new customers.",
@@ -151,7 +159,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon, // Replace with the correct icon for Impact on Search & Discovery
+              icon: Icon12, // Replace with the correct icon for Impact on Search & Discovery
               heading: "Impact on Search & Discovery",
               description:
                 "Inaccurate or incomplete product data can negatively affect search relevance and product recommendations, leading to missed sales opportunities.",
@@ -177,7 +185,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: Icon, // Replace with the correct icon for Streamline Catalog Management
+              icon: Icon11, // Replace with the correct icon for Streamline Catalog Management
               heading: "Streamline Catalog Management",
               description:
                 "Automate product tagging, saving time and resources while ensuring consistency and accuracy across your catalog.",
@@ -185,7 +193,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon, // Replace with the correct icon for Improve Search & Discovery
+              icon: Icon12, // Replace with the correct icon for Improve Search & Discovery
               heading: "Improve Search & Discovery",
               description:
                 "Enhance search relevance and accuracy, helping customers find the products they're looking for quickly and easily, leading to increased conversions.",
@@ -201,7 +209,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon, // Replace with the correct icon for Accelerate Time-to-Market
+              icon: Icon6, // Replace with the correct icon for Accelerate Time-to-Market
               heading: "Accelerate Time-to-Market",
               description:
                 "Quickly onboard new products and update existing ones with minimal manual effort.",
@@ -216,133 +224,135 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ];
       
 
-  const questions = [
-    {
-      question: "What kind of data do you need to train a custom chatbot?",
-      answer:
-        "To train a custom chatbot, we primarily use your business’s proprietary data, such as customer interactions, FAQs, product information, support tickets, and knowledge base. The richer and more specific the data, the better the chatbot can understand and respond to your customers with accurate, contextually appropriate answers.",
-    },
-    {
-      question: "How long does it take to develop a custom chatbot?",
-      answer:
-        "The timeline depends on the complexity of the project, the level of customization required, and the integration needs. Typically, development can range from 4 to 12 weeks, including the design, training, testing, and deployment phases.",
-    },
-    {
-      question: "What is the cost of custom chatbot development?",
-      answer:
-        "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
-    },
-    {
-      question: "How do you ensure data security and privacy during the development process?",
-      answer:
-        "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
-    },
-    {
-      question: "What level of involvement will my team have in the project?",
-      answer:
-        "We collaborate closely with your team throughout the project to ensure the chatbot aligns with your goals and vision. Your input is crucial during the needs assessment, design, and testing phases, and we provide regular updates to ensure transparency and effective communication.",
-    },
-    {
-      question: "Can you help us with ongoing chatbot maintenance and updates?",
-      answer:
-        "Yes, we offer ongoing maintenance and support services to keep your chatbot up-to-date and performing optimally. This includes regular updates, fine-tuning based on user feedback, and continuous monitoring to ensure the chatbot adapts to evolving business needs.",
-    },
-  ];
+      const questions = [
+        {
+          question: "How accurate is Centrox AI's image labeling tool for fashion products?",
+          answer: "Our AI-powered tool is designed to deliver highly accurate results by utilizing state-of-the-art computer vision and deep learning models. Through continuous training and refinement, we have achieved an overall accuracy score of 85%.",
+        },
+        {
+          question: "Can your image labeling tool handle a variety of fashion products and styles?",
+          answer: "Yes, our tool can handle a wide range of fashion products, including dresses, tops, pants, accessories, and more. It adapts to different styles, materials, colors, and trends, ensuring accurate tagging across your catalog.",
+        },
+        {
+          question: "How do you maintain the privacy and security of our product images during processing?",
+          answer: "We prioritize data security and privacy in every step of our process. All product images are processed securely, adhering to industry standards and data protection protocols. We can also provide additional security measures as needed.",
+        },
+        {
+          question: "Can your labeling tool integrate with our existing e-commerce platform?",
+          answer: "Yes, our solution is designed to be flexible and can integrate seamlessly with most e-commerce platforms. Our team works closely with you to ensure compatibility and a smooth setup, making the integration process hassle-free.",
+        },
+        {
+          question: "What kind of support is provided after the labeling tool is implemented?",
+          answer: "Centrox AI offers comprehensive post-implementation support, including troubleshooting, updates, and adjustments based on your feedback. Our dedicated support team ensures that your labeling tool continues to perform optimally as your product catalog grows.",
+        },
+        {
+          question: "How quickly can we label and update our product catalog using your tool?",
+          answer: "Our AI labeling tool enables faster catalog updates, drastically reducing the time needed for product tagging compared to manual efforts. The exact speed depends on your catalog size and specific requirements, but most clients experience a significant reduction in tagging time.",
+        },
+        {
+          question: "Can we customize the attributes and tags according to our specific brand needs?",
+          answer: "Absolutely. Our tool is designed to be flexible, allowing you to define custom tags and attributes that align with your brand and product specifications, ensuring consistency with your brand's unique voice and style.",
+        },
+      ];
+      
   
   
 
-  const techStackData = [
-    {
-      title: "Foundation Models",
-      content: [
+      const techStackData = [
+   
         {
-          alt: "icon",
-          caption: "Liama",
-          img: liama,
+          title: "Deep Learning Frameworks",
+          content: [
+            {
+              alt: "Icon",
+              caption: "PyTorch",
+              img: pytorch,
+            },
+          
+            {
+              alt: "Icon",
+              caption: "Tensorflow",
+              img: tensorflow,
+            },
+          ],
         },
         {
-          alt: "icon",
-          caption: "Falcon",
-          img: falcon,
+          title: "Libraries",
+          content: [
+            {
+              alt: "Icon",
+              caption: "Hugging Face Transformers",
+              img: huggingface,
+            },
+          
+            {
+              alt: "Icon",
+              caption: "Keras",
+              img: keras,
+            },
+            {
+              alt: "Icon",
+              caption: "OpenCV",
+              img: opencv,
+            },
+          ],
         },
         {
-          alt: "icon",
-          caption: "Qwen",
-          img: qwen,
-        },
-      ],
-    },
-    {
-      title: "Frameworks",
-      content: [
-        {
-          alt: "Icon",
-          caption: "PyTorch",
-          img: pytorch,
-        },
-        {
-          alt: "Icon",
-          caption: "Hugging Face Transformers",
-          img: huggingface,
-        },
-        {
-          alt: "Icon",
-          caption: "Tensorflow",
-          img: tensorflow,
-        },
-      ],
-    },
-    {
-      title: "Infrastructure",
-      content: [
-        {
-          alt: "Icon",
-          caption: "AWS",
-          img: aws,
+          title: "Infrastructure",
+          content: [
+            {
+              alt: "Icon",
+              caption: "AWS",
+              img: aws,
+            },
+            {
+              alt: "Icon",
+              caption: "Azure",
+              img: azure,
+            },
+            {
+              alt: "Icon",
+              caption: "Google Cloud",
+              img: googlecloud,
+            },
+          ],
         },
         {
-          alt: "Icon",
-          caption: "Azure",
-          img: azure,
+          title: "Infrastructure & Orchestration",
+          content: [
+            {
+              alt: "Icon",
+              caption: "Kubernetes",
+              img: kubernetes,
+            },
+            {
+              alt: "Icon",
+              caption: "Dockers",
+              img: dockers,
+            },
+          ],
         },
         {
-          alt: "Icon",
-          caption: "Google Cloud",
-          img: googlecloud,
+          title: "Monitoring & Experiment Tracking",
+          content: [
+            {
+              alt: "Icon",
+              caption: "MLflow",
+              img: mlflow,
+            },
+            {
+              alt: "Icon",
+              caption: "Weight & Biases",
+              img: weightandbiases,
+            },
+            {
+              alt: "Icon",
+              caption: "Tensorflow",
+              img: tensorflow,
+            },
+          ],
         },
-      ],
-    },
-    {
-      title: "Conversational AI Platforms",
-      content: [
-        {
-          alt: "Icon",
-          caption: "Rasa",
-          img: rasa,
-        },
-        {
-          alt: "Icon",
-          caption: "Dialogflow",
-          img: dialogflow,
-        },
-      ],
-    },
-    {
-      title: "MLOps Tools",
-      content: [
-        {
-          alt: "Icon",
-          caption: "MLflow",
-          img: mlflow,
-        },
-        {
-          alt: "Icon",
-          caption: "Kubeflow",
-          img: kubeflow,
-        },
-      ],
-    },
-  ];
+      ];
   const heroData = {
     heading: "Let AI Label Your Fashion E-Commerce Products",
     description:
@@ -388,6 +398,89 @@ export default async function Page({ params }: { params: { slug: string } }) {
     ],
     btnText: "Book A Call Today",
   };
+  const tabs = [
+    {
+      name: "E-commerce Platforms",
+      href: "#",
+      current: true,
+      cta: "Test It Out",
+    },
+    {
+      name: "Fashion Retailers",
+      href: "#",
+      current: false,
+      cta: "Test It Out",
+    },
+    {
+      name: "Fashion Brands & Designers",
+      href: "#",
+      current: false,
+      cta: "Test It Out",
+    },
+  ];
+  
+  const gradientCardData = [
+    {
+      image: industryPic1,
+      data: [
+        {
+          heading: "Enhanced Product Discoverability",
+          description:
+            "Improve search accuracy and product recommendations for an efficient shopping experience.",
+        },
+        {
+          heading: "Reduced Returns",
+          description:
+            "Offer accurate sizing to reduce returns caused by fit issues.",
+        },
+        {
+          heading: "Seamless Integration",
+          description:
+            "Integrate effortlessly into your platform to streamline catalog management.",
+        },
+      ],
+    },
+    {
+      image: industryPic1,
+      data: [
+        {
+          heading: "Catalog Optimization",
+          description:
+            "Automate product tagging and size recommendations to save time and resources.",
+        },
+        {
+          heading: "Improved Shopping Experience",
+          description:
+            "Personalize fit and style suggestions to enhance customer satisfaction.",
+        },
+        {
+          heading: "Inventory Insights",
+          description:
+            "Use customer data to optimize inventory, minimizing stockouts and overstock.",
+        },
+      ],
+    },
+    {
+      image: industryPic1,
+      data: [
+        {
+          heading: "Product Insights",
+          description:
+            "Leverage body measurement data to gain insights into product fit and trending styles.",
+        },
+        {
+          heading: "Custom Garment Design",
+          description:
+            "Enable tailored offerings based on customer measurements and preferences.",
+        },
+        {
+          heading: "Inclusive Sizing",
+          description:
+            "Expand size ranges to cater to diverse body shapes, promoting brand inclusivity.",
+        },
+      ],
+    },
+  ];
   
  
     
@@ -403,10 +496,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <CommonDisplayCardsGrid
             data={cardSection2data}
           />
-          <LandingSolutionsSection/>
-          <CommonDisplayCardsGrid
-            data={cardsSolutions}
-          /> 
+          {/* <LandingSolutionsSection/> */}
+        
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}
@@ -416,7 +507,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
             caption=""
             btnText="Let’s Discuss Further"
           />
-          <LandingIndustriesSection/>
+          <LandingIndustriesSection
+           gradientCardData={gradientCardData}
+           tabs={tabs}
+           isBookingButton
+          />
       
          
           <PointsandImagesSection
@@ -433,8 +528,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
-          <IndustryBanner heading="Revolutionize your Business 
-with AI-Powered Body Measurements" description="Schedule a technical discussion with our experts to learn how our tool can be integrated into your existing systems." btnText="Book a Technical Demo" isBooking/>
+          <IndustryBanner heading="Take the Next Step" description="Ready to streamline your product tagging and enhance your e-commerce experience? Schedule a free consultation with our AI experts today." btnText="Book Your Free Call" isBooking/>
         </main>
       </LandingLayout>
     </div>
