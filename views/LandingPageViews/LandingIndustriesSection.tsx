@@ -20,7 +20,7 @@ const LandingIndustriesSection = (props:any) => {
         {props?.description}
         </p>}
       </section>
-     <TabCarousel caption={props?.caption} isGradientCardsLayoutwithImage={true} gradientCardData={props?.gradientCardData} headerTabs={props?.tabs}/>
+     <TabCarousel isBookingButton={props?.isBookingButton} caption={props?.caption} isGradientCardsLayoutwithImage={true} gradientCardData={props?.gradientCardData} headerTabs={props?.tabs}/>
      {/* <IndustryBanner/> */}
      
       </section>

@@ -59,7 +59,7 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
                 }
                         </figure>
 
-                        <h5 className="text-white font-semibold  text-[0.55rem] lg:text-xs text-center">
+                        <h5 className="text-white font-semibold  text-[0.55rem] lg:text-[0.7rem] text-center">
                           {el.caption}
                         </h5>
                       </div>
@@ -76,7 +76,7 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
       </div>
 {  caption &&    <p className={classNames(text_para_2,"text-center w-full my-6 mx-auto")}>{caption}</p>
 }
-{btnText &&  <div className="flex justify-center py-5"><CalendlyWidget btnText={btnText} isArrow/></div> }
+{btnText &&  <div className="flex justify-center py-5 my-4"><CalendlyWidget btnText={btnText} isArrow/></div> }
     </section>
   );
 };

@@ -93,7 +93,7 @@ useEffect(() => {
 //     }
 //   }, [scrollPercentage]);
 
-  console.log(data, "dttttt");
+  // console.log(data, "dttttt");
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -175,10 +175,10 @@ useEffect(() => {
             </>
           )}
         </div>
-        <div className="  min-h-[715px] overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8">
+        <div className="  min-h-[715px] overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8" >
           {data?.map((cars: any, index: number) => (
             <div
-              className=" absolute   flex  flex-col-reverse md:flex-row w-full  left-0 right-0 transition-transform duration-500 ease-in-out my-8 h-auto lg:h-[80%]  bg-black   overflow-hidden  mx-auto border-4 border-gray-800 rounded-3xl "
+              className=" absolute flex-1  flex  flex-col-reverse md:flex-row w-full  left-0 right-0 transition-transform duration-500 ease-in-out mt-8 mb-10 h-auto lg:h-[80%]  bg-black   overflow-hidden  mx-auto border-4 border-gray-800 rounded-3xl "
               style={{
                 transform:
                   activeIndex === index

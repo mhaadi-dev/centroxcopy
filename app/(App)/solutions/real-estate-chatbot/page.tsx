@@ -63,133 +63,354 @@ import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 export default async function Page({ params }: { params: { slug: string } }) {
 
 
-    const cardsSolutions = [
+  const cardsSolutions = [
+    {
+      headerData: {
+        tagText: "Evaluation",
+        headingText: "Document Evaluation",
+        para1Text:
+          "Our chatbot generates Gen AI responses to enhance real estate processes.",
+        heading2Text: "",
+        para2Text: "",
+      },
+      data: [
         {
-          headerData: {
-            tagText: "AI-powered Solution",
-            headingText: "Our AI-powered solution offers",
-            para1Text: "",
-            heading2Text: "",
-            para2Text: ""
-          },
-          data: [
-            {
-              icon: Icon, // Replace with the correct icon for Unmatched Accuracy
-              heading: "Unmatched Accuracy",
-              description:
-                "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Data Security & Privacy
-              heading: "Data Security & Privacy",
-              description:
-                "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Scalability
-              heading: "Scalability",
-              description:
-                "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Integration
-              heading: "Integration",
-              description:
-                "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
-              linkText: "",
-              linkWithIcon: true,
-            }
-          ],
-          caption: "",
-          btnText: "Get Free Body Measurements"
-        }
-      ];
+          icon: Icon, // Replace with the correct icon for In-Depth Document Analysis
+          heading: "In-Depth Document Analysis",
+          description:
+            "Upload real estate documents for a thorough breakdown of key details, powered by custom machine learning models tailored for the industry.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Rapid Response Capabilities
+          heading: "Rapid Response Capabilities",
+          description:
+            "Get quick, accurate answers to your inquiries without delays.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Tailored Insights
+          heading: "Tailored Insights",
+          description:
+            "Receive personalised guidance based on your specific documents, enhancing the decision-making process.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Market Intelligence
+          heading: "Market Intelligence",
+          description:
+            "Stay informed about current trends and property evaluations to refine your investment strategies.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption: "",
+      btnText: "Try it for Free",
+    },
+  ];
+  
+  
       
-
+  // const stepperdata = {
+  //   heading: "Our Development Process",
+  //   description:
+  //     "At Centrox AI, our Smart Chatbot has been meticulously engineered to address challenges in document analysis and interpretation. Here’s a detailed look at our development process, incorporating technical insights:",
+  //   data: [
+  //     {
+  //       title: "Assess Requirements",
+  //       content: [
+  //         {
+  //           _type: "block",
+  //           style: "normal",
+  //           _key: "6fc8ac5c69ae",
+  //           markDefs: [],
+  //           children: [
+  //             {
+  //               _type: "span",
+  //               marks: [],
+  //               text: "We start by thoroughly analyzing user needs, document types, and unique challenges in document handling. This helps us define specific requirements for interaction and insight extraction that shape the chatbot's development.",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //       status: false,
+  //     },
+  //     {
+  //       title: "Integrate Technology",
+  //       content: [
+  //         {
+  //           _type: "block",
+  //           style: "normal",
+  //           _key: "6fc8ac5c69af",
+  //           markDefs: [],
+  //           children: [
+  //             {
+  //               _type: "span",
+  //               marks: [],
+  //               text: "We incorporate GPT-3.5 for natural language processing, with Langchain Libraries for robust prompt engineering. These tools integrate seamlessly into our system, creating a solid foundation for accurate responses.",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //       status: false,
+  //     },
+  //     {
+  //       title: "Custom Prompt Design",
+  //       content: [
+  //         {
+  //           _type: "block",
+  //           style: "normal",
+  //           _key: "6fc8ac5c69b0",
+  //           markDefs: [],
+  //           children: [
+  //             {
+  //               _type: "span",
+  //               marks: [],
+  //               text: "Our team designs custom prompts tailored to each document type and user scenario. This ensures the chatbot can provide precise, context-relevant answers based on the actual content of the documents.",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //       status: false,
+  //     },
+  //     {
+  //       title: "Train and Fine-Tune Models",
+  //       content: [
+  //         {
+  //           _type: "block",
+  //           style: "normal",
+  //           _key: "6fc8ac5c69b1",
+  //           markDefs: [],
+  //           children: [
+  //             {
+  //               _type: "span",
+  //               marks: [],
+  //               text: "Using a range of document datasets, we train and fine-tune the chatbot. This process enhances its ability to summarize and accurately address user queries, adapting to various document nuances.",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //       status: false,
+  //     },
+  //     {
+  //       title: "Deploy Solution",
+  //       content: [
+  //         {
+  //           _type: "block",
+  //           style: "normal",
+  //           _key: "6fc8ac5c69b2",
+  //           markDefs: [],
+  //           children: [
+  //             {
+  //               _type: "span",
+  //               marks: [],
+  //               text: "After rigorous testing, the chatbot is deployed on our platform, optimized for scalability and designed to support a growing user base seamlessly.",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //       status: false,
+  //     },
+  //     {
+  //       title: "Ongoing Optimization",
+  //       content: [
+  //         {
+  //           _type: "block",
+  //           style: "normal",
+  //           _key: "6fc8ac5c69b3",
+  //           markDefs: [],
+  //           children: [
+  //             {
+  //               _type: "span",
+  //               marks: [],
+  //               text: "We continually monitor performance, gathering insights from user interactions to make regular adjustments. This ensures the chatbot stays responsive and increasingly effective.",
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //       status: false,
+  //     },
+  //   ],
+  //   btnText: "Let's Discuss Your Project",
+  // };
+  
+  
 
 
   const challengeData = [
     {
-    headerData: {
-    tagText:"",
-    headingText: "",
-    para1Text:
-      "Are sizing inconsistencies and high return rates impacting your bottom line?",
-    para2Text: "",
-    heading2Text:
-      "The traditional approach to apparel sizing presents significant challenges for businesses and customers alike",
+      headerData: {
+        tagText: "The problem",
+        headingText: "Tackling Real Estate Challenges Head-On",
+        para1Text:
+          "In the fast-paced world of real estate, inefficiencies can lead to missed opportunities. Many professionals face:",
+        para2Text: "",
+        heading2Text: "",
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Inaccurate Measurements
-          heading: "Inaccurate Measurements",
+          icon: Icon, // Replace with the correct icon for Fragmented Information
+          heading: "Fragmented Information",
           description:
-            "Manual measurements, whether taken in-store or self-reported by customers, are prone to human error. This leads to inconsistent sizing, customer frustration, and ultimately, increased return rates.",
+            "Accessing scattered sources complicates critical decisions, causing delays and errors.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for High Return Rates
-          heading: "High Return Rates",
+          icon: Icon, // Replace with the correct icon for Inefficient Reviews
+          heading: "Inefficient Reviews",
           description:
-            "Ill-fitting garments are a major contributor to costly returns, impacting profitability and damaging customer loyalty. The environmental impact of these returns is also a growing concern.",
+            "Time-consuming document evaluations can slow down operations and impact profitability.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Limited Personalization
-          heading: "Limited Personalization",
+          icon: Icon, // Replace with the correct icon for Inaccurate Assessments
+          heading: "Inaccurate Assessments",
           description:
-            "Generic sizing charts and one-size-fits-all approaches can't cater to the diverse range of body shapes and preferences in today's market. Customers crave personalized experiences and garments that fit them perfectly.",
+            "Manual analyses can introduce errors, leading to costly mistakes.",
           linkText: "",
           linkWithIcon: true,
-        }
+        },
       ],
       caption:
-        "Centrox AI's body measurement tool addresses these challenges head-on, providing a data-driven solution to revolutionize how you capture and utilize body data. Our AI-powered technology enables you to create a more personalized, efficient, and sustainable approach to apparel sizing and shopping.",
+        "Our chatbot ensures that after in-depth analysis, your decisions are based on reliable data.",
       btnText: "Get A Free Trial",
-      
     },
   ];
+  
+  const cardsData2 = [
+    {
+      headerData: {
+        tagText: "Benefits",
+        headingText: "With Centrox AI, You Benefit From:",
+        para1Text: "",
+        para2Text: "",
+        heading2Text: "",
+      },
+      data: [
+        {
+          icon: Icon, // Replace with the correct icon for Data Integrity
+          heading: "Data Integrity",
+          description:
+            "Our algorithms ensure high-quality assessments, minimising risks.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Operational Efficiency
+          heading: "Operational Efficiency",
+          description:
+            "Engage with our chatbot for immediate insights, freeing your team to focus on high-impact tasks.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Fast Security Measures
+          heading: "Fast Security Measures",
+          description:
+            "We prioritise the protection of your sensitive data, adhering to the highest privacy standards.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Scalable Solutions
+          heading: "Scalable Solutions",
+          description:
+            "Adapt effortlessly to increasing demands while maintaining performance.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption: "",
+      btnText: "Talk to Our AI Expert",
+    },
+  ];
+  const cardsData3 = [
+    {
+      headerData: {
+        tagText: "",
+        headingText: "Empowering Real Estate Professionals",
+        para1Text: "You're One Step Away from Real Estate Innovation. Our chatbot serves diverse stakeholders in the industry.",
+        para2Text: "",
+        heading2Text: "",
+      },
+      data: [
+        {
+          icon: Icon, // Replace with the correct icon for Real Estate Agents
+          heading: "Real Estate Agents",
+          description:
+            "Facilitate efficient property evaluations, improving client interactions and accelerating transactions.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Investors
+          heading: "Investors",
+          description:
+            "Make data-driven decisions and enhance portfolio management with insightful analyses.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Construction Firms
+          heading: "Construction Firms",
+          description:
+            "Streamline document reviews to maintain project timelines and ensure compliance.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+        {
+          icon: Icon, // Replace with the correct icon for Agencies
+          heading: "Agencies",
+          description:
+            "Provide immediate support through our chatbot, allowing agents to concentrate on closing deals.",
+          linkText: "",
+          linkWithIcon: true,
+        },
+      ],
+      caption: "Regardless of your role, Centrox AI enhances your capabilities and drives growth.",
+      btnText: "Schedule a Demo",
+    },
+  ];
+  
 
   const questions = [
     {
-      question: "What kind of data do you need to train a custom chatbot?",
-      answer:
-        "To train a custom chatbot, we primarily use your business’s proprietary data, such as customer interactions, FAQs, product information, support tickets, and knowledge base. The richer and more specific the data, the better the chatbot can understand and respond to your customers with accurate, contextually appropriate answers.",
+      question: "How does Centrox AI ensure the accuracy of document analysis in real estate?",
+      answer: 
+        "The chatbot made by our AI experts leverages advanced machine learning models tailored to real estate, ensuring accurate insights. The chatbots we deliver are equipped with the ability to analyze the critical details found within the document. Based on this in-depth analysis, it can also provide reliable recommendations.",
     },
     {
-      question: "How long does it take to develop a custom chatbot?",
-      answer:
-        "The timeline depends on the complexity of the project, the level of customization required, and the integration needs. Typically, development can range from 4 to 12 weeks, including the design, training, testing, and deployment phases.",
+      question: "What types of documents can I upload for analysis?",
+      answer: 
+        "This real estate chatbot prepared by our experts at Centrox AI allows users to upload a wide range of documents related to real estate, including lease contracts, purchase agreements, appraisal reports, and construction project files. This advanced chatbot speeds up the process for analysis and saves a lot of time.",
     },
     {
-      question: "What is the cost of custom chatbot development?",
-      answer:
-        "Our pricing is tailored to your specific requirements, factoring in aspects like the complexity of conversational flows, integrations, LLM fine-tuning, and ongoing maintenance. Contact us for a detailed estimate based on your needs.",
+      question: "How quickly can I get answers after uploading my documents?",
+      answer: 
+        "We understand the importance of time for businesses, especially how it can provide you with a competitive edge. Therefore, we have developed our AI assistant chatbot in an optimized manner so that it can deliver an analysis report instantly after a document is uploaded. This analysis report also provides users with recommendations, which can yield fruitful results.",
     },
     {
-      question: "How do you ensure data security and privacy during the development process?",
-      answer:
-        "We adhere to stringent security protocols to ensure the safety of your data. This includes encryption, access control, and compliance with global data privacy regulations like GDPR. We also implement secure API practices and conduct regular security audits to mitigate risks.",
+      question: "How does Centrox AI handle data security for my sensitive real estate documents?",
+      answer: 
+        "At Centrox, data security is our priority, as we understand the potential consequences of a data privacy breach for your business. Therefore, our AI experts ensure adherence to the highest industry standards to guarantee complete data protection for users.",
     },
     {
-      question: "What level of involvement will my team have in the project?",
-      answer:
-        "We collaborate closely with your team throughout the project to ensure the chatbot aligns with your goals and vision. Your input is crucial during the needs assessment, design, and testing phases, and we provide regular updates to ensure transparency and effective communication.",
+      question: "Can Centrox AI’s chatbot assist in understanding current real estate market trends?",
+      answer: 
+        "Yes, the chatbot provides market intelligence insights, helping you stay updated on trends, valuations, and investment opportunities, enabling you to make strategic decisions.",
     },
     {
-      question: "Can you help us with ongoing chatbot maintenance and updates?",
-      answer:
-        "Yes, we offer ongoing maintenance and support services to keep your chatbot up-to-date and performing optimally. This includes regular updates, fine-tuning based on user feedback, and continuous monitoring to ensure the chatbot adapts to evolving business needs.",
+      question: "What makes Centrox AI different from other AI solutions in real estate?",
+      answer: 
+        "Centrox AI combines AI expertise with real estate industry knowledge, creating a focused, customized solution. Our commitment to measurable outcomes, collaborative development, and transparent communication distinguishes us from others.",
     },
   ];
+  
   
   
 
@@ -286,10 +507,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
   ];
   const heroData = {
-    heading: "Smart Chatbot for Efficient Document Assistance",
+    heading: "Your Real Estate Analysis with Gen AI",
     description:
-      "Centrox AI offers a Smart Chatbot designed to simplify interactions with documents. Upload a PDF and receive clear, actionable responses, insightful summaries, and easy-to-understand explanations matching exactly to your needs.",
-    btnText: "Try it for FREE",
+      "We deliver a chatbot that empowers individuals to analyse documents quickly and accurately. By simply uploading your files, gain insights and actionable recommendations regarding land purchases, sales, rents, and construction projects.",
+    btnText: "Try it for Free",
     includeDots: false,
     img: serviceHeroImg,
     reverse: false,
@@ -297,39 +518,42 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
   const arrayData = {
     headerData: {
-      tagText: "advantages",
-      heading: "The Centrox AI Advantage",
-      description: "We're your trusted partner in AI innovation:",
+      tagText: "Our Commitment",
+      heading: "Why Centrox AI Stands Out?",
+      description:
+        "Our commitment to excellence in AI and real estate innovation sets us apart as your trusted partner.",
     },
     data: [
       {
-        heading: "Deep Expertise",
+        heading: "Expertise in AI and Real Estate",
         description:
-          "Our team comprises seasoned AI researchers and engineers with a proven track record in AI solutions and services.",
+          "Our team comprises specialists with a deep understanding of both domains, ensuring practical, high-quality solutions.",
       },
       {
-        heading: "Custom Solutions",
+        heading: "Customised Solutions",
         description:
-          "We tailor our technology to your specific needs and integrate seamlessly with your existing systems.",
+          "We adapt our technology to meet your unique needs, allowing for smooth integration into existing systems.",
       },
       {
-        heading: "Collaborative Approach",
+        heading: "Collaborative Development",
         description:
-          "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
+          "We work alongside your team to align our solutions with your strategic goals.",
       },
       {
-        heading: "Results-Oriented",
+        heading: "Results-Oriented Approach",
         description:
-          "We're committed to delivering solutions that solve real-world problems and drive business growth.",
+          "Our focus is on delivering measurable outcomes that drive efficiency and support growth.",
       },
       {
-        heading: "Transparency & Communication",
+        heading: "Transparent Engagement",
         description:
-          "We maintain open communication throughout the entire development process, keeping you informed and involved every step of the way.",
+          "We maintain open communication throughout our partnership, keeping you informed at every stage.",
       },
     ],
-    btnText: "Book A Call Today",
+    btnText: "Book a 1-1 Session",
   };
+  
+  
   
  
     
@@ -342,9 +566,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <CommonDisplayCardsGrid
             data={challengeData}
           />
-          <LandingSolutionsSection/>
+          {/* <LandingSolutionsSection/> */}
           <CommonDisplayCardsGrid
             data={cardsSolutions}
+          /> 
+          {/* <StepperSection data={stepperdata}/> */}
+          <CommonDisplayCardsGrid
+            data={cardsData2}
+          /> 
+            <CommonDisplayCardsGrid
+            data={cardsData3}
           /> 
           <LogosSection
             data={techStackData}
@@ -355,7 +586,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             caption=""
             btnText="Let’s Discuss Further"
           />
-          <LandingIndustriesSection/>
+          {/* <LandingIndustriesSection/> */}
       
          
           <PointsandImagesSection
@@ -372,8 +603,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             subHeading=""
             data={questions}
           />
-          <IndustryBanner heading="Revolutionize your Business 
-with AI-Powered Body Measurements" description="Schedule a technical discussion with our experts to learn how our tool can be integrated into your existing systems." btnText="Book a Technical Demo" isBooking/>
+          <IndustryBanner heading="Talk to Our AI Expert" description="Ready to enhance your real estate analysis with AI?
+Schedule a consultation with our experts to explore how Centrox AI can elevate your operations." btnText="Lets Connect" isBooking/>
         </main>
       </LandingLayout>
     </div>

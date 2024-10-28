@@ -29,7 +29,7 @@ const CommonCardwithIcon = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className=" mx-auto flex flex-col cursor-default h-full ">
+    <div className=" mx-auto flex w-full flex-col cursor-default h-full ">
       <div
         aria-label="centrox-services"
         className={classNames(
