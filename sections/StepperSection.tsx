@@ -81,7 +81,7 @@ export const StepperSection = ({
   return (
     <section className={classNames(section_wrapper_class)}>
       <div
-        className="min-h-[250vh] mt-20 lg:mt-40 2xl:mt-44 relative "
+        className="min-h-[270vh] mt-20 lg:mt-16 2xl:mt-24 relative "
         ref={topRef}
       >
         <div

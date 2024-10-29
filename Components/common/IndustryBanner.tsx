@@ -3,11 +3,11 @@ import Arrow from "@/assets/RightArrow.svg";
 import bannerBg from "@/assets/bannerBG.webp";
 import Image from "next/image";
 import { CalendlyWidget } from "./Calendly";
-import classNames, { text_h3_class, text_para_3 } from "@/helpers/common";
+import classNames, { section_wrapper_class, text_h3_class, text_para_3 } from "@/helpers/common";
 const IndustryBanner = (props?: any) => {
   return (
     <div
-      className="text-white w-[90%]  lg:w-[75%] mx-auto px-3 py-3 lg:p-6 rounded-2xl relative mt-4 flex flex-col justify-center"
+      className={classNames(section_wrapper_class,"text-white  3xl:bg-cover px-3 py-3 lg:p-6 rounded-2xl relative mt-4 flex flex-col justify-center")}
       style={{
         backgroundImage: `url(${bannerBg.src})`,
         backgroundRepeat: "no-repeat",
