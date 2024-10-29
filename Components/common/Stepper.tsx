@@ -25,7 +25,7 @@ export const Stepper = ({ data }: any) => {
             <li className="mb-10 lg:mb-12 mt-6 ms-6 px-3  ">
               <div
                 className={classNames(
-                  "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-green-900 text-white border-none ",
+                  "absolute flex items-center justify-center w-8 h-8  rounded-full -start-4  dark:ring-gray-900 dark:bg-blue-bright text-white border-none ",
                   x.status ? "bg-blue-bright ml-14 lg:ml-8" : "bg-gray-800"
                 )}
               >
