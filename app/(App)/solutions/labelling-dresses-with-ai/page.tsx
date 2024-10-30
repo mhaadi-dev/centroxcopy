@@ -65,6 +65,19 @@ import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
 import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
 import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
+import labellinghero from "@/assets/solutions/labeling dresses with ai hero.webp"
+import Icon42 from "@/assets/Icon-42.webp"
+import Icon43 from "@/assets/Icon-43.webp"
+import Icon44 from "@/assets/Icon-44.webp"
+import Icon45 from "@/assets/Icon-45.webp"
+import Icon46 from "@/assets/Icon-46.webp"
+import Icon47 from "@/assets/Icon-47.webp"
+import Icon48 from "@/assets/Icon-48.webp"
+import industryPic2 from "@/assets/solutions/Brick & mortae.webp";
+import industryPic3 from "@/assets/Brands.webp";
+
+
+
 
 
 
@@ -135,7 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: Icon6, // Replace with the correct icon for Time-Consuming & Labor-Intensive
+              icon: Icon42, // Replace with the correct icon for Time-Consuming & Labor-Intensive
               heading: "Time-Consuming & Labor-Intensive",
               description:
                 "Assigning tags and attributes to each product manually is a tedious and time-consuming process, requiring significant human resources and effort.",
@@ -143,7 +156,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon13, // Replace with the correct icon for Prone to Human Error
+              icon: Icon46, // Replace with the correct icon for Prone to Human Error
               heading: "Prone to Human Error",
               description:
                 "Manual labeling is susceptible to inconsistencies, inaccuracies, and subjective interpretations, leading to mislabeled products and a frustrating user experience.",
@@ -151,7 +164,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon9, // Replace with the correct icon for Limited Scalability
+              icon: Icon44, // Replace with the correct icon for Limited Scalability
               heading: "Limited Scalability",
               description:
                 "As your product catalog grows, manual tagging becomes increasingly unsustainable, hindering your ability to expand your offerings and reach new customers.",
@@ -159,7 +172,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon12, // Replace with the correct icon for Impact on Search & Discovery
+              icon: Icon43, // Replace with the correct icon for Impact on Search & Discovery
               heading: "Impact on Search & Discovery",
               description:
                 "Inaccurate or incomplete product data can negatively affect search relevance and product recommendations, leading to missed sales opportunities.",
@@ -185,7 +198,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: Icon11, // Replace with the correct icon for Streamline Catalog Management
+              icon: Icon47, // Replace with the correct icon for Streamline Catalog Management
               heading: "Streamline Catalog Management",
               description:
                 "Automate product tagging, saving time and resources while ensuring consistency and accuracy across your catalog.",
@@ -193,7 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon12, // Replace with the correct icon for Improve Search & Discovery
+              icon: Icon43, // Replace with the correct icon for Improve Search & Discovery
               heading: "Improve Search & Discovery",
               description:
                 "Enhance search relevance and accuracy, helping customers find the products they're looking for quickly and easily, leading to increased conversions.",
@@ -201,7 +214,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon, // Replace with the correct icon for Reduce Returns
+              icon: Icon45, // Replace with the correct icon for Reduce Returns
               heading: "Reduce Returns",
               description:
                 "Minimize returns due to product misrepresentation by providing accurate product attributes.",
@@ -209,7 +222,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon6, // Replace with the correct icon for Accelerate Time-to-Market
+              icon: Icon48, // Replace with the correct icon for Accelerate Time-to-Market
               heading: "Accelerate Time-to-Market",
               description:
                 "Quickly onboard new products and update existing ones with minimal manual effort.",
@@ -359,7 +372,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Streamline your fashion e-commerce with Centrox AI's image labeling tool. Automate product tagging, improve search accuracy, and deliver a better shopping experience.",
     btnText: "Try It For FREE",
     includeDots: false,
-    img: serviceHeroImg,
+    img: labellinghero,
     reverse: false,
   };
   
@@ -441,7 +454,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic1,
+      image: industryPic2,
       data: [
         {
           heading: "Catalog Optimization",
@@ -461,7 +474,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic1,
+      image: industryPic3,
       data: [
         {
           heading: "Product Insights",
@@ -488,7 +501,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection img={labellinghero} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

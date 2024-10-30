@@ -28,6 +28,7 @@ interface PropsI {
 
 import Image from "next/image";
 export const HeroSection = (props: PropsI) => {
+
   return (
     <div className="w-full pb-10 relative">
     <section
@@ -82,7 +83,7 @@ export const HeroSection = (props: PropsI) => {
             src={props?.img}
             alt="hero-img"
             objectFit="fill"
-            className="w-full lg:w-5/7 roudned-2xl  "
+            className="w-full xl:w-5/6 mx-auto roudned-2xl  "
           
           />
         )}
