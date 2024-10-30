@@ -56,6 +56,21 @@ import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustries
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp";
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp";
 import IndustryPic1 from "@/assets/industry1.webp"
+import emotionalsupporthero from "@/assets/solutions/Emotional Support hero.webp"
+import Icon19 from "@/assets/Icon-19.webp"
+import Icon23 from "@/assets/Icon-23.webp"
+import Icon24 from "@/assets/Icon-24.webp"
+
+import Icon20 from "@/assets/Icon-20.webp"
+import Icon22 from "@/assets/Icon-22.webp"
+import Icon21 from "@/assets/Icon-21.webp"
+import Icon25 from "@/assets/Icon-25.webp"
+import Icon26 from "@/assets/Icon-26.webp"
+
+
+
+
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const cardsSolutions = [
     {
@@ -117,7 +132,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Lack of Clarity
+          icon: Icon23, // Replace with the correct icon for Lack of Clarity
           heading: "Lack of Clarity",
           description:
             "General support systems often flood users with excessive, irrelevant information, which can add to their confusion.",
@@ -125,7 +140,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Unfiltered Advice
+          icon: Icon19, // Replace with the correct icon for Unfiltered Advice
           heading: "Unfiltered Advice",
           description:
             "Many chatbots provide vague or out-of-context responses, detracting from the user’s immediate needs.",
@@ -133,7 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Inappropriate Suggestions
+          icon: Icon24, // Replace with the correct icon for Inappropriate Suggestions
           heading: "Inappropriate Suggestions",
           description:
             "Some services may inadvertently give advice that’s beyond their scope, including medical guidance, which could mislead or overwhelm users.",
@@ -159,7 +174,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Laser-Focused Responses
+          icon: Icon22, // Replace with the correct icon for Laser-Focused Responses
           heading: "Laser-Focused Responses",
           description:
             "Users get answers to their queries that are straightforward and concise, reducing confusion and promoting clarity in times of distress.",
@@ -167,7 +182,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Boundaries in Place
+          icon: Icon25, // Replace with the correct icon for Boundaries in Place
           heading: "Boundaries in Place",
           description:
             "The chatbot will not attempt to address or provide advice on complex medical conditions or treatments—it remains firmly within the limits of general emotional support.",
@@ -175,7 +190,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for No Medication Suggestions
+          icon: Icon21, // Replace with the correct icon for No Medication Suggestions
           heading: "No Medication Suggestions",
           description:
             "The chatbot is not designed to offer medical prescriptions or therapeutic treatments, ensuring users receive only appropriate guidance that aligns with their immediate emotional needs.",
@@ -200,7 +215,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Contextual, Accurate Responses
+          icon: Icon26, // Replace with the correct icon for Contextual, Accurate Responses
           heading: "Contextual, Accurate Responses",
           description:
             "Bots that deliver the exact information needed, no more, no less, tailored to specific industry needs.",
@@ -208,7 +223,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Defined Boundaries
+          icon: Icon25, // Replace with the correct icon for Defined Boundaries
           heading: "Defined Boundaries",
           description:
             "Just as our health chatbot stays within general emotional support, your service can have similarly clear operational limits for optimized user experience.",
@@ -216,7 +231,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for High Scalability
+          icon: Icon9, // Replace with the correct icon for High Scalability
           heading: "High Scalability",
           description:
             "From handling a small user base to supporting a large-scale service operation, our chatbot technology adapts to your needs with ease.",
@@ -372,7 +387,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Centrox AI introduces an advanced mental health chatbot designed specifically to assist individuals who are upset and seeking general emotional support. This AI-driven tool provides quick, actionable guidance without the need for human interaction.",
     btnText: "Talk to Our Bot Now",
     includeDots: false,
-    img: serviceHeroImg, // Ensure `serviceHeroImg` is the relevant image for this hero section
+    img: emotionalsupporthero, // Ensure `serviceHeroImg` is the relevant image for this hero section
     reverse: false,
   };
 

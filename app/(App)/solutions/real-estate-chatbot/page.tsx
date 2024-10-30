@@ -58,6 +58,24 @@ import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSe
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
+import realestatehero from "@/assets/solutions/Real estatehero.webp"
+import Icon27 from "@/assets/Icon-27.webp";
+import Icon28 from "@/assets/Icon-28.webp";
+import Icon29 from "@/assets/Icon-29.webp";
+import Icon30 from "@/assets/Icon-30.webp";
+import Icon31 from "@/assets/Icon-31.webp";
+import Icon32 from "@/assets/Icon-32.webp";
+import Icon33 from "@/assets/Icon-33.webp";
+import Icon34 from "@/assets/Icon-34.webp";
+import Icon35 from "@/assets/Icon-35.webp";
+import Icon36 from "@/assets/Icon-36.webp";
+import Icon37 from "@/assets/Icon-37.webp";
+import Icon38 from "@/assets/Icon-38.webp";
+import Icon39 from "@/assets/Icon-39.webp";
+import Icon40 from "@/assets/Icon-40.webp";
+import Icon41 from "@/assets/Icon-41.webp";
+
+
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -75,7 +93,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for In-Depth Document Analysis
+          icon: Icon40, // Replace with the correct icon for In-Depth Document Analysis
           heading: "In-Depth Document Analysis",
           description:
             "With the motivation to enhance your business productivity, our AI chatbot provides an in-depth report for the document that has been uploaded on it, by giving a detailed breakdown of the key elements involved in it.",
@@ -83,7 +101,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Rapid Response Capabilities
+          icon: Icon30, // Replace with the correct icon for Rapid Response Capabilities
           heading: "Rapid Response Capabilities",
           description:
             "We understand the importance of your precious time, and how impactful it can be by providing you with a business solution which gives you a competitive edge over your competitors by serving prompt analysis reports, or responses for the relevant query.",
@@ -91,7 +109,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Tailored Insights
+          icon: Icon34, // Replace with the correct icon for Tailored Insights
           heading: "Tailored Insights",
           description:
             "This real estate AI assistant provides personalised guidance based on your specific documents, enhancing the decision-making process; ultimately providing you with a dependable source for enhancing your business productivity.",
@@ -99,7 +117,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Market Intelligence
+          icon: Icon33, // Replace with the correct icon for Market Intelligence
           heading: "Market Intelligence",
           description:
             "Our real estate chatbot is smart enough to keep you informed about current trends and property evaluations to refine your investment strategies, making your strategy more effective and intelligent to compete in the market.",
@@ -253,7 +271,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Fragmented Information
+          icon: Icon35, // Replace with the correct icon for Fragmented Information
           heading: "Fragmented Information",
           description:
             "One of the major challenges which professionals can face for their real estate queries is Accessing scattered sources to find out the relevant information for making the critical decisions, which can cause major delays and errors.",
@@ -261,7 +279,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Inefficient Reviews
+          icon: Icon29, // Replace with the correct icon for Inefficient Reviews
           heading: "Inefficient Reviews",
           description:
             "As much as doing this research and analysis for real estate manually can be time consuming resulting in slower response, but it can also get tiring; ultimately compromising the productivity and profitability, as the reviews made by manual systems could have errors. This challenge can effectively be catered from these AI chatbots.",
@@ -269,7 +287,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Inaccurate Assessments
+          icon: Icon39, // Replace with the correct icon for Inaccurate Assessments
           heading: "Inaccurate Assessments",
           description:
             "The analysis done manually might have errors and inaccuracies which can comprise the entire analysis report, and might lead to losses to the business organisation. Our real estate chatbot aims to minimise these losses by ensuring accurate analysis, and delivering comprehensive reports.",
@@ -296,7 +314,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Data Integrity
+          icon: Icon37, // Replace with the correct icon for Data Integrity
           heading: "Data Integrity",
           description:
             "The experts at Centrox AI utilise such algorithms which ensure high-quality assessments, minimising risks. We realise the importance of data, therefore we extend enough efforts to ensure that your valuable data remains secure and private.",
@@ -304,7 +322,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Operational Efficiency
+          icon: Icon36, // Replace with the correct icon for Operational Efficiency
           heading: "Operational Efficiency",
           description:
             "We understand the importance of operational efficiency your AI chatbot real estate solution requires. Therefore we provide you with an engaging chatbot for immediate insights, freeing your team to focus on high-impact tasks.",
@@ -312,7 +330,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Fast Security Measures
+          icon: Icon27, // Replace with the correct icon for Fast Security Measures
           heading: "Fast Security Measures",
           description:
             "For keeping your essential data private, we prioritise the protection of your sensitive data, adhering to the highest privacy standards. This helps us in providing you with a dependable and reliable solution.",
@@ -320,7 +338,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Scalable Solutions
+          icon: Icon28, // Replace with the correct icon for Scalable Solutions
           heading: "Scalable Solutions",
           description:
             "We know that the market trend and demands keep changing with each passing day, so we provide you with such a real estate AI chatbot which can adapt effortlessly to increasing demands while maintaining performance.",
@@ -345,7 +363,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Real Estate Agents
+          icon: Icon31, // Replace with the correct icon for Real Estate Agents
           heading: "Real Estate Agents",
           description:
             "This efficient AI chatbot for the real estate industry can facilitate efficient property evaluations, improving client interactions and accelerating transactions, which can significantly increase your business profit.",
@@ -353,7 +371,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Investors
+          icon: Icon32, // Replace with the correct icon for Investors
           heading: "Investors",
           description:
             "It lets investors make decisions based on data and enhance their portfolio management. This can actually speed up the decision-making process for investors by providing them with a compelling report that encourages them to proceed forward.",
@@ -361,7 +379,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Construction Firms
+          icon: Icon38, // Replace with the correct icon for Construction Firms
           heading: "Construction Firms",
           description:
             "Smooths the process of document reviews to maintain project timelines and compliance. This holds critical importance in providing you with a dependable way to review the documents without going through the hassle of searching.",
@@ -369,7 +387,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Agencies
+          icon: Icon41, // Replace with the correct icon for Agencies
           heading: "Agencies",
           description:
             "Provides immediate support through our chatbot, allowing agents to concentrate on closing deals. This can help agencies focus more on compelling clients to invest.",
@@ -514,7 +532,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "We deliver a chatbot that empowers individuals to analyse documents quickly and accurately. By simply uploading your files, gain insights and actionable recommendations regarding land purchases, sales, rents, and construction projects.",
     btnText: "Try it for Free",
     includeDots: false,
-    img: serviceHeroImg,
+    img:realestatehero,
     reverse: false,
   };
   
@@ -564,7 +582,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection  {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

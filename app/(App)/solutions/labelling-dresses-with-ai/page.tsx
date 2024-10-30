@@ -65,6 +65,7 @@ import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
 import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
 import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
+import labellinghero from "@/assets/solutions/labeling dresses with ai hero.webp"
 
 
 
@@ -359,7 +360,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Streamline your fashion e-commerce with Centrox AI's image labeling tool. Automate product tagging, improve search accuracy, and deliver a better shopping experience.",
     btnText: "Try It For FREE",
     includeDots: false,
-    img: serviceHeroImg,
+    img: labellinghero,
     reverse: false,
   };
   
@@ -488,7 +489,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <LandingLayout>
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection img={labellinghero} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}
