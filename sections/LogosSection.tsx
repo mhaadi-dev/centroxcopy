@@ -59,7 +59,7 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
                 }
                         </figure>
 
-                        <h5 className="text-white font-semibold  text-[0.55rem] lg:text-[0.7rem] text-center">
+                        <h5 className="text-white font-semibold  text-[0.6rem] lg:text-[0.8rem] text-center">
                           {el.caption}
                         </h5>
                       </div>
