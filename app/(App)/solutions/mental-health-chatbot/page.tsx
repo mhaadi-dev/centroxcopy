@@ -66,6 +66,9 @@ import Icon22 from "@/assets/Icon-22.webp"
 import Icon21 from "@/assets/Icon-21.webp"
 import Icon25 from "@/assets/Icon-25.webp"
 import Icon26 from "@/assets/Icon-26.webp"
+import finance from "@/assets/Finance.webp"
+import education from "@/assets/Education.webp"
+import customerservice from "@/assets/customerservice.webp"
 
 
 
@@ -466,7 +469,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: IndustryPic1,
+      image: customerservice,
       data: [
         {
           heading: "24/7 Customer Support",
@@ -486,7 +489,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: IndustryPic1,
+      image: finance,
       data: [
         {
           heading: "Account Overview and Balances",
@@ -506,7 +509,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: IndustryPic1,
+      image: education,
       data: [
         {
           heading: "Homework Assistance and Academic Q&A",
