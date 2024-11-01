@@ -7,10 +7,14 @@ import Icon from "@/assets/Icon.webp";
 import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg"
 import { CalendlyWidget } from "./Calendly";
+import CommonCard from "./CommonCard";
+import dummyDisplay from "@/assets/dummyDisplay.webp";
+
 interface Props{
-  data:any
+  data:any,
+  caseStudyCards?:boolean
 }
-const CommonDisplayCardsGrid = ({data}:Props) => {
+const CommonDisplayCardsGrid = ({data,caseStudyCards=false}:Props) => {
 if(!data){
   return null
 }
@@ -31,7 +35,7 @@ if(!data){
       <div
         className={classNames("grid my-8 grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr")} 
       >
-        {data?.[0]?.data?.length>0? data?.[0].data?.map((card:any, index:number) => (
+        {!caseStudyCards && data?.[0]?.data?.length>0? data?.[0].data?.map((card:any, index:number) => (
           <CommonCardwithIcon
             key={index}
             isGradientBg={true}
@@ -42,6 +46,7 @@ if(!data){
             linkText={card?.linkText}
           />
         )): "" }
+        {caseStudyCards && <> <CommonCard image={dummyDisplay} title="Meta and Centrox Partner to Drive Enterprise Adoption of Llama 3.1 405B Using Scale GenAI Platform" /> <CommonCard image={dummyDisplay} title="Meta and Centrox Partner to Drive Enterprise Adoption of Llama 3.1 405B Using Scale GenAI Platform" /> <CommonCard image={dummyDisplay} title="Meta and Centrox Partner to Drive Enterprise Adoption of Llama 3.1 405B Using Scale GenAI Platform" /> <CommonCard image={dummyDisplay} title="Meta and Centrox Partner to Drive Enterprise Adoption of Llama 3.1 405B Using Scale GenAI Platform" /> </>}
       </div>
      {data?.[0]?.caption && <p className={classNames(text_para_2,"text-center my-4")}>{data?.[0]?.caption}</p>}
 { data?.[0]?.btnText &&  <div className="flex justify-center items-center my-6"><CalendlyWidget btnText={data?.[0]?.btnText} isArrow/></div>

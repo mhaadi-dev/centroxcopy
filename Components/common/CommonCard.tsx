@@ -9,7 +9,7 @@ interface Props{
 const CommonCard = ({image,title,category,date}:Props) => {
   return (
     <div
-    className="max-w-[658px] h-[400px] justify-center items-center gap-[.5rem] hover:bg-[#079DFC1A] transition-colors ease-in px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer"
+    className="max-w-[658px]  justify-center items-center gap-[.5rem] hover:bg-[#079DFC1A] transition-colors ease-in px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer"
    
   >
     {image && (

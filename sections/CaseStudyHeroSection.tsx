@@ -5,7 +5,6 @@ import classNames, {
   text_h1_main,
   text_h2_class,
   text_para_2,
-  text_para_3,
 } from "@/helpers/common";
 
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
@@ -22,12 +21,10 @@ interface PropsI {
   bgimage2?: any;
   bgClassName?: string;
   isGradientText?: boolean;
-  divider?:boolean
-  tags?:boolean
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,...props}: PropsI) => {
   return (
     <div className="w-full pb-10 relative">
       <section
@@ -86,22 +83,14 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
           >
             {props?.description || ""}
           </p>
-          {divider && <div className="h-[2px] w-full bg-gradient-to-r from-black via-white to-black"></div>}
-        
-          {tags && <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex justify-between items-center gap-4 mt-0 2xl:mt-0">
-            <div className="flex  gap-x-2">
+          <div className="h-[2px] w-full bg-gradient-to-r from-black via-white to-black"></div>
+          <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex items-center gap-4 mt-0 2xl:mt-0">
                 <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AI</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> ML Ops</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AWS</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> GANs</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> CVS</div>
-            </div>
-            <div className="flex gap-x-2">
-              <p className={classNames(text_para_3,"font-semibold")}>Product</p>
-              <p className={classNames(text_para_3,"!text-[0.9rem]")}>20min read</p>
-            </div>
-           
-          </section>}
+          </section>
           {props?.btnText && (
             <div className="flex justify-start z-[1]">
               <CalendlyWidget
