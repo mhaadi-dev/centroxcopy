@@ -1,16 +1,14 @@
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import classNames, {
   h1className,
- 
   sectionsubheadings,
   text_h1_main,
   text_h2_class,
   text_para_2,
+  text_para_3,
 } from "@/helpers/common";
 
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
-
-
 
 interface PropsI {
   heading: string;
@@ -19,16 +17,18 @@ interface PropsI {
   includeDots?: any;
   img?: any;
   reverse?: any;
-  className?:string
-  bgimage1?:any
-  bgimage2?:any
-  bgClassName?:string
-
+  className?: string;
+  bgimage1?: any;
+  bgimage2?: any;
+  bgClassName?: string;
+  isGradientText?: boolean;
+  divider?:boolean
+  tags?:boolean,
+  heroClassName?:string
 }
 
 import Image from "next/image";
-export const HeroSection = (props: PropsI) => {
-
+export const HeroSection = ({isGradientText=true,divider=false,tags=false,...props}: PropsI) => {
   return (
     <div className="w-full pb-10 relative">
     <section
