@@ -54,7 +54,7 @@ export const HeroSection = (props: PropsI) => {
       )}
       </div>
      
-      <div className="flex flex-col w-full lg:w-1/2 gap-8 gap-y-4 ">
+      <div className="flex flex-col w-full lg:w-1/2 gap-8 gap-y-4 z-[1] ">
         <h1
           className={classNames(
             text_h1_main,
@@ -77,13 +77,13 @@ export const HeroSection = (props: PropsI) => {
           </div>
         )}
       </div>
-      <div className={classNames("w-full lg:w-1/2",props?.className)}>
+      <div className={classNames("w-full lg:w-1/2 z-[1]",props?.className)}>
         {props?.img && (
           <Image
             src={props?.img}
             alt="hero-img"
             objectFit="fill"
-            className="w-full xl:w-5/6 mx-auto roudned-2xl  "
+            className="w-full xl:w-5/6 mx-auto rounded-2xl  "
           
           />
         )}
