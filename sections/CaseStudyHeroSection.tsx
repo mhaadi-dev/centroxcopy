@@ -5,7 +5,6 @@ import classNames, {
   text_h1_main,
   text_h2_class,
   text_para_2,
-  text_para_3,
 } from "@/helpers/common";
 
 import bgImg from "@/public/images/customchatbot/customchatbotbg.webp";
@@ -22,20 +21,16 @@ interface PropsI {
   bgimage2?: any;
   bgClassName?: string;
   isGradientText?: boolean;
-  divider?:boolean
-  tags?:boolean,
-  heroClassName?:string
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,...props}: PropsI) => {
   return (
-    <div className={classNames("w-full pb-10 relative")}>
+    <div className="w-full pb-10 relative">
       <section
         className={classNames(
-          "flex pt-32 lg:pt-40  w-[90%] 2xl:w-4/5 mx-auto lg:pl-0   flex-col lg:flex-row gap-y-6 lg:gap-12 justify-between items-center",
-          props.reverse ? "lg:!flex-row-reverse" : "",
-          props?.heroClassName
+          "flex pt-32 lg:pt-40 w-full 2xl:w-4/5 mx-auto pl-4 lg:pl-0   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
+          props.reverse ? "lg:!flex-row-reverse" : ""
         )}
       >
         <div className="flex">
@@ -83,27 +78,19 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
           <p
             className={classNames(
               text_para_2,
-              "lg:!text-left px-1 lg:!mx-0 lg:!w-4/5"
+              "lg:!text-left px-2 lg:!mx-0 lg:!w-4/5"
             )}
           >
             {props?.description || ""}
           </p>
-          {divider && <div className="h-[2px] w-full bg-gradient-to-r from-black via-white to-black"></div>}
-        
-          {tags && <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex justify-between items-center gap-4 mt-0 2xl:mt-0">
-            <div className="flex  gap-x-2">
+          <div className="h-[2px] w-full bg-gradient-to-r from-black via-white to-black"></div>
+          <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex items-center gap-4 mt-0 2xl:mt-0">
                 <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AI</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> ML Ops</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AWS</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> GANs</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> CVS</div>
-            </div>
-            <div className="flex gap-x-2">
-              <p className={classNames(text_para_3,"font-semibold")}>Product</p>
-              <p className={classNames(text_para_3,"!text-[0.9rem]")}>20min read</p>
-            </div>
-           
-          </section>}
+          </section>
           {props?.btnText && (
             <div className="flex justify-start z-[1]">
               <CalendlyWidget
@@ -113,13 +100,13 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
             </div>
           )}
         </div>
-        <div className={classNames("w-full lg:w-1/2 z-[1] ", props?.className)} >
+        <div className={classNames("w-full lg:w-1/2", props?.className)}>
           {props?.img && (
             <Image
               src={props?.img}
               alt="hero-img"
               objectFit="fill"
-              className="w-full  opacity-100 xl:w-5/6 mx-auto roudned-2xl  "
+              className="w-full xl:w-5/6 mx-auto roudned-2xl  "
             />
           )}
         </div>
