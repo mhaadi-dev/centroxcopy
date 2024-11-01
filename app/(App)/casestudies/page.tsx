@@ -4,7 +4,12 @@ import classNames, { section_wrapper_class } from '@/helpers/common'
 import { HeroSection } from '@/sections/HeroSection'
 import dummyDisplay from "@/assets/dummyDisplay.webp";
 import imageBG from "@/assets/ImageBG.webp"
+import imageBG2 from "@/assets/Image BG2.webp"
 import CommonDisplayCardsGrid from '@/Components/common/CommonDisplayCardsGrid';
+import servicebg from "@/assets/Servicebg.webp"
+import IndustryBanner from '@/Components/common/IndustryBanner';
+import LandingContactSection from '@/views/LandingPageViews/LandingContactSection';
+
 
 const page = () => {
     const benefitsData = [
@@ -66,20 +71,22 @@ const page = () => {
            linkWithIcon: true,
          }],
          caption:"",
-         btnText:"Schedule A Meeting Today"
+         btnText:""
      
      }
        ];
   return (
     <LandingLayout subNav={true} >
         <section className="mt-4 sm:mt-14 lg:mt-24">
-        <HeroSection tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-        <HeroSection tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-        <HeroSection tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-        <HeroSection tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection heroClassName='min-h-[85vh] !pt-24'  bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection bgClassName='!w-2/5' bgimage2={imageBG} heroClassName='min-h-[90vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection bgClassName='!w-2/5' bgimage1={imageBG2} heroClassName='min-h-[80vh] !pt-4' tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection bgClassName='!w-2/5' bgimage2={imageBG} heroClassName='min-h-[80vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
 
         </section>
-        <CommonDisplayCardsGrid caseStudyCards={true} data={benefitsData} />
+        <CommonDisplayCardsGrid tags={true} caseStudyCards={true} data={benefitsData} />
+        <IndustryBanner heading="Good Stuff is all here" description="We will help you develope what ever you desire in your AI developement. This is a place holder" isBooking btnText="Talk to Our AI Expert" />
+        <LandingContactSection/>
     </LandingLayout>
   )
 }

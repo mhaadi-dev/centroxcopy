@@ -23,17 +23,19 @@ interface PropsI {
   bgClassName?: string;
   isGradientText?: boolean;
   divider?:boolean
-  tags?:boolean
+  tags?:boolean,
+  heroClassName?:string
 }
 
 import Image from "next/image";
 export const HeroSection = ({isGradientText=true,divider=false,tags=false,...props}: PropsI) => {
   return (
-    <div className="w-full pb-10 relative">
+    <div className={classNames("w-full pb-10 relative")}>
       <section
         className={classNames(
-          "flex pt-32 lg:pt-40 w-full 2xl:w-4/5 mx-auto pl-4 lg:pl-0   flex-col lg:flex-row gap-2 lg:gap-12 justify-between items-center",
-          props.reverse ? "lg:!flex-row-reverse" : ""
+          "flex pt-32 lg:pt-40  w-[90%] 2xl:w-4/5 mx-auto lg:pl-0   flex-col lg:flex-row gap-y-6 lg:gap-12 justify-between items-center",
+          props.reverse ? "lg:!flex-row-reverse" : "",
+          props?.heroClassName
         )}
       >
         <div className="flex">
@@ -81,7 +83,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
           <p
             className={classNames(
               text_para_2,
-              "lg:!text-left px-2 lg:!mx-0 lg:!w-4/5"
+              "lg:!text-left px-1 lg:!mx-0 lg:!w-4/5"
             )}
           >
             {props?.description || ""}
@@ -111,13 +113,13 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
             </div>
           )}
         </div>
-        <div className={classNames("w-full lg:w-1/2", props?.className)}>
+        <div className={classNames("w-full lg:w-1/2 z-[1] ", props?.className)} >
           {props?.img && (
             <Image
               src={props?.img}
               alt="hero-img"
               objectFit="fill"
-              className="w-full xl:w-5/6 mx-auto roudned-2xl  "
+              className="w-full  opacity-100 xl:w-5/6 mx-auto roudned-2xl  "
             />
           )}
         </div>
