@@ -72,11 +72,14 @@ import keras from "@/assets/keras-plain logo.webp"
 import Icon16 from "@/assets/Icon-16.webp"
 import Icon17 from "@/assets/Icon-17.webp"
 import Icon18 from "@/assets/Icon-18.webp"
+import Icon49 from "@/assets/Icon-49.webp"
+import Icon50 from "@/assets/Icon-50.webp"
 import gpt from "@/assets/gpt.webp"
 import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
-import realestatehero from "@/assets/realestate.webp"
+import retailhero from "@/assets/solutions/Hero Image-retail.webp"
+import recommendationImage from "@/assets/solutions/Image for Recommendation Engine - Solutions.webp"
 
 
 
@@ -119,7 +122,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon18, // Replace with the correct icon for Enhanced Customer Experiences
+              icon: Icon50, // Replace with the correct icon for Enhanced Customer Experiences
               heading: "Enhance Customer Experiences",
               description:
                 "Deliver personalized recommendations and proactive support, building stronger relationships with clients.",
@@ -145,7 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: eggcrack, // Sizing Accuracy
+              icon: Icon49, // Sizing Accuracy
               heading: "Sizing Accuracy",
               description:
                 "Many retailers struggle with ensuring accurate fit, leading to increased returns and customer dissatisfaction.",
@@ -240,7 +243,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       link: "",
     },
     {
-      img: SolutionsImage3, // Personalized Recommendations
+      img: recommendationImage, // Personalized Recommendations
       description:
         "Refine your recommendation engines with our data-driven technology, delivering relevant product suggestions that improve customer interaction and boost sales.",
       heading: "Personalized Recommendations",
@@ -344,7 +347,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Refine your fashion retail operations with Centrox AI's advanced solutions. Our technology addresses critical industry challenges, providing effective strategies for accurate sizing, efficient inventory management, and personalised customer experiences.",
     btnText: "Talk to our Experts",
     includeDots: false,
-    img: realestatehero, // Replace 'fashionHero' with the appropriate image for fashion retail context if available
+    img: retailhero, // Replace 'fashionHero' with the appropriate image for fashion retail context if available
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };

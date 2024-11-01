@@ -77,6 +77,10 @@ import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
 import realestatehero from "@/assets/realestate.webp"
+import personalizedSearch from "@/assets/solutions/personlized search.webp"
+import marketanalysis from "@/assets/solutions/market analysis.webp"
+import leadengagment from "@/assets/solutions/lead engagement.webp"
+import documentanalysis from "@/assets/solutions/document analysis.webp"
 
 
 
@@ -218,7 +222,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const solutionsData = [
     {
-      img: SolutionsImage1, // Replace with an appropriate image for Search & Recommendations
+      img: personalizedSearch, // Replace with an appropriate image for Search & Recommendations
       description:
         "Go beyond keyword matching. Our NLP-powered search understands user intent, delivering personalized property recommendations that boost engagement and conversions.",
       heading: "Search & Recommendations",
@@ -227,7 +231,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       link: "",
     },
     {
-      img: SolutionsImage2, // Replace with an appropriate image for Qualify & Nurture Leads
+      img: leadengagment, // Replace with an appropriate image for Qualify & Nurture Leads
       description:
         "Deploy AI chatbots and virtual assistants to engage leads 24/7, answer questions, and qualify prospects, freeing up your team to focus on closing deals.",
       heading: "Qualify & Nurture Leads",
@@ -236,7 +240,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       link: "",
     },
     {
-      img: SolutionsImage3, // Replace with an appropriate image for Analyze Documents
+      img: documentanalysis, // Replace with an appropriate image for Analyze Documents
       description:
         "Extract key information from contracts and leases, automate summarization, and identify potential risks, streamlining due diligence and ensuring compliance.",
       heading: "Analyze Documents",
@@ -245,7 +249,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       link: "",
     },
     {
-      img: SolutionsImage4, // Replace with an appropriate image for Analyze Market Trends
+      img: marketanalysis, // Replace with an appropriate image for Analyze Market Trends
       description:
         "Analyze market sentiment, track competitors, and gain data-driven insights to inform strategic decisions and stay ahead of the curve.",
       heading: "Analyze Market Trends",
