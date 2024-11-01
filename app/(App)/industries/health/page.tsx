@@ -60,10 +60,10 @@ import snapmeasureHero from "@/assets/solutions/snapmeasureHero.webp";
 import eggcrack from "@/assets/solutions/EggCrack.webp";
 import strategy from "@/assets/solutions/Strategy.webp";
 import checkerboard from "@/assets/solutions/Checkerboard.webp";
-import SolutionsImage1 from "@/assets/solutions/Capture Body Dimensions.webp";
-import SolutionsImage2 from "@/assets/solutions/Virtual tryon.webp";
+import SolutionsImage1 from "@/assets/solutions/Data integration.webp";
+import SolutionsImage2 from "@/assets/Transparent Insights.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
-import SolutionsImage4 from "@/assets/solutionPic4.webp";
+import SolutionsImage4 from "@/assets/research automation.webp";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 import opencv from "@/assets/opencv-plain logo.webp"
@@ -72,11 +72,13 @@ import keras from "@/assets/keras-plain logo.webp"
 import Icon16 from "@/assets/Icon-16.webp"
 import Icon17 from "@/assets/Icon-17.webp"
 import Icon18 from "@/assets/Icon-18.webp"
+import Icon51 from "@/assets/Icon-51.webp"
+import Icon52 from "@/assets/Icon-52.webp"
 import gpt from "@/assets/gpt.webp"
 import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
-import realestatehero from "@/assets/realestate.webp"
+import healthhero from "@/assets/Hero Image health.webp"
 
 
 
@@ -145,7 +147,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: eggcrack, // Information Overload
+              icon: Icon51, // Information Overload
               heading: "Precision Diagnostics",
               description:
                 "Deploying AI to analyze vast, heterogeneous datasets—medical imaging, genetic information, clinical records—delivering diagnostic predictions that outperform traditional methods.",
@@ -169,7 +171,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon16, // Missed Opportunities
+              icon: Icon52, // Missed Opportunities
               heading: "Automated Medical Documentation",
               description:
                 "AI-powered natural language models automate clinical note summarization, EHR management, and claims processing, optimizing operational efficiency.",
@@ -333,7 +335,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Centrox AI develops LLM-based solutions that reshape healthcare operations. Our AI solutions are engineered to solve complex challenges, from predicting patient outcomes to automating critical processes, all with the precision and reliability that the healthcare industry demands.",
     btnText: "Try Our Chatbot for FREE",
     includeDots: false,
-    img: serviceHeroImg, // Replace with the appropriate image for healthcare context
+    img: healthhero, // Replace with the appropriate image for healthcare context
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };
