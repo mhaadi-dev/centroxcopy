@@ -24,7 +24,7 @@ export default function Accordion({
 
   return (
     <div className="relative">
-      <div className="p-4 lg:px-8 lg:py-6 w-[98%] lg:w-5/5 mx-auto border-2 border-gray-300 mt-4 rounded-xl"
+      <div className="p-4 lg:px-8 lg:py-6 w-[98%] lg:w-full mx-auto border-2 border-gray-300 mt-4 rounded-xl"
       style={{
         borderRadius: "12px",
         // border: 1px solid var(--gray-200, #E5E7EB);

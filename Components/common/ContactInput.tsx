@@ -5,8 +5,9 @@ import Arrow from "@/assets/RightArrow.svg";
 import { useEffect, useRef, useState } from "react";
 import useSize from "@/helpers/windowWidth";
 import { useRouter } from "next/navigation";
+import classNames from "@/helpers/common";
 
-const ContactInput = () => {
+const ContactInput = ({name="",btnText="",placeholder="",btnClassName="",containerClassName="",icon1,icon2}:any) => {
   const [userInput, setUserInput] = useState("");
   const { width } = useSize();
   const [isClient, setIsClient] = useState(false);
@@ -45,27 +46,27 @@ const ContactInput = () => {
         <div className="flex flex-col gap-y-4">
           <section
             aria-label="Centrox Contact"
-            className="flex bg-transparent rounded-full border-2 border-[#6B7280] mx-auto w-full sm:w-[70%] xl:w-[50%] p-2 sm:p-3 mt-6"
+            className={classNames("flex bg-transparent rounded-full border-2 border-[#6B7280] mx-auto w-full sm:w-[70%] xl:w-[50%] p-2 sm:p-3 mt-6",containerClassName)}
           >
             <input
               ref={inputRef}
-              name="email"
-              id="email"
+              name={name||"email"}
+              id={name||"email"}
               onChange={(e) => {
                 setUserInput(e.target.value);
               }}
               value={userInput}
-              placeholder="Your Email"
+              placeholder={placeholder||"Your Email"}
               className="text-white bg-transparent w-full text-xl rounded-full px-4 outline-none placeholder:text-xl py-2"
             />
             {width != null && width > 768 && (
               <Button
                 onClick={goToContactPage}
-                content="Get Started"
+                content={btnText || "Get Started"}
                 Icon={Arrow}
                 iconClassName="!-mt-1"
                 isLefticon={false}
-                className="w-full sm:w-[60%] !px-[0.5rem] !py-[0.5rem] sm:!px-[2rem] sm:!py-[1rem]"
+                className={classNames("w-full sm:w-[60%] !px-[0.5rem] !py-[0.5rem] sm:!px-[1.4rem] 2xl:!px-[2rem] sm:!py-[0.5rem] 2xl:!py-[1.15rem]",btnClassName)}
               />
             )}
           </section>
@@ -73,7 +74,7 @@ const ContactInput = () => {
             <div className="flex justify-center w-full">
               <Button
                 onClick={goToContactPage}
-                content="Get Started"
+                content={btnText||"Get Started"}
                 Icon={Arrow}
                 iconClassName="!-mt-1"
                 isLefticon={false}

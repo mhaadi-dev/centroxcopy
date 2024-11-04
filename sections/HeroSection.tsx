@@ -30,10 +30,10 @@ interface PropsI {
 import Image from "next/image";
 export const HeroSection = ({isGradientText=true,divider=false,tags=false,...props}: PropsI) => {
   return (
-    <div className={classNames("w-full pb-10 relative")}>
+    <div className={classNames(" w-full pb-8   min-h-[80vh]  relative ")}>
       <section
         className={classNames(
-          "flex pt-32 lg:pt-40  w-[90%] 2xl:w-4/5 mx-auto lg:pl-0   flex-col lg:flex-row gap-y-6 lg:gap-12 justify-between items-center",
+          "flex mt-10 pt-[2rem] lg:pt-[6rem] xl:pt-[7rem]  w-[100%] 2xl:w-5/5  lg:pl-0    flex-col  lg:flex-row gap-y-6 lg:gap-0 justify-between items-center",
           props.reverse ? "lg:!flex-row-reverse" : "",
           props?.heroClassName
         )}
@@ -43,7 +43,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
             <Image
               src={props?.bgimage1}
               className={classNames(
-                "w-1/2 h-full object-cover absolute top-4 right-0",
+                " h-full object-cover absolute top-4 right-0",
                 props?.bgimage2 ? "w-1/2" : "w-full",
                 props?.bgClassName
               )}
@@ -54,16 +54,16 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
             <Image
               src={props?.bgimage2}
               className={classNames(
-                "w-1/2 h-full object-cover  absolute left-0 top-4",
-                props?.bgimage1 ? "w-1/2" : "w-full",
+                "h-full object-cover   absolute left-0 top-4",
+                props?.bgimage1 ? "w-1/2" : "!w-full",
                 props?.bgClassName
               )}
               alt="bg-img"
             />
           )}
         </div>
-
-        <div className="flex flex-col w-full lg:w-1/2 gap-8 gap-y-4 ">
+<section className="sm:w-auto px-6 sm:px-0 mx-auto flex flex-col gap-y-6 lg:flex-row items-center   justify-between sm:mx-[2.5rem] md:mx-[3rem] lg:mx-[3.5rem] xl:mx-[4.5rem] 2xl:mx-[15rem] mt-8 lg:mt-12 2xl:mt-24">
+  <div className="flex flex-col w-full z-[1] lg:w-1/2 gap-8 gap-y-4 ">
           <h1
             className={classNames(
               text_h1_main,
@@ -113,16 +113,18 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,...pro
             </div>
           )}
         </div>
-        <div className={classNames("w-full lg:w-1/2 z-[1] ", props?.className)} >
+        <div className={classNames("w-full  flex justify-end  lg:w-1/2 z-[1] ", )} >
           {props?.img && (
             <Image
               src={props?.img}
               alt="hero-img"
               objectFit="fill"
-              className="w-full  opacity-100 xl:w-5/6 mx-auto roudned-2xl  "
+              className="w-full object-fill opacity-100 xl:w-[90%] mx-a roudned-2xl  "
             />
           )}
         </div>
+</section>
+        
       </section>
     </div>
   );

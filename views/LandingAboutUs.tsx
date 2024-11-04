@@ -39,11 +39,11 @@ export const LandingAboutUs = () => {
       <summary
         className={classNames(
           "flex sm:mt-0  py-0 sm:px-0",
-          " sm:mx-0"
+          " sm:mx-0 "
         )}
      
       >
-        <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 mx-[1.5rem] sm:mx-0">
+        <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 sm:mx-0">
           <h3 className={classNames(text_h2_class)}>
             Bridging the Gap between research and real-world applications
           </h3>

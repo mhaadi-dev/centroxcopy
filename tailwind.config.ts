@@ -70,7 +70,8 @@ const config: Config = {
       },
       screens: {
         xlc: { min: "1919" },
-        "3xl": { min: "2000px" },
+        xl:{min:"1140px"},
+        "3xl": { min: "2685px" },
         "4xl": { min: "2500px" },
       },
     },
