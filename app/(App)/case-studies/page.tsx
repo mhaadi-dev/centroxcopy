@@ -9,6 +9,7 @@ import CommonDisplayCardsGrid from '@/Components/common/CommonDisplayCardsGrid';
 import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import LandingContactSection from '@/views/LandingPageViews/LandingContactSection';
+import SearchResultComponent from '@/Components/common/SearchResultComponent';
 
 
 const page = () => {
@@ -77,11 +78,12 @@ const page = () => {
        ];
   return (
     <LandingLayout subNav={true} >
-        <section className="mt-4 sm:mt-14 lg:mt-24">
-        <HeroSection heroClassName='min-h-[85vh] !pt-24'  bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-        <HeroSection bgClassName='!w-2/5' bgimage2={imageBG} heroClassName='min-h-[90vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-        <HeroSection bgClassName='!w-2/5' bgimage1={imageBG2} heroClassName='min-h-[80vh] !pt-4' tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-        <HeroSection bgClassName='!w-2/5' bgimage2={imageBG} heroClassName='min-h-[80vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+      
+        <section className="">
+        <HeroSection heroClassName=''  bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='min-h-[90vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage1={imageBG2} heroClassName='min-h-[80vh] !pt-4' tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
+        <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='min-h-[80vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
 
         </section>
         <CommonDisplayCardsGrid tags={true} caseStudyCards={true} data={benefitsData} />

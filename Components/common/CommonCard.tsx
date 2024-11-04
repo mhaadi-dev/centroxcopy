@@ -1,4 +1,5 @@
 import classNames, { text_para_3 } from "@/helpers/common"
+import { FaceSmileIcon } from "@heroicons/react/24/outline"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -11,31 +12,32 @@ interface Props{
     tags?:boolean,
     linkText?:string,
     linkWithIcon?:boolean,
-    link?:string
+    link?:string,
+    isSearchResult?:boolean
 }
-const CommonCard = ({image,title,category,date,subdescription="",tags=false,linkWithIcon,linkText,link}:Props) => {
+const CommonCard = ({image,title,category,date,subdescription="",tags=false,linkWithIcon,linkText,link,isSearchResult=false}:Props) => {
   return (
     <div
-    className="max-w-[658px]  mx-auto  flex flex-col   justify-center   hover:bg-[#079DFC1A] transition-colors ease-in px-[.5rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer"
+    className={classNames("max-w-[658px]  mx-auto  flex flex-col   justify-center   hover:bg-[#079DFC1A] transition-colors ease-in px-[.5rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",isSearchResult? "flex-col  justify-center  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"flex-col")}
    
   >
     {image && (
       <Image
         src={image}
         loading="lazy"
-        className="w-full my-4 h-[60%]"
+        className={classNames("w-full my-4 h-[60%]",isSearchResult?"w-full lg:!w-1/4":"w-full")}
         width={0}
         height={0}
         alt="img-alt"
       />
     )}
-
-    <h4 className="font-semibold my-2 lg:my-4 text-[1rem] sm:text-[1.5rem] text-white">
+   <div>
+      <h4 className="font-semibold my-2 lg:my-4 text-[1rem] sm:text-[1.5rem] text-white">
       {title||"Meta ooand Centrox Partner to Da 3.1 405B Using Scale GenAI Platform" 
         }
     </h4>
     {subdescription && <p className={classNames(text_para_3,"my-2")}>{subdescription}</p>}
-    {tags && <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex justify items-center gap-4 mt-2 lg:mt-4">
+    {tags && <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex justify items-center gap-4 my-4 lg:my-6">
             
                 <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> AI</div>
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> ML Ops</div>
@@ -44,19 +46,19 @@ const CommonCard = ({image,title,category,date,subdescription="",tags=false,link
                 <div className="leading-[12px] md:leading-[0.5rem] py-[0.2rem] md:py-[0.5rem] text-white text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> CVS</div>
            
           </section>}
-    <div
+  {category || date &&  <div
       aria-label="blog-card-footer"
       className="w-full flex justify-between mt-auto  h-[4rem]  "
     >
       <p className="text-blue-azure font-semibold text-start ">
         {category}
       </p>
-      <p className="text-white ">{date}</p>
-    </div>
+      <p className="text-wasestudieshite ">{date}</p>
+    </div>}
     {linkText && (
           <Link
             href={link || ""}
-            className="flex gap-x-2 text-gray-light hover:text-blue-azure mt-auto mb-2"
+            className={classNames("flex gap-x-2  text-gray-light hover:text-blue-azure mt-auto  ",isSearchResult ? "hidden":"flex")}
           >
             {linkText}{" "}
             {linkWithIcon && (
@@ -76,6 +78,8 @@ const CommonCard = ({image,title,category,date,subdescription="",tags=false,link
             )}
           </Link>
         )}
+   </div>
+  
   </div>
   )
 }
