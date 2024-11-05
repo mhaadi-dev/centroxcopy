@@ -18,20 +18,20 @@ interface Props{
 const CommonCard = ({image,title,category,date,subdescription="",tags=false,linkWithIcon,linkText,link,isSearchResult=false}:Props) => {
   return (
     <div
-    className={classNames("max-w-[658px]  mx-auto  flex flex-col   justify-center   hover:bg-[#079DFC1A] transition-colors ease-in px-[.5rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",isSearchResult? "flex-col  justify-center  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"flex-col")}
+    className={classNames("max-w-[658px]  mx-auto  flex flex-col   justify-center   hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",isSearchResult? "flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"flex-col")}
    
   >
     {image && (
       <Image
         src={image}
         loading="lazy"
-        className={classNames("w-full my-4 h-[60%]",isSearchResult?"w-full lg:!w-1/4":"w-full")}
+        className={classNames("w-full my-4 h-[60%]",isSearchResult?"w-full  lg:!w-1/4":"w-full")}
         width={0}
         height={0}
         alt="img-alt"
       />
     )}
-   <div>
+   <div className=" w-full">
       <h4 className="font-semibold my-2 lg:my-4 text-[1rem] sm:text-[1.5rem] text-white">
       {title||"Meta ooand Centrox Partner to Da 3.1 405B Using Scale GenAI Platform" 
         }
@@ -53,12 +53,12 @@ const CommonCard = ({image,title,category,date,subdescription="",tags=false,link
       <p className="text-blue-azure font-semibold text-start ">
         {category}
       </p>
-      <p className="text-wasestudieshite ">{date}</p>
+      <p className="text-white ">{date}</p>
     </div>}
     {linkText && (
           <Link
             href={link || ""}
-            className={classNames("flex gap-x-2  text-gray-light hover:text-blue-azure mt-auto  ",isSearchResult ? "hidden":"flex")}
+            className={classNames("flex gap-x-2  text-gray-light hover:text-blue-azure mt-auto mb-4 ",isSearchResult ? "hidden":"flex")}
           >
             {linkText}{" "}
             {linkWithIcon && (

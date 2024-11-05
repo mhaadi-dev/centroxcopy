@@ -543,7 +543,7 @@ export const TabCarousel = ({
                           <CalendlyWidget
                             btnText="Try For Free"
                             isArrow
-                            btnClassName="mx-auto"
+                            btnClassName="mx-auto my-4"
                           />
                         )}
                       </div>

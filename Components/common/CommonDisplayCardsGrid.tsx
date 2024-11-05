@@ -2,6 +2,7 @@ import CommonCardwithIcon from "@/Components/common/CommonCardwithIcon";
 import SectionHeader from "@/Components/common/SectionHeader";
 import classNames, {
   section_wrapper_class,
+  text_h2_class,
   text_para_2,
 } from "@/helpers/common";
 import Icon from "@/assets/Icon.webp";
@@ -14,16 +15,26 @@ import dummyDisplay from "@/assets/dummyDisplay.webp";
 interface Props {
   data: any;
   caseStudyCards?: boolean;
-  tags?:boolean
+  tags?:boolean;
+  gridCols?:number
+  headingClassName?:string
+  gradientBg?:boolean
 }
-const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false }: Props) => {
+const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridCols=0,headingClassName="",gradientBg=false }: Props) => {
   if (!data) {
     return null;
   }
   return (
-    <section
+    <section style={{
+      ...(gradientBg && {
+        background:
+          "linear-gradient(180deg, rgba(7, 157, 252, 0.00) 53.06%, rgba(7, 157, 252, 0.40) 72.78%, #060606 100%), #060606",
+      }),
+    }}>
+      <section
       id="challenges"
       className={classNames(section_wrapper_class, "mx-auto")}
+      
     >
       <SectionHeader
         tagText={data?.[0]?.headerData?.tagText}
@@ -34,7 +45,9 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false }: Pr
       />
       <div
         className={classNames(
-          "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr"
+          "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr",
+          gridCols? `lg:grid-cols-${gridCols}`:"lg:grid-cols-2"
+
         )}
       >
         {!caseStudyCards && data?.[0]?.data?.length > 0
@@ -47,6 +60,8 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false }: Pr
                 description={card?.description}
                 className="h-full !rounded-3xl w-full"
                 linkText={card?.linkText}
+                headingClassName={headingClassName}
+                symbol={card.symbol}
               />
             ))
           : ""}
@@ -73,6 +88,8 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false }: Pr
         </div>
       )}{" "}
     </section>
+    </section>
+    
   );
 };
 

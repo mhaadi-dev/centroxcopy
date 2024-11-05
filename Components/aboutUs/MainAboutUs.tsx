@@ -232,10 +232,10 @@ export const MainAboutUs = (props: any) => {
           />
           <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[30%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
             <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
-              {props?.props?.props[0]?.mainSectionheading}
+              {props?.props?.props[0]?.mainSectionheading||"hello"}
             </div>
             <div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
-              {props?.props?.props[0]?.description}
+              {props?.props?.props[0]?.description || "description description description description description descriptionv descriptions "}
             </div>
           </div>
         </div>
