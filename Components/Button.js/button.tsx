@@ -94,7 +94,7 @@ export const Button = ({
 		onClick={onClick}
 		className={classNames(
 		  defaultClass &&
-			"flex items-center justify-center gap-3 rounded-full px-2 py-2 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
+			"flex items-center justify-center gap-2 rounded-full px-3 py-3 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
 		  isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : 
 		  "bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] border-[2px] border-[#056EE199] rounded-full ease-in transition-all",
 		  className
@@ -104,11 +104,11 @@ export const Button = ({
 		{Icon && isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName)} alt="" />
 		)}
-		<div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
+		{content && <div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
 		  {isLoading ? (
 			<div className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
 		  ) : (
-			<div
+			 <div
 			  className={classNames(
 				"flex items-center justify-center",
 				customClassName
@@ -116,8 +116,8 @@ export const Button = ({
 			>
 			  {content}
 			</div>
-		  )}
-		</div>
+		)}
+		</div>}
 		{Icon && !isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
 		)}

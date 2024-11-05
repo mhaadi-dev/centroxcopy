@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Arrow from "@/assets/RightArrow.svg";
-import classNames, { text_h4_class, text_para_3 } from "@/helpers/common";
+import classNames, { text_h4_class, text_para_2, text_para_3 } from "@/helpers/common";
+import { Span } from "next/dist/trace";
 
 interface CardProps {
   Icon?: any;
@@ -14,6 +15,8 @@ interface CardProps {
   link?: string;
   className?: string;
   isGradientBg?: boolean;
+  headingClassName?:string
+  symbol?:string
 }
 
 const CommonCardwithIcon = ({
@@ -25,6 +28,8 @@ const CommonCardwithIcon = ({
   className = "",
   isGradientBg = false,
   link = "",
+  headingClassName="",
+  symbol=""
 }: CardProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -50,9 +55,9 @@ const CommonCardwithIcon = ({
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-12 h-12"/>}
+        {Icon && <Image loading="lazy" src={Icon} alt="Icon" className=""/>}
         <div className="flex flex-col gap-y-4 flex-grow">
-          <p className={classNames(text_h4_class)}>{heading}</p>
+          <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
         {linkText && (
