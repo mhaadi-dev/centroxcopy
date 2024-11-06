@@ -77,7 +77,7 @@ const page = () => {
      }
        ];
   return (
-    <LandingLayout subNav={true} >
+    <LandingLayout subNav={true} title='Case Studies' >
       
         <section className="">
         <HeroSection heroClassName=''  bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
