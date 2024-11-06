@@ -18,7 +18,7 @@ const SubnavBar = ({ searchView }: Props) => {
     <>
       <nav className=" hidden xl:flex  justify-center fixed z-40 top-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900 ">
         <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
-          <div className="w-full flex gap-x-2">
+          <div className="w-full items-center flex gap-x-2">
             <Image
               src={AppLogo}
               alt="Logo"
