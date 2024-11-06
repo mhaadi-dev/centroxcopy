@@ -74,6 +74,8 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
           link=""
           linkText="Learn More"
           linkWithIcon
+          label={"Product"}
+          duration="20min read"
         />
         })}
       </div>

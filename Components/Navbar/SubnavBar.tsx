@@ -7,8 +7,9 @@ import SearchResultComponent from "../common/SearchResultComponent";
 import { route } from "sanity/router";
 interface Props {
   searchView?: (isSearch: boolean) => void;
+  title?:string
 }
-const SubnavBar = ({ searchView }: Props) => {
+const SubnavBar = ({ searchView,title }: Props) => {
   const router = useRouter();
   const [showSearchComponent,setShowSearchComponent]=useState(false)
   const toggleSearchComponent=(val:boolean)=>{
@@ -27,9 +28,9 @@ const SubnavBar = ({ searchView }: Props) => {
               className="w-[6rem] sm:w-[12%] lg:w-[8%]   cursor-pointer"
               onClick={() => router.push(`/case-studies`)}
             />
-            <h3 className="text-blue-azure font-heading text-[1.1rem]">
-              Case Studies
-            </h3>
+           {title && <h3 className="text-blue-azure font-heading text-[1.1rem]">
+              {title}
+            </h3>}
           </div>
 
           <button
