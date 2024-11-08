@@ -8,12 +8,13 @@ import classNames, { section_wrapper_class, text_h1_main, text_para_main } from 
 import aboutbg from "@/assets/aboutbg.webp"
 
 import Image from 'next/image';
+import Timeline from '@/Components/common/Timeline';
 
 const page = () => {
   return (
     <LandingLayout>
-      <div className="h-screen   relative mt-24 ">
-     
+
+      <div className="h-auto 2xl:min-h-screen   mt-24 ">
         <div className=' rotate-180  '>
           <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
@@ -25,6 +26,7 @@ const page = () => {
           <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
       </div>
+      <Timeline/>
       <HeroSection btnText='Checkout Our Work' img={dummyDisplay} isGradientText={false} description="Today, Centrox is at the forefront of the Generative AI solutions industry. We collaborate with ambitious startups that are pushing the boundaries of what's possible with LLMs. We provide the technical expertise, strategic guidance, and collaborative approach needed to navigate the complexities of Generative AI development and deployment. Our solutions span various industries, including healthcare, fashion, real estate, and more, empowering startups to achieve their AI goals and gain a competitive edge." heading='What We Do Today: Augmenting Gen AI Startups'/>
       <GridPicturesAbout headingText='Our Culture & Values' paraText="We're a team of driven individuals who thrive on technical challenges, continuous learning, and open collaboration. We embrace the entrepreneurial spirit and understand the fast-paced nature of startups. Our commitment to transparency, data-driven decision-making, and delivering tangible results sets us apart."
       btnText='Meet the Team'
@@ -33,6 +35,7 @@ const page = () => {
       btnText='Explore Our Services' reverse
       />
       <IndustryBanner btnText="Book 1:1 Session" isBooking heading="Let's Discuss Your Vision." description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment."/>
+
     </LandingLayout>
   )
 }
