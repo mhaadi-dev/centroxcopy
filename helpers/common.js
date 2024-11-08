@@ -67,7 +67,7 @@ export const p4ClassName = "text-center text-md  lg:text-base  text-white-light 
 
 
 
-export const section_wrapper_class="w-[88vw]  sm:w-auto mx-auto sm:mx-[2.5rem] md:mx-[3rem] lg:mx-[3.5rem] xl:mx-[4.5rem] 2xl:mx-[15rem] 3xl:mx-[0rem] mt-8 lg:mt-12 2xl:mt-24"
+export const section_wrapper_class="w-[88vw]  sm:w-auto mx-auto sm:mx-[2.5rem] md:mx-[3rem] lg:mx-[3.5rem] xl:mx-[4.5rem] 2xl:mx-[15rem]  mt-8 lg:mt-12 2xl:mt-24"
 export const text_h1_main="text-white !font-heading text-[2rem] sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold"
 export const text_h2_class="text-[#E5E7EB] text-[1.5rem] lg:text-[2rem] 2xl:text-[3rem] font-heading font-semibold leading-[2.4rem] 2xl:leading-[3.7rem]"
 export const text_h3_class="text-[#E5E7EB] text-[1.25rem] lg:text-[1.7rem] 2xl:text-[2rem] font-heading font-semibold leading-[2rem] 2xl:leading-[2.5rem]"
