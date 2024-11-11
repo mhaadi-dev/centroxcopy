@@ -56,7 +56,7 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
@@ -499,7 +499,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     
   return (
     <div>
-      <LandingLayout>
+  
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection img={labellinghero} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
@@ -543,7 +543,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
           <IndustryBanner heading="Take the Next Step" description="Ready to streamline your product tagging and enhance your e-commerce experience? Schedule a free consultation with our AI experts today." btnText="Book Your Free Call" isBooking/>
         </main>
-      </LandingLayout>
+    
     </div>
   );
 }

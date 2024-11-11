@@ -1,5 +1,5 @@
 import { DataValidationHeroSection } from "@/views/DataValidation/HeroSection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { DataValidationSection2 } from "@/views/DataValidation/Section2";
 import { DataValidationSection3 } from "@/views/DataValidation/Section3";
 import { AccordoinImageSection } from "@/views/DataValidation/Section4";

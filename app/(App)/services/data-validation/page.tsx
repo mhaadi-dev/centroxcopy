@@ -20,7 +20,7 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -576,7 +576,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <LandingLayout>
+   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             heading="Enhance Your AI with Unmatched Data Accuracy"
@@ -618,7 +618,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <IndustryBanner heading="Do you have any queries around your data validation process?" description="Let's discuss over a 30-mins call around how we can help you
 " btnText="Book A Call" isBooking/>
         </main>
-      </LandingLayout>
+    
     </div>
   );
 }

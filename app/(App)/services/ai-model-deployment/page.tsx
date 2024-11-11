@@ -20,7 +20,7 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -284,7 +284,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ];
   return (
     <div>
-      <LandingLayout>
+   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection   bgimage1={servicebg}/>
           <LogosCarousel/>
@@ -296,7 +296,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <LandingCaseStudySection/>
           <FaqsSection addTag={true} heading="We're Often Asked" subHeading="We understand the complexities and nuances of LLM development, and we're here to address your concerns" data={questions} />
         </main>
-      </LandingLayout>
+    
     </div>
   );
 }

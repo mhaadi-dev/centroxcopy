@@ -1,4 +1,4 @@
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { GenericChatbotCustomChatbox } from "@/views/CustomChatbot/GenericChatbot";
 import { OurWorkCustomChatbot } from "@/views/CustomChatbot/OurWork";
 import { ReadytoBuildChatbot } from "@/views/CustomChatbot/Readytobuild";

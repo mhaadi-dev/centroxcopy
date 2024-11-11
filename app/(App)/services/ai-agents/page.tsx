@@ -20,7 +20,7 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -656,7 +656,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
   return (
     <div>
-      <LandingLayout>
+     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             heading={"Empower Your Business with Intelligent AI Agents"}
@@ -699,7 +699,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
           <IndustryBanner heading="Talk to Our AI Expert" description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment." btnText="Book 1:1 Call" isBooking/>
         </main>
-      </LandingLayout>
+     
     </div>
   );
 }

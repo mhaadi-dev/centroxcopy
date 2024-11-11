@@ -50,7 +50,7 @@ import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp";
 import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp";
@@ -532,7 +532,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
   return (
     <div>
-      <LandingLayout>
+      
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             {...heroData}
@@ -579,7 +579,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             isBooking
           />
         </main>
-      </LandingLayout>
+    
     </div>
   );
 }

@@ -4,38 +4,86 @@ import AppLogo from "@/assets/LogoWhite.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import SearchResultComponent from "../common/SearchResultComponent";
-import { route } from "sanity/router";
+import Link from "next/link";
+
+interface subNavItemList {
+  subTitle?: string;
+  link?: string;
+}
+
+interface subNavItems {
+  subNavTitle?: string;
+  subItems?: subNavItemList[];
+}
+
 interface Props {
   searchView?: (isSearch: boolean) => void;
-  title?:string
+  title?: string;
+  navItems?: subNavItems[];
 }
-const SubnavBar = ({ searchView,title }: Props) => {
+
+const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
   const router = useRouter();
-  const [showSearchComponent,setShowSearchComponent]=useState(false)
-  const toggleSearchComponent=(val:boolean)=>{
-    setShowSearchComponent(val)
-  }
+  const [showSearchComponent, setShowSearchComponent] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+
+  const toggleSearchComponent = (val: boolean) => {
+    setShowSearchComponent(val);
+  };
+
   return (
     <>
-      <nav className=" hidden xl:flex  justify-center fixed z-40 top-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900 ">
-        <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
-          <div className="w-full items-center flex gap-x-2">
-            <Image
-              src={AppLogo}
-              alt="Logo"
-              priority={true}
-              loading="eager"
-              className="w-[6rem] sm:w-[12%] lg:w-[8%]   cursor-pointer"
-              onClick={() => router.push(`/case-studies`)}
-            />
-           {title && <h3 className="text-blue-azure font-heading text-[1.1rem]">
-              {title}
-            </h3>}
+      <nav className="hidden xl:flex justify-center fixed z-40 top-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900">
+        <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px] relative">
+          <div className="flex w-full items-center gap-x-6">
+            <div className="flex items-center gap-x-2">
+              <Image
+                src={AppLogo}
+                alt="Logo"
+                priority={true}
+                loading="eager"
+                className="w-[5rem] sm:w-[5rem] lg:w-[7rem] cursor-pointer"
+                onClick={() => router.push(`/case-studies`)}
+              />
+              {title && (
+                <h3 className="text-blue-azure font-heading text-[1.1rem]">{title}</h3>
+              )}
+            </div>
+            <ul className="w-2/3 gap-x-6 text-[#E5E7EB] flex">
+              {navItems.length > 0
+                ? navItems.map((item, index) => (
+                    <li
+                      key={index}
+                      className="font-medium relative cursor-pointer hover:text-blue-azure transition-all"
+                      onClick={() =>
+                        setClickedIndex(clickedIndex === index ? null : index)
+                      }
+                    >
+                      {item.subNavTitle}
+                      {clickedIndex === index && (
+                        <div className="bg-gray-900 absolute top-10 left-0 shadow-lg rounded-md z-50">
+                          {item.subItems?.map((subitem, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              className="text-[#E5e7eb] w-full block px-4 py-2 hover:bg-gray-700 transition-colors"
+                              href={subitem.link || ""}
+                            >
+                              {subitem.subTitle}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))
+                : ""}
+            </ul>
           </div>
 
           <button
-            onClick={() => {router.push("/case-studies/search")}}
-            className="text-white p-2 rounded-full bg-gray-700/80 "
+            onClick={() => {
+              router.push("/case-studies/search");
+            }}
+            className="text-white p-2 rounded-full bg-gray-700/80"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +101,10 @@ const SubnavBar = ({ searchView,title }: Props) => {
           </button>
         </div>
       </nav>
-      {showSearchComponent && <SearchResultComponent setShowSearch={toggleSearchComponent} />}
+
+      {showSearchComponent && (
+        <SearchResultComponent setShowSearch={toggleSearchComponent} />
+      )}
     </>
   );
 };

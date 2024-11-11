@@ -1,5 +1,5 @@
 import React from 'react'
-import LandingLayout from '../layoutPage'
+import LandingLayout from '../layout'
 import classNames, { section_wrapper_class } from '@/helpers/common'
 import { HeroSection } from '@/sections/HeroSection'
 import dummyDisplay from "@/assets/dummyDisplay.webp";
@@ -10,6 +10,7 @@ import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import LandingContactSection from '@/views/LandingPageViews/LandingContactSection';
 import SearchResultComponent from '@/Components/common/SearchResultComponent';
+import SubnavBar from '@/Components/Navbar/SubnavBar';
 
 
 const page = () => {
@@ -76,10 +77,53 @@ const page = () => {
      
      }
        ];
+       const navItems = [
+        {
+          subNavTitle: "Artificial Intelligence",
+          subItems: [
+            { subTitle: "AI ethics and bias", link: "" },
+            { subTitle: "item 2", link: "" },
+            { subTitle: "item 3", link: "" }
+          ]
+        },
+        {
+          subNavTitle: "Machine Learning",
+          subItems: [
+            { subTitle: "item 1", link: "" },
+            { subTitle: "item 2", link: "" },
+            { subTitle: "item 3", link: "" }
+          ]
+        },
+        {
+          subNavTitle: "ML Ops",
+          subItems: [
+            { subTitle: "item 1", link: "" },
+            { subTitle: "item 2", link: "" },
+            { subTitle: "item 3", link: "" }
+          ]
+        },
+        {
+          subNavTitle: "Generative AI",
+          subItems: [
+            { subTitle: "item 1", link: "" },
+            { subTitle: "item 2", link: "" },
+            { subTitle: "item 3", link: "" }
+          ]
+        },
+        {
+          subNavTitle: "Data Annotation",
+          subItems: [
+            { subTitle: "item 1", link: "" },
+            { subTitle: "item 2", link: "" },
+            { subTitle: "item 3", link: "" }
+          ]
+        }
+      ];
   return (
-    <LandingLayout subNav={true} title='Case Studies' >
-      
-        <section className="">
+ 
+      <>
+      <SubnavBar title='Case Studies' navItems={navItems}/>
+      <section className="">
         <HeroSection heroClassName=''  bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
         <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
         <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage1={imageBG2} heroClassName='h-auto lg:min-h-[90vh] !pt-4' tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
@@ -89,7 +133,8 @@ const page = () => {
         <CommonDisplayCardsGrid tags={true} caseStudyCards={true} data={benefitsData} />
         <IndustryBanner heading="Good Stuff is all here" description="We will help you develope what ever you desire in your AI developement. This is a place holder" isBooking btnText="Talk to Our AI Expert" />
         <LandingContactSection/>
-    </LandingLayout>
+      </>
+ 
   )
 }
 

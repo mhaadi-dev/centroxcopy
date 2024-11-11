@@ -1,5 +1,5 @@
 import { BaseHeroSection } from "@/views/CustomChatbot/HeroSection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import img from "@/public/images/customchatbot/updatedHero.webp";
 import { BorderedTextImageSection } from "@/views/llmchatbot/LlmSection4";
 import FineTuningExpertiseImg from "@/public/images/llmchatbot/corefinetuning.webp";

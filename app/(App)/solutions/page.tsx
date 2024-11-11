@@ -53,7 +53,7 @@ import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 
@@ -332,7 +332,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     
   return (
     <div>
-      <LandingLayout>
+   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection {...heroData} />
           <LogosCarousel />
@@ -372,7 +372,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <IndustryBanner heading="Revolutionize your Business 
 with AI-Powered Body Measurements" description="Schedule a technical discussion with our experts to learn how our tool can be integrated into your existing systems." btnText="Book a Technical Demo" isBooking/>
         </main>
-      </LandingLayout>
+     
     </div>
   );
 }

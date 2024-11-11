@@ -1,5 +1,5 @@
 import React from "react";
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import CaseStudyBanner from "@/Components/common/CaseStudyBanner";
 import BannerSection from "@/Components/MainPageComponents/Banner";
 import { VerticalCarousal } from "@/Components/common/VeritcalCarousal";
@@ -14,6 +14,7 @@ import classNames, {
 import WhatOurClientSay from "@/Components/common/WhatOurClientSay";
 import Image from "next/image";
 import SimpleIconHeroSection from "@/Components/common/SimpleIconHeroSection";
+import SubnavBar from "@/Components/Navbar/SubnavBar";
 const page = () => {
   const data = [
     {
@@ -61,8 +62,52 @@ const page = () => {
       ],
     },
   ];
+  const navItems = [
+    {
+      subNavTitle: "Artificial Intelligence",
+      subItems: [
+        { subTitle: "AI ethics and bias", link: "" },
+        { subTitle: "item 2", link: "" },
+        { subTitle: "item 3", link: "" }
+      ]
+    },
+    {
+      subNavTitle: "Machine Learning",
+      subItems: [
+        { subTitle: "item 1", link: "" },
+        { subTitle: "item 2", link: "" },
+        { subTitle: "item 3", link: "" }
+      ]
+    },
+    {
+      subNavTitle: "ML Ops",
+      subItems: [
+        { subTitle: "item 1", link: "" },
+        { subTitle: "item 2", link: "" },
+        { subTitle: "item 3", link: "" }
+      ]
+    },
+    {
+      subNavTitle: "Generative AI",
+      subItems: [
+        { subTitle: "item 1", link: "" },
+        { subTitle: "item 2", link: "" },
+        { subTitle: "item 3", link: "" }
+      ]
+    },
+    {
+      subNavTitle: "Data Annotation",
+      subItems: [
+        { subTitle: "item 1", link: "" },
+        { subTitle: "item 2", link: "" },
+        { subTitle: "item 3", link: "" }
+      ]
+    }
+  ];
   return (
-    <LandingLayout subNav>
+   
+      <>
+         <SubnavBar title='Case Studies' navItems={navItems}/> 
       <CaseStudyBanner
         heading="Meta and Centrox Partner to Drive Enterprise Adoption"
         para1Text="Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source."
@@ -82,7 +127,8 @@ const page = () => {
   <SimpleIconHeroSection bulletPoints={true} reverse={false} headingText="Meta and Centrox Partner to Drive Enterprise Adoption" paraText="Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations."/>
   <SimpleIconHeroSection bulletPoints={false} reverse={true} headingText="Meta and Centrox Partner to Drive Enterprise Adoption" paraText="Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations."/>
       <CaseStudyBanner heading='Meta and Centrox Partner to Drive Enterprise Adoption' para1Text='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
-    </LandingLayout>
+      </>
+      
   );
 };
 

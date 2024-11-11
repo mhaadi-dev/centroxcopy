@@ -1,5 +1,5 @@
 import { LLmHeroSection } from "@/views/llmchatbot/HeroSection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { BorderedTextImageSection } from "@/views/llmchatbot/LlmSection4";
 import HubSpotForm from "@/Components/common/HubspotForm";
 import { Llmsection3 } from "@/views/llmchatbot/LlmSection3";

@@ -1,5 +1,5 @@
 import { ContactUsSection } from "@/views/Contactus";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 
 function ContactUs() {
 	return (

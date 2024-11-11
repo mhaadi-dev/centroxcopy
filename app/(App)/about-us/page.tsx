@@ -1,5 +1,5 @@
 import React from 'react'
-import LandingLayout from '../layoutPage'
+import LandingLayout from '../layout'
 import GridPicturesAbout from '@/Components/common/GridPicturesAbout'
 import { HeroSection } from '@/sections/HeroSection'
 import dummyDisplay from "@/assets/dummyDisplay.webp";
@@ -12,9 +12,9 @@ import Timeline from '@/Components/common/Timeline';
 
 const page = () => {
   return (
-    <LandingLayout>
-
-      <div className="h-auto 2xl:min-h-screen   mt-24 ">
+   
+<>
+<div className="h-auto 2xl:min-h-screen   mt-24 ">
         <div className=' rotate-180  '>
           <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
@@ -35,8 +35,10 @@ const page = () => {
       btnText='Explore Our Services' reverse
       />
       <IndustryBanner btnText="Book 1:1 Session" isBooking heading="Let's Discuss Your Vision." description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment."/>
+</>
+      
 
-    </LandingLayout>
+  
   )
 }
 
