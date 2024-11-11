@@ -44,10 +44,10 @@ import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@
 
 
 
-const LandingBlogSection = () => (
+const LandingBlogSection = ({className=""}:any) => (
   <>
   
-    <section className={classNames(section_wrapper_class)}>
+    <section className={classNames(section_wrapper_class,className)}>
         
        <section aria-label="Centrox Blog" className="flex flex-col gap-y-4" > 
        <SectionTag text="Blogs"/>

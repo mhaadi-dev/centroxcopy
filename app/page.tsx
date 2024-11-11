@@ -376,7 +376,7 @@ export default async function Home() {
       />
       {/* <LandingCaseStudySection/> */}
       <LandingTestimonialSection />
-      {/* <LandingBlogSection/> */}
+      <LandingBlogSection/>
       <LandingContactSection />
       <LandingFAQSection />
 
