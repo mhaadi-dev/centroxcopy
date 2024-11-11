@@ -20,7 +20,7 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -474,7 +474,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     
   return (
     <div>
-      <LandingLayout>
+   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection {...heroData}   bgimage1={servicebg} bgClassName="opacity-60"  />
           <LogosCarousel />
@@ -510,7 +510,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
           <IndustryBanner heading="Ready To Build A Better Connection With Your Customers?" description="Book an exclusive 1:1 call with us today and discuss how we can help you retain current customers and win new ones by communicating better through a GPT you can call your own." btnText="Book Your 1:1 Session" isBooking/>
         </main>
-      </LandingLayout>
+  
     </div>
   );
 }

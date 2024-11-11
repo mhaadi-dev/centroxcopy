@@ -20,7 +20,7 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -416,7 +416,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <LandingLayout>
+  
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             heading={"Fine-Tune A Models To Make It Truly Yours"}
@@ -457,7 +457,7 @@ Schedule a technical deep-dive with our team to discuss your fine-tuning needs a
             data={questions}
           />
         </main>
-      </LandingLayout>
+    
     </div>
   );
 }

@@ -53,7 +53,7 @@ import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
@@ -580,7 +580,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     
   return (
     <div>
-      <LandingLayout>
+    
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection  {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
@@ -627,7 +627,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <IndustryBanner heading="Talk to Our AI Expert" description="Ready to enhance your real estate analysis with AI?
 Schedule a consultation with our experts to explore how Centrox AI can elevate your operations." btnText="Lets Connect" isBooking/>
         </main>
-      </LandingLayout>
+     
     </div>
   );
 }

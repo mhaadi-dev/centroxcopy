@@ -1,5 +1,5 @@
 import { GenAiHeroSectoin } from "@/views/genai/HeroSection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { StepperSection } from "@/sections/StepperSection";
 import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import FineTuningExpertiseImg from "@/public/images/llmchatbot/corefinetuning.webp";

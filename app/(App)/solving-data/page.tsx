@@ -1,5 +1,5 @@
 import { SolvingDataHeroSection } from "@/views/SolvingData/SolvingDataHeroSection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { HowWeWorkSection } from "@/views/SolvingData/HowWeWorkSection";
 import { Carousal } from "@/views/SolvingData/SolvingDataCarousal";

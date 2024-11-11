@@ -1,5 +1,5 @@
 import { BodyMeaurementsView } from "@/views/BodyMeaurements";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 
 function BodyMeasurements() {
 	return (

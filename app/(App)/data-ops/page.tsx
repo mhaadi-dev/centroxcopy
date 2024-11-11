@@ -2,7 +2,7 @@
 import { DataOpsHeroSection } from "@/views/DataOps/HeroSection";
 import { DataOpsSection2 } from "@/views/DataOps/Section2";
 import { DataOpsSection3 } from "@/views/DataOps/Section3";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import BannerSection from "@/Components/MainPageComponents/Banner";
 import { DataOpsSection6 } from "@/views/DataOps/Section6";
 import { DataOpsTestimonialSection } from "@/views/DataOps/Section7";

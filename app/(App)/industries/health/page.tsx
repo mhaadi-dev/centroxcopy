@@ -53,7 +53,7 @@ import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp";
 import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import snapmeasureHero from "@/assets/solutions/snapmeasureHero.webp";
@@ -608,7 +608,7 @@ const stepperdata = {
   
   return (
     <div>
-      <LandingLayout>
+  
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection {...heroData} />
           <LogosCarousel />
@@ -671,7 +671,7 @@ const stepperdata = {
             isBooking
           />
         </main>
-      </LandingLayout>
+     
     </div>
   );
 }

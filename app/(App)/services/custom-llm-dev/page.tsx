@@ -48,7 +48,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import qwen from "@/assets/qwen.webp"
 import customllm  from "@/assets/Custom LLM.webp"
 import servicebg from "@/assets/Servicebg.webp"
@@ -427,7 +427,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <LandingLayout>
+   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             heading="Engineering Custom LLMs from Ideation to Implementation"
@@ -562,7 +562,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
           }):""} */}
         </main>
-      </LandingLayout>
+     
     </div>
   );
 }

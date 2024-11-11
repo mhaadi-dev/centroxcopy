@@ -20,7 +20,7 @@ import { BannerSection } from "@/sections/TestimonialSection";
 import { HoveredTextSection } from "@/sections/HoveredTextSection";
 import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layoutPage";
+import LandingLayout from "../../layout";
 import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
 import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
@@ -512,7 +512,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      <LandingLayout>
+     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             heading="Streamline Your AI Pipelines For Faster Time-To-Market"
@@ -551,7 +551,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <IndustryBanner heading="Take the Next Step" description="Ready to streamline your AI pipelines and accelerate your time-to-market?
 Schedule a free consultation with our MLOps experts today." isBooking btnText="Book Your Free Consultation"/>
         </main>
-      </LandingLayout>
+    
     </div>
   );
 }

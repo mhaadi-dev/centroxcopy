@@ -1,5 +1,5 @@
 import { NlpHeroSection } from "@/views/NLP/NlpHerosection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
 import { NlpSection4 } from "@/views/NLP/Section4";
 import BannerSection from "@/Components/MainPageComponents/Banner";

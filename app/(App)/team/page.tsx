@@ -1,5 +1,5 @@
 import { TeamUsSection } from "@/views/TeamSection";
-import LandingLayout from "../layoutPage";
+import LandingLayout from "../layout";
 import { sanityFetch } from "@/sanity/lib/client";
 import { TEAM_SECTION_QUERY } from "@/sanity/query";
 
