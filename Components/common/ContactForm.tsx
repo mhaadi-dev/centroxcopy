@@ -17,7 +17,7 @@ import { TextArea } from "./TextArea";
 import { FileUpload } from "./FileUpload";
 import { Button } from "../Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { DropDown } from "./DropDown";
 import { FormSubmissionModal } from "./FormSubmissionModal";
@@ -31,7 +31,7 @@ import { text } from "stream/consumers";
 export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
   const [formModal, setFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+const [isClient,setIsClient]=useState(false)
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -147,7 +147,9 @@ export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
       // exampleApiCall(formData);
     }
   };
-
+  useEffect(()=>{
+setIsClient(true)
+  },[])
   return (
     <>
       {formModal && (
@@ -166,9 +168,10 @@ export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
            */}
           {description ? (
             <p className={classNames(text_para_2,)}>
-            <button className="">
+         { isClient &&  <button className="">
                <CalendlyWidget btnText="Book a Call" customClassName="text-[#E5E7EB] font-paragraph text-[1rem] lg:text-[1.2rem] 2xl:text-[1.5rem] leading-[1.6rem] 2xl:leading-[2.25rem] text-blue-azure !-ml-2 lg:m-0 font-medium !p-0 !m-0"  btnClassName="!inline-block !text-2xl underline !text-blue-azure  !font-normal !font-paragraph hover:bg-white/0 !p-0  !border-none !bg-none"/>
-            </button>
+            </button>}
+            {!isClient && <span className="underline text-blue-azure">Book a call</span>}
            
              <span> or
               fill out the form below and we’ll get back to you once we’ve
