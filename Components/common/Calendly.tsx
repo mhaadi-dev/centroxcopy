@@ -5,6 +5,7 @@ interface PropsI{
   btnClassName? :string,
   isArrow?:boolean,
   containerclass?:string
+  customClassName?:string
 }
 
 import { Fragment, useState } from "react";
@@ -15,7 +16,7 @@ import classNames from "@/helpers/common";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
  
-export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containerclass}:PropsI) => {
+export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containerclass,customClassName}:PropsI) => {
   
     const [isOpen, setIsOpen] = useState(false);
   
@@ -30,10 +31,10 @@ export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containercl
       <div className={classNames(containerclass)}>
         <Button
           onClick={openCalendlyPopup}
-          content={btnText || "Schedule a Session"}
+          content={btnText || ""}
           iconClassName="-mt-1"
           isLefticon={false}
-  
+          customClassName={customClassName}  
           className={classNames("text-white",btnClassName)}
             Icon={isArrow ? Arrow : ""}
         />

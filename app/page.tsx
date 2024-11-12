@@ -242,25 +242,25 @@ export default async function Home() {
   const tabs = [
     {
       name: "Healthcare",
-      href: "#",
+      href: "/industries/health",
       current: true,
       cta: "Try Our Mental Health Chatbot",
     },
     {
       name: "Fashion Retail",
-      href: "#",
+      href: "/industries/retail",
       current: false,
       cta: "Try Our Body Measurement Tool",
     },
     {
       name: "Real Estate",
-      href: "#",
+      href: "/industries/real-estate",
       current: false,
       cta: "Try Our Real Estate Chatbot",
     },
     {
       name: "Fintech",
-      href: "#",
+      href: "/industries/fintech",
       current: false,
       cta: "Learn more about AI in Fintech",
     },

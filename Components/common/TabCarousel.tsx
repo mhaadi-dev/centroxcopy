@@ -28,6 +28,7 @@ import { ServiceViewContext } from "@/store/ServiceViewProivder";
 import useSize from "@/helpers/customHooks/useWidthHook";
 import CommonCardwithIcon from "./CommonCardwithIcon";
 import { CalendlyWidget } from "./Calendly";
+import Link from "next/link";
 interface GradientCardProps {
   title: string;
   description: string;
@@ -375,78 +376,6 @@ export const TabCarousel = ({
                                   key={i}
                                 />
                                 }):""}
-                                {/* <GradientCard
-                                  title={
-                                    index === 0
-                                      ? "Medical Text Generation"
-                                      : index === 1
-                                        ? "Algorithm Design"
-                                        : "Model Serving"
-                                  }
-                                  description={
-                                    index === 0
-                                      ? "Automate the creation of clinical notes, discharge summaries, and other medical documents, freeing up valuable time for healthcare professionals and improving documentation accuracy."
-                                      : index === 1
-                                        ? "Design state of the art algorithm or enhance your existing architecture."
-                                        : "Name the technology and we will serve your model the right way."
-                                  }
-                                  showHoverState={lastHoveredCard === 1}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(1)}
-                                  onMouseLeave={() => handleMouseLeave(1)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                />
-                                <GradientCard
-                                  title={
-                                    index === 0
-                                      ? "Data Labeling"
-                                      : index === 1
-                                        ? "Model Development"
-                                        : "Model Deployment"
-                                  }
-                                  description={
-                                    index === 0
-                                      ? "Our rich pool of experts will label your data with the best quality possible."
-                                      : index === 1
-                                        ? "Build your model in an accustomed AI Environment ready to improve."
-                                        : "Deploy your model On-premise or want us to set up your ML-Cloud?"
-                                  }
-                                  showHoverState={lastHoveredCard === 2}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(2)}
-                                  onMouseLeave={() => handleMouseLeave(2)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                />
-                                <GradientCard
-                                  title={
-                                    index === 0
-                                      ? "Custom Data Workflow"
-                                      : index === 1
-                                        ? "Model Training"
-                                        : "Model Training"
-                                  }
-                                  description={
-                                    index === 0
-                                      ? "Get served with a personalized workflow for your ongoing data needs."
-                                      : index === 1
-                                        ? "Train your model for experiments and analysis."
-                                        : "We can help optimize your model to perform in less time with better results."
-                                  }
-                                  showHoverState={lastHoveredCard === 3}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(3)}
-                                  onMouseLeave={() => handleMouseLeave(3)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                /> */}
                               </div>
                               <div className="w-full flex xl:w-1/2 mt-10  items-center justify-center">
                                 <div className="w-full" >
@@ -465,80 +394,21 @@ export const TabCarousel = ({
                                     }
                                  
                                   />
-                                 
-                                  {/* {tabs[0]?.current && (
-                                    <Image
-                                      className={classNames(
-                                        "w-full h-full",
-                                        "block"
-                                      )}
-                                      // loading="eager"
-                                      src={DataCurationImage}
-                                      alt=""
-                                      loading={
-                                        width && width <= mobileWidth
-                                          ? "lazy"
-                                          : "eager"
-                                      }
-                                      // placeholder="blur"
-                                      // onLoad={handleImageLoad}
-                                      // blurDataURL={blurDataURLs[currentHoverCard]}
-                                    />
-                                  )}
-
-                                  {tabs[1]?.current && (
-                                    <Image
-                                      className={classNames(
-                                        "w-full h-[100%] lg:pt-3",
-                                        "block"
-                                      )}
-                                      src={BuildingAi}
-                                      alt=""
-                                      loading={
-                                        width && width <= mobileWidth
-                                          ? "lazy"
-                                          : "eager"
-                                      }
-
-                                      // loading="eager"
-                                      // placeholder="blur"
-                                      // onLoad={handleImageLoad}
-                                      // blurDataURL={blurDataURLs[currentHoverCard]}
-                                    />
-                                  )}
-
-                                  {tabs[2]?.current && (
-                                    <Image
-                                      className={classNames(
-                                        "w-full h-[100%] lg:pt-2",
-                                        "block"
-                                      )}
-                                      src={DeployingAi}
-                                      alt=""
-                                      loading={
-                                        width && width <= mobileWidth
-                                          ? "lazy"
-                                          : "eager"
-                                      }
-                                      // loading="eager"
-                                      // placeholder="blur"
-                                      // onLoad={handleImageLoad}
-                                      // blurDataURL={blurDataURLs[currentHoverCard]}
-                                    />
-                                  )} */}
                                 </div>
                               </div>
                             </>
                           )}
                         </div>
                         {caption && <p className={classNames(text_para_2,"text-center my-4 w-full mx-auto lg:w-[60%]")}>{caption}</p>}
+                       
                         {!isCardLayout && !isBookingButton && (
-                          <Button
+                          <Link href={tab?.current ? tab?.href:""}><Button
                             content={tab.current?  tab?.cta : "Get Started"}
                             className="!w-[auto] mx-auto my-4 !py-[0.5rem] !px-[1rem] 2xl:!py-[1rem] 2xl:!px-[2rem]"
                             Icon={Arrow}
                             isLefticon={false}
-                          />
+                          /></Link>
+                          
                         )} {!isCardLayout && isBookingButton && (
                           <CalendlyWidget
                             btnText="Try For Free"
