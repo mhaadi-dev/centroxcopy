@@ -7,6 +7,7 @@ import classNames, {
   p4ClassName,
   sectionHeadings,
   sectionsubheadings,
+  text_h2_class,
   text_para_2,
   text_para_3,
 } from "@/helpers/common";
@@ -22,12 +23,12 @@ import { DropDown } from "./DropDown";
 import { FormSubmissionModal } from "./FormSubmissionModal";
 
 import { PortableText } from "@portabletext/react";
-import {PortableComponent} from "@/Components/common/PortableText"
+import { PortableComponent } from "@/Components/common/PortableText";
 import Image from "next/image";
 import { CalendlyWidget } from "./Calendly";
+import { text } from "stream/consumers";
 
-
-export const ContactForm = ({heading,description,disclaimer,img}:any) => {
+export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
   const [formModal, setFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -44,7 +45,7 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
   });
 
   const [err, setError] = useState("");
-  const calendlywidgetref=useRef(null)
+  const calendlywidgetref = useRef(null);
 
   const validateEmail = (val: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -156,100 +157,109 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
           }}
         />
       )}
-      <section className="flex  flex-col lg:flex-row gap-12 mx-auto w-4/5 mt-24 lg:mt-40">
-        <div className="w-full lg:w-1/2 flex flex-col gap-12">
-          <h2
-            className={classNames(h2ClassName, "lg:!w-full lg:!text-left")}
-          >
+      <section className="flex lg:w-2/3   flex-col gap-12 mx-auto ">
+        <div className="w-full flex-6 p-2  flex flex-col gap-2 lg:gap-4">
+          <h2 className={classNames(text_h2_class, "lg:!w-full !text-left")}>
             {heading}
           </h2>
           {/* {description ? <PortableText value={description} components={PortableComponent} /> : null}
            */}
-          {description ? <p className={classNames(text_para_2)}> <span className="text-blue-azure underline" > Book a call</span> or fill out the form below and we’ll get back to you once we’ve processed your request. </p> : null}
+          {description ? (
+            <p className={classNames(text_para_2,)}>
+            <button className="">
+               <CalendlyWidget btnText="Book a Call" customClassName="text-[#E5E7EB] font-paragraph text-[1rem] lg:text-[1.2rem] 2xl:text-[1.5rem] leading-[1.6rem] 2xl:leading-[2.25rem] text-blue-azure !-ml-2 lg:m-0 font-medium !p-0 !m-0"  btnClassName="!inline-block !text-2xl underline !text-blue-azure  !font-normal !font-paragraph hover:bg-white/0 !p-0  !border-none !bg-none"/>
+            </button>
+           
+             <span> or
+              fill out the form below and we’ll get back to you once we’ve
+              processed your request.</span> 
+            </p>
+          ) : null}
 
           {/* <p className={classNames(p2ClassName,"lg:!w-full lg:!text-left")}>Book a call or fill out the form below and we’ll get back to you once we’ve processed your request. </p> */}
-          <form className="grid lg:grid-cols-2 gap-12 ">
-            <div className="col-span-2 lg:col-span-1">
-            <CommonInput
-              type="text"
-              value={formData.name}
-              onBlur={(val, err) => {
-                if (val == "") {
-                  err("Name can not be empty");
-                } else {
-                  err("");
-                }
-              }}
-              onChange={(val) => {
-                setFormData({ ...formData, name: val });
-              }}
-              className="border-b !border-white !bg-gray-graydark w-full !text-white"
-              placeholder="Name*"
-            /></div>
-            <div className="col-span-2 lg:col-span-1">
-            <CommonInput
-              value={formData.company}
-              type="text"
-              onBlur={(val, err) => {
-                if (val == "") {
-                  err("Company can not be empty");
-                } else {
-                  err("");
-                }
-              }}
-              onChange={(val) => {
-                setFormData({ ...formData, company: val });
-              }}
-              className="border-b !border-white !bg-gray-graydark w-full !text-white"
-              placeholder="Company*"
-            />
-            </div>
-            <div className="col-span-2 lg:col-span-1"> 
-            <CommonInput
-              value={formData.country}
-              type="text"
-              className="border-b !border-white !bg-gray-graydark w-full !text-white"
-              placeholder="Country*"
-              onChange={(val) => {
-                setFormData({ ...formData, country: val });
-              }}
-            />
-</div>
-<div className="col-span-2 lg:col-span-1">
-            <PhoneNumber
-              phoneValue={formData.phone}
-              getValue={(val) => setFormData({ ...formData, phone: val })}
-            />
+          <form className="grid  w-full lg:grid-cols-2 gap-12 ">
+            <div className="col-span-2 w-full lg:col-span-1">
+              <CommonInput
+                type="text"
+                value={formData.name}
+                onBlur={(val, err) => {
+                  if (val == "") {
+                    err("Name can not be empty");
+                  } else {
+                    err("");
+                  }
+                }}
+                onChange={(val) => {
+                  setFormData({ ...formData, name: val });
+                }}
+                className="border-b !border-white !bg-gray-graydark w-full !text-white"
+                placeholder="Name*"
+              />
             </div>
             <div className="col-span-2 lg:col-span-1">
-            <CommonInput
-              type="text"
-              onBlur={(val, err) => {
-                if (!validateEmail(val)) {
-                  err("Please enter a valid email address");
-                } else {
-                  err("");
-                }
-              }}
-              value={formData.email}
-              onChange={(val) => {
-                setFormData({ ...formData, email: val });
-              }}
-              className="border-b !border-white !bg-gray-graydark w-full !text-white"
-              placeholder="Corporate Email*"
-            />
+              <CommonInput
+                value={formData.company}
+                type="text"
+                onBlur={(val, err) => {
+                  if (val == "") {
+                    err("Company can not be empty");
+                  } else {
+                    err("");
+                  }
+                }}
+                onChange={(val) => {
+                  setFormData({ ...formData, company: val });
+                }}
+                className="border-b !border-white !bg-gray-graydark w-full !text-white"
+                placeholder="Company*"
+              />
             </div>
             <div className="col-span-2 lg:col-span-1">
-            <DropDown
-              selectedValue={formData.subject}
-              defaultOption="Subject*"
-              className="bg-gray-gray4"
-              onChange={(val) => {
-                setFormData({ ...formData, subject: val });
-              }}
-              values={["gray", "red", "blue"]}
-            />
-  </div>
+              <CommonInput
+                value={formData.country}
+                type="text"
+                className="border-b !border-white !bg-gray-graydark w-full !text-white"
+                placeholder="Country*"
+                onChange={(val) => {
+                  setFormData({ ...formData, country: val });
+                }}
+              />
+            </div>
+            <div className="col-span-2 lg:col-span-1">
+              <PhoneNumber
+                phoneValue={formData.phone}
+                getValue={(val) => setFormData({ ...formData, phone: val })}
+              />
+            </div>
+            <div className="col-span-2 lg:col-span-1">
+              <CommonInput
+                type="text"
+                onBlur={(val, err) => {
+                  if (!validateEmail(val)) {
+                    err("Please enter a valid email address");
+                  } else {
+                    err("");
+                  }
+                }}
+                value={formData.email}
+                onChange={(val) => {
+                  setFormData({ ...formData, email: val });
+                }}
+                className="border-b !border-white !bg-gray-graydark w-full !text-white"
+                placeholder="Corporate Email*"
+              />
+            </div>
+            <div className="col-span-2 lg:col-span-1">
+              <DropDown
+                selectedValue={formData.subject}
+                defaultOption="Subject*"
+                className="bg-gray-gray4"
+                onChange={(val) => {
+                  setFormData({ ...formData, subject: val });
+                }}
+                values={["gray", "red", "blue"]}
+              />
+            </div>
             <div className="col-span-2 ">
               <TextArea
                 className=" bg-gray-graydark !border-white border-b"
@@ -279,6 +289,17 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
               />
             </div>
             <div className="col-span-2">
+              <TextArea
+                className="border-b !border-white !bg-gray-graydark w-full !text-white col-span-2"
+                placeholder="Describe your needs in detail"
+              />
+              <p className={classNames(text_para_3)}>
+                Please include project details, duration, tech stack, IT
+                professionals needed, and other relevant info.
+              </p>
+            </div>
+
+            <div className="col-span-2">
               {!formData.file && (
                 <FileUpload
                   onChange={(val) => {
@@ -290,10 +311,11 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
               {formData.file && (
                 <div className="flex gap-2 bg-gray-gray4 p-2 items-center rounded-lg  text-white">
                   <p>{formData.file}</p>
-                  <XMarkIcon  className="w-6 cursor-pointer"
-                  onClick={()=>{
-                    setFormData({...formData,file:""})
-                  }}
+                  <XMarkIcon
+                    className="w-6 cursor-pointer"
+                    onClick={() => {
+                      setFormData({ ...formData, file: "" });
+                    }}
                   />
                 </div>
               )}
@@ -302,8 +324,12 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
               {/* <p className={classNames(p4ClassName,"flex-1")}>
               Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information.
               </p> */}
-               {/* {disclaimer ? <PortableText value={disclaimer} components={PortableComponent} /> : null} */}
-               {disclaimer ? <p className={classNames(text_para_3)}>{disclaimer}</p> : "" }
+              {/* {disclaimer ? <PortableText value={disclaimer} components={PortableComponent} /> : null} */}
+              {disclaimer ? (
+                <p className={classNames(text_para_3)}>{disclaimer}</p>
+              ) : (
+                ""
+              )}
               <Button
                 isLoading={isLoading}
                 onClick={submitBtnHandler}
@@ -325,10 +351,9 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
                 />
               </div>
             )}
-            {/* <TextArea className="border-b !border-white !bg-gray-graydark w-full !text-white col-span-2"  placeholder="Describe your needs in detail"/> */}
           </form>
         </div>
-        <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
+        {/* <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
             {img && (
               <Image
                 src={img}
@@ -339,7 +364,7 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
                 fill
               />
             )}
-        </figure>
+        </figure> */}
       </section>
     </>
   );

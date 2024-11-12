@@ -2,7 +2,7 @@ import { ContactUsSection } from "@/views/Contactus";
 import LandingLayout from "../layout";
 import { ContactForm } from "@/Components/common/ContactForm";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import { text_h2_class } from "@/helpers/common";
+import classNames, { section_wrapper_class, text_h2_class } from "@/helpers/common";
 import SimpleVerticalTimeLine from "@/Components/common/SimpleVerticalTimeLine";
 
 function ContactUs() {
@@ -52,17 +52,21 @@ function ContactUs() {
 		"With the contract signed, we jump right into making your project happen."
 	  ]
 	return (
-	<>
-	<ContactUsSection />
-	{/* <SimpleVerticalTimeLine heading="What happens next?" timelineData={timelineData}/>
+	<section className={classNames("")}>
+	{/* <ContactUsSection /> */}
+	<div className={classNames(section_wrapper_class,"flex flex-col lg:flex-row  gap-x-[2.5rem] pt-16 lg:pt-32 items-start")}>
+
 	<ContactForm heading="Contact Us" description="dehhhhhhhhhhhhhhhhhhh jsdksjdk kadkadk" disclaimer="Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information." />
+	<SimpleVerticalTimeLine className="!py-12" heading="What happens next?" timelineData={timelineData}/>
+	</div>
+
 	<CommonDisplayCardsGrid
         data={data}
         gridCols={4}
         headingClassName={text_h2_class}
         gradientBg
-      /> */}
-	</>
+      />
+	</section>
 			
 		
 	);
