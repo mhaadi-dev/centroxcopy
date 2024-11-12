@@ -7,6 +7,8 @@ import classNames, {
   p4ClassName,
   sectionHeadings,
   sectionsubheadings,
+  text_para_2,
+  text_para_3,
 } from "@/helpers/common";
 import { CommonInput } from "./CommonInput";
 import { PhoneNumber } from "../PhoneInput/PhoneInput";
@@ -14,7 +16,7 @@ import { TextArea } from "./TextArea";
 import { FileUpload } from "./FileUpload";
 import { Button } from "../Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { DropDown } from "./DropDown";
 import { FormSubmissionModal } from "./FormSubmissionModal";
@@ -22,6 +24,7 @@ import { FormSubmissionModal } from "./FormSubmissionModal";
 import { PortableText } from "@portabletext/react";
 import {PortableComponent} from "@/Components/common/PortableText"
 import Image from "next/image";
+import { CalendlyWidget } from "./Calendly";
 
 
 export const ContactForm = ({heading,description,disclaimer,img}:any) => {
@@ -41,6 +44,7 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
   });
 
   const [err, setError] = useState("");
+  const calendlywidgetref=useRef(null)
 
   const validateEmail = (val: string) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -159,7 +163,10 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
           >
             {heading}
           </h2>
-          {description ? <PortableText value={description} components={PortableComponent} /> : null}
+          {/* {description ? <PortableText value={description} components={PortableComponent} /> : null}
+           */}
+          {description ? <p className={classNames(text_para_2)}> <span className="text-blue-azure underline" > Book a call</span> or fill out the form below and we’ll get back to you once we’ve processed your request. </p> : null}
+
           {/* <p className={classNames(p2ClassName,"lg:!w-full lg:!text-left")}>Book a call or fill out the form below and we’ll get back to you once we’ve processed your request. </p> */}
           <form className="grid lg:grid-cols-2 gap-12 ">
             <div className="col-span-2 lg:col-span-1">
@@ -295,7 +302,8 @@ export const ContactForm = ({heading,description,disclaimer,img}:any) => {
               {/* <p className={classNames(p4ClassName,"flex-1")}>
               Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information.
               </p> */}
-               {disclaimer ? <PortableText value={disclaimer} components={PortableComponent} /> : null}
+               {/* {disclaimer ? <PortableText value={disclaimer} components={PortableComponent} /> : null} */}
+               {disclaimer ? <p className={classNames(text_para_3)}>{disclaimer}</p> : "" }
               <Button
                 isLoading={isLoading}
                 onClick={submitBtnHandler}

@@ -4,6 +4,7 @@ interface PropsI{
   btnText?:string,
   btnClassName? :string,
   isArrow?:boolean,
+  containerclass?:string
 }
 
 import { Fragment, useState } from "react";
@@ -14,7 +15,7 @@ import classNames from "@/helpers/common";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
  
-export const CalendlyWidget = ({btnText,btnClassName,isArrow = false}:PropsI) => {
+export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containerclass}:PropsI) => {
   
     const [isOpen, setIsOpen] = useState(false);
   
@@ -26,7 +27,7 @@ export const CalendlyWidget = ({btnText,btnClassName,isArrow = false}:PropsI) =>
       setIsOpen(false);
   };
     return (
-      <div>
+      <div className={classNames(containerclass)}>
         <Button
           onClick={openCalendlyPopup}
           content={btnText || "Schedule a Session"}
