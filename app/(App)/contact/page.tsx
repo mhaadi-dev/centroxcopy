@@ -54,14 +54,14 @@ function ContactUs() {
 	return (
 	<>
 	<ContactUsSection />
-	<SimpleVerticalTimeLine heading="What happens next?" timelineData={timelineData}/>
+	{/* <SimpleVerticalTimeLine heading="What happens next?" timelineData={timelineData}/>
 	<ContactForm heading="Contact Us" description="dehhhhhhhhhhhhhhhhhhh jsdksjdk kadkadk" disclaimer="Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information." />
 	<CommonDisplayCardsGrid
         data={data}
         gridCols={4}
         headingClassName={text_h2_class}
         gradientBg
-      />
+      /> */}
 	</>
 			
 		

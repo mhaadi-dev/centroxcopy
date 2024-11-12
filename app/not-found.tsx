@@ -15,8 +15,8 @@ export default function NotFound () {
       <div className='flex flex-col gap-y-6 items-center z-[1]'>
         <Image className='lg:w-[30%] z-[1]' src={img_404} alt='404'></Image>
         <Link href={"/"}>
-          <Button content='Go to Home Page'>
-        </Button>  
+          <Button content='Go to Home Page'/>
+       
         </Link>
         
       </div>
