@@ -17,7 +17,7 @@ interface PropsI{
 }
 
 export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containerclass,customClassName}:PropsI) => {
-  console.log(btnText,"==============from calandly")
+ 
     const [isOpen, setIsOpen] = useState(false);
   
     const openCalendlyPopup = () => {

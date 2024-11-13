@@ -164,7 +164,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
             {
-              icon: Icon44, // Replace with the correct icon for Limited Scalability
+              icon: Icon9, // Replace with the correct icon for Limited Scalability
               heading: "Limited Scalability",
               description:
                 "As your product catalog grows, manual tagging becomes increasingly unsustainable, hindering your ability to expand your offerings and reach new customers.",

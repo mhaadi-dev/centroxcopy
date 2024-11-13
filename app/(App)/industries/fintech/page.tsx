@@ -59,19 +59,15 @@ import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustries
 import snapmeasureHero from "@/assets/solutions/snapmeasureHero.webp";
 import eggcrack from "@/assets/solutions/EggCrack.webp";
 import strategy from "@/assets/solutions/Strategy.webp";
-import checkerboard from "@/assets/solutions/Checkerboard.webp";
-import SolutionsImage1 from "@/assets/solutions/Capture Body Dimensions.webp";
-import SolutionsImage2 from "@/assets/solutions/Virtual tryon.webp";
-import SolutionsImage3 from "@/assets/solutionPic3.webp";
-import SolutionsImage4 from "@/assets/solutionPic4.webp";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
-import opencv from "@/assets/opencv-plain logo.webp"
-import dockers from "@/assets/docker-icon logo.webp"
-import keras from "@/assets/keras-plain logo.webp"
+
 import Icon16 from "@/assets/Icon-16.webp"
 import Icon17 from "@/assets/Icon-17.webp"
 import Icon18 from "@/assets/Icon-18.webp"
+import Icon53 from "@/assets/Icon-53.webp"
+import Icon54 from "@/assets/Icon-54.webp"
+import Icon55 from "@/assets/Icon-55.webp"
+import Icon56 from "@/assets/Icon-56.webp"
+import Icon57 from "@/assets/Icon-57.webp"
 import gpt from "@/assets/gpt.webp"
 import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
@@ -206,7 +202,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon, // Replace with the correct icon for Personalized Financial Guides
+          icon: Icon53, // Replace with the correct icon for Personalized Financial Guides
           heading: "Personalized Financial Guides",
           description:
             "Imagine AI advisors that truly understand your customers. We build virtual assistants that offer tailored financial advice, investment recommendations, and educational content, all driven by the nuances of individual needs and risk profiles.",
@@ -214,7 +210,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Customer Service, Reimagined
+          icon: Icon57, // Replace with the correct icon for Customer Service, Reimagined
           heading: "Customer Service, Reimagined",
           description:
             "Forget scripted chatbots. Our conversational AI solutions engage in natural, meaningful dialogues, providing 24/7 support, answering complex queries, and guiding customers through financial processes with empathy and precision.",
@@ -222,7 +218,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Content That Converts
+          icon: Icon54, // Replace with the correct icon for Content That Converts
           heading: "Content That Converts",
           description:
             "Say goodbye to generic marketing copy. We automate the creation of compelling product descriptions, personalized emails, and engaging social media content, all tailored to resonate with your target audience.",
@@ -230,7 +226,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Fraud Detection, Evolved
+          icon: Icon55, // Replace with the correct icon for Fraud Detection, Evolved
           heading: "Fraud Detection, Evolved",
           description:
             "We go beyond rule-based systems. Our AI models detect subtle patterns and anomalies in real-time, proactively identifying and preventing fraudulent activity.",
@@ -238,7 +234,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon, // Replace with the correct icon for Risk Management, Reinvented
+          icon: Icon56, // Replace with the correct icon for Risk Management, Reinvented
           heading: "Risk Management, Reinvented",
           description:
             "Navigate the complexities of risk assessment with AI-powered tools that analyze market trends, news sentiment, and economic indicators, providing data-driven insights for smarter decision-making.",
