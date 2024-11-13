@@ -28,7 +28,7 @@ import Icon from "@/assets/Icon.webp";
 import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
 import Icon4 from "@/assets/Icon-4.webp";
 import Icon6 from "@/assets/Icon-6.webp";
-import Icon9 from "@/assets/Icon-9.webp";
+import Icon47 from "@/assets/Icon-47.webp";
 
 import Icon10 from "@/assets/Icon-10.webp";
 import Icon11 from "@/assets/Icon-11.webp";
@@ -74,6 +74,8 @@ import Icon38 from "@/assets/Icon-38.webp";
 import Icon39 from "@/assets/Icon-39.webp";
 import Icon40 from "@/assets/Icon-40.webp";
 import Icon41 from "@/assets/Icon-41.webp";
+import Icon48 from "@/assets/Icon-48.webp";
+import Icon9 from "@/assets/Icon-9.webp";
 
 
 
@@ -93,7 +95,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon40, // Replace with the correct icon for In-Depth Document Analysis
+          icon: Icon48, // Replace with the correct icon for In-Depth Document Analysis
           heading: "In-Depth Document Analysis",
           description:
             "With the motivation to enhance your business productivity, our AI chatbot provides an in-depth report for the document that has been uploaded on it, by giving a detailed breakdown of the key elements involved in it.",
@@ -287,7 +289,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon39, // Replace with the correct icon for Inaccurate Assessments
+          icon: Icon47, // Replace with the correct icon for Inaccurate Assessments
           heading: "Inaccurate Assessments",
           description:
             "The analysis done manually might have errors and inaccuracies which can comprise the entire analysis report, and might lead to losses to the business organisation. Our real estate chatbot aims to minimise these losses by ensuring accurate analysis, and delivering comprehensive reports.",
@@ -338,7 +340,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon28, // Replace with the correct icon for Scalable Solutions
+          icon: Icon9, // Replace with the correct icon for Scalable Solutions
           heading: "Scalable Solutions",
           description:
             "We know that the market trend and demands keep changing with each passing day, so we provide you with such a real estate AI chatbot which can adapt effortlessly to increasing demands while maintaining performance.",
