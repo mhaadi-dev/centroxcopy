@@ -63,14 +63,14 @@ const [isClient,setIsClient]=useState(false)
     // Validate the form data
     for (let key in formData) {
       // @ts-ignore
-      if (key !== "file" && formData[key] === "") {
+      if (key !== "file" && key !== "subject" && formData[key] === "") {
         missingData.push(key);
       }
     }
 
     // If there are missing fields, set the error message
     if (missingData.length > 0) {
-      let newData = missingData.filter((x) => x !== "file");
+      let newData = missingData.filter((x) => x !== "file" && x !== "subject");
       setIsLoading(false);
       setError(
         `Fields are required (${newData.map((x) => `${x.toUpperCase()}`)})`
@@ -160,7 +160,7 @@ setIsClient(true)
         />
       )}
       <section className="flex lg:w-2/3   flex-col gap-12 mx-auto ">
-        <div className="w-full flex-6 p-2  flex flex-col gap-2 lg:gap-4">
+        <div className="w-full flex-6   flex flex-col gap-2 lg:gap-4">
           <h2 className={classNames(text_h2_class, "lg:!w-full !text-left")}>
             {heading}
           </h2>
@@ -186,8 +186,10 @@ setIsClient(true)
                 type="text"
                 value={formData.name}
                 onBlur={(val, err) => {
+               
                   if (val == "") {
-                    err("Name can not be empty");
+                   
+                    err("Name is required.");
                   } else {
                     err("");
                   }
@@ -198,6 +200,7 @@ setIsClient(true)
                 className="border-b !border-white !bg-gray-graydark w-full !text-white"
                 placeholder="Name*"
               />
+           
             </div>
             <div className="col-span-2 lg:col-span-1">
               <CommonInput
@@ -205,7 +208,7 @@ setIsClient(true)
                 type="text"
                 onBlur={(val, err) => {
                   if (val == "") {
-                    err("Company can not be empty");
+                    err("Company name is required.");
                   } else {
                     err("");
                   }
@@ -226,6 +229,13 @@ setIsClient(true)
                 onChange={(val) => {
                   setFormData({ ...formData, country: val });
                 }}
+                onBlur={(val, err) => {
+                  if (val == "") {
+                    err("Country name is required.");
+                  } else {
+                    err("");
+                  }
+                }}
               />
             </div>
             <div className="col-span-2 lg:col-span-1">
@@ -238,9 +248,12 @@ setIsClient(true)
               <CommonInput
                 type="text"
                 onBlur={(val, err) => {
-                  if (!validateEmail(val)) {
-                    err("Please enter a valid email address");
-                  } else {
+                  if(val == ""){
+                    err("Email address is required.");
+                  }
+                 else if (!validateEmail(val)) {
+                    err("Please enter a valid email address.");
+                  }  else {
                     err("");
                   }
                 }}
@@ -253,14 +266,16 @@ setIsClient(true)
               />
             </div>
             <div className="col-span-2 lg:col-span-1">
-              <DropDown
-                selectedValue={formData.subject}
-                defaultOption="Subject*"
-                className="bg-gray-gray4"
+             <CommonInput
+                type="text"
+               
+                value={formData.subject}
                 onChange={(val) => {
+              
                   setFormData({ ...formData, subject: val });
                 }}
-                values={["gray", "red", "blue"]}
+                className="border-b !border-white !bg-gray-graydark w-full !text-white"
+                placeholder="Subject"
               />
             </div>
             <div className="col-span-2 ">
@@ -270,6 +285,13 @@ setIsClient(true)
                 value={formData.message}
                 onChange={(val) => {
                   setFormData({ ...formData, message: val });
+                }}
+                onBlur={(val, err) => {
+                  if (val == "") {
+                    err("Message is required.");
+                  } else {
+                    err("");
+                  }
                 }}
               />
             </div>
@@ -345,7 +367,7 @@ setIsClient(true)
             </div>
             {err && (
               <div className="col-span-2 flex justify-between items-center p-2 rounded-lg border-2 border-red-600 ">
-                <p className="text-red-600">{err}</p>
+                <p className="text-red-600 text-[0.5rem] lg:text-[1rem]">{err}</p>
                 <XMarkIcon
                   className="w-6 text-white  cursor-pointer"
                   onClick={() => {

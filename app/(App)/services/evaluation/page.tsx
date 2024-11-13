@@ -421,7 +421,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           "We maintain open communication throughout the engagement, providing regular updates and clear explanations.", // Updated description
       },
     ],
-    btnText: "Partner with Us to Optimize Your AI Lifecycle", // Updated button text
+    btnText: "Partner with Us to Optimize Your AI Lifecycle", 
   };
   
 
