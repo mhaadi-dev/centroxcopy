@@ -37,7 +37,6 @@ export const PointsandImagesSection = ({
   bgShape,
   arrayData
 }: any) => {
-     
   return (
     <div
       className="relative overflow-hidden mt-8 pb-12 "
@@ -74,13 +73,7 @@ export const PointsandImagesSection = ({
         />
       )}{" "}
       <section className={classNames(section_wrapper_class)}>
-        {/* <div className="flex flex-col gap-2 lg:gap-8">
-          <h2 className={h2ClassName}>{data?.heading}</h2>
 
-          <h4 className={classNames(p2ClassName, "lg:!text-center  ")}>
-            {data?.description}
-          </h4>
-        </div> */}
        
             <SectionHeader headingText={arrayData?.headerData?.heading} tagText={arrayData?.headerData?.tagText} para1Text={arrayData?.headerData?.description}/>
          
@@ -101,32 +94,7 @@ export const PointsandImagesSection = ({
             )}
           </div>
           <div className="w-ful lg:w-1/2 flex flex-col gap-6 lg:gap-12 z-10">
-            {/* <h2
-              className={classNames(
-                sectionheadings,
-                "lg:!mx-0 lg:!w-full lg:!text-left"
-              )}
-            >
-              {heading}
-            </h2>
-            <p
-              className={classNames(
-                sectionSectionDescription,
-                "lg:!mx-0 lg:!w-full lg:!text-left"
-              )}
-            >
-              {description}
-            </p>
-            {subDescription && (
-              <p
-                className={classNames(
-                  text_para_3,
-                  "!text-[#D1D5DB]"
-                )}
-              >
-                {subDescription}
-              </p>
-            )} */}
+        
             <div className="flex flex-col gap-6">
               {arrayData?.data?.map((el: any, index: number) => {
                 return (
@@ -152,9 +120,10 @@ export const PointsandImagesSection = ({
                   </div>
                 );
               })}
-               {button && (
+               {arrayData?.btnText && (
               <div className="flex justify-center lg:justify-start">
-                <CalendlyWidget btnText={data?.btntext} isArrow={true} />
+                <CalendlyWidget btnText={arrayData?.btnText} isArrow={true} />
+               
               </div>
             )}
             </div>

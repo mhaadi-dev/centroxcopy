@@ -55,7 +55,7 @@ const CommonCardwithIcon = ({
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {Icon && <Image loading="lazy" src={Icon} alt="Icon" className=""/>}
+        {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
         <div className="flex flex-col gap-y-4 flex-grow">
           <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>

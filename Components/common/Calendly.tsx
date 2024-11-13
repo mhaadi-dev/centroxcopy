@@ -1,12 +1,5 @@
 "use client"
 
-interface PropsI{
-  btnText?:string,
-  btnClassName? :string,
-  isArrow?:boolean,
-  containerclass?:string
-  customClassName?:string
-}
 
 import { Fragment, useState } from "react";
 import { Button } from "../Button.js/button";
@@ -15,15 +8,22 @@ import { CALENDLY_URL } from "@/config/secret";
 import classNames from "@/helpers/common";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
- 
+interface PropsI{
+  btnText?:string,
+  btnClassName? :string,
+  isArrow?:boolean,
+  containerclass?:string
+  customClassName?:string
+}
+
 export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containerclass,customClassName}:PropsI) => {
-  
+  console.log(btnText,"==============from calandly")
     const [isOpen, setIsOpen] = useState(false);
   
     const openCalendlyPopup = () => {
       setIsOpen(true);
     };
-  
+  console.log(btnText,"from calandly")
     const closeCalendlyPopup = () => {
       setIsOpen(false);
   };
@@ -31,7 +31,7 @@ export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containercl
       <div className={classNames(containerclass)}>
         <Button
           onClick={openCalendlyPopup}
-          content={btnText || ""}
+          content={btnText}
           iconClassName="-mt-1"
           isLefticon={false}
           customClassName={customClassName}  

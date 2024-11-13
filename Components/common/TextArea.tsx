@@ -40,9 +40,9 @@ export const TextArea = ({
           onChange?.(e.target.value)
         }}
         onBlur={() => {
-          if (fieldValue) {
+        
             onBlur?.(fieldValue, setFieldError);
-          }
+          
           if (!fieldValue && required) {
             onBlur?.("", setFieldError);
             setFieldError(`${label} is required`);
