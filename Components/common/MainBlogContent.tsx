@@ -3,7 +3,7 @@ import React from "react";
 import SocialIconsContainer from "./SocialIconsContainer";
 import Image from "next/image";
 import dummyDisplay from "@/assets/dummyDisplay.webp"
-import mhbn from "@/assets/mhbnimg.png"
+import mhbn from "@/assets/mhbnimg.webp"
 const MainBlogContent = () => {
   return (
     <div className=" text-white px-2 w-full lg:w-[48%]">

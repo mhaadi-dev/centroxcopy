@@ -81,13 +81,13 @@ const slugOptions=[{
    }
 }]
 const banner1Data={
-    heading:"Pocketmate.ai your reliable mental health support; ensuring emotional contentment whenever or wherever you need it.",
-    para1Text:"Pocketmate.ai offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
+    heading:"optimizing dumpster placement using image recognition for consumers and service providers.",
+    para1Text:"Consumers had trouble telling service providers exactly where to place the dumpster, and providers struggled to follow local rules for placement. Our deployed  system accurately identifies the most suitable and permissible location for the dumpster.",
 }
 const heroSection1Data={
     heading:"The Problem",
     icon:"",
-    description:"In today's busy and highly competitive world, many feel mental burnout, losing creativity, motivation, and direction. The constant hustle eventually results in leaving no time for evaluating and restructuring your own thoughts for your mental well being. Finding a friend or even a therapist to share your thoughts for redirection consumes a good amount of time and effort, this raises the need of having dependable 24/7  immediate support to become your companion by listening to your thoughts whenever or wherever you need it, and for extending personalized care according to your need."
+    description:"For today's changing time and fast paced world, we need a solution that can offer instant assistance without extra hassle. The large waste collected after moving your place,construction , or maintenance can be difficult to dispose of, and finding a dumpster during the process can be a real struggle as your other priority task might get affected. So this creates a need of having an online application based platform that joins clients needing the dumpster service with a relevant dumpster- enabling easy booking, tracking, and chat with a variety of dumpsters options. By providing reliable eco-friendly waste disposal, it allows users to focus on performing other tasks efficiently."
 }
 const heroSection2Data={
     heading:"Research and Analysis",

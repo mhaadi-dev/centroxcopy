@@ -5,6 +5,7 @@ import dummyDisplay from "@/assets/dummyDisplay.webp";
 import Icon1 from "@/assets/Icon-1.webp";
 import serviceherobg from "@/assets/Servicebg.webp";
 import checker from "@/assets/checker.webp";
+import SectionHeader from './SectionHeader';
 
 interface Props {
     headingText?: string;
@@ -13,24 +14,37 @@ interface Props {
     image?: any;
     reverse?: boolean;
     bulletPoints?: boolean;
+    bgImage1?: any;
+    bgImage2?: any;
+    bgClassName?: string;
+    heroClassName?:string
+    headerHeading?:string,
+    headerDescription?:string
 }
 
-const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bulletPoints }: Props) => {
+const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bulletPoints,bgImage1,bgImage2,bgClassName,heroClassName,headerHeading,headerDescription }: Props) => {
     return (
-        <section className='relative py-10 mt-8 lg:mt-12 2xl:mt-24 sm:pb-14 overflow-hidden'>
+        <>  
+        <section>
+            {headerHeading && <h2 className={classNames(text_h2_class,"text-center")}>{headerHeading}</h2>}
+            {headerDescription && <p className={classNames(text_para_2," w-[98%] sm:w-[67%]  mx-auto text-center")}>{headerDescription}</p>}
+        </section>
+        
+        <section className={classNames('relative py-10 mt-8 lg:mt-12 2xl:mt-24 sm:pb-14 overflow-hidden',heroClassName)}>
+              
             <div className={classNames(
-                'absolute inset-0 w-full h-full',
+                'absolute flex justify-end inset-0 w-full h-full',
                 'object-cover object-center',
-                reverse ? "sm:object-left" : "sm:object-right"
+                reverse ? "sm:object-left" : "sm:object-right",
             )}>
                 <Image 
-                    src={serviceherobg} 
+                    src={bgImage1 || serviceherobg} 
                     alt='background' 
-                    layout="fill" 
                     objectFit="cover" 
-                    className="z-0"
+                    className="z-0 "
                     quality={100}
                     priority
+
                 />
             </div>
 
@@ -41,7 +55,7 @@ const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bu
             )}>
              
                 <div className="w-full lg:w-1/2 z-10 flex flex-col h-full gap-y-3">
-                    <Image src={Icon1} alt="Icon" />
+                   {Icon && <Image src={Icon1} alt="Icon" />}
                     {headingText && <h2 className={classNames(text_h2_class)}>{headingText}</h2>}
                     {paraText && <p className={classNames(text_para_2)}>{paraText}</p>}
                     {bulletPoints && (
@@ -65,6 +79,8 @@ const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bu
                 </div>
             </section>
         </section>
+        </>
+      
     );
 };
 

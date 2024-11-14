@@ -9,8 +9,48 @@ import aboutbg from "@/assets/aboutbg.webp"
 
 import Image from 'next/image';
 import Timeline from '@/Components/common/Timeline';
-
+import about1 from "@/assets/about/about1.webp"
+import about2 from "@/assets/about/about2.webp"
+import about3 from "@/assets/about/about3.webp"
+import about4 from "@/assets/about/about4.webp"
+import about5 from "@/assets/about/about5.webp"
+import about6 from "@/assets/about/about6.webp"
+import whatwedotoday from "@/assets/about/whatwedotoday.webp"
 const page = () => {
+  const data1=[
+    {
+      alt:"hello",
+      caption:"",
+      img:about1
+  },
+  {
+    alt:"hello",
+    caption:"",
+    img:about2
+},
+{
+  alt:"hello",
+  caption:"",
+  img:about3
+},
+]
+const data2=[
+  {
+    alt:"hello",
+    caption:"",
+    img:about4
+},
+{
+  alt:"hello",
+  caption:"",
+  img:about5
+},
+{
+alt:"hello",
+caption:"",
+img:about6
+},
+]
   return (
    
 <>
@@ -27,11 +67,11 @@ const page = () => {
         </div>
       </div>
       <Timeline/>
-      <HeroSection btnText='Checkout Our Work' img={dummyDisplay} isGradientText={false} description="Today, Centrox is at the forefront of the Generative AI solutions industry. We collaborate with ambitious startups that are pushing the boundaries of what's possible with LLMs. We provide the technical expertise, strategic guidance, and collaborative approach needed to navigate the complexities of Generative AI development and deployment. Our solutions span various industries, including healthcare, fashion, real estate, and more, empowering startups to achieve their AI goals and gain a competitive edge." heading='What We Do Today: Augmenting Gen AI Startups'/>
-      <GridPicturesAbout headingText='Our Culture & Values' paraText="We're a team of driven individuals who thrive on technical challenges, continuous learning, and open collaboration. We embrace the entrepreneurial spirit and understand the fast-paced nature of startups. Our commitment to transparency, data-driven decision-making, and delivering tangible results sets us apart."
+      <HeroSection btnText='Checkout Our Work' img={whatwedotoday} isGradientText={false} description="Today, Centrox is at the forefront of the Generative AI solutions industry. We collaborate with ambitious startups that are pushing the boundaries of what's possible with LLMs. We provide the technical expertise, strategic guidance, and collaborative approach needed to navigate the complexities of Generative AI development and deployment. Our solutions span various industries, including healthcare, fashion, real estate, and more, empowering startups to achieve their AI goals and gain a competitive edge." heading='What We Do Today: Augmenting Gen AI Startups'/>
+      <GridPicturesAbout linkText="/team" data={data1} headingText='Our Culture & Values' paraText="We're a team of driven individuals who thrive on technical challenges, continuous learning, and open collaboration. We embrace the entrepreneurial spirit and understand the fast-paced nature of startups. Our commitment to transparency, data-driven decision-making, and delivering tangible results sets us apart."
       btnText='Meet the Team'
       />
-      <GridPicturesAbout headingText='Our Expertise' paraText="Our team consists of experienced AI engineers and researchers with deep knowledge of LLM architecture, training, optimization, and deployment. We stay at the cutting edge of AI research, actively contributing to the open-source community and ensuring our clients benefit from the latest advancements in Generative AI."
+      <GridPicturesAbout data={data2} linkText="/" headingText='Our Expertise' paraText="Our team consists of experienced AI engineers and researchers with deep knowledge of LLM architecture, training, optimization, and deployment. We stay at the cutting edge of AI research, actively contributing to the open-source community and ensuring our clients benefit from the latest advancements in Generative AI."
       btnText='Explore Our Services' reverse
       />
       <IndustryBanner btnText="Book 1:1 Session" isBooking heading="Let's Discuss Your Vision." description="Book an exclusive 1:1 call today with our AI expert to discuss and discover what we can do to accelerate your Gen AI development and deployment."/>

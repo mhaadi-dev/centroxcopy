@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 import Image from 'next/image'
 import classNames, { section_wrapper_class, text_para_2, text_para_3 } from '@/helpers/common'
 import revenue from "@/assets/revenue.webp"
-import hibbaimg from "@/assets/hibbaimg.png"
+import mhbn from "@/assets/mhbnimg.webp"
 interface Props{
     headingText?:string
     heading2Text?:string,
@@ -26,7 +26,7 @@ const WhatOurClientSay = (props:Props) => {
         <div className="w-full h-full px-4 py-4 lg:pt-4 lg:pb-10 lg:w-2/3  flex flex-col gap-y-3">
             {props?.review && <p className={classNames(text_para_2)}>{props?.review}</p>}
             <div className="flex flex-col gap-y-2">
-                <Image width={80} height={80} className="rounded-xl" src={hibbaimg} alt="client"></Image>
+                <Image width={80} height={80} className="rounded-xl" src={mhbn} alt="client"></Image>
                 <div className="">
                     {props?.name && <p className={classNames(text_para_3,"font-semibold")}>{props.name}</p>}
                     {props?.position && <p className={classNames(text_para_3)}>{props?.position}</p>}
