@@ -8,26 +8,26 @@ export function middleware(req: NextRequest) {
     url.pathname = '/services/custom-llm-dev';
     return NextResponse.redirect(url);
   }
-  if (url.pathname === '/case-studies') {
-    // Redirect to "/services/custom-llm-dev"
-    url.pathname = '/case-studies/pocketmate';
-    return NextResponse.redirect(url);
-  }
-  if (url.pathname === '/blogs' || url.pathname.startsWith("/blogs")) {
-    // Redirect to "/services/custom-llm-dev"
-    url.pathname = '/';
-    return NextResponse.redirect(url);
-  }
-  if (url.pathname === '/solutions') {
-    // Redirect to "/services/custom-llm-dev"
-    url.pathname = '/';
-    return NextResponse.redirect(url);
-  }
-  if (url.pathname === '/industries') {
-    // Redirect to "/services/custom-llm-dev"
-    url.pathname = '/';
-    return NextResponse.redirect(url);
-  }
+  // if (url.pathname === '/case-studies') {
+  //   // Redirect to "/services/custom-llm-dev"
+  //   url.pathname = '/case-studies/pocketmate';
+  //   return NextResponse.redirect(url);
+  // }
+  // if (url.pathname === '/blogs' || url.pathname.startsWith("/blogs")) {
+  //   // Redirect to "/services/custom-llm-dev"
+  //   url.pathname = '/';
+  //   return NextResponse.redirect(url);
+  // }
+  // if (url.pathname === '/solutions') {
+  //   // Redirect to "/services/custom-llm-dev"
+  //   url.pathname = '/';
+  //   return NextResponse.redirect(url);
+  // }
+  // if (url.pathname === '/industries') {
+  //   // Redirect to "/services/custom-llm-dev"
+  //   url.pathname = '/';
+  //   return NextResponse.redirect(url);
+  // }
 
 
   // Continue to other routes if no match
