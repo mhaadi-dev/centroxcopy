@@ -72,7 +72,7 @@ const config: Config = {
         xlc: { min: "1919" },
         xl:{min:"1140px"},
         "3xl": { min: "2685px" },
-        "4xl": { min: "2500px" },
+        "4xl": { min: "2600px" },
       },
     },
   },

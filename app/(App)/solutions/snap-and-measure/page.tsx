@@ -469,7 +469,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30"/>
+          <HeroSection {...heroData} bgimage1={solutionbg2} bgimage2={solutionbg1} bgClassName="opacity-30"/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection

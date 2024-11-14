@@ -232,6 +232,90 @@ export const Navbar = () => {
         ],
       ],
     },
+    {
+      navItemText: "About us",
+      onClick: () => {
+        // if (pathname === "/") {
+        //   const solutionsComponent = document.getElementById("industries");
+        //   if (solutionsComponent) {
+        //     solutionsComponent.scrollIntoView({
+        //       behavior: "smooth",
+        //       block: "start",
+        //     });
+        //   }
+        // } else {
+        //   localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+        //   router.push(`/`);
+        // }
+        router.push("/about-us")
+      },
+      columnData: [
+        [
+          {
+            heading: "Health",
+            description: "Description here,,,",
+            image: ShootingStar,
+          },
+          {
+            heading: "Fintech",
+            description: "Description here,,,",
+            image: "",
+          },
+          {
+            heading: "Retail",
+            description: "Description here,,,",
+            image: "",
+          },
+          {
+            heading: "Real-estate",
+            description: "Description here,,,",
+            image: "",
+          },
+        ],
+      ],
+    },
+    {
+      navItemText: "Team",
+      onClick: () => {
+        // if (pathname === "/") {
+        //   const solutionsComponent = document.getElementById("industries");
+        //   if (solutionsComponent) {
+        //     solutionsComponent.scrollIntoView({
+        //       behavior: "smooth",
+        //       block: "start",
+        //     });
+        //   }
+        // } else {
+        //   localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+        //   router.push(`/`);
+        // }
+        router.push("/team")
+      },
+      columnData: [
+        [
+          {
+            heading: "Health",
+            description: "Description here,,,",
+            image: ShootingStar,
+          },
+          {
+            heading: "Fintech",
+            description: "Description here,,,",
+            image: "",
+          },
+          {
+            heading: "Retail",
+            description: "Description here,,,",
+            image: "",
+          },
+          {
+            heading: "Real-estate",
+            description: "Description here,,,",
+            image: "",
+          },
+        ],
+      ],
+    },
     // {
     //   navItemText: "Resources",
     //   onClick: () => {

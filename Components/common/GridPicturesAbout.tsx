@@ -5,37 +5,20 @@ import sectionImg from "@/assets/aboutusbackground.webp";
 import Image from 'next/image';
 import { VerticalCarousal } from './VeritcalCarousal';
 import dummyDisplay from "@/assets/dummyDisplay.webp";
-import mhbn from "@/assets/mhbnimg.png"
-import adeelimg from "@/assets/adeelImg.png"
 import industrypic1 from "@/assets/industry1.webp"
 import arrow from "@/assets/RightArrow.svg"
+import { link } from 'fs';
+import Link from 'next/link';
 interface Props{
     headingText?:string,
     paraText?:string,
     btnText?:string
     reverse?:boolean
+    data?:any,
+    linkText?:string
 }
-function GridPicturesAbout({headingText,paraText,btnText,reverse}:Props) {
-    const data=[
-      {
-        alt:"hello",
-        caption:"",
-        img:mhbn
-    },
-    {
-      alt:"hello",
-      caption:"",
-      img:adeelimg
-  },{
-    alt:"hello",
-    caption:"",
-    img:industrypic1
-},{
-  alt:"hello",
-  caption:"",
-  img:mhbn
-}
-  ]
+function GridPicturesAbout({headingText,paraText,btnText,reverse,data,linkText}:Props) {
+ 
   return (
     <section className={classNames(section_wrapper_class,"min-h-[70vh] flex flex-col mx-auto items-center lg:flex-row gap-12",reverse ? "lg:flex-row-reverse" : "")}>
         
@@ -50,7 +33,12 @@ function GridPicturesAbout({headingText,paraText,btnText,reverse}:Props) {
         Proin faucibus nibh et sagittis a. Lacinia purus ac amet
         pellentesque aliquam enim.
       </p> */}
-     {btnText && <Button  Icon={arrow} iconClassName='!-mt-1' isLefticon={false}  className='!w-[50%]' content={btnText}/>}
+     {btnText &&  <> 
+     <Link href={linkText || ""}>
+      <Button  Icon={arrow} iconClassName='!-mt-1' isLefticon={false}  className='w-[70%] lg:!w-[50%]' content={btnText}/>
+     </Link>
+      
+     </>  }
     </div>
     <VerticalCarousal data={data} />
     {/* <div className="w-full flex justify-center lg:justify-end items-center">
