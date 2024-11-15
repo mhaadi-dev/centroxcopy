@@ -1,6 +1,7 @@
 "use client"
 import classNames from "@/helpers/common";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface PropsI {
 	Icon?: any;
@@ -17,6 +18,7 @@ interface PropsI {
 	defaultClass?: boolean;
 	isLefticon?: boolean;
 	id?: string;
+	moveToSection?:string
 }
 
 // export const Button = ({
@@ -86,12 +88,27 @@ export const Button = ({
 	isLoading = false,
 	defaultClass = true,
 	isLefticon = true,
+	moveToSection=""
   }: PropsI) => {
+	const router=useRouter()
 	return (
 	  <button
 		id={id}
 		type={type}
-		onClick={onClick}
+		onClick={ onClick ? onClick : moveToSection ? ()=>{
+			router.push("/")
+			setTimeout(() => {
+			
+				const Component = document.getElementById(moveToSection);
+			      if (Component) {
+			        Component.scrollIntoView({
+			          behavior: "smooth",
+			          block: "start",
+			        });
+			      }
+			}, 500);
+			
+		}:()=>{}}
 		className={classNames(
 		  defaultClass &&
 			"flex items-center justify-center gap-2 rounded-full px-3 py-3 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",

@@ -37,6 +37,7 @@ export const Navbar = () => {
     {
       navItemText: "Services",
       onClick: () => {
+      
         if (pathname === "/") {
           const solutionsComponent = document.getElementById("services");
           if (solutionsComponent) {
@@ -46,8 +47,18 @@ export const Navbar = () => {
             });
           }
         } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+          localStorage.setItem("services", JSON.stringify(true));
           router.push(`/`);
+          setTimeout(()=>{
+            const solutionsComponent = document.getElementById("services");
+            if (solutionsComponent) {
+              solutionsComponent.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          },500)
+          
         }
       },
       columnData: [
@@ -150,6 +161,15 @@ export const Navbar = () => {
         } else {
           localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
           router.push(`/`);
+          setTimeout(() => {
+            const solutionsComponent = document.getElementById("solutions");
+          if (solutionsComponent) {
+            solutionsComponent.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+          }, 500);
         }
       },
       columnData: [
@@ -203,8 +223,17 @@ export const Navbar = () => {
             });
           }
         } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+          localStorage.setItem("industries", JSON.stringify(true));
           router.push(`/`);
+          setTimeout(() => {
+            const solutionsComponent = document.getElementById("industries");
+            if (solutionsComponent) {
+              solutionsComponent.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }, 500);
         }
       },
       columnData: [
@@ -235,19 +264,10 @@ export const Navbar = () => {
     {
       navItemText: "About us",
       onClick: () => {
-        // if (pathname === "/") {
-        //   const solutionsComponent = document.getElementById("industries");
-        //   if (solutionsComponent) {
-        //     solutionsComponent.scrollIntoView({
-        //       behavior: "smooth",
-        //       block: "start",
-        //     });
-        //   }
-        // } else {
-        //   localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-        //   router.push(`/`);
-        // }
-        router.push("/about-us")
+      
+         router.push("/about-us")
+        
+       
       },
       columnData: [
         [
