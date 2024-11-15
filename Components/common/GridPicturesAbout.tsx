@@ -16,8 +16,9 @@ interface Props{
     reverse?:boolean
     data?:any,
     linkText?:string
+    moveToSection?:string
 }
-function GridPicturesAbout({headingText,paraText,btnText,reverse,data,linkText}:Props) {
+function GridPicturesAbout({headingText,paraText,btnText,reverse,data,linkText,moveToSection=""}:Props) {
  
   return (
     <section className={classNames(section_wrapper_class,"min-h-[70vh] flex flex-col mx-auto items-center lg:flex-row gap-12",reverse ? "lg:flex-row-reverse" : "")}>
@@ -35,7 +36,7 @@ function GridPicturesAbout({headingText,paraText,btnText,reverse,data,linkText}:
       </p> */}
      {btnText &&  <> 
      <Link href={linkText || ""}>
-      <Button  Icon={arrow} iconClassName='!-mt-1' isLefticon={false}  className='w-[70%] lg:!w-[50%]' content={btnText}/>
+      <Button moveToSection={moveToSection}  Icon={arrow} iconClassName='!-mt-1' isLefticon={false}  className='w-[70%] lg:!w-[50%]' content={btnText}/>
      </Link>
       
      </>  }

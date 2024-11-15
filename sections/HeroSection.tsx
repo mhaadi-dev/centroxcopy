@@ -1,4 +1,6 @@
+import { Button } from "@/Components/Button.js/button";
 import { CalendlyWidget } from "@/Components/common/Calendly";
+import Arrow from "@/assets/RightArrow.svg";
 import classNames, {
   h1className,
   sectionsubheadings,
@@ -26,10 +28,11 @@ interface PropsI {
   tags?:boolean,
   heroClassName?:string,
   linkText?:string
+  moveToSection?:string
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",...props}: PropsI) => {
   return (
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
@@ -108,11 +111,20 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
             </div>
            
           </section>}
-          {props?.btnText &&  (
+          {props?.btnText && moveToSection==""? (
             <div className="flex justify-start z-[1]">
               <CalendlyWidget
                 btnText={props?.btnText || "Book FREE Strategy call"}
                 isArrow={true}
+              />
+            </div>
+          ):(
+            <div className="flex justify-start z-[1]">
+              <Button
+                content={props?.btnText || "Book FREE Strategy call"}
+               isLefticon={false}
+               Icon={Arrow}
+               moveToSection={moveToSection}
               />
             </div>
           )}
