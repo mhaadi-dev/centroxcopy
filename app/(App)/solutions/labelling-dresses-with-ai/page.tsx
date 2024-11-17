@@ -57,8 +57,8 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingLayout from "../../layout";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
+import solutionbg1 from "@/assets/solutions/solutionbg2.webp"
+import solutionbg2 from "@/assets/solutions/solutionbg1.webp"
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
 import opencv from "@/assets/opencv-plain logo.webp"
 import dockers from "@/assets/docker-icon logo.webp"

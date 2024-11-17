@@ -56,8 +56,8 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
+import solutionbg1 from "@/assets/solutions/solutionbg2.webp"
+import solutionbg2 from "@/assets/solutions/solutionbg1.webp"
 import realestatehero from "@/assets/solutions/Real estatehero.webp"
 import Icon27 from "@/assets/Icon-27.webp";
 import Icon28 from "@/assets/Icon-28.webp";

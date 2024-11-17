@@ -53,8 +53,8 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp";
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp";
+import solutionbg1 from "@/assets/solutions/solutionbg2.webp";
+import solutionbg2 from "@/assets/solutions/solutionbg1.webp";
 import IndustryPic1 from "@/assets/industry1.webp"
 import emotionalsupporthero from "@/assets/solutions/Emotional Support hero.webp"
 import Icon19 from "@/assets/Icon-19.webp"

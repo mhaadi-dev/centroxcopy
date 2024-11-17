@@ -11,6 +11,7 @@ import classNames, {
 } from "@/helpers/common";
 
 export const MainAboutUs = (props: any) => {
+  console.log(props?.props?.props?.[0]?.teamSectionImgs)
   return (
     <>
       <main className={classNames("flex flex-col   gap-y-8 lg:gap-y-16")}>
@@ -136,6 +137,7 @@ export const MainAboutUs = (props: any) => {
                           alt="image-data"
                           objectFit="cover"
                           className="rounded-xl  object-cover "
+                          placeholder="blur"
                         />
                       )}
                     </div>
