@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import AppLogo from "@/assets/LogoWhite.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import SearchResultComponent from "../common/SearchResultComponent";
 import Link from "next/link";
 
@@ -26,6 +26,7 @@ const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
   const router = useRouter();
   const [showSearchComponent, setShowSearchComponent] = useState(false);
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+  const pathname=usePathname()
 
   const toggleSearchComponent = (val: boolean) => {
     setShowSearchComponent(val);
@@ -81,7 +82,12 @@ const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
 
           <button
             onClick={() => {
-              router.push("/case-studies/search");
+              if(pathname.startsWith("/case-studies")){
+                 router.push("/case-studies/search");
+              }else if(pathname.startsWith("/blogs")){
+                router.push("/blogs/search");
+              }
+             
             }}
             className="text-white p-2 rounded-full bg-gray-700/80"
           >

@@ -46,17 +46,16 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp";
 import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp";
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp";
+import solutionbg1 from "@/assets/solutions/solutionbg2.webp";
+import solutionbg2 from "@/assets/solutions/solutionbg1.webp";
 import IndustryPic1 from "@/assets/industry1.webp"
-import emotionalsupporthero from "@/assets/solutions/Emotional Support hero.webp"
+import emotionalsupporthero from "@/assets/solutions/Emotional Support.svg"
 import Icon19 from "@/assets/Icon-19.webp"
 import Icon23 from "@/assets/Icon-23.webp"
 import Icon24 from "@/assets/Icon-24.webp"

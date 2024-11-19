@@ -60,7 +60,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
             <Image
               src={props?.bgimage2}
               className={classNames(
-                "h-full object-contain ",
+                "h-full object-cover ",
                 props?.bgimage1 ? "w-1/2" : "w-full ",
                 props?.bgClassName
               )}

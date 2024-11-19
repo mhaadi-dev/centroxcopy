@@ -49,7 +49,6 @@ import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
 import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp";
 import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
@@ -78,7 +77,7 @@ import gpt from "@/assets/gpt.webp"
 import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
-import healthhero from "@/assets/Hero Image health.webp"
+import healthhero from "@/assets/industries/Hero Image health.svg"
 
 
 

@@ -82,6 +82,7 @@ export const MainAboutUs = (props: any) => {
                         // blurDataURL={blurDataURLs[index]}
                         // onLoad={() => handleImageLoad(index, el.img.src)}
                         className="rounded-2xl  object-cover "
+                        
                       />
                     )}
                   </div>
@@ -136,6 +137,7 @@ export const MainAboutUs = (props: any) => {
                           alt="image-data"
                           objectFit="cover"
                           className="rounded-xl  object-cover "
+                          placeholder="blur"
                         />
                       )}
                     </div>

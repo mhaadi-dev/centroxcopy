@@ -11,7 +11,7 @@ const TimelineBar = ({activeIndex,setActiveTimeLineData,timelineData}:any) => {
                 setActiveTimeLineData(index)
             }}>
               <div className="flex  flex-col cursor-pointer items-center gap-y-2">
-                <div className={classNames("w-[40px] lg:w-[60px] h-4  border border-blue-azure rounded-xl",activeIndex==index ? "bg-blue-azure":"bg-blue-azure/20")}></div>
+                <div className={classNames("w-[35px] lg:w-[60px] h-4  border border-blue-azure rounded-xl",activeIndex==index ? "bg-blue-azure":"bg-blue-azure/20")}></div>
                 <p className="text-white">{item.year}</p>
               </div>
 

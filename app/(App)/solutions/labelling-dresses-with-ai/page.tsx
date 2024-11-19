@@ -57,15 +57,15 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingLayout from "../../layout";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
+import solutionbg1 from "@/assets/solutions/solutionbg2.webp"
+import solutionbg2 from "@/assets/solutions/solutionbg1.webp"
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
 import opencv from "@/assets/opencv-plain logo.webp"
 import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
 import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
 import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
-import labellinghero from "@/assets/solutions/labeling dresses with ai hero.webp"
+import labellinghero from "@/assets/solutions/labeling dresses with ai.svg"
 import Icon42 from "@/assets/Icon-42.webp"
 import Icon43 from "@/assets/Icon-43.webp"
 import Icon44 from "@/assets/Icon-44.webp"

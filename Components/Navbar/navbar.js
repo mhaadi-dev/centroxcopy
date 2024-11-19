@@ -33,32 +33,39 @@ export const Navbar = () => {
   useEffect(()=>{
    setIsClient(true)
   },[])
+  const scrollToSection = (id) => {
+    const checkAndScroll = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        clearInterval(interval);
+      }
+    };
+  
+  
+    const interval = setInterval(checkAndScroll, 100);
+  
+    
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 5000); 
+  };
+  
   const data = [
     {
       navItemText: "Services",
       onClick: () => {
-      
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("services");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+          scrollToSection("services");
         } else {
           localStorage.setItem("services", JSON.stringify(true));
           router.push(`/`);
-          setTimeout(()=>{
-            const solutionsComponent = document.getElementById("services");
-            if (solutionsComponent) {
-              solutionsComponent.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-          },500)
-          
+          setTimeout(() => {
+            scrollToSection("services");
+          }, 500);
         }
       },
       columnData: [
@@ -69,7 +76,7 @@ export const Navbar = () => {
             image: ShootingStar,
           },
           {
-            heading: "Custome LLM Development",
+            heading: "Custom LLM Development",
             description: "Description here",
             image: "",
           },
@@ -91,7 +98,7 @@ export const Navbar = () => {
             image: ShootingStar,
           },
           {
-            heading: "Data Annotation & labeling",
+            heading: "Data Annotation & Labeling",
             description: "Description here,,,",
             image: "",
           },
@@ -151,24 +158,12 @@ export const Navbar = () => {
       navItemText: "Solutions",
       onClick: () => {
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("solutions");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+          scrollToSection("solutions");
         } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
+          localStorage.setItem("solutions", JSON.stringify(true));
           router.push(`/`);
           setTimeout(() => {
-            const solutionsComponent = document.getElementById("solutions");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+            scrollToSection("solutions");
           }, 500);
         }
       },
@@ -179,7 +174,6 @@ export const Navbar = () => {
             description: "Body of the card...",
             bg_img: navSolutionBG1,
             isCardNavItem: true,
-            // image: ShootingStar,
           },
         ],
         [
@@ -188,7 +182,6 @@ export const Navbar = () => {
             description: "Description here,,,",
             bg_img: navSolutionBG2,
             isCardNavItem: true,
-            // image: ShootingStar,
           },
         ],
         [
@@ -197,7 +190,6 @@ export const Navbar = () => {
             description: "Description here,,,",
             bg_img: navSolutionBG3,
             isCardNavItem: true,
-            // image: ShootingStar,
           },
         ],
         [
@@ -206,7 +198,6 @@ export const Navbar = () => {
             description: "Description here,,,",
             bg_img: navSolutionBG4,
             isCardNavItem: true,
-            // image: ShootingStar,
           },
         ],
       ],
@@ -215,24 +206,12 @@ export const Navbar = () => {
       navItemText: "Industries",
       onClick: () => {
         if (pathname === "/") {
-          const solutionsComponent = document.getElementById("industries");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+          scrollToSection("industries");
         } else {
           localStorage.setItem("industries", JSON.stringify(true));
           router.push(`/`);
           setTimeout(() => {
-            const solutionsComponent = document.getElementById("industries");
-            if (solutionsComponent) {
-              solutionsComponent.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
+            scrollToSection("industries");
           }, 500);
         }
       },
@@ -264,10 +243,7 @@ export const Navbar = () => {
     {
       navItemText: "About us",
       onClick: () => {
-      
-         router.push("/about-us")
-        
-       
+        router.push("/about-us");
       },
       columnData: [
         [
@@ -297,19 +273,7 @@ export const Navbar = () => {
     {
       navItemText: "Team",
       onClick: () => {
-        // if (pathname === "/") {
-        //   const solutionsComponent = document.getElementById("industries");
-        //   if (solutionsComponent) {
-        //     solutionsComponent.scrollIntoView({
-        //       behavior: "smooth",
-        //       block: "start",
-        //     });
-        //   }
-        // } else {
-        //   localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-        //   router.push(`/`);
-        // }
-        router.push("/team")
+        router.push("/team");
       },
       columnData: [
         [
@@ -336,84 +300,8 @@ export const Navbar = () => {
         ],
       ],
     },
-    // {
-    //   navItemText: "Resources",
-    //   onClick: () => {
-    //     if (pathname === "/") {
-    //       const solutionsComponent = document.getElementById("");
-    //       if (solutionsComponent) {
-    //         solutionsComponent.scrollIntoView({
-    //           behavior: "smooth",
-    //           block: "start",
-    //         });
-    //       }
-    //     } else {
-    //       localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-    //       router.push(`/`);
-    //     }
-    //   },
-    //   columnData: [
-    //     [
-    //       {
-    //         heading: "Blogs",
-    //         description: "Description here,,,",
-    //         image: ShootingStar,
-    //       },
-    //       {
-    //         heading: "Case Studies",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //       {
-    //         heading: "Guides",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //       {
-    //         heading: "White Papers",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //     ],
-    //   ],
-    // },
-    // {
-    //   navItemText: "Company",
-    //   onClick: () => {
-    //     if (pathname === "/") {
-    //       const solutionsComponent = document.getElementById("");
-    //       if (solutionsComponent) {
-    //         solutionsComponent.scrollIntoView({
-    //           behavior: "smooth",
-    //           block: "start",
-    //         });
-    //       }
-    //     } else {
-    //       localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-    //       router.push(`/`);
-    //     }
-    //   },
-    //   columnData: [
-    //     [
-    //       {
-    //         heading: "About Us",
-    //         description: "Description here,,,",
-    //         image: ShootingStar,
-    //       },
-    //       {
-    //         heading: "Team",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //       {
-    //         heading: "Careers",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //     ],
-    //   ],
-    // },
   ];
+  
   return (
     <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
       <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
@@ -452,6 +340,24 @@ export const Navbar = () => {
           )}
            {pathname=="/case-studies" && !showMenu &&   <button
             onClick={() => {router.push("/case-studies/search")}}
+            className="lg:hidden text-white p-1 ml-2 rounded-full bg-gray-700/80 "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="25"
+              height="25"
+              viewBox="0 0 30 30"
+            >
+              <path
+                fill="white"
+                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"
+              ></path>
+            </svg>
+          </button>}
+          {pathname=="/blogs" && !showMenu &&   <button
+            onClick={() => {router.push("/blogs/search")}}
             className="lg:hidden text-white p-1 ml-2 rounded-full bg-gray-700/80 "
           >
             <svg
