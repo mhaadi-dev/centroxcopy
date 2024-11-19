@@ -27,17 +27,19 @@ import { PortableComponent } from "@/Components/common/PortableText";
 import Image from "next/image";
 import { CalendlyWidget } from "./Calendly";
 import { text } from "stream/consumers";
-const userEmail=localStorage.getItem("usermail")
+
 export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
+  
   const [formModal, setFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 const [isClient,setIsClient]=useState(false)
+const [userEmail,setUserEmail]=useState('')
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     phone: "",
     country: "",
-    email: userEmail,
+    email: userEmail ,
     subject: "",
     budget: "",
     message: "",
@@ -148,8 +150,18 @@ const [isClient,setIsClient]=useState(false)
     }
   };
   useEffect(()=>{
+  const userEmail=localStorage.getItem("usermail")
+  console.log("userEmail",userEmail)  
+  if(userEmail){
+    setUserEmail(userEmail)
+  }
 setIsClient(true)
   },[])
+  useEffect(()=>{
+setFormData(prev=>{
+  return {...prev,email:userEmail}
+})
+  },[userEmail])
   return (
     <>
       {formModal && (
