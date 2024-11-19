@@ -27,7 +27,7 @@ import { PortableComponent } from "@/Components/common/PortableText";
 import Image from "next/image";
 import { CalendlyWidget } from "./Calendly";
 import { text } from "stream/consumers";
-
+const userEmail=localStorage.getItem("usermail")
 export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
   const [formModal, setFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -37,7 +37,7 @@ const [isClient,setIsClient]=useState(false)
     company: "",
     phone: "",
     country: "",
-    email: "",
+    email: userEmail,
     subject: "",
     budget: "",
     message: "",

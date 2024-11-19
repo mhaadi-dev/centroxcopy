@@ -49,7 +49,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
+import serviceHeroImg from "@/assets/serviceHeroImg.svg";
 import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";

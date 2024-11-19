@@ -10,17 +10,18 @@ import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import { CalendlyWidget } from "./Calendly";
 import CommonCard from "./CommonCard";
-import dummyDisplay from "@/assets/dummyDisplay.webp";
-
+import CommonResizeableCard from "./CommonResizeableCard";
+import dummyDisplay from "@/assets/dummyDisplay.webp"
 interface Props {
   data: any;
   caseStudyCards?: boolean;
   tags?:boolean;
   gridCols?:number
   headingClassName?:string
-  gradientBg?:boolean
+  gradientBg?:boolean,
+  resizeableCardsLayout?:boolean
 }
-const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridCols=0,headingClassName="",gradientBg=false }: Props) => {
+const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridCols=0,headingClassName="",gradientBg=false,resizeableCardsLayout }: Props) => {
   if (!data) {
     return null;
   }
@@ -45,12 +46,13 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
       />
       <div
         className={classNames(
-          "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr",
+          // "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr",
+          "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full",
           gridCols? `lg:grid-cols-${gridCols}`:"lg:grid-cols-2"
 
         )}
       >
-        {!caseStudyCards && data?.[0]?.data?.length > 0
+        {!caseStudyCards && !resizeableCardsLayout && data?.[0]?.data?.length > 0
           ? data?.[0].data?.map((card: any, index: number) => (
               <CommonCardwithIcon
                 key={index}
@@ -58,7 +60,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 Icon={card?.icon}
                 heading={card?.heading}
                 description={card?.description}
-                className="h-full !rounded-3xl w-full"
+                className="!h-auto !rounded-3xl w-full"
                 linkText={card?.linkText}
                 headingClassName={headingClassName}
                 symbol={card.symbol}
@@ -78,6 +80,27 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
           duration="20min read"
         />
         })}
+
+        {
+          resizeableCardsLayout && data?.[0]?.data?.length > 0
+          ? data?.[0].data?.map((card: any, index: number) => (
+              <CommonResizeableCard
+                key={index}
+                isGradientBg={true}
+                Icon={card.icon}
+                heading={card?.heading}
+                description={card?.description}
+                className="!h-auto !rounded-2xl w-full !border-none !bg-gradient-to-b from-[#1C2029]  to-[#000017] "
+                linkText={card?.linkText}
+                headingClassName={headingClassName}
+                symbol={card.symbol}
+                colSpan={card.colSpan}
+              />
+            ))
+          : ""}
+          
+          
+        
       </div>
       {data?.[0]?.caption && (
         <p className={classNames(text_para_2, "text-center my-4")}>

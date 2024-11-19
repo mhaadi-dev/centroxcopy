@@ -55,7 +55,7 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
-import AIagent from "@/assets/Agentic AI.webp"
+import AIagent from "@/assets/Agentic AI.svg"
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [

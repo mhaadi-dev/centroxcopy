@@ -53,7 +53,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 
 
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import finetuninghero from "@/assets/Fine Tuning.webp"
+import finetuninghero from "@/assets/Fine Tuning.svg"
 import servicebg from "@/assets/Servicebg.webp"
 
 export default async function Page({ params }: { params: { slug: string } }) {

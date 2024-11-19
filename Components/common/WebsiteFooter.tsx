@@ -42,7 +42,7 @@ export default function WebsiteFooter() {
   const router = useRouter();
   const { setView } = useContext(ServiceViewContext);
   const pathname = usePathname();
-  console.log("pathname is", pathname);
+ 
   return (
     // <footer
     //   aria-labelledby="footer-heading"

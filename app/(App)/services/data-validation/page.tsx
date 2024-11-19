@@ -61,7 +61,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
-import datavalidation from "@/assets/Data Validations.webp"
+import datavalidation from "@/assets/Data Validations.svg"
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));

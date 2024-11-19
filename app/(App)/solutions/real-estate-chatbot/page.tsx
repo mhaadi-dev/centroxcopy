@@ -58,7 +58,7 @@ import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSe
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg2.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg1.webp"
-import realestatehero from "@/assets/solutions/Real estatehero.webp"
+import realestatehero from "@/assets/solutions/Real estatehero.svg"
 import Icon27 from "@/assets/Icon-27.webp";
 import Icon28 from "@/assets/Icon-28.webp";
 import Icon29 from "@/assets/Icon-29.webp";

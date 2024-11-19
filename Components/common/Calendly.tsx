@@ -23,7 +23,7 @@ export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containercl
     const openCalendlyPopup = () => {
       setIsOpen(true);
     };
-  console.log(btnText,"from calandly")
+
     const closeCalendlyPopup = () => {
       setIsOpen(false);
   };

@@ -51,7 +51,7 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
-import modeloptimization from "@/assets/AI Model Optimization.webp"
+import modeloptimization from "@/assets/AI Model Optimization.svg"
 
 
 

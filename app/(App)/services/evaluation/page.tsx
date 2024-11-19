@@ -74,7 +74,7 @@ import gitlab from "@/assets/evaluationlogos/gitlab-svgrepo-com 1.webp"
 import circleci from "@/assets/evaluationlogos/circleci-icon 1.webp"
 import parchiderm from "@/assets/evaluationlogos/pachyderm (1).webp"
 import servicebg from "@/assets/Servicebg.webp"
-import evaluation from "@/assets/Pipeline.webp"
+import evaluation from "@/assets/Pipeline.svg"
 
 
 

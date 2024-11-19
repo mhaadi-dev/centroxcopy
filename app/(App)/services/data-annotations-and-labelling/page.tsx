@@ -51,9 +51,9 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
+import serviceHeroImg from "@/assets/serviceHeroImg.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import dataannotation from "@/assets/Data Annotations.webp"
+import dataannotation from "@/assets/Data Annotations.svg"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
