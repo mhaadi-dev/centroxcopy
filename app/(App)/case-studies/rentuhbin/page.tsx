@@ -1,8 +1,7 @@
 import React from "react";
-import LandingLayout from "../../layout";
+
 import CaseStudyBanner from "@/Components/common/CaseStudyBanner";
-import BannerSection from "@/Components/MainPageComponents/Banner";
-import { VerticalCarousal } from "@/Components/common/VeritcalCarousal";
+
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 
 import classNames, {
@@ -21,6 +20,7 @@ import aws from "@/assets/awslogo.webp"
 import imageBG2 from "@/assets/Image BG2.webp"
 import imageBG from "@/assets/ImageBG.webp"
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
+import Icon10 from "@/assets/Icon-10.webp"
 
 const page = ({ params }: { params: { slug: string } }) => {
 const slugOptions=[{
@@ -92,7 +92,7 @@ const heroSection1Data={
 const heroSection2Data={
     heading:"Research and Analysis",
     icon:"",
-    description:"Delivering comprehensive mental health support through an AI driven solution is a complex task. After understanding the requirements, our experts did a thorough research in finding out the best possible approach for developing the required solution.Through our study we concluded that in order to extend an appropriate mental health support, we need two separate platforms: one for users, and the other for the professional therapist. Both of these platforms are linked with a content management system,which is managed by the admin panel. The Admin panel  manages the CMS along the business aspects like: subscription and platform fee for the therapy session."
+    description:"After understanding and narrowing down the key requirements for the dumpster service, our experts did rigorous research to find the best possible and the most optimized approach for the given task. Our experts suggested having a separate app for both the consumers and service providers which will be administered by the admin panel. Where the customers end app will have the access to scheduling the delivery or pickup, tracking, and managing payment, the service providers app will be able to confirm the service along with being able to  market them for attracting the wide range of customer, while the admin panel will exercise its authority to monitor the order; its detail, status, and payments, offer support, along with managing taxes, and has the capability to block/unblock based on received feedback."
 }
 const heroSection3Data={
     heading:"Healthcare",
@@ -108,7 +108,7 @@ const heroSection4Data={
     {
       headerData: {
         tagText: "",
-        headingText: "Impact /Results ",
+        headingText: "Results ",
         para1Text:
           "The impact that our solution delivers is far reaching an extremely benefiting.",
         para2Text: "",
@@ -117,43 +117,21 @@ const heroSection4Data={
       data: [
         {
           Icon: null,
-          heading: "98",
+          heading: "30",
           symbol: "%",
-          description: "Response time",
+          description: "Reduced placement errors.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "96",
+          heading: "50",
           symbol: "%",
-          description: "Precise response",
+          description: "reducing communication latency.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
-        {
-          Icon: null,
-          heading: "90",
-          symbol: "%",
-          description: "Reliable booking",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "100",
-          symbol: "%",
-          description: "Effective therapy",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },{
-            Icon: null,
-            heading: "100",
-            symbol: "%",
-            description: "No.of People supported",
-            className: "h-full !rounded-3xl w-full",
-            linkText: "",
-          },
+       
       ],
     },
   ];
@@ -163,182 +141,212 @@ const heroSection4Data={
         tagText: "Requirements",
         headingText: "",
         para1Text:
-          "The Pocketmate.ai focuses on delivering quality mental health care to individuals all around the world. Some of the major aspects which this solution aims to cater are.",
+          "The Rentuhbin aims to ensure reliable and eco-friendly waste disposal, reducing the need for extra hassle and efficiently saving time and efforts. The key features expected from this solution are as follows.",
         para2Text: "",
         heading2Text: "",
       },
       data: [
         {
           Icon: null,
-          heading: "Personalized therapy",
+          heading: "Reliable Dumpster Booking App",
           symbol: "",
-          description: "The aim is to extend mental health support for people all around the world for enhanced mental well being, by leveraging users with an AI powered chatbot that has the ability to become your trusted friend to listen you out and offer personalized care to ensure contentment.",
+          description:
+            "The app provides convenience to users by offering a reliable alternative for booking a dumpster. Users can book or rent a dumpster at their desired location without the hassle of searching manually. Additionally, it enables communication between consumers and service providers within the app.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "Health monitoring and Assessment",
+          heading: "Damage Claim Center",
           symbol: "",
-          description: "Provide a means to make the user more self-aware, by enabling them to conduct an assessment which analyzes their current mental state, and effectively categorize their stress, depression, or anxiety level.",
+          description:
+            "To ensure a satisfying experience for both consumers and service providers, the app includes a complaint and damage claim center. This feature provides a sense of security and support for all parties involved.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "Suggest treatment based on assessment scores",
+          heading: "2$ Tool",
           symbol: "",
-          description: "Based on the assessment results ensure appropriate care according to their stress, anxiety, or depression intensity, by suggesting them with suitable exercises, tasks, or to do list, for an emotionally stable mental health.",
+          description:
+            "This AI-enabled tool offers prompt suggestions for booking a relevant dumpster suitable for the type of dump identified in a picture captured within the app. This ensures users book the right dumpster for their needs.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "In-depth online Therapy",
+          heading: "Placement Tool",
           symbol: "",
-          description: "Deliver an approach that effectively bridges the communication gap between the user and therapist, by not only providing a medium for scheduling and having a therapy session ,but also providing the chosen expert therapist with the user's mental health history which was communicated within the app by the user.",
+          description:
+            "This AI-powered tool allows users to take a picture of the intended dumpster placement location. It analyzes the dimensions of the space and cross-checks it with placement rules and regulations, providing a response on whether the location is appropriate for placing a dumpster.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
       ],
     },
   ];
+  
   const data3 = [
     {
       headerData: {
         tagText: "",
         headingText: "Benefits of Our Approach",
         para1Text:
-          "Our solution is determined to ensure convenient, prompt, and effective mental health help accessible to people across the globe, significantly enhancing their mental well-being. Some of the major benefits our solution contributes are:",
+          "Our solution ensures convenient, efficient, and eco-friendly waste disposal while prioritizing user satisfaction and reliability. Some of the major benefits this tool delivers are:",
         para2Text: "",
         heading2Text: "",
       },
       data: [
         {
           Icon: null,
-          heading: "User-Friendly App",
+          heading: "Convenient and Reliable Booking",
           symbol: "",
-          description: "The solution is designed from the user perspective to ensure quality mental health assistance whenever needed. The user interface and functionality are easy to use, making it accessible to users from diverse backgrounds and all age groups.",
+          description:
+            "This app provides a highly convenient way to book the size-appropriate dumpster of your choice. All service providers are verified, making it a reliable solution for potential users.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2
+        },
+        {
+          Icon: Icon10,
+          heading: "Discounts and Referrals",
+          symbol: "",
+          description:
+            "The app helps manage expenses by offering discounts to users who meet certain criteria. This allows users to book or rent dumpsters at reasonable rates, making waste management more affordable.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+          colSpan:1
+        },
+        {
+          Icon: Icon10,
+          heading: "Rating and Reviews",
+          symbol: "",
+          description:
+            "Consumers and service providers can rate and review each other based on their experiences. This feedback helps service providers improve their quality and guides users in selecting the best dumpster options.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+          colSpan:1
         },
         {
           Icon: null,
-          heading: "User-Controlled App Access",
+          heading: "Chat with Service Providers",
           symbol: "",
-          description: "We prioritize the security of your provided information and conversations with the AI assistant by implementing user-controlled access. This empowers users to authorize data sharing with a chosen professional therapist for therapeutic purposes.",
+          description:
+            "The app enables consumers and service providers to communicate safely within the app. This feature promotes active collaboration and keeps both parties updated throughout the process.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2
         },
         {
           Icon: null,
-          heading: "Semi-Automatic Professional Therapist Profile Verification",
+          heading: "Complaint Center and Damage Claims",
           symbol: "",
-          description: "To ensure credible therapy, we have a semi-automatic verification process for therapist profiles. Professionals upload their details, which are then validated by an admin to maintain a high standard of care.",
+          description:
+            "A dedicated complaint center and damage claim feature ensure safety and accountability. This allows users and service providers to address mishaps or potential fraud effectively.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2
         },
         {
-          Icon: null,
-          heading: "Reliable Therapy Sessions",
+          Icon: Icon10,
+          heading: "AI-Enabled Tool",
           symbol: "",
-          description: "Our solution makes reliable therapy sessions accessible to everyone. Users can book audio or video therapy appointments with a chosen therapist at their preferred date and time, ensuring a smooth session for improved mental health.",
+          description:
+            "The app integrates AI to efficiently suggest the most suitable dumpster size based on the collected waste. It also ensures that dumpsters fit appropriately in desired locations without violating placement regulations.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:1
         },
       ],
     },
   ];
+  
   const data4 = [
     {
       headerData: {
         tagText: "",
         headingText: "Challenges Encountered",
-        para1Text: "Pocketmate.ai faced several challenges in delivering swift and compassionate mental health support.",
+        para1Text: 
+          "Rentuhbin’s clients faced several pressing challenges that needed innovative solutions for efficient waste management.",
         para2Text: "",
         heading2Text: "",
       },
       data: [
         {
           Icon: null,
-          heading: "Delayed Response Times",
+          heading: "Accurate Sizing and Placement",
           symbol: "",
-          description: "Response time is a critical aspect that plays a key role in customer satisfaction. Existing systems had slower response rates, potentially affecting user satisfaction and harming platform reputation.",
+          description:
+            "Consumers struggled to select the correct dumpster size due to inaccurate system data, leading to inefficient placements. This resulted in consuming extra time and effort for users.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "Personalized and Focused Response",
+          heading: "Ineffective Spatial Data Utilization",
           symbol: "",
-          description: "Response quality is as important as speed in determining performance. Ensuring a focused, specific response from the AI chatbot for each user's query was challenging but crucial for effective mental health assistance.",
+          description:
+            "Traditional dumpster placements in urban settings were rigid and not data-driven. Misaligned placements caused garbage trucks to take longer routes, increasing fuel consumption and operational costs.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "Mood Detection Requirements",
+          heading: "Synchronization Gaps",
           symbol: "",
-          description: "Identifying the user's current mood and providing the required support is essential for personalized care. Accurately detecting emotions and delivering appropriate guidance proved challenging but necessary for a tailored user experience.",
+          description:
+            "A lack of real-time communication between consumers and providers led to miscommunication and delays. This ultimately resulted in additional waiting time for dumpster arrivals.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
         {
           Icon: null,
-          heading: "Privacy and Data Consent",
+          heading: "Complex Object Detection",
           symbol: "",
-          description: "Data protection and privacy are paramount in today’s digital landscape. Preventing unauthorized access and ensuring user consent for data usage were critical to maintaining trust and security on the platform.",
+          description:
+            "Variations in dumpster scale and orientation created challenges in accurately detecting placements within dynamic urban environments. This raised the need to repeatedly book appropriate dumpsters.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
       ],
     },
   ];
+  
   const data5 = [
     {
       headerData: {
         tagText: "",
-        headingText: "Delivered Solution Key Features",
-        para1Text: "Pocketmate introduces essential features designed to be your mental health support companion, offering assistance on the go.",
+        headingText: "Future prospects",
+        para1Text: "Centrox’s AI solution is engineered for future growth:",
         para2Text: "",
         heading2Text: "",
       },
       data: [
         {
           Icon: null,
-          heading: "AI Chatbot Assistant",
+          heading: "Multi-Language and Cultural Support ",
           symbol: "",
-          description: "The AI chatbot assistant provides users with a safe space to express their mental state without fear of judgment. Users can share their thoughts in text or audio, and the assistant responds with insights that encourage self-awareness by helping them to reorganize and redirect their thoughts. All conversations are protected with end-to-end encryption for privacy.",
+          description: "Our ongoing developments aim to enable support for multiple languages and cultural contexts, broadening Rentuhbin’s market reach, ultimately bridging the communication gap alongside delivering the dumpster service; making it more inclusive for people all around the globe.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2,
+          reverse:false
         },
         {
           Icon: null,
-          heading: "Health Center",
+          heading: "Enhanced Assistance",
           symbol: "",
-          description: "Through our health assessment feature, users can evaluate their mental health by completing a questionnaire. This helps in identifying levels of stress, anxiety, or depression. With expert input, users receive customized to-do lists based on the intensity of their symptoms to support better mental well-being.",
+          description: "Future iterations of our AI will incorporate reinforcement learning techniques, enabling real-time feedback loops to improve model performance during actual deployments. This evolution will allow the system to assist service providers by offering predictive analytics based on client interactions and behavioral trends.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2,
+          reverse:true
         },
-        {
-          Icon: null,
-          heading: "Mood Tracking",
-          symbol: "",
-          description: "This feature helps users track their mood over time, promoting self-awareness and supporting mental health by enabling users to monitor and manage their emotional patterns.",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "Remote Therapy",
-          symbol: "",
-          description: "Users can book audio or video therapy sessions with their chosen therapist at a convenient time and place. To enhance session effectiveness, users complete a questionnaire before the session to give therapists an overview of their mental health, allowing for better preparation and more personalized support.",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
+       
       ],
     },
   ];
+  
   
   
   
@@ -386,21 +394,23 @@ const heroSection4Data={
   ];
   const stepperdata = {
     heading: "Our Process",
-    description: "Our structured approach ensures a quality solution, developed through a series of focused steps.",
+    description: 
+      "Our structured approach ensures a quality solution, developed through a series of focused steps designed to meet your unique needs.",
     data: [
       {
-        title: "Deep Dive & Discovery",
+        title: "Identify the Problem",
         content: [
           {
             _type: "block",
             style: "normal",
-            _key: "6fc8ac5c69ae",
+            _key: "step1",
             markDefs: [],
             children: [
               {
                 _type: "span",
                 marks: [],
-                text: "We initiate our process by having a detailed discussion to understand your requirements, expectations, and goals. Our experts share their insights to craft a strategy aligned with your vision.",
+                text: 
+                  "As soon as you choose to collaborate with us, we instantly hold sessions with you to understand your vision, expectations, and goals. This helps us align our efforts to deliver the best possible results.",
               },
             ],
           },
@@ -408,18 +418,19 @@ const heroSection4Data={
         status: false,
       },
       {
-        title: "Custom Model Blueprinting",
+        title: "Gather Information",
         content: [
           {
             _type: "block",
             style: "normal",
-            _key: "6fc8ac5c69af",
+            _key: "step2",
             markDefs: [],
             children: [
               {
                 _type: "span",
                 marks: [],
-                text: "We collaborate with you to design a model that is best suited to meet your requirements, setting a strong foundation for solution development.",
+                text: 
+                  "After closely collaborating with you, our team begins gathering the relevant information and datasets. This step ensures the integrated AI tool can deliver the desired outcomes.",
               },
             ],
           },
@@ -427,18 +438,19 @@ const heroSection4Data={
         status: false,
       },
       {
-        title: "Data Curation & Enhancement",
+        title: "Research",
         content: [
           {
             _type: "block",
             style: "normal",
-            _key: "6fc8ac5c69b0",
+            _key: "step3",
             markDefs: [],
             children: [
               {
                 _type: "span",
                 marks: [],
-                text: "We prepare quality data by gathering relevant data, assigning appropriate labels, and structuring it effectively. This critical step empowers the model to achieve the desired performance.",
+                text: 
+                  "We conduct detailed research and explore various approaches and techniques to develop a solution that is both convenient and optimized for the user.",
               },
             ],
           },
@@ -446,18 +458,19 @@ const heroSection4Data={
         status: false,
       },
       {
-        title: "Iterative Training & Optimization",
+        title: "Brainstorm Solutions",
         content: [
           {
             _type: "block",
             style: "normal",
-            _key: "6fc8ac5c69b1",
+            _key: "step4",
             markDefs: [],
             children: [
               {
                 _type: "span",
                 marks: [],
-                text: "We iteratively train the model using a mix of fine-tuning, RHLF, and prompt engineering. Continuous performance evaluation helps refine the model for optimal results.",
+                text: 
+                  "Our experts actively collaborate to analyze the research and gathered data, brainstorming to architect the most optimized and appropriate approach to bring your solution to life.",
               },
             ],
           },
@@ -465,18 +478,19 @@ const heroSection4Data={
         status: false,
       },
       {
-        title: "Seamless Deployment & Integration",
+        title: "Prototype",
         content: [
           {
             _type: "block",
             style: "normal",
-            _key: "6fc8ac5c69b2",
+            _key: "step5",
             markDefs: [],
             children: [
               {
                 _type: "span",
                 marks: [],
-                text: "We ensure a seamless deployment of our solution into your existing environment, minimizing disruption and providing expert integration with your app or system.",
+                text: 
+                  "We bring your vision to reality by implementing the idea and developing a prototype. This prototype demonstrates the expected functionality and convenience of the final solution.",
               },
             ],
           },
@@ -484,18 +498,19 @@ const heroSection4Data={
         status: false,
       },
       {
-        title: "Ongoing Monitoring & Support",
+        title: "Test",
         content: [
           {
             _type: "block",
             style: "normal",
-            _key: "6fc8ac5c69b3",
+            _key: "step6",
             markDefs: [],
             children: [
               {
                 _type: "span",
                 marks: [],
-                text: "We offer continuous monitoring and support, with regular evaluations, retraining, and optimizations based on evolving data trends to ensure sustained value.",
+                text: 
+                  "In the final phase, we test the prototype thoroughly to ensure it meets the given requirements. This assures both developers and stakeholders of its performance in real-world scenarios.",
               },
             ],
           },
@@ -503,66 +518,61 @@ const heroSection4Data={
         status: false,
       },
     ],
-    btnText: "Let's Discuss Your Project",
+    btnText: "",
   };
+  
   const techStackData = [
     {
-      title: "AI Tools",
-      content: [
-        {
-          alt: "icon",
-          caption: "OpenAI",
-          img: aws, // Replace with the correct path to the OpenAI icon image
-        },
-        {
-          alt: "icon",
-          caption: "Agora",
-          img: aws, // Replace with the correct path to the Agora icon image
-        },
-        {
-          alt: "icon",
-          caption: "Stripe",
-          img: aws, // Replace with the correct path to the Stripe icon image
-        },
-        {
-          alt: "icon",
-          caption: "IAP",
-          img: aws, // Replace with the correct path to the IAP icon image
-        },
-      ],
-    },
-    {
-      title: "DevOps",
-      content: [
-        {
-          alt: "Icon",
-          caption: "AWS",
-          img: aws, // Replace with the correct path to the AWS icon image
-        },
-        {
-          alt: "Icon",
-          caption: "Cuba Backend",
-          img: aws, // Replace with the correct path to the Cuba Backend icon image
-        },
-      ],
-    },
-    {
-      title: "Frontend Development",
+      title: "Frontend Development (Mobile)",
       content: [
         {
           alt: "Icon",
           caption: "React Native",
-          img: aws, // Replace with the correct path to the React Native icon image
+          img: aws,
         },
         {
           alt: "Icon",
-          caption: "Java",
-          img: aws, // Replace with the correct path to the Java icon image
+          caption: "Javascript",
+          img: aws,
+        },
+       
+        {
+          alt: "Icon",
+          caption: "SAM/FAST SAM",
+          img: aws,
         },
         {
           alt: "Icon",
-          caption: "Kotlin",
-          img: aws, // Replace with the correct path to the Kotlin icon image
+          caption: "YOLO",
+          img: aws,
+        },
+        
+      
+        
+      ],
+    },
+    {
+      title: "Frontend Development (Web)",
+      content: [
+        {
+          alt: "Icon",
+          caption: "Next.js",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "Tailwind CSS",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "React Data Tables",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "Firebase Auth",
+          img: aws,
         },
       ],
     },
@@ -571,47 +581,71 @@ const heroSection4Data={
       content: [
         {
           alt: "Icon",
-          caption: "Node Services",
-          img: aws, // Replace with the correct path to the Node Services icon image
+          caption: "NestJS",
+          img: aws,
         },
+        {
+          alt: "Icon",
+          caption: "Javascript",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "Express",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "MongoDB",
+          img: aws,
+        },
+       
+       
+        
+      ],
+    },
+    {
+      title: "DevOps",
+      content: [
+        {
+          alt: "Icon",
+          caption: "AWS (S3, EC2)",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "GitLab CI",
+          img: aws,
+        },
+        
+      ],
+    },
+    {
+      title: "Third-Party Services",
+      content: [
+        {
+          alt: "Icon",
+          caption: "Stripe",
+          img: aws,
+        },
+      
+     
+        {
+          alt: "Icon",
+          caption: "Sentry",
+          img: aws,
+        },
+        {
+          alt: "Icon",
+          caption: "Firebase",
+          img: aws,
+        },
+       
       ],
     },
   ];
-  const arrayData = {
-    headerData: {
-      tagText: "",
-      heading: "Application for Other Business",
-      description: "While this is an amazing solution for providing mental health support, this also holds the potential for serving as a key aspect in benefiting businesses by providing them the required automation for improving their efficiency.",
-    },
-    data: [
-      {
-        heading: "Healthcare",
-        description:
-          "There are billions of people around the world,  and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease.",
-      },
-      {
-        heading: "Legal Service",
-        description:
-          "This solution has the potential for being transformed in such a way so that it can be used as a legal advisor and for effectively finding a trustworthy lawyer to provide you appropriate consultancy for your specific complex case, and accordingly suggest you strategy and measures for your case proceedings.",
-      },
-      {
-        heading: "Collaborative Approach",
-        description:
-          "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
-      },
-      {
-        heading: "Education",
-        description:
-          "This solution can be tweaked for providing the help to students, by providing an efficient chatbot assistant which can effectively answer the students queries and make their study time more productive by providing a dependable solution that reduces their time spent on research for finding a factually correct answer. Also can help students find a helpful tutor to assist them with their confusion.",
-      },
-      {
-        heading: "Banking and Finance",
-        description:
-          "The Banking and Finance sector can also  be benefitted by deploying this automated solution for their business task. This AI assistant can deliver promising and prompt support to the customer queries related to bank statements,transactions or any other query they might have; significantly reducing the need for visiting banks.",
-      },
-    ],
-    btnText: "Book A Call Today",
-  };
+  
+ 
   return (
    
       <>
@@ -622,7 +656,7 @@ const heroSection4Data={
       />
       <CommonDisplayCardsGrid
         data={data}
-        gridCols={4}
+        gridCols={2}
         headingClassName={text_h2_class}
         gradientBg
       />
@@ -635,12 +669,12 @@ const heroSection4Data={
   <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid data={data2}/>
   <SimpleIconHeroSection heroClassName='' bgClassName='' bgImage1={imageBG2} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
-  <CommonDisplayCardsGrid data={data3}/>
+  <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>
   <LogosSection data={techStackData}/>
-  <CommonDisplayCardsGrid data={data5}/>
- <PointsandImagesSection arrayData={arrayData}/>
+  <CommonDisplayCardsGrid data={data5} resizeableCardsLayout />
+ 
       <CaseStudyBanner heading='Meta and Centrox Partner to Drive Enterprise Adoption' para1Text='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
       </>
       

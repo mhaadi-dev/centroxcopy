@@ -97,12 +97,12 @@ export const StepperSection = ({
             <CalendlyWidget btnText="Let's Build One For You" />
           </div> */}
           <SectionHeader headingText={data?.heading} tagText="Process" para1Text={data?.description}/>
-          <div className=" ml-[0.3rem] items-start flex flex-col lg:flex-row w-full">
+          <div className=" ml-[0.3rem] items-start flex flex-col gap-y-2 lg:flex-row w-full">
              <div className={classNames("  flex flex-col lg:flex-row w-full lg:w-4/5 mx-auto justify-between mt-4 lg:mt-12 gap-4 items-center ",reverse ? "lg:!flex-row-reverse" : "")}>
             <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-full min-h-[70vh] max-h-max ">
               <p className={classNames(text_para_2)}>Our Process includes:</p>
               <Stepper data={stepperData} />
-              {true && (
+              { data?.btnText && (
                 <div className=" my-8 flex justify-start lg:justify-start ">
                   <CalendlyWidget btnText={data?.btnText||"Let's Discuss Your Project"} isArrow />
                 </div>

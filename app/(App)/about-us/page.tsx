@@ -53,59 +53,7 @@ caption:"",
 img:about6
 },
 ]
-const challengeData = [
-  {
-    headerData: {
-      tagText: "Challenges",
-      headingText: "The Challenge of Generic LLMs",
-      para1Text:
-        "Are you pushing the boundaries of what's possible with AI, but pre-trained models are holding you back?",
-      para2Text:
-        "You're not alone. Many startups are facing the limitations of generic LLMs.",
-    },
-    data: [
-      {
-        icon: null,
-        heading: "Domain-Speum-pagecific Challenges",
-        description:
-          "Generic models often struggle with industry-specific jargon, terminology, and nuanced context, leading to inaccurate or irrelevant outputs. This can severely impact the user experience and hinder the effectiveness of your AI applications.",
-        linkText: "",
-        linkWithIcon: true,
-        colSpan:2
-      },
-      {
-        icon: Icon39,
-        heading: "Performance Bottlenecks",
-        description:
-          "Large pre-trained models can be computationally expensive and slow, making them impractical for real-time applications or deployment on resource-constrained environments. This can lead to delays, increased costs, and frustrated users.",
-        linkText: "",
-        linkWithIcon: true,
-        colSpan:1
-      },
-      {
-        icon: Icon39,
-        heading: "Data Scarcity",
-        description:
-          "Training effective LLMs typically requires vast amounts of high-quality, labeled data, which can be costly and time-consuming to acquire. This can significantly slow down your development process and limit the potential of your AI solutions.",
-        linkText: "",
-        linkWithIcon: true,
-        colSpan:1
-      },
-      {
-        icon: null,
-        heading: "Bias & Fairness",
-        description:
-          "Pre-trained models can inherit biases from their training data, leading to unfair or discriminatory outputs. This can have serious ethical and legal implications for your business.",
-        linkText: "",
-        linkWithIcon: true,
-        colSpan:2
-      },
-    ],
-    caption:
-      "Centrox AI understands these pain points. We have the expertise to build custom LLMs that overcome these limitations and deliver exceptional results for your specific needs.",
-    btnText: "Schedule A Discussion",
-  },
-];
+
   return (
    
 <>
@@ -121,7 +69,6 @@ const challengeData = [
           <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
       </div>
-      <CommonDisplayCardsGrid resizeableCardsLayout  data={challengeData} gridCols={3}/>
       <Timeline/>
       <HeroSection moveToSection='solutions' btnText='Checkout Our Work' img={whatwedotoday} isGradientText={false} description="Today, Centrox is at the forefront of the Generative AI solutions industry. We collaborate with ambitious startups that are pushing the boundaries of what's possible with LLMs. We provide the technical expertise, strategic guidance, and collaborative approach needed to navigate the complexities of Generative AI development and deployment. Our solutions span various industries, including healthcare, fashion, real estate, and more, empowering startups to achieve their AI goals and gain a competitive edge." heading='What We Do Today: Augmenting Gen AI Startups'/>
       <GridPicturesAbout linkText="/team" data={data1} headingText='Our Culture & Values' paraText="We're a team of driven individuals who thrive on technical challenges, continuous learning, and open collaboration. We embrace the entrepreneurial spirit and understand the fast-paced nature of startups. Our commitment to transparency, data-driven decision-making, and delivering tangible results sets us apart."
