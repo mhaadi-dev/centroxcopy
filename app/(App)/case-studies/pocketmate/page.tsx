@@ -652,7 +652,7 @@ const heroSection4Data={
       />
       <CommonDisplayCardsGrid
         data={data}
-        gridCols={5}
+        gridCols={4}
         headingClassName={text_h2_class}
         gradientBg
       />
