@@ -347,6 +347,40 @@ export default async function Home() {
       ],
     },
   ];
+  const caseStudyData={
+    headerData:{
+      tagText:"Case Studies",
+      heading:"Real-World Results",
+      paraText:"Explore how we've partnered with startups to think, build and ship Gen AI solutions faster."
+    },
+    
+    data:[
+      {
+       title:"Pocketmate.ai: AI Based Mental Health Assistant",
+       subTagText:"Case Study",
+       description:"Discover the potential of AI to provide you dependable emotional support to uplift your mental health well being by utilizing the Large Language Models.",
+       tags:[
+        "AI","ML Ops","AWS","GANs","CVS"
+       ],
+       btnText:"Checkout Our Work",
+       link:"/case-studies/pocketmate",
+       isBookingButton:false,
+       image:SolutionsImage2
+      },
+      {
+        title:"Rentuhbin: book a dumpster whenever and wherever you want.",
+        subTagText:"Case Study",
+        description:"Rentuhbin bridges the gap between the rental dumping service providers and potential clients. It offers the clients with an online platform to rent a dumpster for disposing of their waste materials.",
+        tags:[
+         "AI","ML Ops","AWS","GANs","CVS"
+        ],
+        btnText:"Checkout Our Work",
+        link:"/case-studies/rentuhbin",
+        isBookingButton:false,
+        image:SolutionsImage4
+       }
+    ]
+  }
   return (
     <main className="flex min-h-screen flex-col bg-black overflow-x-hidden gap-10 max-w-[2500px] mx-auto">
       <Navbar />
@@ -374,7 +408,7 @@ export default async function Home() {
         h2class="lg:!w-full"
         caption=""
       />
-      {/* <LandingCaseStudySection/> */}
+      <LandingCaseStudySection {...caseStudyData}/>
       <LandingTestimonialSection />
       {/* <LandingBlogSection/> */}
       <LandingContactSection />

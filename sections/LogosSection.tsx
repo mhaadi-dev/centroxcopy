@@ -67,7 +67,7 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
                   );
                 })}
               </div>
-              <h3 className={classNames(sectionsubheadings, "!font-semibold")}>
+              <h3 className={classNames(sectionsubheadings, "!font-semibold mt-auto")}>
                 {x.title}
               </h3>
             </div>

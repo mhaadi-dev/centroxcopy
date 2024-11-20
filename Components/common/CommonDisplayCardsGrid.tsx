@@ -19,9 +19,11 @@ interface Props {
   gridCols?:number
   headingClassName?:string
   gradientBg?:boolean,
-  resizeableCardsLayout?:boolean
+  resizeableCardsLayout?:boolean,
+  reverse?:boolean
 }
-const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridCols=0,headingClassName="",gradientBg=false,resizeableCardsLayout }: Props) => {
+const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridCols,headingClassName="",gradientBg=false,resizeableCardsLayout,reverse }: Props) => {
+  
   if (!data) {
     return null;
   }
@@ -47,8 +49,8 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
       <div
         className={classNames(
           // "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr",
-          "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full",
-          gridCols? `lg:grid-cols-${gridCols}`:"lg:grid-cols-2"
+          "grid my-8  justify-between grid-cols-1  gap-8 w-full ",
+          gridCols? `lg:grid-cols-${gridCols}`:"lg:grid-cols-2 "
 
         )}
       >
@@ -87,7 +89,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
               <CommonResizeableCard
                 key={index}
                 isGradientBg={true}
-                Icon={card.icon}
+                Icon={card.Icon}
                 heading={card?.heading}
                 description={card?.description}
                 className="!h-auto !rounded-2xl w-full !border-none !bg-gradient-to-b from-[#1C2029]  to-[#000017] "
@@ -95,6 +97,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 headingClassName={headingClassName}
                 symbol={card.symbol}
                 colSpan={card.colSpan}
+                reverse={card.reverse}
               />
             ))
           : ""}

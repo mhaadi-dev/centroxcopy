@@ -81,7 +81,7 @@ const slugOptions=[{
    }
 }]
 const banner1Data={
-    heading:"Pocketmate.ai your reliable mental health support; ensuring emotional contentment whenever or wherever you need it.",
+    heading:"Pocketmate.ai your reliable mental health support.",
     para1Text:"Pocketmate.ai offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
 }
 const heroSection1Data={
@@ -221,6 +221,7 @@ const heroSection4Data={
           description: "The solution is designed from the user perspective to ensure quality mental health assistance whenever needed. The user interface and functionality are easy to use, making it accessible to users from diverse backgrounds and all age groups.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2
         },
         {
           Icon: null,
@@ -245,6 +246,7 @@ const heroSection4Data={
           description: "Our solution makes reliable therapy sessions accessible to everyone. Users can book audio or video therapy appointments with a chosen therapist at their preferred date and time, ensuring a smooth session for improved mental health.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:2
         },
       ],
     },
@@ -503,7 +505,7 @@ const heroSection4Data={
         status: false,
       },
     ],
-    btnText: "Let's Discuss Your Project",
+    btnText: "",
   };
   const techStackData = [
     {
@@ -577,41 +579,67 @@ const heroSection4Data={
       ],
     },
   ];
-  const arrayData = {
-    headerData: {
-      tagText: "",
-      heading: "Application for Other Business",
-      description: "While this is an amazing solution for providing mental health support, this also holds the potential for serving as a key aspect in benefiting businesses by providing them the required automation for improving their efficiency.",
+ 
+  const data6 = [
+    {
+      headerData: {
+        tagText: "",
+        headingText: "Application for Other Business",
+        para1Text: "While this is an amazing solution for providing mental health support, this also holds the potential for serving as a key aspect in benefiting businesses by providing them the required automation for improving their efficiency.",
+        para2Text: "",
+        heading2Text: "",
+      },
+      data: [
+        {
+          Icon: null,
+          heading: "Healthcare",
+          symbol: "",
+          description: "There are billions of people around the world, and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+        },
+        {
+          Icon: null,
+          heading: "Legal Service",
+          symbol: "",
+          description: "This solution has the potential for being transformed in such a way so that it can be used as a legal advisor and for effectively finding a trustworthy lawyer to provide you appropriate consultancy for your specific complex case, and accordingly suggest you strategy and measures for your case proceedings.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+          colSpan:2
+        },
+        {
+          Icon: null,
+          heading: "Collaborative Approach",
+          symbol: "",
+          description: "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+          colSpan:1
+          
+        },
+        {
+          Icon: null,
+          heading: "Education",
+          symbol: "",
+          description: "This solution can be tweaked for providing the help to students, by providing an efficient chatbot assistant which can effectively answer the students queries and make their study time more productive by providing a dependable solution that reduces their time spent on research for finding a factually correct answer. Also can help students find a helpful tutor to assist them with their confusion.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+          colSpan:1
+        },
+        {
+          Icon: null,
+          heading: "Banking and Finance",
+          symbol: "",
+          description: "The Banking and Finance sector can also be benefitted by deploying this automated solution for their business task. This AI assistant can deliver promising and prompt support to the customer queries related to bank statements, transactions, or any other query they might have; significantly reducing the need for visiting banks.",
+          className: "h-full !rounded-3xl w-full",
+          linkText: "",
+          colSpan:1
+        },
+      ],
+      btnText: "",
     },
-    data: [
-      {
-        heading: "Healthcare",
-        description:
-          "There are billions of people around the world,  and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease.",
-      },
-      {
-        heading: "Legal Service",
-        description:
-          "This solution has the potential for being transformed in such a way so that it can be used as a legal advisor and for effectively finding a trustworthy lawyer to provide you appropriate consultancy for your specific complex case, and accordingly suggest you strategy and measures for your case proceedings.",
-      },
-      {
-        heading: "Collaborative Approach",
-        description:
-          "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
-      },
-      {
-        heading: "Education",
-        description:
-          "This solution can be tweaked for providing the help to students, by providing an efficient chatbot assistant which can effectively answer the students queries and make their study time more productive by providing a dependable solution that reduces their time spent on research for finding a factually correct answer. Also can help students find a helpful tutor to assist them with their confusion.",
-      },
-      {
-        heading: "Banking and Finance",
-        description:
-          "The Banking and Finance sector can also  be benefitted by deploying this automated solution for their business task. This AI assistant can deliver promising and prompt support to the customer queries related to bank statements,transactions or any other query they might have; significantly reducing the need for visiting banks.",
-      },
-    ],
-    btnText: "Book A Call Today",
-  };
+  ];
+  
   return (
    
       <>
@@ -622,7 +650,7 @@ const heroSection4Data={
       />
       <CommonDisplayCardsGrid
         data={data}
-        gridCols={4}
+        gridCols={5}
         headingClassName={text_h2_class}
         gradientBg
       />
@@ -635,12 +663,13 @@ const heroSection4Data={
   <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid data={data2}/>
   <SimpleIconHeroSection heroClassName='' bgClassName='' bgImage1={imageBG2} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
-  <CommonDisplayCardsGrid data={data3}/>
+  <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={5}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>
   <LogosSection data={techStackData}/>
-  <CommonDisplayCardsGrid data={data5}/>
- <PointsandImagesSection arrayData={arrayData}/>
+  <CommonDisplayCardsGrid data={data5} />
+  <CommonDisplayCardsGrid data={data6} resizeableCardsLayout gridCols={3} />
+
       <CaseStudyBanner heading='Meta and Centrox Partner to Drive Enterprise Adoption' para1Text='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
       </>
       

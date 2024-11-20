@@ -20,6 +20,7 @@ interface CardProps {
   headingClassName?:string
   symbol?:string
   colSpan?:number
+  reverse?:boolean
 }
 
 const CommonResizeableCard = ({
@@ -33,12 +34,13 @@ const CommonResizeableCard = ({
   link = "",
   headingClassName="",
   symbol="",
-  colSpan
+  colSpan,
+  reverse=false
 }: CardProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className={classNames("mx-auto flex w-full flex-col cursor-default h-full",colSpan == 2 ? ` col-span-1 lg:col-span-${colSpan}` : "") }>
+    <div className={classNames("mx-auto flex w-full  flex-col cursor-default h-full",colSpan == 2 ? ` col-span-1 lg:col-span-${colSpan}` : "") }>
       <div
         aria-label="centrox-services"
         className={classNames(
@@ -59,13 +61,13 @@ const CommonResizeableCard = ({
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {colSpan == 2 ? <div className="flex items-center  justify-center flex-col  lg:flex-row gap-8">
-        <div className=" min-h-[200px]  lg:min-w-[360px] lg:h-auto">
-        <div className="">
+        {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-8",reverse ? "lg:flex-row-reverse justify-between":"")}>
+        <div className=" min-h-[200px] flex lg:min-w-[360px] lg:h-auto">
+        <div className="w-full ">
         <Image src={industryPic1} className="w-[360px] h-[250px]" alt="photo"></Image>
         </div>
         </div>
-        <div className="w-full flex flex-col gap-y-4 lg:w-1/2">
+        <div className="w-full  flex flex-col gap-y-4 lg:w-1/2">
         {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
         <div className="flex flex-col gap-y-2 lg:gap-y-4 flex-grow">
           <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
@@ -97,7 +99,7 @@ const CommonResizeableCard = ({
         </div>
         
         </div> : <>{Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
-        <div className="flex flex-col gap-y-2 lg:gap-y-4 flex-grow">
+        <div className="flex flex-col  gap-y-2 lg:gap-y-4 flex-grow">
           <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>

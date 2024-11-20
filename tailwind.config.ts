@@ -71,6 +71,7 @@ const config: Config = {
       screens: {
         xlc: { min: "1919" },
         xl:{min:"1140px"},
+        xl_large: { min: "1500px" },
         "3xl": { min: "2685px" },
         "4xl": { min: "2600px" },
       },
