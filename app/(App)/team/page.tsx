@@ -60,7 +60,7 @@ async function TeamPage() {
 		{
         designation: "Product Manager",
         img: abdullah,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/abdullah-qureshi5/",
         name: "Abdullah Qureshi",
       },
 	  {
@@ -90,13 +90,13 @@ async function TeamPage() {
 	  {
         designation: "DevOps Engineer",
         img: khalid,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/khalid-khushal",
         name: "Khalid Kushal",
       },
 	  {
         designation: "Frontend Engineer",
         img: hadi,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/muhammad-hadi-09a7a2251/",
         name: "Muhammad Hadi",
       },
 	  {
@@ -114,7 +114,7 @@ async function TeamPage() {
 	  {
         designation: "App Developer",
         img: alishba,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/alishbah-naveed/",
         name: "Alishba Naveed",
       },
 	  {
@@ -126,7 +126,7 @@ async function TeamPage() {
 	  {
         designation: "SEO Specialist",
         img: ahmad,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/muhammad-ahmad-52ba4a235",
         name: "Muhammad Ahmad",
       },
 	  {
@@ -138,7 +138,7 @@ async function TeamPage() {
 	  {
         designation: "Digital Marketer",
         img: niddaasim,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/nida-asim-90807a1a7/",
         name: "Nida Asim",
       },
 	  {

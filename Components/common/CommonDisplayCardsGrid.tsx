@@ -50,7 +50,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
         className={classNames(
           // "grid my-8  justify-between grid-cols-1 lg:grid-cols-2 gap-8 w-full auto-rows-fr",
           "grid my-8  justify-between grid-cols-1  gap-8 w-full ",
-          gridCols? `lg:grid-cols-${gridCols}`:"lg:grid-cols-2 "
+          gridCols ? `lg:grid-cols-${gridCols}`:"lg:grid-cols-2 "
 
         )}
       >

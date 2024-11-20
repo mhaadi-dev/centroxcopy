@@ -108,7 +108,7 @@ const heroSection4Data={
     {
       headerData: {
         tagText: "",
-        headingText: "Impact /Results ",
+        headingText: "Results ",
         para1Text:
           "The impact that our solution delivers is far reaching an extremely benefiting.",
         para2Text: "",
@@ -230,6 +230,7 @@ const heroSection4Data={
           description: "We prioritize the security of your provided information and conversations with the AI assistant by implementing user-controlled access. This empowers users to authorize data sharing with a chosen professional therapist for therapeutic purposes.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:1
         },
         {
           Icon: null,
@@ -238,6 +239,7 @@ const heroSection4Data={
           description: "To ensure credible therapy, we have a semi-automatic verification process for therapist profiles. Professionals upload their details, which are then validated by an admin to maintain a high standard of care.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
+          colSpan:1
         },
         {
           Icon: null,
@@ -661,9 +663,9 @@ const heroSection4Data={
         position="CEO DERQ"
       />
   <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
-  <CommonDisplayCardsGrid data={data2}/>
+  <CommonDisplayCardsGrid  data={data2}/>
   <SimpleIconHeroSection heroClassName='' bgClassName='' bgImage1={imageBG2} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
-  <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={5}/>
+  <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>
   <LogosSection data={techStackData}/>

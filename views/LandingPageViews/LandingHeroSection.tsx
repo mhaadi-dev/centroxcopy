@@ -8,7 +8,7 @@ import classNames, { text_para_main } from '@/helpers/common';
 
 const LandingHeroSection = () => {
     return (
-        <section className="relative w-full h-auto py-4 sm:h-[87vh] pt-32 sm:pt-32">
+        <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
           <Image
             id="hero-bg"
             src={heroBg}
