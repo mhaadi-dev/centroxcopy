@@ -37,7 +37,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
         className={classNames(
-          "flex mt-10 pt-[2rem] lg:pt-[6rem] xl:pt-[7rem]  w-[100%] 2xl:w-5/5  lg:pl-0    flex-col  lg:flex-row gap-y-6 lg:gap-0 justify-between items-center",
+          "flex mt-10 pt-[2rem]  lg:pt-[3rem] xl:pt-[0rem]  w-[100%] 2xl:w-5/5  lg:pl-0    flex-col  lg:flex-row gap-y-6 lg:gap-0 justify-between items-center",
           props?.heroClassName
         )}
       >
@@ -135,7 +135,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
               src={props?.img}
               alt="hero-img"
               objectFit="fill"
-              className="w-full object-fill opacity-100 xl:w-[90%] mx-a rounded-2xl  "
+              className="w-full object-fill  opacity-100 xl:w-[90%] mx-a rounded-2xl  "
             />
           )}
         </div>
