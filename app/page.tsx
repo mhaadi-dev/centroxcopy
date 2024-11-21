@@ -356,7 +356,7 @@ export default async function Home() {
     
     data:[
       {
-       title:"Pocketmate.ai: AI Based Mental Health Assistant",
+       title:"Pocketmate.AI: AI Based Mental Health Assistant",
        subTagText:"Case Study",
        description:"Discover the potential of AI to provide you dependable emotional support to uplift your mental health well being by utilizing the Large Language Models.",
        tags:[

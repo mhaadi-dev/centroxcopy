@@ -114,6 +114,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Centrox’s attention to detail ensures precise object detection, segmentation, and landmark recognition, making it ideal for applications like autonomous vehicles, medical imaging, and facial recognition.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
+          colSpan: 2,
         },
         {
           icon: Icon13, // Ensure you have the correct icon for Efficient Annotation
@@ -122,6 +123,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Centrox's annotation processes allow large-scale data handling, enhancing productivity in areas such as sports analytics, surveillance, and autonomous driving systems.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
+          colSpan: 1,
         },
         {
           icon: Icon14, // Ensure you have the correct icon for Competitive Pricing
@@ -138,6 +140,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Receive customized categories and multiple attributes per instance, matching your exact project requirements.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon9, // Ensure you have the correct icon for Domain-Specific Expertise
@@ -146,6 +149,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Our deep understanding of NLPs fits our workflow in assisting in your critical application development.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon12, // Ensure you have the correct icon for Security and Compliance
@@ -154,6 +158,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We safeguard the sensitive information of your data to industry standards, providing you with peace of mind.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
+          colSpan: 1,
         },
       ],
       caption: "",
@@ -512,6 +517,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
           <CommonDisplayCardsGrid
             data={benefitsData}
+            resizeableCardsLayout
+            gridCols={3}
           />
           <StepperSection data={stepperdata} />
           {/* <LogosSection

@@ -89,7 +89,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
               <CommonResizeableCard
                 key={index}
                 isGradientBg={true}
-                Icon={card.Icon}
+                Icon={card.icon}
                 heading={card?.heading}
                 description={card?.description}
                 className="!h-auto !rounded-2xl w-full !border-none !bg-gradient-to-b from-[#1C2029]  to-[#000017] "
