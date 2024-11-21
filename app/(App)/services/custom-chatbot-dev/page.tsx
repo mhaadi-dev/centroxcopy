@@ -306,7 +306,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const heroData = {
     heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
     description:
-      "Be Available For Your Customers 24/7.Partner with Centrox AI to build intelligent chatbots that know your business as well as you do,, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
+      "Be Available For Your Customers 24/7. Partner with Centrox AI to build intelligent chatbots that know your business as well as you do, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
     btnText: "Book A Call Now",
     includeDots: false,
     img: serviceHeroImg,
@@ -483,6 +483,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
           <CommonDisplayCardsGrid
             data={benefitsData}
+            gridCols={3}
           />
           <StepperSection data={stepperdata} />
           <LogosSection

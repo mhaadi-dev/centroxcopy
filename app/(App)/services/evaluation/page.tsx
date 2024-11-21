@@ -164,6 +164,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Transitioning models from development to production can be slow, error-prone, and require significant manual effort.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon10,
@@ -172,6 +173,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "As your models and data grow, ensuring they can handle increasing demand and perform efficiently becomes critical.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon11,
@@ -180,6 +182,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Inconsistencies in environments and dependencies can make it difficult to reproduce experiment results and deploy models reliably.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon4,
@@ -188,6 +191,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Manually tracking model performance, detecting drift, and managing updates can be time-consuming and inefficient.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon5, // Added a new icon for this challenge
@@ -196,6 +200,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Siloed workflows between data scientists and engineers can hinder innovation and slow down development cycles.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
       ],
       caption:
@@ -523,7 +528,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
            
           />
           <LogosCarousel />
-          <CommonDisplayCardsGrid data={challengeData} />
+          <CommonDisplayCardsGrid data={challengeData} gridCols={3} resizeableCardsLayout />
           <CommonDisplayCardsGrid data={benefitsData} />
           {/* <StepperSection data={stepperdata} /> */}
           <LogosSection

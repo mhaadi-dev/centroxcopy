@@ -122,6 +122,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Pre-trained models often struggle to adapt to your unique dataset and specific task requirements, leading to subpar performance and relevance.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon10,
@@ -130,6 +131,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Delivering consistently reliable and precise outputs can be a challenge when using pre-trained models in real-world scenarios.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon11,
@@ -146,6 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Pre-trained models often require significant computational resources, making it difficult to run efficiently, especially with limited infrastructure.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
       ],
       caption:
@@ -429,7 +432,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgClassName="opacity-60" 
           />
           <LogosCarousel />
-          <CommonDisplayCardsGrid data={challengeData} />
+          <CommonDisplayCardsGrid data={challengeData} resizeableCardsLayout gridCols={3} />
           <CommonDisplayCardsGrid data={benefitsData} />
           <StepperSection data={stepperData} />
           <LogosSection

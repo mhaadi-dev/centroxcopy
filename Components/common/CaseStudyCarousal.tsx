@@ -12,6 +12,7 @@ import classNames, { text_h2_class, text_para_2 } from "@/helpers/common";
 import Link from "next/link";
 import { CalendlyWidget } from "./Calendly";
 
+
 export const CaseStudyCarousal = ({ data }: any) => {
   const [gradientAngle, setGradientAngle] = useState(96);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,7 +40,7 @@ export const CaseStudyCarousal = ({ data }: any) => {
     <>
       <div className={classNames(" overflow-hidden my-5 3xl:mx-auto mt-8")}>
         <div
-          className="w-full relative h-auto  flex flex-col   2xl:min-h-[600px]  rounded-3xl"
+          className="w-full relative h-auto  flex flex-col lg:min-h-[500px] 2xl:min-h-[620px]  rounded-3xl"
           key={currentIndex}
         
         >
@@ -50,10 +51,10 @@ export const CaseStudyCarousal = ({ data }: any) => {
           />
           
           <div
-            className="p-[1rem] lg:py-[3rem] lg:px-[4rem] flex-1 transition-all duration-500 flex-col-reverse flex xl:flex-row items-center justify-between gap-4 2xl:gap-x-[3rem] rounded-3xl w-full h-full text-3xl text-black"
+            className="p-[1rem] lg:py-[3rem] lg:px-[4rem] flex-1 transition-all duration-500 flex-col-reverse flex xl:flex-row items-center justify-between gap-6 2xl:gap-x-[3rem] rounded-3xl w-full h-full text-3xl text-black"
             style={backgroundStyle}
           >
-            <section aria-label="case studies" className="w-full flex flex-col gap-y-2 lg:gap-y-4 bg-transparent bg-none z-[10] relative">
+            <section aria-label="case studies" className="w-full flex flex-col gap-y-2 lg:gap-y-6 bg-transparent bg-none z-[10] relative">
               <header className="flex flex-col gap-y-2 lg:gap-y-4">
                {data[currentIndex].subTagText && <h5 className="text-blue-azure text-[0.9rem] uppercase">
                   {data[currentIndex].subTagText}
@@ -78,7 +79,7 @@ export const CaseStudyCarousal = ({ data }: any) => {
               {
                 data[currentIndex].btnText && data[currentIndex].isBookingButton && <CalendlyWidget btnText={data[currentIndex].btnText} isArrow/>
               }
-            {data[currentIndex]?.tags?.length &&  <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex items-center gap-4 mt-2 ">
+            {data[currentIndex]?.tags?.length &&  <section aria-label="centrox case studies tags" className=" w-full flex-wrap flex items-center gap-4 mt-1 ">
                 {
                    data[currentIndex].tags.map((tag: string, index: number) => {
                     return <div key={index} className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] "> {tag}</div>

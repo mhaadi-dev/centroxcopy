@@ -34,7 +34,7 @@ const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
 
   return (
     <>
-      <nav className="hidden xl:flex justify-center fixed z-40 top-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900">
+      <nav className="hidden xl:flex justify-center fixed z-10 top-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900">
         <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px] relative">
           <div className="flex w-full items-center gap-x-6">
             <div className="flex items-center gap-x-2">

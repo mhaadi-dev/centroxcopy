@@ -15,8 +15,12 @@ import navSolutionBG1 from "@/assets/navSolutionBG1.webp";
 import navSolutionBG2 from "@/assets/navSolutionBG2.webp";
 import navSolutionBG3 from "@/assets/navSolutionBG3.webp";
 import navSolutionBG4 from "@/assets/navSolutionBG4.webp";
-import Linkedin from "@/assets/LinkedIn.webp";
-import X from "@/assets/X.webp";
+import Linkedin from "@/assets/linkedin.svg";
+import X from "@/assets/twitter.svg";
+import health from "@/assets/industries/health.svg"
+import retail from "@/assets/industries/retail.svg"
+import realestate from "@/assets/industries/real-estate.svg"
+import fintech from "@/assets/industries/fintech.svg"
 import Mail from "@/assets/mail.webp";
 
 export const Navbar = () => {
@@ -71,87 +75,67 @@ export const Navbar = () => {
       columnData: [
         [
           {
-            heading: "Generate AI",
-            description: "Description here",
-            image: ShootingStar,
-          },
-          {
             heading: "Custom LLM Development",
-            description: "Description here",
-            image: "",
+            description: "Description here...",
+            image: ShootingStar,
+            link:"/services/custom-llm-dev"
           },
           {
             heading: "Custom Chatbot Development",
             description: "Description here",
             image: "",
+            link:"/services/custom-chatbot-dev"
           },
           {
-            heading: "AI Agent",
+            heading: "Fine-Tuning & Optimization",
             description: "Description here",
             image: "",
+            link:"/services/ai-finetuning"
+          },
+          {
+            heading: "Agentic AI",
+            description: "Description here",
+            image: "",
+            link:"/services/ai-agents"
+          },
+         
+        ],
+        [
+          {
+            heading: "Annotation & Labeling",
+            description: "Description here,,,",
+            image: ShootingStar,
+            link:"/services/data-annotations-and-labelling "
+          },
+          {
+            heading: "Data Validation & Quality Assurance",
+            description: "Description here,,,",
+            image: "",
+            link:"/services/data-validation"
           },
         ],
         [
           {
-            heading: "Data Annotation",
+            heading: "Deployment & Scaling",
             description: "Description here,,,",
             image: ShootingStar,
+            link:"/services/custom-llm-dev"
           },
           {
-            heading: "Data Annotation & Labeling",
+            heading: "Optimization",
             description: "Description here,,,",
             image: "",
+            link:"/services/model-optimization"
           },
           {
-            heading: "Data Validation",
+            heading: "Evaluation",
             description: "Description here,,,",
             image: "",
+            link:"/services/evaluation"
           },
+         
         ],
-        [
-          {
-            heading: "Model Development",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "Specialized Model Dev",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "AI Fine Tuning",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "AI Algorithm Design",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
-        [
-          {
-            heading: "ML Ops",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "AI Model Deployment",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "Model Optimization",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "ML Ops Consultation",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
+       
       ],
     },
     {
@@ -174,6 +158,7 @@ export const Navbar = () => {
             description: "Body of the card...",
             bg_img: navSolutionBG1,
             isCardNavItem: true,
+            link:"/solutions/snap-and-measure"
           },
         ],
         [
@@ -182,6 +167,7 @@ export const Navbar = () => {
             description: "Description here,,,",
             bg_img: navSolutionBG2,
             isCardNavItem: true,
+            link:"/solutions/real-estate-chatbot"
           },
         ],
         [
@@ -190,6 +176,7 @@ export const Navbar = () => {
             description: "Description here,,,",
             bg_img: navSolutionBG3,
             isCardNavItem: true,
+            link:"/solutions/mental-health-chatbot"
           },
         ],
         [
@@ -198,6 +185,7 @@ export const Navbar = () => {
             description: "Description here,,,",
             bg_img: navSolutionBG4,
             isCardNavItem: true,
+            link:"/solutions/labelling-dresses-with-ai"
           },
         ],
       ],
@@ -219,87 +207,72 @@ export const Navbar = () => {
         [
           {
             heading: "Health",
-            description: "Description here,,,",
-            image: ShootingStar,
+            description: "",
+            image: health,
+            link:"/industries/health"
           },
           {
             heading: "Fintech",
-            description: "Description here,,,",
-            image: "",
+            description: "",
+            image: fintech,
+            link:"/industries/fintech"
           },
           {
             heading: "Retail",
-            description: "Description here,,,",
-            image: "",
+            description: "",
+            image: retail,
+            link:"/industries/retail"
           },
           {
             heading: "Real-estate",
-            description: "Description here,,,",
-            image: "",
+            description: "",
+            image: realestate,
+            link:"/industries/real-estate"
           },
         ],
       ],
     },
+    
     {
-      navItemText: "About us",
+      navItemText: "Company",
       onClick: () => {
         router.push("/about-us");
       },
       columnData: [
         [
           {
-            heading: "Health",
+            heading: "About us",
             description: "Description here,,,",
             image: ShootingStar,
+            link:"/about-us"
           },
           {
-            heading: "Fintech",
+            heading: "Team",
             description: "Description here,,,",
             image: "",
+            link:"/team"
           },
           {
-            heading: "Retail",
+            heading: "Contact us",
             description: "Description here,,,",
             image: "",
+            link:"/contact"
           },
-          {
-            heading: "Real-estate",
-            description: "Description here,,,",
-            image: "",
-          },
+          
         ],
       ],
+      socialIcons:[
+        {
+          icon:Linkedin,
+          link:"https://www.linkedin.com/company/centroxai"
+        },
+        {
+          icon:X,
+          link:"https://twitter.com/CentroxAI"
+        }
+      ]
     },
-    {
-      navItemText: "Team",
-      onClick: () => {
-        router.push("/team");
-      },
-      columnData: [
-        [
-          {
-            heading: "Health",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "Fintech",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "Retail",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "Real-estate",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
-      ],
-    },
+
   ];
   
   return (
@@ -323,6 +296,7 @@ export const Navbar = () => {
                 columnData={navItem?.columnData}
                 isMobileView={showMenu}
                 key={index}
+                socialIcons={navItem?.socialIcons}
               />
             );
           })}

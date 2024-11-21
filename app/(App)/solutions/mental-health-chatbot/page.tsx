@@ -166,7 +166,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const cardsData = [
     {
       headerData: {
-        tagText: "A Solution",
+        tagText: "Solutions",
         headingText:
           "Targeted, Boundaried Support with Centrox AI's Health Chatbot",
         para1Text:

@@ -2,7 +2,7 @@ import { ProductsCarousal } from '@/Components/common/ProductsCarousal'
 import SectionTag from '@/Components/common/SectionTag'
 import dummyDisplay from "@/assets/dummyDisplay.webp";
 import {CaseStudyCarousal} from "@/Components/common/CaseStudyCarousal"
-import classNames, { text_h2_class, text_para_2 } from '@/helpers/common';
+import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from '@/helpers/common';
 interface CaseStudyDataProps {
   headerData: {
     tagText?: string;
@@ -23,7 +23,7 @@ interface CaseStudyDataProps {
 
 const LandingCaseStudySection = (data:CaseStudyDataProps) => {
   return (
-    <section className='text-white w-[90%] sm:w-auto mx-[1.5rem] 2xl:mx-[15rem] mt-12'>
+    <section className={classNames(section_wrapper_class)}>
       
     <header aria-label="Centrox case studies" className="text-white flex flex-col gap-y-4 ">
   { data.headerData.tagText &&  <SectionTag text={data.headerData.tagText}/>}

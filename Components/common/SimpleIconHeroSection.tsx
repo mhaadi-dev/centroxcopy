@@ -30,7 +30,7 @@ const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bu
             {headerDescription && <p className={classNames(text_para_2," w-[98%] sm:w-[67%]  mx-auto text-center")}>{headerDescription}</p>}
         </section>
         
-        <section className={classNames('relative py-10 mt-8 lg:mt-12 2xl:mt-24 sm:pb-14 overflow-hidden',heroClassName)}>
+        <section className={classNames('relative py-10 mt-8   lg:mt-12 2xl:mt-24 sm:pb-14 overflow-hidden',heroClassName)}>
               
             <div className={classNames(
                 'absolute flex justify-end inset-0 w-full h-full',

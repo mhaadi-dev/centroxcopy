@@ -180,6 +180,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Our team possesses deep knowledge of AI optimization techniques and best practices.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan: 1
         },
         {
           icon: Icon13,
@@ -188,6 +189,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We tailor our optimization strategies to your specific model architecture, data, and deployment environment.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan: 2
         },
         {
           icon: Icon14,
@@ -196,6 +198,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We work closely with your team, fostering knowledge transfer and empowering you to take ownership of your optimization process.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan: 2
         },
         {
           icon: Icon6, 
@@ -204,6 +207,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We focus on delivering measurable improvements in performance, efficiency, and scalability.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan: 1
         },
       ],
       caption: "", 
@@ -226,6 +230,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Reduce model size and computational requirements without sacrificing accuracy, enabling faster inference and deployment on resource-constrained environments.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon10,
@@ -234,6 +239,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Eliminate redundant parameters and connections, streamlining your model for improved efficiency.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon11,
@@ -242,14 +248,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Transfer knowledge from larger, complex models to smaller, more efficient ones, maintaining performance while reducing resource consumption.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
-          icon: Icon4,
+          icon: null,
           heading: "Hardware-Specific Optimization",
           description:
             "Fine-tune models for optimal performance on specific hardware architectures (CPUs, GPUs, TPUs, etc.).", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon5, // Ensure to use a relevant icon for this entry
@@ -258,6 +266,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Collaborate with your team to explore alternative model architectures or algorithms that may offer better performance or efficiency trade-offs.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
       ],
       caption:
@@ -547,7 +556,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
           <LogosCarousel />
           <CommonDisplayCardsGrid data={benefitsData2} />
-          <CommonDisplayCardsGrid data={challengeData} />
+          <CommonDisplayCardsGrid data={challengeData} resizeableCardsLayout gridCols={3} />
           <CommonDisplayCardsGrid data={benefitsData} />
           {/* <StepperSection data={stepperdata} /> */}
           {/* <LogosSection
@@ -558,7 +567,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
           /> */}
           <PointsandImagesSection arrayData={arrayData} />
-          <CommonDisplayCardsGrid data={benefitsData3} />
+          <CommonDisplayCardsGrid data={benefitsData3} resizeableCardsLayout gridCols={3} />
           {/* <LandingCaseStudySection/> */}
           <FaqsSection
             addTag={true}

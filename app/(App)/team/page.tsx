@@ -84,7 +84,7 @@ async function TeamPage() {
 	  {
         designation: "Backend Engineer",
         img: adeel,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/adeelirshad808/",
         name: "Adeel Irshad",
       },
 	  {
@@ -120,7 +120,7 @@ async function TeamPage() {
 	  {
         designation: "QA Engineer",
         img: zain,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/ali-zain-455740198/",
         name: "Ali Zain",
       },
 	  {
@@ -132,7 +132,7 @@ async function TeamPage() {
 	  {
         designation: "Marketing Executive",
         img: nidaabid,
-        linkedINUrl: "",
+        linkedINUrl: "http://www.linkedin.com/in/nida-abid-100",
         name: "Nida Abid",
       },
 	  {
@@ -144,7 +144,7 @@ async function TeamPage() {
 	  {
         designation: "Digital Marketing Lead",
         img: saad,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/saad-ali-7203b7218/",
         name: "Saad Ali",
       }, 
 	  {
@@ -156,7 +156,7 @@ async function TeamPage() {
 	  {
         designation: "AI Engineer",
         img: haider,
-        linkedINUrl: "http://www.linkedin.com/in/muhammad-hamza-shahbaz-a37a861a5",
+        linkedINUrl: "linkedin.com/in/haiderr-zaidi",
         name: "Zulfiqar Haider Zaidi",
       },
 	  

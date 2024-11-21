@@ -171,6 +171,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents are designed with specific goals in mind, whether it's maximizing customer satisfaction, optimizing supply chains, or detecting fraud.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon13,
@@ -179,6 +180,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents can operate independently, making decisions and taking actions without constant human supervision.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon9,
@@ -187,6 +189,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents can learn from their experiences and adjust their behavior to achieve their goals in dynamic environments.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon6,
@@ -195,6 +198,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents can communicate and cooperate with other AI agents to achieve complex, multi-step tasks.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon7,
@@ -203,6 +207,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents provide insights into their decision-making processes, promoting transparency and trust.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          
         },
       ],
       caption:
@@ -275,6 +280,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Agents learn through trial and error, optimizing their actions to maximize rewards and minimize penalties.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon13,
@@ -283,6 +289,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Enables agents to understand and respond to human language, facilitating seamless communication and collaboration.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon6,
@@ -291,6 +298,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon9,
@@ -299,14 +307,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Enable the development of scalable and fault-tolerant AI agent architectures.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
-          icon: Icon14,
+          icon: null,
           heading: "LangChain Framework", // Updated heading
           description:
             "A powerful framework for developing applications powered by language models, enabling seamless interaction with various tools and data sources.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
       ],
       caption: "", // No caption needed
@@ -333,14 +343,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Intelligent chatbots and virtual assistants that provide 24/7 support, handle inquiries, and resolve issues proactively.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
-          icon: Icon10,
+          icon: null,
           heading: "Data Analysis & Insights", // Updated heading
           description:
             "AI agents that extract valuable information from large datasets, identify trends, and generate actionable insights to inform your strategic decision-making.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:2
         },
         {
           icon: Icon11,
@@ -349,6 +361,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Streamline and optimize your workflows with AI agents that perform repetitive tasks, manage complex processes, and make data-driven decisions, freeing up your team for higher-value activities.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon4,
@@ -357,6 +370,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Deliver personalized recommendations to your customers, boosting engagement and sales.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon5, // Replace this icon with the appropriate one for Fraud Detection & Prevention
@@ -365,6 +379,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents that monitor transactions, identify suspicious activity, and prevent fraud in real-time.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
       ],
       caption:
@@ -671,13 +686,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
           
           <LogosCarousel />
-          <CommonDisplayCardsGrid data={benefitsData} />
+          <CommonDisplayCardsGrid data={benefitsData} gridCols={3} />
           <IndustryBanner heading="Understanding the Agentic AI Paradigm" description="AI agents represent a significant advancement in artificial intelligence, moving beyond passive tools to active, intelligent entities that can operate autonomously and collaborate effectively."/>
-          <CommonDisplayCardsGrid data={benefitsData3} />
+          <CommonDisplayCardsGrid data={benefitsData3} resizeableCardsLayout gridCols={3} />
           <CommonDisplayCardsGrid data={benefitsData4} />
-          <CommonDisplayCardsGrid data={benefitsData5} />
+          <CommonDisplayCardsGrid data={benefitsData5} resizeableCardsLayout gridCols={3} />
           
-          <CommonDisplayCardsGrid data={challengeData} />
+          <CommonDisplayCardsGrid data={challengeData} resizeableCardsLayout gridCols={3} />
           
           <StepperSection data={stepperData} />
           <LogosSection
