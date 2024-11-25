@@ -97,7 +97,7 @@ export const NavLink = ({ text, onClick, columnData, isMobileView = false,social
      
       <div
         className={classNames(
-          "absolute rounded-b-2xl top-[3.3rem] origin-center transform -translate-x-[23%] 2xl:-translate-x-[27%] pt-7 bg-[#0A0A0A] w-[40%] md:w-auto text-white px-6 py-4 rounded-md shadow-lg transition-all duration-300 ease-out scale-95 opacity-0 pointer-events-none",
+          "absolute rounded-b-2xl top-[2.9rem] origin-center transform -translate-x-[23%] 2xl:-translate-x-[27%] pt-7 bg-[#0A0A0A] w-[40%] md:w-auto text-white px-6 py-4 rounded-md shadow-lg transition-all duration-300 ease-out scale-95 opacity-0 pointer-events-none",
           isOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none",
           columnData?.length < 3 ? "left-1/2 !-translate-x-1/2" : ""
         )}
@@ -105,10 +105,10 @@ export const NavLink = ({ text, onClick, columnData, isMobileView = false,social
        
         <div className="text-[1rem] font-semibold uppercase">{text}</div>
 
-        <div className="flex flex-wrap lg:flex-nowrap gap-x-[2rem]">
+        <div className="flex flex-wrap lg:flex-nowrap gap-x-[1rem]">
           {columnData?.length > 0 &&
             columnData.map((dt: any, i: number) => (
-              <div className="w-full flex flex-col" key={i}>
+              <div className="w-full  flex flex-col" key={i}>
                 <DropdownListItem mainHeading={text} listData={dt} />
               </div>
             ))}

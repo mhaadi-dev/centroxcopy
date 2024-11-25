@@ -50,7 +50,7 @@ export const Navbar = () => {
     };
   
   
-    const interval = setInterval(checkAndScroll, 100);
+    const interval = setInterval(checkAndScroll, 300);
   
     
     setTimeout(() => {
@@ -76,25 +76,25 @@ export const Navbar = () => {
         [
           {
             heading: "Custom LLM Development",
-            description: "Description here...",
+            description: "Bringing your vision to reality by tailoring LLM development as per your needs.",
             image: ShootingStar,
             link:"/services/custom-llm-dev"
           },
           {
             heading: "Custom Chatbot Development",
-            description: "Description here",
+            description: "Get a reliable AI chatbot assistant providing focused responses; reducing your burden.",
             image: "",
             link:"/services/custom-chatbot-dev"
           },
           {
             heading: "Fine-Tuning & Optimization",
-            description: "Description here",
+            description: "Fine tune and optimize your model to receive your desired outcomes.",
             image: "",
             link:"/services/ai-finetuning"
           },
           {
             heading: "Agentic AI",
-            description: "Description here",
+            description: "Experience powerful performance with Intelligent AI Agents.",
             image: "",
             link:"/services/ai-agents"
           },
@@ -103,13 +103,13 @@ export const Navbar = () => {
         [
           {
             heading: "Annotation & Labeling",
-            description: "Description here,,,",
+            description: "Enrich your models performance; through quality data processing.",
             image: ShootingStar,
             link:"/services/data-annotations-and-labelling "
           },
           {
             heading: "Data Validation & Quality Assurance",
-            description: "Description here,,,",
+            description: "Experience finest AI performance with the accurate and validated data.",
             image: "",
             link:"/services/data-validation"
           },
@@ -117,19 +117,19 @@ export const Navbar = () => {
         [
           {
             heading: "Deployment & Scaling",
-            description: "Description here,,,",
+            description: "Experience smooth and scalable ML Ops integration contributing quality performance.",
             image: ShootingStar,
             link:"/services/custom-llm-dev"
           },
           {
             heading: "Optimization",
-            description: "Description here,,,",
+            description: "Optimize your model and receive precise and accurate results.",
             image: "",
             link:"/services/model-optimization"
           },
           {
             heading: "Evaluation",
-            description: "Description here,,,",
+            description: "Analyze your model performance to build a more efficient solution for the market.",
             image: "",
             link:"/services/evaluation"
           },
@@ -155,7 +155,7 @@ export const Navbar = () => {
         [
           {
             heading: "Snap & Measure",
-            description: "Body of the card...",
+            description: "Making measurements convenient for apparel businesses specially.",
             bg_img: navSolutionBG1,
             isCardNavItem: true,
             link:"/solutions/snap-and-measure"
@@ -164,7 +164,7 @@ export const Navbar = () => {
         [
           {
             heading: "Real-estate Chatbot",
-            description: "Description here,,,",
+            description: "Get your complex analysis done within a few seconds through this efficient AI assistant.",
             bg_img: navSolutionBG2,
             isCardNavItem: true,
             link:"/solutions/real-estate-chatbot"
@@ -173,7 +173,7 @@ export const Navbar = () => {
         [
           {
             heading: "Mental Health Chatbot",
-            description: "Description here,,,",
+            description: "Find your 24/7 reliable emotional support and experience an uplifted mental health.",
             bg_img: navSolutionBG3,
             isCardNavItem: true,
             link:"/solutions/mental-health-chatbot"
@@ -182,7 +182,7 @@ export const Navbar = () => {
         [
           {
             heading: "Labeling Dresses with AI",
-            description: "Description here,,,",
+            description: "Automate your fashion e-commerce business with an AI solution that ensures accurate tagging.",
             bg_img: navSolutionBG4,
             isCardNavItem: true,
             link:"/solutions/labelling-dresses-with-ai"
@@ -207,25 +207,25 @@ export const Navbar = () => {
         [
           {
             heading: "Health",
-            description: "",
+            description: "Ensure rapid and efficient healthcare through our intelligent GenAI solutions.",
             image: health,
             link:"/industries/health"
           },
           {
             heading: "Fintech",
-            description: "",
+            description: "Let Gen AI powered solutions handle the complex computation for your financial affairs.",
             image: fintech,
             link:"/industries/fintech"
           },
           {
             heading: "Retail",
-            description: "",
+            description: "Empower your retail business with GenAI to experience significant growth.",
             image: retail,
             link:"/industries/retail"
           },
           {
             heading: "Real-estate",
-            description: "",
+            description: "Experience excellence by automating your real estate sector through GenAI based solutions.",
             image: realestate,
             link:"/industries/real-estate"
           },
@@ -242,19 +242,19 @@ export const Navbar = () => {
         [
           {
             heading: "About us",
-            description: "Description here,,,",
+            description: "Learn more about our journey,values, vision and mission for the AI revolution.",
             image: ShootingStar,
             link:"/about-us"
           },
           {
             heading: "Team",
-            description: "Description here,,,",
+            description: "Find the team of passionate AI experts, driven to bring your vision to reality.",
             image: "",
             link:"/team"
           },
           {
             heading: "Contact us",
-            description: "Description here,,,",
+            description: "Feel free to reach out to us for a consultancy session with our AI experts.",
             image: "",
             link:"/contact"
           },
