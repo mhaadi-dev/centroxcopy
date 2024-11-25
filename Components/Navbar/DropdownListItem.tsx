@@ -24,7 +24,7 @@ const DropdownListItem = ({ listData, mainHeading }: Props) => {
                 <Image
                   src={item.image}
                   alt="ai"
-                  className="h-[24px] w-[24px] -ml-4"
+                  className="h-[24px] w-[24px]  -ml-4"
                 />
               )}
               <div>
@@ -40,20 +40,21 @@ const DropdownListItem = ({ listData, mainHeading }: Props) => {
               </div>
            </div>:   <div
               key={i}
-              className="cursor-pointer group   hover:text-blue-azure flex items-start  justify-start gap-x-3 min-w-[15rem] max-w-full p-1 rounded-md text-white"
+              className="cursor-pointer group    hover:text-blue-azure flex items-start  justify-start gap-x-2 min-w-[20rem] max-w-full  rounded-md text-white"
             
             >
               {item?.image  && (
-                <div className="h-[20px] text-white  group-hover:text-blue-azure mt-3 w-[20px]">
+                <div className="h-[20px] flex -ml-2    text-white  group-hover:text-blue-azure mt-3 w-[20px]">
                    <Image
                   src={item.image}
                   alt="ai"
+                  objectFit="cover"
                   className="w-full h-full "
                 />
                 </div>
                
               )}
-              <div className="my-2 ">
+              <div className="my-2 w-[90%] ">
                 <Link href={item.link||"/"} >
                 <h3 className={classNames("w-full group flex gap-x-2 text-[1rem]",)}>
                   {item.heading}
