@@ -23,7 +23,13 @@ import niddaasim from "@/assets/teampics/nidaasim.webp"
 import saad from "@/assets/teampics/saadali.webp"
 import khalid from "@/assets/teampics/khalid.webp"
 import hamza from "@/assets/teampics/hamza.webp"
-
+import ans from "@/assets/teampics/ans.webp"
+import hassam from "@/assets/teampics/hassam.webp"
+import javeriasyed from "@/assets/teampics/javeriasyed.webp"
+import moazzam from "@/assets/teampics/moazam.webp"
+import haiderali from "@/assets/teampics/haider.webp"
+import javaryakamran from "@/assets/teampics/javeriakamran.webp"
+import aftab from "@/assets/teampics/aftab.webp"
 async function TeamPage() {
   const teamData = await sanityFetch({
     query: TEAM_SECTION_QUERY,
@@ -57,6 +63,25 @@ async function TeamPage() {
       secondSectionHeading: "Leaders of Centrox​​​​‌‌‍​",
       teamSectionHeading: "Meet Our Team",
       teamSectionImgs:[ 
+        {
+          designation: "AI Engineer",
+          img: haider,
+          linkedINUrl: "linkedin.com/in/haiderr-zaidi",
+          name: "Zulfiqar Haider Zaidi",
+        },
+        {
+          designation: "AI Engineer",
+          img: hassam,
+          linkedINUrl: "https://www.linkedin.com/in/badarjaffer",
+          name: "Hassam Nazir",
+        },
+        {
+          designation: "AI Engineer",
+          img: ans,
+          linkedINUrl: "https://www.linkedin.com/in/ans-hussain/",
+          name: "Ans Hussain",
+        },
+
 		{
         designation: "Product Manager",
         img: abdullah,
@@ -78,7 +103,7 @@ async function TeamPage() {
 	  {
         designation: "Backend Engineer",
         img: omer,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/muhammad-omer-qasim-03a218242/",
         name: "Muhammad Omer",
       },
 	  {
@@ -87,35 +112,53 @@ async function TeamPage() {
         linkedINUrl: "https://www.linkedin.com/in/adeelirshad808/",
         name: "Adeel Irshad",
       },
-	  {
+	   {
         designation: "DevOps Engineer",
         img: khalid,
         linkedINUrl: "https://www.linkedin.com/in/khalid-khushal",
         name: "Khalid Kushal",
       },
-	  {
+      {
+        designation: "UI/UX Designer",
+        img: javeriasyed,
+        linkedINUrl: "https://www.linkedin.com/in/javeria-syed-492702210/",
+        name: "Javeria Syed",
+      },
+	   {
         designation: "Frontend Engineer",
         img: hadi,
         linkedINUrl: "https://www.linkedin.com/in/muhammad-hadi-09a7a2251/",
         name: "Muhammad Hadi",
       },
-	  {
+	   {
         designation: "Frontend Engineer",
         img: wahab,
         linkedINUrl: "",
         name: "Abdul Wahab",
       },
+      {
+        designation: "Full Stack Developer",
+        img: moazzam,
+        linkedINUrl: "https://www.linkedin.com/in/syed-moazzam/",
+        name: "Syed Moazzam Ahmed",
+      },
+      {
+        designation: "Full Stack Developer",
+        img: haiderali,
+        linkedINUrl: "",
+        name: "Haider Ali",
+      },
 	  {
         designation: "App Developer",
         img: faseeh,
-        linkedINUrl: "",
+        linkedINUrl: "https://www.linkedin.com/in/faseeh-abbas-khan/",
         name: "Faseeh Abbas",
       }, 
 	  {
         designation: "App Developer",
         img: alishba,
         linkedINUrl: "https://www.linkedin.com/in/alishbah-naveed/",
-        name: "Alishba Naveed",
+        name: "Alishbah Naveed",
       },
 	  {
         designation: "QA Engineer",
@@ -153,12 +196,19 @@ async function TeamPage() {
         linkedINUrl: "http://www.linkedin.com/in/muhammad-hamza-shahbaz-a37a861a5",
         name: "Hamza Shahbaz",
       },
-	  {
-        designation: "AI Engineer",
-        img: haider,
-        linkedINUrl: "linkedin.com/in/haiderr-zaidi",
-        name: "Zulfiqar Haider Zaidi",
+      {
+        designation: "Copy Writer",
+        img: javaryakamran,
+        linkedINUrl: "https://www.linkedin.com/in/javarya-kamran-b41a3a222/",
+        name: "Javarya Kamran",
       },
+      {
+        designation: "Operations Manager",
+        img: aftab,
+        linkedINUrl: "http://www.linkedin.com/in/muhammad-aftab-a4b132169",
+        name: "Muhammad Aftab",
+      },
+	
 	  
 	],
 	thirdSectionDescription:"",

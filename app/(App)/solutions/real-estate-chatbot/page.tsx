@@ -76,6 +76,8 @@ import Icon40 from "@/assets/Icon-40.webp";
 import Icon41 from "@/assets/Icon-41.webp";
 import Icon48 from "@/assets/Icon-48.webp";
 import Icon9 from "@/assets/Icon-9.webp";
+import realestate_agents from "@/assets/bentobox/Real estate agents.svg"
+import agencies from "@/assets/bentobox/Agencies.svg"
 
 
 
@@ -356,7 +358,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const cardsData3 = [
     {
       headerData: {
-        tagText: "",
+        tagText: "Innovation",
         headingText: "Empowering Real Estate Professionals",
         para1Text:
           "You're One Step Away from Real Estate Innovation. Our chatbot serves diverse stakeholders in the industry.",
@@ -365,12 +367,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon31, // Replace with the correct icon for Real Estate Agents
+          icon: null, // Replace with the correct icon for Real Estate Agents
           heading: "Real Estate Agents",
           description:
             "This efficient AI chatbot for the real estate industry can facilitate efficient property evaluations, improving client interactions and accelerating transactions, which can significantly increase your business profit.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:2,
+          bentoImage:realestate_agents
         },
         {
           icon: Icon32, // Replace with the correct icon for Investors
@@ -379,6 +383,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "It lets investors make decisions based on data and enhance their portfolio management. This can actually speed up the decision-making process for investors by providing them with a compelling report that encourages them to proceed forward.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon38, // Replace with the correct icon for Construction Firms
@@ -387,14 +392,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Smooths the process of document reviews to maintain project timelines and compliance. This holds critical importance in providing you with a dependable way to review the documents without going through the hassle of searching.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
-          icon: Icon41, // Replace with the correct icon for Agencies
+          icon: null, // Replace with the correct icon for Agencies
           heading: "Agencies",
           description:
             "Provides immediate support through our chatbot, allowing agents to concentrate on closing deals. This can help agencies focus more on compelling clients to invest.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:2,
+          bentoImage:agencies
         },
       ],
       caption:
@@ -599,6 +607,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           /> 
             <CommonDisplayCardsGrid
             data={cardsData3}
+            resizeableCardsLayout
+            gridCols={3}
           /> 
           {/* <LogosSection
             data={techStackData}

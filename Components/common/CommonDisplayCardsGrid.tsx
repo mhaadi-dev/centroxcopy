@@ -98,6 +98,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 symbol={card.symbol}
                 colSpan={card.colSpan}
                 reverse={card.reverse}
+                bentoImage={card?.bentoImage}
               />
             ))
           : ""}

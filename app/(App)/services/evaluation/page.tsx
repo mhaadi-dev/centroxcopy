@@ -75,7 +75,7 @@ import circleci from "@/assets/evaluationlogos/circleci-icon 1.webp"
 import parchiderm from "@/assets/evaluationlogos/pachyderm (1).webp"
 import servicebg from "@/assets/Servicebg.webp"
 import evaluation from "@/assets/Pipeline.svg"
-
+import deployment_bottlenecks from "@/assets/bentobox/Deployment Bottlenecks.svg"
 
 
 
@@ -158,13 +158,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon9,
+          icon: null,
           heading: "Deployment Bottlenecks", // Updated heading
           description:
             "Transitioning models from development to production can be slow, error-prone, and require significant manual effort.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:deployment_bottlenecks
         },
         {
           icon: Icon10,

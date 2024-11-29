@@ -50,7 +50,8 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 
-
+import generalization from "@/assets/bentobox/Generalization.svg"
+import optimizing_efficiency from "@/assets/bentobox/Optimizing Efficiency.svg"
 
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import finetuninghero from "@/assets/Fine Tuning.svg"
@@ -122,7 +123,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Pre-trained models often struggle to adapt to your unique dataset and specific task requirements, leading to subpar performance and relevance.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:generalization
         },
         {
           icon: Icon10,
@@ -131,7 +133,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Delivering consistently reliable and precise outputs can be a challenge when using pre-trained models in real-world scenarios.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          bentoImage:null
         },
         {
           icon: Icon11,
@@ -140,6 +143,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Mitigating inherent biases in large pre-trained models is crucial to ensure fair and ethical AI solutions.",
           linkText: "",
           linkWithIcon: true,
+          bentoImage:null
         },
         {
           icon: Icon4,
@@ -148,7 +152,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Pre-trained models often require significant computational resources, making it difficult to run efficiently, especially with limited infrastructure.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:optimizing_efficiency
+
         },
       ],
       caption:
@@ -422,7 +428,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
-            heading={"Fine-Tune A Models To Make It Truly Yours"}
+            heading={"Fine-Tune Models To Make It Truly Yours"}
             description={
               " At Centrox AI, we help you go beyond the limitations of pre-trained models and achieve peak performance on your specific tasks."
             }

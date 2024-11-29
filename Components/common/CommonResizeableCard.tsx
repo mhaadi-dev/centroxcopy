@@ -21,6 +21,7 @@ interface CardProps {
   symbol?:string
   colSpan?:number
   reverse?:boolean
+  bentoImage?:any
 }
 
 const CommonResizeableCard = ({
@@ -35,7 +36,8 @@ const CommonResizeableCard = ({
   headingClassName="",
   symbol="",
   colSpan,
-  reverse=false
+  reverse=false,
+  bentoImage=null
 }: CardProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -44,7 +46,7 @@ const CommonResizeableCard = ({
       <div
         aria-label="centrox-services"
         className={classNames(
-          "bg-gray-900 relative px-8 py-8 rounded-xl  flex  flex-col gap-y-4 transition-all ease-in duration-200 h-full",
+          "bg-gray-900 relative px-8 py-8 rounded-xl  flex  flex-col gap-y-2 transition-all ease-in duration-200 h-full",
           className,colSpan ? "lg:flex-1":""
         )}
         style={{
@@ -61,16 +63,16 @@ const CommonResizeableCard = ({
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-8",reverse ? "lg:flex-row-reverse justify-between":"")}>
-        <div className=" min-h-[200px] flex lg:min-w-[360px] lg:h-auto">
+        {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-4 lg:gap-6",reverse ? "lg:flex-row-reverse justify-between":"")}>
+        <div className=" min-h-[150px] flex lg:min-w-[360px] lg:h-auto">
         <div className="w-full ">
-        <Image src={industryPic1} className="w-[360px] h-[250px]" alt="photo"></Image>
+        {bentoImage && <Image loading="lazy" src={bentoImage}  className="" alt="photo"></Image>}
         </div>
         </div>
-        <div className="w-full  flex flex-col gap-y-4 lg:w-1/2">
+        <div className="w-full  flex flex-col gap-y-2 lg:w-1/2">
         {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
-        <div className="flex flex-col gap-y-2 lg:gap-y-4 flex-grow">
-          <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
+        <div className="flex flex-col gap-y-1 flex-grow">
+          <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
         {linkText && (
@@ -99,7 +101,7 @@ const CommonResizeableCard = ({
         </div>
         
         </div> : <>{Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
-        <div className="flex flex-col  gap-y-2 lg:gap-y-4 flex-grow">
+        <div className="flex flex-col  gap-y-1  flex-grow">
           <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>

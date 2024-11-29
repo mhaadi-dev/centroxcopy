@@ -10,31 +10,29 @@ import { ServiceViewContext } from "@/store/ServiceViewProivder";
 import { SHOW_SERVICES } from "@/helpers/enums";
 const navigation = {
   services: [
-    { name: "Solving Data", href: "/solving-data" },
-    { name: "Model Dev", href: "#" },
-    { name: "MLOps", href: "#" },
-    { name: "Custom Chatbot", href: "/custom-chatbot" },
+    { name: "Custom LLM Development", href: "/services/custom-llm-dev" },
+    { name: "Data Annotation and Labelling", href: "/services/data-annotations-and-labelling" },
+    { name: "Fine Tuning and Optimization", href: "/services/ai-finetuning" },
+    { name: "Evaluation", href: "/services/evaluation" },
   ],
 
   products: [
-    { name: "Full Body Measurement", href: "/bodyMeasurements" },
-    { name: "Real-estate Chatbot", href: "/chatbotRealEstate" },
-    { name: "Labeling Dresses with AI", href: "#" },
-    { name: "LLM Based Health Chatbot", href: "/healthChatbot" },
+    { name: "Full Body Measurement", href: "/solutions/snap-and-measure" },
+    { name: "Real-estate Chatbot", href: "/solutions/real-estate-chatbot" },
+    { name: "Labeling Dresses with AI", href: "/solutions/labelling-dresses-with-ai" },
+    { name: "LLM Based Health Chatbot", href: "/solutions/mental-health-chatbot" },
     //   { name: 'Partners', href: '#' },
   ],
   company: [
-    // { name: "Talk to An Expert", href: "/aiExpert" },
-    { name: "Talk to An Expert", href: "/" },
-
+    { name: "About Us ", href: "/about-us" },
+    { name: "Team ", href: "/team" },
     { name: "Contact Us", href: "/contact" },
-    // { name: "About Us ", href: "/about" },
-    { name: "About Us ", href: "/" },
+  
+    ,
 
-    // { name: "Team ", href: "/team" },
-    { name: "Team ", href: "/" },
-
-    // { name: "Why Us", href: "#" },
+   
+    
+ 
   ],
 };
 
@@ -44,153 +42,6 @@ export default function WebsiteFooter() {
   const pathname = usePathname();
  
   return (
-    // <footer
-    //   aria-labelledby="footer-heading"
-    //   className="my-12 max-w-[2500px] "
-    // >
-    //   <h2 id="footer-heading" className="sr-only">
-    //     Footer
-    //   </h2>
-    //   <div className="mx-auto  border-blue-200   pb-8 pt-16 sm:pt-24 lg:pt-32 w-4/5  ">
-    //     <div className="flex flex-col lg:flex-row justify-between  gap-12">
-    //       <figure className="space-y-8 w-4/5 flex justify-center lg:items-start lg:justify-start mx-auto  lg:w-2/5 ">
-    //         <Image
-    //           alt="Company name"
-    //           src={AppLogo}
-    //           className="w-[10rem] sm:w-80 cursor-pointer  "
-    //           onClick={() => {
-    //             router.push("/");
-    //           }}
-    //         />
-    //       </figure>
-
-    //       <div className="mt-8 lg:mt-16 flex flex-col lg:flex-row justify-between  gap-8 xl:col-span-2 xl:mt-0 w-full lg:w-3/5">
-    //         <div className=" w-full  flex justify-start  lg:justify-center">
-    //           <div>
-    //             <h3 className="text-xs lg:text-xl  font-bold leading-6  text-gray-gray2 ">
-    //               Services
-    //             </h3>
-    //             <ul
-    //               role="list"
-    //               className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
-    //             >
-    //               {navigation.services.map((item) => (
-    //                 <li
-    //                   key={item.name}
-    //                   className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white cursor-pointer"
-    //                   // onClick={() => {
-    //                   //   if (pathname !== "/" && item.name !== "Solving Data") {
-    //                   //     router.push(`/`);
-    //                   //     localStorage.setItem(
-    //                   //       SHOW_SERVICES,
-    //                   //       JSON.stringify(true)
-    //                   //     );
-    //                   //   }
-    //                   //   //@ts-ignore
-    //                   //   if (item.name !== "Solving Data" ||  item.name !== "Custom Chatbot") {
-    //                   //     setView(item.name);
-    //                   //     const solutionsComponent =
-    //                   //       document.getElementById("services");
-    //                   //     if (solutionsComponent) {
-    //                   //       solutionsComponent.scrollIntoView({
-    //                   //         behavior: "smooth",
-    //                   //         block: "start",
-    //                   //       });
-    //                   //     }
-    //                   //   }
-    //                   //   if (item.name == "Solving Data") {
-    //                   //     router.push("/solving-data");
-    //                   //   }
-    //                   //   if (item.name === "Custom Chatbot") {
-    //                   //     router.push("/custom-chatbot");
-    //                   //   }
-    //                   // }}
-    //                 >
-    //                   {item.name}
-    //                 </li>
-    //               ))}
-    //             </ul>
-    //           </div>
-    //         </div>
-    //         <div className="w-full   flex justify-start  lg:justify-center md:gap-8  ">
-    //           <div>
-    //             <h3 className="text-xs lg:text-xl  font-bold leading-6  text-gray-gray2 ">
-    //               Products
-    //             </h3>
-    //             <ul
-    //               role="list"
-    //               className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
-    //             >
-    //               {navigation.products.map((item) => (
-    //                 <li key={item.name}>
-    //                   <Link
-    //                     // href={item.href}
-    //                     href={""}
-    //                     className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white"
-    //                   >
-    //                     {item.name}
-    //                   </Link>
-    //                 </li>
-    //               ))}
-    //             </ul>
-    //           </div>
-    //         </div>
-    //         <div className=" w-full   flex justify-start  lg:justify-center  md:gap-8">
-    //           <div>
-    //             <h3 className="text-xs lg:text-xl   font-bold leading-6  text-gray-gray2 ">
-    //               Company
-    //             </h3>
-    //             <ul
-    //               role="list"
-    //               className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
-    //             >
-    //               {navigation.company.map((item) => (
-    //                 <li key={item.name}>
-    //                   <a
-    //                     href={item.href}
-    //                     // href=""
-    //                     className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-white"
-    //                   >
-    //                     {item.name}
-    //                   </a>
-    //                 </li>
-    //               ))}
-    //             </ul>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className="mt-4">
-    //       <p className="text-sm sm:text-md font-bold lg:text-xl leading-6 text-white sm:text-lg mt-4">
-    //         Follow Us At
-    //       </p>
-    //       <div className=" flex space-x-4 lg:space-x-12 mt-4">
-    //         <Link
-    //           href="https://www.linkedin.com/company/centroxai"
-    //           target="_blank"
-    //         >
-    //           <Image
-    //             src={LinkedinIcon}
-    //             alt="Logo"
-    //             className="w-4 sm:w-8 cursor-pointer"
-    //           />
-    //         </Link>
-    //         <Link href="https://twitter.com/CentroxAI" target="_blank">
-    //           <Image
-    //             src={TwitterIcon}
-    //             alt="Logo"
-    //             className="w-4 sm:w-8 cursor-pointer"
-    //           />
-    //         </Link>
-    //       </div>
-    //     </div>
-    //     <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-4">
-    //       <p className="text-sm leading-5 text-white text-center">
-    //         &copy; 2024 Centrox Technologies, Inc. All rights reserved.
-    //       </p>
-    //     </div>
-    //   </div>
-    // </footer>
     <footer
       aria-labelledby="footer-heading"
       className="my-12 max-w-[2500px] "
@@ -199,8 +50,8 @@ export default function WebsiteFooter() {
         Footer
       </h2>
       <div className="mx-auto  border-blue-200   pb-8 pt-16 sm:pt-24 lg:pt-32 w-4/5  ">
-        <div className="flex flex-col lg:flex-row justify-start lg:justify-between lg:items-center gap-12">
-          <figure className="space-y-8 w-4/5 flex justify-center mx-auto lg:items-start lg:mx-0 lg:justify-start   lg:w-2/5 ">
+        <div className="flex flex-col lg:flex-row justify-between  gap-12">
+          <figure className="space-y-8 w-4/5 flex justify-center lg:items-start lg:justify-start mx-auto  lg:w-2/5 ">
             <Image
               alt="Company name"
               src={AppLogo}
@@ -211,8 +62,110 @@ export default function WebsiteFooter() {
             />
           </figure>
 
-          <div className="mt-0">
-          <p className="text-sm sm:text-md font-bold lg:text-xl leading-6 text-white sm:text-lg mt-0">
+          <div className="mt-8 lg:mt-16 flex flex-col lg:flex-row justify-between  gap-8 xl:col-span-2 xl:mt-0 w-full lg:w-3/5">
+            <div className=" w-full  flex justify-start  lg:justify-center">
+              <div>
+                <h3 className="text-xs lg:text-xl  font-bold leading-6  text-gray-gray2 ">
+                  Services
+                </h3>
+                <ul
+                  role="list"
+                  className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
+                >
+                  {navigation.services.map((item) => (
+                    <li
+                      key={item.name}
+                     
+                      // onClick={() => {
+                      //   if (pathname !== "/" && item.name !== "Solving Data") {
+                      //     router.push(`/`);
+                      //     localStorage.setItem(
+                      //       SHOW_SERVICES,
+                      //       JSON.stringify(true)
+                      //     );
+                      //   }
+                      //   //@ts-ignore
+                      //   if (item.name !== "Solving Data" ||  item.name !== "Custom Chatbot") {
+                      //     setView(item.name);
+                      //     const solutionsComponent =
+                      //       document.getElementById("services");
+                      //     if (solutionsComponent) {
+                      //       solutionsComponent.scrollIntoView({
+                      //         behavior: "smooth",
+                      //         block: "start",
+                      //       });
+                      //     }
+                      //   }
+                      //   if (item.name == "Solving Data") {
+                      //     router.push("/solving-data");
+                      //   }
+                      //   if (item.name === "Custom Chatbot") {
+                      //     router.push("/custom-chatbot");
+                      //   }
+                      // }}
+                    >
+                      <Link
+                        href={item.href}
+                      
+                        className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-blue-azure"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="w-full   flex justify-start  lg:justify-center md:gap-8  ">
+              <div>
+                <h3 className="text-xs lg:text-xl  font-bold leading-6  text-gray-gray2 ">
+                  Products
+                </h3>
+                <ul
+                  role="list"
+                  className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
+                >
+                  {navigation.products.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                      
+                        className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-blue-azure"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className=" w-full   flex justify-start  lg:justify-center  md:gap-8">
+              <div>
+                <h3 className="text-xs lg:text-xl   font-bold leading-6  text-gray-gray2 ">
+                  Company
+                </h3>
+                <ul
+                  role="list"
+                  className="mt-2 lg:mt-6 space-y-2   lg:space-y-4"
+                >
+                  {navigation.company.map((item:any) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        // href=""
+                        className="text-xs lg:text-md  leading-6 text-white  sm:text-lg hover:text-blue-azure"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-4">
+          <p className="text-sm sm:text-md font-bold lg:text-xl leading-6 text-white sm:text-lg mt-4">
             Follow Us At
           </p>
           <div className=" flex space-x-4 lg:space-x-12 mt-4">
@@ -235,8 +188,6 @@ export default function WebsiteFooter() {
             </Link>
           </div>
         </div>
-        </div>
-     
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-4">
           <p className="text-sm leading-5 text-white text-center">
             &copy; 2024 Centrox Technologies, Inc. All rights reserved.
@@ -244,5 +195,60 @@ export default function WebsiteFooter() {
         </div>
       </div>
     </footer>
+    
+    
+    // <footer
+    //   aria-labelledby="footer-heading"
+    //   className="my-12 max-w-[2500px] "
+    // >
+    //   <h2 id="footer-heading" className="sr-only">
+    //     Footer
+    //   </h2>
+    //   <div className="mx-auto  border-blue-200   pb-8 pt-16 sm:pt-24 lg:pt-32 w-4/5  ">
+    //     <div className="flex flex-col lg:flex-row justify-start lg:justify-between lg:items-center gap-12">
+    //       <figure className="space-y-8 w-4/5 flex justify-center mx-auto lg:items-start lg:mx-0 lg:justify-start   lg:w-2/5 ">
+    //         <Image
+    //           alt="Company name"
+    //           src={AppLogo}
+    //           className="w-[10rem] sm:w-80 cursor-pointer  "
+    //           onClick={() => {
+    //             router.push("/");
+    //           }}
+    //         />
+    //       </figure>
+
+    //       <div className="mt-0">
+    //       <p className="text-sm sm:text-md font-bold lg:text-xl leading-6 text-white sm:text-lg mt-0">
+    //         Follow Us At
+    //       </p>
+    //       <div className=" flex space-x-4 lg:space-x-12 mt-4">
+    //         <Link
+    //           href="https://www.linkedin.com/company/centroxai"
+    //           target="_blank"
+    //         >
+    //           <Image
+    //             src={LinkedinIcon}
+    //             alt="Logo"
+    //             className="w-4 sm:w-8 cursor-pointer"
+    //           />
+    //         </Link>
+    //         <Link href="https://twitter.com/CentroxAI" target="_blank">
+    //           <Image
+    //             src={TwitterIcon}
+    //             alt="Logo"
+    //             className="w-4 sm:w-8 cursor-pointer"
+    //           />
+    //         </Link>
+    //       </div>
+    //     </div>
+    //     </div>
+     
+    //     <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-4">
+    //       <p className="text-sm leading-5 text-white text-center">
+    //         &copy; 2024 Centrox Technologies, Inc. All rights reserved.
+    //       </p>
+    //     </div>
+    //   </div>
+    // </footer>
   );
 }

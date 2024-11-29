@@ -11,36 +11,29 @@ const  ContactUs=()=> {
 		  data: [
 			{
 			  Icon: null,
-			  heading: "56",
-			  symbol: "%",
-			  description: "This is something about metrics",
+			  heading: "25",
+			  symbol: "",
+			  description: "Number of Solutions Provided",
 			  className: "h-full !rounded-3xl w-full",
 			  linkText: "",
 			},
 			{
 			  Icon: null,
-			  heading: "96",
-			  symbol: "%",
-			  description: "This is something about metrics",
-			  className: "h-full !rounded-3xl w-full",
-			  linkText: "",
-			},
-			{
-			  Icon: null,
-			  heading: "200",
+			  heading: "50",
 			  symbol: "+",
-			  description: "This is something about metrics",
+			  description: "No. of experts",
 			  className: "h-full !rounded-3xl w-full",
 			  linkText: "",
 			},
 			{
 			  Icon: null,
-			  heading: "100",
-			  symbol: "%",
-			  description: "This is something about metrics",
+			  heading: "100,000",
+			  symbol: "",
+			  description: "No. of people benefitted",
 			  className: "h-full !rounded-3xl w-full",
 			  linkText: "",
 			},
+		
 		  ],
 		},
 	  ];
@@ -61,7 +54,8 @@ const  ContactUs=()=> {
 
 	<CommonDisplayCardsGrid
         data={data}
-        gridCols={4}
+
+        gridCols={3}
         headingClassName={text_h2_class}
         gradientBg
       />

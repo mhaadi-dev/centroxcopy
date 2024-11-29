@@ -1,73 +1,34 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
 import dynamic from "next/dynamic";
-
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
+
 import { StepperSection } from "@/sections/StepperSection";
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
-import { LogosSection } from "@/sections/LogosSection";
+
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
+
+
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon6 from "@/assets/Icon-6.webp";
-import Icon9 from "@/assets/Icon-9.webp";
-
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
 import Icon14 from "@/assets/Icon-14.webp";
 import liama from "@/assets/liama.webp";
-import falcon from "@/assets/falcon.webp";
-import qwen from "@/assets/qwen.webp";
+
 
 import pytorch from "@/assets/pytorchlogo.webp";
 import huggingface from "@/assets/huggingfacelogo.webp";
-import tensorflow from "@/assets/tensorflow.webp";
 
 import aws from "@/assets/awslogo.webp";
 import azure from "@/assets/azure-plainlogo.webp";
 import googlecloud from "@/assets/Googlecloud.webp";
-import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
-import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
-import mlflow from "@/assets/mlflowlogo.webp";
-import kubeflow from "@/assets/kubeflowlogo.webp";
-import rasa from "@/assets/Rasa-white.webp";
-import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
-import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import snapmeasureHero from "@/assets/solutions/snapmeasureHero.webp";
-import eggcrack from "@/assets/solutions/EggCrack.webp";
 import strategy from "@/assets/solutions/Strategy.webp";
 import checkerboard from "@/assets/solutions/Checkerboard.webp";
 import SolutionsImage1 from "@/assets/solutions/Data integration.webp";
 import SolutionsImage2 from "@/assets/Transparent Insights.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
 import SolutionsImage4 from "@/assets/research automation.webp";
-import solutionbg1 from "@/assets/solutions/solutionbg1.webp"
-import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
-import opencv from "@/assets/opencv-plain logo.webp"
-import dockers from "@/assets/docker-icon logo.webp"
-import keras from "@/assets/keras-plain logo.webp"
 import Icon16 from "@/assets/Icon-16.webp"
 import Icon17 from "@/assets/Icon-17.webp"
 import Icon18 from "@/assets/Icon-18.webp"
@@ -78,6 +39,9 @@ import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
 import healthhero from "@/assets/industries/Hero Image health.svg"
+import custombuilt from "@/assets/bentobox/Neural Network.svg"
+import scalable from "@/assets/bentobox/Scalable AI.svg"
+
 
 
 
@@ -463,12 +427,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon16, // Replace with the correct icon for Custom-Built Neural Networks
+          icon: null, // Replace with the correct icon for Custom-Built Neural Networks
           heading: "Custom-Built Neural Networks",
           description:
             "Designed specifically for the healthcare domain, our networks are trained on diverse datasets, including imaging, genetic data, and real-world clinical data, ensuring highly specialized and accurate results.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:2,
+          bentoImage:custombuilt
         },
         {
           icon: Icon17, // Replace with the correct icon for Advanced Personalization Engines
@@ -477,6 +443,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "These engines analyze patient data at scale, enabling precise personalization in treatment plans and patient communication.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon14, // Replace with the correct icon for Large Language Models (LLMs)
@@ -485,14 +452,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Trained to understand medical context and generate accurate clinical reports and diagnoses, improving efficiency and accuracy across tasks.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
-          icon: Icon18, // Replace with the correct icon for Scalable AI Infrastructure
+          icon: null, // Replace with the correct icon for Scalable AI Infrastructure
           heading: "Scalable AI Infrastructure",
           description:
             "Deployed on secure, HIPAA-compliant cloud platforms, our AI solutions scale to support the needs of healthcare systems, from small clinics to large hospitals.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:2,
+          bentoImage:scalable
         },
       ],
       caption: "",
@@ -625,7 +595,7 @@ const stepperdata = {
               "We're not just another chatbot development company. We're your strategic AI partner."
             }
           />
-          <CommonDisplayCardsGrid data={cardsData2} />
+          <CommonDisplayCardsGrid data={cardsData2} gridCols={3} resizeableCardsLayout />
 
           <StepperSection data={stepperdata} />
           <PointsandImagesSection

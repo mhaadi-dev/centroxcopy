@@ -294,26 +294,28 @@ export const TabCarousel = ({
   //   }
   // };
 
+  // console.log("card data in here is",cardsData)
+
   return (
     <>
       <section className="relative py-12  w-full md:w-5/5 mx-auto 2xl:w-full  overflow-hidden bg-black sm:py-16 lg:py-4 ">
         <div className=" p-2">
           <div className="container  ">
-            <div className="text-white   rounded-3xl flex flex-col gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
+            <div className="text-white   rounded-3xl flex flex-col gap-4 lg:gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
               <Tabs tabs={tabs} setTabs={setTabs} isGradientCardLayout={isGradientCardsLayoutwithImage} />
               <div className="">
                 {tabs?.map(
-                  (tab:any, index:number) =>
+                  (tab:any, tabindex:number) =>
                     tab?.current && (
                       <div
-                        key={index}
+                        key={tabindex}
                         className="flex flex-col sm:gap-4  3xl:justify-around  "
                       >
                         {isCardLayout && (
                           <>
                           <div className="flex flex-col gap-y-2">
                             <h3 className={classNames(text_h3_class)}>
-                              {cardsData[index]?.subInfo?.heading}
+                              {cardsData[tabindex]?.subInfo?.heading}
                             </h3>
                             <p className={classNames(text_para_3)}>
                               Read in detail about our services.
@@ -325,13 +327,13 @@ export const TabCarousel = ({
                               // className={`flex flex-wrap  gap-4`}
                             >
                               <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto auto-rows-fr "
+                                className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto auto-rows-fr "
                                 style={{
                                   gridTemplateColumns: width!=null && width > 650 ? 
                                     "repeat(auto-fit, minmax(300px, 1fr))":"repeat(auto-fit, minmax(300px, 1fr))",
                                 }}
                               >
-                                {cardsData?.[index]?.data.map(
+                                {/* {cardsData?.[index]?.data.map(
                                   (card: any, index: any) => {
                                     return (
                                       <CommonCardwithIcon
@@ -345,59 +347,76 @@ export const TabCarousel = ({
                                       />
                                     );
                                   }
-                                )}
+                                )} */}
+
+
+
+                                {cardsData.map((cc: any, indexmain: any) => (  
+                                    cc.data.map((card: any, index: any)=>{
+                                      return (
+                                        <div className={`${tab?.current && indexmain==tabindex ? "" : "hidden" }`}>
+                                        <CommonCardwithIcon
+                                          key={index}
+                                          Icon={card?.icon}
+                                          heading={card.heading}
+                                          description={card.description}
+                                          linkText="Learn More"
+                                          link={card?.link}
+                                          linkWithIcon={true}
+                                        />
+                                        </div>
+                                      );
+                                    })
+                                  
+                                ))}
                               </div>
                             </div>
                           </>
                         )}
                         <div
-                          className="flex flex-col gap-4 xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
+                          className="flex flex-col gap-4  xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
                         >
-                          {isGradientCardsLayoutwithImage && (
-                            <>
-                              
-                              <div className=" w-full xl:w-1/2 flex flex-col gap-y-0">
-                                {gradientCardData?.length > 0 && headerTabs?.length>0 ? gradientCardData[index]?.data?.map((card:any,i:number)=>{
-                                  return  <GradientCard
-                                  title={
-                                    card?.heading
-                                  }
-                                  description={
-                                   card?.description
-                                  }
-                                  showHoverState={lastHoveredCard === i}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(i)}
-                                  onMouseLeave={() => handleMouseLeave(i)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                  key={i}
-                                />
-                                }):""}
-                              </div>
-                              <div className="w-full flex xl:w-1/2 mt-10  items-center justify-center">
-                                <div className="w-full" >
-                                  <Image
-                                    className={classNames(
-                                      "w-full h-full",
-                                      "block"
-                                    )}
-                                    // loading="eager"
-                                    src={tabs[index]?.current && gradientCardData[index]?.image}
-                                    alt="image"
-                                    loading={
-                                      width && width <= mobileWidth
-                                        ? "lazy"
-                                        : "eager"
-                                    }
-                                 
-                                  />
-                                </div>
-                              </div>
-                            </>
-                          )}
+                        {isGradientCardsLayoutwithImage && (
+  <>
+    {gradientCardData?.map((cc: any, indexmain: number) => (
+      <div
+        key={indexmain}
+        className={`w-full flex flex-col xl:flex-row gap-2 lg:gap-10 ${
+          tab?.current && indexmain === tabindex ? "" : "hidden"
+        }`}
+      >
+        <div className="w-full xl:w-1/2 flex flex-col gap-y-0">
+          {cc?.data?.map((card: any, index: number) => (
+            <GradientCard
+              key={index}
+              title={card?.heading}
+              description={card?.description}
+              showHoverState={lastHoveredCard === index}
+              hoveredCard={currentHoverCard}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+              onClick={() => {
+                setShowToast(!showToast);
+              }}
+              hoverOnGradient={true}
+            />
+          ))}
+        </div>
+        <div className="w-full flex xl:w-1/2 mt-10 items-center justify-center">
+          <div className="w-full">
+            <Image
+              className="w-full h-full block"
+              src={tabs[tabindex]?.current && cc?.image}
+              alt="image"
+              loading={width && width <= mobileWidth ? "lazy" : "eager"}
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+  </>
+)}
+
                         </div>
                         {caption && <p className={classNames(text_para_2,"text-center my-4 w-full mx-auto lg:w-[60%]")}>{caption}</p>}
                        

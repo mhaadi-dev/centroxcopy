@@ -28,7 +28,7 @@ export const MainAboutUs = (props: any) => {
                 " lg:!text-[3.5rem] 2xl:!text-[4.5rem]   tracking-normal !bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text !text-transparent"
               )}
             >
-              {props?.props?.props[0]?.mainSectionheading}
+              <span className="text-[#E5E7EB]">{props?.props?.props[0]?.mainSectionheading?.split(" ").slice(0,3).join(" ")} </span> {props?.props?.props[0]?.mainSectionheading?.split(" ").slice(3).join(" ")}
             </h1>
             <p
               className={classNames(
