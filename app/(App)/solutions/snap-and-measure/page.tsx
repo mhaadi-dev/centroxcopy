@@ -56,7 +56,7 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingLayout from "../../layout";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import snapmeasureHero from "@/assets/solutions/snapmeasureHero.webp";
+import snapmeasureHero from "@/assets/solutions/snapmeasureHero.svg";
 import eggcrack from "@/assets/solutions/EggCrack.webp";
 import strategy from "@/assets/solutions/Strategy.webp";
 import checkerboard from "@/assets/solutions/Checkerboard.webp";
@@ -131,13 +131,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const challengeData = [
     {
       headerData: {
-        tagText: "",
-        headingText: "",
+        tagText: "Challenges",
+        headingText: " ",
         para1Text:
-          "Are sizing inconsistencies and high return rates impacting your bottom line?",
-        para2Text: "",
+          "",
+        para2Text: "The traditional approach to apparel sizing presents significant challenges for businesses and customers alike.",
         heading2Text:
-          "The traditional approach to apparel sizing presents significant challenges for businesses and customers alike",
+          "Are sizing inconsistencies and high return rates impacting your bottom line?",
       },
       data: [
         {
@@ -471,7 +471,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection {...heroData} bgimage1={solutionbg2} bgimage2={solutionbg1} bgClassName="opacity-30"/>
           <LogosCarousel />
-          <CommonDisplayCardsGrid data={challengeData} />
+          <CommonDisplayCardsGrid data={challengeData} gridCols={3} />
           <LandingSolutionsSection
             data={solutionsData}
             heading="Measurement Precision With AI"

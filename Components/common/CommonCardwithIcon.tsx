@@ -38,7 +38,7 @@ const CommonCardwithIcon = ({
       <div
         aria-label="centrox-services"
         className={classNames(
-          "bg-gray-900 relative px-8 py-8 rounded-xl flex flex-1 flex-col gap-y-4 transition-all ease-in duration-200 h-full",
+          "bg-gray-900 relative px-8 py-8 rounded-xl flex flex-1 flex-col gap-y-2 transition-all ease-in duration-200 h-full",
           className
         )}
         style={{
@@ -56,8 +56,8 @@ const CommonCardwithIcon = ({
         onMouseLeave={() => setIsHovering(false)}
       >
         {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
-        <div className="flex flex-col gap-y-2 lg:gap-y-2 flex-grow">
-          <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
+        <div className="flex flex-col gap-y-1 flex-grow">
+          <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
         {linkText && (

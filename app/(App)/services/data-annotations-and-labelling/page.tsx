@@ -54,7 +54,9 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import serviceHeroImg from "@/assets/serviceHeroImg.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import dataannotation from "@/assets/Data Annotations.svg"
-
+import accurateannotation from "@/assets/bentobox/Accurate Annotations.svg"
+import comprehensive_solution from "@/assets/bentobox/Comprehensive solution.svg"
+import domain_specific from "@/assets/bentobox/Domain Specific Expertise.svg"
 
 export default async function Page({ params }: { params: { slug: string } }) {
   //   const { slug } = params;
@@ -108,13 +110,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon12, // Ensure you have the correct icon for Accurate Annotation
+          icon: null, // Ensure you have the correct icon for Accurate Annotation
           heading: "Accurate Annotation",
           description:
             "Centrox’s attention to detail ensures precise object detection, segmentation, and landmark recognition, making it ideal for applications like autonomous vehicles, medical imaging, and facial recognition.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
           colSpan: 2,
+          bentoImage:accurateannotation
         },
         {
           icon: Icon13, // Ensure you have the correct icon for Efficient Annotation
@@ -134,22 +137,25 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon6, // Ensure you have the correct icon for Comprehensive Solutions
+          icon: null, // Ensure you have the correct icon for Comprehensive Solutions
           heading: "Comprehensive Solutions",
           description:
             "Receive customized categories and multiple attributes per instance, matching your exact project requirements.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:comprehensive_solution
+
         },
         {
-          icon: Icon9, // Ensure you have the correct icon for Domain-Specific Expertise
+          icon: null, // Ensure you have the correct icon for Domain-Specific Expertise
           heading: "Domain-Specific Expertise",
           description:
             "Our deep understanding of NLPs fits our workflow in assisting in your critical application development.",
           linkText: "", // Set to empty as per your request
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:domain_specific
         },
         {
           icon: Icon12, // Ensure you have the correct icon for Security and Compliance

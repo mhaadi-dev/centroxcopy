@@ -132,25 +132,11 @@ useEffect(() => {
         <div className="flex  flex-col gap-2 w-full lg:w-[98%] mx-auto ">
           {true && (
             <>
-              <div
-                className={classNames(
-                  "grid !grid-cols-2 lg:!grid-cols-4 ",
-                  colsClassName,
-                  gridClass
-                )}
-              >
+              <div className={classNames("grid !grid-cols-2 lg:!grid-cols-4  ",colsClassName,gridClass)}>
                 {data?.map((carousal: any, index: number) => (
-                  <div
-                    key={index}
-                    style={{
-                      background: `${
-                        index === activeIndex
-                          ? "radial-gradient(205.46% 176.53% at 50% 100%, #0071B9 0%, rgba(0, 8, 14, 0.00) 100%), rgba(0, 0, 0, 0.10)"
-                          : index === hoverIndex
+                  <div key={index} style={{background: `${index === activeIndex ? "radial-gradient(205.46% 176.53% at 50% 100%, #0071B9 0%, rgba(0, 8, 14, 0.00) 100%), rgba(0, 0, 0, 0.10)": index === hoverIndex
                             ? "radial-gradient(205.46% 176.53% at 50% 100%, rgba(0, 113, 185, 0.10) 0%, rgba(75, 75, 75, 0.00) 100%), rgba(0, 0, 0, 0.10)"
-                            : ""
-                      }`,
-                    }}
+                            : ""}`,}}
                     className={classNames(
                       "text-white text-[0.59rem] w-full   sm:text-[0.8rem] 2xl:text-[1.2rem] font-semibold text-center p-[0.7rem] rounded-xl lg:rounded-t-xl lg:rounded-b-none cursor-pointer whitespace-nowrap ",
                       tabsClassName
@@ -159,7 +145,7 @@ useEffect(() => {
                     onMouseLeave={() => setHoverIndex(activeIndex)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    {carousal.tabheading}
+                    {carousal.tabheading + "..."}
                   </div>
                 ))}
                 <hr
@@ -175,25 +161,19 @@ useEffect(() => {
             </>
           )}
         </div>
-        <div className="  min-h-[715px] overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8" >
+        <div className="  min-h-[715px]  overflow-hidden  xl:min-h-[640px] relative flex flex-col space-y-8" >
           {data?.map((cars: any, index: number) => (
-            <div
-              className=" absolute flex-1  flex  flex-col-reverse md:flex-row w-full translate-y-[125%] lg:translate-y-[110%]  left-0 right-0 transition-transform duration-500 ease-in-out mt-8 mb-10 h-auto lg:h-[80%]  bg-black   overflow-hidden  mx-auto border-4 border-gray-800 rounded-3xl "
+            <div className=" absolute flex-1  flex  flex-col-reverse md:flex-row w-full translate-y-[125%] lg:translate-y-[110%]  left-0 right-0 transition-transform duration-500 ease-in-out mt-8 mb-10 h-auto lg:h-[80%]  bg-black   overflow-hidden  mx-auto border-4 border-gray-800 rounded-3xl "
               style={{
                 transform:
-                  activeIndex === index
-                    ? `translateY(${index * 0.8}rem)`
-                    : activeIndex > index
-                      ? `translateY(${(index - 1) * 1}rem)`
-                      : "",
+                  activeIndex === index ? `translateY(${index * 0.8}rem)`: activeIndex > index? `translateY(${(index - 1) * 1}rem)`: "",
                 zIndex: activeIndex === index ? 1 : 1,
                 opacity: activeIndex === index ? 1 : 0.98,
               }}
               key={index}
             >
-            
                 
-                  <div className="flex w-full bg-gray-900 xl:w-1/2 flex-col space-y-4 justify-center  mx-auto h-full pt-4 md:pt-20">
+                  <div className="flex w-full  bg-gray-900 xl:w-1/2 flex-col space-y-4 justify-center  mx-auto h-full pt-4 md:pt-20">
                     <div className="   h-full flex flex-col gap-y-4 py-2 mx-[1.5rem] mb-4 xl:mx-[3rem]">
                       {tagHeading&&<p className="text-base uppercase text-blue-azure font-semibold">
                         {tagHeading}
@@ -201,9 +181,7 @@ useEffect(() => {
                      {cars.heading && <h3
                         className={classNames(
                           "text-[#E5E7EB] text-[1.25rem] lg:text-[1.7rem] 2xl:text-[2.25rem] font-heading font-semibold leading-[2rem] 2xl:leading-[2.5rem]",
-                          
-                        )}
-                      >
+                          )}>
                         {cars.heading}
                       </h3>}
                      {cars?.description &&  <p className={classNames("text-[#E5E7EB] font-paragraph text-[0.8rem] lg:text-[1.2rem] 2xl:text-[1.4rem] leading-[1.4rem] 2xl:leading-[2rem]")}>
@@ -225,7 +203,7 @@ useEffect(() => {
                     </div>
                   </div>
                
-                <div className="w-full h-full my-auto  flex items-center justify-center  xl:w-1/2">
+                <div className="w-full h-full my-auto p-2   flex items-center justify-center  xl:w-1/2">
                   {cars.img && (
                     <Image
                       src={cars.img}

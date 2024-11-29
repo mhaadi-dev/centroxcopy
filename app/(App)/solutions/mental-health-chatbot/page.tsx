@@ -540,8 +540,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgClassName="opacity-30"
           />
           <LogosCarousel />
-          <CommonDisplayCardsGrid data={challengeData} />
-          <CommonDisplayCardsGrid data={cardsData} />
+          <CommonDisplayCardsGrid data={challengeData} gridCols={3}/>
+          <CommonDisplayCardsGrid data={cardsData} gridCols={3}/>
           {/* <LandingSolutionsSection /> */}
           <LogosSection
             data={techStackData}
@@ -552,7 +552,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             caption=""
             btnText="Let’s Discuss Further"
           />
-          <CommonDisplayCardsGrid data={cardsData2} />
+          <CommonDisplayCardsGrid data={cardsData2} gridCols={3} />
 
           <LandingIndustriesSection gradientCardData={gradientCardData} tabs={tabs} isBookingButton btnText="Talk to Us Now" />
 

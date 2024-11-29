@@ -129,13 +129,13 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
             </div>
           )}
         </div>
-        <div className={classNames("w-full  flex justify-end  lg:w-1/2 z-[1] ",props.reverse ? "justify-center lg:justify-start" : "!justify-end", )} >
+        <div className={classNames("w-full  flex justify-end  lg:w-1/2 z-[1] ",props.reverse ? "justify-center lg:justify-start" : "justify-center lg:!justify-end", )} >
           {props?.img && (
             <Image
               src={props?.img}
               alt="hero-img"
               objectFit="fill"
-              className="w-full object-fill  opacity-100 xl:w-[90%] mx-a rounded-2xl  "
+              className="object-fill w-full lg:w-[614px] lg:h-[614px]  opacity-100  xl:w-[90%] mx-a rounded-2xl  "
             />
           )}
         </div>

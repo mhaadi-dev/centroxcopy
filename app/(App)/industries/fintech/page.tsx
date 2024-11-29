@@ -73,6 +73,7 @@ import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
 import realestatehero from "@/assets/realestate.webp"
+// import frauddetection from "@/assets/bentobox/fraudetection"
 
 
 
@@ -208,6 +209,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Imagine AI advisors that truly understand your customers. We build virtual assistants that offer tailored financial advice, investment recommendations, and educational content, all driven by the nuances of individual needs and risk profiles.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon57, // Replace with the correct icon for Customer Service, Reimagined
@@ -216,6 +218,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Forget scripted chatbots. Our conversational AI solutions engage in natural, meaningful dialogues, providing 24/7 support, answering complex queries, and guiding customers through financial processes with empathy and precision.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon54, // Replace with the correct icon for Content That Converts
@@ -224,6 +227,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Say goodbye to generic marketing copy. We automate the creation of compelling product descriptions, personalized emails, and engaging social media content, all tailored to resonate with your target audience.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon55, // Replace with the correct icon for Fraud Detection, Evolved
@@ -232,6 +236,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We go beyond rule-based systems. Our AI models detect subtle patterns and anomalies in real-time, proactively identifying and preventing fraudulent activity.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
         {
           icon: Icon56, // Replace with the correct icon for Risk Management, Reinvented
@@ -240,6 +245,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Navigate the complexities of risk assessment with AI-powered tools that analyze market trends, news sentiment, and economic indicators, providing data-driven insights for smarter decision-making.",
           linkText: "",
           linkWithIcon: true,
+          colSpan:1
         },
       ],
       caption: "",
@@ -508,7 +514,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <HeroSection {...heroData} />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
-          <CommonDisplayCardsGrid data={cardsSolutions} />
+          <CommonDisplayCardsGrid data={cardsSolutions} gridCols={3}  />
           {/* <CommonDisplayCardsGrid data={benefitsData} /> */}
           <LogosSection
             data={techStackData}

@@ -22,6 +22,12 @@ import retail from "@/assets/industries/retail.svg"
 import realestate from "@/assets/industries/real-estate.svg"
 import fintech from "@/assets/industries/fintech.svg"
 import Mail from "@/assets/mail.webp";
+import annotation_and_labelling from "@/assets/servicesnav/Database.svg"
+import stack from "@/assets/servicesnav/Stack.svg"
+import Link from "next/link";
+import smiley from "@/assets/companynav/Smiley.svg"
+import team from "@/assets/companynav/UsersThree.svg"
+import phonecall from "@/assets/companynav/PhoneCall.svg"
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -104,7 +110,7 @@ export const Navbar = () => {
           {
             heading: "Annotation & Labeling",
             description: "Enrich your models performance; through quality data processing.",
-            image: ShootingStar,
+            image: annotation_and_labelling,
             link:"/services/data-annotations-and-labelling "
           },
           {
@@ -118,7 +124,7 @@ export const Navbar = () => {
           {
             heading: "Deployment & Scaling",
             description: "Experience smooth and scalable ML Ops integration contributing quality performance.",
-            image: ShootingStar,
+            image: stack,
             link:"/services/custom-llm-dev"
           },
           {
@@ -243,19 +249,19 @@ export const Navbar = () => {
           {
             heading: "About us",
             description: "Learn more about our journey,values, vision and mission for the AI revolution.",
-            image: ShootingStar,
+            image: smiley,
             link:"/about-us"
           },
           {
             heading: "Team",
             description: "Find the team of passionate AI experts, driven to bring your vision to reality.",
-            image: "",
+            image: team,
             link:"/team"
           },
           {
             heading: "Contact us",
             description: "Feel free to reach out to us for a consultancy session with our AI experts.",
-            image: "",
+            image: phonecall,
             link:"/contact"
           },
           
@@ -371,43 +377,54 @@ export const Navbar = () => {
 
           {/* IN MOBILE VIEW */}
           <nav
-  className={`bg-black px-3 z-[1] py-4 overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
+  className={`bg-black px-3 z-[1] py-4   overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
     showMenu ? "translate-y-0 opacity-100" : "-translate-y-[10000px] opacity-0"
   }`}
   style={{ height: "calc(100vh - 85px)" }}
 >
   {data?.map((navItem, index) => (
-    <div key={index} className="text-gray-100">
+    <div key={index} className="text-gray-100 ">
       <p className="font-semibold mt-4 uppercase hover:text-blue-azure" onClick={()=>{navItem?.onClick();  setShowMenu((prev) => !prev);}}>{navItem.navItemText}</p>
-      {/* {index === 0
+      {index === 0
         ? navItem?.columnData?.map((subItems, index) => {
             return subItems.map((item, index) => (
-              <div className="my-[0.3rem]" key={index}>
-                <h3 className="w-full flex gap-x-2">
-                  <span
+              <div className="my-[0.3rem] " key={index}>
+                <h3 className="w-full flex gap-x-2 ">
+                  <Link
+                    href={item.link}
                     className={`${
                       index === 0 || navItem?.columnData?.length === 1
-                        ? "font-semibold"
+                        ? "font-semibold mt-1"
                         : "font-normal"
                     } text-sm`}
+                    onClick={()=>{setShowMenu((prev) => !prev)}}
                   >
-                    {item.heading}
-                  </span>
+                    {item.heading+ ""}
+                  </Link>
                 </h3>
               </div>
             ));
           })
         : navItem?.columnData?.map((subItems, index) => {
-            return subItems.map((item, index) => (
+            return <>
+          {  subItems.map((item, index) => (
               <div key={index}>
                 <h3 className="w-full flex gap-x-2">
-                  <span className="font-semibold text-base">
-                    {item.heading}
-                  </span>
+                  <Link href={item.link} className="font-semibold text-base" onClick={()=>{setShowMenu((prev) => !prev)}} >
+                    {item.heading + ""}
+                  </Link>
                 </h3>
               </div>
-            ));
-          })} */}
+            ))}
+            {navItem?.socialIcons &&  <div className="flex gap-6 my-3">
+           {navItem?.socialIcons?.length && navItem?.socialIcons?.map((icon,index)=>{
+          return <Link href={icon?.link} key={index}>
+            <Image src={icon?.icon} alt="social icon"></Image>
+          </Link>
+        })}
+        </div>}
+            </>
+          })}
     </div>
   ))}
 </nav>

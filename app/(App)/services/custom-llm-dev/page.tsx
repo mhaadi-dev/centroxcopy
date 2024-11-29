@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Benefits",
         headingText: "Tailor-Made LLMs",
         para1Text:
-          "For startups like you, the best foot forward is to customise existing LLMs according to your unique business needs. We collaborate deeply with your team throughout the entire development lifecycle, ensuring your LLM is deeply integrated, optimised, adaptable, and cutting-edge.",
+          "In todays time the best foot forward is to customize existing LLMs according to your unique business needs. Realizing this fact, we collaborate deeply with your team throughout the entire development lifecycle, ensuring your LLM is deeply integrated, optimized, adaptable, and delivers the desired results.",
         heading2Text: "Key Features & Benefits",
       },
       data: [

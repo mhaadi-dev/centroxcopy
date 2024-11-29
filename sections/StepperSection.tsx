@@ -45,6 +45,8 @@ export const StepperSection = ({
         Math.max(0, (scrolledY / totalHeight) * 100)
       );
       setScrollPercentage(percentage);
+        
+     
     }
   };
 
@@ -57,8 +59,8 @@ export const StepperSection = ({
 
   useEffect(() => {
     const numSteps = stepperData?.length;
-    const firstStepRange = width!=null && width>768? 450 / numSteps : 400/numSteps; // Give the first step a larger percentage range
-    const otherStepRange = width!=null && width>768 ?  (100 - firstStepRange) / (numSteps - 1):(90 - firstStepRange) / (numSteps - 1);
+    const firstStepRange = width!=null && width>768? 450 / numSteps : 290/numSteps; 
+    const otherStepRange = width!=null && width>768 ? (100 - firstStepRange) / (numSteps - 1):(90 - firstStepRange) / (numSteps - 1);
 
     const updatedData = stepperData?.map((step: any, index: number) => {
       let isActive = false;
@@ -79,10 +81,10 @@ export const StepperSection = ({
   }, [scrollPercentage]);
  
   return (
-    <section className={classNames(section_wrapper_class)}>
+    <section className={classNames(section_wrapper_class,"")}  ref={topRef}>
       <div
         className="min-h-[270vh] mt-20 lg:mt-16 2xl:mt-24 relative "
-        ref={topRef}
+       
       >
         <div
           className={classNames(
@@ -99,7 +101,7 @@ export const StepperSection = ({
           <SectionHeader headingText={data?.heading} tagText="Process" para1Text={data?.description}/>
           <div className=" ml-[0.3rem] items-start flex flex-col gap-y-2 lg:flex-row w-full">
              <div className={classNames("  flex flex-col lg:flex-row w-full lg:w-4/5 mx-auto justify-between mt-4 lg:mt-12 gap-4 items-center ",reverse ? "lg:!flex-row-reverse" : "")}>
-            <div className="w-[90%] ml-[12%] lg:ml-0 mx-auto lg:mx-0 lg:w-full min-h-[70vh] max-h-max ">
+            <div className="w-[90%] ml-[12%]  lg:ml-0 mx-auto lg:mx-0 lg:w-full min-h-[70vh] max-h-max ">
               <p className={classNames(text_para_2)}>Our Process includes:</p>
               <Stepper data={stepperData} />
               { data?.btnText && (

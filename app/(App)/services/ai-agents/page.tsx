@@ -56,7 +56,9 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
 import AIagent from "@/assets/Agentic AI.svg"
-
+import goal_oriented from "@/assets/bentobox/Goal Oriented.svg"
+import langchain from "@/assets/bentobox/Langchain framework.svg"
+import dataanalysis from "@/assets/bentobox/Data Analysis & Insights-1.svg"
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
     {
@@ -165,13 +167,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon12,
+          icon: null,
           heading: "Goal-Oriented", // Updated heading
           description:
             "AI agents are designed with specific goals in mind, whether it's maximizing customer satisfaction, optimizing supply chains, or detecting fraud.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:goal_oriented
         },
         {
           icon: Icon13,
@@ -316,7 +319,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "A powerful framework for developing applications powered by language models, enabling seamless interaction with various tools and data sources.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:langchain
         },
       ],
       caption: "", // No caption needed
@@ -352,7 +356,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents that extract valuable information from large datasets, identify trends, and generate actionable insights to inform your strategic decision-making.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:dataanalysis
+
         },
         {
           icon: Icon11,

@@ -52,7 +52,9 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
 import modeloptimization from "@/assets/AI Model Optimization.svg"
-
+import customsolutions from "@/assets/bentobox/Custom solution.svg"
+import collaborativeapproach from "@/assets/bentobox/Collabrative approach.svg"
+import hardware_specific from "@/assets/bentobox/Data Analysis & Insights.svg"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -183,22 +185,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
           colSpan: 1
         },
         {
-          icon: Icon13,
+          icon: null,
           heading: "Custom Solutions", // Updated heading
           description:
             "We tailor our optimization strategies to your specific model architecture, data, and deployment environment.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan: 2
+          colSpan: 2,
+          bentoImage:customsolutions
         },
         {
-          icon: Icon14,
+          icon: null,
           heading: "Collaborative Approach", // Updated heading
           description:
             "We work closely with your team, fostering knowledge transfer and empowering you to take ownership of your optimization process.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan: 2
+          colSpan: 2,
+          bentoImage:collaborativeapproach
         },
         {
           icon: Icon6, 
@@ -257,7 +261,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Fine-tune models for optimal performance on specific hardware architectures (CPUs, GPUs, TPUs, etc.).", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan:2,
+          bentoImage:hardware_specific
         },
         {
           icon: Icon5, // Ensure to use a relevant icon for this entry
