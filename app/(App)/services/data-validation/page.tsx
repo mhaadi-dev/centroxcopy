@@ -78,6 +78,11 @@ import datavalidation from "@/assets/Data Validations.svg"
 // const CaseStudiesCarousalSection = dynamic(() => import('@/sections/CaseStudiesCarousalSection'));
 // const LogosSection = dynamic(() => import('@/sections/LogosSection'));
 
+
+export const metadata = {
+  title:"Enhance AI with Data Validation & Accuracy Services | Centrox AI",
+  description:"Boost AI performance with data validation & services. Improve accuracy reduce errors & ensure scalable, compliant AI models. Book a call for expert insights."
+}
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
     {

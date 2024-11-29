@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           headerData: {
             tagText: "Benefits",
             headingText: "Key Benefits for Real Estate Professionals",
-            para1Text: "Partnering with Centrox AI empowers you to",
+            para1Text: "Partnering with Centrox AI empowers you to attain excellence.",
             heading2Text: "",
             para2Text: "",
           },
@@ -108,10 +108,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
       const challengeData = [
         {
           headerData: {
-            tagText: "",
+            tagText: "Challenges",
             headingText: "Challenges in Fashion Retail",
             para1Text:
-              "Fashion retail faces several key issues:",
+              "Fashion retail faces several key issues which are listed below.",
             para2Text: "",
             heading2Text: "",
           },
@@ -576,8 +576,7 @@ const stepperdata = {
           <LandingSolutionsSection
             data={solutionsData}
             heading="Solutions for Fashion Retail"
-            description="How We Can Assist You in Staying Ahead
-            We can  offers solutions designed to tackle these specific challenges:"
+            description="We can assist you in staying ahead by offering solutions designed to tackle your specific challenges."
           />
           <CommonDisplayCardsGrid data={benefitsData} />
           <LogosSection

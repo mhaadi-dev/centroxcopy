@@ -145,7 +145,7 @@ useEffect(() => {
                     onMouseLeave={() => setHoverIndex(activeIndex)}
                     onClick={() => setActiveIndex(index)}
                   >
-                    {carousal.tabheading + "..."}
+                    {carousal.tabheading}
                   </div>
                 ))}
                 <hr
@@ -203,7 +203,7 @@ useEffect(() => {
                     </div>
                   </div>
                
-                <div className="w-full h-full my-auto p-2   flex items-center justify-center  xl:w-1/2">
+                <div className="w-full h-full my-auto   flex items-center justify-center  xl:w-1/2">
                   {cars.img && (
                     <Image
                       src={cars.img}

@@ -56,7 +56,10 @@ import customsolutions from "@/assets/bentobox/Custom solution.svg"
 import collaborativeapproach from "@/assets/bentobox/Collabrative approach.svg"
 import hardware_specific from "@/assets/bentobox/Data Analysis & Insights.svg"
 
-
+export const metadata = {
+  title:"AI Model Optimization Services - Maximize Performance | Centrox AI",
+  description:"With Centrox AI model optimization services, optimize your AI models for peak performance, reduce costs, and improve scalability. Book a session now!"
+}
 export default async function Page({ params }: { params: { slug: string } }) {
  
 
@@ -390,7 +393,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     headerData: {
       tagText: "Advantage", 
       heading: "The Performance Advantage",
-      description: "Optimized AI Models from Centrox AI Deliver Tangible Benefits", 
+      description: "Optimized AI models from Centrox AI deliver tangible benefits enhancing your business growth.", 
     },
     data: [
       {

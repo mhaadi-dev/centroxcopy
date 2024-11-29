@@ -64,21 +64,23 @@ import tensorflowserving from "@/assets/evaluationlogos/tensorflow-svgrepo-com 1
 import prometeus from "@/assets/evaluationlogos/cbi--prometheusio 1.webp"
 import grafana from "@/assets/evaluationlogos/grafana-svgrepo-com 1.webp"
 import airflow from "@/assets/evaluationlogos/airflow-svgrepo-com 1.webp"
-import argo from "@/assets/evaluationlogos/argo-removebg-preview.webp"
 import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp"
 import commet from "@/assets/evaluationlogos/comet-logo-1 1.webp"
 import dvc from "@/assets/evaluationlogos/dvc.webp"
 import gitlfs from "@/assets/evaluationlogos/git-lfs-logo 1.webp"
 import jenkins from "@/assets/evaluationlogos/jenkins.webp"
 import gitlab from "@/assets/evaluationlogos/gitlab-svgrepo-com 1.webp"
-import circleci from "@/assets/evaluationlogos/circleci-icon 1.webp"
 import parchiderm from "@/assets/evaluationlogos/pachyderm (1).webp"
 import servicebg from "@/assets/Servicebg.webp"
 import evaluation from "@/assets/Pipeline.svg"
 import deployment_bottlenecks from "@/assets/bentobox/Deployment Bottlenecks.svg"
+import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
+import githubci from "@/assets/evaluationlogos/githubci.svg"
 
-
-
+export const metadata = {
+  title:"MLOps Consulting for Evaluating & Streamline AI Pipelines | Centrox AI",
+  description:"Optimize model performance, enhance scalability, and boost collaboration. Streamline AI pipelines with Centrox AI MLOps consulting. Book a call today!"
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const benefitsData = [
@@ -246,19 +248,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Orchestration & Automation",
       content: [
         {
-          alt: "Icon",
+          alt: "Kubeflow",
           caption: "Kubeflow",
           img: kubeflow,
         },
         {
-          alt: "Icon",
+          alt: "Airflow",
           caption: "Airflow",
           img: airflow,
         },
         {
-          alt: "Icon",
-          caption: "Argo Workflows",
-          img: argo,
+          alt: "Kubernetes",
+          caption: "Kubernetes",
+          img: kubernetes,
         },
       ],
     },
@@ -266,17 +268,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Model Deployment & Serving",
       content: [
         {
-          alt: "Icon",
+          alt: "TensorFlow Serving",
           caption: "TensorFlow Serving",
           img: tensorflowserving,
         },
         {
-          alt: "Icon",
+          alt: "KServe",
           caption: "KServe",
           img: kserve,
         },
         {
-          alt: "Icon",
+          alt: "Seldon Core",
           caption: "Seldon Core",
           img: seldon,
         },
@@ -286,17 +288,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Monitoring & Observability",
       content: [
         {
-          alt: "Icon",
+          alt: "Prometheus",
           caption: "Prometheus",
           img: prometeus,
         },
         {
-          alt: "Icon",
+          alt: "Grafana",
           caption: "Grafana",
           img: grafana,
         },
         {
-          alt: "Icon",
+          alt: "MLflow",
           caption: "MLflow",
           img: mlflow,
         },
@@ -306,17 +308,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Experiment Tracking",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Weights & Biases",
           caption: "Weights & Biases",
           img: weightandbiases,
         },
         {
-          alt: "Icon",
+          alt: "CometML",
           caption: "CometML",
           img: commet,
         },
@@ -326,17 +328,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Data Versioning & Management",
       content: [
         {
-          alt: "Icon",
+          alt: "DVC",
           caption: "DVC",
           img: dvc,
         },
         {
-          alt: "Icon",
+          alt: "Git LFS",
           caption: "Git LFS",
           img: gitlfs,
         },
         {
-          alt: "Icon",
+          alt: "Pachyderm",
           caption: "Pachyderm",
           img: parchiderm,
         },
@@ -346,17 +348,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Cloud Platforms",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud Platform",
           caption: "GCP",
           img: googlecloud,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
@@ -366,23 +368,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "CI/CD Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "Jenkins",
           caption: "Jenkins",
           img: jenkins,
         },
         {
-          alt: "Icon",
+          alt: "GitLab CI",
           caption: "GitLab CI",
           img: gitlab,
         },
         {
-          alt: "Icon",
-          caption: "CircleCI",
-          img: circleci,
+          alt: "githubci",
+          caption: "Gihub CI",
+          img: githubci,
         },
       ],
     },
   ];
+  
   
   const heroData = {
     heading: "Reduce churn and maximise retention. With Custom AI Chatbots",

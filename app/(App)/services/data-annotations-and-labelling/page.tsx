@@ -58,6 +58,11 @@ import accurateannotation from "@/assets/bentobox/Accurate Annotations.svg"
 import comprehensive_solution from "@/assets/bentobox/Comprehensive solution.svg"
 import domain_specific from "@/assets/bentobox/Domain Specific Expertise.svg"
 
+export const metadata = {
+  title:"Data Annotations and Labelling Services for AI & ML | Centrox AI",
+  description:"Offering scalable, high-quality data annotation services. Providing precise, efficient solutions, specializing in image, video, audio, and text annotations. Book Now."
+}
+
 export default async function Page({ params }: { params: { slug: string } }) {
   //   const { slug } = params;
   //   console.log("slug is", slug);

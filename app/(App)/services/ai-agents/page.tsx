@@ -59,6 +59,10 @@ import AIagent from "@/assets/Agentic AI.svg"
 import goal_oriented from "@/assets/bentobox/Goal Oriented.svg"
 import langchain from "@/assets/bentobox/Langchain framework.svg"
 import dataanalysis from "@/assets/bentobox/Data Analysis & Insights-1.svg"
+export const metadata = {
+  title:"Empower Your Business with Agentic AI Solutions | Centrox AI",
+  description:"Develop intelligent AI agents and workflows to automate tasks, make data-driven decisions, and grow for scalable solutions. Book a free session today."
+}
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
     {
@@ -285,15 +289,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan:1
         },
-        {
-          icon: Icon13,
-          heading: "Natural Language Processing (NLP)", // Updated heading
-          description:
-            "Enables agents to understand and respond to human language, facilitating seamless communication and collaboration.", // Updated description
-          linkText: "",
-          linkWithIcon: true,
-          colSpan:1
-        },
+      
         {
           icon: Icon6,
           heading: "Knowledge Graphs & Reasoning", // Updated heading
@@ -301,13 +297,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:2
         },
         {
-          icon: Icon9,
-          heading: "Distributed Systems & Microservices", // Updated heading
+          icon: Icon13,
+          heading: "Natural Language Processing (NLP)", // Updated heading
           description:
-            "Enable the development of scalable and fault-tolerant AI agent architectures.", // Updated description
+            "Enables agents to understand and respond to human language, facilitating seamless communication and collaboration.", // Updated description
           linkText: "",
           linkWithIcon: true,
           colSpan:1
@@ -336,7 +332,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Use Cases",
         headingText: "Use Cases We’ve Worked On", // Updated heading
         para1Text:
-          "Centrox AI has the capability to design, build, and deploy AI agents and workflows that address your specific needs. Our experience in Agentic AI so far incorporates various domains and industries, including:", // Updated paragraph
+          "Centrox AI has the capability to design, build, and deploy AI agents and workflows that address your specific needs. Our experience in Agentic AI so far incorporates various domains and industries.", 
         para2Text: "",
       },
       data: [
@@ -401,11 +397,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       answer:
         "Agentic AI surpasses the limitations of standard LLMs, which often struggle with complex, evolving tasks that require learning from experience. Unlike LLMs that rely on static responses, AI agents can adapt, learn over time, and make autonomous decisions, enabling them to handle unpredictable real-world scenarios.",
     },
-    {
-      question: "How Does Reinforcement Learning Enhance the Decision-Making Abilities of AI Agents?",
-      answer:
-        "Reinforcement learning empowers AI agents to optimize their actions based on trial-and-error feedback. This continuous learning loop enables the agent to make more accurate decisions over time, evolving as it encounters new challenges and environments, which is crucial for dynamic, data-rich contexts.",
-    },
+ 
     {
       question: "What Steps Are Involved in Developing a Scalable AI Workflow That Integrates Multiple AI Agents?",
       answer:
@@ -513,7 +505,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const stepperData = {
     heading: "How We Build Agentic AI?", // Updated heading
     description:
-      "We follow a structured, iterative process to ensure the success of your AI agent projects:", // Updated description
+      "We follow a structured, iterative process to ensure the success of your AI agent projects.", // Updated description
     data: [
       {
         title: "Needs Assessment & Discovery", // Updated title

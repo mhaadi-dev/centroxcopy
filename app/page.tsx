@@ -47,14 +47,7 @@ const WebsiteFooter = dynamic(
   { ssr: false }
 );
 
-const BannerSection = dynamic(
-  () => import("@/Components/MainPageComponents/Banner"),
-  { ssr: false }
-);
 
-const Testimonial = dynamic(() => import("@/views/Testimonial"), {
-  ssr: false,
-});
 
 // import useScrollToElement from "@/hooks/useScrollToElement";
 const data = [
@@ -207,7 +200,7 @@ export default async function Home() {
       description:
         "Provides empathetic support and personalized coping strategies for individuals experiencing emotional distress.Trained on a curated dataset of evidence-based therapeutic techniques and mental health resources.",
       heading: "Mental Health Chatbot",
-      tabheading: "Mental Health Chatbot",
+      tabheading: "Health Bot",
       btnText: "Try for Free",
       link: "solutions/mental-health-chatbot",
     },
@@ -234,7 +227,7 @@ export default async function Home() {
       description:
         "Automates the process of tagging fashion products with relevant attributes (style, color, neckline, etc.) using computer vision and image recognition techniques.Improves efficiency, accuracy, and consistency in product cataloging for fashion retailers.",
       heading: "Labelling Dresses with AI",
-      tabheading: "Labelling Dresses with AI",
+      tabheading: "Fitness and Wellbeing",
       btnText: "Try for Free",
       link: "solutions/labelling-dresses-with-ai",
     },

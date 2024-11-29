@@ -16,9 +16,9 @@ let analyticsId = process.env["NEXT_PUBLIC_REACT_APP_ANALYTICS_ID"];
 let clarityId = process.env["NEXT_PUBLIC_REACT_APP_CLARITY_ID"];
 
 export const metadata: Metadata = {
-  title: "Centrox AI - AI & Machine Learning Services",
+  title: "Centrox AI | Full-Cycle Gen AI and Custom LLM Dev Services",
   description:
-    "Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions.",
+    "Unlock AI innovation with Centrox AI Full-Cycle Gen AI services. From custom LLMs to AI chatbots, we streamline your AI deployment. Book a consultation today!",
   icons: {
     icon: `/public/favicon.ico`,
   },
