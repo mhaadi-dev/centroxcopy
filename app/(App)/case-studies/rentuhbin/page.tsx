@@ -81,8 +81,8 @@ const slugOptions=[{
    }
 }]
 const banner1Data={
-    heading:"optimizing dumpster placement using image recognition for consumers and service providers.",
-    para1Text:"Consumers had trouble telling service providers exactly where to place the dumpster, and providers struggled to follow local rules for placement. Our deployed  system accurately identifies the most suitable and permissible location for the dumpster.",
+    heading:"Optimizing dumpster placement using image recognition.",
+    para1Text:"Our solution ensures convenient, efficient, and eco-friendly waste disposal while prioritizing user satisfaction and reliability. Some of the major benefits this tool delivers are explained below.",
 }
 const heroSection1Data={
     heading:"The Problem",

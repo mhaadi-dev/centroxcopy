@@ -374,7 +374,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       headerData: {
         tagText: "Benefits",
         headingText: "Why Gen AI is the Key for Healthcare Innovators?",
-        para1Text: "Centrox AI develops custom, large-scale neural networks and machine learning models that are purpose-built for the healthcare industry. These AI systems are not only fine-tuned to healthcare’s specific requirements but are also designed to evolve with advancements in medical science.",
+        para1Text: "Centrox AI introduces solutions which are customized according to your healthcare specific requirements, becoming your reliable help in extending advanced healthcare support  to the patients.",
         heading2Text: "",
         para2Text: "",
       },

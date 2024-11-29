@@ -53,8 +53,12 @@ import qwen from "@/assets/qwen.webp"
 import customllm  from "@/assets/Custom LLM.svg"
 import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from "@/Components/common/IndustryBanner";
-
+export const metadata = {
+  title:"Custom LLM Services | Tailored AI Solutions for Business | Centrox AI",
+  description:"Accelerate your business with Custom LLM services. From ideation to deployment, Centrox AI delivers innovative AI solutions. Book a free consultation today!"
+}
 export default async function Page({ params }: { params: { slug: string } }) {
+
   const benefitsData = [
     {
       headerData: {
@@ -192,7 +196,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       content: [
         {
           alt: "icon",
-          caption: "Liama",
+          caption: "Llama",
           img: liama,
         },
         {
@@ -268,7 +272,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tagText: "advantages",
       heading: "What You Gain",
       description:
-        "Partnering with Centrox AI for custom LLM development empowers your team to",
+        "Partnering with Centrox AI for custom LLM development empowers your team to achieve excellent performance.",
     },
     data: [
       {

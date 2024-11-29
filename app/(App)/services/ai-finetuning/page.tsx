@@ -57,6 +57,11 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import finetuninghero from "@/assets/Fine Tuning.svg"
 import servicebg from "@/assets/Servicebg.webp"
 
+
+export const metadata = {
+  title:"Fine Tune AI Model Solutions to get Peak Performance | Centrox AI ",
+  description:"Unlock full potential of your AI models with Centrox AI fine-tuning expertise. Achieve accuracy, reduce bias, and optimize performance. Book Session Now"
+}
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
     {
@@ -64,7 +69,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Benefits",
         headingText: "How We Help Your Model Speak Your Language", // Updated heading
         para1Text:
-          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs, resulting in:", // Updated first paragraph
+          "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs.", // Updated first paragraph
         heading2Text: "",
       },
       data: [
@@ -112,7 +117,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "Challenges",
         headingText: "The Challenge of Generic AI Models",
         para1Text:
-          "Pre-trained models often fall short when it comes to real-world applications. They struggle to.",
+          "Pre-trained models often fall short when it comes to real-world applications. They struggle to deliver some aspects mentioned below.",
         para2Text: "",
       },
       data: [
@@ -143,7 +148,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Mitigating inherent biases in large pre-trained models is crucial to ensure fair and ethical AI solutions.",
           linkText: "",
           linkWithIcon: true,
-          bentoImage:null
+          bentoImage:null,
+          colSpan:1
         },
         {
           icon: Icon4,

@@ -57,6 +57,11 @@ import servicebg from "@/assets/Servicebg.webp"
 import consistencyicon from "@/assets/consistency.webp"
 import insightsicon from "@/assets/Insights.webp"
 import scalibilityicon from "@/assets/Scalability & availability.webp"
+export const metadata = {
+  title:"Build your Custom AI Chatbot For Customer Support | Centrox AI",
+  description:"Develop custom AI chatbots for personalized, scalable support. Enhance customer engagement and streamline operations. Book your session with Centrox AI"
+}
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -401,7 +406,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   _type: "span",
                   marks: [],
                   text:
-                    "We leverage powerful LLMs like GPT-3.5, GPT-4, or other open-source models to power your chatbot's intelligence that ensures prompt engineering.",
+                    "We leverage powerful LLMs like OpenAI, Anthropic, Gemini and open source Llama models to power your chatbot's intelligence that ensures prompt engineering.",
                 },
               ],
             },

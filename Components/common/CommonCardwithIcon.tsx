@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Arrow from "@/assets/RightArrow.svg";
-import classNames, { text_h4_class, text_para_2, text_para_3 } from "@/helpers/common";
+import classNames, { text_h2_class, text_h3_class, text_h4_class, text_para_2, text_para_3, text_para_main } from "@/helpers/common";
 import { Span } from "next/dist/trace";
 
 interface CardProps {
@@ -57,7 +57,7 @@ const CommonCardwithIcon = ({
       >
         {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
         <div className="flex flex-col gap-y-1 flex-grow">
-          <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
+          <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_h2_class)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
         {linkText && (

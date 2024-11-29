@@ -1,37 +1,21 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
+
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
 
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
+
 import { LogosSection } from "@/sections/LogosSection";
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
+
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon6 from "@/assets/Icon-6.webp";
+
 import Icon9 from "@/assets/Icon-9.webp";
 
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
-import Icon14 from "@/assets/Icon-14.webp";
+
 import liama from "@/assets/liama.webp";
 import falcon from "@/assets/falcon.webp";
 import qwen from "@/assets/qwen.webp";
@@ -49,8 +33,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import rasa from "@/assets/Rasa-white.webp";
 import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../../layout";
-import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
+
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg2.webp";
 import solutionbg2 from "@/assets/solutions/solutionbg1.webp";
@@ -68,7 +51,7 @@ import Icon26 from "@/assets/Icon-26.webp"
 import finance from "@/assets/Finance.webp"
 import education from "@/assets/Education.webp"
 import customerservice from "@/assets/customerservice.webp"
-
+import langchain from "@/assets/langchain.webp"
 
 
 
@@ -128,7 +111,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         tagText: "The Problem",
         headingText: "Overcoming Obstacles in Emotional Support",
         para1Text:
-          "In times of emotional distress, people often find themselves facing scattered information, long wait times for professional support, or inadequate resources. Traditional resources struggle with",
+          "In times of emotional distress, people often find themselves facing scattered information, long wait times for professional support, or inadequate resources.",
         para2Text: "",
         heading2Text: "",
       },
@@ -170,7 +153,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         headingText:
           "Targeted, Boundaried Support with Centrox AI's Health Chatbot",
         para1Text:
-          "Our AI health chatbot is built on advanced prompt engineering, ensuring it delivers precise, relevant responses and disregards any irrelevant queries. Here’s how we’ve structured this tool to offer the most value:",
+          "Our AI health chatbot is built on advanced prompt engineering, ensuring it delivers precise, relevant responses and disregards any irrelevant queries. Below you can find how we’ve structured this tool to offer the most value.",
         para2Text: "",
         heading2Text: "",
       },
@@ -209,7 +192,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       headerData: {
         tagText: "Adaptable AI Solution",
-        headingText: "What is it for you?",
+        headingText: "What AI Solutions Can Do for you?",
         para1Text:
           "Centrox’s approach isn’t limited to health. The precision and expertise behind our chatbot can be applied to develop AI assistants for any service industry.",
         para2Text: "",
@@ -271,7 +254,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       question: "What AI technology powers Centrox AI's chatbot?",
       answer:
-        "The AI assistant chatbot prepared by our expert team at Centrox AI is powered by GPT-3.5, enabling advanced prompt engineering. This GPT-3.5 powered AI assistant is then fine-tuned to deliver accurate responses while being aware of defined boundaries. The Langchain libraries utilized enhance the chatbot's ability to manage conversations efficiently.",
+        "The AI assistant chatbot prepared by our expert team at Centrox AI is powered by OpenAI, Anthropic and Llama, enabling advanced prompt engineering. This  OpenAI assistant is then fine-tuned to deliver accurate responses while being aware of defined boundaries. The Langchain libraries utilized enhance the chatbot's ability to manage conversations efficiently.",
     },
     {
       question: "Is Centrox AI’s chatbot suitable for other industries?",
@@ -357,8 +340,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       content: [
         {
           alt: "Icon",
-          caption: "Rasa",
-          img: rasa,
+          caption: "Langchain",
+          img: langchain,
         },
         {
           alt: "Icon",

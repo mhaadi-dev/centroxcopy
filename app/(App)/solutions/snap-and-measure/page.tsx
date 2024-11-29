@@ -84,8 +84,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       headerData: {
         tagText: "AI-powered Solution",
-        headingText: "Our AI-powered solution offers",
-        para1Text: "",
+        headingText: "What Our AI-Powered Solution Offers?",
+        para1Text: "Our AI powered solution is introduced to provide you an automated way to make your tasks execution easy.",
         heading2Text: "",
         para2Text: "",
       },
@@ -338,9 +338,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
   ];
   const heroData = {
-    heading: "Measurements Beyond Tape",
+    heading: "Measurement Precision with AI",
     description:
-      "Improve your apparel business with Centrox AI's body measurement tool. Our AI-powered solution accurately captures body dimensions from photos, enhancing fit, reducing returns, and improving the shopping experience.",
+      "Our body measurement tool integrates computer vision and machine learning algorithms to extend convenience for measurement, and can consequently help you in various tasks where accurate measurement is crucial.",
     btnText: "Try for Free",
     includeDots: false,
     img: snapmeasureHero,
@@ -482,7 +482,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
+              "We leverage a powerful and flexible tech stack to build high-performing chatbots."
             }
             caption=""
             btnText="Let’s Discuss Further"
