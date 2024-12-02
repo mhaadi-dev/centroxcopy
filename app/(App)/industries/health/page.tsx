@@ -11,20 +11,12 @@ import { FaqsSection } from "@/sections/FaqsSection";
 
 
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon14 from "@/assets/Icon-14.webp";
-import liama from "@/assets/liama.webp";
+import Icon14 from "@/assets/Icon-14.svg";
 
-
-import pytorch from "@/assets/pytorchlogo.webp";
-import huggingface from "@/assets/huggingfacelogo.webp";
-
-import aws from "@/assets/awslogo.webp";
-import azure from "@/assets/azure-plainlogo.webp";
-import googlecloud from "@/assets/Googlecloud.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
-import strategy from "@/assets/solutions/Strategy.webp";
-import checkerboard from "@/assets/solutions/Checkerboard.webp";
+import strategy from "@/assets/solutions/Strategy.svg";
+import checkerboard from "@/assets/solutions/Checkerboard.svg";
 import SolutionsImage1 from "@/assets/solutions/Data integration.webp";
 import SolutionsImage2 from "@/assets/Transparent Insights.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
@@ -34,10 +26,7 @@ import Icon17 from "@/assets/Icon-17.webp"
 import Icon18 from "@/assets/Icon-18.webp"
 import Icon51 from "@/assets/Icon-51.webp"
 import Icon52 from "@/assets/Icon-52.webp"
-import gpt from "@/assets/gpt.webp"
-import langchain from "@/assets/langchain.webp"
-import tableau from "@/assets/tableau logo.webp"
-import powerbi from "@/assets/powerbi.webp"
+
 import healthhero from "@/assets/industries/Hero Image health.svg"
 import custombuilt from "@/assets/bentobox/Neural Network.svg"
 import scalable from "@/assets/bentobox/Scalable AI.svg"
@@ -49,53 +38,7 @@ import scalable from "@/assets/bentobox/Scalable AI.svg"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
-    const benefitsData = [
-        {
-          headerData: {
-            tagText: "Benefits",
-            headingText: "Key Benefits for Real Estate Professionals",
-            para1Text: "Partnering with Centrox AI empowers you to",
-            heading2Text: "",
-            para2Text: "",
-          },
-          data: [
-            {
-              icon: Icon16, // Replace with the correct icon for Competitive Edge
-              heading: "Gain a Competitive Edge",
-              description:
-                "Leverage AI to differentiate your services, attract more clients, and close deals faster.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon17, // Replace with the correct icon for Streamlined Operations
-              heading: "Streamline Operations",
-              description:
-                "Automate manual tasks, improve efficiency, and reduce operational costs.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon14, // Replace with the correct icon for Data-Driven Decisions
-              heading: "Make Data-Driven Decisions",
-              description:
-                "Access real-time insights and analytics to inform your business strategies and investment decisions.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon18, // Replace with the correct icon for Enhanced Customer Experiences
-              heading: "Enhance Customer Experiences",
-              description:
-                "Deliver personalized recommendations and proactive support, building stronger relationships with clients.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-          ],
-          caption: "",
-          btnText: "Let’s Discuss Your Vision",
-        },
-      ];
+
       
 
       const challengeData = [
@@ -215,83 +158,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
   
 
-  const techStackData = [
-   
-    {
-      title: "Large Language Models (LLMs)",
-      content: [
-        {
-          alt: "Icon",
-          caption: "GPT-4",
-          img: gpt,
-        },
-      
-        {
-          alt: "Icon",
-          caption: "Llama",
-          img: liama,
-        },
-      ],
-    },
-    {
-      title: "Frameworks",
-      content: [
-      
-      
-        {
-          alt: "Icon",
-          caption: "pytorch",
-          img: pytorch,
-        },
-        {
-            alt: "Icon",
-            caption: "Hugging Face Transformers",
-            img: huggingface,
-          },
-        {
-          alt: "Icon",
-          caption: "LangChain",
-          img: langchain,
-        },
-      ],
-    },
-    {
-      title: "Cloud Platforms",
-      content: [
-        {
-          alt: "Icon",
-          caption: "AWS",
-          img: aws,
-        },
-        {
-          alt: "Icon",
-          caption: "Azure",
-          img: azure,
-        },
-        {
-          alt: "Icon",
-          caption: "Google Cloud",
-          img: googlecloud,
-        },
-      ],
-    },
-    {
-      title: "Data Visualization Tools",
-      content: [
-        {
-          alt: "Icon",
-          caption: "Tableau",
-          img: tableau,
-        },
-        {
-          alt: "Icon",
-          caption: "PowerBi",
-          img: powerbi,
-        },
-      ],
-    },
-  
-  ];
+ 
   const heroData = {
     heading: "Transforming Healthcare with Generative AI",
     description:

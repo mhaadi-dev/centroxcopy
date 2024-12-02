@@ -24,15 +24,15 @@ import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
 import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
 import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
 import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
-import Icon from "@/assets/Icon.webp";
-import Icon2 from "@/assets/Icon-1.webp";
-import Icon3 from "@/assets/Icon-3.webp";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon5 from "@/assets/Icon-5.webp";
-import Icon6 from "@/assets/Icon-6.webp";
-import Icon7 from "@/assets/Icon-7.webp";
-import Icon8 from "@/assets/Icon-8.webp";
-import menubars from "@/assets/barsmenu.webp";
+import Icon from "@/assets/Icon.svg";
+import Icon2 from "@/assets/Icon-1.svg";
+import Icon3 from "@/assets/Icon-3.svg";
+import Icon4 from "@/assets/Icon-4.svg";
+import Icon5 from "@/assets/Icon-5.svg";
+import Icon6 from "@/assets/Icon-6.svg";
+import Icon7 from "@/assets/Icon-7.svg";
+import Icon8 from "@/assets/Icon-8.svg";
+import menubars from "@/assets/Icon-2.svg";
 import SolutionsImage1 from "@/assets/solutionpic1.webp";
 import SolutionsImage2 from "@/assets/solutionPic2.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
@@ -197,6 +197,7 @@ export default async function Home() {
   const solutionsData = [
     {
       img: SolutionsImage1,
+      alt:"Mental Health Chatbot conversation",
       description:
         "Provides empathetic support and personalized coping strategies for individuals experiencing emotional distress.Trained on a curated dataset of evidence-based therapeutic techniques and mental health resources.",
       heading: "Mental Health Chatbot",
@@ -206,6 +207,7 @@ export default async function Home() {
     },
     {
       img: SolutionsImage2,
+      alt:"Real Estate Chatbot solution ",
       description:
         "Provides intelligent property search, answer queries, schedule viewings, and offer tailored recommendations.Integrates with real estate databases and APIs to provide up-to-date property information and streamline the customer journey.",
       heading: "Real-Estate Chatbot",
@@ -215,6 +217,7 @@ export default async function Home() {
     },
     {
       img: SolutionsImage3,
+      alt:"Body Measurements Tool",
       description:
         "Utilizes computer vision and deep learning algorithms to accurately estimate body dimensions from just two photos.Enables precise garment fitting, personalized recommendations, and reduced return rates for fashion retailers.",
       heading: "Body Measurements Tool",
@@ -224,6 +227,7 @@ export default async function Home() {
     },
     {
       img: SolutionsImage4,
+      alt:"Labelling Dresses with AI",
       description:
         "Automates the process of tagging fashion products with relevant attributes (style, color, neckline, etc.) using computer vision and image recognition techniques.Improves efficiency, accuracy, and consistency in product cataloging for fashion retailers.",
       heading: "Labelling Dresses with AI",
@@ -261,6 +265,7 @@ export default async function Home() {
   const gradientCardData = [
     {
       image: industryPic1,
+      alt:"Mental health chatbot",
       data: [
         {
           heading: "Medical Text Generation",
@@ -281,6 +286,7 @@ export default async function Home() {
     },
     {
       image: industryPic2,
+      alt:"AI-powered Body measurement tool",
       data: [
         {
           heading: "AI-Powered Design Tools",
@@ -301,6 +307,7 @@ export default async function Home() {
     },
     {
       image: industryPic3,
+      alt:"Real Estate Chatbot service",
       data: [
         {
           heading: "Property Descriptions & Listings",
@@ -321,6 +328,7 @@ export default async function Home() {
     },
     {
       image: industryPic4,
+      alt:"AI in fintech",
       data: [
         {
           heading: "Fraud Detection & Prevention",

@@ -1,40 +1,16 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
-import { StepperSection } from "@/sections/StepperSection";
+
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
-import { LogosSection } from "@/sections/LogosSection";
+
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon6 from "@/assets/Icon-6.webp";
+
 import Icon47 from "@/assets/Icon-47.webp";
 
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
-import Icon14 from "@/assets/Icon-14.webp";
 import liama from "@/assets/liama.webp";
 import falcon from "@/assets/falcon.webp";
 import qwen from "@/assets/qwen.webp";
@@ -49,21 +25,16 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import rasa from "@/assets/Rasa-white.webp"
 import dialogflow from "@/assets/dialogflow.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import LandingLayout from "../../layout";
-import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
-import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
+
 import solutionbg1 from "@/assets/solutions/solutionbg2.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg1.webp"
 import realestatehero from "@/assets/solutions/Real estatehero.svg"
 import Icon27 from "@/assets/Icon-27.webp";
-import Icon28 from "@/assets/Icon-28.webp";
 import Icon29 from "@/assets/Icon-29.webp";
 import Icon30 from "@/assets/Icon-30.webp";
-import Icon31 from "@/assets/Icon-31.webp";
 import Icon32 from "@/assets/Icon-32.webp";
 import Icon33 from "@/assets/Icon-33.webp";
 import Icon34 from "@/assets/Icon-34.webp";
@@ -71,11 +42,9 @@ import Icon35 from "@/assets/Icon-35.webp";
 import Icon36 from "@/assets/Icon-36.webp";
 import Icon37 from "@/assets/Icon-37.webp";
 import Icon38 from "@/assets/Icon-38.webp";
-import Icon39 from "@/assets/Icon-39.webp";
-import Icon40 from "@/assets/Icon-40.webp";
-import Icon41 from "@/assets/Icon-41.webp";
+
 import Icon48 from "@/assets/Icon-48.webp";
-import Icon9 from "@/assets/Icon-9.webp";
+import Icon9 from "@/assets/Icon-9.svg";
 import realestate_agents from "@/assets/bentobox/Real estate agents.svg"
 import agencies from "@/assets/bentobox/Agencies.svg"
 

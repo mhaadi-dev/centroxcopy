@@ -1,48 +1,32 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
+
 import { StepperSection } from "@/sections/StepperSection";
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
-import { LogosSection } from "@/sections/LogosSection";
+
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layout";
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon6 from "@/assets/Icon-6.webp";
-import Icon9 from "@/assets/Icon-9.webp";
 
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
-import Icon14 from "@/assets/Icon-14.webp";
+import Icon4 from "@/assets/Icon-4.svg";
+import Icon6 from "@/assets/Icon-6.svg";
+import Icon9 from "@/assets/Icon-9.svg";
 
-import Icon1 from "@/assets/Icon.webp";
-import Icon2 from "@/assets/Icon-1.webp";
-import Icon3 from "@/assets/Icon-3.webp";
-import Icon5 from "@/assets/Icon-5.webp";
-import Icon7 from "@/assets/Icon-7.webp";
-import Icon8 from "@/assets/Icon-8.webp";
-import menubars from "@/assets/barsmenu.webp";
+import Icon10 from "@/assets/Icon-13.svg";
+import Icon11 from "@/assets/Icon-11.svg";
+import Icon12 from "@/assets/Icon-12.svg";
+import Icon13 from "@/assets/Icon-13.svg";
+import Icon14 from "@/assets/Icon-14.svg";
+
+import Icon1 from "@/assets/Icon.svg";
+import Icon2 from "@/assets/Icon-1.svg";
+import Icon3 from "@/assets/Icon-3.svg";
+import Icon5 from "@/assets/Icon-5.svg";
+import Icon7 from "@/assets/Icon-7.svg";
+import Icon8 from "@/assets/Icon-8.svg";
+import menubars from "@/assets/Icon-2.svg";
 
 import liama from "@/assets/liama.webp";
 import falcon from "@/assets/falcon.webp";
@@ -61,7 +45,7 @@ import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
-import datavalidation from "@/assets/Data Validations.svg"
+import datavalidation from "@/assets/Data Validations1.svg"
 
 // const FaqsSection = dynamic(() => import('@/sections/FaqsSection')),{ss};
 // const ContactForm = dynamic(() => import('@/Components/common/ContactForm'));

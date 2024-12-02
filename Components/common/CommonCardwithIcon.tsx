@@ -34,11 +34,10 @@ const CommonCardwithIcon = ({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className=" mx-auto flex w-full flex-col cursor-default h-full ">
       <div
         aria-label="centrox-services"
         className={classNames(
-          "bg-gray-900 relative px-8 py-8 rounded-xl flex flex-1 flex-col gap-y-2 transition-all ease-in duration-200 h-full",
+          "bg-gray-900 mx-auto  relative py-6 px-6 lg:px-8 lg:py-8 rounded-xl flex flex-1 flex-col gap-y-4 transition-all ease-in duration-200 h-full",
           className
         )}
         style={{
@@ -56,14 +55,14 @@ const CommonCardwithIcon = ({
         onMouseLeave={() => setIsHovering(false)}
       >
         {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
-        <div className="flex flex-col gap-y-1 flex-grow">
+        <div className="flex  flex-col gap-y-1 flex-grow">
           <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_h2_class)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
         {linkText && (
           <Link
             href={link || ""}
-            className="flex gap-x-2 text-gray-light hover:text-blue-azure mt-auto"
+            className="flex gap-x-2  text-gray-light hover:text-blue-azure mt-auto "
           >
             {linkText}{" "}
             {linkWithIcon && (
@@ -84,7 +83,7 @@ const CommonCardwithIcon = ({
           </Link>
         )}
       </div>
-    </div>
+    
   );
 };
 

@@ -2,10 +2,10 @@ import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from '@
 import Image from 'next/image';
 import React from 'react';
 import dummyDisplay from "@/assets/dummyDisplay.webp";
-import Icon1 from "@/assets/Icon-1.webp";
+import Icon1 from "@/assets/Icon-1.svg";
 import serviceherobg from "@/assets/Servicebg.webp";
 import checker from "@/assets/checker.webp";
-import SectionHeader from './SectionHeader';
+
 
 interface Props {
     headingText?: string;

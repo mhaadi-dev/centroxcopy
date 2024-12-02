@@ -1,43 +1,18 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
-import { StepperSection } from "@/sections/StepperSection";
+
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
+
 import { LogosSection } from "@/sections/LogosSection";
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon6 from "@/assets/Icon-6.webp";
-import Icon9 from "@/assets/Icon-9.webp";
+import Icon from "@/assets/Icon.svg";
 
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
-import Icon14 from "@/assets/Icon-14.webp";
-import liama from "@/assets/liama.webp";
-import falcon from "@/assets/falcon.webp";
-import qwen from "@/assets/qwen.webp";
+import Icon9 from "@/assets/Icon-9.svg";
+
 
 import pytorch from "@/assets/pytorchlogo.webp";
 import huggingface from "@/assets/huggingfacelogo.webp";
@@ -48,15 +23,12 @@ import azure from "@/assets/azure-plainlogo.webp";
 import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
-import kubeflow from "@/assets/kubeflowlogo.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
-import rasa from "@/assets/Rasa-white.webp"
-import dialogflow from "@/assets/dialogflow.svg"
+
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
-import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
+
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
-import LandingLayout from "../../layout";
+
 import solutionbg1 from "@/assets/solutions/solutionbg2.webp"
 import solutionbg2 from "@/assets/solutions/solutionbg1.webp"
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
@@ -68,7 +40,6 @@ import weightandbiases from "@/assets/evaluationlogos/wandb-dots-logo (1) 1.webp
 import labellinghero from "@/assets/solutions/labeling dresses with ai.svg"
 import Icon42 from "@/assets/Icon-42.webp"
 import Icon43 from "@/assets/Icon-43.webp"
-import Icon44 from "@/assets/Icon-44.webp"
 import Icon45 from "@/assets/Icon-45.webp"
 import Icon46 from "@/assets/Icon-46.webp"
 import Icon47 from "@/assets/Icon-47.webp"

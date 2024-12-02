@@ -19,6 +19,7 @@ export const StepperSection = ({
   img,
   reverse,
   button,
+  alt
 }: any) => {
   
   const [stepperData, setStepperData] = useState(data?.data);
@@ -49,7 +50,6 @@ export const StepperSection = ({
      
     }
   };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -59,12 +59,11 @@ export const StepperSection = ({
 
   useEffect(() => {
     const numSteps = stepperData?.length;
-    const firstStepRange = width!=null && width>768? 450 / numSteps : 290/numSteps; 
+    const firstStepRange = width!=null && width>768? 450 / numSteps : 280/numSteps; 
     const otherStepRange = width!=null && width>768 ? (100 - firstStepRange) / (numSteps - 1):(90 - firstStepRange) / (numSteps - 1);
 
     const updatedData = stepperData?.map((step: any, index: number) => {
       let isActive = false;
-
       if (index === 0) {
         isActive = scrollPercentage < firstStepRange;
       } else if (
@@ -76,6 +75,7 @@ export const StepperSection = ({
 
       return { ...step, status: isActive };
     });
+   
 
     setStepperData(updatedData);
   }, [scrollPercentage]);
@@ -100,8 +100,7 @@ export const StepperSection = ({
           </div> */}
           <SectionHeader headingText={data?.heading} tagText="Process" para1Text={data?.description}/>
           <div className=" ml-[0.3rem] items-start flex flex-col gap-y-2 lg:flex-row w-full">
-             <div className={classNames("  flex flex-col lg:flex-row w-full lg:w-4/5 mx-auto justify-between mt-4 lg:mt-12 gap-4 items-center ",reverse ? "lg:!flex-row-reverse" : "")}>
-            <div className="w-[90%] ml-[12%]  lg:ml-0 mx-auto lg:mx-0 lg:w-full min-h-[70vh] max-h-max ">
+            <div className="w-[90%] ml-[12%]   lg:ml-0 mx-auto lg:mx-0 lg:w-full  ">
               <p className={classNames(text_para_2)}>Our Process includes:</p>
               <Stepper data={stepperData} />
               { data?.btnText && (
@@ -110,18 +109,18 @@ export const StepperSection = ({
                 </div>
               )}
             </div>
-              </div>
-             <div className=" flex mx-auto   w-full lg:w-2/5">
-            <div className="lg:w-full pt-0 flex items-center lg:pt-8 mx-auto">
+             
+             <div className=" flex mx-auto    h-full   w-full lg:w-3/5">
+          
                  {true && (
                 <Image
                   src={ workProcess|| img.asset.url}
-                  alt="journey-img"
+                  alt={alt || "Our Work Process"}
                   className="w-full lg:w-5/5  "
                   loading="lazy"
                 />
               )}
-            </div>
+            
            
       
             </div>
