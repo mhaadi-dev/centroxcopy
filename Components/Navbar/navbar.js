@@ -33,6 +33,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
+  const [showBackdrop, setShowBackdrop] = useState(false);
   const { width } = useSize();
   const [isClient,setIsClient]=useState(false)
   useEffect(() => {
@@ -68,15 +69,20 @@ export const Navbar = () => {
     {
       navItemText: "Services",
       onClick: () => {
-        if (pathname === "/") {
-          scrollToSection("services");
-        } else {
-          localStorage.setItem("services", JSON.stringify(true));
-          router.push(`/`);
-          setTimeout(() => {
-            scrollToSection("services");
-          }, 500);
-        }
+        // if (pathname === "/") {
+        //   scrollToSection("services");
+        // } else {
+        //   localStorage.setItem("services", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("services");
+        //   }, 500);
+        // }
+        // if(showBackdrop){
+        //   setShowBackdrop(true)
+        // }else{
+        //   setShowBackdrop(!showBackdrop);
+        // }
       },
       columnData: [
         [
@@ -147,15 +153,20 @@ export const Navbar = () => {
     {
       navItemText: "Solutions",
       onClick: () => {
-        if (pathname === "/") {
-          scrollToSection("solutions");
-        } else {
-          localStorage.setItem("solutions", JSON.stringify(true));
-          router.push(`/`);
-          setTimeout(() => {
-            scrollToSection("solutions");
-          }, 500);
-        }
+        // if (pathname === "/") {
+        //   scrollToSection("solutions");
+        // } else {
+        //   localStorage.setItem("solutions", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("solutions");
+        //   }, 500);
+        // }
+        // if(showBackdrop){
+        //   setShowBackdrop(true)
+        // }else{
+        //   setShowBackdrop(!showBackdrop);
+        // }
       },
       columnData: [
         [
@@ -199,15 +210,19 @@ export const Navbar = () => {
     {
       navItemText: "Industries",
       onClick: () => {
-        if (pathname === "/") {
-          scrollToSection("industries");
-        } else {
-          localStorage.setItem("industries", JSON.stringify(true));
-          router.push(`/`);
-          setTimeout(() => {
-            scrollToSection("industries");
-          }, 500);
-        }
+        // if (pathname === "/") {
+        //   scrollToSection("industries");
+        // } else {
+        //   localStorage.setItem("industries", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("industries");
+        //   }, 500);
+        // }
+       
+          // setShowBackdrop(!showBackdrop);
+        
+        
       },
       columnData: [
         [
@@ -242,7 +257,8 @@ export const Navbar = () => {
     {
       navItemText: "Company",
       onClick: () => {
-        router.push("/about-us");
+        // router.push("/about-us"); 
+          // setShowBackdrop(!showBackdrop);  
       },
       columnData: [
         [
@@ -282,7 +298,9 @@ export const Navbar = () => {
   ];
   
   return (
-    <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
+    <>
+    {showBackdrop&&<section className="h-screen w-full absolute bg-black/80 z-30 "></section>}
+     <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
       <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
         <Image
           src={AppLogo}
@@ -303,6 +321,7 @@ export const Navbar = () => {
                 isMobileView={showMenu}
                 key={index}
                 socialIcons={navItem?.socialIcons}
+                setShowBackdrop={setShowBackdrop}
               />
             );
           })}
@@ -430,6 +449,10 @@ export const Navbar = () => {
 </nav>
 
       </div>
-    </nav>
+    </nav> 
+    </>
+    
+    
+    
   );
 };

@@ -7,6 +7,7 @@ import BannerSection from "../MainPageComponents/Banner";
 import classNames, {
   section_wrapper_class,
   text_h1_main,
+  text_para_2,
   text_para_main,
 } from "@/helpers/common";
 
@@ -21,18 +22,18 @@ export const MainAboutUs = (props: any) => {
             layout="fill"
             className="opacity-100 object-cover absolute inset-0 h-auto"
           />
-          <div className="flex flex-col gap-4 pt-24 lg:pt-0   items-center w-full lg:w-[83%] mx-auto  rounded-2xl p-2   text-center">
+          <div className="flex z-10 flex-col gap-4 pt-24 lg:pt-0   items-center w-full lg:w-[83%] mx-auto  rounded-2xl p-2   text-center">
             <h1
               className={classNames(
                 text_h1_main,
-                " lg:!text-[3.5rem] 2xl:!text-[4.5rem]   tracking-normal !bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text !text-transparent"
+                "    tracking-normal w-[60%] !bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text !text-transparent"
               )}
             >
               <span className="text-[#E5E7EB]">{props?.props?.props[0]?.mainSectionheading?.split(" ").slice(0,3).join(" ")} </span> {props?.props?.props[0]?.mainSectionheading?.split(" ").slice(3).join(" ")}
             </h1>
             <p
               className={classNames(
-                "text-[#E5E7EB] w-full font-paragraph text-[1rem] lg:text-[1.2rem]  2xl:text-[2.5rem] leading-[1.6rem] 2xl:leading-[2.2rem]"
+                text_para_main,"mx-auto w-[95%] lg:!w-[60%] lg:!max-w-[60%]"
               )}
             >
               {props?.props?.props[0]?.description || ""}
@@ -42,12 +43,22 @@ export const MainAboutUs = (props: any) => {
         <section
           className={classNames(
             section_wrapper_class,
-            "flex flex-col  gap-y-24 lg:gap-y-40"
+            "flex flex-col  gap-y-16 lg:gap-y-32"
           )}
-        >
-          <h2 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white">
+        > 
+        <div className="flex flex-col gap-4">
+           <h2 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white">
             {props?.props?.props[0]?.secondSectionHeading}
           </h2>
+          <p
+              className={classNames(
+                text_para_main,"mx-auto text-center w-[95%] lg:!w-[70%] lg:!max-w-[70%]"
+              )}
+            >
+              {props?.props?.props[0]?.seconSectionDescription || ""}
+            </p>
+        </div>
+         
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  w-[98%] lg:w-full gap-16 lg:gap-10 mx flex-wrap text-white">
             {props?.props?.props[0]?.LeadersImgs?.map((el: any, index: any) => {
               if (
@@ -56,7 +67,7 @@ export const MainAboutUs = (props: any) => {
                 !el?.designation &&
                 !el.linkedINUrl
               ) {
-                return null; // Skip rendering this item if all properties are null
+                return null; 
               }
               return (
                 <div
@@ -101,10 +112,19 @@ export const MainAboutUs = (props: any) => {
               );
             })}
           </div>
-
-          <h2 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white ">
+          <div className="flex gap-4 flex-col">
+             <h2 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white ">
             {props?.props?.props?.[0]?.teamSectionHeading}
           </h2>
+          <p
+              className={classNames(
+                text_para_main,"mx-auto text-center w-[95%] lg:!w-[70%] lg:!max-w-[70%]"
+              )}
+            >
+              {props?.props?.props[0]?.teamSectionDescription || ""}
+            </p>
+          </div>
+         
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-full mx-auto text-white  ">
             {props?.props?.props?.[0]?.teamSectionImgs?.map(
               (el: any, index: number) => {

@@ -35,10 +35,10 @@ export const LandingAboutUs = () => {
   return (
     <section className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
     > 
-    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
+    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] object-cover bottom-0  "></Image>
       <summary
         className={classNames(
-          "flex sm:mt-0  py-0 sm:px-0",
+          "flex  sm:mt-0  py-0 sm:px-0",
           " sm:mx-0 "
         )}
      
@@ -60,7 +60,7 @@ export const LandingAboutUs = () => {
                <div className="w-full mx-[0.5rem]  lg:w-1/2  z-[2]">  
                <figure className=" w-4/4">
                  <Image
-                   alt=""
+                   alt="Gen Ai Process, raw data into exceptional results"
                    src={LandingAboutUsBg}
                    className="w-full  2xl:w-full z-[2]"
                    onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
@@ -92,16 +92,16 @@ export const LandingAboutUs = () => {
         </div>
 
         {windowWidth > 1023 ? (
-          <div className=" w-1/2  z-[2]">  
-          <figure className=" w-4/4">
+          <div className=" w-1/2   z-[2]">  
+     
             <Image
-              alt=""
+              alt="Gen Ai Process, raw data into exceptional results"
               src={LandingAboutUsBg}
-              className="w-full  2xl:w-full z-[2]"
+              className="w-full   2xl:w-full z-[2]"
               onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
               blurDataURL={blurDataURL}
             />
-          </figure>
+         
           </div>
         
         ) : (

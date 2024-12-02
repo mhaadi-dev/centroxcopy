@@ -1,8 +1,5 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
 
@@ -17,7 +14,7 @@ import { FaqsSection } from "@/sections/FaqsSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 
 
-import Icon14 from "@/assets/Icon-14.webp";
+import Icon14 from "@/assets/Icon-14.svg";
 import liama from "@/assets/liama.webp";
 
 
@@ -32,9 +29,9 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 
-import eggcrack from "@/assets/solutions/EggCrack.webp";
-import strategy from "@/assets/solutions/Strategy.webp";
-import checkerboard from "@/assets/solutions/Checkerboard.webp";
+import eggcrack from "@/assets/solutions/EggCrack.svg";
+import strategy from "@/assets/solutions/Strategy.svg";
+import checkerboard from "@/assets/solutions/Checkerboard.svg";
 
 import Icon16 from "@/assets/Icon-16.webp"
 import Icon17 from "@/assets/Icon-17.webp"

@@ -1,21 +1,14 @@
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import classNames, {
-  h2ClassName,
-  h3ClassName,
-  h4ClassName,
-  p2ClassName,
-  p3ClassName,
-  p4ClassName,
+ 
   section_wrapper_class,
-  sectionheadings,
-  sectionSectionDescription,
+
   text_h3_class,
-  text_para_2,
-  text_para_3,
+
  
 } from "@/helpers/common";
 
-import dataImg from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
+
 import Image from "next/image";
 import advantages from "@/assets/advantages.webp"
 import SectionHeader from "@/Components/common/SectionHeader";
@@ -35,7 +28,8 @@ export const PointsandImagesSection = ({
   gradient,
   reverse,
   bgShape,
-  arrayData
+  arrayData,
+  alt
 }: any) => {
   return (
     <div
@@ -87,8 +81,8 @@ export const PointsandImagesSection = ({
             {true && (
               <Image
                 src={advantages||data?.img}
-                alt="hero-img "
-                className="object-fill w-full  lg:w-3/4 h-full"
+                alt={alt || "Why centrox?"}
+                className="object-fill w-full  lg:w-4/4 h-full"
                 loading="lazy"
               />
             )}
@@ -115,7 +109,7 @@ export const PointsandImagesSection = ({
                       >
                         {el.heading}
                       </h4>
-                      <p className={text_para_2}>{el.description}</p>
+                      <p className={"text-[#E5E7EB] font-paragraph text-[1rem] lg:text-[1.2rem] 2xl:text-[1.3rem] leading-[1.6rem] 2xl:leading-[2.25rem]"}>{el.description}</p>
                     </div>
                   </div>
                 );

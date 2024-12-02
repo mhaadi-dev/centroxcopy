@@ -11,16 +11,15 @@ import classNames, {
   text_para_3,
 } from "@/helpers/common";
 import WhatOurClientSay from "@/Components/common/WhatOurClientSay";
-import Image from "next/image";
+
 import SimpleIconHeroSection from "@/Components/common/SimpleIconHeroSection";
 import SubnavBar from "@/Components/Navbar/SubnavBar";
 import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
 import aws from "@/assets/awslogo.webp"
 import imageBG2 from "@/assets/Image BG2.webp"
-import imageBG from "@/assets/ImageBG.webp"
-import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import Icon10 from "@/assets/Icon-10.webp"
+
+import Icon10 from "@/assets/Icon-13.svg"
 
 const page = ({ params }: { params: { slug: string } }) => {
 const slugOptions=[{

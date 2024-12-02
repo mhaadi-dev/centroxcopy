@@ -54,7 +54,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
 }) => (
   <section
     className={classNames(
-      "rounded-3xl flex flex-col gap-3 p-5 mt-10 cursor-pointer "
+      "rounded-3xl flex flex-col flex-grow gap-3 p-5 mt-10 cursor-pointer "
     )}
     style={{
       background:
@@ -73,7 +73,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
     <div className={classNames(text_h4_class)}>
       <span className="">{title}</span>
     </div>
-    <span className={classNames(text_para_3)}>
+    <span className={classNames("text-[#E5E7EB] text-[0.75rem] lg:text-[0.85rem] 2xl:text-[1rem] leading-[1.35rem] 2xl:leading-[1.6rem] my-1")}>
       {description}
     </span>
   </section>
@@ -170,22 +170,18 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
 
 
       {/* Desktop Tabs */}
-      <nav
-  className={classNames(
-    isGradientCardLayout && "px-[3rem]",
-    "hidden lg:grid gap-x-4 gap-y-2 items-center  w-full",
-    tabs.length === 2
-      ? "lg:grid-cols-2"
-      : tabs.length === 3
-      ? "lg:grid-cols-3"
-      : "lg:grid-cols-4" 
-  )}
+      <nav 
+  //     className={classNames(isGradientCardLayout && "px-[3rem]","hidden lg:grid gap-x-4 gap-y-2 items-center  w-full",tabs.length === 2
+  //     ? "lg:grid-cols-2"
+  //     : tabs.length === 3
+  //     ? "lg:grid-cols-3"
+  //     : "lg:grid-cols-4" 
+  // )}
+  className={classNames(isGradientCardLayout && "px-[3rem]","hidden items-center  w-full","lg:flex gap-4")}
   aria-label="Tabs"
 >
   {tabs.map((tab: any) => (
-    <a
-      key={tab.name}
-      className={classNames(
+    <div key={tab.name} className={classNames(
         tab.current
           ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
           : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
@@ -195,7 +191,7 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
       onClick={() => handleTabClick(tab.name)}
     >
       {tab.name}
-    </a>
+    </div>
   ))}
 </nav>
 
@@ -299,9 +295,9 @@ export const TabCarousel = ({
   return (
     <>
       <section className="relative py-12  w-full md:w-5/5 mx-auto 2xl:w-full  overflow-hidden bg-black sm:py-16 lg:py-4 ">
-        <div className=" p-2">
+        <div className=" flex justify-center ">
           <div className="container  ">
-            <div className="text-white   rounded-3xl flex flex-col gap-4 lg:gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
+            <div className="text-white   rounded-3xl flex flex-col gap-4 lg:gap-5 h-full xlc:w-full max-w-[100%]  border-opacity-40">
               <Tabs tabs={tabs} setTabs={setTabs} isGradientCardLayout={isGradientCardsLayoutwithImage} />
               <div className="">
                 {tabs?.map(
@@ -317,7 +313,7 @@ export const TabCarousel = ({
                             <h3 className={classNames(text_h3_class)}>
                               {cardsData[tabindex]?.subInfo?.heading}
                             </h3>
-                            <p className={classNames(text_para_3)}>
+                            <p className={classNames(text_para_3,"mb-4 lg:mb-0")}>
                               Read in detail about our services.
                             </p>
                           </div>
@@ -374,18 +370,18 @@ export const TabCarousel = ({
                           </>
                         )}
                         <div
-                          className="flex flex-col gap-4  xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
+                          className="flex flex-col gap-4   xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
                         >
                         {isGradientCardsLayoutwithImage && (
   <>
     {gradientCardData?.map((cc: any, indexmain: number) => (
       <div
         key={indexmain}
-        className={`w-full flex flex-col xl:flex-row gap-2 lg:gap-10 ${
+        className={`w-full   flex flex-col xl:flex-row gap-2 lg:gap-10 ${
           tab?.current && indexmain === tabindex ? "" : "hidden"
         }`}
       >
-        <div className="w-full xl:w-1/2 flex flex-col gap-y-0">
+        <div className="w-full  xl:w-1/2 flex flex-col gap-y-0">
           {cc?.data?.map((card: any, index: number) => (
             <GradientCard
               key={index}
@@ -402,15 +398,14 @@ export const TabCarousel = ({
             />
           ))}
         </div>
-        <div className="w-full flex xl:w-1/2 mt-10 items-center justify-center">
-          <div className="w-full">
+        <div className="w-full h-full  flex xl:w-1/2 lg:mt-6 items-center justify-center">
             <Image
-              className="w-full h-full block"
+              className="w-full  "
               src={tabs[tabindex]?.current && cc?.image}
               alt="image"
               loading={width && width <= mobileWidth ? "lazy" : "eager"}
             />
-          </div>
+        
         </div>
       </div>
     ))}

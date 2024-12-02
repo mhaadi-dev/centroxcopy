@@ -1,53 +1,27 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
-import { StepperSection } from "@/sections/StepperSection";
+
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
+
 import { LogosSection } from "@/sections/LogosSection";
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import LandingLayout from "../../layout";
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon5 from "@/assets/Icon-5.webp";
+import Icon4 from "@/assets/Icon-4.svg";
+import Icon5 from "@/assets/Icon-5.svg";
 
-import Icon6 from "@/assets/Icon-6.webp";
-import Icon7 from "@/assets/Icon-7.webp";
-import Icon8 from "@/assets/Icon-8.webp";
+import Icon6 from "@/assets/Icon-6.svg";
+import Icon7 from "@/assets/Icon-7.svg";
+import Icon8 from "@/assets/Icon-8.svg";
 
+import Icon10 from "@/assets/Icon-13.svg";
+import Icon11 from "@/assets/Icon-11.svg";
+import Icon12 from "@/assets/Icon-12.svg";
+import Icon13 from "@/assets/Icon-13.svg";
+import Icon14 from "@/assets/Icon-14.svg";
 
-import Icon9 from "@/assets/Icon-9.webp";
-
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
-import Icon14 from "@/assets/Icon-14.webp";
-import liama from "@/assets/liama.webp";
-import falcon from "@/assets/falcon.webp";
-import gptneox from "@/assets/GPT-NeoX.webp";
-
-import pytorch from "@/assets/pytorchlogo.webp";
-import huggingface from "@/assets/huggingfacelogo.webp";
-import tensorflow from "@/assets/tensorflow.webp";
 
 import aws from "@/assets/awslogo.webp";
 import azure from "@/assets/azure-plainlogo.webp";
@@ -55,7 +29,7 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import serviceHeroImg from "@/assets/serviceHeroImg.webp";
+// import serviceHeroImg from "@/assets/serviceHeroImg.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
 import kserve from "@/assets/evaluationlogos/k-serve-white.webp"
@@ -72,7 +46,7 @@ import jenkins from "@/assets/evaluationlogos/jenkins.webp"
 import gitlab from "@/assets/evaluationlogos/gitlab-svgrepo-com 1.webp"
 import parchiderm from "@/assets/evaluationlogos/pachyderm (1).webp"
 import servicebg from "@/assets/Servicebg.webp"
-import evaluation from "@/assets/Pipeline.svg"
+import evaluation from "@/assets/Pipeline1.svg"
 import deployment_bottlenecks from "@/assets/bentobox/Deployment Bottlenecks.svg"
 import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
 import githubci from "@/assets/evaluationlogos/githubci.svg"
@@ -393,7 +367,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Be Available For Your Customers 24/7.Partner with Centrox AI to build intelligent chatbots that know your business as well as you do,, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
     btnText: "Book A Call Now",
     includeDots: false,
-    img: serviceHeroImg,
+    img: null,
     reverse: false,
   };
   const arrayData = {

@@ -52,13 +52,10 @@ const CommonResizeableCard = ({
         style={{
           background:
             isHovering || isGradientBg
-              ? "linear-gradient(90deg, rgba(5, 110, 225, 0.10) 0%, rgba(255, 255, 255, 0.10) 100%)"
+              ? " linear-gradient(90deg, rgba(5, 110, 225, 0.10) 0%, rgba(255, 255, 255, 0.10) 100%)"
               : "",
-          border:
-            isHovering || isGradientBg
-              ? " 1px solid  #111F28"
-              : " 1px solid  #111F28",
-          boxSizing: "border-box",
+              border: "3px solid #404040",
+              
         }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}

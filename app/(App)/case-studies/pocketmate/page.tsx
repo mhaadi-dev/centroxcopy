@@ -1,85 +1,26 @@
 import React from "react";
-import LandingLayout from "../../layout";
+
 import CaseStudyBanner from "@/Components/common/CaseStudyBanner";
-import BannerSection from "@/Components/MainPageComponents/Banner";
-import { VerticalCarousal } from "@/Components/common/VeritcalCarousal";
+
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 
 import classNames, {
-  section_wrapper_class,
+
   text_h2_class,
-  text_para_2,
-  text_para_3,
+  
 } from "@/helpers/common";
 import WhatOurClientSay from "@/Components/common/WhatOurClientSay";
-import Image from "next/image";
+
 import SimpleIconHeroSection from "@/Components/common/SimpleIconHeroSection";
 import SubnavBar from "@/Components/Navbar/SubnavBar";
 import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
 import aws from "@/assets/awslogo.webp"
 import imageBG2 from "@/assets/Image BG2.webp"
-import imageBG from "@/assets/ImageBG.webp"
-import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
+
 
 const page = ({ params }: { params: { slug: string } }) => {
-const slugOptions=[{
-  slug:"pocketmate",
-  caseStudyBanner:{
-    heading:"Pocketmate.ai your reliable mental health support; ensuring emotional contentment whenever or wherever you need it.",
-    para1Text:"Pocketmate.ai offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
-  },
-  CommonDisplayCardsGrid:{
-    gridCols:4,
-    gradientBg:true,
-    data: {
-      headerData: {
-        tagText: "AChivements",
-        headingText: "Highlights for Metrics Achieved ",
-        para1Text:
-          "For startups like you, the best foot forward is to customise existing LLMs according to your unique business needs. We collaborate deeply with your team throughout the entire development lifecycle.",
-        para2Text: "",
-        heading2Text: "",
-      },
-      data: [
-        {
-          Icon: null,
-          heading: "56",
-          symbol: "%",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "96",
-          symbol: "%",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "200",
-          symbol: "+",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "100",
-          symbol: "%",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-      ],
-    },
-  
-      
-   }
-}]
+
 const banner1Data={
     heading:"Pocketmate.ai your reliable mental health support.",
     para1Text:"Pocketmate.ai offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
@@ -94,16 +35,7 @@ const heroSection2Data={
     icon:"",
     description:"Delivering comprehensive mental health support through an AI driven solution is a complex task. After understanding the requirements, our experts did a thorough research in finding out the best possible approach for developing the required solution.Through our study we concluded that in order to extend an appropriate mental health support, we need two separate platforms: one for users, and the other for the professional therapist. Both of these platforms are linked with a content management system,which is managed by the admin panel. The Admin panel  manages the CMS along the business aspects like: subscription and platform fee for the therapy session."
 }
-const heroSection3Data={
-    heading:"Healthcare",
-    icon:"",
-    description:"There are billions of people around the world,  and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease."
-}
-const heroSection4Data={
-    heading:"Healthcare",
-    icon:"",
-    description:"There are billions of people around the world,  and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease."
-}
+
   const data = [
     {
       headerData: {

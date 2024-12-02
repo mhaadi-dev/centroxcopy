@@ -207,7 +207,7 @@ useEffect(() => {
                   {cars.img && (
                     <Image
                       src={cars.img}
-                      alt={`carousel-img-${index}`}
+                      alt={cars?.alt}
                       loading="lazy"
                     
                       className="w-full rounded-xl  md:rounded-none md:rounded-tr-xl"

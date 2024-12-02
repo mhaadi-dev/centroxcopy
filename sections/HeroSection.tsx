@@ -18,6 +18,7 @@ interface PropsI {
   btnText?: string;
   includeDots?: any;
   img?: any;
+  imgClassName?: string;
   reverse?: any;
   className?: string;
   bgimage1?: any;
@@ -29,10 +30,11 @@ interface PropsI {
   heroClassName?:string,
   linkText?:string
   moveToSection?:string
+  alt?:string
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",alt,...props}: PropsI) => {
   return (
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
@@ -90,7 +92,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
           <p
             className={classNames(
               text_para_2,
-              "lg:!text-left px-1 lg:!mx-0 lg:!w-4/5"
+              "lg:!text-left px-2 lg:!mx-0 lg:!w-5/5"
             )}
           >
             {props?.description || ""}
@@ -133,9 +135,9 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
           {props?.img && (
             <Image
               src={props?.img}
-              alt="hero-img"
+              alt={alt || "hero-img"}
               objectFit="fill"
-              className="object-fill w-full lg:w-[614px] lg:h-[614px]  opacity-100  xl:w-[90%] mx-a rounded-2xl  "
+              className={classNames("object-fill  w-full   opacity-100  xl:w-[90%] mx-a rounded-2xl",imgClassName)}
             />
           )}
         </div>

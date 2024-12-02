@@ -34,7 +34,7 @@ async function TeamPage() {
   const teamData = await sanityFetch({
     query: TEAM_SECTION_QUERY,
   });
-  console.log("team data is", teamData);
+  // console.log("team data is", teamData);
   const teamsData = [
     {
       LeadersImgs: [
@@ -58,10 +58,12 @@ async function TeamPage() {
         },
       ],
       bgImage: servicebg,
-	  description:"Driven by innovation, united by expertise—our team crafts AI-powered solutions that shape the future of technology.",
-      mainSectionheading: "Meet our team of Creators, Designers & World Class Problem Solvers.",
+	  description:"Our team holds immense expertise in delivering you the best AI powered solution which can transform the shape of innovation in technology, as we hold a group of driven engineers who have joined hands to contribute to the AI revolution.",
+      mainSectionheading: "Meet Our Expert Team of AI, Backend and Frontend Engineers Solving Real Word Problems.",
       secondSectionHeading: "Leaders of Centrox​​​​‌‌‍​",
+      seconSectionDescription:"Our leaders believe in extending their expertise for AI innovation, they envision to uplift the current standards by providing automated solutions for the problems given by the customers, through continuous learning and knowing where to apply it.",
       teamSectionHeading: "Meet Our Team",
+      teamSectionDescription:"We have found some extremely talented and passionate AI, Backend, Frontend, and Marketing Experts; driven to empower the AI revolution. Our team works proactively to architect and deliver the tailored solution for your needs.",
       teamSectionImgs:[ 
         {
           designation: "AI Engineer",

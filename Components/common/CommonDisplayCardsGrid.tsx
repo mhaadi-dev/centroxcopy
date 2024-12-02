@@ -92,7 +92,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 Icon={card.icon}
                 heading={card?.heading}
                 description={card?.description}
-                className="!h-auto !rounded-2xl w-full !border-[1px] !border-[#111F28] !bg-gradient-to-b from-[#1F5678]  to-[#111528] "
+                className="!h-auto !rounded-2xl w-full  !border-[1px] !border-[#111F28]  "
                 linkText={card?.linkText}
                 headingClassName={headingClassName}
                 symbol={card.symbol}

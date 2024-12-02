@@ -56,10 +56,11 @@ interface Props {
   onClick: any;
   columnData: any;
   isMobileView?: boolean;
-  socialIcons?:any
+  socialIcons?:any,
+  setShowBackdrop?:(val:boolean)=>void
 }
 
-export const NavLink = ({ text, onClick, columnData, isMobileView = false,socialIcons }: Props) => {
+export const NavLink = ({ text, onClick, columnData, isMobileView = false,socialIcons,setShowBackdrop }: Props) => {
   const [isOpen, setIsOpen] = useState(false); 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -69,7 +70,9 @@ export const NavLink = ({ text, onClick, columnData, isMobileView = false,social
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setShowBackdrop?.(false)
       }
+
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {

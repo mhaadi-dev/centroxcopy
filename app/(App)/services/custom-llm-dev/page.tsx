@@ -25,15 +25,15 @@ import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 import Icon from "@/assets/Icon.webp";
 import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import Icon4 from "@/assets/Icon-4.webp";
-import Icon6 from "@/assets/Icon-6.webp";
-import Icon9 from "@/assets/Icon-9.webp";
+import Icon4 from "@/assets/Icon-4.svg";
+import Icon6 from "@/assets/Icon-6.svg";
+import Icon9 from "@/assets/Icon-9.svg";
 
-import Icon10 from "@/assets/Icon-10.webp";
-import Icon11 from "@/assets/Icon-11.webp";
-import Icon12 from "@/assets/Icon-12.webp";
-import Icon13 from "@/assets/Icon-13.webp";
-import Icon14 from "@/assets/Icon-14.webp";
+import Icon10 from "@/assets/Icon-13.svg";
+import Icon11 from "@/assets/Icon-11.svg";
+import Icon12 from "@/assets/Icon-12.svg";
+import Icon13 from "@/assets/Icon-13.svg";
+import Icon14 from "@/assets/Icon-14.svg";
 import liama from "@/assets/liama.webp";
 import falcon from "@/assets/falcon.webp";
 import gptneox from "@/assets/GPT-NeoX.webp";
@@ -50,7 +50,7 @@ import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 import LandingLayout from "../../layout";
 import qwen from "@/assets/qwen.webp"
-import customllm  from "@/assets/Custom LLM.svg"
+import customllm  from "@/assets/Custom LLM 2.svg"
 import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from "@/Components/common/IndustryBanner";
 export const metadata = {
@@ -76,6 +76,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We meticulously analyze your codebase, data pipelines, and research objectives to create LLMs that seamlessly fit into your existing workflows and infrastructure. This ensures smooth integration and minimizes disruptions.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Deeply Integrated",
         },
         {
           icon: Icon13,
@@ -84,6 +85,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We employ advanced techniques like quantization, distillation, and parallelization to ensure maximum efficiency on your hardware, even with large-scale models. This results in faster inference times, reduced costs, and improved user experience.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Optimized for Performance",
         },
         {
           icon: Icon14,
@@ -92,16 +94,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Your AI needs evolve, and so should your models. We build LLMs that can learn and grow alongside your projects, effortlessly integrating with your existing systems and scaling to handle increasing demands.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Adaptable & Scalable",
         },
         {
           icon: Icon6,
           heading: "Cutting-Edge",
           description:
-            "We're on the top of latest advancements in LLM which has made us adept in incorporating the latest research in transformer architectures, RLHF, chain-of-thought prompting, and retrieval-augmented generation (RAG). This ensures your solutions are always at the cutting edge of AI innovation.",
+            "We're on top of the latest advancements in LLM which has made us adept in incorporating the latest research in transformer architectures, RLHF, chain-of-thought prompting, and retrieval-augmented generation (RAG). This ensures your solutions are always at the cutting edge of AI innovation.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Cutting-Edge",
         },
       ],
+      
       caption: "",
       btnText: "Book Free Technical Consultation",
     },
@@ -120,11 +125,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
       data: [
         {
           icon: Icon9,
-          heading: "Domain-Speum-pagecific Challenges",
+          heading: "Domain-Specific Challenges",
           description:
             "Generic models often struggle with industry-specific jargon, terminology, and nuanced context, leading to inaccurate or irrelevant outputs. This can severely impact the user experience and hinder the effectiveness of your AI applications.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Domain-Specific Challenges",
         },
         {
           icon: Icon10,
@@ -133,6 +139,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Large pre-trained models can be computationally expensive and slow, making them impractical for real-time applications or deployment on resource-constrained environments. This can lead to delays, increased costs, and frustrated users.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Performance Bottlenecks",
         },
         {
           icon: Icon11,
@@ -141,6 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Training effective LLMs typically requires vast amounts of high-quality, labeled data, which can be costly and time-consuming to acquire. This can significantly slow down your development process and limit the potential of your AI solutions.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Data Scarcity",
         },
         {
           icon: Icon4,
@@ -149,8 +157,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Pre-trained models can inherit biases from their training data, leading to unfair or discriminatory outputs. This can have serious ethical and legal implications for your business.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Bias & Fairness",
         },
       ],
+      
       caption:
         "Centrox AI understands these pain points. We have the expertise to build custom LLMs that overcome these limitations and deliver exceptional results for your specific needs.",
       btnText: "Schedule A Discussion",
@@ -274,6 +284,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       description:
         "Partnering with Centrox AI for custom LLM development empowers your team to achieve excellent performance.",
     },
+    alt:"Gain from Custom LLM",
     data: [
       {
         heading:
@@ -310,6 +321,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     heading: "How We Work",
     description:
       "Our collaborative, iterative process ensures a tailored and effective LLM solution.",
+     
     data: [
       {
         title: "Deep Dive & Discovery",
@@ -440,11 +452,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
             img={customllm}
             bgimage1={servicebg}
             bgClassName="opacity-60" 
+            alt="Process of Creating Custom LLM "
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={benefitsData} />
-          <StepperSection data={stepperdata} />
+          <StepperSection data={stepperdata}  alt="Life cycle of building and deploying AI" />
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}

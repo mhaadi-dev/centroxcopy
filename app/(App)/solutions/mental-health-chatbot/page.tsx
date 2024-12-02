@@ -11,9 +11,9 @@ import { FaqsSection } from "@/sections/FaqsSection";
 
 
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
 
-import Icon9 from "@/assets/Icon-9.webp";
+
+import Icon9 from "@/assets/Icon-9.svg";
 
 
 import liama from "@/assets/liama.webp";
@@ -30,7 +30,6 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import rasa from "@/assets/Rasa-white.webp";
 import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
@@ -43,7 +42,6 @@ import Icon19 from "@/assets/Icon-19.webp"
 import Icon23 from "@/assets/Icon-23.webp"
 import Icon24 from "@/assets/Icon-24.webp"
 
-import Icon20 from "@/assets/Icon-20.webp"
 import Icon22 from "@/assets/Icon-22.webp"
 import Icon21 from "@/assets/Icon-21.webp"
 import Icon25 from "@/assets/Icon-25.webp"
@@ -52,58 +50,11 @@ import finance from "@/assets/Finance.webp"
 import education from "@/assets/Education.webp"
 import customerservice from "@/assets/customerservice.webp"
 import langchain from "@/assets/langchain.webp"
-
+import langgraph from "@/assets/langgraph.png"
 
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const cardsSolutions = [
-    {
-      headerData: {
-        tagText: "AI-powered Solution",
-        headingText: "Our AI-powered solution offers",
-        para1Text: "",
-        heading2Text: "",
-        para2Text: "",
-      },
-      data: [
-        {
-          icon: Icon, // Replace with the correct icon for Unmatched Accuracy
-          heading: "Unmatched Accuracy",
-          description:
-            "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
-          linkText: "",
-          linkWithIcon: true,
-        },
-        {
-          icon: Icon, // Replace with the correct icon for Data Security & Privacy
-          heading: "Data Security & Privacy",
-          description:
-            "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
-          linkText: "",
-          linkWithIcon: true,
-        },
-        {
-          icon: Icon, // Replace with the correct icon for Scalability
-          heading: "Scalability",
-          description:
-            "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
-          linkText: "",
-          linkWithIcon: true,
-        },
-        {
-          icon: Icon, // Replace with the correct icon for Integration
-          heading: "Integration",
-          description:
-            "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
-          linkText: "",
-          linkWithIcon: true,
-        },
-      ],
-      caption: "",
-      btnText: "Get Free Body Measurements",
-    },
-  ];
 
   const challengeData = [
     {
@@ -279,17 +230,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Foundation Models",
       content: [
         {
-          alt: "icon",
-          caption: "Liama",
+          alt: "Llama",
+          caption: "Llama",
           img: liama,
         },
         {
-          alt: "icon",
+          alt: "Falcon",
           caption: "Falcon",
           img: falcon,
         },
         {
-          alt: "icon",
+          alt: "Qwen",
           caption: "Qwen",
           img: qwen,
         },
@@ -299,17 +250,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Frameworks",
       content: [
         {
-          alt: "Icon",
+          alt: "PyTorch",
           caption: "PyTorch",
           img: pytorch,
         },
         {
-          alt: "Icon",
+          alt: "Hugging Face Transformers",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
         {
-          alt: "Icon",
+          alt: "Tensorflow",
           caption: "Tensorflow",
           img: tensorflow,
         },
@@ -319,17 +270,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -339,14 +290,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Conversational AI Platforms",
       content: [
         {
-          alt: "Icon",
+          alt: "Langchain",
           caption: "Langchain",
           img: langchain,
         },
         {
-          alt: "Icon",
-          caption: "Dialogflow",
-          img: dialogflow,
+          alt: "LangGraph",
+          caption: "LangGraph",
+          img: langgraph,
         },
       ],
     },
@@ -354,12 +305,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "MLOps Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Kubeflow",
           caption: "Kubeflow",
           img: kubeflow,
         },

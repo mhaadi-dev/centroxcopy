@@ -36,7 +36,7 @@ function GridPicturesAbout({headingText,paraText,btnText,reverse,data,linkText,m
       </p> */}
      {btnText &&  <> 
      <Link href={linkText || ""}>
-      <Button moveToSection={moveToSection}  Icon={arrow} iconClassName='!-mt-1' isLefticon={false}  className='w-[70%] lg:!w-[50%]' content={btnText}/>
+      <Button moveToSection={moveToSection}  Icon={arrow} iconClassName='!-mt-1' isLefticon={false}  className='w-[70%] lg:!w-[60%]' content={btnText}/>
      </Link>
       
      </>  }
