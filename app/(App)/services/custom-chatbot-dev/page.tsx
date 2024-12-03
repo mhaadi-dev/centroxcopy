@@ -60,54 +60,63 @@ export default async function Page({ params }: { params: { slug: string } }) {
         heading2Text: "",
         para2Text:""
     },
-    data: [{
-      icon: Icon12,
-      heading: "Deep Understanding",
-      description:
-        "By training on your specific data, our chatbots comprehend your industry-specific terminology, product offerings, and customer pain points. This enables them to provide accurate, relevant, and contextually appropriate responses.",
-      linkText: "",
-      linkWithIcon: true,
-    },
-    {
-      icon: Icon13,
-      heading: "Personalized Engagement",
-      description:
-        "We go beyond generic responses. Our chatbots leverage user data and past interactions to tailor conversations, offering personalized recommendations, proactive support, and solutions that meet individual needs.",
-      linkText: "",
-      linkWithIcon: true,
-    },
-    {
-      icon: Icon14,
-      heading: "Seamless Integration",
-      description:
-        "Our chatbots seamlessly integrate with your existing systems and workflows, such as CRM, knowledge bases, and ticketing systems. This ensures a smooth and efficient customer experience across all touchpoints.",
-      linkText: "",
-      linkWithIcon: true,
-    },
-    {
-      icon: scalibilityicon,
-      heading: "Scalability & Availability",
-      description:
-        "Handle high volumes of inquiries 24/7, 365 days a year. Your customers will always receive timely and helpful support, even during peak periods, without the need for additional staffing.",
-      linkText: "",
-      linkWithIcon: true,
-    },
-    {
-      icon: insightsicon,
-      heading: "Data-Driven Insights",
-      description:
-        "Every conversation is an opportunity to learn. Our chatbots collect valuable customer data and feedback, providing actionable insights to inform your business strategies, product development, and marketing efforts.",
-      linkText: "",
-      linkWithIcon: true,
-    },
-    {
-      icon: consistencyicon,
-      heading: "Brand Consistency",
-      description:
-        "We ensure your chatbot reflects your brand's unique voice and values, building trust and fostering stronger customer relationships.",
-      linkText: "",
-      linkWithIcon: true,
-    }],
+    data: [
+      {
+        icon: Icon12,
+        heading: "Deep Understanding",
+        description:
+          "By training on your specific data, our chatbots comprehend your industry-specific terminology, product offerings, and customer pain points. This enables them to provide accurate, relevant, and contextually appropriate responses.",
+        linkText: "",
+        linkWithIcon: true,
+        alt: "Deep Understanding",
+      },
+      {
+        icon: Icon13,
+        heading: "Personalized Engagement",
+        description:
+          "We go beyond generic responses. Our chatbots leverage user data and past interactions to tailor conversations, offering personalized recommendations, proactive support, and solutions that meet individual needs.",
+        linkText: "",
+        linkWithIcon: true,
+        alt: "Personalized Engagement",
+      },
+      {
+        icon: Icon14,
+        heading: "Seamless Integration",
+        description:
+          "Our chatbots seamlessly integrate with your existing systems and workflows, such as CRM, knowledge bases, and ticketing systems. This ensures a smooth and efficient customer experience across all touchpoints.",
+        linkText: "",
+        linkWithIcon: true,
+        alt: "Seamless Integration",
+      },
+      {
+        icon: scalibilityicon,
+        heading: "Scalability & Availability",
+        description:
+          "Handle high volumes of inquiries 24/7, 365 days a year. Your customers will always receive timely and helpful support, even during peak periods, without the need for additional staffing.",
+        linkText: "",
+        linkWithIcon: true,
+        alt: "Scalability & Availability",
+      },
+      {
+        icon: insightsicon,
+        heading: "Data-Driven Insights",
+        description:
+          "Every conversation is an opportunity to learn. Our chatbots collect valuable customer data and feedback, providing actionable insights to inform your business strategies, product development, and marketing efforts.",
+        linkText: "",
+        linkWithIcon: true,
+        alt: "Data-Driven Insights",
+      },
+      {
+        icon: consistencyicon,
+        heading: "Brand Consistency",
+        description:
+          "We ensure your chatbot reflects your brand's unique voice and values, building trust and fostering stronger customer relationships.",
+        linkText: "",
+        linkWithIcon: true,
+        alt: "Brand Consistency",
+      },
+    ],
+    
     caption:"",
     btnText:"Schedule A Meeting Today"
 
@@ -134,6 +143,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Generic models are trained on vast amounts of general data, but they struggle to grasp the nuances of industry-specific jargon, complex queries, and subtle customer intent. This leads to frustrating user experiences and missed business opportunities.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Limited Understanding",
         },
         {
           icon: Icon10,
@@ -142,6 +152,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Pre-defined responses and rigid decision trees often result in robotic and unhelpful interactions. Customers expect personalized and empathetic conversations, which generic chatbots fail to deliver, leading to unsatisfactory engagement.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Inflexible Responses",
         },
         {
           icon: Icon11,
@@ -150,6 +161,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Off-the-shelf solutions lack the capability to utilize your unique data and knowledge base to offer personalized recommendations, proactive support, or seamless system integration. This limits your ability to fully leverage AI for business growth.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Missed Opportunities",
         },
         {
           icon: Icon4,
@@ -158,8 +170,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "A chatbot that doesn’t reflect your brand’s voice and values can create a disconnect with your customers, damaging your reputation and reducing trust. Consistency with your brand is crucial for building strong customer relationships.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Brand Misalignment",
         },
       ],
+      
       caption:"Centrox AI understands these limitations. We can help in building custom LLM-powered chatbots that transcend these challenges, delivering intelligent, engaging, and impactful conversations that elevate your customer experience.",
       btnText:"Book 1:1 Session"
     },
@@ -205,17 +219,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Foundation Models",
       content: [
         {
-          alt: "icon",
-          caption: "Liama",
+          alt: "Llama",
+          caption: "Llama",
           img: liama,
         },
         {
-          alt: "icon",
+          alt: "Falcon",
           caption: "Falcon",
           img: falcon,
         },
         {
-          alt: "icon",
+          alt: "Qwen",
           caption: "Qwen",
           img: qwen,
         },
@@ -225,17 +239,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Frameworks",
       content: [
         {
-          alt: "Icon",
+          alt: "PyTorch",
           caption: "PyTorch",
           img: pytorch,
         },
         {
-          alt: "Icon",
+          alt: "Hugging Face Transformers",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
         {
-          alt: "Icon",
+          alt: "Tensorflow",
           caption: "Tensorflow",
           img: tensorflow,
         },
@@ -245,17 +259,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -265,12 +279,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Conversational AI Platforms",
       content: [
         {
-          alt: "Icon",
+          alt: "Rasa",
           caption: "Rasa",
           img: rasa,
         },
         {
-          alt: "Icon",
+          alt: "Dialogflow",
           caption: "Dialogflow",
           img: dialogflow,
         },
@@ -280,18 +294,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "MLOps Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Kubeflow",
           caption: "Kubeflow",
           img: kubeflow,
         },
       ],
     },
   ];
+  
   const heroData = {
     heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
     description:
@@ -307,7 +322,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     heading: "Why Work With Centrox?",
     description:
       "We're not just another chatbot development company. We're your strategic AI partner.",
-   },data:[{
+   },alt:"Data management system",data:[{
       heading: "Deep Expertise",
       description:
         "Our team comprises tenured AI researchers and engineers with a proven track record in chatbot development and LLM fine-tuning.",
@@ -336,6 +351,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const stepperdata = {
       heading: "How We Build AI Chatbots",
       description: "We offer comprehensive chatbot development services tailored to your unique needs.",
+      alt:"How the AI life cycle works",
       data: [
         {
           title: "Needs Assessment",
@@ -465,7 +481,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
    
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData}   bgimage1={servicebg} bgClassName="opacity-60"  />
+          <HeroSection {...heroData} alt="Process of AI-powered Chatbots "  bgimage1={servicebg} bgClassName="opacity-60"  />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

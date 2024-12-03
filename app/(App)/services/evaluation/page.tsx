@@ -70,52 +70,58 @@ export default async function Page({ params }: { params: { slug: string } }) {
           data: [
             {
               icon: Icon12,
-              heading: "Accelerated Time-to-Market", // Updated heading
+              heading: "Accelerated Time-to-Market",
               description:
-                "Streamline your AI development lifecycle and get your models into production faster, gaining a competitive edge.", // Updated description
+                "Streamline your AI development lifecycle and get your models into production faster, gaining a competitive edge.",
               linkText: "",
               linkWithIcon: true,
+              alt: "Accelerated Time-to-Market"
             },
             {
               icon: Icon13,
-              heading: "Improved Model Performance & Reliability", // Updated heading
+              heading: "Improved Model Performance & Reliability",
               description:
-                "Optimize your models for accuracy, efficiency, and scalability, ensuring they deliver consistent results in real-world environments.", // Updated description
+                "Optimize your models for accuracy, efficiency, and scalability, ensuring they deliver consistent results in real-world environments.",
               linkText: "",
               linkWithIcon: true,
+              alt: "Improved Model Performance & Reliability"
             },
             {
               icon: Icon14,
-              heading: "Enhanced Collaboration & Productivity", // Updated heading
+              heading: "Enhanced Collaboration & Productivity",
               description:
-                "Foster better communication and collaboration between data scientists and engineers, breaking down silos and enabling faster iteration.", // Updated description
+                "Foster better communication and collaboration between data scientists and engineers, breaking down silos and enabling faster iteration.",
               linkText: "",
               linkWithIcon: true,
+              alt: "Enhanced Collaboration & Productivity"
             },
             {
               icon: Icon6,
-              heading: "Reduced Costs & Risks", // Updated heading
+              heading: "Reduced Costs & Risks",
               description:
-                "Optimize resource utilization, minimize downtime, and proactively address potential issues, leading to cost savings and reduced risk.", // Updated description
+                "Optimize resource utilization, minimize downtime, and proactively address potential issues, leading to cost savings and reduced risk.",
               linkText: "",
               linkWithIcon: true,
+              alt: "Reduced Costs & Risks"
             },
             {
-              icon: Icon7, // Added relevant icon for this entry
-              heading: "Data-Driven Decision Making", // Updated heading
+              icon: Icon7,
+              heading: "Data-Driven Decision Making",
               description:
-                "Gain insights into model performance and usage patterns, enabling you to make informed decisions about model updates and improvements.", // Updated description
+                "Gain insights into model performance and usage patterns, enabling you to make informed decisions about model updates and improvements.",
               linkText: "",
               linkWithIcon: true,
+              alt: "Data-Driven Decision Making"
             },
             {
-              icon: Icon8, // Added relevant icon for this entry
-              heading: "Scalability & Flexibility", // Updated heading
+              icon: Icon8,
+              heading: "Scalability & Flexibility",
               description:
-                "Build AI infrastructure that can adapt to your growing needs and support future innovation.", // Updated description
+                "Build AI infrastructure that can adapt to your growing needs and support future innovation.",
               linkText: "",
               linkWithIcon: true,
-            },
+              alt: "Scalability & Flexibility"
+            }
           ],
           caption: "",
           btnText: "Unlock the Power of MLOps for Your Business", // Updated button text
@@ -361,15 +367,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ];
   
   
-  const heroData = {
-    heading: "Reduce churn and maximise retention. With Custom AI Chatbots",
-    description:
-      "Be Available For Your Customers 24/7.Partner with Centrox AI to build intelligent chatbots that know your business as well as you do,, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
-    btnText: "Book A Call Now",
-    includeDots: false,
-    img: null,
-    reverse: false,
-  };
+  
   const arrayData = {
     headerData: {
       tagText: "Advantages", // Updated tagText
@@ -408,90 +406,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   };
   
 
-  const stepperdata = {
-    heading: "How We Build AI Chatbots",
-    description:
-      "We offer comprehensive chatbot development services tailored to your unique needs.",
-    data: [
-      {
-        title: "Needs Assessment & Conversational Design",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "step1",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We collaborate closely with your team to define your chatbot's goals, target audience, and desired capabilities. We conduct user research and analyze customer interactions to understand their needs, pain points, and communication styles. Using this information, we craft natural and intuitive dialogues that guide users toward their goals, providing a seamless and enjoyable experience.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "LLM Selection & Fine-Tuning",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "step2",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We leverage powerful LLMs like GPT-3.5, GPT-4, or other open-source models to power your chatbot's intelligence. Our team fine-tunes the model on your proprietary data, ensuring it understands your industry-specific jargon, product offerings, and customer needs. We also employ prompt engineering, few-shot learning, and other advanced techniques to optimize the model's performance and adaptability.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Integration & Deployment",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "step3",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We integrate your chatbot into your website, mobile app, messaging platforms (like WhatsApp, Facebook Messenger, etc.), and other channels to provide a consistent user experience across all touchpoints. We ensure that the chatbot is scalable and reliable, capable of handling high volumes of inquiries without sacrificing performance. Additionally, we connect your chatbot to your CRM, knowledge base, or other backend systems, enabling real-time access to customer data and automated actions.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Testing & Refinement",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "step4",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We conduct extensive testing to identify and address any potential errors, inconsistencies, or biases in the chatbot's responses. Based on user feedback and data analytics, we continuously monitor and refine the chatbot's performance to ensure it stays aligned with your evolving business needs.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-    ],
-    btnText: "Schedule A Discussion",
-  };
+ 
 
   return (
     <div>
@@ -503,6 +418,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             img={evaluation}
             bgClassName="opacity-60" 
+            alt="Managing and evaluating ML Ops and AI dev"
            
           />
           <LogosCarousel />

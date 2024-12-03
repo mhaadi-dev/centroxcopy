@@ -66,6 +66,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Rigid rule-based systems can't evolve with your business or handle unexpected situations. LLMs, while impressive, lack the ability to learn from experience and improve their decision-making over time.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Adapt and Learn icon", // Alt text based on heading
         },
         {
           icon: Icon13,
@@ -74,6 +75,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "They rely on predefined rules or human intervention, hindering their ability to operate independently and make intelligent choices in real-time.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Make Autonomous Decisions icon", // Alt text based on heading
         },
         {
           icon: Icon14,
@@ -82,9 +84,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "They operate in isolation, unable to coordinate actions or share information with other systems to achieve complex goals.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Collaborate Effectively icon", // Alt text based on heading
         },
-      
-      ],
+      ]
+,      
       caption: "Centrox AI can help in building intelligent AI agents that overcome these limitations. Our solutions empower you to automate intricate processes, make data-driven decisions at scale, and achieve unprecedented levels of efficiency.",
       btnText: "Schedule 1:1 Session", // Updated button text
     },
@@ -106,6 +109,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "From data collection and analysis to decision-making and execution, AI agents can handle intricate workflows, freeing up your team for higher-value tasks.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Automate Complex, End-to-End Processes icon", // Alt text based on heading
         },
         {
           icon: Icon13,
@@ -114,6 +118,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Analyze vast amounts of data in real-time, identify patterns, and make informed decisions, enabling you to respond quickly to market changes and opportunities.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Make Data-Driven Decisions at Scale icon", // Alt text based on heading
         },
         {
           icon: Icon14,
@@ -122,6 +127,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Provide personalized and responsive interactions with customers through AI-powered chatbots and virtual assistants, improving satisfaction and loyalty.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Enhance Customer Experiences icon", // Alt text based on heading
         },
         {
           icon: Icon12,
@@ -130,6 +136,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Unlock new possibilities for product development and service delivery through intelligent automation and data-driven insights.", // New description
           linkText: "",
           linkWithIcon: true,
+          alt: "Drive Innovation icon", // Alt text based on heading
         },
         {
           icon: Icon10,
@@ -138,8 +145,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Streamline operations, reduce manual effort, and optimize resource allocation, leading to significant cost savings and improved productivity.", // New description
           linkText: "",
           linkWithIcon: true,
+          alt: "Achieve Unprecedented Efficiency icon", // Alt text based on heading
         },
-      ],
+      ]
+,      
       caption:
         "Agentic AI can do this and a lot more. All you need is the right team to help you build your intelligent AI agents. We can help!", // Updated caption
       btnText: "Book Your 1:1 Session", // Updated button text
@@ -162,8 +171,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents are designed with specific goals in mind, whether it's maximizing customer satisfaction, optimizing supply chains, or detecting fraud.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:goal_oriented
+          colSpan: 2,
+          bentoImage: goal_oriented,
+          alt: "", // Left blank for null icon
         },
         {
           icon: Icon13,
@@ -172,7 +182,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents can operate independently, making decisions and taking actions without constant human supervision.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Autonomous icon", // Alt text based on heading
         },
         {
           icon: Icon9,
@@ -181,7 +192,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents can learn from their experiences and adjust their behavior to achieve their goals in dynamic environments.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Adaptive icon", // Alt text based on heading
         },
         {
           icon: Icon6,
@@ -190,7 +202,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents can communicate and cooperate with other AI agents to achieve complex, multi-step tasks.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Collaborative icon", // Alt text based on heading
         },
         {
           icon: Icon7,
@@ -199,9 +212,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents provide insights into their decision-making processes, promoting transparency and trust.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          
+          alt: "Explainable icon", // Alt text based on heading
         },
-      ],
+      ]
+,      
       caption:
         "", // Updated caption
       btnText: "", // Updated button text
@@ -224,6 +238,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI workflows define clear roles and responsibilities for each agent within the system, ensuring smooth operations and goal alignment.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Defined Roles & Responsibilities", // Alt text based on heading
         },
         {
           icon: Icon13,
@@ -232,6 +247,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI workflows facilitate communication and data exchange between agents, ensuring collaboration and synergy across the system.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Facilitated Communication", // Alt text based on heading
         },
         {
           icon: Icon7,
@@ -240,6 +256,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Workflows enable dynamic decision-making based on real-time data and feedback, allowing AI agents to adapt to changes and optimize outcomes.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Dynamic Decision-Making", // Alt text based on heading
         },
         {
           icon: Icon9,
@@ -248,8 +265,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI workflows ensure scalability and fault tolerance, allowing the system to handle complex and demanding workloads without disruption.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Scalability & Fault Tolerance", // Alt text based on heading
         },
-      ],
+      ]
+,      
       caption:
         "", // Updated caption
       btnText: "", // Updated button text
@@ -272,17 +291,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Agents learn through trial and error, optimizing their actions to maximize rewards and minimize penalties.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Reinforcement Learning", // Alt text based on heading
         },
-      
         {
-          icon: Icon6,
+          icon: null,
           heading: "Knowledge Graphs & Reasoning", // Updated heading
           description:
             "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2
+          colSpan: 2,
+          alt: "", // Empty alt text as icon is null
+          bentoImage: langchain,
         },
         {
           icon: Icon13,
@@ -291,7 +312,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Enables agents to understand and respond to human language, facilitating seamless communication and collaboration.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Natural Language Processing (NLP)", // Alt text based on heading
         },
         {
           icon: null,
@@ -300,10 +322,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "A powerful framework for developing applications powered by language models, enabling seamless interaction with various tools and data sources.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:langchain
+          colSpan: 2,
+          alt: "", // Empty alt text as icon is null
+          bentoImage: langchain,
         },
       ],
+      
       caption: "", // No caption needed
       btnText: "Book A Call Now", // Updated button text
     },
@@ -328,7 +352,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Intelligent chatbots and virtual assistants that provide 24/7 support, handle inquiries, and resolve issues proactively.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Customer Service & Support", // Alt text based on heading
         },
         {
           icon: null,
@@ -337,9 +362,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents that extract valuable information from large datasets, identify trends, and generate actionable insights to inform your strategic decision-making.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:dataanalysis
-
+          colSpan: 2,
+          alt: "", // Empty alt text as icon is null
+          bentoImage: dataanalysis,
         },
         {
           icon: Icon11,
@@ -348,7 +373,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Streamline and optimize your workflows with AI agents that perform repetitive tasks, manage complex processes, and make data-driven decisions, freeing up your team for higher-value activities.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Process Automation", // Alt text based on heading
         },
         {
           icon: Icon4,
@@ -357,7 +383,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Deliver personalized recommendations to your customers, boosting engagement and sales.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Recommendation Engines", // Alt text based on heading
         },
         {
           icon: Icon5, // Replace this icon with the appropriate one for Fraud Detection & Prevention
@@ -366,9 +393,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "AI agents that monitor transactions, identify suspicious activity, and prevent fraud in real-time.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Fraud Detection & Prevention", // Alt text based on heading
         },
       ],
+      
       caption:
         "Having said that, no two use cases are the same. Therefore, we work closely with you to understand your unique challenges and design AI agents that align with your business goals and technical requirements.", // Updated caption
       btnText: "Discuss Your Business Goals", // Updated button text
@@ -415,17 +444,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Foundation Models",
       content: [
         {
-          alt: "icon",
-          caption: "Liama",
+          alt: "Llama Foundation Model",
+          caption: "Llama",
           img: liama,
         },
         {
-          alt: "icon",
+          alt: "Falcon Foundation Model",
           caption: "Falcon",
           img: falcon,
         },
         {
-          alt: "icon",
+          alt: "Qwen Foundation Model",
           caption: "Qwen",
           img: gptneox,
         },
@@ -435,17 +464,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Frameworks",
       content: [
         {
-          alt: "Icon",
+          alt: "PyTorch Framework",
           caption: "PyTorch",
           img: pytorch,
         },
         {
-          alt: "Icon",
+          alt: "Hugging Face Transformers Framework",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
         {
-          alt: "Icon",
+          alt: "Tensorflow Framework",
           caption: "Tensorflow",
           img: tensorflow,
         },
@@ -455,17 +484,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS Infrastructure",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure Infrastructure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud Infrastructure",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -475,22 +504,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "MLOps Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow Tool",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Kubeflow Tool",
           caption: "Kubeflow",
           img: kubeflow,
         },
       ],
     },
   ];
+  
   const stepperData = {
     heading: "How We Build Agentic AI?", // Updated heading
-    description:
-      "We follow a structured, iterative process to ensure the success of your AI agent projects.", // Updated description
+    description:"We follow a structured, iterative process to ensure the success of your AI agent projects.",
     data: [
       {
         title: "Needs Assessment & Discovery", // Updated title
@@ -607,7 +636,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         status: false,
       },
     ],
-    btnText: "Get Started Today", // Updated button text
+    btnText: "Get Started Today",
+    alt:"AI Agent Building Process" // Updated button text
   };
   
   const arrayData = {
@@ -665,6 +695,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             img={AIagent}
             bgClassName="opacity-60" 
+            alt="Structure and functioning of AI agents"
        
           />
           

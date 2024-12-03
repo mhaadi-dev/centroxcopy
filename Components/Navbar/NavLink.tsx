@@ -100,7 +100,7 @@ export const NavLink = ({ text, onClick, columnData, isMobileView = false,social
      
       <div
         className={classNames(
-          "absolute rounded-b-2xl top-[2.9rem] origin-center transform -translate-x-[23%] 2xl:-translate-x-[27%] pt-7 bg-[#0A0A0A] w-[40%] md:w-auto text-white px-6 py-4 rounded-md shadow-lg transition-all duration-300 ease-out scale-95 opacity-0 pointer-events-none",
+          "absolute rounded-b-2xl top-[2.9rem] origin-center transform -translate-x-[23%] 2xl:-translate-x-[27%] pt-7 bg-[#181818] w-[40%] md:w-auto text-white px-6 py-4 rounded-md shadow-lg transition-all duration-300 ease-out scale-95 opacity-0 pointer-events-none",
           isOpen ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none",
           columnData?.length < 3 ? "left-1/2 !-translate-x-1/2" : ""
         )}
@@ -116,7 +116,7 @@ export const NavLink = ({ text, onClick, columnData, isMobileView = false,social
               </div>
             ))}
         </div>
-        <div className="flex gap-6 my-3">
+        <div className="flex gap-6 ml-5 my-3">
            {socialIcons?.length && socialIcons?.map((icon:any,index:number)=>{
           return <Link href={icon.link} key={index}>
             <Image src={icon?.icon} alt="social icon"></Image>

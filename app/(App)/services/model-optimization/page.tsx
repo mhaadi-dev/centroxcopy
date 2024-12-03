@@ -54,48 +54,49 @@ export default async function Page({ params }: { params: { slug: string } }) {
         para1Text: "We guide you through every step of the model optimization process.", // Removed previous paragraph 1 text
         heading2Text: "", 
       },
-      data: [
+      data : [
         {
           icon: Icon12,
           heading: "In-Depth Performance Analysis",
-          description:
-            "We meticulously profile your model to identify bottlenecks and areas for improvement.", // Updated description
+          description: "We meticulously profile your model to identify bottlenecks and areas for improvement.",
           linkText: "",
           linkWithIcon: true,
+          alt: "In-Depth Performance Analysis"
         },
         {
           icon: Icon13,
           heading: "Optimization Strategy Development",
-          description:
-            "We collaborate with you to define clear optimization goals and select the most appropriate techniques.", // Updated description
+          description: "We collaborate with you to define clear optimization goals and select the most appropriate techniques.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Optimization Strategy Development"
         },
         {
           icon: Icon14,
           heading: "Iterative Optimization & Evaluation",
-          description:
-            "We apply optimization techniques and rigorously evaluate their impact on performance, accuracy, and efficiency.", // Updated description
+          description: "We apply optimization techniques and rigorously evaluate their impact on performance, accuracy, and efficiency.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Iterative Optimization & Evaluation"
         },
         {
-          icon: Icon6, // Ensure to use a relevant icon for this entry
+          icon: Icon6,
           heading: "Deployment & Monitoring",
-          description:
-            "We seamlessly integrate optimized models into your production environment, ensuring smooth operation and ongoing performance tracking.", // Updated description
+          description: "We seamlessly integrate optimized models into your production environment, ensuring smooth operation and ongoing performance tracking.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Deployment & Monitoring"
         },
         {
-          icon: Icon7, // Ensure to use a relevant icon for this entry
+          icon: Icon7,
           heading: "Continuous Refinement",
-          description:
-            "We continuously monitor and optimize your models, adapting them to evolving data and usage patterns.", // Updated description
+          description: "We continuously monitor and optimize your models, adapting them to evolving data and usage patterns.",
           linkText: "",
           linkWithIcon: true,
+          alt: "Continuous Refinement"
         },
       ],
+      
       caption: "", // Kept caption empty as per the previous state
       btnText: "Optimize Your Models Today", // Updated button text
     },
@@ -116,24 +117,27 @@ export default async function Page({ params }: { params: { slug: string } }) {
           `,
           linkText: "",
           linkWithIcon: true,
+          alt: "Slow Inference Times"
         },
         {
           icon: Icon13,
           heading: "High Computational Cost",
           description: `
-          Heavy computations demand high computational costs, as delivering a solution which covers the specific needs efficiently utilises a good share of these resources which is a challenge that can hinder the optimization.
+            Heavy computations demand high computational costs, as delivering a solution which covers the specific needs efficiently utilises a good share of these resources which is a challenge that can hinder the optimization.
           `,
           linkText: "",
           linkWithIcon: true,
+          alt: "High Computational Cost"
         },
         {
           icon: Icon14,
           heading: "Difficulty Scaling",
           description: `
-          It is extremely important to prepare your AI model efficiently enough so that it has the potential to keep it up with the changing trends, because a model lacking the flexibility for scalability can become a challenge while optimising.
+            It is extremely important to prepare your AI model efficiently enough so that it has the potential to keep it up with the changing trends, because a model lacking the flexibility for scalability can become a challenge while optimising.
           `,
           linkText: "",
           linkWithIcon: true,
+          alt: "Difficulty Scaling"
         },
         {
           icon: Icon10,
@@ -143,8 +147,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
           `,
           linkText: "",
           linkWithIcon: true,
+          alt: "Monitoring Post-Deployment Performance"
         },
-      ],
+      ]
+      ,
       caption:
         "Don't let suboptimal models hold you back. Centrox AI can help with AI model optimization, helping you extract maximum performance and efficiency from your AI investments.",
       btnText: "Book A 1:1 Session",
@@ -163,43 +169,48 @@ export default async function Page({ params }: { params: { slug: string } }) {
       data: [
         {
           icon: Icon12,
-          heading: "Proven Expertise", // Updated heading
+          heading: "Proven Expertise",
           description:
-            "Our team possesses deep knowledge of AI optimization techniques and best practices.", // Updated description
+            "Our team possesses deep knowledge of AI optimization techniques and best practices.",
           linkText: "",
           linkWithIcon: true,
-          colSpan: 1
+          colSpan: 1,
+          alt: "Proven Expertise"
         },
         {
           icon: null,
-          heading: "Custom Solutions", // Updated heading
+          heading: "Custom Solutions",
           description:
-            "We tailor our optimization strategies to your specific model architecture, data, and deployment environment.", // Updated description
+            "We tailor our optimization strategies to your specific model architecture, data, and deployment environment.",
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage:customsolutions
+          bentoImage: customsolutions,
+          alt: ""
         },
         {
           icon: null,
-          heading: "Collaborative Approach", // Updated heading
+          heading: "Collaborative Approach",
           description:
-            "We work closely with your team, fostering knowledge transfer and empowering you to take ownership of your optimization process.", // Updated description
+            "We work closely with your team, fostering knowledge transfer and empowering you to take ownership of your optimization process.",
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage:collaborativeapproach
+          bentoImage: collaborativeapproach,
+          alt: ""
         },
         {
-          icon: Icon6, 
-          heading: "Results-Oriented", // Updated heading
+          icon: Icon6,
+          heading: "Results-Oriented",
           description:
-            "We focus on delivering measurable improvements in performance, efficiency, and scalability.", // Updated description
+            "We focus on delivering measurable improvements in performance, efficiency, and scalability.",
           linkText: "",
           linkWithIcon: true,
-          colSpan: 1
+          colSpan: 1,
+          alt: "Results-Oriented"
         },
-      ],
+      ]
+      ,
       caption: "", 
       btnText: "Talk to our AI Expert", 
     },
@@ -217,49 +228,55 @@ export default async function Page({ params }: { params: { slug: string } }) {
           icon: Icon9,
           heading: "Quantization",
           description:
-            "Reduce model size and computational requirements without sacrificing accuracy, enabling faster inference and deployment on resource-constrained environments.", // Updated description
+            "Reduce model size and computational requirements without sacrificing accuracy, enabling faster inference and deployment on resource-constrained environments.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Quantization"
         },
         {
           icon: Icon10,
           heading: "Pruning & Sparsity",
           description:
-            "Eliminate redundant parameters and connections, streamlining your model for improved efficiency.", // Updated description
+            "Eliminate redundant parameters and connections, streamlining your model for improved efficiency.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Pruning & Sparsity"
         },
         {
           icon: Icon11,
           heading: "Knowledge Distillation",
           description:
-            "Transfer knowledge from larger, complex models to smaller, more efficient ones, maintaining performance while reducing resource consumption.", // Updated description
+            "Transfer knowledge from larger, complex models to smaller, more efficient ones, maintaining performance while reducing resource consumption.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
+          alt: "Knowledge Distillation"
         },
         {
           icon: null,
           heading: "Hardware-Specific Optimization",
           description:
-            "Fine-tune models for optimal performance on specific hardware architectures (CPUs, GPUs, TPUs, etc.).", // Updated description
+            "Fine-tune models for optimal performance on specific hardware architectures (CPUs, GPUs, TPUs, etc.).",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:hardware_specific
+          colSpan: 2,
+          bentoImage: hardware_specific,
+          alt: ""
         },
         {
-          icon: Icon5, // Ensure to use a relevant icon for this entry
+          icon: Icon5,
           heading: "Algorithm & Architecture Refinement",
           description:
-            "Collaborate with your team to explore alternative model architectures or algorithms that may offer better performance or efficiency trade-offs.", // Updated description
+            "Collaborate with your team to explore alternative model architectures or algorithms that may offer better performance or efficiency trade-offs.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
-        },
-      ],
+          colSpan: 1,
+          alt: "Algorithm & Architecture Refinement"
+        }
+      ]
+      ,
       caption:
         "Our deep understanding of AI optimization techniques empowers us to tailor solutions to your specific needs and constraints.", // Updated caption
       btnText: "Book A Call", // Updated button text
@@ -295,89 +312,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ];
   
   
-  const techStackData = [
-    {
-      title: "Foundation Models",
-      content: [
-        {
-          alt: "icon",
-          caption: "Liama",
-          img: liama,
-        },
-        {
-          alt: "icon",
-          caption: "Falcon",
-          img: falcon,
-        },
-        {
-          alt: "icon",
-          caption: "Qwen",
-          img: gptneox,
-        },
-      ],
-    },
-    {
-      title: "Frameworks",
-      content: [
-        {
-          alt: "Icon",
-          caption: "PyTorch",
-          img: pytorch,
-        },
-        {
-          alt: "Icon",
-          caption: "Hugging Face Transformers",
-          img: huggingface,
-        },
-        {
-          alt: "Icon",
-          caption: "Tensorflow",
-          img: tensorflow,
-        },
-      ],
-    },
-    {
-      title: "Infrastructure",
-      content: [
-        {
-          alt: "Icon",
-          caption: "AWS",
-          img: aws,
-        },
-        {
-          alt: "Icon",
-          caption: "Azure",
-          img: azure,
-        },
-        {
-          alt: "Icon",
-          caption: "Google Cloud",
-          img: googlecloud,
-        },
-      ],
-    },
-    {
-      title: "MLOps Tools",
-      content: [
-        {
-          alt: "Icon",
-          caption: "MLflow",
-          img: mlflow,
-        },
-        {
-          alt: "Icon",
-          caption: "Kubeflow",
-          img: kubeflow,
-        },
-      ],
-    },
-  ];
+ 
   const arrayData = {
     headerData: {
       tagText: "Advantage", 
       heading: "The Performance Advantage",
       description: "Optimized AI models from Centrox AI deliver tangible benefits enhancing your business growth.", 
     },
+    alt:"The Performance Advantage",
     data: [
       {
         heading: "Faster Inference",
@@ -409,128 +351,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   };
   
 
-  const stepperdata = {
-    heading: "How We Work",
-    description:
-      "Our collaborative, iterative process ensures a tailored and effective LLM solution:",
-    data: [
-      {
-        title: "Deep Dive & Discovery",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "6fc8ac5c69ae",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We begin by thoroughly understanding your project goals, data types, and specific annotation needs.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Custom Model Blueprinting",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "6fc8ac5c69af",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We collaborate with you to design a model architecture that leverages the strengths of foundation models while addressing your unique requirements. We consider factors like model size, computational constraints, and desired capabilities.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Data Curation & Enhancement",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "6fc8ac5c69b0",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We work with your datasets, applying cleaning, augmentation, and labeling techniques as needed to create a high-quality training corpus that accurately reflects your domain knowledge. We also help you identify and acquire additional data sources if necessary.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Iterative Training & Optimization",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "6fc8ac5c69b1",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We utilize a combination of fine-tuning, RLHF, and prompt engineering to train your LLM iteratively. We continuously evaluate performance, share insights, and refine the model to achieve optimal results. We employ advanced techniques like hyperparameter tuning, early stopping, and learning rate scheduling to ensure efficient training and prevent overfitting.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Seamless Deployment & Integration",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "6fc8ac5c69b2",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We deploy your custom LLM into your production environment, ensuring a smooth transition and minimal disruption to your existing workflows. We provide support for integrating the model with your applications and systems, leveraging APIs or SDKs as needed.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-      {
-        title: "Ongoing Monitoring & Support",
-        content: [
-          {
-            _type: "block",
-            style: "normal",
-            _key: "6fc8ac5c69b3",
-            markDefs: [],
-            children: [
-              {
-                _type: "span",
-                marks: [],
-                text: "We provide continuous monitoring, retraining, and optimization to ensure your AI model continues to deliver value as your data and needs evolve. We offer expert guidance and support to address any challenges or questions that arise, helping you maintain peak performance and adapt to changing requirements.",
-              },
-            ],
-          },
-        ],
-        status: false,
-      },
-    ],
-    btnText: "Let's Discuss Your Project",
-  };
+  
   return (
     <div>
    
@@ -542,7 +363,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             img={modeloptimization}
             bgClassName="opacity-60" 
-          
+            alt="AI model Optimization process diagram"
           />
 
           <LogosCarousel />

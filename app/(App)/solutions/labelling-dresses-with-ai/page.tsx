@@ -48,7 +48,10 @@ import industryPic2 from "@/assets/solutions/Brick & mortae.webp";
 import industryPic3 from "@/assets/Brands.webp";
 
 
-
+export const metadata = {
+  title:"Image Labeling AI-Powered for Fasion E-Commerce | Centrox AI",
+  description:"With Centrox AI image labeling tool automates product tagging, improves search accuracy and streamline your fashion e-commerce. Try it for free today."
+}
 
 
 

@@ -21,7 +21,8 @@ interface CardProps {
   symbol?:string
   colSpan?:number
   reverse?:boolean
-  bentoImage?:any
+  bentoImage?:any,
+  altText?:string
 }
 
 const CommonResizeableCard = ({
@@ -37,7 +38,8 @@ const CommonResizeableCard = ({
   symbol="",
   colSpan,
   reverse=false,
-  bentoImage=null
+  bentoImage=null,
+  altText=""
 }: CardProps) => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -63,11 +65,11 @@ const CommonResizeableCard = ({
         {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-4 lg:gap-6",reverse ? "lg:flex-row-reverse justify-between":"")}>
         <div className=" min-h-[150px] flex lg:min-w-[360px] lg:h-auto">
         <div className="w-full ">
-        {bentoImage && <Image loading="lazy" src={bentoImage}  className="" alt="photo"></Image>}
+        {bentoImage && <Image loading="lazy" src={bentoImage}  className="" alt={altText}></Image>}
         </div>
         </div>
         <div className="w-full  flex flex-col gap-y-2 lg:w-1/2">
-        {Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
+        {Icon && <Image loading="lazy" src={Icon} alt={altText} className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
         <div className="flex flex-col gap-y-1 flex-grow">
           <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>
@@ -97,7 +99,7 @@ const CommonResizeableCard = ({
         )}
         </div>
         
-        </div> : <>{Icon && <Image loading="lazy" src={Icon} alt="Icon" className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
+        </div> : <>{Icon && <Image loading="lazy" src={Icon} alt={altText} className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
         <div className="flex flex-col  gap-y-1  flex-grow">
           <p className={classNames(text_h4_class,headingClassName)}>{heading}{symbol && <span className={classNames(text_para_2)}>{symbol}</span> }</p>
           <p className={classNames(text_para_3)}>{description}</p>

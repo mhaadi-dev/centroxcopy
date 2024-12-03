@@ -97,63 +97,68 @@ export default async function Page({ params }: { params: { slug: string } }) {
         heading2Text: "",
         para2Text: "",
       },
-      data: [
+       data : [
         {
           icon: null, // Ensure you have the correct icon for Accurate Annotation
           heading: "Accurate Annotation",
           description:
             "Centrox’s attention to detail ensures precise object detection, segmentation, and landmark recognition, making it ideal for applications like autonomous vehicles, medical imaging, and facial recognition.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage:accurateannotation
+          bentoImage: accurateannotation,
+          alt: ""  // No alt text, icon is null
         },
         {
-          icon: Icon13, // Ensure you have the correct icon for Efficient Annotation
+          icon: Icon13,
           heading: "Efficient Annotation",
           description:
             "Centrox's annotation processes allow large-scale data handling, enhancing productivity in areas such as sports analytics, surveillance, and autonomous driving systems.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
           colSpan: 1,
+          alt: "Efficient Annotation"  // Added alt text based on heading
         },
         {
-          icon: Icon14, // Ensure you have the correct icon for Competitive Pricing
+          icon: Icon14,
           heading: "Competitive Pricing",
           description:
             "Save time, resources, and operational overhead by choosing an expert solution. Maintain high standards without the challenges of hiring, training, and managing staff. We handle the complexities while you focus on your core goals.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
+          alt: "Competitive Pricing"  // Added alt text based on heading
         },
         {
-          icon: null, // Ensure you have the correct icon for Comprehensive Solutions
+          icon: null,
           heading: "Comprehensive Solutions",
           description:
             "Receive customized categories and multiple attributes per instance, matching your exact project requirements.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:comprehensive_solution
-
+          colSpan: 2,
+          bentoImage: comprehensive_solution,
+          alt: ""  // No alt text, icon is null
         },
         {
-          icon: null, // Ensure you have the correct icon for Domain-Specific Expertise
+          icon: null,
           heading: "Domain-Specific Expertise",
           description:
             "Our deep understanding of NLPs fits our workflow in assisting in your critical application development.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:domain_specific
+          colSpan: 2,
+          bentoImage: domain_specific,
+          alt: ""  // No alt text, icon is null
         },
         {
-          icon: Icon12, // Ensure you have the correct icon for Security and Compliance
+          icon: Icon12,
           heading: "Security and Compliance",
           description:
             "We safeguard the sensitive information of your data to industry standards, providing you with peace of mind.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
           colSpan: 1,
+          alt: "Security and Compliance"  // Added alt text based on heading
         },
       ],
       caption: "",
@@ -171,40 +176,45 @@ export default async function Page({ params }: { params: { slug: string } }) {
         para2Text: "",
         heading2Text: "",
       },
-      data: [
+      data : [
         {
-          icon: Icon9, // Ensure you have the correct icon for Image Annotations
+          icon: Icon9,
           heading: "Image Annotations",
           description:
             "Centrox provides detailed object detection, segmentation, and landmark recognition services, ensuring precise identification and labelling within images.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
+          alt: "Image Annotations"
         },
         {
-          icon: Icon10, // Ensure you have the correct icon for Video Annotations
+          icon: Icon10,
           heading: "Video Annotations",
           description:
             "Centrox specializes in movement prediction by analyzing and tracking objects within videos, offering valuable insights for sports analytics, surveillance, and autonomous driving systems.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
+          alt: "Video Annotations"
         },
         {
-          icon: Icon11, // Ensure you have the correct icon for Audio Annotation
+          icon: Icon11,
           heading: "Audio Annotation",
           description:
             "Improve model understanding with accurate speech recognition. Quality audio annotation services are essential for virtual assistants, call center analytics, podcast transcription, and multilingual speech applications.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
+          alt: "Audio Annotation"
         },
         {
-          icon: Icon4, // Ensure you have the correct icon for Text Annotation
+          icon: Icon4,
           heading: "Text Annotation",
           description:
             "Enhance your textual datasets with multiple languages and scripts. We offer text classification, keyphrase extraction, intent classification, question answering, and text summarization.",
-          linkText: "", // Set to empty as per your request
+          linkText: "",
           linkWithIcon: true,
+          alt: "Text Annotation"
         },
       ],
+      
       caption:
         "",
       btnText: "Explore more",
@@ -257,83 +267,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
 
 
-  const techStackData = [
-    {
-      title: "Foundation Models",
-      content: [
-        {
-          alt: "icon",
-          caption: "Liama",
-          img: liama,
-        },
-        {
-          alt: "icon",
-          caption: "Falcon",
-          img: falcon,
-        },
-        {
-          alt: "icon",
-          caption: "Qwen",
-          img: gptneox,
-        },
-      ],
-    },
-    {
-      title: "Frameworks",
-      content: [
-        {
-          alt: "Icon",
-          caption: "PyTorch",
-          img: pytorch,
-        },
-        {
-          alt: "Icon",
-          caption: "Hugging Face Transformers",
-          img: huggingface,
-        },
-        {
-          alt: "Icon",
-          caption: "Tensorflow",
-          img: tensorflow,
-        },
-      ],
-    },
-    {
-      title: "Infrastructure",
-      content: [
-        {
-          alt: "Icon",
-          caption: "AWS",
-          img: aws,
-        },
-        {
-          alt: "Icon",
-          caption: "Azure",
-          img: azure,
-        },
-        {
-          alt: "Icon",
-          caption: "Google Cloud",
-          img: googlecloud,
-        },
-      ],
-    },
-    {
-      title: "MLOps Tools",
-      content: [
-        {
-          alt: "Icon",
-          caption: "MLflow",
-          img: mlflow,
-        },
-        {
-          alt: "Icon",
-          caption: "Kubeflow",
-          img: kubeflow,
-        },
-      ],
-    },
-  ];
+  
   const heroData = {
     heading: "Advanced Annotation for Superior Data Quality",
     description:
@@ -498,14 +432,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
         status: false,
       },
     ],
-    btnText: "Let’s Begin Annotation", // Updated CTA
+    btnText: "Let’s Begin Annotation",
+    alt:"Our Process for Data Annotation",
   };
   
   return (
     <div>
    
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-        <HeroSection {...heroData}   bgimage1={servicebg} img={dataannotation} bgClassName="opacity-60"   />
+        <HeroSection {...heroData} alt="Type of Data Annotation"  bgimage1={servicebg} img={dataannotation} bgClassName="opacity-60"   />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

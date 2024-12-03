@@ -359,6 +359,7 @@ export const TabCarousel = ({
                                           linkText="Learn More"
                                           link={card?.link}
                                           linkWithIcon={true}
+                                          alt={card?.alt}
                                         />
                                         </div>
                                       );
@@ -403,7 +404,7 @@ export const TabCarousel = ({
               className="w-full  "
               src={tabs[tabindex]?.current && cc?.image}
               alt="image"
-              loading={width && width <= mobileWidth ? "lazy" : "eager"}
+              loading={width && width <= mobileWidth ? "lazy":"lazy"}
             />
         
         </div>

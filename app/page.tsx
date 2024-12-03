@@ -95,6 +95,7 @@ export default async function Home() {
         {
           icon: Icon,
           heading: "Annotation & Labeling",
+          alt: "Annotation and Labeling icon",
           description:
             "Our AI-driven annotation tools streamline the processing and labeling of your data, saving you time and resources. Our skilled team of annotators reviews and fine-tunes these AI-generated annotations, guaranteeing exceptional accuracy and consistency tailored to your unique requirements. By choosing our data annotation services, you're investing in quality that enhances your project's success.",
           linkText: "Learn More",
@@ -104,6 +105,7 @@ export default async function Home() {
         {
           icon: Icon2,
           heading: "Data Validation & Quality Assurance",
+          alt: "Data Validation and Quality Assurance icon",
           description:
             "We implement rigorous quality assurance processes to validate your data, identify and address any inconsistencies, and ensure your LLM is trained on the most reliable information.",
           linkText: "Learn More",
@@ -111,6 +113,7 @@ export default async function Home() {
           linkWithIcon: true,
         },
       ],
+      
     },
     {
       subInfo: {
@@ -122,6 +125,7 @@ export default async function Home() {
         {
           icon: menubars,
           heading: "Custom LLM Development",
+          alt: "Custom LLM Development",
           description:
             "We'll collaborate closely with your team to design and develop a custom LLM architecture optimized for your specific domain and use case. We'll leverage advanced techniques such as transfer learning, fine-tuning, and reinforcement learning to ensure your model achieves state-of-the-art performance.",
           linkText: "Learn More",
@@ -131,6 +135,7 @@ export default async function Home() {
         {
           icon: Icon3,
           heading: "Custom Chatbot Development",
+          alt: "Custom Chatbot Development",
           description:
             "We'll build intelligent conversational AI solutions that seamlessly integrate into your existing product and provide natural language understanding, engaging interactions, and actionable insights. We'll ensure your chatbot aligns with your brand voice and delivers a superior user experience.",
           linkText: "Learn More",
@@ -140,6 +145,7 @@ export default async function Home() {
         {
           icon: Icon4,
           heading: "Fine-Tuning & Optimization",
+          alt: "Fine-Tuning and Optimization",
           description:
             "We'll fine-tune pre-trained LLMs on your proprietary data, enabling them to adapt to your domain-specific language and tasks. We'll employ cutting-edge optimization techniques to maximize efficiency, reduce inference latency, and minimize computational costs.",
           linkText: "Learn More",
@@ -149,13 +155,15 @@ export default async function Home() {
         {
           icon: Icon5,
           heading: "Agentic AI",
+          alt: "Agentic AI",
           description:
             "Partner with Centrox AI to develop intelligent AI agents and workflows that automate tasks, make decisions, and drive business growth. With our expertise in Agentic AI workflows, we can help you with developing custom solutions tailored to your specific needs.",
           linkText: "Learn More",
           link: "services/ai-agents",
           linkWithIcon: true,
         },
-      ],
+      ]
+      
     },
     {
       subInfo: {
@@ -163,35 +171,39 @@ export default async function Home() {
         description:
           "We ensure your LLMs are seamlessly deployed, optimized, and continuously improved for real-world impact:",
       },
-      data: [
-        {
-          icon: Icon6,
-          heading: "Deployment & Scaling",
-          description:
-            "We'll deploy your LLM into your production environment, handling infrastructure provisioning, scaling, and monitoring to ensure high availability and optimal performance. We'll work with you to address any security or compliance concerns.",
-          linkText: "Learn More",
-          link: "services/custom-llm-dev",
-          linkWithIcon: true,
-        },
-        {
-          icon: Icon7,
-          heading: "Optimization",
-          description:
-            "We'll continuously monitor your LLM's performance and implement fine-tuning and retraining strategies to enhance accuracy, reduce bias, and ensure your LLM adapts to evolving user needs and data distributions.",
-          linkText: "Learn More",
-          link: "services/model-optimization",
-          linkWithIcon: true,
-        },
-        {
-          icon: Icon8,
-          heading: "Evaluation",
-          description:
-            "We'll leverage advanced analytics and visualization tools to provide detailed metrics and insights into your LLM's performance, enabling you to track progress, identify areas for improvement and make data-driven decisions.",
-          linkText: "Learn More",
-          link: "services/evaluation",
-          linkWithIcon: true,
-        },
-      ],
+     data: [
+  {
+    icon: Icon6,
+    heading: "Deployment & Scaling",
+    alt: "Deployment and Scaling",
+    description:
+      "We'll deploy your LLM into your production environment, handling infrastructure provisioning, scaling, and monitoring to ensure high availability and optimal performance. We'll work with you to address any security or compliance concerns.",
+    linkText: "Learn More",
+    link: "services/custom-llm-dev",
+    linkWithIcon: true,
+  },
+  {
+    icon: Icon7,
+    heading: "Optimization",
+    alt: "Optimization",
+    description:
+      "We'll continuously monitor your LLM's performance and implement fine-tuning and retraining strategies to enhance accuracy, reduce bias, and ensure your LLM adapts to evolving user needs and data distributions.",
+    linkText: "Learn More",
+    link: "services/model-optimization",
+    linkWithIcon: true,
+  },
+  {
+    icon: Icon8,
+    heading: "Evaluation",
+    alt: "Evaluation",
+    description:
+      "We'll leverage advanced analytics and visualization tools to provide detailed metrics and insights into your LLM's performance, enabling you to track progress, identify areas for improvement and make data-driven decisions.",
+    linkText: "Learn More",
+    link: "services/evaluation",
+    linkWithIcon: true,
+  },
+]
+,
     },
   ];
   const solutionsData = [

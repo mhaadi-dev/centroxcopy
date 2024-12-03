@@ -81,7 +81,7 @@ export const PointsandImagesSection = ({
             {true && (
               <Image
                 src={advantages||data?.img}
-                alt={alt || "Why centrox?"}
+                alt={arrayData?.alt || "Why centrox?"}
                 className="object-fill w-full  lg:w-4/4 h-full"
                 loading="lazy"
               />

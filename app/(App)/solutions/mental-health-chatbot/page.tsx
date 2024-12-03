@@ -52,7 +52,10 @@ import customerservice from "@/assets/customerservice.webp"
 import langchain from "@/assets/langchain.webp"
 import langgraph from "@/assets/langgraph.png"
 
-
+export const metadata = {
+  title:"AI Mental Health Chatbot for Emotional Support | Centrox AI",
+  description:"Get instant, focused emotional support with Centrox AI mental health chatbot. Relevant medical guidance and clear, to-the-point responses. Try for free today."
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
