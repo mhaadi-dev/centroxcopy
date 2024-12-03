@@ -65,6 +65,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Your model will understand your industry's unique vocabulary, terminology, and context, leading to drastically improved accuracy and relevance.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Domain Adaptation",
         },
         {
           icon: Icon13,
@@ -73,6 +74,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Achieve state-of-the-art results on your specific tasks, even with limited labeled data.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Enhanced Performance",
         },
         {
           icon: Icon14,
@@ -81,6 +83,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Mitigate unwanted biases in pre-trained models, ensuring your AI solutions are fair and ethical.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Reduced Bias & Improved Fairness",
         },
         {
           icon: Icon6,
@@ -89,6 +92,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Reduce model size and computational requirements, enabling faster inference and deployment on resource-constrained environments.", // Updated description
           linkText: "",
           linkWithIcon: true,
+          alt: "Optimized Efficiency",
         },
       ],
       caption: "",
@@ -107,14 +111,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon9,
+          icon: null,
           heading: "Generalization",
           description:
             "Pre-trained models often struggle to adapt to your unique dataset and specific task requirements, leading to subpar performance and relevance.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:generalization
+          colSpan: 2,
+          bentoImage: generalization,
+          alt: "Generalization in Pre-trained AI models",
         },
         {
           icon: Icon10,
@@ -123,8 +128,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Delivering consistently reliable and precise outputs can be a challenge when using pre-trained models in real-world scenarios.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1,
-          bentoImage:null
+          colSpan: 1,
+          bentoImage: null,
+          alt: "Maintaining Accuracy",
         },
         {
           icon: Icon11,
@@ -133,21 +139,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Mitigating inherent biases in large pre-trained models is crucial to ensure fair and ethical AI solutions.",
           linkText: "",
           linkWithIcon: true,
-          bentoImage:null,
-          colSpan:1
+          colSpan: 1,
+          bentoImage: null,
+          alt: "Avoiding Bias",
         },
         {
-          icon: Icon4,
+          icon: null,
           heading: "Optimizing Efficiency",
           description:
             "Pre-trained models often require significant computational resources, making it difficult to run efficiently, especially with limited infrastructure.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:optimizing_efficiency
-
+          colSpan: 2,
+          bentoImage: optimizing_efficiency,
+          alt: "Optimization and Efficiency in Pre-trained AI models.",
         },
       ],
+      
       caption:
         "These limitations can hinder innovation and impede your AI initiatives.",
       btnText: " Discuss Your Fine-Tuning Challenges",
@@ -188,17 +196,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Foundation Models",
       content: [
         {
-          alt: "icon",
-          caption: "Liama",
+          alt: "Llama icon",
+          caption: "Llama",
           img: liama,
         },
         {
-          alt: "icon",
+          alt: "Falcon icon",
           caption: "Falcon",
           img: falcon,
         },
         {
-          alt: "icon",
+          alt: "Qwen icon",
           caption: "Qwen",
           img: gptneox,
         },
@@ -208,18 +216,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Frameworks",
       content: [
         {
-          alt: "Icon",
+          alt: "PyTorch icon",
           caption: "PyTorch",
           img: pytorch,
         },
         {
-          alt: "Icon",
+          alt: "Hugging Face Transformers icon",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
         {
-          alt: "Icon",
-          caption: "Tensorflow",
+          alt: "TensorFlow icon",
+          caption: "TensorFlow",
           img: tensorflow,
         },
       ],
@@ -228,17 +236,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS icon",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure icon",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud icon",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -248,22 +256,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "MLOps Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow icon",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Kubeflow icon",
           caption: "Kubeflow",
           img: kubeflow,
         },
       ],
     },
   ];
+  
   const stepperData = {
     heading: "How Do We Fine-Tune?",
     description:
       "We follow a data-driven, iterative process to ensure optimal results.",
+      alt:"Fine Tuning AI Model Process",
     data: [
       {
         title: "In-Depth Needs Analysis", // Updated title
@@ -402,6 +412,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
           <HeroSection
             heading={"Fine-Tune Models To Make It Truly Yours"}
+            alt="Fine tuning pre trained AI models"
             description={
               " At Centrox AI, we help you go beyond the limitations of pre-trained models and achieve peak performance on your specific tasks."
             }

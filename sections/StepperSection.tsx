@@ -115,7 +115,7 @@ export const StepperSection = ({
                  {true && (
                 <Image
                   src={ workProcess|| img.asset.url}
-                  alt={alt || "Our Work Process"}
+                  alt={data?.alt || "Our Work Process"}
                   className="w-full lg:w-5/5  "
                   loading="lazy"
                 />

@@ -47,7 +47,10 @@ import opencv from "@/assets/opencv-plain logo.webp"
 import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
 
-
+export const metadata = {
+  title:"Body measurement AI-Powered Tool for Apparel | Centrox AI",
+  description:"With Body Measurement tool improves apparel sizing accuracy, reduces returns, and enhances customer satisfaction. Try for free & your business growth."
+}
 
 
 

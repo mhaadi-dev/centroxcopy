@@ -66,6 +66,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 linkText={card?.linkText}
                 headingClassName={headingClassName}
                 symbol={card.symbol}
+                alt={card?.alt}
               />
             ))
           : ""}
@@ -99,6 +100,7 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 colSpan={card.colSpan}
                 reverse={card.reverse}
                 bentoImage={card?.bentoImage}
+                altText={card?.alt}
               />
             ))
           : ""}

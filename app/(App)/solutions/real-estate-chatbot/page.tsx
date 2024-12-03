@@ -48,7 +48,10 @@ import Icon9 from "@/assets/Icon-9.svg";
 import realestate_agents from "@/assets/bentobox/Real estate agents.svg"
 import agencies from "@/assets/bentobox/Agencies.svg"
 
-
+export const metadata = {
+  title:"Real Estate Ai-Powered Chatbot for Document Analysis | Centrox AI",
+  description:"Centrox AI Real estate chatbot offers fast, accurate, in-depth analysis, providing insights for land, sales, rents, and construction. Try for Free Today"
+}
 
 
 export default async function Page({ params }: { params: { slug: string } }) {

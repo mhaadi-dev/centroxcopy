@@ -28,7 +28,14 @@ import Link from "next/link";
 import smiley from "@/assets/companynav/Smiley.svg"
 import team from "@/assets/companynav/UsersThree.svg"
 import phonecall from "@/assets/companynav/PhoneCall.svg"
-
+import chatbot from "@/assets/servicesnav/Chatbot.svg"
+import finetune from "@/assets/servicesnav/Fine tune.svg"
+import  evaluation from "@/assets/servicesnav/Evaluation.svg"
+import aiagent from "@/assets/servicesnav/AI agent.svg"
+import optimization from "@/assets/servicesnav/Optimize.svg"
+import scale from "@/assets/servicesnav/Scale.svg"
+import scaling from "@/assets/servicesnav/Scaling.svg"
+import headcircuit from "@/assets/servicesnav/HeadCircuit.svg"
 export const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
@@ -95,19 +102,19 @@ export const Navbar = () => {
           {
             heading: "Custom Chatbot Development",
             description: "Get a reliable AI chatbot assistant providing focused responses; reducing your burden.",
-            image: "",
+            image: chatbot,
             link:"/services/custom-chatbot-dev"
           },
           {
             heading: "Fine-Tuning & Optimization",
             description: "Fine tune and optimize your model to receive your desired outcomes.",
-            image: "",
+            image: finetune,
             link:"/services/ai-finetuning"
           },
           {
             heading: "Agentic AI",
             description: "Experience powerful performance with Intelligent AI Agents.",
-            image: "",
+            image: aiagent,
             link:"/services/ai-agents"
           },
          
@@ -122,7 +129,7 @@ export const Navbar = () => {
           {
             heading: "Data Validation & Quality Assurance",
             description: "Experience finest AI performance with the accurate and validated data.",
-            image: "",
+            image: headcircuit,
             link:"/services/data-validation"
           },
         ],
@@ -136,13 +143,13 @@ export const Navbar = () => {
           {
             heading: "Optimization",
             description: "Optimize your model and receive precise and accurate results.",
-            image: "",
+            image: optimization,
             link:"/services/model-optimization"
           },
           {
             heading: "Evaluation",
             description: "Analyze your model performance to build a more efficient solution for the market.",
-            image: "",
+            image: evaluation,
             link:"/services/evaluation"
           },
          
@@ -300,7 +307,7 @@ export const Navbar = () => {
   return (
     <>
     {showBackdrop&&<section className="h-screen w-full absolute bg-black/80 z-30 "></section>}
-     <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
+     <nav className="flex   justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
       <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
         <Image
           src={AppLogo}

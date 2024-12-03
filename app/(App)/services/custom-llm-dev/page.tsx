@@ -205,17 +205,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Foundation Models",
       content: [
         {
-          alt: "icon",
+          alt: "Llama",
           caption: "Llama",
           img: liama,
         },
         {
-          alt: "icon",
+          alt: "Falcon",
           caption: "Falcon",
           img: falcon,
         },
         {
-          alt: "icon",
+          alt: "Qwen",
           caption: "Qwen",
           img: qwen,
         },
@@ -225,17 +225,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Frameworks",
       content: [
         {
-          alt: "Icon",
+          alt: "PyTorch",
           caption: "PyTorch",
           img: pytorch,
         },
         {
-          alt: "Icon",
+          alt: "Hugging Face Transformers",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
         {
-          alt: "Icon",
+          alt: "Tensorflow",
           caption: "Tensorflow",
           img: tensorflow,
         },
@@ -245,17 +245,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -265,18 +265,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "MLOps Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Kubeflow",
           caption: "Kubeflow",
           img: kubeflow,
         },
       ],
     },
   ];
+  
   const arrayData = {
     headerData: {
       tagText: "advantages",
