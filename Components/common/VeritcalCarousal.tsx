@@ -6,31 +6,7 @@ import Image from "next/image";
 import classNames, { p3ClassName } from "@/helpers/common";
 
 
-const Data = [
-  {
-    img: img,
-    title: "Data Annotations",
-  },
-  {
-    img: img,
-    title: "Data Annotations",
-  },{
-    img: img,
-    title: "Data Annotations",
-  },{
-    img: img,
-    title: "Data Annotations",
-  },{
-    img: img,
-    title: "Data Annotations",
-  },{
-    img: img,
-    title: "Data Annotations",
-  },{
-    img: img,
-    title: "Data Annotations",
-  },
-];
+
 
 interface PropsI {
   isReverse?: boolean;

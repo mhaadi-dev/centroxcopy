@@ -18,26 +18,13 @@ import Icon11 from "@/assets/Icon-11.svg";
 import Icon12 from "@/assets/Icon-12.svg";
 import Icon13 from "@/assets/Icon-13.svg";
 import Icon14 from "@/assets/Icon-14.svg";
-import liama from "@/assets/liama.webp";
-import falcon from "@/assets/falcon.webp";
-import gptneox from "@/assets/GPT-NeoX.webp";
 
-import pytorch from "@/assets/pytorchlogo.webp";
-import huggingface from "@/assets/huggingfacelogo.webp";
-import tensorflow from "@/assets/tensorflow.webp";
-
-import aws from "@/assets/awslogo.webp";
-import azure from "@/assets/azure-plainlogo.webp";
-import googlecloud from "@/assets/Googlecloud.webp";
-
-import mlflow from "@/assets/mlflowlogo.webp";
-import kubeflow from "@/assets/kubeflowlogo.webp";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import servicebg from "@/assets/Servicebg.webp"
 import modeloptimization from "@/assets/AI Model Optimization.svg"
 import customsolutions from "@/assets/bentobox/Custom solution.svg"
 import collaborativeapproach from "@/assets/bentobox/Collabrative approach.svg"
-import hardware_specific from "@/assets/bentobox/Data Analysis & Insights.svg"
+import hardware_specific from "@/assets/bentobox/Hardware Specific.svg"
 
 export const metadata = {
   title:"AI Model Optimization Services - Maximize Performance | Centrox AI",

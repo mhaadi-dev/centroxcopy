@@ -71,7 +71,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
     onClick={() => onClick?.()}
   >
     <div className={classNames(text_h4_class)}>
-      <span className="">{title}</span>
+      <h3 className="">{title}</h3>
     </div>
     <span className={classNames("text-[#E5E7EB] text-[0.75rem] lg:text-[0.85rem] 2xl:text-[1rem] leading-[1.35rem] 2xl:leading-[1.6rem] my-1")}>
       {description}
@@ -154,10 +154,10 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
           ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
           : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
         "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100",
-        tabs.length % 2 !== 0 && index === tabs.length - 1 ? "col-span-2" : "" // Last tab spans full width if odd number of tabs
+        tabs.length % 2 !== 0 && index === tabs.length - 1 ? "col-span-2" : "" 
       )}
       style={{
-        wordWrap: "break-word", // Ensures text wraps inside the tab
+        wordWrap: "break-word", 
       }}
       aria-current={tab.current ? "page" : undefined}
       onClick={() => handleTabClick(tab.name)}
@@ -268,29 +268,6 @@ export const TabCarousel = ({
     setCurrentHoverCard(null);
   }, []);
 
-  // const handleImageLoad = async () => {
-  //   if (!blurDataURLs[currentHoverCard]) {
-  //     let imageUrl = "";
-  //     switch (currentHoverCard) {
-  //       case 3:
-  //         imageUrl = CustomDataImage.src;
-  //         break;
-  //       case 3:
-  //         imageUrl = DataLabelingImage.src;
-  //         break;
-  //       default:
-  //         imageUrl = DataCurationImage.src;
-  //         break;
-  //     }
-  //     const blurredBase64 = await generateBlurDataURL(imageUrl);
-  //     setBlurDataURLs((prevBlurDataURLs) => ({
-  //       ...prevBlurDataURLs,
-  //       [currentHoverCard]: blurredBase64,
-  //     }));
-  //   }
-  // };
-
-  // console.log("card data in here is",cardsData)
 
   return (
     <>
@@ -403,7 +380,7 @@ export const TabCarousel = ({
             <Image
               className="w-full  "
               src={tabs[tabindex]?.current && cc?.image}
-              alt="image"
+              alt={cc?.alt}
               loading={width && width <= mobileWidth ? "lazy":"lazy"}
             />
         

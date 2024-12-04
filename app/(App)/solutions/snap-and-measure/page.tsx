@@ -37,7 +37,7 @@ import checkerboard from "@/assets/solutions/Checkerboard.svg";
 import SolutionsImage1 from "@/assets/solutions/Capture Body Dimensions.webp";
 import SolutionsImage2 from "@/assets/solutions/Virtual tryon.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
-import SolutionsImage4 from "@/assets/solutionPic4.webp";
+import SolutionsImage4 from "@/assets/Streamline prod dev image.png";
 import industryPic1 from "@/assets/solutions/sol-industry-1.webp";
 import industryPic2 from "@/assets/solutions/Brick & mortae.webp";
 import industryPic3 from "@/assets/solutions/Fashion & brands.webp";
@@ -64,9 +64,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         heading2Text: "",
         para2Text: "",
       },
-      data: [
+      data : [
         {
-          icon: Icon16, // Replace with the correct icon for Unmatched Accuracy
+          icon: Icon16,
+          alt: "Unmatched Accuracy",
           heading: "Unmatched Accuracy",
           description:
             "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
@@ -74,7 +75,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon17, // Replace with the correct icon for Data Security & Privacy
+          icon: Icon17,
+          alt: "Data Security & Privacy",
           heading: "Data Security & Privacy",
           description:
             "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
@@ -82,7 +84,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon14, // Replace with the correct icon for Scalability
+          icon: Icon14,
+          alt: "Scalability",
           heading: "Scalability",
           description:
             "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
@@ -90,7 +93,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon18, // Replace with the correct icon for Integration
+          icon: Icon18,
+          alt: "Integration",
           heading: "Integration",
           description:
             "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
@@ -98,6 +102,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
       ],
+      
       caption: "",
       btnText: "Get Free Body Measurements",
     },
@@ -114,9 +119,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         heading2Text:
           "Are sizing inconsistencies and high return rates impacting your bottom line?",
       },
-      data: [
+       data :[
         {
           icon: eggcrack, // Replace with the correct icon for Inaccurate Measurements
+          alt: "Inaccurate Measurements", // Alt text same as heading
           heading: "Inaccurate Measurements",
           description:
             "Manual measurements, whether taken in-store or self-reported by customers, are prone to human error. This leads to inconsistent sizing, customer frustration, and ultimately, increased return rates.",
@@ -125,6 +131,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           icon: strategy, // Replace with the correct icon for High Return Rates
+          alt: "High Return Rates", // Alt text same as heading
           heading: "High Return Rates",
           description:
             "Ill-fitting garments are a major contributor to costly returns, impacting profitability and damaging customer loyalty. The environmental impact of these returns is also a growing concern.",
@@ -133,6 +140,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           icon: checkerboard, // Replace with the correct icon for Limited Personalization
+          alt: "Limited Personalization", // Alt text same as heading
           heading: "Limited Personalization",
           description:
             "Generic sizing charts and one-size-fits-all approaches can't cater to the diverse range of body shapes and preferences in today's market. Customers crave personalized experiences and garments that fit them perfectly.",
@@ -140,6 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
       ],
+      
       caption:
         "Centrox AI's body measurement tool addresses these challenges head-on, providing a data-driven solution to revolutionize how you capture and utilize body data. Our AI-powered technology enables you to create a more personalized, efficient, and sustainable approach to apparel sizing and shopping.",
       btnText: "Get A Free Trial",
@@ -187,6 +196,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading:"Capture Body Dimensions",
       btnText: "",
       link: "",
+      alt:"capture and measure body dimensions"
     },
     {
       img: SolutionsImage2,
@@ -196,6 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Virtual Try-Ons",
       btnText: "",
       link: "",
+      alt:"Enable Virtual Try-Ons"
     },
     {
       img: SolutionsImage3,
@@ -205,6 +216,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Personalize Recommendations",
       btnText: "",
       link: "",
+      alt:"Personalize Recommendations"
     },
     {
       img: SolutionsImage4,
@@ -214,22 +226,21 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Streamline Product Dev",
       btnText: "",
       link: "",
+      alt:"Streamline Product Development"
     },
   ];
 
   const techStackData = [
-   
     {
       title: "Deep Learning Frameworks",
       content: [
         {
-          alt: "Icon",
+          alt: "PyTorch",
           caption: "PyTorch",
           img: pytorch,
         },
-      
         {
-          alt: "Icon",
+          alt: "Tensorflow",
           caption: "Tensorflow",
           img: tensorflow,
         },
@@ -239,18 +250,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Libraries",
       content: [
         {
-          alt: "Icon",
+          alt: "Hugging Face Transformers",
           caption: "Hugging Face Transformers",
           img: huggingface,
         },
-      
         {
-          alt: "Icon",
+          alt: "Keras",
           caption: "Keras",
           img: keras,
         },
         {
-          alt: "Icon",
+          alt: "OpenCV",
           caption: "OpenCV",
           img: opencv,
         },
@@ -260,17 +270,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -280,12 +290,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Infrastructure & Orchestration",
       content: [
         {
-          alt: "Icon",
+          alt: "Kubernetes",
           caption: "Kubernetes",
           img: kubernetes,
         },
         {
-          alt: "Icon",
+          alt: "Dockers",
           caption: "Dockers",
           img: dockers,
         },
@@ -295,23 +305,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Monitoring & Experiment Tracking",
       content: [
         {
-          alt: "Icon",
+          alt: "MLflow",
           caption: "MLflow",
           img: mlflow,
         },
         {
-          alt: "Icon",
+          alt: "Weight & Biases",
           caption: "Weight & Biases",
           img: weightandbiases,
         },
         {
-          alt: "Icon",
+          alt: "Tensorflow",
           caption: "Tensorflow",
           img: tensorflow,
         },
       ],
     },
   ];
+  
   const heroData = {
     heading: "Measurement Precision with AI",
     description:
@@ -328,6 +339,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       heading: "The Centrox AI Advantage",
       description: "We're your trusted partner in AI innovation.",
     },
+    alt:"The Centrox AI Advantage",
     data: [
       {
         heading: "Deep Expertise",
@@ -380,6 +392,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const gradientCardData = [
     {
       image: industryPic1,
+      alt:"AI in E-commerce",
       data: [
         {
           heading: "Reduce Return Rates",
@@ -400,6 +413,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: industryPic2,
+      alt:"AI in Brick and Mortar Retail",
       data: [
         {
           heading: "Enhance In-Store Experiences",
@@ -420,6 +434,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: industryPic3,
+      alt:"AI in Fashion Brands & Designes",
       data: [
         {
           heading: "Streamline Product Development",
@@ -444,13 +459,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} bgimage1={solutionbg2} bgimage2={solutionbg1} bgClassName="opacity-30"/>
+          <HeroSection alt="AI-powered Body measurement tool" {...heroData} bgimage1={solutionbg2} bgimage2={solutionbg1} bgClassName="opacity-30"/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} gridCols={3} />
           <LandingSolutionsSection
             data={solutionsData}
             heading="Measurement Precision With AI"
-            description="Our body measurement tool leverages computer vision and machine learning algorithms to"
+            description="Our body measurement tool integrates computer vision and machine learning algorithms to extend convenience for measurement, and can consequently help you in various tasks where accurate measurement is crucial."
           />
           <CommonDisplayCardsGrid data={cardsSolutions} />
           <LogosSection

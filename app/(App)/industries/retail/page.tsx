@@ -50,6 +50,10 @@ import retailhero from "@/assets/solutions/Hero Image-retail.webp"
 import recommendationImage from "@/assets/solutions/Image for Recommendation Engine - Solutions.webp"
 
 
+export const metadata = {
+  title:"Fashion Retail AI Solutions - Personalize Shopping | Centrox AI ",
+  description:"Transform fashion retail with Centrox AI, accurate sizing, personalized recommendations, and inventory management. Enhance customer experience"
+}
 
 
 
@@ -64,9 +68,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading2Text: "",
             para2Text: "",
           },
-          data: [
+           data : [
             {
               icon: Icon16, // Replace with the correct icon for Competitive Edge
+              alt: "Gain a Competitive Edge",
               heading: "Gain a Competitive Edge",
               description:
                 "Leverage AI to differentiate your services, attract more clients, and close deals faster.",
@@ -75,6 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon17, // Replace with the correct icon for Streamlined Operations
+              alt: "Streamline Operations",
               heading: "Streamline Operations",
               description:
                 "Automate manual tasks, improve efficiency, and reduce operational costs.",
@@ -83,6 +89,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon14, // Replace with the correct icon for Data-Driven Decisions
+              alt: "Make Data-Driven Decisions",
               heading: "Make Data-Driven Decisions",
               description:
                 "Access real-time insights and analytics to inform your business strategies and investment decisions.",
@@ -91,6 +98,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon50, // Replace with the correct icon for Enhanced Customer Experiences
+              alt: "Enhance Customer Experiences",
               heading: "Enhance Customer Experiences",
               description:
                 "Deliver personalized recommendations and proactive support, building stronger relationships with clients.",
@@ -98,6 +106,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
           ],
+          
           caption: "",
           btnText: "Let’s Discuss Your Vision",
         },
@@ -117,6 +126,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           data: [
             {
               icon: Icon49, // Sizing Accuracy
+              alt: "Sizing Accuracy",
               heading: "Sizing Accuracy",
               description:
                 "Many retailers struggle with ensuring accurate fit, leading to increased returns and customer dissatisfaction.",
@@ -125,6 +135,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: strategy, // Inventory Management
+              alt: "Inventory Management",
               heading: "Inventory Management",
               description:
                 "Maintaining optimal stock levels to meet customer demand can be challenging, resulting in either shortages or excess inventory.",
@@ -133,6 +144,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: checkerboard, // Personalization
+              alt: "Limited Personalization",
               heading: "Limited Personalization",
               description:
                 "Delivering customised recommendations that truly resonate with customers remains a significant challenge, affecting engagement and loyalty.",
@@ -141,6 +153,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon16, // Operational Success
+              alt: "Operational Success",
               heading: "Operational Success",
               description:
                 "Effectively managing these issues is crucial for operational success and customer satisfaction.",
@@ -200,6 +213,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Accurate Fit Solutions",
       btnText: "Try our solution for FREE",
       link: "",
+      alt:"AI as body measurement tool"
     },
     {
       img: SolutionsImage2, // Predictive Inventory Management
@@ -209,6 +223,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Inventory Optimization",
       btnText: "Try our solution for FREE",
       link: "",
+      alt:"AI as inventory management tool"
     },
     {
       img: recommendationImage, // Personalized Recommendations
@@ -218,6 +233,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Recommendation Engine",
       btnText: "Try our solution for FREE",
       link: "",
+      alt:"AI as recommendation engine"
     },
     {
       img: SolutionsImage4, // Additional Solution
@@ -227,24 +243,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Tailored Strategies",
       btnText: "Try our solution for FREE",
       link: "",
+      alt:"AI as additional solution"
     },
   ];
   
   
 
   const techStackData = [
-   
     {
       title: "Large Language Models (LLMs)",
       content: [
         {
-          alt: "Icon",
+          alt: "GPT-4",
           caption: "GPT-4",
           img: gpt,
         },
-      
         {
-          alt: "Icon",
+          alt: "Llama",
           caption: "Llama",
           img: liama,
         },
@@ -253,20 +268,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       title: "Frameworks",
       content: [
-      
-      
         {
-          alt: "Icon",
+          alt: "OpenCV",
           caption: "OpenCV",
           img: opencv,
         },
         {
-            alt: "Icon",
-            caption: "Hugging Face Transformers",
-            img: huggingface,
-          },
+          alt: "Hugging Face Transformers",
+          caption: "Hugging Face Transformers",
+          img: huggingface,
+        },
         {
-          alt: "Icon",
+          alt: "LangChain",
           caption: "LangChain",
           img: langchain,
         },
@@ -276,17 +289,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Cloud Platforms",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -296,19 +309,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Data Visualization Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "Tableau",
           caption: "Tableau",
           img: tableau,
         },
         {
-          alt: "Icon",
+          alt: "PowerBi",
           caption: "PowerBi",
           img: powerbi,
         },
       ],
     },
-  
   ];
+  
   const heroData = {
     heading: "Create Personalised Shopping Experiences",
     description:
@@ -319,44 +332,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };
-  
-  
-  const arrayData = {
-    headerData: {
-      tagText: "advantages",
-      heading: "Why Centrox AI?",
-      description: "We're your trusted partner in AI innovation.",
-    },
-    data: [
-      {
-        heading: "Deep Expertise",
-        description:
-          "Our team comprises seasoned AI researchers and engineers with a proven track record in the real estate industry.",
-      },
-      {
-        heading: "Custom Solutions",
-        description:
-          "We build AI solutions tailored to your unique needs and challenges.",
-      },
-      {
-        heading: "Collaborative Approach",
-        description:
-          "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
-      },
-      {
-        heading: "Results-Oriented",
-        description:
-          "We're committed to delivering solutions that solve real-world problems and drive business growth.",
-      },
-      {
-        heading: "Transparency & Communication",
-        description:
-          "We maintain open communication throughout the entire development process.",
-      },
-    ],
-    btnText: "Partner with Us on Your AI Journey",
-  };
-  
   
 
 //     {
@@ -445,6 +420,7 @@ const stepperdata = {
     heading: "Our Process",
     description:
       "AI Project Development Lifecycle for Fashion and Retail Industry.",
+      alt:"AI Project Development Lifecycle for Fashion and Retail Industry",
     data: [
       {
         title: "Ideation",
@@ -569,7 +545,7 @@ const stepperdata = {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} alt="AI in Creating Personalised Shopping Experiences " />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection

@@ -10,6 +10,7 @@ import classNames, {
   text_para_2,
   text_para_main,
 } from "@/helpers/common";
+import TeamSectionTabs from "../common/TeamSectionTabs";
 
 export const MainAboutUs = (props: any) => {
   return (
@@ -26,7 +27,7 @@ export const MainAboutUs = (props: any) => {
             <h1
               className={classNames(
                 text_h1_main,
-                "    tracking-normal w-[60%] !bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text !text-transparent"
+                "    tracking-normal lg:w-[60%] !bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text !text-transparent"
               )}
             >
               <span className="text-[#E5E7EB]">{props?.props?.props[0]?.mainSectionheading?.split(" ").slice(0,3).join(" ")} </span> {props?.props?.props[0]?.mainSectionheading?.split(" ").slice(3).join(" ")}
@@ -125,64 +126,11 @@ export const MainAboutUs = (props: any) => {
             </p>
           </div>
          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-full mx-auto text-white  ">
-            {props?.props?.props?.[0]?.teamSectionImgs?.map(
-              (el: any, index: number) => {
-                if (
-                  !el?.img &&
-                  !el?.name &&
-                  !el?.designation &&
-                  !el.linkedINUrl
-                ) {
-                  return null; // Skip rendering this item if all properties are null
-                }
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col justify-center items-center p-4 rounded-xl"
-                    style={{
-                      border: "1px solid rgba(3, 34, 182, 0.20)",
-
-                      background:
-                        "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-                      boxShadow:
-                        "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
-                      backdropFilter: "blur(18px)",
-                    }}
-                  >
-                    <div className="  ">
-                      {el.img && (
-                        <Image
-                          src={el.img}
-                          alt="image-data"
-                          objectFit="cover"
-                          className="rounded-xl  object-cover "
-                          placeholder="blur"
-                        />
-                      )}
-                    </div>
-                    <div className=" w-full">
-                      <p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
-                        {el.name}
-                      </p>
-                      <div className="flex justify-between items-left w-full mt-1">
-                        <p className=" font-semibold text-xs md:text-sm  text-blue-azure">
-                          {el.designation}
-                        </p>
-                        <a
-                          href={el.linkedINUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Image src={LinkedIn} className="w-5" alt="" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-            )}
-          </div>
+<div>
+  <TeamSectionTabs data={props?.props?.props?.[0]?.teamSectionImgs}/>
+</div>
+         
+         
           <BannerSection />
         </section>
 

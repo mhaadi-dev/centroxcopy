@@ -94,9 +94,9 @@ const TestimonialCarousel = ({ imagesArray, dataArray }: Props) => {
             {dataArray[activeIndex].description}
           </p>
           <div>
-            <h3 className="mt-4 text-[1rem] lg:text-[1.5rem] text-[#E5E7EB]">
+            <p className="mt-4 text-[1rem] lg:text-[1.5rem] text-[#E5E7EB]">
               {dataArray[activeIndex].name}
-            </h3>
+            </p>
             <p className="uppercase text-[0.92rem] text-[#9CA3AF]">
               {dataArray[activeIndex].position}
             </p>

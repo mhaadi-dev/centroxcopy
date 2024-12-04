@@ -58,7 +58,7 @@ const CommonCardwithIcon = ({
       >
         {Icon && <Image loading="lazy" src={Icon} alt={alt} className="w-[32px] h-[32px] lg:w-[64px] lg:h-[64px]"/>}
         <div className="flex  flex-col gap-y-1 flex-grow">
-          <p className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_h2_class)}>{symbol}</span> }</p>
+          <h4 className={classNames("text-[#E5E7EB] text-[1rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[1.26rem] 2xl:leading-[1.89rem]",headingClassName)}>{heading}{symbol && <span className={classNames(text_h2_class)}>{symbol}</span> }</h4>
           <p className={classNames(text_para_3)}>{description}</p>
         </div>
         {linkText && (

@@ -3,7 +3,10 @@ import { ContactForm } from "@/Components/common/ContactForm";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 import classNames, { section_wrapper_class, text_h2_class } from "@/helpers/common";
 import SimpleVerticalTimeLine from "@/Components/common/SimpleVerticalTimeLine";
-
+export const metadata={
+	title:"Contact Us - Get in Touch with Our Team | Centrox AI",
+	description:"Reach out to Centrox AI for inquiries, collaboration or support. Connect with our AI experts and discover how we can help accelerate your AI projects and business growth."
+}
 const  ContactUs=()=> {
 	const data = [
 		{

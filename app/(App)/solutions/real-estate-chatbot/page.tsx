@@ -247,30 +247,34 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon35, // Replace with the correct icon for Fragmented Information
+          icon: Icon35,
           heading: "Fragmented Information",
+          alt: "Fragmented Information",
           description:
-            "One of the major challenges which professionals can face for their real estate queries is Accessing scattered sources to find out the relevant information for making the critical decisions, which can cause major delays and errors.",
+            "One of the major challenges which professionals can face for their real estate queries is accessing scattered sources to find out the relevant information for making critical decisions, which can cause major delays and errors.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon29, // Replace with the correct icon for Inefficient Reviews
+          icon: Icon29,
           heading: "Inefficient Reviews",
+          alt: "Inefficient Reviews",
           description:
-            "As much as doing this research and analysis for real estate manually can be time consuming resulting in slower response, but it can also get tiring; ultimately compromising the productivity and profitability, as the reviews made by manual systems could have errors. This challenge can effectively be catered from these AI chatbots.",
+            "As much as doing this research and analysis for real estate manually can be time-consuming resulting in slower response, but it can also get tiring; ultimately compromising the productivity and profitability, as the reviews made by manual systems could have errors. This challenge can effectively be catered from these AI chatbots.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon47, // Replace with the correct icon for Inaccurate Assessments
+          icon: Icon47,
           heading: "Inaccurate Assessments",
+          alt: "Inaccurate Assessments",
           description:
-            "The analysis done manually might have errors and inaccuracies which can comprise the entire analysis report, and might lead to losses to the business organisation. Our real estate chatbot aims to minimise these losses by ensuring accurate analysis, and delivering comprehensive reports.",
+            "The analysis done manually might have errors and inaccuracies which can compromise the entire analysis report, and might lead to losses to the business organization. Our real estate chatbot aims to minimize these losses by ensuring accurate analysis, and delivering comprehensive reports.",
           linkText: "",
           linkWithIcon: true,
         },
       ],
+      
       caption:
         "Our chatbot ensures after in-depth analysis your decisions are based on reliable data.",
       btnText: "Get A Free Trial",
@@ -290,38 +294,43 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon37, // Replace with the correct icon for Data Integrity
+          icon: Icon37,
           heading: "Data Integrity",
+          alt: "Data Integrity",
           description:
             "The experts at Centrox AI utilise such algorithms which ensure high-quality assessments, minimising risks. We realise the importance of data, therefore we extend enough efforts to ensure that your valuable data remains secure and private.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon36, // Replace with the correct icon for Operational Efficiency
+          icon: Icon36,
           heading: "Operational Efficiency",
+          alt: "Operational Efficiency",
           description:
             "We understand the importance of operational efficiency your AI chatbot real estate solution requires. Therefore we provide you with an engaging chatbot for immediate insights, freeing your team to focus on high-impact tasks.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon27, // Replace with the correct icon for Fast Security Measures
+          icon: Icon27,
           heading: "Fast Security Measures",
+          alt: "Fast Security Measures",
           description:
             "For keeping your essential data private, we prioritise the protection of your sensitive data, adhering to the highest privacy standards. This helps us in providing you with a dependable and reliable solution.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon9, // Replace with the correct icon for Scalable Solutions
+          icon: Icon9,
           heading: "Scalable Solutions",
+          alt: "Scalable Solutions",
           description:
             "We know that the market trend and demands keep changing with each passing day, so we provide you with such a real estate AI chatbot which can adapt effortlessly to increasing demands while maintaining performance.",
           linkText: "",
           linkWithIcon: true,
         },
       ],
+      
       caption: "",
       btnText: "Talk to Our AI Expert",
     },
@@ -339,44 +348,49 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: null, // Replace with the correct icon for Real Estate Agents
+          icon: null,
           heading: "Real Estate Agents",
+          alt: "",
           description:
             "This efficient AI chatbot for the real estate industry can facilitate efficient property evaluations, improving client interactions and accelerating transactions, which can significantly increase your business profit.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:realestate_agents
+          colSpan: 2,
+          bentoImage: realestate_agents,
         },
         {
-          icon: Icon32, // Replace with the correct icon for Investors
+          icon: Icon32,
           heading: "Investors",
+          alt: "Investors",
           description:
             "It lets investors make decisions based on data and enhance their portfolio management. This can actually speed up the decision-making process for investors by providing them with a compelling report that encourages them to proceed forward.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
         },
         {
-          icon: Icon38, // Replace with the correct icon for Construction Firms
+          icon: Icon38,
           heading: "Construction Firms",
+          alt: "Construction Firms",
           description:
             "Smooths the process of document reviews to maintain project timelines and compliance. This holds critical importance in providing you with a dependable way to review the documents without going through the hassle of searching.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan: 1,
         },
         {
-          icon: null, // Replace with the correct icon for Agencies
+          icon: null,
           heading: "Agencies",
+          alt: "",
           description:
             "Provides immediate support through our chatbot, allowing agents to concentrate on closing deals. This can help agencies focus more on compelling clients to invest.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:2,
-          bentoImage:agencies
+          colSpan: 2,
+          bentoImage: agencies,
         },
       ],
+      
       caption:
         "Regardless of your role, Centrox AI enhances your capabilities and drives growth.",
       btnText: "Schedule a Demo",
@@ -416,98 +430,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
   
 
-  const techStackData = [
-    {
-      title: "Foundation Models",
-      content: [
-        {
-          alt: "icon",
-          caption: "Liama",
-          img: liama,
-        },
-        {
-          alt: "icon",
-          caption: "Falcon",
-          img: falcon,
-        },
-        {
-          alt: "icon",
-          caption: "Qwen",
-          img: qwen,
-        },
-      ],
-    },
-    {
-      title: "Frameworks",
-      content: [
-        {
-          alt: "Icon",
-          caption: "PyTorch",
-          img: pytorch,
-        },
-        {
-          alt: "Icon",
-          caption: "Hugging Face Transformers",
-          img: huggingface,
-        },
-        {
-          alt: "Icon",
-          caption: "Tensorflow",
-          img: tensorflow,
-        },
-      ],
-    },
-    {
-      title: "Infrastructure",
-      content: [
-        {
-          alt: "Icon",
-          caption: "AWS",
-          img: aws,
-        },
-        {
-          alt: "Icon",
-          caption: "Azure",
-          img: azure,
-        },
-        {
-          alt: "Icon",
-          caption: "Google Cloud",
-          img: googlecloud,
-        },
-      ],
-    },
-    {
-      title: "Conversational AI Platforms",
-      content: [
-        {
-          alt: "Icon",
-          caption: "Rasa",
-          img: rasa,
-        },
-        {
-          alt: "Icon",
-          caption: "Dialogflow",
-          img: dialogflow,
-        },
-      ],
-    },
-    {
-      title: "MLOps Tools",
-      content: [
-        {
-          alt: "Icon",
-          caption: "MLflow",
-          img: mlflow,
-        },
-        {
-          alt: "Icon",
-          caption: "Kubeflow",
-          img: kubeflow,
-        },
-      ],
-    },
-  ];
+ 
   const heroData = {
     heading: "Your Real Estate Analysis with Gen AI",
     description:
@@ -525,6 +448,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       description:
         "Our commitment to excellence in AI and real estate innovation sets us apart as your trusted partner.",
     },
+    alt:"Why Centrox AI Stands Out?",
     data: [
       {
         heading: "Expertise in AI and Real Estate",
@@ -554,17 +478,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
     ],
     btnText: "Book a 1-1 Session",
   };
-  
-  
-  
-  
- 
     
   return (
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection  {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection alt="Document analysis with Real Estate Chatbot" {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

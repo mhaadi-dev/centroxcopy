@@ -1,30 +1,16 @@
 //@ts-nocheck
-import { sanityFetch } from "@/sanity/lib/client";
-import dynamic from "next/dynamic";
 
-import { SERVICES_PAGE_QUERY } from "@/sanity/query";
 import { HeroSection } from "@/sections/HeroSection";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { BenefitsSection } from "@/sections/BenefitsSection";
-import { OppositeCarousal } from "@/sections/OppositeCarousal";
+
 import { StepperSection } from "@/sections/StepperSection";
 import { PointsandImagesSection } from "@/views/ComputerVisionDevelopment/Section6";
-import { CustomerTestimonials } from "@/sections/CustomersTestimonial";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
-import { CaseStudiesCarousalSection } from "@/sections/CaseStudiesCarousalSection";
+
 import { LogosSection } from "@/sections/LogosSection";
 import { FaqsSection } from "@/sections/FaqsSection";
-import { ContactForm } from "@/Components/common/ContactForm";
-import { BannerSection } from "@/sections/TestimonialSection";
-import { HoveredTextSection } from "@/sections/HoveredTextSection";
-import bgImage from "@/public/images/customchatbot/customchatbotbg.webp";
 
-import ChallengesSection from "@/views/ServicePageViews/ChallengesSection";
-import BenefitSection from "@/views/ServicePageViews/BenefitSection";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
-import Icon from "@/assets/Icon.webp";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
+
 import Icon4 from "@/assets/Icon-4.svg";
 import Icon6 from "@/assets/Icon-6.svg";
 import Icon9 from "@/assets/Icon-9.svg";
@@ -48,7 +34,6 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import LandingLayout from "../../layout";
 import qwen from "@/assets/qwen.webp"
 import customllm  from "@/assets/Custom LLM 2.svg"
 import servicebg from "@/assets/Servicebg.webp"
@@ -63,10 +48,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       headerData: {
         tagText: "Benefits",
-        headingText: "Tailor-Made LLMs",
+        headingText: "Tailor-Made LLMs Key Features & Benefits",
         para1Text:
           "In todays time the best foot forward is to customize existing LLMs according to your unique business needs. Realizing this fact, we collaborate deeply with your team throughout the entire development lifecycle, ensuring your LLM is deeply integrated, optimized, adaptable, and delivers the desired results.",
-        heading2Text: "Key Features & Benefits",
+        heading2Text: "",
       },
       data: [
         {

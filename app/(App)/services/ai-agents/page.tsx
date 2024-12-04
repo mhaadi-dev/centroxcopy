@@ -44,6 +44,7 @@ import AIagent from "@/assets/Agentic AI1.svg"
 import goal_oriented from "@/assets/bentobox/Goal Oriented.svg"
 import langchain from "@/assets/bentobox/Langchain framework.svg"
 import dataanalysis from "@/assets/bentobox/Data Analysis & Insights-1.svg"
+import knowledgable from "@/assets/bentobox/Knowledge graphs & reasoning.svg"
 export const metadata = {
   title:"Empower Your Business with Agentic AI Solutions | Centrox AI",
   description:"Develop intelligent AI agents and workflows to automate tasks, make data-driven decisions, and grow for scalable solutions. Book a free session today."
@@ -52,10 +53,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
     {
       headerData: {
-        tagText: "AI Agent Advantage",
+        tagText: "Challenges",
         headingText: "The AI Agent Advantage", // Updated heading
         para1Text:
-          "While large language models (LLMs) have made significant strides in natural language understanding and generation, they often fall short when faced with complex, real-world tasks that demand more than just linguistic capabilities. Traditional automation tools and even powerful LLMs often fall short when it comes to handling the complex, dynamic nature of real-world tasks. They struggle to",
+          "While large language models (LLMs) have made significant strides in natural language understanding and generation, they often fall short when faced with complex, real-world tasks that demand more than just linguistic capabilities. Traditional automation tools and even powerful LLMs often fall short when it comes to handling the complex, dynamic nature of real-world tasks.",
         heading2Text: "",
       },
       data: [
@@ -285,6 +286,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
+          icon: null,
+          heading: "Knowledge Graphs & Reasoning", // Updated heading
+          description:
+            "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
+          linkText: "",
+          linkWithIcon: true,
+          colSpan: 2,
+          alt: "", // Empty alt text as icon is null
+          bentoImage: knowledgable,
+        },
+        {
           icon: Icon12,
           heading: "Reinforcement Learning", // Updated heading
           description:
@@ -294,17 +306,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           colSpan: 1,
           alt: "Reinforcement Learning", // Alt text based on heading
         },
-        {
-          icon: null,
-          heading: "Knowledge Graphs & Reasoning", // Updated heading
-          description:
-            "Allow agents to store and reason about complex relationships between entities and concepts, enabling intelligent decision-making.", // Updated description
-          linkText: "",
-          linkWithIcon: true,
-          colSpan: 2,
-          alt: "", // Empty alt text as icon is null
-          bentoImage: langchain,
-        },
+     
         {
           icon: Icon13,
           heading: "Natural Language Processing (NLP)", // Updated heading

@@ -22,9 +22,9 @@ const SectionHeader = ({tagText="",headingText="",para1Text="",para2Text="",head
     <p className={classNames(text_para_2,"w-[98%] sm:w-[67%]  mx-auto text-center")}>
         {para1Text}
     </p>
-    {heading2Text &&  <h2 className={classNames(text_h2_class,"text-center w-full lg:w-[70%] mx-auto")}>
+    {heading2Text &&  <h3 className={classNames(text_h2_class,"text-center w-full lg:w-[70%] mx-auto")}>
     {heading2Text}
-    </h2>}
+    </h3>}
    { para2Text && <p className={classNames(text_para_2,"w-full sm:w-[60%] mx-auto text-center")}>
     {para2Text}
     </p>}

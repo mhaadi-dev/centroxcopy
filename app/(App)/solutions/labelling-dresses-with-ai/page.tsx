@@ -57,58 +57,6 @@ export const metadata = {
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
-
-    const cardsSolutions = [
-        {
-          headerData: {
-            tagText: "AI-powered Solution",
-            headingText: "Our AI-powered solution offers",
-            para1Text: "",
-            heading2Text: "",
-            para2Text: ""
-          },
-          data: [
-            {
-              icon: Icon, // Replace with the correct icon for Unmatched Accuracy
-              heading: "Unmatched Accuracy",
-              description:
-                "Achieve measurement precision comparable to professional tailors, ensuring a perfect fit for your customers.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Data Security & Privacy
-              heading: "Data Security & Privacy",
-              description:
-                "Implement robust measures to protect sensitive customer data, ensuring compliance with privacy regulations and building trust with your users.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Scalability
-              heading: "Scalability",
-              description:
-                "Handle large volumes of measurements efficiently, supporting your business growth and providing a seamless experience even during peak shopping periods.",
-              linkText: "",
-              linkWithIcon: true,
-            },
-            {
-              icon: Icon, // Replace with the correct icon for Integration
-              heading: "Integration",
-              description:
-                "Seamlessly integrate the tool into your existing e-commerce platform or mobile app, enhancing your customer journey and providing a competitive advantage.",
-              linkText: "",
-              linkWithIcon: true,
-            }
-          ],
-          caption: "",
-          btnText: "Get Free Body Measurements"
-        }
-      ];
-      
-
-
-
       const challengeData = [
         {
           headerData: {
@@ -122,38 +70,43 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: Icon42, // Replace with the correct icon for Time-Consuming & Labor-Intensive
+              icon: Icon42,
               heading: "Time-Consuming & Labor-Intensive",
+              alt: "Time-Consuming & Labor-Intensive",
               description:
                 "Assigning tags and attributes to each product manually is a tedious and time-consuming process, requiring significant human resources and effort.",
               linkText: "",
               linkWithIcon: true,
             },
             {
-              icon: Icon46, // Replace with the correct icon for Prone to Human Error
+              icon: Icon46,
               heading: "Prone to Human Error",
+              alt: "Prone to Human Error",
               description:
                 "Manual labeling is susceptible to inconsistencies, inaccuracies, and subjective interpretations, leading to mislabeled products and a frustrating user experience.",
               linkText: "",
               linkWithIcon: true,
             },
             {
-              icon: Icon9, // Replace with the correct icon for Limited Scalability
+              icon: Icon9,
               heading: "Limited Scalability",
+              alt: "Limited Scalability",
               description:
                 "As your product catalog grows, manual tagging becomes increasingly unsustainable, hindering your ability to expand your offerings and reach new customers.",
               linkText: "",
               linkWithIcon: true,
             },
             {
-              icon: Icon43, // Replace with the correct icon for Impact on Search & Discovery
+              icon: Icon43,
               heading: "Impact on Search & Discovery",
+              alt: "Impact on Search & Discovery",
               description:
                 "Inaccurate or incomplete product data can negatively affect search relevance and product recommendations, leading to missed sales opportunities.",
               linkText: "",
               linkWithIcon: true,
             },
           ],
+          
           caption:
             "Centrox AI's image labeling tool addresses these pain points head-on, providing an AI-powered solution to automate and streamline your product tagging process.",
           btnText: "Try It Yourself",
@@ -172,38 +125,43 @@ export default async function Page({ params }: { params: { slug: string } }) {
           },
           data: [
             {
-              icon: Icon47, // Replace with the correct icon for Streamline Catalog Management
+              icon: Icon47,
               heading: "Streamline Catalog Management",
+              alt: "Streamline Catalog Management",
               description:
                 "Automate product tagging, saving time and resources while ensuring consistency and accuracy across your catalog.",
               linkText: "",
               linkWithIcon: true,
             },
             {
-              icon: Icon43, // Replace with the correct icon for Improve Search & Discovery
+              icon: Icon43,
               heading: "Improve Search & Discovery",
+              alt: "Improve Search & Discovery",
               description:
                 "Enhance search relevance and accuracy, helping customers find the products they're looking for quickly and easily, leading to increased conversions.",
               linkText: "",
               linkWithIcon: true,
             },
             {
-              icon: Icon45, // Replace with the correct icon for Reduce Returns
+              icon: Icon45,
               heading: "Reduce Returns",
+              alt: "Reduce Returns",
               description:
                 "Minimize returns due to product misrepresentation by providing accurate product attributes.",
               linkText: "",
               linkWithIcon: true,
             },
             {
-              icon: Icon48, // Replace with the correct icon for Accelerate Time-to-Market
+              icon: Icon48,
               heading: "Accelerate Time-to-Market",
+              alt: "Accelerate Time-to-Market",
               description:
                 "Quickly onboard new products and update existing ones with minimal manual effort.",
               linkText: "",
               linkWithIcon: true,
             },
           ],
+          
           caption:
             "",
           btnText: "Check Out Free Trial",
@@ -246,19 +204,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
 
       const techStackData = [
-   
         {
           title: "Deep Learning Frameworks",
           content: [
             {
-              alt: "Icon",
+              alt: "PyTorch Icon",
               caption: "PyTorch",
               img: pytorch,
             },
-          
             {
-              alt: "Icon",
-              caption: "Tensorflow",
+              alt: "TensorFlow Icon",
+              caption: "TensorFlow",
               img: tensorflow,
             },
           ],
@@ -267,18 +223,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
           title: "Libraries",
           content: [
             {
-              alt: "Icon",
+              alt: "Hugging Face Transformers Icon",
               caption: "Hugging Face Transformers",
               img: huggingface,
             },
-          
             {
-              alt: "Icon",
+              alt: "Keras Icon",
               caption: "Keras",
               img: keras,
             },
             {
-              alt: "Icon",
+              alt: "OpenCV Icon",
               caption: "OpenCV",
               img: opencv,
             },
@@ -288,17 +243,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
           title: "Infrastructure",
           content: [
             {
-              alt: "Icon",
+              alt: "AWS Icon",
               caption: "AWS",
               img: aws,
             },
             {
-              alt: "Icon",
+              alt: "Azure Icon",
               caption: "Azure",
               img: azure,
             },
             {
-              alt: "Icon",
+              alt: "Google Cloud Icon",
               caption: "Google Cloud",
               img: googlecloud,
             },
@@ -308,13 +263,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           title: "Infrastructure & Orchestration",
           content: [
             {
-              alt: "Icon",
+              alt: "Kubernetes Icon",
               caption: "Kubernetes",
               img: kubernetes,
             },
             {
-              alt: "Icon",
-              caption: "Dockers",
+              alt: "Docker Icon",
+              caption: "Docker",
               img: dockers,
             },
           ],
@@ -323,23 +278,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
           title: "Monitoring & Experiment Tracking",
           content: [
             {
-              alt: "Icon",
+              alt: "MLflow Icon",
               caption: "MLflow",
               img: mlflow,
             },
             {
-              alt: "Icon",
+              alt: "Weight & Biases Icon",
               caption: "Weight & Biases",
               img: weightandbiases,
             },
             {
-              alt: "Icon",
-              caption: "Tensorflow",
+              alt: "TensorFlow Icon",
+              caption: "TensorFlow",
               img: tensorflow,
             },
           ],
         },
       ];
+      
   const heroData = {
     heading: "Let AI Label Your Fashion E-Commerce Products",
     description:
@@ -409,6 +365,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const gradientCardData = [
     {
       image: industryPic1,
+      alt:"AI in Ecommerce Platforms",
       data: [
         {
           heading: "Enhanced Product Discoverability",
@@ -429,6 +386,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: industryPic2,
+      alt:"AI for Fashion Retailers",
       data: [
         {
           heading: "Catalog Optimization",
@@ -449,6 +407,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: industryPic3,
+      alt:"AI for Fashion Brands and Designers",
       data: [
         {
           heading: "Product Insights",
@@ -475,7 +434,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection img={labellinghero} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection alt="AI Image labeling your fashion products" img={labellinghero} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

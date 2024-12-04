@@ -32,6 +32,10 @@ import custombuilt from "@/assets/bentobox/Neural Network.svg"
 import scalable from "@/assets/bentobox/Scalable AI.svg"
 
 
+export const metadata = {
+  title:"Transform Healthcare industry with Gen AI Solutions | Centrox AI",
+  description:"Transform healthcare with Centrox AI LLM-based solutions by automating diagnostics, streamlining workflows & enhancing patient outcomes. Book now"
+}
 
 
 
@@ -54,6 +58,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           data: [
             {
               icon: Icon51, // Information Overload
+              alt: "Precision Diagnostics",
               heading: "Precision Diagnostics",
               description:
                 "Deploying AI to analyze vast, heterogeneous datasets—medical imaging, genetic information, clinical records—delivering diagnostic predictions that outperform traditional methods.",
@@ -62,6 +67,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: strategy, // Inefficient Processes
+              alt: "Real-Time Clinical Insights",
               heading: "Real-Time Clinical Insights",
               description:
                 "Custom-built neural networks that process multi-modal data streams, offering physicians predictive insights that adapt in real time to new patient information.",
@@ -70,6 +76,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: checkerboard, // Limited Personalization
+              alt: "Advanced Research & Drug Discovery",
               heading: "Advanced Research & Drug Discovery",
               description:
                 "Gen AI automates and accelerates research processes, predicting molecular behavior and simulating clinical trials, reducing the timeline for new drug development.",
@@ -78,6 +85,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon52, // Missed Opportunities
+              alt: "Automated Medical Documentation",
               heading: "Automated Medical Documentation",
               description:
                 "AI-powered natural language models automate clinical note summarization, EHR management, and claims processing, optimizing operational efficiency.",
@@ -85,6 +93,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               linkWithIcon: true,
             },
           ],
+          
           caption:
             "Centrox AI’s Gen AI solutions empower healthcare professionals to make faster, more informed decisions, enhancing both patient outcomes and operational efficiency.",
           btnText: "Try Our Solution For FREE",
@@ -126,6 +135,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Data Integration",
       btnText: "",
       link: "",
+      alt:"AI in Multimodal Data Fusion"
     },
     {
       img: SolutionsImage2, // Replace with an appropriate image for Explainable AI
@@ -135,6 +145,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Transparent Insights",
       btnText: "",
       link: "",
+      alt:"AI in Explainable AI in Clinical Decision Support"
     },
     {
       img: SolutionsImage3, // Replace with an appropriate image for AI-Powered Personalized Medicine
@@ -144,6 +155,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Tailored Treatments",
       btnText: "",
       link: "",
+      alt:"AI in AI-Powered Personalized Medicine"
     },
     {
       img: SolutionsImage4, // Replace with an appropriate image for Generative AI in Biomedical Research
@@ -153,6 +165,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Research Automation",
       btnText: "",
       link: "",
+      alt:"AI in Generative AI for Biomedical Research"
     },
   ];
   
@@ -168,6 +181,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     img: healthhero, // Replace with the appropriate image for healthcare context
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
+    alt:" Transforming Healthcare with Generative AI"
   };
   
   
@@ -177,6 +191,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       heading: "Why Gen AI is the Key for Healthcare Innovators",
       description: "At Centrox AI, we understand that healthcare decision-makers need more than just basic automation—they need intelligent systems that can adapt, learn, and evolve. Here’s how our Gen AI models are pushing healthcare forward:",
     },
+    alt:"Gen AI is the Key for Healthcare Innovators",
     data: [
       {
         heading: "Adaptive Intelligence",
@@ -253,6 +268,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Our large-scale neural networks continuously learn from new data inputs, ensuring the AI evolves with medical knowledge and adapts to patient care needs.",
           linkText: "",
           linkWithIcon: true,
+          alt:"Adaptive Intelligence"
         },
         {
           icon: Icon17, // Replace with the correct icon for Streamlined Clinical Workflows
@@ -261,6 +277,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Automate repetitive tasks like claims processing and patient communication, allowing healthcare professionals to focus on patient care.",
           linkText: "",
           linkWithIcon: true,
+          alt:"Streamlined Clinical Workflows"
         },
         {
           icon: Icon14, // Replace with the correct icon for Data-Driven Decision Making
@@ -269,6 +286,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Access real-time, actionable insights to support diagnostics and strategic administrative decisions.",
           linkText: "",
           linkWithIcon: true,
+          alt:"Data-Driven Decision Making"
         },
         {
           icon: Icon18, // Replace with the correct icon for Enhanced Patient Outcomes
@@ -277,6 +295,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Predict disease trajectories and recommend personalized treatments to improve care and treatment success rates.",
           linkText: "",
           linkWithIcon: true,
+          alt:"Enhanced Patient Outcomes"
         },
       ],
       caption: "",
@@ -301,7 +320,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan:2,
-          bentoImage:custombuilt
+          bentoImage:custombuilt,
+          alt:""
         },
         {
           icon: Icon17, // Replace with the correct icon for Advanced Personalization Engines
@@ -310,7 +330,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "These engines analyze patient data at scale, enabling precise personalization in treatment plans and patient communication.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Advanced Personalization Engines"
         },
         {
           icon: Icon14, // Replace with the correct icon for Large Language Models (LLMs)
@@ -319,7 +340,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Trained to understand medical context and generate accurate clinical reports and diagnoses, improving efficiency and accuracy across tasks.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Large Language Models (LLMs)"
         },
         {
           icon: null, // Replace with the correct icon for Scalable AI Infrastructure
@@ -329,7 +351,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan:2,
-          bentoImage:scalable
+          bentoImage:scalable,
+          alt:""
         },
       ],
       caption: "",
@@ -341,6 +364,7 @@ const stepperdata = {
     heading: "Our Approach to Building AI for Healthcare",
     description:
       "We follow a collaborative, iterative process to ensure the success of your AI project.",
+      alt:"Our Approach to Building AI for Healthcare",
     data: [
       {
         title: "Data Strategy & Integration",
@@ -446,7 +470,7 @@ const stepperdata = {
     <div>
   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} alt="Transforming Healthcare with Generative AI" />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection

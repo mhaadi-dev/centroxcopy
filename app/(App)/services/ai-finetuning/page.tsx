@@ -332,7 +332,25 @@ export default async function Page({ params }: { params: { slug: string } }) {
         ],
         status: false,
       },
-     
+      {
+        title: "Hyperparameter Optimization", // Updated title
+        content: [
+          {
+            _type: "block",
+            style: "normal",
+            _key: "6fc8ac5c69b0",
+            markDefs: [],
+            children: [
+              {
+                _type: "span",
+                marks: [],
+                text: "We utilize the most appropriate fine tuning approach like Full fine tuning, or Parameter Efficient Fine Tuning which includes LoRA and QLoRA to optimize the parameters of your model for generating high performing results.", // Updated content
+              },
+            ],
+          },
+        ],
+        status: false,
+      },
       {
         title: "Iterative Training & Evaluation", // Updated title
         content: [
@@ -364,7 +382,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               {
                 _type: "span",
                 marks: [],
-                text: "We seamlessly transition your fine-tuned model to production, ensuring smooth integration and ongoing monitoring for optimal performance.", // Updated content
+                text: "We seamlessly transition your model to production by hosting it on a cloud service or server, or integrating it with an application through APIs, and contribute our efforts for optimizing its performance for scalability.", // Updated content
               },
             ],
           },

@@ -31,9 +31,9 @@ const  BannerSection = ({text="Get an expert help in constructing your own model
           <div className="relative overflow-hidden py-4 w-full mx-auto text-center bg-gray-900 rounded-3xl lg:text-left  ">
             <div className="p-6 lg:py-8 lg:px-14 ">
               <div className="flex flex-col gap-4 lg:flex-row   w-full  items-center justify-between">
-                <h5 className="text-sm sm:text-3xl font-bold text-white w-full lg:w-2/3">
+                <p className="text-sm sm:text-3xl font-bold text-white w-full lg:w-2/3">
                  { "Get an expert help in constructing your own models or utilizing foundational models for your business."}
-                </h5>
+                </p>
 
                 <div className="flex   justify-center flex-end w-full lg:w-1/3  ">
                   <CalendlyWidget btnText="Talk to Our AI Expert" isArrow/>

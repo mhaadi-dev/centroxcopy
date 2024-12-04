@@ -41,6 +41,10 @@ import realestatehero from "@/assets/realestate.webp"
 // import frauddetection from "@/assets/bentobox/fraudetection"
 
 
+export const metadata = {
+  title:"Generative AI Solutions for Fintech Industry | Centrox AI",
+  description:"Transform fintech with Centrox AI Generative AI solutions. Fraud detection to personalized financial services and innovative, AI systems. Book session now"
+}
 
 
 
@@ -65,6 +69,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 "The financial world is awash with data, but extracting actionable insights remains a challenge. Legacy systems, regulatory hurdles, and the demand for personalized experiences are just a few of the complexities you face.",
               linkText: "",
               linkWithIcon: true,
+              alt:"Data Challenges"
             },
             {
               icon: strategy, // Inefficient Processes
@@ -73,6 +78,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 "Off-the-shelf AI models? They're often too generic, too rigid. You need solutions that are as dynamic and adaptable as the market itself. That's where Generative AI comes in.",
               linkText: "",
               linkWithIcon: true,
+              alt:"Need for Dynamic Solutions"
             },
           ],
           caption:
@@ -80,10 +86,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
           btnText: "Explore Generative AI Solutions for Fintech",
         },
       ];
-      
-      
-  
-
       const questions = [
         {
           question: "What types of data can you use to build Generative AI models for fintech?",
@@ -107,9 +109,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
       ];
       
-  
-  
-
   const cardsSolutions = [
     {
       headerData: {
@@ -127,7 +126,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Imagine AI advisors that truly understand your customers. We build virtual assistants that offer tailored financial advice, investment recommendations, and educational content, all driven by the nuances of individual needs and risk profiles.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Personalized Financial Guides"
         },
         {
           icon: Icon57, // Replace with the correct icon for Customer Service, Reimagined
@@ -136,7 +136,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Forget scripted chatbots. Our conversational AI solutions engage in natural, meaningful dialogues, providing 24/7 support, answering complex queries, and guiding customers through financial processes with empathy and precision.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Customer Service, Reimagined"
         },
         {
           icon: Icon54, // Replace with the correct icon for Content That Converts
@@ -145,7 +146,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Say goodbye to generic marketing copy. We automate the creation of compelling product descriptions, personalized emails, and engaging social media content, all tailored to resonate with your target audience.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Content That Converts"
         },
         {
           icon: Icon55, // Replace with the correct icon for Fraud Detection, Evolved
@@ -154,7 +156,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "We go beyond rule-based systems. Our AI models detect subtle patterns and anomalies in real-time, proactively identifying and preventing fraudulent activity.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Fraud Detection, Evolved"
         },
         {
           icon: Icon56, // Replace with the correct icon for Risk Management, Reinvented
@@ -163,7 +166,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Navigate the complexities of risk assessment with AI-powered tools that analyze market trends, news sentiment, and economic indicators, providing data-driven insights for smarter decision-making.",
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Risk Management, Reinvented"
         },
       ],
       caption: "",
@@ -171,22 +175,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
   ];
   
-  
-  
-
   const techStackData = [
-   
     {
       title: "Large Language Models (LLMs)",
       content: [
         {
-          alt: "Icon",
+          alt: "GPT-4",
           caption: "GPT-4",
           img: gpt,
         },
-      
         {
-          alt: "Icon",
+          alt: "Llama",
           caption: "Llama",
           img: liama,
         },
@@ -195,20 +194,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       title: "Frameworks",
       content: [
-      
-      
         {
-          alt: "Icon",
+          alt: "pytorch",
           caption: "pytorch",
           img: pytorch,
         },
         {
-            alt: "Icon",
-            caption: "Hugging Face Transformers",
-            img: huggingface,
-          },
+          alt: "Hugging Face Transformers",
+          caption: "Hugging Face Transformers",
+          img: huggingface,
+        },
         {
-          alt: "Icon",
+          alt: "LangChain",
           caption: "LangChain",
           img: langchain,
         },
@@ -218,17 +215,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Cloud Platforms",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -238,19 +235,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Data Visualization Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "Tableau",
           caption: "Tableau",
           img: tableau,
         },
         {
-          alt: "Icon",
+          alt: "PowerBi",
           caption: "PowerBi",
           img: powerbi,
         },
       ],
     },
-  
   ];
+  
   const heroData = {
     heading: "Gen AI Solutions for Fintech Use Cases",
     description:
@@ -305,6 +302,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     heading: "Our Process",
     description:
       "We follow a collaborative, iterative process to ensure the success of your AI project.",
+      alt:"Our process cycle for building GenAI solutions in Fintech Industry",
     data: [
       {
         title: "Deep Dive & Discovery",
@@ -429,7 +427,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
      
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} alt="Gen AI Solutions for Fintech Use Cases" />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={cardsSolutions} gridCols={3}  />

@@ -22,8 +22,8 @@ import imageBG2 from "@/assets/Image BG2.webp"
 const page = ({ params }: { params: { slug: string } }) => {
 
 const banner1Data={
-    heading:"Pocketmate.ai your reliable mental health support.",
-    para1Text:"Pocketmate.ai offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
+    heading:"Pocketmate.AI your reliable mental health support.",
+    para1Text:"Pocketmate.AI offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
 }
 const heroSection1Data={
     heading:"The Problem",
@@ -49,7 +49,7 @@ const heroSection2Data={
       data: [
         {
           Icon: null,
-          heading: "98",
+          heading: "92",
           symbol: "%",
           description: "Response time",
           className: "h-full !rounded-3xl w-full",
@@ -57,7 +57,7 @@ const heroSection2Data={
         },
         {
           Icon: null,
-          heading: "96",
+          heading: "83.2",
           symbol: "%",
           description: "Precise response",
           className: "h-full !rounded-3xl w-full",
@@ -71,17 +71,10 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
-        {
-          Icon: null,
-          heading: "100",
-          symbol: "%",
-          description: "Effective therapy",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },{
+      {
             Icon: null,
-            heading: "100",
-            symbol: "%",
+            heading: "200",
+            symbol: "+",
             description: "No.of People supported",
             className: "h-full !rounded-3xl w-full",
             linkText: "",
@@ -190,7 +183,7 @@ const heroSection2Data={
       headerData: {
         tagText: "",
         headingText: "Challenges Encountered",
-        para1Text: "Pocketmate.ai faced several challenges in delivering swift and compassionate mental health support.",
+        para1Text: "Pocketmate.AI faced several challenges in delivering swift and compassionate mental health support.",
         para2Text: "",
         heading2Text: "",
       },
