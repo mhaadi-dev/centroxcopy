@@ -173,9 +173,9 @@ setFormData(prev=>{
       )}
       <section className="flex lg:w-2/3   flex-col gap-12 mx-auto ">
         <div className="w-full flex-6   flex flex-col gap-2 lg:gap-4">
-          <h2 className={classNames(text_h2_class, "lg:!w-full !text-left")}>
+          <h1 className={classNames(text_h2_class, "lg:!w-full !text-left")}>
             {heading}
-          </h2>
+          </h1>
           {/* {description ? <PortableText value={description} components={PortableComponent} /> : null}
            */}
           {description ? (

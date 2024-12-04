@@ -30,13 +30,12 @@ import googlecloud from "@/assets/Googlecloud.webp";
 
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
-import dialogflow from "@/assets/dialogflow.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import solutionbg1 from "@/assets/solutions/solutionbg2.webp";
 import solutionbg2 from "@/assets/solutions/solutionbg1.webp";
-import IndustryPic1 from "@/assets/industry1.webp"
+import IndustryPic1 from "@/assets/industry1.png"
 import emotionalsupporthero from "@/assets/solutions/Emotional Support.svg"
 import Icon19 from "@/assets/Icon-19.webp"
 import Icon23 from "@/assets/Icon-23.webp"
@@ -50,7 +49,7 @@ import finance from "@/assets/Finance.webp"
 import education from "@/assets/Education.webp"
 import customerservice from "@/assets/customerservice.webp"
 import langchain from "@/assets/langchain.webp"
-import langgraph from "@/assets/langgraph.png"
+import langgraph from "@/assets/LangGraph Icon.svg"
 
 export const metadata = {
   title:"AI Mental Health Chatbot for Emotional Support | Centrox AI",
@@ -71,30 +70,34 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon23, // Replace with the correct icon for Lack of Clarity
+          icon: Icon23,
           heading: "Lack of Clarity",
+          alt: "Lack of Clarity",
           description:
             "General support systems often flood users with excessive, irrelevant information, which can add to their confusion.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon19, // Replace with the correct icon for Unfiltered Advice
+          icon: Icon19,
           heading: "Unfiltered Advice",
+          alt: "Unfiltered Advice",
           description:
             "Many chatbots provide vague or out-of-context responses, detracting from the user’s immediate needs.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon24, // Replace with the correct icon for Inappropriate Suggestions
+          icon: Icon24,
           heading: "Inappropriate Suggestions",
+          alt: "Inappropriate Suggestions",
           description:
             "Some services may inadvertently give advice that’s beyond their scope, including medical guidance, which could mislead or overwhelm users.",
           linkText: "",
           linkWithIcon: true,
         },
       ],
+      
       caption:
         "Centrox AI developed this chatbot to counter these challenges head-on, offering clear, boundary-driven assistance without prescribing medication or straying off-topic.",
       btnText: "Talk to Our Bot now",
@@ -113,30 +116,34 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon22, // Replace with the correct icon for Laser-Focused Responses
+          icon: Icon22,
           heading: "Laser-Focused Responses",
+          alt: "Laser-Focused Responses",
           description:
             "Users get answers to their queries that are straightforward and concise, reducing confusion and promoting clarity in times of distress.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon25, // Replace with the correct icon for Boundaries in Place
+          icon: Icon25,
           heading: "Boundaries in Place",
+          alt: "Boundaries in Place",
           description:
             "The chatbot will not attempt to address or provide advice on complex medical conditions or treatments—it remains firmly within the limits of general emotional support.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon21, // Replace with the correct icon for No Medication Suggestions
+          icon: Icon21,
           heading: "No Medication Suggestions",
+          alt: "No Medication Suggestions",
           description:
             "The chatbot is not designed to offer medical prescriptions or therapeutic treatments, ensuring users receive only appropriate guidance that aligns with their immediate emotional needs.",
           linkText: "",
           linkWithIcon: true,
         },
       ],
+      
       caption:
         "Centrox AI’s chatbot counters these challenges head-on, providing clear, boundary-driven assistance without prescribing medication or straying off-topic.",
       btnText: "Get Instant Support",
@@ -154,30 +161,34 @@ export default async function Page({ params }: { params: { slug: string } }) {
       },
       data: [
         {
-          icon: Icon26, // Replace with the correct icon for Contextual, Accurate Responses
+          icon: Icon26,
           heading: "Contextual, Accurate Responses",
+          alt: "Contextual, Accurate Responses",
           description:
             "Bots that deliver the exact information needed, no more, no less, tailored to specific industry needs.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon25, // Replace with the correct icon for Defined Boundaries
+          icon: Icon25,
           heading: "Defined Boundaries",
+          alt: "Defined Boundaries",
           description:
             "Just as our health chatbot stays within general emotional support, your service can have similarly clear operational limits for optimized user experience.",
           linkText: "",
           linkWithIcon: true,
         },
         {
-          icon: Icon9, // Replace with the correct icon for High Scalability
+          icon: Icon9,
           heading: "High Scalability",
+          alt: "High Scalability",
           description:
             "From handling a small user base to supporting a large-scale service operation, our chatbot technology adapts to your needs with ease.",
           linkText: "",
           linkWithIcon: true,
         },
       ],
+      
       caption:
         "Centrox AI provides adaptable chatbot solutions for a wide range of service industries, ensuring contextual support and scalability.",
       btnText: "Know More",
@@ -208,7 +219,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       question: "What AI technology powers Centrox AI's chatbot?",
       answer:
-        "The AI assistant chatbot prepared by our expert team at Centrox AI is powered by OpenAI, Anthropic and Llama, enabling advanced prompt engineering. This  OpenAI assistant is then fine-tuned to deliver accurate responses while being aware of defined boundaries. The Langchain libraries utilized enhance the chatbot's ability to manage conversations efficiently.",
+        "The AI assistant chatbot prepared by our expert team of Centrox AI’s chatbot is fueled  by Open AI, Anthropic Gemini, and open source Llama which enables it with advanced prompt engineering.This AI assistant is then fine-tuned accordingly to deliver accurate responses which are well aware of the defined boundaries.The Langchain libraries utilised in it effectively contributes for enhancing the chatbot's ability to manage conversations efficiently.",
     },
     {
       question: "Is Centrox AI’s chatbot suitable for other industries?",
@@ -334,8 +345,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     headerData: {
       tagText: "Advantages",
       heading: "Why Centrox AI Stands Out?",
-      description: "Centrox provides unmatched precision in chatbot design:",
+      description: "Centrox provides unmatched precision in chatbot design.",
     },
+    alt:"Why Centrox AI Stands Out?",
     data: [
       {
         heading: "Focused and Accurate Response",
@@ -382,10 +394,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
       cta: "Learn More",
     },
   ];
-  
   const gradientCardData = [
     {
-      image: IndustryPic1,
+       image: IndustryPic1,
+        alt:"AI Chatbot for Healthcare",
       data: [
         {
           heading: "Symptom Checks and Triage",
@@ -406,6 +418,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: customerservice,
+      alt:"AI for Customer Service",
       data: [
         {
           heading: "24/7 Customer Support",
@@ -426,6 +439,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: finance,
+      alt:"AI in Finance",
       data: [
         {
           heading: "Account Overview and Balances",
@@ -446,6 +460,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },
     {
       image: education,
+      alt:"AI in Education",
       data: [
         {
           heading: "Homework Assistance and Academic Q&A",
@@ -475,6 +490,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={solutionbg1}
             bgimage2={solutionbg2}
             bgClassName="opacity-30"
+            alt="Mental health chatbot view"
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} gridCols={3}/>

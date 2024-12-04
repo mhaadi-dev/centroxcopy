@@ -101,14 +101,14 @@ export const PointsandImagesSection = ({
                       />
                     )}
                     <div className="w-full flex flex-col  gap-2  ">
-                      <h4
+                      <h3
                         className={classNames(
                           text_h3_class,
                           "lg:!w-full lg:!text-left"
                         )}
                       >
                         {el.heading}
-                      </h4>
+                      </h3>
                       <p className={"text-[#E5E7EB] font-paragraph text-[1rem] lg:text-[1.2rem] 2xl:text-[1.3rem] leading-[1.6rem] 2xl:leading-[2.25rem]"}>{el.description}</p>
                     </div>
                   </div>

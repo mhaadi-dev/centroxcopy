@@ -30,6 +30,10 @@ import moazzam from "@/assets/teampics/moazam.webp"
 import haiderali from "@/assets/teampics/haider.webp"
 import javaryakamran from "@/assets/teampics/javeriakamran.webp"
 import aftab from "@/assets/teampics/aftab.webp"
+export const metadata={
+  title:"Meet the Team | Centrox AI ",
+  description:"Meet the expert team behind Centrox AI. Our team of AI Specialist, Co-founder, engineers, managers and marketers driving innovative AI-powered solutions"
+}
 async function TeamPage() {
   const teamData = await sanityFetch({
     query: TEAM_SECTION_QUERY,

@@ -30,11 +30,12 @@ interface PropsI {
   heroClassName?:string,
   linkText?:string
   moveToSection?:string
-  alt?:string
+  alt?:string,
+  isAboutPage?:boolean
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",alt,...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,...props}: PropsI) => {
   return (
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
@@ -73,7 +74,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
         </div>
 <section className={classNames("sm:w-auto   px-6 sm:px-0 mx-auto flex flex-col gap-y-6 lg:flex-row items-center   justify-between sm:mx-[2.5rem] md:mx-[3rem] lg:mx-[3.5rem] xl:mx-[4.5rem] 2xl:mx-[15rem] mt-8 lg:mt-12 2xl:mt-24",props.reverse ? "lg:!flex-row-reverse" : "",)}>
   <div className="flex flex-col w-full z-[1] lg:w-1/2 gap-8 gap-y-4 ">
-          <h1
+          { !isAboutPage && <h1
             className={classNames(
               text_h1_main,
               "!text-left lg:!mx-0  lg:!w-full pr-2 "
@@ -88,7 +89,23 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
               </>
             )) ||
               props?.heading}
-          </h1>
+          </h1>}
+          { isAboutPage && <h2
+            className={classNames(
+              text_h1_main,
+              "!text-left lg:!mx-0  lg:!w-full pr-2 "
+            )}
+          >
+            {isGradientText &&( (
+              <>
+                <span className="bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text text-transparent">
+                  {props?.heading?.split(" ")?.slice(0, 3)?.join(" ")}
+                </span>
+                <span> {props?.heading?.split(" ")?.slice(3)?.join(" ")}</span>
+              </>
+            )) ||
+              props?.heading}
+          </h2>}
           <p
             className={classNames(
               text_para_2,

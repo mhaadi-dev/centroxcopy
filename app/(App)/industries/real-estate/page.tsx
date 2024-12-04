@@ -46,6 +46,10 @@ import marketanalysis from "@/assets/solutions/market analysis.webp"
 import leadengagment from "@/assets/solutions/lead engagement.webp"
 import documentanalysis from "@/assets/solutions/document analysis.webp"
 
+export const metadata = {
+  title:"Real Estate AI Solutions - Elevate Customer Experience | Centrox AI",
+  description:"Real estate operations with Centrox AI. Leverage AI for property search, lead engagement, analysis, and document automation for efficiency & revenue."
+}
 
 
 
@@ -61,9 +65,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading2Text: "",
             para2Text: "",
           },
-          data: [
+          data : [
             {
               icon: Icon16, // Replace with the correct icon for Competitive Edge
+              alt: "Icon representing Competitive Edge",
               heading: "Gain a Competitive Edge",
               description:
                 "Leverage AI to differentiate your services, attract more clients, and close deals faster.",
@@ -72,6 +77,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon17, // Replace with the correct icon for Streamlined Operations
+              alt: "Icon representing Streamlined Operations",
               heading: "Streamline Operations",
               description:
                 "Automate manual tasks, improve efficiency, and reduce operational costs.",
@@ -80,6 +86,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon14, // Replace with the correct icon for Data-Driven Decisions
+              alt: "Icon representing Data-Driven Decisions",
               heading: "Make Data-Driven Decisions",
               description:
                 "Access real-time insights and analytics to inform your business strategies and investment decisions.",
@@ -88,6 +95,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             },
             {
               icon: Icon18, // Replace with the correct icon for Enhanced Customer Experiences
+              alt: "Icon representing Enhanced Customer Experiences",
               heading: "Enhance Customer Experiences",
               description:
                 "Deliver personalized recommendations and proactive support, building stronger relationships with clients.",
@@ -112,9 +120,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         heading2Text:
           "",
       },
-      data: [
+      data : [
         {
           icon: eggcrack, // Information Overload
+          alt: "Icon representing Information Overload",
           heading: "Information Overload",
           description:
             "Sifting through vast amounts of property data, market trends, and customer preferences can be overwhelming and time-consuming.",
@@ -123,6 +132,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           icon: strategy, // Inefficient Processes
+          alt: "Icon representing Inefficient Processes",
           heading: "Inefficient Processes",
           description:
             "Manual tasks like property descriptions, lead qualification, and document management can slow down your operations and hinder growth.",
@@ -131,6 +141,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         },
         {
           icon: checkerboard, // Limited Personalization
+          alt: "Icon representing Limited Personalization",
           heading: "Limited Personalization",
           description:
             "Providing tailored recommendations and experiences to clients can be challenging without deep insights into their needs and preferences.",
@@ -138,7 +149,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
         {
-          icon: Icon16, // Missed Opportunities (same icon reused as per previous specification)
+          icon: Icon16, // Missed Opportunities
+          alt: "Icon representing Missed Opportunities",
           heading: "Missed Opportunities",
           description:
             "Identifying emerging market trends and investment opportunities requires constant vigilance and data analysis.",
@@ -146,6 +158,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
         },
       ],
+      
       caption:
         "Centrox AI understands these hurdles. We specialize in building custom LLM-powered solutions that address these pain points head-on, enabling you to gain a competitive advantage in the real estate market.",
       btnText: "Try Our Solution For FREE",
@@ -186,13 +199,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const solutionsData = [
     {
-      img: personalizedSearch, // Replace with an appropriate image for Search & Recommendations
+      img: personalizedSearch, 
       description:
         "Go beyond keyword matching. Our NLP-powered search understands user intent, delivering personalized property recommendations that boost engagement and conversions.",
       heading: "Search & Recommendations",
       tabheading: "Personalized Search",
       btnText: "",
       link: "",
+      alt:"AI chatbot in Personalized Search & Recommendations"
     },
     {
       img: leadengagment, // Replace with an appropriate image for Qualify & Nurture Leads
@@ -202,6 +216,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Lead Engagement",
       btnText: "",
       link: "",
+      alt:"AI chatbots and virtual assistants to engage leads."
     },
     {
       img: documentanalysis, // Replace with an appropriate image for Analyze Documents
@@ -211,6 +226,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Document Analysis",
       btnText: "",
       link: "",
+      alt:"AI chatbot in Analyze Documents"
     },
     {
       img: marketanalysis, // Replace with an appropriate image for Analyze Market Trends
@@ -220,6 +236,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Market Analysis",
       btnText: "",
       link: "",
+      alt:"AI chatbot in analyzing market trends"
     },
   ];
   
@@ -230,13 +247,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Large Language Models (LLMs)",
       content: [
         {
-          alt: "Icon",
+          alt: "GPT-4",
           caption: "GPT-4",
           img: gpt,
         },
       
         {
-          alt: "Icon",
+          alt: "Llama",
           caption: "Llama",
           img: liama,
         },
@@ -248,17 +265,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       
       
         {
-          alt: "Icon",
+          alt: "pytorch",
           caption: "pytorch",
           img: pytorch,
         },
         {
-            alt: "Icon",
+            alt: "Hugging Face Transformers",
             caption: "Hugging Face Transformers",
             img: huggingface,
           },
         {
-          alt: "Icon",
+          alt: "LangChain",
           caption: "LangChain",
           img: langchain,
         },
@@ -268,17 +285,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Cloud Platforms",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS",
           caption: "AWS",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "Azure",
           caption: "Azure",
           img: azure,
         },
         {
-          alt: "Icon",
+          alt: "Google Cloud",
           caption: "Google Cloud",
           img: googlecloud,
         },
@@ -288,12 +305,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Data Visualization Tools",
       content: [
         {
-          alt: "Icon",
+          alt: "Tableau",
           caption: "Tableau",
           img: tableau,
         },
         {
-          alt: "Icon",
+          alt: "PowerBi",
           caption: "PowerBi",
           img: powerbi,
         },
@@ -436,6 +453,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     heading: "Our Process",
     description:
       "We follow a collaborative, iterative process to ensure the success of your AI project.",
+      alt:"Our Process cycle of Building Real estate chatbot",
     data: [
       {
         title: "Needs Assessment",
@@ -559,7 +577,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} />
+          <HeroSection {...heroData} alt="Real estate AI chatbot in Real estate industry" />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection

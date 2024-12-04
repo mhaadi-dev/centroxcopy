@@ -37,7 +37,7 @@ import SolutionsImage1 from "@/assets/solutionpic1.webp";
 import SolutionsImage2 from "@/assets/solutionPic2.webp";
 import SolutionsImage3 from "@/assets/solutionPic3.webp";
 import SolutionsImage4 from "@/assets/solutionPic4.webp";
-import industryPic1 from "@/assets/industry1.webp";
+import industryPic1 from "@/assets/industry1.png";
 import industryPic2 from "@/assets/industry2.webp";
 import industryPic3 from "@/assets/industry3.webp";
 import industryPic4 from "@/assets/industry4.webp";
@@ -50,29 +50,7 @@ const WebsiteFooter = dynamic(
 
 
 // import useScrollToElement from "@/hooks/useScrollToElement";
-const data = [
-  {
-    img: dummyDisplay,
-    description:
-      "Meta4 and centrox partner to drive enterprise adoption of llama 3.1 405b using scale genai platform",
-    heading: "Product 1",
-    date: "July 17, 2024",
-  },
-  {
-    img: dummyDisplay,
-    description:
-      "Meta2 and centrox partner to drive enterprise adoption of llama 3.1 405b using scale genai platform",
-    heading: "Product 2",
-    date: "July 17, 2024",
-  },
-  {
-    img: dummyDisplay,
-    description:
-      "Meta3 and centrox partner to drive enterprise adoption of llama 3.1 405b using scale genai platform",
-    heading: "Product 3",
-    date: "July 17, 2024",
-  },
-];
+
 export default async function Home() {
   const data: any = await sanityFetch({
     query: LANDING_PAGE_QUERY,
@@ -187,7 +165,7 @@ export default async function Home() {
     heading: "Optimization",
     alt: "Optimization",
     description:
-      "We'll continuously monitor your LLM's performance and implement fine-tuning and retraining strategies to enhance accuracy, reduce bias, and ensure your LLM adapts to evolving user needs and data distributions.",
+      "We’ll optimize your MLOps by enhancing its efficiency, scalability and performance through automating the workflows, refined training, hyperparameter tuning, and minimizing the cost to produce a more reliable and scalable business aligned machine learning deployment. Comment end  ",
     linkText: "Learn More",
     link: "services/model-optimization",
     linkWithIcon: true,

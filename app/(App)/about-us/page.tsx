@@ -16,8 +16,10 @@ import about4 from "@/assets/about/about4.webp"
 import about5 from "@/assets/about/about5.webp"
 import about6 from "@/assets/about/about6.webp"
 import whatwedotoday from "@/assets/about/whatwedotoday.webp"
-import CommonDisplayCardsGrid from '@/Components/common/CommonDisplayCardsGrid';
-import Icon39 from "@/assets/Icon-39.webp";
+export const metadata={
+  title:"About Us | Centrox AI – Gen AI Development Experts",
+  description:"Centrox AI LLM experts with Gen AI startups, providing full-cycle AI development. We accelerate innovation, enabling them to achieve their goals faster. Book a session now!"
+}
 const page = () => {
   const data1=[
     {
@@ -63,14 +65,14 @@ img:about6
         </div>
         <section className={classNames(section_wrapper_class,"flex flex-col gap-4  !mt-0  py-10 lg:py-16")}>
              <h1 className={classNames(text_h1_main,"text-center")}>Accelerating Your Gen AI Journey</h1>
-        <p className={classNames(text_para_main,"text-center mx-auto")}>Centrox AI is a full-cycle AI development company on a mission to augment startups that are moving the innovation needle in Gen AI. We want to enable you to focus on your core product and achieve your business goals faster while we take over your Gen AI development life cycle. We want to put our AI technical depth, collaborative approach, and commitment to delivering to good use by helping you out.</p>
+        <p className={classNames(text_para_main,"text-center mx-auto")}>At Centrox AI we envision to effectively contribute to the ongoing AI revolution, we offer our specialized services in GenAI eventually strengthening the business by delivering AI powered tailored solutions. We empower your business by plugging in our customized solution which guarantees prompt and quality results. Our experts are committed to ensure advanced AI solutions in areas such as LLM  Development, MLOps at Scale, and Data Ops for Model Quality Optimization. We are aiming to lead the AI innovation within the region through our engineered solutions which are innovative and safe.</p>
         </section>
         <div className=' '>
           <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
       </div>
       <Timeline/>
-      <HeroSection moveToSection='solutions' imgClassName='lg:h-auto lg:w-auto' btnText='Checkout Our Work' img={whatwedotoday} isGradientText={false} description="Today, Centrox is at the forefront of the Generative AI solutions industry. We collaborate with ambitious startups that are pushing the boundaries of what's possible with LLMs. We provide the technical expertise, strategic guidance, and collaborative approach needed to navigate the complexities of Generative AI development and deployment. Our solutions span various industries, including healthcare, fashion, real estate, and more, empowering startups to achieve their AI goals and gain a competitive edge." heading='What We Do Today: Augmenting Gen AI Startups'/>
+      <HeroSection isAboutPage moveToSection='solutions' imgClassName='lg:h-auto lg:w-auto' btnText='Checkout Our Work' img={whatwedotoday} isGradientText={false} description="Today we at Centrox AI have evolved as a team of growing and reliable generative AI solution providers,  ambitious towards advancing the potential of LLM to receive the best virtues it can offer. We extend our technical expertise, guidance, and collaborated approach to ensure quality Generative AI development and deployment. We deliver solutions for healthcare, retail,real estate, fashion and more industries empowering them to achieve their goals, along with gaining a significant competitive edge." heading='What We Do Today?'/>
       <GridPicturesAbout linkText="/team" data={data1} headingText='Our Culture & Values' paraText="We're a team of driven individuals who thrive on technical challenges, continuous learning, and open collaboration. We embrace the entrepreneurial spirit and understand the fast-paced nature of startups. Our commitment to transparency, data-driven decision-making, and delivering tangible results sets us apart."
       btnText='Meet the Team'
       />

@@ -44,9 +44,9 @@ export const LandingAboutUs = () => {
      
       >
         <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 sm:mx-0">
-          <h3 className={classNames(text_h2_class)}>
+          <h2 className={classNames(text_h2_class)}>
             Bridging the Gap between research and real-world applications
-          </h3>
+          </h2>
 
           <div className="sm:mt-8 3xl:mt-10 w-[95%] 2xl:w-[83%] 3xl:w-[85%] text-lg sm:text-2xl 3xl:text-4xl text-white leading-6">
             <p className={classNames(text_para_2)}>

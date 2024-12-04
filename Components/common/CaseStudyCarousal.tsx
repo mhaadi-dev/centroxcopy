@@ -56,12 +56,12 @@ export const CaseStudyCarousal = ({ data }: any) => {
           >
             <section aria-label="case studies" className="w-full flex flex-col gap-y-2 lg:gap-y-6 bg-transparent bg-none z-[10] relative">
               <header className="flex flex-col gap-y-2 lg:gap-y-4">
-               {data[currentIndex].subTagText && <h5 className="text-blue-azure text-[0.9rem] uppercase">
+               {data[currentIndex].subTagText && <p className="text-blue-azure text-[0.9rem] uppercase">
                   {data[currentIndex].subTagText}
-                </h5>}
-                {data[currentIndex].title && <h2 className={classNames(text_h2_class)}>
+                </p>}
+                {data[currentIndex].title && <h3 className={classNames(text_h2_class)}>
                   {data[currentIndex].title}
-                </h2>}
+                </h3>}
                {data[currentIndex].description && <p className={classNames(text_para_2)}>
                   {data[currentIndex].description}
                 </p>}
