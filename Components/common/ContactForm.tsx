@@ -45,6 +45,7 @@ const [userEmail,setUserEmail]=useState('')
     message: "",
     file: "",
   });
+  const [details,setDetails]=useState("")
 
   const [err, setError] = useState("");
   const calendlywidgetref = useRef(null);
@@ -105,6 +106,7 @@ const [userEmail,setUserEmail]=useState('')
         { name: "phone", value: formData.phone },
         { name: "email", value: formData.email },
         { name: "message", value: formData.message },
+        {name:"details",value:details}
       ];
       const data = {
         fields: fields,
@@ -124,6 +126,7 @@ const [userEmail,setUserEmail]=useState('')
             body: JSON.stringify(data),
           }
         );
+      
         if (response.status == 200) {
           setIsLoading(false);
           setFormData({
@@ -138,10 +141,13 @@ const [userEmail,setUserEmail]=useState('')
             file: "",
           });
           setFormModal(true);
+          
         }
       } catch (err: any) {
         setIsLoading(false);
         setError(err);
+      }finally{
+        setDetails("")
       }
 
       // All fields are filled, proceed with API call
@@ -149,9 +155,10 @@ const [userEmail,setUserEmail]=useState('')
       // exampleApiCall(formData);
     }
   };
+
   useEffect(()=>{
   const userEmail=localStorage.getItem("usermail")
-  console.log("userEmail",userEmail)  
+  
   if(userEmail){
     setUserEmail(userEmail)
   }
@@ -162,6 +169,7 @@ setFormData(prev=>{
   return {...prev,email:userEmail}
 })
   },[userEmail])
+  console.log(formData,"...")
   return (
     <>
       {formModal && (
@@ -329,6 +337,11 @@ setFormData(prev=>{
               <TextArea
                 className="border-b !border-white !bg-gray-graydark w-full !text-white col-span-2"
                 placeholder="Describe your needs in detail"
+                value={details}
+                onChange={(val) => {
+                 
+                  setDetails(val)
+                }}
               />
               <p className={classNames(text_para_3)}>
                 Please include project details, duration, tech stack, IT
@@ -340,7 +353,7 @@ setFormData(prev=>{
               {!formData.file && (
                 <FileUpload
                   onChange={(val) => {
-                    console.log("value is", val);
+                  
                     setFormData({ ...formData, file: val });
                   }}
                 />

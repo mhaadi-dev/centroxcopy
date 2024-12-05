@@ -41,7 +41,7 @@ import industryPic1 from "@/assets/industry1.png";
 import industryPic2 from "@/assets/industry2.webp";
 import industryPic3 from "@/assets/industry3.webp";
 import industryPic4 from "@/assets/industry4.webp";
-
+import pocketmatetitle from "@/assets/pocketmatetitle.webp"
 const WebsiteFooter = dynamic(
   () => import("@/Components/common/WebsiteFooter"),
   { ssr: false }
@@ -356,7 +356,7 @@ export default async function Home() {
        btnText:"Checkout Our Work",
        link:"/case-studies/pocketmate",
        isBookingButton:false,
-       image:SolutionsImage2
+       image:pocketmatetitle
       },
       {
         title:"Rentuhbin: book a dumpster whenever and wherever you want.",

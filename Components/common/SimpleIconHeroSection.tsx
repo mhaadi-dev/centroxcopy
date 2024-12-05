@@ -33,15 +33,15 @@ const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bu
         <section className={classNames('relative py-10 mt-8   lg:mt-12 2xl:mt-24 sm:pb-14 overflow-hidden',heroClassName)}>
               
             <div className={classNames(
-                'absolute flex justify-end inset-0 w-full h-full',
-                'object-cover object-center',
-                reverse ? "sm:object-left" : "sm:object-right",
+                ' flex  inset-0   w-full  h-full',
+                
+                reverse ? "!justify-start object-contain ":"justify-end"
             )}>
                 <Image 
                     src={bgImage1 || serviceherobg} 
                     alt='background' 
                     objectFit="cover" 
-                    className="z-0 "
+                    className={classNames("z-0 absolute w-full  bottom-0 object-contain lg:object-cover",bgClassName)}
                     quality={100}
                     priority
 
@@ -50,7 +50,7 @@ const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bu
 
             <section className={classNames(
                 section_wrapper_class,
-                "relative z-10 flex flex-col lg:flex-row h-auto lg:min-h-screen items-center gap-8 justify-between",
+                "relative z-10 flex flex-col lg:flex-row h-auto lg:min-h-[65vh] items-center gap-8 justify-between",
                 reverse ? "lg:!flex-row-reverse" : "lg:flex-row"
             )}>
              

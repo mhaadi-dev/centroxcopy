@@ -479,13 +479,7 @@ const stepperdata = {
             description="Centrox AI develops custom, large-scale neural networks and machine learning models that are purpose-built for the healthcare industry. These AI systems are not only fine-tuned to healthcare’s specific requirements but are also designed to evolve with advancements in medical science."
           />
           <CommonDisplayCardsGrid data={cardsData1} />
-          <PointsandImagesSection
-            arrayData={arrayData}
-            heading={"Why Work With Centrox?"}
-            description={
-              "We're not just another chatbot development company. We're your strategic AI partner."
-            }
-          />
+       
           <CommonDisplayCardsGrid data={cardsData2} gridCols={3} resizeableCardsLayout />
 
           <StepperSection data={stepperdata} />
