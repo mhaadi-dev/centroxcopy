@@ -211,7 +211,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "Utilising CNNs and image processing techniques, our body measurement tool accurately extracts critical dimensions from user-uploaded images, ensuring a precise fit and reducing return rates.",
       heading: "Body Measurement Technology",
       tabheading: "Accurate Fit Solutions",
-      btnText: "Try our solution for FREE",
+      btnText: "",
       link: "",
       alt:"AI as body measurement tool"
     },
@@ -221,7 +221,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "Deploy time-series forecasting algorithms using RNNs to analyze historical sales data and market trends, predicting demand fluctuations to optimize inventory levels.",
       heading: "Predictive Inventory Management",
       tabheading: "Inventory Optimization",
-      btnText: "Try our solution for FREE",
+      btnText: "",
       link: "",
       alt:"AI as inventory management tool"
     },
@@ -231,7 +231,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "Refine your recommendation engines with our data-driven technology, delivering relevant product suggestions that improve customer interaction and boost sales.",
       heading: "Personalized Recommendations",
       tabheading: "Recommendation Engine",
-      btnText: "Try our solution for FREE",
+      btnText: "",
       link: "",
       alt:"AI as recommendation engine"
     },
@@ -241,7 +241,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         "Address additional challenges in fashion retail with our comprehensive AI solutions tailored to enhance operational efficiency and customer satisfaction.",
       heading: "Comprehensive AI Solutions",
       tabheading: "Tailored Strategies",
-      btnText: "Try our solution for FREE",
+      btnText: "",
       link: "",
       alt:"AI as additional solution"
     },

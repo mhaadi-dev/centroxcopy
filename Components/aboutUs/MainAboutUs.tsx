@@ -15,7 +15,7 @@ import TeamSectionTabs from "../common/TeamSectionTabs";
 export const MainAboutUs = (props: any) => {
   return (
     <>
-      <main className={classNames("flex flex-col   gap-y-8 lg:gap-y-16")}>
+      <main className={classNames("flex flex-col   gap-y-8 lg:gap-y-[3rem]")}>
         <div className="relative h-auto lg:h-screen flex items-center ">
           <Image
             src={props.props?.props[0]?.bgImage}
@@ -44,7 +44,7 @@ export const MainAboutUs = (props: any) => {
         <section
           className={classNames(
             section_wrapper_class,
-            "flex flex-col  gap-y-16 lg:gap-y-32"
+            "flex flex-col  gap-y-16 lg:gap-y-24"
           )}
         > 
         <div className="flex flex-col gap-4">
@@ -93,7 +93,7 @@ export const MainAboutUs = (props: any) => {
                         //   placeholder="blur"
                         // blurDataURL={blurDataURLs[index]}
                         // onLoad={() => handleImageLoad(index, el.img.src)}
-                        className="rounded-2xl  object-cover "
+                        className="rounded-2xl  object-cover"
                         
                       />
                     )}

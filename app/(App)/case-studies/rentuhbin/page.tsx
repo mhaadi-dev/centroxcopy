@@ -93,16 +93,7 @@ const heroSection2Data={
     icon:"",
     description:"After understanding and narrowing down the key requirements for the dumpster service, our experts did rigorous research to find the best possible and the most optimized approach for the given task. Our experts suggested having a separate app for both the consumers and service providers which will be administered by the admin panel. Where the customers end app will have the access to scheduling the delivery or pickup, tracking, and managing payment, the service providers app will be able to confirm the service along with being able to  market them for attracting the wide range of customer, while the admin panel will exercise its authority to monitor the order; its detail, status, and payments, offer support, along with managing taxes, and has the capability to block/unblock based on received feedback."
 }
-const heroSection3Data={
-    heading:"Healthcare",
-    icon:"",
-    description:"There are billions of people around the world,  and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease."
-}
-const heroSection4Data={
-    heading:"Healthcare",
-    icon:"",
-    description:"There are billions of people around the world,  and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease."
-}
+
   const data = [
     {
       headerData: {
@@ -116,7 +107,7 @@ const heroSection4Data={
       data: [
         {
           Icon: null,
-          heading: "30",
+          heading: "30.4",
           symbol: "%",
           description: "Reduced placement errors.",
           className: "h-full !rounded-3xl w-full",
@@ -124,7 +115,7 @@ const heroSection4Data={
         },
         {
           Icon: null,
-          heading: "50",
+          heading: "50.55",
           symbol: "%",
           description: "reducing communication latency.",
           className: "h-full !rounded-3xl w-full",

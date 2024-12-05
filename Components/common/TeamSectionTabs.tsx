@@ -7,21 +7,20 @@ import classNames, { text_para_2 } from "@/helpers/common";
 const TeamSectionTabs = ({ data }: any) => {
 
     const categories = {
-        ai_engineers: (item: any) => item.designation.toLowerCase() === "ai engineer",
+      all: () => true,
+        "AI/ml_engineers": (item: any) => item.designation.toLowerCase() === "ai engineer",
         
-        // Updated web engineers category to include "full stack"
-        web_engineers: (item: any) =>
+        developers: (item: any) =>
           [
             "frontend engineer",
             "ui/ux designer",
             "full stack developer",
+            "backend engineer", "mlops","devops"
           ].includes(item.designation.toLowerCase()),
         
-        backend_engineers: (item: any) => item.designation.toLowerCase().includes("backend engineer") || item.designation.toLowerCase().includes("devops") || item.designation.toLowerCase().includes("mlops"),
         
-        product_managers: (item: any) => item.designation.toLowerCase() === "product manager",
+        product: (item: any) => item.designation.toLowerCase() === "product manager",
         
-        // Updated marketing category to include similar logic to web engineers
         marketing_specialists: (item: any) =>
           [
             "marketing",
@@ -36,27 +35,27 @@ const TeamSectionTabs = ({ data }: any) => {
   type TabKey = keyof typeof categories;
 
  
-  const [currentTab, setCurrentTab] = useState<TabKey>("ai_engineers");
+  const [currentTab, setCurrentTab] = useState<TabKey>("all");
 
 
   const filteredData = data?.filter(categories[currentTab]);
 
   return (
-    <section className="flex flex-col gap-10">
+    <section className="flex flex-col gap-[4.5rem]">
      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 flex-wrap gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-4 ">
         {Object.keys(categories).map((key) => (
           <div
             key={key}
             onClick={() => setCurrentTab(key as TabKey)}
             className={classNames(
               currentTab === key
-                ? "text-white font-semibold bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
-                : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 px-4 cursor-pointer text-center transition-colors duration-100"
+                ? "text-white font-semibold bg-gradient-to-t from-[#0071B9] to-[#056fe140]   bg-[length:100%_160%] border-2 border-t-0 border-l-0 border-r-0 border-[#056EE199] rounded-t-xl"
+                : "text-white hover:bg-[#056fe118]  hover:text-white hover:border-[#056EE199] border-2 border-t-0 border-l-0 border-r-0 border-gray-200 rounded-t-xl",
+              "whitespace-nowrap capitalize py-2 px-4 cursor-pointer text-center transition-colors duration-100",text_para_2
             )}
           >
-            {key.replace("_", " ").toUpperCase()}
+            {key.replace("_", " ")}
           </div>
         ))}
       </div>
@@ -65,7 +64,7 @@ const TeamSectionTabs = ({ data }: any) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-full mx-auto text-white">
         {filteredData?.map((el: any, index: number) => {
           if (!el?.img && !el?.name && !el?.designation && !el.linkedINUrl) {
-            return null; // Skip rendering this item if all properties are null
+            return null; 
           }
           return (
             <div
@@ -85,7 +84,7 @@ const TeamSectionTabs = ({ data }: any) => {
                     src={el.img}
                     alt="Team Member"
                     objectFit="cover"
-                    className="rounded-xl object-cover"
+                    className="rounded-xl object-cover aspect-square"
                     placeholder="blur"
                   />
                 )}

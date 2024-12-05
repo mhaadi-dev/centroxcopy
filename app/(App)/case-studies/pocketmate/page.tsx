@@ -17,13 +17,15 @@ import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
 import aws from "@/assets/awslogo.webp"
 import imageBG2 from "@/assets/Image BG2.webp"
-
+import rightsidebg from "@/assets/rightsidebg.svg"
+import pocketmate from "@/assets/pocketmate.png"
 
 const page = ({ params }: { params: { slug: string } }) => {
 
 const banner1Data={
     heading:"Pocketmate.AI your reliable mental health support.",
     para1Text:"Pocketmate.AI offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
+    image:pocketmate
 }
 const heroSection1Data={
     heading:"The Problem",
@@ -574,6 +576,7 @@ const heroSection2Data={
       <CaseStudyBanner
         heading={banner1Data.heading}
         para1Text={banner1Data.para1Text}
+        image={banner1Data.image}
       />
       <CommonDisplayCardsGrid
         data={data}
@@ -587,9 +590,9 @@ const heroSection2Data={
         name="Dannis Loyed"
         position="CEO DERQ"
       />
-  <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
+  <SimpleIconHeroSection  bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid  data={data2}/>
-  <SimpleIconHeroSection heroClassName='' bgClassName='' bgImage1={imageBG2} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
+  <SimpleIconHeroSection heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
   <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>
