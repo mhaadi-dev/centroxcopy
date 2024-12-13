@@ -147,7 +147,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan:2,
-          bentoImage:deployment_bottlenecks
+          bentoImage:deployment_bottlenecks,
+          alt:"Person fixing a computer screen with a bug icon, highlighting deployment bottlenecks"
         },
         {
           icon: Icon10,
@@ -156,7 +157,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "As your models and data grow, ensuring they can handle increasing demand and perform efficiently becomes critical.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Scalability Concerns"
         },
         {
           icon: Icon11,
@@ -165,7 +167,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Inconsistencies in environments and dependencies can make it difficult to reproduce experiment results and deploy models reliably.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Reproducibility Issues"
         },
         {
           icon: Icon4,
@@ -174,7 +177,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Manually tracking model performance, detecting drift, and managing updates can be time-consuming and inefficient.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Monitoring & Maintenance Overhead"
         },
         {
           icon: Icon5, // Added a new icon for this challenge
@@ -183,7 +187,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             "Siloed workflows between data scientists and engineers can hinder innovation and slow down development cycles.", // Updated description
           linkText: "",
           linkWithIcon: true,
-          colSpan:1
+          colSpan:1,
+          alt:"Collaboration Challenges"
         },
       ],
       caption:

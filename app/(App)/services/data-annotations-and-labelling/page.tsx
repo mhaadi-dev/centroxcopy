@@ -107,7 +107,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: accurateannotation,
-          alt: ""  // No alt text, icon is null
+          alt: "Illustration of a facial landmark detection wireframe showcasing accurate annotation for object detection"  // No alt text, icon is null
         },
         {
           icon: Icon13,
@@ -137,7 +137,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: comprehensive_solution,
-          alt: ""  // No alt text, icon is null
+          alt: "Representing customized, comprehensive solutions matching your exact project requirements."  // No alt text, icon is null
         },
         {
           icon: null,
@@ -148,7 +148,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: domain_specific,
-          alt: ""  // No alt text, icon is null
+          alt: "NLP gear icon with connected boxes, representing domain expertise in natural language processing for app development"  // No alt text, icon is null
         },
         {
           icon: Icon12,

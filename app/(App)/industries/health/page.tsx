@@ -135,7 +135,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Data Integration",
       btnText: "",
       link: "",
-      alt:"AI in Multimodal Data Fusion"
+      alt:"Hexagons with icons for doctor, cloud, and data, symbolizing multimodal data fusion"
     },
     {
       img: SolutionsImage2, // Replace with an appropriate image for Explainable AI
@@ -145,7 +145,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Transparent Insights",
       btnText: "",
       link: "",
-      alt:"AI in Explainable AI in Clinical Decision Support"
+      alt:"Doctor reviewing a transparent chest X-ray with AI insights and an ECG display."
     },
     {
       img: SolutionsImage3, // Replace with an appropriate image for AI-Powered Personalized Medicine
@@ -155,7 +155,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Tailored Treatments",
       btnText: "",
       link: "",
-      alt:"AI in AI-Powered Personalized Medicine"
+      alt:"AI-Powered Personalized Medicine,Utilizing patient data, ai models predict individualized treatment responses"
     },
     {
       img: SolutionsImage4, // Replace with an appropriate image for Generative AI in Biomedical Research
@@ -165,7 +165,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Research Automation",
       btnText: "",
       link: "",
-      alt:"AI in Generative AI for Biomedical Research"
+      alt:"Generative AI for Biomedical Research, Automate literature reviews and synthesize new hypothesis from medical research data"
     },
   ];
   
@@ -321,7 +321,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan:2,
           bentoImage:custombuilt,
-          alt:""
+          alt:"interconnected nodes representing custom built neural network designed for healthcare"
         },
         {
           icon: Icon17, // Replace with the correct icon for Advanced Personalization Engines
@@ -352,7 +352,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan:2,
           bentoImage:scalable,
-          alt:""
+          alt:"HIPAA compliant shield icon representing scalable AI infrastructure for healthcare"
         },
       ],
       caption: "",

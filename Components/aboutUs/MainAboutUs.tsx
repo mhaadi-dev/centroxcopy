@@ -88,7 +88,7 @@ export const MainAboutUs = (props: any) => {
                     {el.img && (
                       <Image
                         src={el.img}
-                        alt="image-data"
+                        alt={el?.alt}
                         fill
                         //   placeholder="blur"
                         // blurDataURL={blurDataURLs[index]}
@@ -106,7 +106,7 @@ export const MainAboutUs = (props: any) => {
                       {el.designation}
                     </p>
                     <a href={el.linkedINUrl} target="_blank" rel="noreferrer">
-                      <Image src={LinkedIn} className="w-5" alt="" />
+                      <Image src={LinkedIn} className="w-5" alt="linkedin" />
                     </a>
                   </div>
                 </div>

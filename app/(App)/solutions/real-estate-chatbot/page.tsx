@@ -350,7 +350,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           icon: null,
           heading: "Real Estate Agents",
-          alt: "",
+          alt: "House icon representing AI chatbot for real estate, boosting client interaction and sales.",
           description:
             "This efficient AI chatbot for the real estate industry can facilitate efficient property evaluations, improving client interactions and accelerating transactions, which can significantly increase your business profit.",
           linkText: "",
@@ -381,7 +381,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {
           icon: null,
           heading: "Agencies",
-          alt: "",
+          alt: "Agent talking to chatbot, illustrating AI support for agencies to focus on closing deals.",
           description:
             "Provides immediate support through our chatbot, allowing agents to concentrate on closing deals. This can help agencies focus more on compelling clients to invest.",
           linkText: "",

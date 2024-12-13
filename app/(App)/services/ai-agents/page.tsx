@@ -174,7 +174,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: goal_oriented,
-          alt: "", // Left blank for null icon
+          alt: "Goal Oriented AI Agents", // Left blank for null icon
         },
         {
           icon: Icon13,
@@ -293,7 +293,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          alt: "", // Empty alt text as icon is null
+          alt: "Interconnected nodes illustrating knowledge graphs for reasoning and intelligent decisions", // Empty alt text as icon is null
           bentoImage: knowledgable,
         },
         {
@@ -325,7 +325,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          alt: "", // Empty alt text as icon is null
+          alt: "interconnected data nodes representing the LangChain framework for developing language model applications.", // Empty alt text as icon is null
           bentoImage: langchain,
         },
       ],
@@ -365,7 +365,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          alt: "", // Empty alt text as icon is null
+          alt: "Representing data analysis and AI agents extracting trends and actionable information", // Empty alt text as icon is null
           bentoImage: dataanalysis,
         },
         {

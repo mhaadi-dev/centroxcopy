@@ -173,7 +173,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: customsolutions,
-          alt: ""
+          alt: "Rocket icon representing custom solutions for optimizing model"
         },
         {
           icon: null,
@@ -184,7 +184,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: collaborativeapproach,
-          alt: ""
+          alt: "Document icon with connected team members representing a collaborative approach"
         },
         {
           icon: Icon6,
@@ -250,7 +250,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           bentoImage: hardware_specific,
-          alt: ""
+          alt: "GPU icon representing hardware-specific optimization for fine-tuning models"
         },
         {
           icon: Icon5,
@@ -350,7 +350,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             img={modeloptimization}
             bgClassName="opacity-60" 
-            alt="AI model Optimization process diagram"
+            alt="Optimizing AI model for maximizing performance and efficiency"
           />
 
           <LogosCarousel />
