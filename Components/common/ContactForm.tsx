@@ -2,11 +2,6 @@
 "use client";
 
 import classNames, {
-  h2ClassName,
-  p2ClassName,
-  p4ClassName,
-  sectionHeadings,
-  sectionsubheadings,
   text_h2_class,
   text_para_2,
   text_para_3,
@@ -16,17 +11,12 @@ import { PhoneNumber } from "../PhoneInput/PhoneInput";
 import { TextArea } from "./TextArea";
 import { FileUpload } from "./FileUpload";
 import { Button } from "../Button.js/button";
-import Arrow from "@/assets/RightArrow.svg";
 import { useEffect, useRef, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { DropDown } from "./DropDown";
 import { FormSubmissionModal } from "./FormSubmissionModal";
 
-import { PortableText } from "@portabletext/react";
-import { PortableComponent } from "@/Components/common/PortableText";
-import Image from "next/image";
+
 import { CalendlyWidget } from "./Calendly";
-import { text } from "stream/consumers";
 
 export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
   
@@ -140,6 +130,7 @@ const [userEmail,setUserEmail]=useState('')
             message: "",
             file: "",
           });
+          setDetails("")
           setFormModal(true);
           
         }
@@ -150,9 +141,7 @@ const [userEmail,setUserEmail]=useState('')
         setDetails("")
       }
 
-      // All fields are filled, proceed with API call
-      // Replace this with your actual API call logic
-      // exampleApiCall(formData);
+
     }
   };
 
@@ -169,13 +158,24 @@ setFormData(prev=>{
   return {...prev,email:userEmail}
 })
   },[userEmail])
-  console.log(formData,"...")
   return (
     <>
       {formModal && (
         <FormSubmissionModal
           onClose={() => {
             setFormModal(false);
+            setFormData({
+              name: "",
+              company: "",
+              phone: "",
+              country: "",
+              email: "",
+              subject: "",
+              budget: "",
+              message: "",
+              file: "",
+            });
+            setDetails("")
           }}
         />
       )}

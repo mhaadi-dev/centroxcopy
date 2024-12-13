@@ -206,7 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Virtual Try-Ons",
       btnText: "",
       link: "",
-      alt:"Enable Virtual Try-Ons"
+      alt:"Virtual Try-Ons: Allow customers to visualize how garments will fit and look on their own bodies"
     },
     {
       img: SolutionsImage3,
@@ -216,7 +216,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Personalize Recommendations",
       btnText: "",
       link: "",
-      alt:"Personalize Recommendations"
+      alt:"Personalised Recommendations: Offer tailored product suggestions based on individual body measurements and preferences"
     },
     {
       img: SolutionsImage4,

@@ -206,7 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Personalized Search",
       btnText: "",
       link: "",
-      alt:"AI chatbot in Personalized Search & Recommendations"
+      alt:"Displaying conversation of AI chatbot about search and recommendations"
     },
     {
       img: leadengagment, // Replace with an appropriate image for Qualify & Nurture Leads
@@ -216,7 +216,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Lead Engagement",
       btnText: "",
       link: "",
-      alt:"AI chatbots and virtual assistants to engage leads."
+      alt:"Illustration of qualifying and nurturing leads from different sources through AI chatbot and virtual assistant"
     },
     {
       img: documentanalysis, // Replace with an appropriate image for Analyze Documents
@@ -226,7 +226,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Document Analysis",
       btnText: "",
       link: "",
-      alt:"AI chatbot in Analyze Documents"
+      alt:"Representation of how AI chatbot analysis documents, extract key information and get deep analysis."
     },
     {
       img: marketanalysis, // Replace with an appropriate image for Analyze Market Trends
@@ -236,7 +236,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       tabheading: "Market Analysis",
       btnText: "",
       link: "",
-      alt:"AI chatbot in analyzing market trends"
+      alt:"A person analysing Market Trends, sentiment, track competitors, and gain data-driven insights through real estate chatbot"
     },
   ];
   

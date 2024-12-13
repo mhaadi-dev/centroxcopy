@@ -50,7 +50,7 @@ const TeamSectionTabs = ({ data }:any) => {
             {el.img && (
               <Image
                 src={el.img}
-                alt="Team Member"
+                alt={el?.alt || "Team Member"}
                 objectFit="cover"
                 className="rounded-xl object-cover aspect-square"
                 placeholder="blur"
