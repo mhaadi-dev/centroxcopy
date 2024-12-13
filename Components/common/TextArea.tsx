@@ -58,8 +58,9 @@ export const TextArea = ({
           className
         )}
         disabled={disabled}
+        value={value}
       >
-        {value}
+        
       </textarea>
       {fieldError && (
           <p className="text-red-600 text-asm mt-1">{fieldError}</p>
