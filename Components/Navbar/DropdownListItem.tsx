@@ -22,7 +22,7 @@ const DropdownListItem = ({ listData, mainHeading }: Props) => {
           <Image src={item?.bg_img} alt="bg" className="absolute bottom-0 right-0"></Image>
             {item?.image  && (
                 <Image
-                  src={item.image}
+                  src={item?.image}
                   alt="ai"
                   className="h-[24px] w-[24px]  -ml-4"
                 />
@@ -46,7 +46,7 @@ const DropdownListItem = ({ listData, mainHeading }: Props) => {
               {item?.image  && (
                 <div className="h-[20px] flex -ml-2    text-white  group-hover:text-blue-azure mt-3 w-[20px]">
                    <Image
-                  src={item.image}
+                  src={item?.image}
                   alt="ai"
                   objectFit="cover"
                   className="w-full h-full "

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import rankPage from "@/assets/Rank Page6.webp";
+import rankPage from "@/assets/Rank_Page6.webp";
 import instaCure from "@/assets/InstaCure4.webp";
 import DERQ from "@/assets/DERQ2.webp";
 import conjoin from "@/assets/Conjion1.webp";

@@ -1,7 +1,6 @@
 "use client";
 
 import WebsiteFooter from "@/Components/common/WebsiteFooter";
-import { Footer } from "@/Components/Footer/footer";
 import { Navbar } from "@/Components/Navbar/navbar";
 
 export default function LandingLayout({children}:any) {

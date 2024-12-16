@@ -12,10 +12,7 @@ import { POCS } from "@/views/POCS";
 // import WebsiteFooter from "@/Components/common/WebsiteFooter";
 // import  BannerSection  from "@/Components/MainPageComponents/Banner";
 import dynamic from "next/dynamic";
-import useScrollToElement from "@/deploy/hooks/useScrollToElement";
-import Image from "next/image";
-import { Button } from "@/Components/Button.js/button";
-import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
+
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingHeroSection from "@/views/LandingPageViews/LandingHeroSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";

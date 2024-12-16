@@ -266,7 +266,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const arrayData = {
     headerData: {
       tagText: "advantages",
-      heading: "What You Gain",
+      heading: "What You Gain?",
       description:
         "Partnering with Centrox AI for custom LLM development empowers your team to achieve excellent performance.",
     },
@@ -304,7 +304,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   };
 
   const stepperdata = {
-    heading: "How We Work",
+    heading: "How Do We Work?",
     description:
       "Our collaborative, iterative process ensures a tailored and effective LLM solution.",
      

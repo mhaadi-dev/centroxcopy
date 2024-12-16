@@ -37,6 +37,7 @@ const nextConfig = {
     if (process.env.NEXT_PUBLIC_ENV === "production") {
       const redirectPaths = [
         "/case-studies",
+        "/case-studies/:path*",
         "/solutions",
         "/industries",
         "/blogs",

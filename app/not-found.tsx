@@ -6,7 +6,6 @@ import bg404 from "@/assets/404bg.svg"
 import classNames, { text_h2_class, text_para_2 } from '@/helpers/common'
 import { Button } from '@/Components/Button.js/button'
 import Link from 'next/link'
-import bggridlines from "@/assets/bggridlines.webp"
 export default function NotFound () {
   return (
     <LandingLayout>

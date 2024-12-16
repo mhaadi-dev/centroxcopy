@@ -221,7 +221,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const arrayData2 = {
     headerData: {
       tagText: "Advantages",
-      heading: "Why Choose Centrox AI",
+      heading: "Why Choose Centrox AI?",
       description: "At Centrox AI, we leverage unparalleled expertise and innovation in Gen AI to transform healthcare systems. Here’s how our solutions are making a real-world impact:",
     },
     data: [

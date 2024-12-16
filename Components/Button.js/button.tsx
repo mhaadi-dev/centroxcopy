@@ -75,7 +75,7 @@ interface PropsI {
 
 
 export const Button = ({
-	id = "btn",
+	id = "",
 	Icon,
 	iconClassName,
 	type = "button",
@@ -92,8 +92,7 @@ export const Button = ({
   }: PropsI) => {
 	const router=useRouter()
 	return (
-	  <button
-		id={id}
+	  <button id={id}
 		type={type}
 		onClick={ onClick ? onClick : moveToSection ? ()=>{
 			router.push("/")
@@ -121,20 +120,20 @@ export const Button = ({
 		{Icon && isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName)} alt="" />
 		)}
-		{content && <div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
+		{content && <span className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
 		  {isLoading ? (
-			<div className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
+			<span className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
 		  ) : (
-			 <div
+			 <span
 			  className={classNames(
 				"flex items-center justify-center",
 				customClassName
 			  )}
 			>
 			  {content}
-			</div>
+			</span>
 		)}
-		</div>}
+		</span>}
 		{Icon && !isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
 		)}

@@ -43,7 +43,7 @@ export default function WebsiteFooter() {
  
   return (
     <footer
-      aria-labelledby="footer-heading"
+      // aria-labelledby="footer-heading"
       className="my-12 max-w-[2500px] "
     >
       <h2 id="footer-heading" className="sr-only">

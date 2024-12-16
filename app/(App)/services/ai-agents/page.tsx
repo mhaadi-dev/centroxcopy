@@ -45,16 +45,24 @@ import goal_oriented from "@/assets/bentobox/Goal Oriented.svg"
 import langchain from "@/assets/bentobox/Langchain framework.svg"
 import dataanalysis from "@/assets/bentobox/Data Analysis & Insights-1.svg"
 import knowledgable from "@/assets/bentobox/Knowledge graphs & reasoning.svg"
-export const metadata = {
-  title:"Empower Your Business with Agentic AI Solutions | Centrox AI",
-  description:"Develop intelligent AI agents and workflows to automate tasks, make data-driven decisions, and grow for scalable solutions. Book a free session today."
-}
+import Head from "next/head";
+import type { Metadata } from "next";
+export const metadata:Metadata = {
+  title: "Empower Your Business with Agentic AI Solutions | Centrox AI",
+  description: "Develop intelligent AI agents and workflows to automate tasks, make data-driven decisions, and grow for scalable solutions. Book a free session today.",
+  link: [
+    {
+      rel: "canonical",
+      href: "https://centrox.ai/services/ai-agents", 
+    },
+  ],
+};
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [
     {
       headerData: {
         tagText: "Challenges",
-        headingText: "The AI Agent Advantage", // Updated heading
+        headingText: "The Ultimate Challenge for AI", // Updated heading
         para1Text:
           "While large language models (LLMs) have made significant strides in natural language understanding and generation, they often fall short when faced with complex, real-world tasks that demand more than just linguistic capabilities. Traditional automation tools and even powerful LLMs often fall short when it comes to handling the complex, dynamic nature of real-world tasks.",
         heading2Text: "",
@@ -97,7 +105,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       headerData: {
         tagText: "Benefits",
-        headingText: "How Agentic AI Can Benefit You", // Updated heading
+        headingText: "How Agentic AI Can Benefit You?", // Updated heading
         para1Text:
           "Imagine a workforce augmented by intelligent AI agents that can", // Updated para1Text
         heading2Text: "", // Removed unnecessary second heading
@@ -685,6 +693,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   };
   
   return (
+
     <div>
      
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
