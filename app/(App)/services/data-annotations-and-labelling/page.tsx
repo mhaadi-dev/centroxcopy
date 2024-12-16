@@ -170,7 +170,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       headerData: {
         tagText: "Services",
-        headingText: "What Centrox Annotation Offers",
+        headingText: "What Centrox Annotation Offers?",
         para1Text:
           "",
         para2Text: "",

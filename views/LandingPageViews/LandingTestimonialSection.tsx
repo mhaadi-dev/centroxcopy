@@ -2,7 +2,7 @@ import SectionTag from "@/Components/common/SectionTag";
 import InstaCure from "@/assets/InstaCure.svg";
 import Derq from "@/assets/DERQ.svg";
 import Bluecore from "@/assets/Bluecore.svg";
-import Rankpage from "@/assets/Rank Page.svg";
+import Rankpage from "@/assets/Rank_Page.svg";
 
 import TestimonialCarousel from "@/Components/common/TestimonialCarousel";
 import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";

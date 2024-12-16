@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
    { 
     headerData:{
         tagText: "Benefits",
-        headingText: "How Custom Chatbots Fill The Gaps",
+        headingText: "How Custom Chatbots Fill The Gaps?",
         para1Text:
           "Custom chatbots, fine-tuned on your data and aligned with your business objectives, offer a transformative solution.",
         heading2Text: "",
@@ -349,7 +349,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     },],btnText:"Schedule a Session"}
   
     const stepperdata = {
-      heading: "How We Build AI Chatbots",
+      heading: "How We Build a Chatbot?",
       description: "We offer comprehensive chatbot development services tailored to your unique needs.",
       alt:"How the AI life cycle works",
       data: [

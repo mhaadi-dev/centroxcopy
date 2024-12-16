@@ -152,8 +152,21 @@ textarea {
 }
 
 
-
-
+.animate-height {
+	max-height: 0;
+	overflow: hidden;
+	animation: heightanimate 1s ease-in-out forwards; /* 'forwards' ensures it keeps the final state */
+  }
+  
+  @keyframes heightanimate {
+	0% {
+	  max-height: 0;
+	}
+	100% {
+	  max-height: 500px;
+	}
+  }
+ 
 & .slick-list { margin: 0 -10px; & .slick-slide > div { padding: 0 10px; } }
 
 

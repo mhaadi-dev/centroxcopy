@@ -52,7 +52,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     {
       headerData: {
         tagText: "Benefits",
-        headingText: "How We Help Your Model Speak Your Language", // Updated heading
+        headingText: "How We Help Your Model Speak Your Language?", // Updated heading
         para1Text:
           "Fine-tuning is the key to exploiting your AI model's full potential. At Centrox AI, we specialize in tailoring state-of-the-art models to your specific needs.", // Updated first paragraph
         heading2Text: "",

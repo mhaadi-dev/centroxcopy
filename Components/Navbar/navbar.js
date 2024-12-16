@@ -29,13 +29,12 @@ import smiley from "@/assets/companynav/Smiley.svg"
 import team from "@/assets/companynav/UsersThree.svg"
 import phonecall from "@/assets/companynav/PhoneCall.svg"
 import chatbot from "@/assets/servicesnav/Chatbot.svg"
-import finetune from "@/assets/servicesnav/Fine tune.svg"
+import finetune from "@/assets/servicesnav/Fine_tune.svg"
 import  evaluation from "@/assets/servicesnav/Evaluation.svg"
-import aiagent from "@/assets/servicesnav/AI agent.svg"
+import aiagent from "@/assets/servicesnav/AI_agent.svg"
 import optimization from "@/assets/servicesnav/Optimize.svg"
-import scale from "@/assets/servicesnav/Scale.svg"
-import scaling from "@/assets/servicesnav/Scaling.svg"
 import headcircuit from "@/assets/servicesnav/HeadCircuit.svg"
+import classNames from "@/helpers/common";
 export const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
@@ -385,6 +384,7 @@ export const Navbar = () => {
             className="xl:hidden text-white p-3 hover:rounded-full hover:bg-gray-600 hover:bg-opacity-6 flex flex-col gap-y-1 hover"
             onClick={() => {
               setShowMenu((prev) => !prev);
+              setClickedItem(null)
             }}
           >
            
@@ -404,59 +404,135 @@ export const Navbar = () => {
 
           {/* IN MOBILE VIEW */}
           <nav
-  className={`bg-black px-3 z-[1] py-4   overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
+  className={`bg-black px-3 z-[1] py-4 overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
     showMenu ? "translate-y-0 opacity-100" : "-translate-y-[10000px] opacity-0"
   }`}
   style={{ height: "calc(100vh - 85px)" }}
 >
   {data?.map((navItem, index) => (
-    <div key={index} className="text-gray-100 ">
-      <p className="font-semibold mt-4   uppercase hover:text-blue-azure" onClick={()=>{navItem?.onClick(); setClickedItem(index)  }}>{navItem.navItemText}</p>
-      {index === 0
-        ? navItem?.columnData?.map((subItems, index) => {
-            return subItems.map((item, index) => (
-              <div className="my-[0.3rem] " key={index}>
-                <h3 className="w-full flex gap-x-2 ">
-                  <Link
-                    href={item.link}
-                    className={`${
-                      index === 0 || navItem?.columnData?.length === 1
-                        ? "font-semibold mt-1"
-                        : "font-normal"
-                    } text-sm`}
-                    onClick={()=>{setShowMenu((prev) => !prev)}}
-                  >
-                    {item.heading+ ""}
-                  </Link>
-                </h3>
-              </div>
-            ));
-          })
-        : 
-      clickedItem ==index &&  navItem?.columnData?.map((subItems, index) => {
-            return <>
-          { subItems.map((item, index) => (
-              <div key={index} className="">
-                <h3 className="w-full flex gap-x-2">
-                  <Link href={item.link} className="font-semibold text-base" onClick={()=>{setShowMenu((prev) => !prev); setClickedItem(null)}} >
-                    {item.heading + ""}
-                  </Link>
-                </h3>
-              </div>
-            ))}
-            {navItem?.socialIcons &&  <div className="flex gap-6 my-3">
-           {navItem?.socialIcons?.length && navItem?.socialIcons?.map((icon,index)=>{
-          return <Link href={icon?.link} key={index}>
-            <Image src={icon?.icon} alt="social icon"></Image>
-          </Link>
-        })}
-        </div>}
-            </>
-          })
-          }
+    <div key={index} className="text-gray-100">
+      <div className="flex justify-between items-center">
+        <p
+          className={`font-semibold mt-4 uppercase w-[90%] ${
+            clickedItem == index && "text-blue-azure"
+          }`}
+          onClick={() => {
+            navItem?.onClick();
+            if (clickedItem === index) {
+              setClickedItem(null);
+            } else {
+              setClickedItem(index);
+            }
+          }}
+        >
+          {navItem.navItemText}
+        </p>
+        {index !== 0 && clickedItem!==index && (
+          <svg
+            onClick={() => {
+              if (clickedItem === index) {
+                setClickedItem(null);
+              } else {
+                setClickedItem(index);
+              }
+            }}
+            width={20}
+            height={20}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+              fill="#FFFFFF"
+            ></path>
+          </svg>
+        )}
+        {
+          index !== 0 && clickedItem === index && (
+           <svg  onClick={() => {
+            if (clickedItem === index) {
+              setClickedItem(null);
+            } else {
+              setClickedItem(index);
+            }
+          }}
+          width={11}
+          height={11}  fill="#FFFFFF"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.002 492.002" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth={0} /><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" /><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M484.136,328.473L264.988,109.329c-5.064-5.064-11.816-7.844-19.172-7.844c-7.208,0-13.964,2.78-19.02,7.844 L7.852,328.265C2.788,333.333,0,340.089,0,347.297c0,7.208,2.784,13.968,7.852,19.032l16.124,16.124 c5.064,5.064,11.824,7.86,19.032,7.86s13.964-2.796,19.032-7.86l183.852-183.852l184.056,184.064 c5.064,5.06,11.82,7.852,19.032,7.852c7.208,0,13.96-2.792,19.028-7.852l16.128-16.132 C494.624,356.041,494.624,338.965,484.136,328.473z" /> </g> </g> </g></svg>
+
+          )
+        }
+      </div>
+
+     
+      {index === 0 ? (
+        navItem?.columnData?.map((subItems, subIndex) => {
+          return subItems.map((item, subItemIndex) => (
+            <div className="my-[0.3rem]" key={subItemIndex}>
+              <h3 className="w-full  flex gap-x-2">
+                <Link
+                  href={item.link}
+                  className={`${
+                    subItemIndex === 0 || navItem?.columnData?.length === 1
+                      ? "font-semibold mt-1"
+                      : "font-normal"
+                  } text-sm`}
+                  onClick={() => {
+                    setShowMenu((prev) => !prev);
+                  }}
+                >
+                  {item.heading + ""}
+                </Link>
+              </h3>
+            </div>
+          ));
+        })
+      ) : (
+        <>
+          {clickedItem === index && (
+            <div className={classNames(clickedItem==index ? "animate-height ":"")}>
+              {navItem?.columnData?.map((subItems, subIndex) => (
+                <div key={subIndex}>
+                  {subItems.map((item, subItemIndex) => (
+                    <div key={subItemIndex}>
+                      <h3 className="w-full flex gap-x-2">
+                        <Link
+                          href={item.link}
+                          className="font-semibold text-base"
+                          onClick={() => {
+                            setShowMenu((prev) => !prev);
+                            setClickedItem(null);
+                          }}
+                        >
+                          {item.heading + ""}
+                        </Link>
+                      </h3>
+                    </div>
+                  ))}
+                  {navItem?.socialIcons && (
+                    <div className="flex gap-6 my-3">
+                      {navItem?.socialIcons?.length &&
+                        navItem?.socialIcons?.map((icon, iconIndex) => {
+                          return (
+                            <Link href={icon?.link} key={iconIndex}>
+                              <Image src={icon?.icon} alt="social icon" />
+                            </Link>
+                          );
+                        })}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      )}
     </div>
   ))}
 </nav>
+
 
       </div>
     </nav> 
