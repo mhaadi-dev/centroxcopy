@@ -43,7 +43,10 @@ import insightsicon from "@/assets/Insights.webp"
 import scalibilityicon from "@/assets/Scalability & availability.webp"
 export const metadata = {
   title:"Build your Custom AI Chatbot For Customer Support | Centrox AI",
-  description:"Develop custom AI chatbots for personalized, scalable support. Enhance customer engagement and streamline operations. Book your session with Centrox AI"
+  description:"Develop custom AI chatbots for personalized, scalable support. Enhance customer engagement and streamline operations. Book your session with Centrox AI",
+  alternates: {
+    canonical: "https://centrox.ai/services/custom-chatbot-dev",
+  },
 }
 
 

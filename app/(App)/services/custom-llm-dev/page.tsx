@@ -40,7 +40,10 @@ import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from "@/Components/common/IndustryBanner";
 export const metadata = {
   title:"Custom LLM Services | Tailored AI Solutions for Business | Centrox AI",
-  description:"Accelerate your business with Custom LLM services. From ideation to deployment, Centrox AI delivers innovative AI solutions. Book a free consultation today!"
+  description:"Accelerate your business with Custom LLM services. From ideation to deployment, Centrox AI delivers innovative AI solutions. Book a free consultation today!",
+  alternates: {
+    canonical: "https://centrox.ai/services/custom-llm-dev",
+  },
 }
 export default async function Page({ params }: { params: { slug: string } }) {
 

@@ -49,7 +49,10 @@ import keras from "@/assets/keras-plain logo.webp"
 
 export const metadata = {
   title:"Body measurement AI-Powered Tool for Apparel | Centrox AI",
-  description:"With Body Measurement tool improves apparel sizing accuracy, reduces returns, and enhances customer satisfaction. Try for free & your business growth."
+  description:"With Body Measurement tool improves apparel sizing accuracy, reduces returns, and enhances customer satisfaction. Try for free & your business growth.",
+  alternates: {
+    canonical: "https://centrox.ai/solutions/snap-and-measure",
+  },
 }
 
 

@@ -52,7 +52,11 @@ import recommendationImage from "@/assets/solutions/Image for Recommendation Eng
 
 export const metadata = {
   title:"Fashion Retail AI Solutions - Personalize Shopping | Centrox AI ",
-  description:"Transform fashion retail with Centrox AI, accurate sizing, personalized recommendations, and inventory management. Enhance customer experience"
+  description:"Transform fashion retail with Centrox AI, accurate sizing, personalized recommendations, and inventory management. Enhance customer experience",
+  alternates: {
+    canonical: "https://centrox.ai/industries/retail",
+  },
+
 }
 
 

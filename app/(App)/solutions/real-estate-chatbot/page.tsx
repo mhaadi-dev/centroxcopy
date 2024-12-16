@@ -50,7 +50,10 @@ import agencies from "@/assets/bentobox/Agencies.svg"
 
 export const metadata = {
   title:"Real Estate Ai-Powered Chatbot for Document Analysis | Centrox AI",
-  description:"Centrox AI Real estate chatbot offers fast, accurate, in-depth analysis, providing insights for land, sales, rents, and construction. Try for Free Today"
+  description:"Centrox AI Real estate chatbot offers fast, accurate, in-depth analysis, providing insights for land, sales, rents, and construction. Try for Free Today",
+  alternates: {
+    canonical: "https://centrox.ai/solutions/real-estate-chatbot",
+  },
 }
 
 

@@ -50,12 +50,9 @@ import type { Metadata } from "next";
 export const metadata:Metadata = {
   title: "Empower Your Business with Agentic AI Solutions | Centrox AI",
   description: "Develop intelligent AI agents and workflows to automate tasks, make data-driven decisions, and grow for scalable solutions. Book a free session today.",
-  link: [
-    {
-      rel: "canonical",
-      href: "https://centrox.ai/services/ai-agents", 
-    },
-  ],
+  alternates: {
+    canonical: "https://centrox.ai/services/ai-agents",
+  },
 };
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [

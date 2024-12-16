@@ -18,7 +18,10 @@ import about6 from "@/assets/about/about6.webp"
 import whatwedotoday from "@/assets/about/whatwedotoday.webp"
 export const metadata={
   title:"About Us | Centrox AI – Gen AI Development Experts",
-  description:"Centrox AI LLM experts with Gen AI startups, providing full-cycle AI development. We accelerate innovation, enabling them to achieve their goals faster. Book a session now!"
+  description:"Centrox AI LLM experts with Gen AI startups, providing full-cycle AI development. We accelerate innovation, enabling them to achieve their goals faster. Book a session now!",
+  alternates: {
+    canonical: "https://centrox.ai/about-us",
+  },
 }
 const page = () => {
   const data1=[

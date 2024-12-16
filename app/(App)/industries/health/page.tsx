@@ -34,7 +34,10 @@ import scalable from "@/assets/bentobox/Scalable AI.svg"
 
 export const metadata = {
   title:"Transform Healthcare industry with Gen AI Solutions | Centrox AI",
-  description:"Transform healthcare with Centrox AI LLM-based solutions by automating diagnostics, streamlining workflows & enhancing patient outcomes. Book now"
+  description:"Transform healthcare with Centrox AI LLM-based solutions by automating diagnostics, streamlining workflows & enhancing patient outcomes. Book now",
+  alternates: {
+    canonical: "https://centrox.ai/industries/health",
+  },
 }
 
 

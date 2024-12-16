@@ -396,7 +396,7 @@ export default async function Home() {
         h2class="lg:!w-full"
         caption=""
       />
-      <LandingCaseStudySection {...caseStudyData}/>
+      {/* <LandingCaseStudySection {...caseStudyData}/> */}
       <LandingTestimonialSection />
       {/* <LandingBlogSection/> */}
       <LandingContactSection />

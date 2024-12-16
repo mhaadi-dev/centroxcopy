@@ -53,7 +53,10 @@ import githubci from "@/assets/evaluationlogos/githubci.svg"
 
 export const metadata = {
   title:"MLOps Consulting for Evaluating & Streamline AI Pipelines | Centrox AI",
-  description:"Optimize model performance, enhance scalability, and boost collaboration. Streamline AI pipelines with Centrox AI MLOps consulting. Book a call today!"
+  description:"Optimize model performance, enhance scalability, and boost collaboration. Streamline AI pipelines with Centrox AI MLOps consulting. Book a call today!",
+  alternates: {
+    canonical: "https://centrox.ai/services/evaluation",
+  },
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {

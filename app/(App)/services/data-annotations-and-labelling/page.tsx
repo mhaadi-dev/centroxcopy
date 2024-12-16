@@ -44,7 +44,10 @@ import domain_specific from "@/assets/bentobox/Domain Specific Expertise.svg"
 
 export const metadata = {
   title:"Data Annotations and Labelling Services for AI & ML | Centrox AI",
-  description:"Offering scalable, high-quality data annotation services. Providing precise, efficient solutions, specializing in image, video, audio, and text annotations. Book Now."
+  description:"Offering scalable, high-quality data annotation services. Providing precise, efficient solutions, specializing in image, video, audio, and text annotations. Book Now.",
+  alternates: {
+    canonical: "https://centrox.ai/services/data-annotations-and-labelling",
+  },
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {

@@ -28,7 +28,10 @@ import hardware_specific from "@/assets/bentobox/Hardware Specific.svg"
 
 export const metadata = {
   title:"AI Model Optimization Services - Maximize Performance | Centrox AI",
-  description:"With Centrox AI model optimization services, optimize your AI models for peak performance, reduce costs, and improve scalability. Book a session now!"
+  description:"With Centrox AI model optimization services, optimize your AI models for peak performance, reduce costs, and improve scalability. Book a session now!",
+  alternates: {
+    canonical: "https://centrox.ai/services/model-optimization",
+  },
 }
 export default async function Page({ params }: { params: { slug: string } }) {
  
