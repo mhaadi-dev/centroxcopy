@@ -8,9 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
         allow: [
           '/*.tsx',
-          '/services/',
-          '/solutions/',
-          '/industries/',
         ],
       },
     ],
