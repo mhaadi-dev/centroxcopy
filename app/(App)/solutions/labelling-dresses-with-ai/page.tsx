@@ -50,7 +50,10 @@ import industryPic3 from "@/assets/Brands.webp";
 
 export const metadata = {
   title:"Image Labeling AI-Powered for Fashion E-Commerce | Centrox AI",
-  description:"With Centrox AI image labeling tool automates product tagging, improves search accuracy and streamline your fashion e-commerce. Try it for free today."
+  description:"With Centrox AI image labeling tool automates product tagging, improves search accuracy and streamline your fashion e-commerce. Try it for free today.",
+  alternates: {
+    canonical: "https://centrox.ai/solutions/labelling-dresses-with-ai",
+  },
 }
 
 
@@ -448,7 +451,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
+              "We leverage a powerful and flexible tech stack to build high-performing chatbots."
             }
             caption=""
             btnText="Let’s Discuss Further"

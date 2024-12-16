@@ -32,7 +32,10 @@ import javaryakamran from "@/assets/teampics/javeriakamran.webp"
 import aftab from "@/assets/teampics/aftab.webp"
 export const metadata={
   title:"Meet the Team | Centrox AI ",
-  description:"Meet the expert team behind Centrox AI. Our team of AI Specialist, Co-founder, engineers, managers and marketers driving innovative AI-powered solutions"
+  description:"Meet the expert team behind Centrox AI. Our team of AI Specialist, Co-founder, engineers, managers and marketers driving innovative AI-powered solutions",
+  alternates: {
+    canonical: "https://centrox.ai/team",
+  },
 }
 async function TeamPage() {
   const teamData = await sanityFetch({
@@ -66,8 +69,8 @@ async function TeamPage() {
         },
       ],
       bgImage: servicebg,
-	  description:"Our team holds immense expertise in delivering you the best AI powered solution which can transform the shape of innovation in technology, as we hold a group of driven engineers who have joined hands to contribute to the AI revolution.",
-      mainSectionheading: "Meet Our Expert Team of AI, Backend and Frontend Engineers Solving Real Word Problems.",
+	  description:"Our AI, Backend, and Frontend Engineers team holds immense expertise in delivering you the best AI powered solution which can transform the shape of innovation in technology, as we hold a group of driven engineers who have joined hands to contribute to the AI revolution.",
+      mainSectionheading: "Meet Our Expert Team of AI Engineers Solving Real Word Problems.",
       secondSectionHeading: "Leaders of Centrox​​​​‌‌‍​",
       seconSectionDescription:"Our leaders believe in extending their expertise for AI innovation, they envision to uplift the current standards by providing automated solutions for the problems given by the customers, through continuous learning and knowing where to apply it.",
       teamSectionHeading: "Meet Our Team",

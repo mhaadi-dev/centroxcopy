@@ -5,7 +5,10 @@ import classNames, { section_wrapper_class, text_h2_class } from "@/helpers/comm
 import SimpleVerticalTimeLine from "@/Components/common/SimpleVerticalTimeLine";
 export const metadata={
 	title:"Contact Us - Get in Touch with Our Team | Centrox AI",
-	description:"Reach out to Centrox AI for inquiries, collaboration or support. Connect with our AI experts and discover how we can help accelerate your AI projects and business growth."
+	description:"Reach out to Centrox AI for inquiries, collaboration or support. Connect with our AI experts and discover how we can help accelerate your AI projects and business growth.",
+	alternates: {
+		canonical: "https://centrox.ai/contact",
+	  },
 }
 const  ContactUs=()=> {
 	const data = [

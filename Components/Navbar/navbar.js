@@ -491,8 +491,8 @@ export const Navbar = () => {
         })
       ) : (
         <>
-          {clickedItem === index && (
-            <div className={classNames(clickedItem==index ? "animate-height ":"")}>
+     
+            <div className={classNames(clickedItem==index ? "visible animate-height ":"hidden")}>
               {navItem?.columnData?.map((subItems, subIndex) => (
                 <div key={subIndex}>
                   {subItems.map((item, subItemIndex) => (
@@ -526,7 +526,7 @@ export const Navbar = () => {
                 </div>
               ))}
             </div>
-          )}
+         
         </>
       )}
     </div>

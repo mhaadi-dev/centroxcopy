@@ -43,7 +43,10 @@ import realestatehero from "@/assets/realestate.webp"
 
 export const metadata = {
   title:"Generative AI Solutions for Fintech Industry | Centrox AI",
-  description:"Transform fintech with Centrox AI Generative AI solutions. Fraud detection to personalized financial services and innovative, AI systems. Book session now"
+  description:"Transform fintech with Centrox AI Generative AI solutions. Fraud detection to personalized financial services and innovative, AI systems. Book session now",
+  alternates: {
+    canonical: "https://centrox.ai/industries/fintech",
+  },
 }
 
 

@@ -48,7 +48,10 @@ import documentanalysis from "@/assets/solutions/document analysis.webp"
 
 export const metadata = {
   title:"Real Estate AI Solutions - Elevate Customer Experience | Centrox AI",
-  description:"Real estate operations with Centrox AI. Leverage AI for property search, lead engagement, analysis, and document automation for efficiency & revenue."
+  description:"Real estate operations with Centrox AI. Leverage AI for property search, lead engagement, analysis, and document automation for efficiency & revenue.",
+  alternates: {
+    canonical: "https://centrox.ai/industries/real-estate",
+  },
 }
 
 

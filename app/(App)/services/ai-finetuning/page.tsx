@@ -45,7 +45,10 @@ import servicebg from "@/assets/Servicebg.webp"
 
 export const metadata = {
   title:"Fine Tune AI Model Solutions to get Peak Performance | Centrox AI ",
-  description:"Unlock full potential of your AI models with Centrox AI fine-tuning expertise. Achieve accuracy, reduce bias, and optimize performance. Book Session Now"
+  description:"Unlock full potential of your AI models with Centrox AI fine-tuning expertise. Achieve accuracy, reduce bias, and optimize performance. Book Session Now",
+  alternates: {
+    canonical: "https://centrox.ai/services/ai-finetuning",
+  },
 }
 export default async function Page({ params }: { params: { slug: string } }) {
   const benefitsData = [

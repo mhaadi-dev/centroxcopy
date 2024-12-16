@@ -53,7 +53,10 @@ import langgraph from "@/assets/LangGraph Icon.svg"
 
 export const metadata = {
   title:"AI Mental Health Chatbot for Emotional Support | Centrox AI",
-  description:"Get instant, focused emotional support with Centrox AI mental health chatbot. Relevant medical guidance and clear, to-the-point responses. Try for free today."
+  description:"Get instant, focused emotional support with Centrox AI mental health chatbot. Relevant medical guidance and clear, to-the-point responses. Try for free today.",
+  alternates: {
+    canonical: "https://centrox.ai/solutions/mental-health-chatbot",
+  },
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -500,7 +503,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             data={techStackData}
             heading={"Our Tech Stack"}
             description={
-              "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
+              "We leverage a powerful and flexible tech stack to build high-performing chatbots."
             }
             caption=""
             btnText="Let’s Discuss Further"

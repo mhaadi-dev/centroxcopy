@@ -5,7 +5,7 @@ import Head from "next/head";
 import { ServiceViewProvider } from "@/store/ServiceViewProivder";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { VisualEditing } from "next-sanity";
-import { draftMode } from "next/headers";
+import { draftMode, headers } from "next/headers";
 
 // Load both fonts
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading" });
@@ -19,8 +19,11 @@ export const metadata: Metadata = {
   title: "Centrox AI | Full-Cycle Gen AI and Custom LLM Dev Services",
   description:
     "Unlock AI innovation with Centrox AI Full-Cycle Gen AI services. From custom LLMs to AI chatbots, we streamline your AI deployment. Book a consultation today!",
+  alternates: {
+    canonical: "https://centrox.ai/",
+  },
   icons: {
-    icon: `/public/favicon.ico`,
+    icon: "/favicon.ico", // No need for `/public` in the path
   },
 };
 
