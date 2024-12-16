@@ -43,6 +43,7 @@ export const Navbar = () => {
   const [showBackdrop, setShowBackdrop] = useState(false);
   const { width } = useSize();
   const [isClient,setIsClient]=useState(false)
+  const [clickedItem,setClickedItem]=useState(null)
   useEffect(() => {
     if (width != null && width > 1024 && showMenu == true) {
       setShowMenu(false);
@@ -410,7 +411,7 @@ export const Navbar = () => {
 >
   {data?.map((navItem, index) => (
     <div key={index} className="text-gray-100 ">
-      <p className="font-semibold mt-4 uppercase hover:text-blue-azure" onClick={()=>{navItem?.onClick();  setShowMenu((prev) => !prev);}}>{navItem.navItemText}</p>
+      <p className="font-semibold mt-4   uppercase hover:text-blue-azure" onClick={()=>{navItem?.onClick(); setClickedItem(index)  }}>{navItem.navItemText}</p>
       {index === 0
         ? navItem?.columnData?.map((subItems, index) => {
             return subItems.map((item, index) => (
@@ -431,12 +432,13 @@ export const Navbar = () => {
               </div>
             ));
           })
-        : navItem?.columnData?.map((subItems, index) => {
+        : 
+      clickedItem ==index &&  navItem?.columnData?.map((subItems, index) => {
             return <>
-          {  subItems.map((item, index) => (
-              <div key={index}>
+          { subItems.map((item, index) => (
+              <div key={index} className="">
                 <h3 className="w-full flex gap-x-2">
-                  <Link href={item.link} className="font-semibold text-base" onClick={()=>{setShowMenu((prev) => !prev)}} >
+                  <Link href={item.link} className="font-semibold text-base" onClick={()=>{setShowMenu((prev) => !prev); setClickedItem(null)}} >
                     {item.heading + ""}
                   </Link>
                 </h3>
@@ -450,7 +452,8 @@ export const Navbar = () => {
         })}
         </div>}
             </>
-          })}
+          })
+          }
     </div>
   ))}
 </nav>
