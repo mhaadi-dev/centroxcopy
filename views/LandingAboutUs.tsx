@@ -17,7 +17,7 @@ export const LandingAboutUs = () => {
       setBlurDataURL(blurredBase64);
     }
   };
-console.log("imgg",LandingAboutUsPattern)
+// console.log("imgg",LandingAboutUsPattern)
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -35,18 +35,18 @@ console.log("imgg",LandingAboutUsPattern)
   return (
     <section className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
     > 
-    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] bottom-[40%] top-[45%] "></Image>
-      <summary
+    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] object-cover bottom-0  "></Image>
+      <div
         className={classNames(
-          "flex sm:mt-0  py-0 sm:px-0",
-          " sm:mx-0"
+          "flex  sm:mt-0  py-0 sm:px-0",
+          " sm:mx-0 "
         )}
      
       >
-        <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 mx-[1.5rem] sm:mx-0">
-          <h3 className={classNames(text_h2_class)}>
+        <div className="w-full lg:w-1/2 flex flex-col gap-5 items-start h-full py-6 sm:mx-0">
+          <h2 className={classNames(text_h2_class)}>
             Bridging the Gap between research and real-world applications
-          </h3>
+          </h2>
 
           <div className="sm:mt-8 3xl:mt-10 w-[95%] 2xl:w-[83%] 3xl:w-[85%] text-lg sm:text-2xl 3xl:text-4xl text-white leading-6">
             <p className={classNames(text_para_2)}>
@@ -60,7 +60,7 @@ console.log("imgg",LandingAboutUsPattern)
                <div className="w-full mx-[0.5rem]  lg:w-1/2  z-[2]">  
                <figure className=" w-4/4">
                  <Image
-                   alt=""
+                   alt="Gen Ai Process, raw data into exceptional results"
                    src={LandingAboutUsBg}
                    className="w-full  2xl:w-full z-[2]"
                    onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
@@ -92,22 +92,22 @@ console.log("imgg",LandingAboutUsPattern)
         </div>
 
         {windowWidth > 1023 ? (
-          <div className=" w-1/2  z-[2]">  
-          <figure className=" w-4/4">
+          <div className=" w-1/2   z-[2]">  
+     
             <Image
-              alt=""
+              alt="Gen Ai Process, raw data into exceptional results"
               src={LandingAboutUsBg}
-              className="w-full  2xl:w-full z-[2]"
+              className="w-full   2xl:w-full z-[2]"
               onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
               blurDataURL={blurDataURL}
             />
-          </figure>
+         
           </div>
         
         ) : (
           ""
         )}
-      </summary>
+      </div>
     </section>
   );
 };

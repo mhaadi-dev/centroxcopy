@@ -6,6 +6,8 @@ import { Button } from "../Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
+import { CalendlyWidget } from "../common/Calendly";
+import classNames, { section_wrapper_class } from "@/helpers/common";
 
 interface PropsI{
   text?:string,
@@ -15,10 +17,10 @@ interface PropsI{
 
 const  BannerSection = ({text="Get an expert help in constructing your own models or utilizing foundational models for your business" , btnText = "Talk to Our AI Expert",icon = ''} :PropsI)=>{
     return <>
-       <section className="relative mt-24 lg:mt-60 w-[99%] mx-auto ">
+       <section className={classNames("relative mt-24 w-full",)}>
           <div className="absolute -inset-2">
             <div
-              className="w-4/5 mx-auto h-full  opacity-30 blur-lg filter"
+              className="w-full mx-auto h-full  opacity-30 blur-lg filter"
               style={{
                 background:
                   "linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)",
@@ -26,24 +28,15 @@ const  BannerSection = ({text="Get an expert help in constructing your own model
             ></div>
           </div>
 
-          <div className="relative overflow-hidden py-4 w-4/5 mx-auto text-center bg-gray-900 rounded-3xl lg:text-left  ">
+          <div className="relative overflow-hidden py-4 w-full mx-auto text-center bg-gray-900 rounded-3xl lg:text-left  ">
             <div className="p-6 lg:py-8 lg:px-14 ">
-              <div className="grid lg:flex   w-full  items-center justify-between">
-                <h5 className="text-sm sm:text-3xl font-bold text-white">
-                 {text}
-                </h5>
+              <div className="flex flex-col gap-4 lg:flex-row   w-full  items-center justify-between">
+                <p className="text-sm sm:text-3xl font-bold text-white w-full lg:w-2/3">
+                 { "Get an expert help in constructing your own models or utilizing foundational models for your business."}
+                </p>
 
-                <div className="flex  mt-7 lg:mt-0 ml-[15%] sm:ml-[30%] lg:ml-8 justify-center flex-end  ">
-                  <Link href={"/aiExpert"}>
-                    <Button
-                      content={btnText}
-                      className="bg-blue-azure border-0 w-40 sm:w-64 !rounded-full font-semibold"
-                      isLefticon={false}
-                      Icon={icon ? icon :""}
-                      
-                   
-                    />
-                  </Link>
+                <div className="flex   justify-center flex-end w-full lg:w-1/3  ">
+                  <CalendlyWidget btnText="Talk to Our AI Expert" isArrow/>
                 </div> 
               </div>
             </div>

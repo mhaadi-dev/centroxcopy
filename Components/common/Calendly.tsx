@@ -1,10 +1,5 @@
 "use client"
 
-interface PropsI{
-  btnText?:string,
-  btnClassName? :string,
-  isArrow?:boolean,
-}
 
 import { Fragment, useState } from "react";
 import { Button } from "../Button.js/button";
@@ -13,27 +8,34 @@ import { CALENDLY_URL } from "@/config/secret";
 import classNames from "@/helpers/common";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+interface PropsI{
+  btnText?:string,
+  btnClassName? :string,
+  isArrow?:boolean,
+  containerclass?:string
+  customClassName?:string
+}
+
+export const CalendlyWidget = ({btnText,btnClassName,isArrow = false,containerclass,customClassName}:PropsI) => {
  
-export const CalendlyWidget = ({btnText,btnClassName,isArrow = false}:PropsI) => {
-  
     const [isOpen, setIsOpen] = useState(false);
   
     const openCalendlyPopup = () => {
       setIsOpen(true);
     };
-  
+
     const closeCalendlyPopup = () => {
       setIsOpen(false);
   };
     return (
-      <div>
+      <div className={classNames(containerclass)}>
         <Button
           onClick={openCalendlyPopup}
-          content={btnText || "Schedule a Session"}
+          content={btnText}
           iconClassName="-mt-1"
           isLefticon={false}
-  
-          className={classNames("",btnClassName)}
+          customClassName={customClassName}  
+          className={classNames("text-white",btnClassName)}
             Icon={isArrow ? Arrow : ""}
         />
        <Transition.Root show={isOpen} as={Fragment}>

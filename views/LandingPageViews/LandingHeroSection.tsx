@@ -8,7 +8,7 @@ import classNames, { text_para_main } from '@/helpers/common';
 
 const LandingHeroSection = () => {
     return (
-        <section className="relative w-full h-auto py-4 sm:h-[85vh] pt-32 sm:pt-32">
+        <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
           <Image
             id="hero-bg"
             src={heroBg}
@@ -18,20 +18,20 @@ const LandingHeroSection = () => {
           />
     
           <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">
-            <div className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold">
+            <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold">
               Ship Production-Ready <br />
               <span className="bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text text-transparent">
                 Gen AI
               </span>
               &nbsp; Faster
-            </div>
+            </h1>
     
-            <div className={classNames(text_para_main)}>
+            <p className={classNames(text_para_main)}>
               Focus on building your product, not your AI infrastructure. We handle
               the complexities of Gen AI development from data curation to
               deployment, so you can accelerate your time-to-market and gain a
               competitive edge.
-            </div>
+            </p>
             <CalendlyWidget btnText='Meet Our AI Expert' btnClassName='!px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem]' isArrow={true}/>
           </div>
         </section>

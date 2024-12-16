@@ -1,6 +1,7 @@
 "use client"
 import classNames from "@/helpers/common";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface PropsI {
 	Icon?: any;
@@ -17,6 +18,7 @@ interface PropsI {
 	defaultClass?: boolean;
 	isLefticon?: boolean;
 	id?: string;
+	moveToSection?:string
 }
 
 // export const Button = ({
@@ -73,7 +75,7 @@ interface PropsI {
 
 
 export const Button = ({
-	id = "btn",
+	id = "",
 	Icon,
 	iconClassName,
 	type = "button",
@@ -86,15 +88,29 @@ export const Button = ({
 	isLoading = false,
 	defaultClass = true,
 	isLefticon = true,
+	moveToSection=""
   }: PropsI) => {
+	const router=useRouter()
 	return (
-	  <button
-		id={id}
+	  <button id={id}
 		type={type}
-		onClick={onClick}
+		onClick={ onClick ? onClick : moveToSection ? ()=>{
+			router.push("/")
+			setTimeout(() => {
+			
+				const Component = document.getElementById(moveToSection);
+			      if (Component) {
+			        Component.scrollIntoView({
+			          behavior: "smooth",
+			          block: "start",
+			        });
+			      }
+			}, 500);
+			
+		}:()=>{}}
 		className={classNames(
 		  defaultClass &&
-			"flex items-center justify-center gap-3 rounded-full px-2 py-2 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
+			"flex items-center justify-center gap-2 rounded-full px-3 py-3 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
 		  isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : 
 		  "bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] border-[2px] border-[#056EE199] rounded-full ease-in transition-all",
 		  className
@@ -104,20 +120,20 @@ export const Button = ({
 		{Icon && isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName)} alt="" />
 		)}
-		<div className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
+		{content && <span className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
 		  {isLoading ? (
-			<div className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
+			<span className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
 		  ) : (
-			<div
+			 <span
 			  className={classNames(
 				"flex items-center justify-center",
 				customClassName
 			  )}
 			>
 			  {content}
-			</div>
-		  )}
-		</div>
+			</span>
+		)}
+		</span>}
 		{Icon && !isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
 		)}

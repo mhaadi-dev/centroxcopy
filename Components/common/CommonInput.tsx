@@ -9,7 +9,7 @@ interface Input {
   type: string;
   placeholder?: string;
   maxLength?: string;
-  onBlur?: (fieldValue: string, error: any) => void;
+  onBlur?: (fieldValue: any, error: any) => void;
   isDisabled?: boolean;
   value?: string|null;
   name?: string;
@@ -84,9 +84,9 @@ export const CommonInput: React.FC<Input> = ({
             onChange?.(target.value);
           }}
           onBlur={() => {
-            if (fieldValue) {
+           
               onBlur?.(fieldValue, setFieldError);
-            }
+            
             if (!fieldValue && required) {
               onBlur?.("", setFieldError);
               setFieldError(`${label} is required`);
@@ -110,7 +110,7 @@ export const CommonInput: React.FC<Input> = ({
           }}
         ></input>
         {fieldError && (
-          <p className="text-red-600 text-asm mt-1">{fieldError}</p>
+          <p className="text-red-600  text-asm mt-1">{fieldError}</p>
         )}
       </div>
     </div>

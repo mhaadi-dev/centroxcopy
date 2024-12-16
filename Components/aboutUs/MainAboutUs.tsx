@@ -1,373 +1,138 @@
-import mhbImg from "@/assets/mhbnimg.png";
-import harrisImg from "@/assets/harrisimg.png";
-import zainRazaImg from "@/assets/zainrazaupdatedImage.svg";
 import Image from "next/image";
 import HeroImage from "@/public/images/updatedAboutUs.webp";
-import sectionImg from "@/assets/aboutusbackground.webp";
-
-import wasayImg from "@/assets/wasayimg.svg";
-import nidaImg from "@/assets/nidaImg.svg";
-import alishbaImg from "@/assets/AlishbaImg.svg";
-import asadKhanIMg from "@/assets/asadkhanImg.svg";
-import moqImg from "@/assets/moq.webp";
-import aliZainIMg from "@/assets/alizainimg.svg";
-import ahmadImg from "@/assets/muhammadahman.jpg";
-
-import SaadAliImg from "@/assets/saadali.jpeg";
-import HamzaShahbazImg from "@/assets/hamzashahbazImg.jpg";
-import AhmedImranImg from "@/assets/AhmedimranImg.jpg";
-import baddarImg from "@/assets/baddarImg.png";
-import hassamImg from "@/assets/hassamImg.png";
-import aftabImg from "@/assets/aftabimg.jpg";
 
 import LinkedIn from "@/assets/linkedin.svg";
-import abdImg from "@/assets/abdimg.png";
-import hamzaEjImg from "@/assets/hamzahEjaz.png";
-import hibbaImg from "@/assets/hibbaimg.png";
-import khalidImg from "@/assets/khalidimg.png";
-import adeelImg from "@/assets/adeelImg.png";
-import quratulainImg from "@/assets/quratulainImg.png";
-import faseehImg from "@/assets/faseehImg.png";
-import wahabImg from "@/assets/wahabImg.png";
-import asadImg from "@/assets/asadImg.png";
-import saadImg from "@/assets/saadImg.png";
-import hadiImg from "@/assets/mhadiimg.jpeg";
 
-import { Toast } from "../Toast/toast";
-import { sectionDiscriptions, sectionHeadings } from "@/helpers/common";
-const owners = [
-  {
-    name: "Muhammad Harris Bin Naeem",
-    designation: "Co-Founder & CEO",
-    link: "https://www.linkedin.com/in/mhbn",
-    img: mhbImg,
-  },
+import BannerSection from "../MainPageComponents/Banner";
+import classNames, {
+  section_wrapper_class,
+  text_h1_main,
+  text_para_2,
+  text_para_main,
+} from "@/helpers/common";
+import TeamSectionTabs from "../common/TeamSectionTabs";
 
-  {
-    name: "Muhammad Harris",
-    designation: "Co-Founder & CTO",
-    link: "https://www.linkedin.com/in/harris-perceptron",
-    img: harrisImg,
-  },
-  {
-    name: "Syed Zain Raza",
-    designation: "Co-Founder & Director Growth",
-    link: "https://www.linkedin.com/in/syed-zain-raza-ba96899b",
-    img: zainRazaImg,
-  },
-];
-
-const team = [
-  {
-    name: "Abdullah Qureshi",
-    designation: "Mobile Engineer",
-    link: "https://www.linkedin.com/in/abdullah-qureshi5",
-    img: abdImg,
-  },
-
-  {
-    name: "Hamzah Ejaz",
-    designation: "Sr. Web Engineer",
-    link: "https://www.linkedin.com/in/hamzah-ejaz",
-    img: hamzaEjImg,
-  },
-  {
-    name: "Muhammad Omer Qasim Khan",
-    designation: "Backend Developer",
-    link: "https://www.linkedin.com/in/muhammad-omer-qasim-03a218242?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    img: moqImg,
-  },
-  {
-    name: "Hibba Saleem",
-    designation: "Project Manager",
-    link: "https://www.linkedin.com/in/hibba-saleem-a38433130",
-    img: hibbaImg,
-  },
-
-  {
-    name: "Khalid Khushal",
-    designation: "Backend Engineer",
-    link: "https://www.linkedin.com/in/khalid-khushal",
-    img: khalidImg,
-  },
-  {
-    name: " Adeel Irshad",
-    designation: "Backend Engineer",
-    link: "https://www.linkedin.com/in/adeelirshad808",
-    img: adeelImg,
-  },
-  {
-    name: "Qurat Ul Ain",
-    designation: "QA Executive",
-    link: "https://pk.linkedin.com/company/centroxai", //change
-    img: quratulainImg,
-  },
-
-  {
-    name: "Faseeh Abbas",
-    designation: "Sr. Mobile Engineer",
-    link: "https://www.linkedin.com/in/faseeh-abbas-khan-196544202",
-    img: faseehImg,
-  },
-
-  {
-    name: "Abdul Wahab",
-    designation: "Web Engineer",
-    link: "https://www.linkedin.com/in/abdul-wahab-1a9494198/", //change
-    img: wahabImg,
-  },
-  // {
-  //   name: "Hamza Imran",
-  //   designation: "Mobile Engineer",
-  //   link: "https://www.linkedin.com/in/hamza-imran-536392223",
-  //   img: hamzaImranImg,
-  // },
-  {
-    name: "Asad Mehmood",
-    designation: "Data Ops Manager",
-    link: "https://www.linkedin.com/in/asad-mehmood-54364b175",
-    img: asadImg,
-  },
-  {
-    name: "Saad Javed",
-    designation: "Solution Architect",
-    link: "https://www.linkedin.com/in/saadjaved120",
-    img: saadImg,
-  },
-  {
-    name: "Nida Abid",
-    designation: "Growth Engineer",
-    link: "http://www.linkedin.com/in/nida-abid-100",
-    img: nidaImg,
-  },
-  {
-    name: "Asad Khan",
-    designation: "Mobile App Engineer",
-    link: "https://www.linkedin.com/in/asad-khan-a63480198/",
-    img: asadKhanIMg,
-  },
-  {
-    name: "Alishba Naveed",
-    designation: "Mobile Engineer",
-    link: "https://www.linkedin.com/in/alishbah-naveed/",
-    img: alishbaImg,
-  },
-  {
-    name: "Syed Wasi Ur Rehman",
-    designation: "UI/UX Designer",
-    link: "https://www.linkedin.com/in/syedwasi73/",
-    img: wasayImg,
-  },
-  {
-    name: "Ali Zain",
-    designation: "QA Engineer",
-    link: "https://www.linkedin.com/in/ali-zain-455740198/",
-    img: aliZainIMg,
-  },
-  {
-    name: "Muhammad Hassam",
-    designation: "ML/AI Engineer",
-    link: "https://www.linkedin.com/in/hassam-nazir-kh/",
-    img: hassamImg,
-  },
-  {
-    name: "Hamza Shahbaz",
-    designation: "Lead Generation Executive",
-    link: "http://www.linkedin.com/in/muhammad-hamza-shahbaz-a37a861a5",
-    img: HamzaShahbazImg,
-  },
-  {
-    name: "Saad Ali",
-    designation: "Digital Marketing Lead",
-    link: "https://www.linkedin.com/in/saad-ali-7203b7218/",
-    img: SaadAliImg,
-  },
-  {
-    name: "Badar Jaffer",
-    designation: "Digital Marketer",
-    link: "https://www.linkedin.com/in/badarjaffer",
-    img: baddarImg,
-  },
-  {
-    name: "Ahmed Imran Minhas",
-    designation: "Backend Engineer",
-    link: "https://www.linkedin.com/in/ahmed-imran-5236bb160/",
-    img: AhmedImranImg,
-  },
-  {
-    name: "Muhammad Hadi ",
-    designation: "Web Developer",
-    link: "https://www.linkedin.com/in/muhammad-hadi-09a7a2251/",
-    img: hadiImg,
-  },
-
-  {
-    name: "Muhammad Ahmad ",
-    designation: "Digital Marketing Executive",
-    link: "https://www.linkedin.com/in/muhammad-ahmad-52ba4a235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    img: ahmadImg,
-  },
-  {
-    name: "Muhammad Aftab",
-    designation: "Operations Manager",
-    link: "http://www.linkedin.com/in/muhammad-aftab-a4b132169",
-    img: aftabImg,
-  },
-];
 export const MainAboutUs = (props: any) => {
-  
-
   return (
     <>
-      <main className="flex flex-col gap-24 lg:gap-40">
-        <div className="">
+      <main className={classNames("flex flex-col   gap-y-8 lg:gap-y-[3rem]")}>
+        <div className="relative h-auto lg:h-screen flex items-center ">
           <Image
-            src={HeroImage}
-            alt="sorry"
-            // loading="eager"
-            // placeholder="blur"
-            // onLoad={() => singleImageLoad(HeroImage.src)}
-            // blurDataURL={blurDataURL}
-            className="opacity-50 ob h-screen lg:h-full"
+            src={props.props?.props[0]?.bgImage}
+            alt="background"
+            layout="fill"
+            className="opacity-100 object-cover absolute inset-0 h-auto"
           />
-          <div className="flex flex-col gap-10 absolute -mt-[100%]  mx-5 sm:mx-0 lg:-mt-[30%] sm:ml-[25%] items-center w-[90%] sm:w-[50%] rounded-2xl p-2 sm:p-10  text-center">
-            <div className="text-white text-xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-bold tracking-normal">
-              {props?.props?.props[0]?.mainSectionheading}
-            </div>
-            <div className="text-white text-md sm:text-xl lg:text-2xl 2xl:text-3xl font-semibold w-[75%] tracking-wide">
-              {props?.props?.props[0]?.description}
-            </div>
-          </div>
-        </div>
-        <h1 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white">
-          {props?.props?.props[0]?.secondSectionHeading}
-        </h1>
-        <div className="grid grid-cols-3  w-4/5 gap-40 mx-auto flex-wrap text-white">
-          {props?.props?.props[0]?.LeadersImgs?.map((el: any, index: any) => {
-              if (!el?.img && !el?.name && !el?.designation && !el.linkedINUrl) {
-                return null; // Skip rendering this item if all properties are null
-              }
-            return (
-              <div
-                key={index}
-                className="flex w-full border-2 border-red-200 flex-col justify-center items-center p-4 rounded-xl"
-                style={{
-                  border: "1px solid rgba(3, 34, 182, 0.20)",
-
-                  background:
-                    "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
-                  boxShadow:
-                    "0px 0px 16px 0px rgba(255,  255, 255, 0.10) inset",
-                  backdropFilter: "blur(18px)",
-
-                  
-                }}
-              >
-                <div className="relative  h-96 w-full   ">
-                  {el.img &&    <Image
-                  src={el.img}
-                  alt="image-data"
-                  fill
-                  
-                  //   placeholder="blur"
-                  // blurDataURL={blurDataURLs[index]}
-                  // onLoad={() => handleImageLoad(index, el.img.src)}
-                  className="rounded-2xl  object-cover "
-                /> }
-             
-                </div>
-                <p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
-                  {el.name}
-                </p>
-                <div className="flex justify-between items-left w-full mt-1">
-                  <p className=" font-medium text-xs md:text-sm  text-blue-secondary">
-                    {el.designation}
-                  </p>
-                  <a href={el.linkedINUrl} target="_blank" rel="noreferrer">
-                    <Image src={LinkedIn} className="w-5" alt="" />
-                  </a>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* 3rd section */}
-
-        <section className="w-4/5 flex flex-col mx-auto items-center lg:flex-row gap-12">
-          <div className="flex flex-col gap-8 w-full">
-            <h1 className={sectionHeadings}>
-              {props?.props?.props?.[0]?.thirdSectionheading}
+          <div className="flex z-10 flex-col gap-4 pt-24 lg:pt-0   items-center w-full lg:w-[83%] mx-auto  rounded-2xl p-2   text-center">
+            <h1
+              className={classNames(
+                text_h1_main,
+                "    tracking-normal lg:w-[60%] !bg-gradient-to-r from-text_gradient-primary to-text_gradient-faded bg-clip-text !text-transparent"
+              )}
+            >
+              <span className="text-[#E5E7EB]">{props?.props?.props[0]?.mainSectionheading?.split(" ").slice(0,3).join(" ")} </span> {props?.props?.props[0]?.mainSectionheading?.split(" ").slice(3).join(" ")}
             </h1>
-            <p className={sectionDiscriptions}>
-              {props?.props?.props?.[0]?.thirdSectionDescription}
+            <p
+              className={classNames(
+                text_para_main,"mx-auto w-[95%] lg:!w-[60%] lg:!max-w-[60%]"
+              )}
+            >
+              {props?.props?.props[0]?.description || ""}
             </p>
-            {/* <p className={sectionDiscriptions}>
-              Proin faucibus nibh et sagittis a. Lacinia purus ac amet
-              pellentesque aliquam enim.
-            </p> */}
           </div>
-
-          <div className="w-full flex justify-center lg:justify-end items-center">
-            <Image src={sectionImg} alt="section img" className="w-4/5" />
-          </div>
-        </section>
-
-        <div className="text-xl lg:text-4xl text-white font-bold flex justify-center ">
-          {props?.props?.props?.[0]?.teamSectionHeading}
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-4/5 mx-auto text-white pb-60 ">
-          {props?.props?.props?.[0]?.teamSectionImgs?.map(
-            (el: any, index: number) => {
-              if (!el?.img && !el?.name && !el?.designation && !el.linkedINUrl) {
-                return null; // Skip rendering this item if all properties are null
+        <section
+          className={classNames(
+            section_wrapper_class,
+            "flex flex-col  gap-y-16 lg:gap-y-24"
+          )}
+        > 
+        <div className="flex flex-col gap-4">
+           <h2 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white">
+            {props?.props?.props[0]?.secondSectionHeading}
+          </h2>
+          <p
+              className={classNames(
+                text_para_main,"mx-auto text-center w-[95%] lg:!w-[70%] lg:!max-w-[70%]"
+              )}
+            >
+              {props?.props?.props[0]?.seconSectionDescription || ""}
+            </p>
+        </div>
+         
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  w-[98%] lg:w-full gap-16 lg:gap-10 mx flex-wrap text-white">
+            {props?.props?.props[0]?.LeadersImgs?.map((el: any, index: any) => {
+              if (
+                !el?.img &&
+                !el?.name &&
+                !el?.designation &&
+                !el.linkedINUrl
+              ) {
+                return null; 
               }
               return (
-                
-                <figure
-                
+                <div
                   key={index}
-                  className="flex flex-col justify-center items-center p-4 rounded-xl"
+                  className="flex w-full border-2 border-red-200 flex-col justify-center items-center p-4 rounded-xl"
                   style={{
                     border: "1px solid rgba(3, 34, 182, 0.20)",
 
                     background:
                       "radial-gradient(51.03% 100.46% at 101.38% 100%, rgba(3, 34, 182, 0.22) 0%, rgba(6, 119, 230, 0.00) 100%), rgba(0, 0, 0, 0.20)",
                     boxShadow:
-                      "0px 0px 16px 0px rgba(255, 255, 255, 0.10) inset",
+                      "0px 0px 16px 0px rgba(255,  255, 255, 0.10) inset",
                     backdropFilter: "blur(18px)",
                   }}
                 >
-                  <div className="md:w-32 md:h-32  lg:w-52 lg:h-52 2xl:w-80 2xl:h-80 relative">
-                    {el.img && 
-                  <Image
-                    src={el.img }
-                    alt="image-data"
-                    fill
-                    // placeholder="blur"
-                    // blurDataURL={teamblurDataURLs[index]}
-                    // onLoad={() => handleTeamImageLoad(index, el.img.src)}
-                    className="rounded-xl object-cover grayscale-100 contrast-100 brightness-100 mix-blend-multiply"
-                  />
-                    }
+                  <div className="relative  h-96 w-full   ">
+                    {el.img && (
+                      <Image
+                        src={el.img}
+                        alt={el?.alt}
+                        fill
+                        //   placeholder="blur"
+                        // blurDataURL={blurDataURLs[index]}
+                        // onLoad={() => handleImageLoad(index, el.img.src)}
+                        className="rounded-2xl  object-cover"
+                        
+                      />
+                    )}
                   </div>
-
                   <p className="text-sm md:text-lg font-semibold mt-4 text-left tracking-wider w-full">
                     {el.name}
                   </p>
                   <div className="flex justify-between items-left w-full mt-1">
-                    <p className=" font-medium text-xs md:text-sm  text-blue-secondary">
+                    <p className=" font-semibold text-xs md:text-sm  text-blue-azure">
                       {el.designation}
                     </p>
                     <a href={el.linkedINUrl} target="_blank" rel="noreferrer">
-                      <Image src={LinkedIn} className="w-5" alt="" />
+                      <Image src={LinkedIn} className="w-5" alt="linkedin" />
                     </a>
                   </div>
-                </figure>
+                </div>
               );
-            }
-          )}
-        </div>
+            })}
+          </div>
+          <div className="flex gap-4 flex-col">
+             <h2 className="text-3xl font-extrabold sm:text-2xl lg:text-6xl  text-center text-white ">
+            {props?.props?.props?.[0]?.teamSectionHeading}
+          </h2>
+          <p
+              className={classNames(
+                text_para_main,"mx-auto text-center w-[95%] lg:!w-[70%] lg:!max-w-[70%]"
+              )}
+            >
+              {props?.props?.props[0]?.teamSectionDescription || ""}
+            </p>
+          </div>
+         
+<div>
+  <TeamSectionTabs data={props?.props?.props?.[0]?.teamSectionImgs}/>
+</div>
+         
+         
+          <BannerSection />
+        </section>
 
         {/* {showToast && <Toast showToast={showToast} setShowToast={setShowToast} />} */}
       </main>

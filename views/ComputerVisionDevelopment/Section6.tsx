@@ -1,18 +1,17 @@
 import { CalendlyWidget } from "@/Components/common/Calendly";
 import classNames, {
-  h2ClassName,
-  h3ClassName,
-  h4ClassName,
-  p2ClassName,
-  p3ClassName,
-  p4ClassName,
-  sectionheadings,
-  sectionSectionDescription,
+ 
+  section_wrapper_class,
+
+  text_h3_class,
+
  
 } from "@/helpers/common";
 
-import dataImg from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
+
 import Image from "next/image";
+import advantages from "@/assets/advantages.webp"
+import SectionHeader from "@/Components/common/SectionHeader";
 
 
 
@@ -29,6 +28,8 @@ export const PointsandImagesSection = ({
   gradient,
   reverse,
   bgShape,
+  arrayData,
+  alt
 }: any) => {
   return (
     <div
@@ -65,61 +66,31 @@ export const PointsandImagesSection = ({
           }}
         />
       )}{" "}
-      <section className="w-4/5 mx-auto mt-24 lg:mt-40  ">
-        <div className="flex flex-col gap-2 lg:gap-8">
-          <h2 className={h2ClassName}>{data?.heading}</h2>
+      <section className={classNames(section_wrapper_class)}>
 
-          <h4 className={classNames(p2ClassName, "lg:!text-center  ")}>
-            {data?.description}
-          </h4>
-        </div>
+       
+            <SectionHeader headingText={arrayData?.headerData?.heading} tagText={arrayData?.headerData?.tagText} para1Text={arrayData?.headerData?.description}/>
+         
         <div
           className={classNames(
-            "flex flex-col lg:flex-row gap-6 lg:gap-12 items-center mt-6 lg:mt-12 ",
-            reverse ? "lg:!flex-row-reverse" : ""
+            "flex flex-col lg:flex-row gap-6  lg:gap-12 items-center mt-6 lg:mt-12 ",
+            true ? "lg:!flex-row-reverse" : ""
           )}
         >
-          <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
-            {data?.img && (
+          <div className="w-full  flex justify-center lg:w-1/2  z-10 ">
+            {true && (
               <Image
-                src={data?.img}
-                alt="hero-img "
-                className="object-fill w-full h-full"
-                objectFit="fill"
-                fill
+                src={advantages||data?.img}
+                alt={arrayData?.alt || "Why centrox?"}
+                className="object-fill w-full  lg:w-4/4 h-full"
                 loading="lazy"
               />
             )}
-          </figure>
+          </div>
           <div className="w-ful lg:w-1/2 flex flex-col gap-6 lg:gap-12 z-10">
-            <h2
-              className={classNames(
-                sectionheadings,
-                "lg:!mx-0 lg:!w-full lg:!text-left"
-              )}
-            >
-              {heading}
-            </h2>
-            <p
-              className={classNames(
-                sectionSectionDescription,
-                "lg:!mx-0 lg:!w-full lg:!text-left"
-              )}
-            >
-              {description}
-            </p>
-            {subDescription && (
-              <p
-                className={classNames(
-                  sectionSectionDescription,
-                  "!text-[#D1D5DB]"
-                )}
-              >
-                {subDescription}
-              </p>
-            )}
+        
             <div className="flex flex-col gap-6">
-              {data?.content?.map((el: any, index: number) => {
+              {arrayData?.data?.map((el: any, index: number) => {
                 return (
                   <div className="flex gap-2 items-start " key={index}>
                     {el.icon && (
@@ -130,25 +101,27 @@ export const PointsandImagesSection = ({
                       />
                     )}
                     <div className="w-full flex flex-col  gap-2  ">
-                      <h4
+                      <h3
                         className={classNames(
-                          h3ClassName,
+                          text_h3_class,
                           "lg:!w-full lg:!text-left"
                         )}
                       >
                         {el.heading}
-                      </h4>
-                      <p className={p4ClassName}>{el.description}</p>
+                      </h3>
+                      <p className={"text-[#E5E7EB] font-paragraph text-[1rem] lg:text-[1.2rem] 2xl:text-[1.3rem] leading-[1.6rem] 2xl:leading-[2.25rem]"}>{el.description}</p>
                     </div>
                   </div>
                 );
               })}
-            </div>
-            {button && (
+               {arrayData?.btnText && (
               <div className="flex justify-center lg:justify-start">
-                <CalendlyWidget btnText={data?.btntext} />
+                <CalendlyWidget btnText={arrayData?.btnText} isArrow={true} />
+               
               </div>
             )}
+            </div>
+           
           </div>
         </div>
       </section>

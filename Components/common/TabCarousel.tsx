@@ -21,12 +21,14 @@ import {
   useState,
 } from "react";
 import { Button } from "@/Components/Button.js/button";
-import classNames, { generateBlurDataURL, text_h3_class, text_h4_class, text_para_3 } from "@/helpers/common";
+import classNames, { generateBlurDataURL, text_h3_class, text_h4_class, text_para_2, text_para_3 } from "@/helpers/common";
 import Image from "next/image";
 import { Toast } from "@/Components/Toast/toast";
 import { ServiceViewContext } from "@/store/ServiceViewProivder";
 import useSize from "@/helpers/customHooks/useWidthHook";
 import CommonCardwithIcon from "./CommonCardwithIcon";
+import { CalendlyWidget } from "./Calendly";
+import Link from "next/link";
 interface GradientCardProps {
   title: string;
   description: string;
@@ -52,7 +54,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
 }) => (
   <section
     className={classNames(
-      "rounded-3xl flex flex-col gap-3 p-5 mt-10 cursor-pointer "
+      "rounded-3xl flex flex-col flex-grow gap-3 p-5 mt-10 cursor-pointer "
     )}
     style={{
       background:
@@ -69,9 +71,9 @@ const GradientCard: React.FC<GradientCardProps> = ({
     onClick={() => onClick?.()}
   >
     <div className={classNames(text_h4_class)}>
-      <span className="">{title}</span>
+      <h3 className="">{title}</h3>
     </div>
-    <span className={classNames(text_para_3)}>
+    <span className={classNames("text-[#E5E7EB] text-[0.75rem] lg:text-[0.85rem] 2xl:text-[1rem] leading-[1.35rem] 2xl:leading-[1.6rem] my-1")}>
       {description}
     </span>
   </section>
@@ -92,28 +94,28 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
     }
   }, [setTabs, tabs]);
 
-  const selectedTab =
-    tabs.find((tab: any) => tab.current)?.name || tabs[0].name;
+  // const selectedTab =
+  //   tabs.find((tab: any) => tab.current)?.name || tabs?.[0]?.name;
 
-  useEffect(() => {
-    const switchTab = () => {
-      setTabs((prevTabs: any) => {
-        const currentIndex = prevTabs.findIndex((tab: any) => tab.current);
-        const nextIndex = (currentIndex + 1) % prevTabs.length;
-        return prevTabs.map((tab: any, index: number) => ({
-          ...tab,
-          current: index === nextIndex,
-        }));
-      });
-    };
+  // useEffect(() => {
+  //   const switchTab = () => {
+  //     setTabs((prevTabs: any) => {
+  //       const currentIndex = prevTabs.findIndex((tab: any) => tab.current);
+  //       const nextIndex = (currentIndex + 1) % prevTabs.length;
+  //       return prevTabs.map((tab: any, index: number) => ({
+  //         ...tab,
+  //         current: index === nextIndex,
+  //       }));
+  //     });
+  //   };
 
 
-    const interval = setInterval(() => {
-      switchTab();
-    }, intervalDuration);
+  //   const interval = setInterval(() => {
+  //     switchTab();
+  //   }, intervalDuration);
 
-    return () => clearInterval(interval); 
-  }, [setTabs, intervalDuration]);
+  //   return () => clearInterval(interval); 
+  // }, [setTabs, intervalDuration]);
 
   const handleTabClick = (tabName: string) => {
   
@@ -138,50 +140,61 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
     <div className="w-full">
       {/* Mobile Tabs */}
       <nav
-        className="grid grid-cols-2 gap-2 w-full lg:hidden"
-        aria-label="Tabs"
-      >
-        {tabs.map((tab: any) => (
-          <a
-            key={tab.name}
-            className={classNames(
-              tab.current
-                ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
-                : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100"
-            )}
-            aria-current={tab.current ? "page" : undefined}
-            onClick={() => handleTabClick(tab.name)}
-          >
-            {tab.name}
-          </a>
-        ))}
-      </nav>
+  className={classNames(
+    "grid gap-2 w-full lg:hidden",
+    tabs.length % 2 === 0 ? "grid-cols-2" : "grid-cols-2" // Always maintain 2 columns
+  )}
+  aria-label="Tabs"
+>
+  {tabs.map((tab: any, index: number) => (
+    <a
+      key={tab.name}
+      className={classNames(
+        tab.current
+          ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
+          : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
+        "whitespace-nowrap py-2 text-[0.8rem] cursor-pointer text-center transition-colors duration-100",
+        tabs.length % 2 !== 0 && index === tabs.length - 1 ? "col-span-2" : "" 
+      )}
+      style={{
+        wordWrap: "break-word", 
+      }}
+      aria-current={tab.current ? "page" : undefined}
+      onClick={() => handleTabClick(tab.name)}
+    >
+      {tab.name}
+    </a>
+  ))}
+</nav>
+
+
 
       {/* Desktop Tabs */}
-      <nav
-        className={classNames(
-          isGradientCardLayout && "px-[3rem]",
-          "hidden lg:grid lg:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-2 items-center w-full"
-        )}
-        aria-label="Tabs"
-      >
-        {tabs.map((tab: any) => (
-          <a
-            key={tab.name}
-            className={classNames(
-              tab.current
-                ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
-                : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
-              "whitespace-nowrap py-2 px-2 text-2xl font-semibold cursor-pointer text-center transition-colors duration-100 z-10 w-full"
-            )}
-            aria-current={tab.current ? "page" : undefined}
-            onClick={() => handleTabClick(tab.name)}
-          >
-            {tab.name}
-          </a>
-        ))}
-      </nav>
+      <nav 
+  //     className={classNames(isGradientCardLayout && "px-[3rem]","hidden lg:grid gap-x-4 gap-y-2 items-center  w-full",tabs.length === 2
+  //     ? "lg:grid-cols-2"
+  //     : tabs.length === 3
+  //     ? "lg:grid-cols-3"
+  //     : "lg:grid-cols-4" 
+  // )}
+  className={classNames(isGradientCardLayout && "px-[3rem]","hidden items-center  w-full","lg:flex gap-4")}
+  aria-label="Tabs"
+>
+  {tabs.map((tab: any) => (
+    <div key={tab.name} className={classNames(
+        tab.current
+          ? "text-white bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black border-2 bg-[length:100%_160%] border-[#056EE199] rounded-xl"
+          : "text-white hover:bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] hover:text-white hover:border-[#056EE199] border-2 border-gray-700 rounded-xl",
+        "whitespace-nowrap py-2 px-2 text-2xl font-semibold cursor-pointer text-center transition-colors duration-100 z-10 w-full"
+      )}
+      aria-current={tab.current ? "page" : undefined}
+      onClick={() => handleTabClick(tab.name)}
+    >
+      {tab.name}
+    </div>
+  ))}
+</nav>
+
     </div>
   );
 };
@@ -195,13 +208,17 @@ interface TabCarouselProps {
   cardsData?: any;
   gradientCardData?: any;
   headerTabs?:any
+  caption?:string
+  isBookingButton?:boolean
 }
 export const TabCarousel = ({
   isCardLayout = false,
+  isBookingButton=false,
   isGradientCardsLayoutwithImage = false,
   cardsData=[],
   gradientCardData=[],
-  headerTabs=[]
+  headerTabs=[],
+  caption=""
 }: TabCarouselProps) => {
   const { view } = useContext(ServiceViewContext);
   const { width } = useSize();
@@ -233,7 +250,7 @@ export const TabCarousel = ({
         current: false,
       };
     });
-    console.log("new tabs is", updatedTabs, view);
+    // console.log("new tabs is", updatedTabs, view);
     setTabs(updatedTabs);
   }, [view]);
 
@@ -251,50 +268,29 @@ export const TabCarousel = ({
     setCurrentHoverCard(null);
   }, []);
 
-  // const handleImageLoad = async () => {
-  //   if (!blurDataURLs[currentHoverCard]) {
-  //     let imageUrl = "";
-  //     switch (currentHoverCard) {
-  //       case 3:
-  //         imageUrl = CustomDataImage.src;
-  //         break;
-  //       case 3:
-  //         imageUrl = DataLabelingImage.src;
-  //         break;
-  //       default:
-  //         imageUrl = DataCurationImage.src;
-  //         break;
-  //     }
-  //     const blurredBase64 = await generateBlurDataURL(imageUrl);
-  //     setBlurDataURLs((prevBlurDataURLs) => ({
-  //       ...prevBlurDataURLs,
-  //       [currentHoverCard]: blurredBase64,
-  //     }));
-  //   }
-  // };
 
   return (
     <>
       <section className="relative py-12  w-full md:w-5/5 mx-auto 2xl:w-full  overflow-hidden bg-black sm:py-16 lg:py-4 ">
-        <div className=" p-2">
+        <div className=" flex justify-center ">
           <div className="container  ">
-            <div className="text-white   rounded-3xl flex flex-col gap-10 h-full xlc:w-full max-w-[100%]  border-opacity-40">
+            <div className="text-white   rounded-3xl flex flex-col gap-4 lg:gap-5 h-full xlc:w-full max-w-[100%]  border-opacity-40">
               <Tabs tabs={tabs} setTabs={setTabs} isGradientCardLayout={isGradientCardsLayoutwithImage} />
               <div className="">
                 {tabs?.map(
-                  (tab:any, index:number) =>
+                  (tab:any, tabindex:number) =>
                     tab?.current && (
                       <div
-                        key={index}
+                        key={tabindex}
                         className="flex flex-col sm:gap-4  3xl:justify-around  "
                       >
                         {isCardLayout && (
                           <>
                           <div className="flex flex-col gap-y-2">
                             <h3 className={classNames(text_h3_class)}>
-                              {cardsData[index]?.subInfo?.heading}
+                              {cardsData[tabindex]?.subInfo?.heading}
                             </h3>
-                            <p className={classNames(text_para_3)}>
+                            <p className={classNames(text_para_3,"mb-4 lg:mb-0")}>
                               Read in detail about our services.
                             </p>
                           </div>
@@ -304,13 +300,13 @@ export const TabCarousel = ({
                               // className={`flex flex-wrap  gap-4`}
                             >
                               <div
-                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto "
+                                className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto auto-rows-fr "
                                 style={{
                                   gridTemplateColumns: width!=null && width > 650 ? 
-                                    "repeat(auto-fit, minmax(350px, 1fr))":"repeat(auto-fit, minmax(300px, 1fr))",
+                                    "repeat(auto-fit, minmax(300px, 1fr))":"repeat(auto-fit, minmax(300px, 1fr))",
                                 }}
                               >
-                                {cardsData?.[index]?.data.map(
+                                {/* {cardsData?.[index]?.data.map(
                                   (card: any, index: any) => {
                                     return (
                                       <CommonCardwithIcon
@@ -319,204 +315,99 @@ export const TabCarousel = ({
                                         heading={card.heading}
                                         description={card.description}
                                         linkText="Learn More"
+                                        link={card?.link}
                                         linkWithIcon={true}
                                       />
                                     );
                                   }
-                                )}
+                                )} */}
+
+
+
+                                {cardsData.map((cc: any, indexmain: any) => (  
+                                    cc.data.map((card: any, index: any)=>{
+                                      return (
+                                        <div className={`${tab?.current && indexmain==tabindex ? "" : "hidden" }`}>
+                                        <CommonCardwithIcon
+                                          key={index}
+                                          Icon={card?.icon}
+                                          heading={card.heading}
+                                          description={card.description}
+                                          linkText="Learn More"
+                                          link={card?.link}
+                                          linkWithIcon={true}
+                                          alt={card?.alt}
+                                        />
+                                        </div>
+                                      );
+                                    })
+                                  
+                                ))}
                               </div>
                             </div>
                           </>
                         )}
                         <div
-                          className="flex flex-col gap-4 xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
+                          className="flex flex-col gap-4   xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
                         >
-                          {isGradientCardsLayoutwithImage && (
-                            <>
-                              
-                              <div className=" w-full xl:w-1/2 flex flex-col gap-y-0">
-                                {gradientCardData?.length > 0 && headerTabs?.length>0 ? gradientCardData[index]?.data?.map((card:any,i:number)=>{
-                                  return  <GradientCard
-                                  title={
-                                    card?.heading
-                                  }
-                                  description={
-                                   card?.description
-                                  }
-                                  showHoverState={lastHoveredCard === i}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(i)}
-                                  onMouseLeave={() => handleMouseLeave(i)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                />
-                                }):""}
-                                {/* <GradientCard
-                                  title={
-                                    index === 0
-                                      ? "Medical Text Generation"
-                                      : index === 1
-                                        ? "Algorithm Design"
-                                        : "Model Serving"
-                                  }
-                                  description={
-                                    index === 0
-                                      ? "Automate the creation of clinical notes, discharge summaries, and other medical documents, freeing up valuable time for healthcare professionals and improving documentation accuracy."
-                                      : index === 1
-                                        ? "Design state of the art algorithm or enhance your existing architecture."
-                                        : "Name the technology and we will serve your model the right way."
-                                  }
-                                  showHoverState={lastHoveredCard === 1}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(1)}
-                                  onMouseLeave={() => handleMouseLeave(1)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                />
-                                <GradientCard
-                                  title={
-                                    index === 0
-                                      ? "Data Labeling"
-                                      : index === 1
-                                        ? "Model Development"
-                                        : "Model Deployment"
-                                  }
-                                  description={
-                                    index === 0
-                                      ? "Our rich pool of experts will label your data with the best quality possible."
-                                      : index === 1
-                                        ? "Build your model in an accustomed AI Environment ready to improve."
-                                        : "Deploy your model On-premise or want us to set up your ML-Cloud?"
-                                  }
-                                  showHoverState={lastHoveredCard === 2}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(2)}
-                                  onMouseLeave={() => handleMouseLeave(2)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                />
-                                <GradientCard
-                                  title={
-                                    index === 0
-                                      ? "Custom Data Workflow"
-                                      : index === 1
-                                        ? "Model Training"
-                                        : "Model Training"
-                                  }
-                                  description={
-                                    index === 0
-                                      ? "Get served with a personalized workflow for your ongoing data needs."
-                                      : index === 1
-                                        ? "Train your model for experiments and analysis."
-                                        : "We can help optimize your model to perform in less time with better results."
-                                  }
-                                  showHoverState={lastHoveredCard === 3}
-                                  hoveredCard={currentHoverCard}
-                                  onMouseEnter={() => handleMouseEnter(3)}
-                                  onMouseLeave={() => handleMouseLeave(3)}
-                                  onClick={() => {
-                                    setShowToast(!showToast);
-                                  }}
-                                  hoverOnGradient={true}
-                                /> */}
-                              </div>
-                              <div className="w-full flex xl:w-1/2 mt-10  items-center justify-center">
-                                <div className="w-full" >
-                                  <Image
-                                    className={classNames(
-                                      "w-full h-full",
-                                      "block"
-                                    )}
-                                    // loading="eager"
-                                    src={tabs[index]?.current && gradientCardData[index]?.image}
-                                    alt="image"
-                                    loading={
-                                      width && width <= mobileWidth
-                                        ? "lazy"
-                                        : "eager"
-                                    }
-                                 
-                                  />
-                                 
-                                  {/* {tabs[0]?.current && (
-                                    <Image
-                                      className={classNames(
-                                        "w-full h-full",
-                                        "block"
-                                      )}
-                                      // loading="eager"
-                                      src={DataCurationImage}
-                                      alt=""
-                                      loading={
-                                        width && width <= mobileWidth
-                                          ? "lazy"
-                                          : "eager"
-                                      }
-                                      // placeholder="blur"
-                                      // onLoad={handleImageLoad}
-                                      // blurDataURL={blurDataURLs[currentHoverCard]}
-                                    />
-                                  )}
+                        {isGradientCardsLayoutwithImage && (
+  <>
+    {gradientCardData?.map((cc: any, indexmain: number) => (
+      <div
+        key={indexmain}
+        className={`w-full   flex flex-col xl:flex-row gap-2 lg:gap-10 ${
+          tab?.current && indexmain === tabindex ? "" : "hidden"
+        }`}
+      >
+        <div className="w-full  xl:w-1/2 flex flex-col gap-y-0">
+          {cc?.data?.map((card: any, index: number) => (
+            <GradientCard
+              key={index}
+              title={card?.heading}
+              description={card?.description}
+              showHoverState={lastHoveredCard === index}
+              hoveredCard={currentHoverCard}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+              onClick={() => {
+                setShowToast(!showToast);
+              }}
+              hoverOnGradient={true}
+            />
+          ))}
+        </div>
+        <div className="w-full h-full  flex xl:w-1/2 lg:mt-6 items-center justify-center">
+            <Image
+              className="w-full  "
+              src={tabs[tabindex]?.current && cc?.image}
+              alt={cc?.alt}
+              loading={width && width <= mobileWidth ? "lazy":"lazy"}
+            />
+        
+        </div>
+      </div>
+    ))}
+  </>
+)}
 
-                                  {tabs[1]?.current && (
-                                    <Image
-                                      className={classNames(
-                                        "w-full h-[100%] lg:pt-3",
-                                        "block"
-                                      )}
-                                      src={BuildingAi}
-                                      alt=""
-                                      loading={
-                                        width && width <= mobileWidth
-                                          ? "lazy"
-                                          : "eager"
-                                      }
-
-                                      // loading="eager"
-                                      // placeholder="blur"
-                                      // onLoad={handleImageLoad}
-                                      // blurDataURL={blurDataURLs[currentHoverCard]}
-                                    />
-                                  )}
-
-                                  {tabs[2]?.current && (
-                                    <Image
-                                      className={classNames(
-                                        "w-full h-[100%] lg:pt-2",
-                                        "block"
-                                      )}
-                                      src={DeployingAi}
-                                      alt=""
-                                      loading={
-                                        width && width <= mobileWidth
-                                          ? "lazy"
-                                          : "eager"
-                                      }
-                                      // loading="eager"
-                                      // placeholder="blur"
-                                      // onLoad={handleImageLoad}
-                                      // blurDataURL={blurDataURLs[currentHoverCard]}
-                                    />
-                                  )} */}
-                                </div>
-                              </div>
-                            </>
-                          )}
                         </div>
-                        {/* {!isCardLayout && (
-                          <Button
+                        {caption && <p className={classNames(text_para_2,"text-center my-4 w-full mx-auto lg:w-[60%]")}>{caption}</p>}
+                       
+                        {!isCardLayout && !isBookingButton && (
+                          <Link href={tab?.current ? tab?.href:""}><Button
                             content={tab.current?  tab?.cta : "Get Started"}
                             className="!w-[auto] mx-auto my-4 !py-[0.5rem] !px-[1rem] 2xl:!py-[1rem] 2xl:!px-[2rem]"
                             Icon={Arrow}
                             isLefticon={false}
+                          /></Link>
+                          
+                        )} {!isCardLayout && isBookingButton && (
+                          <CalendlyWidget
+                            btnText="Try For Free"
+                            isArrow
+                            btnClassName="mx-auto my-4"
                           />
-                        )} */}
+                        )}
                       </div>
                     )
                 )}

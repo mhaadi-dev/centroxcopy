@@ -1,40 +1,71 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-import rankPage from "@/assets/Rank Page.webp";
-import instaCure from "@/assets/InstaCure.webp";
-import DERQ from "@/assets/derqlogo.webp";
-import conjoin from "@/assets/Conjion.webp";
-import stockAppIcon from "@/assets/stockAppIcon.webp";
+import rankPage from "@/assets/Rank_Page6.webp";
+import instaCure from "@/assets/InstaCure4.webp";
+import DERQ from "@/assets/DERQ2.webp";
+import conjoin from "@/assets/Conjion1.webp";
+import stockAppIcon from "@/assets/Stock App Icon7.webp";
 import bluecore from "@/assets/Bluecore.webp";
-
-
-
-
-
+import teksoul from "@/assets/TekSoul8.webp";
+import nooblerly from "@/assets/Nooblerly5.webp";
+import dreamlamp from "@/assets/Dream Lamp3.webp";
+import { motion } from "framer-motion";
 
 export async function LogosCarousel() {
+  const logos: { logo: any; alt: string }[] = [
+    { logo: bluecore, alt: "Bluecore" },
+    { logo: conjoin, alt: "Conjoin" },
+    { logo: stockAppIcon, alt: "Stock App Icon" },
+    { logo: dreamlamp, alt: "Dream Lamp" },
+    { logo: instaCure, alt: "InstaCure" },
+    { logo: DERQ, alt: "DERQ" },
+    { logo: teksoul, alt: "TekSoul" },
+    { logo: rankPage, alt: "Rank Page" },
+    { logo: nooblerly, alt: "Nooblerly" },
+  ];
 
-
-  const logos:any = [bluecore,rankPage,conjoin,stockAppIcon,instaCure,DERQ,bluecore];
   return (
-    <>
-      <section className="w-full  flex  gap-10 lg:mt-0 relative">
-        <div className="w-full bg-gradient-to-r from-black  via-transparent to-black absolute left-0 right-0 h-full top-0 z-[2]"  />
-        
-        <div className="flex justify-center items-center w-[100%] animate-marquee animate-infinite-scroll gap-x-4 lg:gap-x-10 ">
-          {logos.length > 0
-            ? logos.map((logo: any, index: number) => (
-                < >
+    <div className="py-4 bg-black">
+      <div className="w-full">
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
+          <motion.div
+            className="flex items-center gap-x-4 lg:gap-x-10 flex-none pr-10"
+            animate={{
+              translateX: "-50%",
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop",
+            }}
+          >
+            {logos.length > 0
+              ? logos.map((logo, index) => (
                   <Image
-                    src={logo}
-                    alt={"logo"}
-                    className="inline-block w-[80%] lg:w-[15%]"
+                    src={logo.logo}
+                    alt={logo.alt}
+                    className="h-auto w-auto"
+                    key={`logo-${index}`}
+                    loading="eager"
                   />
-                </>
-              ))
-            : ""}
-        </div> 
-      </section>
-    </>
+                ))
+              : ""}
+            {logos.length > 0
+              ? logos.map((logo, index) => (
+                  <Image
+                    src={logo.logo}
+                    alt={logo.alt}
+                    className="h-auto w-auto"
+                    key={`logo-duplicate-${index}`}
+                    loading="eager"
+                  />
+                ))
+              : ""}
+          </motion.div>
+        </div>
+      </div>
+    </div>
   );
 }

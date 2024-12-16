@@ -33,6 +33,26 @@ const nextConfig = {
     }
     return config;
   },
+  async redirects() {
+    if (process.env.NEXT_PUBLIC_ENV === "production") {
+      const redirectPaths = [
+        "/case-studies",
+        "/case-studies/:path*",
+        "/solutions",
+        "/industries",
+        "/blogs",
+        "/blogs/:path*",
+      ];
+  
+      return redirectPaths.map((path) => ({
+        source: path,
+        destination: "/",
+        permanent: false,
+      }));
+    }
+    return [];
+  }
+  
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

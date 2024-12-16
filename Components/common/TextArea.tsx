@@ -40,9 +40,9 @@ export const TextArea = ({
           onChange?.(e.target.value)
         }}
         onBlur={() => {
-          if (fieldValue) {
+        
             onBlur?.(fieldValue, setFieldError);
-          }
+          
           if (!fieldValue && required) {
             onBlur?.("", setFieldError);
             setFieldError(`${label} is required`);
@@ -58,8 +58,9 @@ export const TextArea = ({
           className
         )}
         disabled={disabled}
+        value={value}
       >
-        {value}
+        
       </textarea>
       {fieldError && (
           <p className="text-red-600 text-asm mt-1">{fieldError}</p>

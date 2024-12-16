@@ -51,7 +51,7 @@ export const SimpleAccordion = ({ items }: SimpleAccordionProps) => {
           <div
             id={`accordion-color-body-${index}`}
             className={`${activeIndex === index ? '' : 'hidden'}`}
-            aria-labelledby={`accordion-color-heading-${index}`}
+            // aria-labelledby={`accordion-color-heading-${index}`}
           >
             <div className="p-5 border-t border-gray-700 text-gray-300">
               <p>{item.content}</p>

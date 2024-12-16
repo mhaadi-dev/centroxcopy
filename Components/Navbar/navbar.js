@@ -15,16 +15,34 @@ import navSolutionBG1 from "@/assets/navSolutionBG1.webp";
 import navSolutionBG2 from "@/assets/navSolutionBG2.webp";
 import navSolutionBG3 from "@/assets/navSolutionBG3.webp";
 import navSolutionBG4 from "@/assets/navSolutionBG4.webp";
-import Linkedin from "@/assets/LinkedIn.webp";
-import X from "@/assets/X.webp";
+import Linkedin from "@/assets/linkedin.svg";
+import X from "@/assets/twitter.svg";
+import health from "@/assets/industries/health.svg"
+import retail from "@/assets/industries/retail.svg"
+import realestate from "@/assets/industries/real-estate.svg"
+import fintech from "@/assets/industries/fintech.svg"
 import Mail from "@/assets/mail.webp";
-
+import annotation_and_labelling from "@/assets/servicesnav/Database.svg"
+import stack from "@/assets/servicesnav/Stack.svg"
+import Link from "next/link";
+import smiley from "@/assets/companynav/Smiley.svg"
+import team from "@/assets/companynav/UsersThree.svg"
+import phonecall from "@/assets/companynav/PhoneCall.svg"
+import chatbot from "@/assets/servicesnav/Chatbot.svg"
+import finetune from "@/assets/servicesnav/Fine_tune.svg"
+import  evaluation from "@/assets/servicesnav/Evaluation.svg"
+import aiagent from "@/assets/servicesnav/AI_agent.svg"
+import optimization from "@/assets/servicesnav/Optimize.svg"
+import headcircuit from "@/assets/servicesnav/HeadCircuit.svg"
+import classNames from "@/helpers/common";
 export const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
+  const [showBackdrop, setShowBackdrop] = useState(false);
   const { width } = useSize();
   const [isClient,setIsClient]=useState(false)
+  const [clickedItem,setClickedItem]=useState(null)
   useEffect(() => {
     if (width != null && width > 1024 && showMenu == true) {
       setShowMenu(false);
@@ -33,160 +51,165 @@ export const Navbar = () => {
   useEffect(()=>{
    setIsClient(true)
   },[])
+  const scrollToSection = (id) => {
+    const checkAndScroll = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        clearInterval(interval);
+      }
+    };
+  
+  
+    const interval = setInterval(checkAndScroll, 300);
+  
+    
+    setTimeout(() => {
+      clearInterval(interval);
+    }, 5000); 
+  };
+  
   const data = [
     {
       navItemText: "Services",
       onClick: () => {
-        if (pathname === "/") {
-          const solutionsComponent = document.getElementById("services");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-          router.push(`/`);
-        }
+        // if (pathname === "/") {
+        //   scrollToSection("services");
+        // } else {
+        //   localStorage.setItem("services", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("services");
+        //   }, 500);
+        // }
+        // if(showBackdrop){
+        //   setShowBackdrop(true)
+        // }else{
+        //   setShowBackdrop(!showBackdrop);
+        // }
       },
       columnData: [
         [
           {
-            heading: "Generate AI",
-            description: "Description here",
+            heading: "Custom LLM Development",
+            description: "Bringing your vision to reality by tailoring LLM development as per your needs.",
             image: ShootingStar,
-          },
-          {
-            heading: "Custome LLM Development",
-            description: "Description here",
-            image: "",
+            link:"/services/custom-llm-dev"
           },
           {
             heading: "Custom Chatbot Development",
-            description: "Description here",
-            image: "",
+            description: "Get a reliable AI chatbot assistant providing focused responses; reducing your burden.",
+            image: chatbot,
+            link:"/services/custom-chatbot-dev"
           },
           {
-            heading: "AI Agent",
-            description: "Description here",
-            image: "",
+            heading: "Fine-Tuning & Optimization",
+            description: "Fine tune and optimize your model to receive your desired outcomes.",
+            image: finetune,
+            link:"/services/ai-finetuning"
+          },
+          {
+            heading: "Agentic AI",
+            description: "Experience powerful performance with Intelligent AI Agents.",
+            image: aiagent,
+            link:"/services/ai-agents"
+          },
+         
+        ],
+        [
+          {
+            heading: "Annotation & Labeling",
+            description: "Enrich your models performance; through quality data processing.",
+            image: annotation_and_labelling,
+            link:"/services/data-annotations-and-labelling "
+          },
+          {
+            heading: "Data Validation & Quality Assurance",
+            description: "Experience finest AI performance with the accurate and validated data.",
+            image: headcircuit,
+            link:"/services/data-validation"
           },
         ],
         [
           {
-            heading: "Data Annotation",
-            description: "Description here,,,",
-            image: ShootingStar,
+            heading: "Deployment & Scaling",
+            description: "Experience smooth and scalable ML Ops integration contributing quality performance.",
+            image: stack,
+            link:"/services/custom-llm-dev"
           },
           {
-            heading: "Data Annotation & labeling",
-            description: "Description here,,,",
-            image: "",
+            heading: "Optimization",
+            description: "Optimize your model and receive precise and accurate results.",
+            image: optimization,
+            link:"/services/model-optimization"
           },
           {
-            heading: "Data Validation",
-            description: "Description here,,,",
-            image: "",
+            heading: "Evaluation",
+            description: "Analyze your model performance to build a more efficient solution for the market.",
+            image: evaluation,
+            link:"/services/evaluation"
           },
+         
         ],
-        [
-          {
-            heading: "Model Development",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "Specialized Model Dev",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "AI Fine Tuning",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "AI Algorithm Design",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
-        [
-          {
-            heading: "ML Ops",
-            description: "Description here,,,",
-            image: ShootingStar,
-          },
-          {
-            heading: "AI Model Deployment",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "Model Optimization",
-            description: "Description here,,,",
-            image: "",
-          },
-          {
-            heading: "ML Ops Consultation",
-            description: "Description here,,,",
-            image: "",
-          },
-        ],
+       
       ],
     },
     {
       navItemText: "Solutions",
       onClick: () => {
-        if (pathname === "/") {
-          const solutionsComponent = document.getElementById("solutions");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-          router.push(`/`);
-        }
+        // if (pathname === "/") {
+        //   scrollToSection("solutions");
+        // } else {
+        //   localStorage.setItem("solutions", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("solutions");
+        //   }, 500);
+        // }
+        // if(showBackdrop){
+        //   setShowBackdrop(true)
+        // }else{
+        //   setShowBackdrop(!showBackdrop);
+        // }
       },
       columnData: [
         [
           {
             heading: "Snap & Measure",
-            description: "Body of the card...",
+            description: "Making measurements convenient for apparel businesses specially.",
             bg_img: navSolutionBG1,
             isCardNavItem: true,
-            // image: ShootingStar,
+            link:"/solutions/snap-and-measure"
           },
         ],
         [
           {
             heading: "Real-estate Chatbot",
-            description: "Description here,,,",
+            description: "Get your complex analysis done within a few seconds through this efficient AI assistant.",
             bg_img: navSolutionBG2,
             isCardNavItem: true,
-            // image: ShootingStar,
+            link:"/solutions/real-estate-chatbot"
           },
         ],
         [
           {
             heading: "Mental Health Chatbot",
-            description: "Description here,,,",
+            description: "Find your 24/7 reliable emotional support and experience an uplifted mental health.",
             bg_img: navSolutionBG3,
             isCardNavItem: true,
-            // image: ShootingStar,
+            link:"/solutions/mental-health-chatbot"
           },
         ],
         [
           {
             heading: "Labeling Dresses with AI",
-            description: "Description here,,,",
+            description: "Automate your fashion e-commerce business with an AI solution that ensures accurate tagging.",
             bg_img: navSolutionBG4,
             isCardNavItem: true,
-            // image: ShootingStar,
+            link:"/solutions/labelling-dresses-with-ai"
           },
         ],
       ],
@@ -194,124 +217,97 @@ export const Navbar = () => {
     {
       navItemText: "Industries",
       onClick: () => {
-        if (pathname === "/") {
-          const solutionsComponent = document.getElementById("industries");
-          if (solutionsComponent) {
-            solutionsComponent.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        } else {
-          localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-          router.push(`/`);
-        }
+        // if (pathname === "/") {
+        //   scrollToSection("industries");
+        // } else {
+        //   localStorage.setItem("industries", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("industries");
+        //   }, 500);
+        // }
+       
+          // setShowBackdrop(!showBackdrop);
+        
+        
       },
       columnData: [
         [
           {
             heading: "Health",
-            description: "Description here,,,",
-            image: ShootingStar,
+            description: "Ensure rapid and efficient healthcare through our intelligent GenAI solutions.",
+            image: health,
+            link:"/industries/health"
           },
           {
             heading: "Fintech",
-            description: "Description here,,,",
-            image: "",
+            description: "Let Gen AI powered solutions handle the complex computation for your financial affairs.",
+            image: fintech,
+            link:"/industries/fintech"
           },
           {
             heading: "Retail",
-            description: "Description here,,,",
-            image: "",
+            description: "Empower your retail business with GenAI to experience significant growth.",
+            image: retail,
+            link:"/industries/retail"
           },
           {
             heading: "Real-estate",
-            description: "Description here,,,",
-            image: "",
+            description: "Experience excellence by automating your real estate sector through GenAI based solutions.",
+            image: realestate,
+            link:"/industries/real-estate"
           },
         ],
       ],
     },
-    // {
-    //   navItemText: "Resources",
-    //   onClick: () => {
-    //     if (pathname === "/") {
-    //       const solutionsComponent = document.getElementById("");
-    //       if (solutionsComponent) {
-    //         solutionsComponent.scrollIntoView({
-    //           behavior: "smooth",
-    //           block: "start",
-    //         });
-    //       }
-    //     } else {
-    //       localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-    //       router.push(`/`);
-    //     }
-    //   },
-    //   columnData: [
-    //     [
-    //       {
-    //         heading: "Blogs",
-    //         description: "Description here,,,",
-    //         image: ShootingStar,
-    //       },
-    //       {
-    //         heading: "Case Studies",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //       {
-    //         heading: "Guides",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //       {
-    //         heading: "White Papers",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //     ],
-    //   ],
-    // },
-    // {
-    //   navItemText: "Company",
-    //   onClick: () => {
-    //     if (pathname === "/") {
-    //       const solutionsComponent = document.getElementById("");
-    //       if (solutionsComponent) {
-    //         solutionsComponent.scrollIntoView({
-    //           behavior: "smooth",
-    //           block: "start",
-    //         });
-    //       }
-    //     } else {
-    //       localStorage.setItem(SHOW_SOLUTIONS, JSON.stringify(true));
-    //       router.push(`/`);
-    //     }
-    //   },
-    //   columnData: [
-    //     [
-    //       {
-    //         heading: "About Us",
-    //         description: "Description here,,,",
-    //         image: ShootingStar,
-    //       },
-    //       {
-    //         heading: "Team",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //       {
-    //         heading: "Careers",
-    //         description: "Description here,,,",
-    //         image: "",
-    //       },
-    //     ],
-    //   ],
-    // },
+    
+    {
+      navItemText: "Company",
+      onClick: () => {
+        // router.push("/about-us"); 
+          // setShowBackdrop(!showBackdrop);  
+      },
+      columnData: [
+        [
+          {
+            heading: "About us",
+            description: "Learn more about our journey,values, vision and mission for the AI revolution.",
+            image: smiley,
+            link:"/about-us"
+          },
+          {
+            heading: "Team",
+            description: "Find the team of passionate AI experts, driven to bring your vision to reality.",
+            image: team,
+            link:"/team"
+          },
+          {
+            heading: "Contact us",
+            description: "Feel free to reach out to us for a consultancy session with our AI experts.",
+            image: phonecall,
+            link:"/contact"
+          },
+          
+        ],
+      ],
+      socialIcons:[
+        {
+          icon:Linkedin,
+          link:"https://www.linkedin.com/company/centroxai"
+        },
+        {
+          icon:X,
+          link:"https://twitter.com/CentroxAI"
+        }
+      ]
+    },
+
   ];
+  
   return (
-    <nav className="flex  justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
+    <>
+    {showBackdrop&&<section className="h-screen w-full absolute bg-black/80 z-30 "></section>}
+     <nav className="flex   justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
       <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
         <Image
           src={AppLogo}
@@ -331,11 +327,13 @@ export const Navbar = () => {
                 columnData={navItem?.columnData}
                 isMobileView={showMenu}
                 key={index}
+                socialIcons={navItem?.socialIcons}
+                setShowBackdrop={setShowBackdrop}
               />
             );
           })}
         </div>
-        <div className="flex items-center gap-x-1 sm:gap-x-6">
+        <div className="flex  items-center  gap-x-1 sm:gap-x-6">
           {isClient && !showMenu && (
             <Button
               content="Contact Us"
@@ -346,12 +344,50 @@ export const Navbar = () => {
               className="z-[1] !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.6rem] transition-opacity duration-500 opacity-100"
             />
           )}
+           {pathname=="/case-studies" && !showMenu &&   <button
+            onClick={() => {router.push("/case-studies/search")}}
+            className="lg:hidden text-white p-1 ml-2 rounded-full bg-gray-700/80 "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="25"
+              height="25"
+              viewBox="0 0 30 30"
+            >
+              <path
+                fill="white"
+                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"
+              ></path>
+            </svg>
+          </button>}
+          {pathname=="/blogs" && !showMenu &&   <button
+            onClick={() => {router.push("/blogs/search")}}
+            className="lg:hidden text-white p-1 ml-2 rounded-full bg-gray-700/80 "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="25"
+              height="25"
+              viewBox="0 0 30 30"
+            >
+              <path
+                fill="white"
+                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"
+              ></path>
+            </svg>
+          </button>}
           <div
             className="xl:hidden text-white p-3 hover:rounded-full hover:bg-gray-600 hover:bg-opacity-6 flex flex-col gap-y-1 hover"
             onClick={() => {
               setShowMenu((prev) => !prev);
+              setClickedItem(null)
             }}
           >
+           
             {showMenu && <XMarkIcon className="text-white w-6" />}
             {!showMenu && (
               <>
@@ -375,41 +411,134 @@ export const Navbar = () => {
 >
   {data?.map((navItem, index) => (
     <div key={index} className="text-gray-100">
-      <p className="font-semibold mt-4 uppercase hover:text-blue-azure" onClick={()=>{navItem?.onClick();  setShowMenu((prev) => !prev);}}>{navItem.navItemText}</p>
-      {/* {index === 0
-        ? navItem?.columnData?.map((subItems, index) => {
-            return subItems.map((item, index) => (
-              <div className="my-[0.3rem]" key={index}>
-                <h3 className="w-full flex gap-x-2">
-                  <span
-                    className={`${
-                      index === 0 || navItem?.columnData?.length === 1
-                        ? "font-semibold"
-                        : "font-normal"
-                    } text-sm`}
-                  >
-                    {item.heading}
-                  </span>
-                </h3>
-              </div>
-            ));
-          })
-        : navItem?.columnData?.map((subItems, index) => {
-            return subItems.map((item, index) => (
-              <div key={index}>
-                <h3 className="w-full flex gap-x-2">
-                  <span className="font-semibold text-base">
-                    {item.heading}
-                  </span>
-                </h3>
-              </div>
-            ));
-          })} */}
+      <div className="flex justify-between items-center">
+        <p
+          className={`font-semibold mt-4 uppercase w-[90%] ${
+            clickedItem == index && "text-blue-azure"
+          }`}
+          onClick={() => {
+            navItem?.onClick();
+            if (clickedItem === index) {
+              setClickedItem(null);
+            } else {
+              setClickedItem(index);
+            }
+          }}
+        >
+          {navItem.navItemText}
+        </p>
+        {index !== 0 && clickedItem!==index && (
+          <svg
+            onClick={() => {
+              if (clickedItem === index) {
+                setClickedItem(null);
+              } else {
+                setClickedItem(index);
+              }
+            }}
+            width={20}
+            height={20}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z"
+              fill="#FFFFFF"
+            ></path>
+          </svg>
+        )}
+        {
+          index !== 0 && clickedItem === index && (
+           <svg  onClick={() => {
+            if (clickedItem === index) {
+              setClickedItem(null);
+            } else {
+              setClickedItem(index);
+            }
+          }}
+          width={11}
+          height={11}  fill="#FFFFFF"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.002 492.002" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth={0} /><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" /><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M484.136,328.473L264.988,109.329c-5.064-5.064-11.816-7.844-19.172-7.844c-7.208,0-13.964,2.78-19.02,7.844 L7.852,328.265C2.788,333.333,0,340.089,0,347.297c0,7.208,2.784,13.968,7.852,19.032l16.124,16.124 c5.064,5.064,11.824,7.86,19.032,7.86s13.964-2.796,19.032-7.86l183.852-183.852l184.056,184.064 c5.064,5.06,11.82,7.852,19.032,7.852c7.208,0,13.96-2.792,19.028-7.852l16.128-16.132 C494.624,356.041,494.624,338.965,484.136,328.473z" /> </g> </g> </g></svg>
+
+          )
+        }
+      </div>
+
+     
+      {index === 0 ? (
+        navItem?.columnData?.map((subItems, subIndex) => {
+          return subItems.map((item, subItemIndex) => (
+            <div className="my-[0.3rem]" key={subItemIndex}>
+              <h3 className="w-full  flex gap-x-2">
+                <Link
+                  href={item.link}
+                  className={`${
+                    subItemIndex === 0 || navItem?.columnData?.length === 1
+                      ? "font-semibold mt-1"
+                      : "font-normal"
+                  } text-sm`}
+                  onClick={() => {
+                    setShowMenu((prev) => !prev);
+                  }}
+                >
+                  {item.heading + ""}
+                </Link>
+              </h3>
+            </div>
+          ));
+        })
+      ) : (
+        <>
+     
+            <div className={classNames(clickedItem==index ? "visible animate-height ":"hidden")}>
+              {navItem?.columnData?.map((subItems, subIndex) => (
+                <div key={subIndex}>
+                  {subItems.map((item, subItemIndex) => (
+                    <div key={subItemIndex}>
+                      <h3 className="w-full flex gap-x-2">
+                        <Link
+                          href={item.link}
+                          className="font-semibold text-base"
+                          onClick={() => {
+                            setShowMenu((prev) => !prev);
+                            setClickedItem(null);
+                          }}
+                        >
+                          {item.heading + ""}
+                        </Link>
+                      </h3>
+                    </div>
+                  ))}
+                  {navItem?.socialIcons && (
+                    <div className="flex gap-6 my-3">
+                      {navItem?.socialIcons?.length &&
+                        navItem?.socialIcons?.map((icon, iconIndex) => {
+                          return (
+                            <Link href={icon?.link} key={iconIndex}>
+                              <Image src={icon?.icon} alt="social icon" />
+                            </Link>
+                          );
+                        })}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+         
+        </>
+      )}
     </div>
   ))}
 </nav>
 
+
       </div>
-    </nav>
+    </nav> 
+    </>
+    
+    
+    
   );
 };

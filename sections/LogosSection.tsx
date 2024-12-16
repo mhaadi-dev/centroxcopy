@@ -1,34 +1,40 @@
+import { CalendlyWidget } from "@/Components/common/Calendly";
+import SectionHeader from "@/Components/common/SectionHeader";
 import classNames, {
+  section_wrapper_class,
     sectionheadings,
   sectionsubheadings,
+  text_para_2,
 } from "@/helpers/common";
 
 
 import Image from "next/image";
 
-export const LogosSection = ({heading,description,data}:any) => {
+export const LogosSection = ({heading,description,data,btnText="",caption=""}:any) => {
   return (
-    <section className="w-4/5 mx-auto  mt-24 lg:mt-40 flex flex-col gap-12">
-      <h2 className={sectionheadings}>   {heading}</h2>
+    <section className={classNames(section_wrapper_class)}>
+      {/* <h2 className={sectionheadings}>   {heading}</h2>
       <p className={sectionsubheadings}>
         {description}
-      </p>
-      <div className="grid grid-cols-2 gap-8">
+      </p> */}
+      <SectionHeader tagText="Tech Stack" headingText={heading} para1Text={description}/>
+      <div className="grid grid-cols-1 w-full lg:grid-cols-2 gap-8 mt-8">
         {data?.map((x:any, index:any) => {
           return (
             <div
               style={{
-                border: "3px solid rgba(1, 184, 252, 0.20)",
-                background: "rgba(1, 184, 252, 0.10)",
-                boxShadow: "0px 0px 13px 0px rgba(1, 184, 252, 0.40) inset",
+                border: "2px solid rgba(6, 119, 230, 0.8)",
+                background: "radial-gradient(270% 67.74% at 20% 100%, rgba(7, 157, 252, 0.18) 0%, rgba(4, 93, 150, 0.06) 100%), #060606",
+
+                // boxShadow: "0px 0px 13px 0px rgba(1, 184, 252, 0.40) inset",
               }}
               key={index}
               className={classNames(
-                " p-6  rounded-xl w-full flex flex-col gap-6",
-                (index === data.length - 1 && index%2 == 0) ? "!col-span-2" : ""
+                " p-4 lg:p-6  rounded-[2rem] w-full flex flex-col gap-6",
+                (index === data.length - 1 && index%2 == 0) ? "" : ""
               )}
             >
-              <div className="flex justify-center  items-center">
+              <div className="flex h-[6.5rem] lg:h-auto w-full lg:w-4/5 mx-auto overflow-hidden   justify-center  items-center">
                 {x?.content?.map((el:any, idx:any) => {
                   return (
                     <div
@@ -38,36 +44,39 @@ export const LogosSection = ({heading,description,data}:any) => {
                     >
                       <div
                         className={classNames(
-                          "flex w-full flex-col gap-2 items-center justify-center  py-4",
+                          "flex w-full flex-col gap-2 items-center justify-center px-1   py-4",
                           idx !== x.content.length - 1 ? "border-r-2 " : ""
                         )}
                       >
-                        <figure className="h-12 w-12 relative">
+                        <figure className="h-12 w-14 relative ">
                         {el.img && 
                         <Image
                           src={el.img}
-                          className={classNames("h-full w-full object-cover ")}
-                          fill
-                          alt="icon"
+                          className={classNames("h-full w-full object-contain ")}
+                          
+                          alt={el.alt}
                         />
                 }
                         </figure>
 
-                        <h5 className="text-white font-semibold text-xs text-center">
+                        <p className="text-white font-semibold  text-[0.6rem] lg:text-[0.8rem] text-center">
                           {el.caption}
-                        </h5>
+                        </p>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              <h3 className={classNames(sectionsubheadings, "!font-semibold")}>
+              <h3 className={classNames(sectionsubheadings, "!font-semibold mt-auto")}>
                 {x.title}
               </h3>
             </div>
           );
         })}
       </div>
+{  caption &&    <p className={classNames(text_para_2,"text-center w-full my-6 mx-auto")}>{caption}</p>
+}
+{btnText &&  <div className="flex justify-center py-5 my-4"><CalendlyWidget btnText={btnText} isArrow/></div> }
     </section>
   );
 };
