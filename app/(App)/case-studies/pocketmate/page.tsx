@@ -599,8 +599,6 @@ const heroSection2Data={
   <LogosSection data={techStackData}/>
   <CommonDisplayCardsGrid data={data5} />
   <CommonDisplayCardsGrid data={data6} resizeableCardsLayout gridCols={3} />
-
-      <CaseStudyBanner heading='Meta and Centrox Partner to Drive Enterprise Adoption' para1Text='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
       </>
       
   );
