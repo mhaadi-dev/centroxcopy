@@ -309,14 +309,16 @@ export const Navbar = () => {
     {showBackdrop&&<section className="h-screen w-full absolute bg-black/80 z-30 "></section>}
      <nav className="flex   justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
       <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
-        <Image
+      <Link href={"/"} className="w-[6rem] sm:w-[15%] lg:w-[9%] 2xl:w-[10%]  cursor-pointer"> <Image
           src={AppLogo}
           alt="Logo"
           priority={true}
           loading="eager"
-          className="w-[6rem] sm:w-[15%] lg:w-[9%] 2xl:w-[10%]  cursor-pointer"
+          className="w-full h-full"
           onClick={() => router.push(`/`)}
         />
+      </Link>
+       
 
         <div className="hidden xl:flex gap-x-[5%]  xl:gap-x-[4rem] justify-between w-full sm:px-10 lg:px-0 md:w-[auto]">
           {data.map((navItem,index) => {

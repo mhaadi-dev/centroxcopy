@@ -106,38 +106,29 @@ const [userEmail,setUserEmail]=useState('')
         },
       };
       try {
-        const response = await fetch(
-          `https://api.hsforms.com/submissions/v3/integration/submit/46946787/14afa6bc-ac3b-4980-9de2-a7874fa6b1f5`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        );
+        const response = await fetch("/api/submit-form", {
+          method: "POST", 
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
       
-        if (response.status == 200) {
+        if (response.status === 429) {
+          const result = await response.json();
+          alert(result.error); 
           setIsLoading(false);
-          setFormData({
-            name: "",
-            company: "",
-            phone: "",
-            country: "",
-            email: "",
-            subject: "",
-            budget: "",
-            message: "",
-            file: "",
-          });
-          setDetails("")
-          setFormModal(true);
+        } else if (response.ok) {
           
+          setIsLoading(false);
+          setFormModal(true);
+        } else {
+          throw new Error("Submission failed. Please try again.");
         }
-      } catch (err: any) {
+      } catch (err) {
+        console.error(err);
         setIsLoading(false);
-        setError(err);
-      }finally{
+        setError("An error occurred. Please try again.");
+      }
+       finally{
         setDetails("")
       }
 

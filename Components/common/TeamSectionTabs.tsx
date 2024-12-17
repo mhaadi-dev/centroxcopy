@@ -5,7 +5,7 @@ import LinkedIn from "@/assets/linkedin.svg";
 import classNames, { text_para_2 } from "@/helpers/common";
 
 const TeamSectionTabs = ({ data }:any) => {
-  const categories = ["all", "AI/ml_engineers", "developers", "product", "marketing_specialists"];
+  const categories = ["all", "AI/ml_engineers", "Engineers", "product", "marketing_specialists"];
   const [currentTab, setCurrentTab] = useState("all");
 
   // Filter data based on the selected category
