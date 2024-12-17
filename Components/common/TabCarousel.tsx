@@ -94,28 +94,6 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
     }
   }, [setTabs, tabs]);
 
-  // const selectedTab =
-  //   tabs.find((tab: any) => tab.current)?.name || tabs?.[0]?.name;
-
-  // useEffect(() => {
-  //   const switchTab = () => {
-  //     setTabs((prevTabs: any) => {
-  //       const currentIndex = prevTabs.findIndex((tab: any) => tab.current);
-  //       const nextIndex = (currentIndex + 1) % prevTabs.length;
-  //       return prevTabs.map((tab: any, index: number) => ({
-  //         ...tab,
-  //         current: index === nextIndex,
-  //       }));
-  //     });
-  //   };
-
-
-  //   const interval = setInterval(() => {
-  //     switchTab();
-  //   }, intervalDuration);
-
-  //   return () => clearInterval(interval); 
-  // }, [setTabs, intervalDuration]);
 
   const handleTabClick = (tabName: string) => {
   

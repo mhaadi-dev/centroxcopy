@@ -41,6 +41,8 @@ import servicebg from "@/assets/Servicebg.webp"
 import consistencyicon from "@/assets/consistency.webp"
 import insightsicon from "@/assets/Insights.webp"
 import scalibilityicon from "@/assets/Scalability & availability.webp"
+import langchain from "@/assets/langchain.webp"
+import langgraph from "@/assets/LangGraph Icon.svg"
 export const metadata = {
   title:"Build your Custom AI Chatbot For Customer Support | Centrox AI",
   description:"Develop custom AI chatbots for personalized, scalable support. Enhance customer engagement and streamline operations. Book your session with Centrox AI",
@@ -282,14 +284,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Conversational AI Platforms",
       content: [
         {
-          alt: "Rasa",
-          caption: "Rasa",
-          img: rasa,
+          alt: "Langchain",
+          caption: "Langchain",
+          img: langchain,
         },
         {
-          alt: "Dialogflow",
-          caption: "Dialogflow",
-          img: dialogflow,
+          alt: "LangGraph",
+          caption: "LangGraph",
+          img: langgraph,
         },
       ],
     },
