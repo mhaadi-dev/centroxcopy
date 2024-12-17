@@ -25,12 +25,13 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 
-import rasa from "@/assets/Rasa-white.webp"
-import dialogflow from "@/assets/dialogflow.svg"
+
 import IndustryBanner from "@/Components/common/IndustryBanner";
 
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
+import langchain from "@/assets/langchain.webp"
+import langgraph from "@/assets/LangGraph Icon.svg"
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -231,14 +232,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       title: "Conversational AI Platforms",
       content: [
         {
-          alt: "Icon",
-          caption: "Rasa",
-          img: rasa,
+          alt: "Langchain",
+          caption: "Langchain",
+          img: langchain,
         },
         {
-          alt: "Icon",
-          caption: "Dialogflow",
-          img: dialogflow,
+          alt: "Langgraph",
+          caption: "LangGraph",
+          img: langgraph,
         },
       ],
     },

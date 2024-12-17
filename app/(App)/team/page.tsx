@@ -121,7 +121,7 @@ async function TeamPage() {
           img: wahab,
           linkedINUrl: "https://www.linkedin.com/in/abdul-wahab-1a9494198/",
           name: "Abdul Wahab",
-          category: "developers",
+          category: "Engineers",
           alt: "Abdul Wahab, Frontend Engineer, posing for head shot sitting in front of Centrox logo"
         },
         {
@@ -129,7 +129,7 @@ async function TeamPage() {
           img: hadi,
           linkedINUrl: "https://www.linkedin.com/in/muhammad-hadi-09a7a2251/",
           name: "Muhammad Hadi",
-          category: "developers",
+          category: "Engineers",
           alt: "Muhammad Hadi, Frontend Engineer, posing for head shot sitting in front of Centrox logo"
         },
    
@@ -138,7 +138,7 @@ async function TeamPage() {
           img: moazzam,
           linkedINUrl: "https://www.linkedin.com/in/syed-moazzam/",
           name: "Syed Moazzam Ahmed",
-          category: "developers",
+          category: "Engineers",
           alt: "Syed Moazzam Ahmed, Full Stack Developer, posing for head shot sitting in front of Centrox logo"
         },
         {
@@ -146,7 +146,7 @@ async function TeamPage() {
           img: haiderali,
           linkedINUrl: "https://www.linkedin.com/in/haiderali-tech/",
           name: "Haider Ali",
-          category: "developers",
+          category: "Engineers",
           alt: "Haider Ali, Full Stack Developer, posing for head shot sitting in front of Centrox logo"
         },
         {
@@ -154,7 +154,7 @@ async function TeamPage() {
           img: ahmadimran,
           linkedINUrl: "https://www.linkedin.com/in/ahmed-imran-5236bb160/",
           name: "Ahmad Imran",
-          category: "developers",
+          category: "Engineers",
           alt: "Ahmad Imran, Backend Engineer, posing for head shot sitting in front of Centrox logo"
         },
         {
@@ -162,23 +162,23 @@ async function TeamPage() {
           img: omer,
           linkedINUrl: "https://www.linkedin.com/in/muhammad-omer-qasim-03a218242/",
           name: "Muhammad Omer",
-          category: "developers",
+          category: "Engineers",
           alt: "Muhammad Omer, Backend Engineer, posing for head shot sitting in front of Centrox logo"
         },
         {
-          designation: "Backend Engineer",
+          designation: "Senior Backend Engineer",
           img: adeel,
           linkedINUrl: "https://www.linkedin.com/in/adeelirshad808/",
           name: "Adeel Irshad",
-          category: "developers",
+          category: "Engineers",
           alt: "Adeel Irshad, Backend Engineer, posing for head shot sitting in front of Centrox logo"
         },
         {
-          designation: "DevOps Engineer",
+          designation: "Senior DevOps Engineer",
           img: khalid,
           linkedINUrl: "https://www.linkedin.com/in/khalid-khushal",
           name: "Khalid Kushal",
-          category: "developers",
+          category: "Engineers",
           alt: "Khalid Kushal, DevOps Engineer, posing for head shot sitting in front of Centrox logo"
         },
         {
@@ -186,24 +186,24 @@ async function TeamPage() {
           img: javeriasyed,
           linkedINUrl: "https://www.linkedin.com/in/javeria-syed-492702210/",
           name: "Javeria Syed",
-          category: "developers",
+          category: "Engineers",
           alt: "Javeria Syed, UI/UX Designer, posing for head shot sitting in front of Centrox logo"
         },
       
         {
-          designation: "App Developer",
+          designation: "Senior Mobile Engineer",
           img: faseeh,
           linkedINUrl: "https://www.linkedin.com/in/faseeh-abbas-khan/",
           name: "Faseeh Abbas",
-          category: "developers",
+          category: "Engineers",
           alt: "Faseeh Abbas, App Developer, posing for head shot sitting in front of Centrox logo"
         },
         {
-          designation: "App Developer",
+          designation: "Mobile Engineer",
           img: alishba,
           linkedINUrl: "https://www.linkedin.com/in/alishbah-naveed/",
           name: "Alishbah Naveed",
-          category: "developers",
+          category: "Engineers",
           alt: "Alishbah Naveed, App Developer, posing for head shot sitting in front of Centrox logo"
         },
         {
