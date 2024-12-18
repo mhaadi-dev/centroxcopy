@@ -7,6 +7,9 @@ ingress:
     domains:
         - "www.centrox.ai"
         - "centrox.ai"
+    annotations:
+        nginx.ingress.kubernetes.io/permanent-redirect: "https://www.centrox.ai"
+        nginx.ingress.kubernetes.io/permanent-redirect-code: "301"
 
 service:
     ports:
