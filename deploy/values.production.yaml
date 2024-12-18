@@ -1,17 +1,36 @@
 replicas: 1
 
+# ingress:
+#     enabled: true
+#     tls: true
+#     secret_name: centrox-ai-frontend-landing-tls
+#     domains:
+#         - "www.centrox.ai"
+#         - "centrox.ai"
+
 ingress:
     enabled: true
     tls: true
     secret_name: centrox-ai-frontend-landing-tls
-    domains:
-        - "www.centrox.ai"
-        - "centrox.ai"
-    annotations:
+    globalAnnotations:
+        kubernetes.io/ingress.class: "nginx"
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        cert-manager.io/issue-temporary-certificate: "true"
+        cert-manager.io/renew-before: 1440h
+        nginx.ingress.kubernetes.io/add-base-url: "true"
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+
+  domains:
+    - name: www.centrox.ai
+      annotations:
         nginx.ingress.kubernetes.io/permanent-redirect: "https://centrox.ai"
         nginx.ingress.kubernetes.io/permanent-redirect-code: "301"
+    - name: centrox.ai
+      annotations: {}
 
 service:
+    name: centrox-ai-frontend-landing-service
     ports:
         target: 3000
         port: 80
@@ -21,3 +40,4 @@ server:
     port: 3000
     session_secret: "ashdfjhasdlkjfhalksdjhflal"
     environment: production
+
