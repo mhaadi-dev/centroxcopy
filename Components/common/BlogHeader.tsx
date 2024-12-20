@@ -15,7 +15,7 @@ const BlogHeader = ({ headingText, paraText, includeDots }: Props) => {
         <div className="absolute inset-0 object-cover z-[1]">
           <Image src={dotsbg} alt="background" layout="fill" objectFit="cover" />
         </div>
-        <section className={classNames(section_wrapper_class, "relative z-[1] py-16 lg:py-32 mt-8 lg:mt-12 2xl:mt-24 flex flex-col gap-4 my-auto justify-center items-center")}>
+        <section className={classNames(section_wrapper_class, "relative z-[1] pb-24   mt-8   flex flex-col gap-4  justify-center items-center")}>
           {headingText && <h1 className={classNames(text_h1_main)}>{headingText}</h1>}
           {paraText && <p className={classNames(text_para_2,"text-center")}>{paraText}</p>}
         </section>

@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import "slick-carousel/slick/slick.css";
@@ -10,8 +10,11 @@ import leftIcon from "@/public/images/template/carousalLeftArrow.svg";
 import rightIcon from "@/public/images/template/carousalRightArrow.svg";
 import classNames, { h3ClassName, p4ClassName } from "@/helpers/common";
 import CommonCard from "./CommonCard";
+import { slugify } from "@/sanity/lib/helpers";
+import Link from "next/link";
 
 export const ProductsCarousal = ({ data }: any) => {
+  const [isClient,setIsClient]=useState(false)
   const settings = {
     dots: true,
     infinite: true,
@@ -58,17 +61,28 @@ export const ProductsCarousal = ({ data }: any) => {
   };
 
   const slider = React.useRef(null);
-
-  return (
+useEffect(()=>{
+setIsClient(true)
+},[])
+  
+  return (  
     <>
-      <div className="sm:max-w-[1681px] overflow-hidden mx-[0rem] my-5 sm:-mr-[15rem] 3xl:mx-auto ">
-        <Slider ref={slider} {...settings}>
+      {isClient && <div className="sm:max-w-[1681px] flex flex-col  overflow-hidden mx-[0rem] my-5 sm:-mr-[15rem] 3xl:mx-auto ">
+          <Slider ref={slider} {...settings}>
           {data?.map((x, index) => {
+
+            const newLink = `/blogs/${slugify(x?.content_item?.category )}/${slugify(x?.content_item?.label)}?id=${x?._id} `;
             return (
-              <CommonCard key={index} title={x.title} category={x.category} date={x.date} image={x.img}/>
+              // link={`${x?.slug?.current }/${x?.subslug?.current}`}
+              <Link href={`/blogs/${slugify(x?.content_item?.category)}/${slugify(x?.content_item?.label)}?id=${x?._id}`}>
+                 <CommonCard key={index} linkText={x?.content_item?.linkText || "Learn more"} linkWithIcon={x.content_item?.linkWithIcon} link={newLink} subdescription={x?.content_item?.subdescription}  title={x.content_item?.title} category={x.content_item?.category} date={x.content_item?.date} image={x.content_item?.image?.image} tags={x.content_item?.tags}/>
+              </Link>
+                
             );
           })}
         </Slider>
+        
+        
         <div className="flex mt-2 md:mt-4 justify-center  md:justify-start gap-6">
           <Image
             src={leftIcon}
@@ -83,7 +97,7 @@ export const ProductsCarousal = ({ data }: any) => {
             alt="right-ci"
           />
         </div>
-      </div>
+      </div>}
     </>
   );
 };

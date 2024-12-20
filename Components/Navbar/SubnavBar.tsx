@@ -14,15 +14,17 @@ interface subNavItemList {
 interface subNavItems {
   subNavTitle?: string;
   subItems?: subNavItemList[];
+  
 }
 
 interface Props {
   searchView?: (isSearch: boolean) => void;
   title?: string;
   navItems?: subNavItems[];
+  imageLink?:string
 }
 
-const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
+const SubnavBar = ({ searchView,imageLink="", title, navItems = [] }: Props) => {
   const router = useRouter();
   const [showSearchComponent, setShowSearchComponent] = useState(false);
   const [clickedIndex, setClickedIndex] = useState<number | null>(null);
@@ -34,7 +36,7 @@ const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
 
   return (
     <>
-      <nav className="hidden xl:flex justify-center fixed z-20 top-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900">
+      <nav className="hidden xl:flex justify-center   z-20 mt-24 left-0 py-4 sm:h-16 items-center w-full bg-gray-900">
         <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px] relative">
           <div className="flex w-full items-center gap-x-6">
             <div className="flex items-center gap-x-2">
@@ -44,7 +46,7 @@ const SubnavBar = ({ searchView, title, navItems = [] }: Props) => {
                 priority={true}
                 loading="eager"
                 className="w-[5rem] sm:w-[5rem] lg:w-[7rem] cursor-pointer"
-                onClick={() => router.push(`/case-studies`)}
+                onClick={() => router.push(`${imageLink}`)}
               />
               {title && (
                 <h3 className="text-blue-azure font-heading text-[1.1rem]">{title}</h3>

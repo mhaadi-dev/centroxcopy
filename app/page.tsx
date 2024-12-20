@@ -4,7 +4,7 @@ import { Section3 } from "@/views/Section3";
 import { LandingAboutUs } from "@/views/LandingAboutUs";
 import dummyDisplay from "@/assets/dummyDisplay.webp";
 import { sanityFetch } from "@/sanity/lib/client";
-import { LANDING_PAGE_QUERY } from "@/sanity/query";
+import { GETALLBLOGS_QUERY, GETFirstBLOGS_QUERY, LANDING_PAGE_QUERY } from "@/sanity/query";
 // import { Testimonial } from "@/views/Testimonial";
 
 import { POCS } from "@/views/POCS";
@@ -39,6 +39,9 @@ import industryPic2 from "@/assets/industry2.webp";
 import industryPic3 from "@/assets/industry3.webp";
 import industryPic4 from "@/assets/industry4.webp";
 import pocketmatetitle from "@/assets/pocketmatetitle.webp"
+import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
+import { PortableText } from "next-sanity";
+import { PortableComponent } from "@/Components/common/PortableText";
 const WebsiteFooter = dynamic(
   () => import("@/Components/common/WebsiteFooter"),
   { ssr: false }
@@ -49,10 +52,15 @@ const WebsiteFooter = dynamic(
 // import useScrollToElement from "@/hooks/useScrollToElement";
 
 export default async function Home() {
-  const data: any = await sanityFetch({
-    query: LANDING_PAGE_QUERY,
-  });
+  // const data: any = await sanityFetch({
+  //   query: LANDING_PAGE_QUERY,
+  // });
 
+  const blogsCardData:any = await sanityFetch({
+    query:GETFirstBLOGS_QUERY
+  })
+
+  console.log("blogs data is",blogsCardData)
   //  useScrollToElement();
   const servicesTabs = [
     { name: "Data Annotations", href: "#", current: true },
@@ -374,6 +382,7 @@ export default async function Home() {
       <Navbar />
       <LandingHeroSection />
       <LogosCarousel />
+      <LandingBlogSection cardsData={blogsCardData}/>
       <LandingAboutUs />
       <LandingServicesSection
         servicesTabs={servicesTabs}
@@ -398,7 +407,7 @@ export default async function Home() {
       />
       {/* <LandingCaseStudySection {...caseStudyData}/> */}
       <LandingTestimonialSection />
-      {/* <LandingBlogSection/> */}
+   
       <LandingContactSection />
       <LandingFAQSection />
 

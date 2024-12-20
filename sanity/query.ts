@@ -18,6 +18,207 @@ export async function getProfile() {
     }`
   );
 }
+
+export const GETFirstBLOGS_QUERY = groq`
+  *[_type == "blog"] | order(_createdAt desc) [0...6] {
+    _id,
+    name,
+    meta_title,
+    meta_description,
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      category,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+      link,
+      isSearchResult,
+      label,
+      duration,
+      name,
+      author_description,
+      author_image,
+      author_alt,
+      blog_data,
+      colSpan,
+      banner_data,
+      subslug
+    }
+  }
+`;
+export const GET_TOTAL_BLOGS_COUNT = groq`
+  count(*[_type == "blog"])
+`;
+export const GETALLBLOGS_QUERY = groq`
+  *[_type == "blog"] | order(_createdAt desc) {
+    _id,
+    name,
+    meta_title,
+    meta_description,
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      category,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+      link,
+      isSearchResult,
+      label,
+      duration,
+      name,
+      author_description,
+      author_alt,
+      author_image,
+      colSpan,
+      blog_data,
+      banner_data,
+      subslug
+    }
+  }
+`;
+export const GET_PAGINATED_ARTICLES_QUERY = groq`
+  *[_type == "blog" && _id > $lastId] | order(_createdAt desc) [0...3] {
+    _id,
+    name,
+    meta_title,
+    meta_description,
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      category,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+      link,
+      isSearchResult,
+      label,
+      duration,
+      name,
+      author_description,
+      author_alt,
+      author_image,
+      colSpan,
+      blog_data,
+      banner_data,
+      subslug
+    }
+  }
+`;
+
+
+
+export const GET_BLOG_BY_ID_QUERY = (id: string) => groq`
+  *[_type == "blog" && _id == $id][0] {
+    _id,
+    name,
+  
+    meta_title,
+    meta_description,
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      category,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+     
+      isSearchResult,
+      label,
+      duration,
+      name,
+      author_description,
+      author_image,
+      author_alt,
+      link,
+      colSpan,
+      blog_data,
+      banner_data
+    }
+  }
+`;
+
+export const SEARCH_BLOGS_QUERY = (keyword:string) => groq`
+  *[_type == "blog" && 
+    (name match "*${keyword}*" || 
+     meta_title match "*${keyword}*" || 
+     meta_description match "*${keyword}*" || 
+     content_item.title match "*${keyword}*" || 
+     content_item.tags[] match "*${keyword}*"
+    )
+  ] | order(_createdAt desc) {
+    _id,
+    name,
+ 
+    meta_title,
+    meta_description,
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      category,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+      isSearchResult,
+      label,
+      duration,
+      name,
+      author_description,
+      author_image,
+      author_alt,
+      link,
+      colSpan,
+      blog_data,
+      banner_data,
+    
+    }
+  }
+`;
+export const GET_BLOGS_BY_CATEGORY_QUERY = (category: string) => groq`
+  *[_type == "blog" && content_item.category == $category] | order(_createdAt asc)[0..5] {
+    _id,
+    name,
+    meta_title,
+    meta_description,
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      category,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+      isSearchResult,
+      label,
+      duration,
+      name,
+      author_description,
+      author_image,
+      author_alt,
+      link,
+      colSpan,
+      blog_data,
+      banner_data
+    }
+  }
+`;
+
+
+
+
+
 export const POSTS_QUERY = groq`*[_type == "profile"]{
   _id,
   fullName,
