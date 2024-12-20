@@ -4,17 +4,36 @@ import React, { useState } from "react";
 import LinkedIn from "@/assets/linkedin.svg";
 import classNames, { text_para_2 } from "@/helpers/common";
 
-const TeamSectionTabs = ({ data }:any) => {
-  const categories = ["all", "AI/ml_engineers", "Engineers", "product", "marketing_specialists"];
+const TeamSectionTabs = ({ data }: any) => {
+  const categories = [
+    "all",
+    "AI/ml_engineers",
+    "Engineers",
+    "product",
+    "marketing_specialists",
+  ];
   const [currentTab, setCurrentTab] = useState("all");
 
-  // Filter data based on the selected category
+  const aiMlEngineers = data.filter((item: any) => item.category === "AI/ml_engineers");
+  const engineers = data.filter((item: any) => item.category === "Engineers");
+  const product = data.filter((item: any) => item.category === "product");
+  const marketingSpecialists = data.filter((item: any) => item.category === "marketing_specialists");
+
   const filteredData =
-    currentTab === "all" ? data : data.filter((item:any) => item.category === currentTab);
+    currentTab === "all"
+      ? data
+      : currentTab === "AI/ml_engineers"
+      ? aiMlEngineers
+      : currentTab === "Engineers"
+      ? engineers
+      : currentTab === "product"
+      ? product
+      : currentTab === "marketing_specialists"
+      ? marketingSpecialists
+      : [];
 
   return (
     <section className="flex flex-col gap-[4.5rem]">
-      {/* Tabs */}
       <div className="flex-col flex gap-x- lg:gap-x-0 lg:flex-row gap-y-4">
         {categories.map((key) => (
           <div
@@ -35,7 +54,7 @@ const TeamSectionTabs = ({ data }:any) => {
 
       {/* Team Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-full mx-auto text-white">
-        {filteredData.map((el:any, index:number) => (
+        {filteredData.map((el: any, index: number) => (
           <div
             key={index}
             className="flex flex-col justify-center items-center p-4 rounded-xl"
