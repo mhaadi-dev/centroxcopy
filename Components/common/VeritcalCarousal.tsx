@@ -28,10 +28,8 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
     verticalSwiping: true,
     centerMode: true, 
     beforeChange: function (currentSlide:any, nextSlide:any) {
-      console.log("before change", currentSlide, nextSlide);
     },
     afterChange: function (currentSlide:any) {
-      console.log("after change", currentSlide);
     },
   };
   
@@ -49,10 +47,8 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
     cssEase: "linear",
     verticalSwiping: true,
     beforeChange: function (currentSlide: any, nextSlide: any) {
-      console.log("before change", currentSlide, nextSlide);
     },
     afterChange: function (currentSlide: any) {
-      console.log("after change", currentSlide);
     },
   };
   return (

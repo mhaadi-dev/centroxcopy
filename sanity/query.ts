@@ -45,7 +45,8 @@ export const GETFirstBLOGS_QUERY = groq`
       blog_data,
       colSpan,
       banner_data,
-      subslug
+      related_blogs_heading,
+      related_blogs_paragraph
     }
   }
 `;
@@ -78,12 +79,13 @@ export const GETALLBLOGS_QUERY = groq`
       colSpan,
       blog_data,
       banner_data,
-      subslug
+      related_blogs_heading,
+      related_blogs_paragraph
     }
   }
 `;
 export const GET_PAGINATED_ARTICLES_QUERY = groq`
-  *[_type == "blog" && _id > $lastId] | order(_createdAt desc) [0...3] {
+  *[_type == "blog"] | order(_createdAt desc) [$startRange...$endRange] {
     _id,
     name,
     meta_title,
@@ -108,12 +110,16 @@ export const GET_PAGINATED_ARTICLES_QUERY = groq`
       colSpan,
       blog_data,
       banner_data,
-      subslug
+      related_blogs_heading,
+      related_blogs_paragraph
     }
   }
 `;
 
 
+export const GET_PAGINATED_ARTICLES_QUERY_ONSPECIFICPAGE = groq`
+  *[_type == "blog" && _id > $lastId][$index]._id 
+`;
 
 export const GET_BLOG_BY_ID_QUERY = (id: string) => groq`
   *[_type == "blog" && _id == $id][0] {
@@ -142,12 +148,14 @@ export const GET_BLOG_BY_ID_QUERY = (id: string) => groq`
       link,
       colSpan,
       blog_data,
-      banner_data
+      banner_data,
+      related_blogs_heading,
+      related_blogs_paragraph
     }
   }
 `;
 
-export const SEARCH_BLOGS_QUERY = (keyword:string) => groq`
+export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number, endRange: number) => groq`
   *[_type == "blog" && 
     (name match "*${keyword}*" || 
      meta_title match "*${keyword}*" || 
@@ -155,10 +163,9 @@ export const SEARCH_BLOGS_QUERY = (keyword:string) => groq`
      content_item.title match "*${keyword}*" || 
      content_item.tags[] match "*${keyword}*"
     )
-  ] | order(_createdAt desc) {
+  ] | order(_createdAt desc) [${startRange}...${endRange}] {
     _id,
     name,
- 
     meta_title,
     meta_description,
     content_item {
@@ -181,10 +188,22 @@ export const SEARCH_BLOGS_QUERY = (keyword:string) => groq`
       colSpan,
       blog_data,
       banner_data,
-    
+      related_blogs_heading,
+      related_blogs_paragraph
     }
   }
 `;
+export const TOTAL_SEARCH_BLOGS_COUNT_QUERY = (keyword: string) => groq`
+  count(*[_type == "blog" && 
+    (name match "*${keyword}*" || 
+     meta_title match "*${keyword}*" || 
+     meta_description match "*${keyword}*" || 
+     content_item.title match "*${keyword}*" || 
+     content_item.tags[] match "*${keyword}*"
+    )
+  ])
+`;
+
 export const GET_BLOGS_BY_CATEGORY_QUERY = (category: string) => groq`
   *[_type == "blog" && content_item.category == $category] | order(_createdAt asc)[0..5] {
     _id,
@@ -210,7 +229,10 @@ export const GET_BLOGS_BY_CATEGORY_QUERY = (category: string) => groq`
       link,
       colSpan,
       blog_data,
-      banner_data
+      banner_data,
+      related_blogs_heading,
+      related_blogs_paragraph
+
     }
   }
 `;

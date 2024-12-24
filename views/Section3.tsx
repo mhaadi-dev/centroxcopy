@@ -157,7 +157,6 @@ export const Section3 = () => {
   const { view } = useContext(ServiceViewContext);
   const {width} = useSize();
 
-  console.log("view in section 3  is ", view);
 
   const [showToast, setShowToast] = useState(false);
   const [tabs, setTabs] = useState([
@@ -178,7 +177,6 @@ export const Section3 = () => {
         current: false,
       };
     });
-    console.log("new tabs is", updatedTabs, view);
     setTabs(updatedTabs);
   }, [view]);
 

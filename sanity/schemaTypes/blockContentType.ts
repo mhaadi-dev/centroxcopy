@@ -90,9 +90,20 @@ export const blockContentType = defineType({
     // Table type for structured data in blockContent
     defineArrayMember({
       type: 'object',
-      name: 'table',  // Unique name for the table object
+      name: 'table', // Unique name for the table object
       title: 'Table',
       fields: [
+        {
+          name: 'thead',
+          type: 'array',
+          title: 'Table Header',
+          of: [
+            {
+              type: 'string',
+              title: 'Header Cell',
+            },
+          ],
+        },
         {
           name: 'rows',
           type: 'array',
@@ -124,6 +135,7 @@ export const blockContentType = defineType({
         },
       ],
     }),
+    
 
     defineArrayMember({
       type: 'object',

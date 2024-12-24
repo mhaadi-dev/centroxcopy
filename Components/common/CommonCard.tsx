@@ -40,13 +40,12 @@ const CommonCard = ({
   return (
     <div
       className={classNames(
-        "max-w-  mx-auto  flex flex-col h-full   justify-center    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",
-        isSearchResult
-          ? "flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 "
-          : "flex-col",
+        "max-w-  mx-auto  flex flex-col   justify-center    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",
         colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1"
       )}
     >
+      <Link href={link||""} className={classNames( isSearchResult
+          ? "flex flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"")}>
       {image && (
         <Image
           src={image}
@@ -60,7 +59,7 @@ const CommonCard = ({
           alt="img-alt"
         />
       )}
-      <div className=" h-  w-full">
+      <div className=" h-full   w-full">
         <div className="flex items-center gap-x-3">
           {label && (
             <p className={classNames(text_para_3, "text-blue-azure")}>
@@ -138,6 +137,8 @@ const CommonCard = ({
           </Link>
         )}
       </div>
+      </Link>
+      
     </div>
   );
 };

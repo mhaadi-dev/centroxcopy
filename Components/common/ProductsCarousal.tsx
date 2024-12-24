@@ -29,7 +29,6 @@ export const ProductsCarousal = ({ data }: any) => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -38,7 +37,6 @@ export const ProductsCarousal = ({ data }: any) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -47,7 +45,6 @@ export const ProductsCarousal = ({ data }: any) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -67,16 +64,15 @@ setIsClient(true)
   
   return (  
     <>
-      {isClient && <div className="sm:max-w-[1681px] flex flex-col  overflow-hidden mx-[0rem] my-5 sm:-mr-[15rem] 3xl:mx-auto ">
+      {isClient && <div className="sm:max-w-[1681px] flex flex-col   overflow-hidden mx-[0rem] my-5 sm:-mr-[15rem] 3xl:mx-auto ">
           <Slider ref={slider} {...settings}>
           {data?.map((x, index) => {
 
             const newLink = `/blogs/${slugify(x?.content_item?.category )}/${slugify(x?.content_item?.label)}?id=${x?._id} `;
             return (
               // link={`${x?.slug?.current }/${x?.subslug?.current}`}
-              <Link href={`/blogs/${slugify(x?.content_item?.category)}/${slugify(x?.content_item?.label)}?id=${x?._id}`}>
                  <CommonCard key={index} linkText={x?.content_item?.linkText || "Learn more"} linkWithIcon={x.content_item?.linkWithIcon} link={newLink} subdescription={x?.content_item?.subdescription}  title={x.content_item?.title} category={x.content_item?.category} date={x.content_item?.date} image={x.content_item?.image?.image} tags={x.content_item?.tags}/>
-              </Link>
+             
                 
             );
           })}

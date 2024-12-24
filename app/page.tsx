@@ -50,7 +50,7 @@ const WebsiteFooter = dynamic(
 
 
 // import useScrollToElement from "@/hooks/useScrollToElement";
-
+export const revalidate=120;
 export default async function Home() {
   // const data: any = await sanityFetch({
   //   query: LANDING_PAGE_QUERY,
@@ -60,7 +60,6 @@ export default async function Home() {
     query:GETFirstBLOGS_QUERY
   })
 
-  console.log("blogs data is",blogsCardData)
   //  useScrollToElement();
   const servicesTabs = [
     { name: "Data Annotations", href: "#", current: true },

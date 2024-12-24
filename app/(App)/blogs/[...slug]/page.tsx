@@ -3,12 +3,15 @@ import BlogBanner from '@/Components/common/BlogBanner';
 import BlogContentSection from '@/Components/common/BlogContentSection';
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import { client } from '@/sanity/lib/client';
+import { slugify } from '@/sanity/lib/helpers';
+import { urlFor } from '@/sanity/lib/image';
 import { GET_BLOG_BY_ID_QUERY, GET_BLOGS_BY_CATEGORY_QUERY } from '@/sanity/query';
 import LandingBlogSection from '@/views/LandingPageViews/LandingBlogSection';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
 // Use generateMetadata to dynamically set meta title and description
+export const revalidate=10;
 export async function generateMetadata({ searchParams }: any) {
   const { id } = searchParams;
   let query;
@@ -37,10 +40,9 @@ let blogData;
       .replace(/\s+/g, " ")                  
       .trim();                               
   }
-  // const metaTitle = cleanMetaText(blogData?.meta_title) || "";
-  // const metaDescription = cleanMetaText(blogData?.meta_description) || "";
-  const metaTitle = (blogData?.meta_title) || "";
-  const metaDescription = (blogData?.meta_description) || "";
+  const metaTitle = cleanMetaText(blogData?.meta_title) || "";
+  const metaDescription = cleanMetaText(blogData?.meta_description) || "";
+
 
   return {
     title: metaTitle,
@@ -49,6 +51,9 @@ let blogData;
       title: metaTitle,
       description: metaDescription,
       type: 'article',
+    },
+    alternates: {
+      canonical: `https://centrox.ai/blogs/${slugify(blogData?.content_item?.category)}/${slugify(blogData?.content_item?.label)}?id=${blogData?._id}`,
     },
   };
 }
@@ -126,9 +131,19 @@ const Page = async ({ searchParams }: any) => {
         name={blogData.content_item?.name}
         product='Product'
         duration={blogData.content_item?.duration}
+        banner_image={blogData?.content_item?.image?.image}
+        showReadLink={false}
       />
-      <BlogContentSection content={blogData.content_item?.blog_data} />
-     { similarBlogs?.length > 1 && <LandingBlogSection cardsData={similarBlogs || []} className="overflow-hidden" />}
+      <BlogContentSection authorInfo={
+        {name:blogData?.content_item?.name,
+          link:blogData?.content_item?.link,
+          author_description:blogData?.content_item?.author_description,
+          author_image:urlFor(blogData?.content_item?.author_image)?.url()
+        }
+
+
+        } content={blogData.content_item?.blog_data} />
+     { similarBlogs?.length > 1 && <LandingBlogSection heading={blogData.content_item?.related_blogs_heading} description={blogData.content_item?.related_blogs_paragraph} cardsData={similarBlogs || []} className="overflow-hidden" />}
       <IndustryBanner
         heading="Good Stuff is All Here"
         description="We will help you develop whatever you desire in your AI development. This is a placeholder"

@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import { space } from "postcss/lib/list";
 import Link from "next/link";
 import test from "@/assets/Test Design.svg";
+import { slugify } from "@/sanity/lib/helpers";
 interface Props {
   heading?: string;
   paraText?: string;
@@ -21,6 +22,11 @@ interface Props {
   product?: string;
   duration?: string;
   className?: string;
+  banner_image?:any,
+  category?:string,
+  label?:string,
+  id?:string,
+  showReadLink?:boolean
 }
 const BlogBanner = ({
   heading,
@@ -29,7 +35,11 @@ const BlogBanner = ({
   name,
   product,
   duration,
-  className
+  className,
+  banner_image,
+  category,label,
+  id,
+  showReadLink=true
 }: Props) => {
   const pathname = usePathname();
   console.log("Path",pathname)
@@ -38,7 +48,7 @@ const BlogBanner = ({
       .split("-")
       .map((path) => path[0]?.toUpperCase() + path.slice(1));
   });
-console.log("BreadCrumb",breadcrumbsPath)
+console.log("id in banner is ",id)
   return (
     <section
       className={classNames(
@@ -104,9 +114,30 @@ console.log("BreadCrumb",breadcrumbsPath)
             {product && <p className="font-semibold">{product}</p>}
             {duration && <p>{duration}</p>}
           </div>
+      
+        {   showReadLink&&  <Link
+         href={ `/blogs/${slugify(category)}/${slugify(label)}?id=${id}`} 
+            className="text-gray-900 text-[0.7rem] lg:text-[1.1rem] my-3  flex items-center gap-2 hover:text-blue-900"
+          >
+           Read This Blog
+              <svg
+                className="cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 25 25"
+                width={24}
+                height={24}
+              >
+                <path
+                  fill="currentColor"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right"
+                />
+              </svg>
+       
+          </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={test} alt="image"></Image>
+          <Image src={banner_image} alt="image" width={610} height={320} className="h-[320px] w-[610px]"></Image>
         </div>
       </div>
     </section>

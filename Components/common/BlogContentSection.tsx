@@ -7,7 +7,7 @@ import MainBlogContent from "./MainBlogContent";
 import BlogSideBars from "./BlogSideBars";
 import { PortableText } from "@portabletext/react";
 
-const BlogContentSection = ({ content }: any) => {
+const BlogContentSection = ({ content,authorInfo }: any) => {
   const [headings, setHeadings] = useState<string[]>([]);
 
   useEffect(() => {
@@ -26,17 +26,18 @@ const BlogContentSection = ({ content }: any) => {
     };
     
     extractHeadings(content);
-    console.log("ALL HEADINGS",headings)
   }, [content]);
 
   return (
-    <section className={classNames(section_wrapper_class, "flex bg-red-30  lg:min-h-screen items-start justify-between ")}>
+    <section className={classNames(section_wrapper_class, "flex  lg:min-h-screen items-start justify-between ")}>
       <div className="w-[25%] hidden lg:flex flex-col  max-h-  gap-y-4 bottom-0 sticky top-[6.5rem] ">
         <SocialIconsContainer />
+      
         <TableOfContent headings={headings} />
       </div>
       <div className="w-full bg-blue-30  lg:w-[48%]">
-      <MainBlogContent data={content} />
+           <MainBlogContent authorInfo={authorInfo} data={content} />
+     
 
       </div>
       <BlogSideBars />

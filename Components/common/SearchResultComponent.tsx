@@ -2,6 +2,7 @@
 import classNames, {
   section_wrapper_class,
   text_h2_class,
+  text_h3_class,
   text_para_2,
   text_para_main,
 } from "@/helpers/common";
@@ -15,62 +16,101 @@ import Image from "next/image";
 import SearchInput from "./SearchInput";
 import Link from "next/link";
 import { slugify } from "@/sanity/lib/helpers";
+import { Loader } from "../Loader/Loader";
+import PaginationControls from "./PaginationControls";
 
 interface Props {
   setShowSearch?: (val: boolean) => void;
+
 }
 
 const SearchResultComponent = ({ setShowSearch }: Props) => {
   const [caseStudies, setCaseStudies] = useState<any>([]);
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false); // To track loading state
-
+  const [currentPage,setCurrentPage]=useState(1)
+  const [totalPages,setTotalPages]=useState(0)
+  const [blogsLength,setBlogsLength]=useState(null)
+  const cardsPerPage=4
+  
   const setUserQueryInput = (val: string) => {
     setUserInput(val);
   };
-
-  const searchCaseStudy = async () => {
-    if (!userInput.trim()) return;
-
-    setLoading(true); 
-
-    try {
-      const response = await fetch("/api/fetchBlogs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ keyword: userInput }),
-      });
-
-      const data = await response.json();
-      console.log(
-        "searchdt",data
-      )
-      if (response.ok) {
-        setCaseStudies(data); 
-      } else {
-        console.error("Failed to fetch data:", data.error);
-        setCaseStudies([]);
+      const onPreviousButtonClick = ()=>{
+        let startRange:number;
+        let endRange:number;
+        
+        if((currentPage+1)==totalPages){
+        startRange=((currentPage-1) - 1)*cardsPerPage
+        endRange=(cardsPerPage*(currentPage-1))
+        }
+        else{
+          startRange=((currentPage-1) - 1)*cardsPerPage
+          endRange=(cardsPerPage*(currentPage-1))
+        }
+        setCurrentPage(current => current-1)
+        searchCaseStudy(startRange,endRange)
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setCaseStudies([]);
-    } finally {
-      setLoading(false);
-    }
-  };
+    
+    
+      const onNextButtonClick = ()=>{
+        let startRange:number;
+        let endRange:number;
+      
+          startRange=((currentPage+1) - 1)*cardsPerPage
+          endRange=(cardsPerPage*(currentPage+1))
+        
+        
+        setCurrentPage(current => current+1)
+        searchCaseStudy(startRange,endRange)
+      }
+
+      const searchCaseStudy = async (start = 0, end = 4) => {
+        if (!userInput.trim()) return;
+      
+        setLoading(true);
+      
+        try {
+          const payload = { keyword: userInput.trim(), startRange: start, endRange: end };
+          
+          const response = await fetch("/api/fetchBlogs", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+      
+          const data = await response.json();
+      
+          if (response.ok) {
+            setCaseStudies(data?.blogData);
+            const totalPages = Math.ceil(data?.totalBlogs / cardsPerPage) || 0;
+            setTotalPages(totalPages)
+            setBlogsLength(data?.blogData?.length)
+          } else {
+            console.error("Failed to fetch data:", data.error);
+            setCaseStudies([]);
+          }
+        } catch (error) {
+          console.error("Error during fetch:", error);
+          setCaseStudies([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+
 
   return (
     <section
-      aria-label="centrox search case studies"
+      aria-label="centrox search blogs"
       className={classNames(
         section_wrapper_class,
-        "flex flex-col gap-y-8 text-2xl !mt-12 lg:!mt-12 text-white'"
+        "flex flex-col gap-y-8 text-2xl !mt-24 lg:!mt-12 text-white"
       )}
     >
       <div className="flex items-center justify-between">
-        <p className={classNames(text_h2_class, "pt-0 lg:pt-10")}>
+        <p className={classNames(text_h3_class, "pt-0 lg:pt-10")}>
           Search Result for: {userInput}
         </p>
         <div
@@ -109,10 +149,10 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
         containerClassName="lg:!w-[70%] 2xl:!py-[0.5rem]"
         btnClassName=" 2xl:!px-[1.5rem] sm:!py-[0.5rem] !py-[0.3rem]"
         setUserQueryInput={setUserQueryInput}
-        onClick={searchCaseStudy}
+        onClick={()=>{searchCaseStudy(0,4)}}
       />
-      <div className="w-full ">
-        {loading && <p className={classNames(text_para_2, "text-center")}>Loading...</p>}
+  <div className={classNames("w-full  overflow-y-auto",blogsLength!==null && caseStudies?.length > 0 ? "h-[70vh]" :"")}>
+        {loading && <div className={classNames(text_para_2, "text-center")}><Loader className="!my-3 min-h-[80vh] items-center"/></div>}
         {!loading && caseStudies.length > 0 ? (
           caseStudies.map((card: any, index: number) => {
             return (
@@ -139,9 +179,30 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
             );
           })
         ) : (
-          userInput !== "" &&!loading && <p className={classNames(text_para_2, "text-center")}>No Blogs to Show!</p>
+          blogsLength==0 && !loading&& <p className={classNames(text_para_2, "text-center")}>No Blogs to Show!</p>
         )}
       </div>
+    {blogsLength!==null && !loading&&  <PaginationControls
+        handleNext={onNextButtonClick}
+        handlePrevious = {onPreviousButtonClick}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={(page:number)=>{
+          let startRange:number;
+          let endRange:number;
+      
+          if(currentPage<page){
+          startRange=((currentPage+1) - 1)*cardsPerPage
+          endRange=(cardsPerPage*(currentPage+1))
+          }
+          else{
+            startRange=((currentPage-1) - 1)*cardsPerPage
+            endRange=(cardsPerPage*(currentPage-1))
+          }
+          setCurrentPage(page)
+          searchCaseStudy(startRange,endRange)
+        }}
+      />}
     </section>
   );
 };

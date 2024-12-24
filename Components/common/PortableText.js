@@ -53,15 +53,59 @@ export const PortableComponent = {
       const imageUrl = urlFor(value).url();
       
       return (
-        <figure className="my-4">
+        <figure className="my-8">
         <img 
           src={imageUrl} 
           alt={value.alt || "Image"} 
           title={value.alt || "Image"} 
           className="w-full h-auto" 
         />
-        {value.caption && <figcaption className="text-sm text-gray-400 mt-2">{value.caption}</figcaption>}
+        {value.caption && <figcaption className="text-md text-center text-gray-400 mt-2">{value.caption}</figcaption>}
       </figure>
+      );
+    },
+    table: ({ value }) => {
+      const { thead, rows, caption } = value;
+
+      return (
+        <div className="overflow-x-auto my-6">
+          <table className="w-full border-collapse border border-gray-300">
+            {thead && (
+              <thead className="bg-gray-900">
+                <tr>
+                  {thead.map((header, index) => (
+                    <th
+                      key={index}
+                      className="px-4 py-2 capitalize border border-gray-300 font-semibold text-left"
+                    >
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+            )}
+            <tbody>
+              {rows?.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.cells.map((cell, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className={classNames(text_para_3,"px-4 py-2 text-sm lg:text-x border border-gray-300")}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+        
+          </table>
+          {caption && (
+              <p className="text-sm w-full text-center text-gray-500 mt-2">
+                {caption}
+              </p>
+            )}
+        </div>
       );
     },
   },

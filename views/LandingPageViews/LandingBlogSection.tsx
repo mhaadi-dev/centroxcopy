@@ -32,15 +32,16 @@ interface CardsDataI{
 interface PropsI{
   cardsData:CardsDataI[]
   className?:string,
+  heading?:string,
+  description?:string
 }
 
 
 
 
-const LandingBlogSection = ({cardsData,className}:PropsI) => 
+const LandingBlogSection = ({cardsData,className,heading,description}:PropsI) => 
   
   {
-    console.log("cards data in landogingbloc is",cardsData)
     return (
   <>
   
@@ -48,8 +49,8 @@ const LandingBlogSection = ({cardsData,className}:PropsI) =>
         
        <section aria-label="Centrox Blog" className="flex flex-col gap-y-4" > 
        <SectionTag text="Blogs"/>
-       <h2 className={classNames(text_h2_class,"text-center")}>Centrox Blog Stay Ahead of the Curve</h2>
-       <p className={classNames(text_para_2,"text-center w-full sm:w-[60%] mx-auto")}> Our AI engineers are active contributors in the community and regularly share their insights and expertise on our blog. Explore their latest articles on Generative AI and LLM.</p>
+       <h2 className={classNames(text_h2_class,"text-center")}>{heading || "Centrox Blog Stay Ahead of the Curve"}</h2>
+       <p className={classNames(text_para_2,"text-center w-full sm:w-[60%] mx-auto")}> {description || "Our AI engineers are active contributors in the community and regularly share their insights and expertise on our blog. Explore their latest articles on Generative AI and LLM."}</p>
        </section> 
 
         <ProductsCarousal data={cardsData}/>

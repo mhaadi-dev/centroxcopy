@@ -1,51 +1,70 @@
 import React from 'react';
-import LandingLayout from '../layout';
 import BlogHeader from '@/Components/common/BlogHeader';
 import BlogBanner from '@/Components/common/BlogBanner';
 import GridBlogCardsWithPagination from '@/Components/common/GridBlogCardsWithPagination';
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import SubnavBar from '@/Components/Navbar/SubnavBar';
 import { client } from '@/sanity/lib/client';
-import { GET_PAGINATED_ARTICLES_QUERY, GETALLBLOGS_QUERY, GET_TOTAL_BLOGS_COUNT } from '@/sanity/query';
+import { GET_PAGINATED_ARTICLES_QUERY, GET_TOTAL_BLOGS_COUNT } from '@/sanity/query';
 import { notFound } from 'next/navigation';
+import { urlFor } from '@/sanity/lib/image';
 
-const page = async () => {
+export const revalidate = 10;
+
+const fetchSanityData = async () => {
   const totalBlogsCount = await client.fetch(GET_TOTAL_BLOGS_COUNT);
-
-  const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY,{lastId:''});
-
-  if (!blogData || blogData.length === 0) {
-    notFound();
-  }
-console.log("INITIAL",blogData)
-  return (
-    <>
-      <SubnavBar title="Blogs" navItems={[]} />
-      <BlogHeader headingText="Blogs" paraText="Company Updates and Technology Updates" />
-      <BlogBanner
-        heading={blogData?.[0]?.content_item?.banner_data?.banner_heading}
-        paraText={blogData?.[0]?.content_item?.banner_data?.banner_description}
-        date="Aug 14, 2024"
-        name="Ahmed Ali"
-        product="Product"
-        duration="20 min read"
-      />
-      <GridBlogCardsWithPagination
-        cardData={blogData}
-        cardsPerPage={3} 
-        totalBlogsCount={totalBlogsCount}
-      />
-      <IndustryBanner
-        heading="All the Good Stuff is here"
-        description="Read these blogs to get to know more about Centrox."
-        btnText="Talk to us"
-        isBooking
-      />
-    </>
-  );
+  const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY, {
+    startRange: 0,
+    endRange: 5,
+  });
+  return { totalBlogsCount, blogData };
 };
 
-export default page;
+const BlogPage = async () => {
+  try {
+    const { totalBlogsCount, blogData } = await fetchSanityData();
+
+    // if (!blogData || blogData.length === 0) {
+    //   notFound();
+    // }
+    return (
+      <>
+        <SubnavBar title="Blogs" navItems={[]} />
+        <BlogHeader headingText="Blogs" paraText="Company Updates and Technology Updates" />
+        <BlogBanner
+          heading={blogData?.[0]?.content_item?.banner_data?.banner_heading}
+          paraText={blogData?.[0]?.content_item?.banner_data?.banner_description}
+          date={new Date(blogData?.[0]?.content_item?.date).toLocaleDateString()}
+          name={blogData?.[0]?.content_item?.name}
+          product={blogData?.[0]?.content_item?.category}
+          duration={blogData?.[0]?.content_item.duration}
+          banner_image={(blogData?.[0]?.content_item?.image?.image)}
+          category={(blogData?.[0]?.content_item?.category)}
+          label={(blogData?.[0]?.content_item?.label)}
+          id={(blogData?.[0]?._id)}
+        />
+        <GridBlogCardsWithPagination
+          cardData={blogData}
+          cardsPerPage={5}
+          totalBlogsCount={totalBlogsCount}
+        />
+        <IndustryBanner
+          heading="All the Good Stuff is here"
+          description="Read these blogs to get to know more about Centrox."
+          btnText="Talk to us"
+          isBooking
+        />
+      </>
+    );
+  } catch (error) {
+    console.error('Error fetching blog data:', error);
+    // notFound();
+  }
+};
+
+export default BlogPage;
+
+
 
 //  const cardData = [
 //     {

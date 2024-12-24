@@ -7,8 +7,11 @@ import LandingLayout from '../../layout'
 import SubnavBar from '@/Components/Navbar/SubnavBar'
  
  const page = () => {
+
     const [showSearchComponent,setShowSearchComponent]=useState(true)
     const router=useRouter()
+    
+
     const toggleSearchComponent=(val:boolean)=>{
         setShowSearchComponent(val)
       }
@@ -63,7 +66,7 @@ import SubnavBar from '@/Components/Navbar/SubnavBar'
    return (
     
       <>
-      <SubnavBar title='Blogs' navItems={navItems}/> 
+      <SubnavBar title='Blogs' navItems={[]}/> 
       <SearchResultComponent setShowSearch={toggleSearchComponent} />
        <IndustryBanner heading="Good Stuff is all here" description="We will help you develope what ever you desire in your AI developement. This is a place holder" isBooking btnText="Talk to Our AI Expert" />
       </>

@@ -102,7 +102,6 @@ function StepperCom() {
       setFileSuccess(true);
       handleNext();
       // setMsg("Your request has been submitted successfully");
-      console.log("Response is", response);
     } catch (error) {
       console.error("Error submitting form data:", error);
       setError("There is a problem submitting your request");
@@ -134,7 +133,6 @@ function StepperCom() {
       }
       const responseData = await response.json();
       setIsLoading(false);
-      console.log("Response of prompt is", responseData);
       setUserChat([
         ...userChat,
         { name: "user", message: message || chatmsg },
@@ -172,7 +170,6 @@ function StepperCom() {
           const inputElement = event.target as HTMLInputElement;
           if (inputElement.files && inputElement.files.length > 0) {
             const uploadedFile = inputElement.files[0];
-            console.log("Uploaded file is in:", uploadedFile);
             setPdfFile(uploadedFile);
           }
         });

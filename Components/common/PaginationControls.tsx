@@ -7,12 +7,16 @@ import useSize from '@/helpers/windowWidth';
 interface PaginationControlsProps {
   currentPage: number;
   totalPages: number;
+  handleNext:()=>void;
+  handlePrevious:()=>void;
   onPageChange: (page: number) => void;
 }
 
 const PaginationControls: FC<PaginationControlsProps> = ({
   currentPage,
   totalPages,
+  handleNext,
+  handlePrevious,
   onPageChange,
 }) => {
   const { width } = useSize();
@@ -27,16 +31,16 @@ const PaginationControls: FC<PaginationControlsProps> = ({
 
   return (
     <section className={classNames(section_wrapper_class)}>
-      <div className="flex items-center justify-center gap-3 lg:gap-8">
+      <div className="flex items-center justify-center gap-3 lg:gap-10">
         <button
-          className="bg-gray-900/80 text-white rounded-full p-3"
-          disabled={currentPage === 1}
-          onClick={() => onPageChange(currentPage - 1)}
+          className={classNames("bg-gray-900/80 text-white rounded-full p-3",currentPage!==1 ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white':"")}
+          onClick={handlePrevious}
+          disabled={currentPage==1}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={50}
-            className="w-[24px] lg:w-[50px]"
+            className="w-[24px] lg:w-[30px]"
             viewBox="0 0 24 24"
           >
             <path
@@ -51,7 +55,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
             {visiblePages.map((page) => (
               <button
                 key={page}
-                className={`py-1 px-2 lg:p-3 lg:px-5 font-semibold rounded-lg ${
+                className={`py-1 px-2 lg:p-3 text-sm lg:text-xl lg:px-5 font-semibold rounded-lg ${
                   page === currentPage
                     ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white'
                     : 'bg-gray-900/80 border-2 border-transparent text-white'
@@ -65,14 +69,14 @@ const PaginationControls: FC<PaginationControlsProps> = ({
         )}
 
         <button
-          className="bg-gray-900/80 text-white rounded-full p-3"
+          className={classNames("bg-gray-900/80 text-white rounded-full p-3",currentPage!==totalPages ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white':"")}
           disabled={currentPage === totalPages}
-          onClick={() => onPageChange(currentPage + 1)}
+          onClick={handleNext}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={50}
-            className="w-[24px] lg:w-[50px]"
+            className="w-[24px] lg:w-[30px]"
             viewBox="0 0 24 24"
           >
             <path
