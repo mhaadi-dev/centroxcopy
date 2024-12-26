@@ -86,8 +86,9 @@ useEffect(()=>{
                 src={el.img}
                 alt={el?.alt || "Team Member"}
                 objectFit="cover"
+                loading="lazy"
                 className="rounded-xl object-cover aspect-square"
-                placeholder="blur"
+                // placeholder="blur"
               />
             )}
             <div className="w-full">

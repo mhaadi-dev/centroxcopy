@@ -5,10 +5,8 @@ import CaseStudyBanner from "@/Components/common/CaseStudyBanner";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 
 import classNames, {
-  section_wrapper_class,
   text_h2_class,
-  text_para_2,
-  text_para_3,
+
 } from "@/helpers/common";
 import WhatOurClientSay from "@/Components/common/WhatOurClientSay";
 
@@ -18,6 +16,7 @@ import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
 import aws from "@/assets/awslogo.webp"
 import imageBG2 from "@/assets/Image BG2.webp"
+import rightsidebg from "@/assets/rightsidebg.svg"
 
 import Icon10 from "@/assets/Icon-13.svg"
 
@@ -658,7 +657,7 @@ const heroSection2Data={
       />
   <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid data={data2}/>
-  <SimpleIconHeroSection heroClassName='' bgClassName='' bgImage1={imageBG2} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
+  <SimpleIconHeroSection heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
   <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>
