@@ -50,7 +50,7 @@ const WebsiteFooter = dynamic(
 
 
 // import useScrollToElement from "@/hooks/useScrollToElement";
-export const revalidate=120;
+export const revalidate=10;
 export default async function Home() {
   // const data: any = await sanityFetch({
   //   query: LANDING_PAGE_QUERY,

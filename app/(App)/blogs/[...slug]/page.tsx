@@ -11,7 +11,7 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 // Use generateMetadata to dynamically set meta title and description
-export const revalidate=10;
+export const revalidate=120;
 export async function generateMetadata({ searchParams }: any) {
   const { id } = searchParams;
   let query;

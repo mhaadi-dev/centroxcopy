@@ -9,7 +9,7 @@ import { GET_PAGINATED_ARTICLES_QUERY, GET_TOTAL_BLOGS_COUNT } from '@/sanity/qu
 import { notFound } from 'next/navigation';
 import { urlFor } from '@/sanity/lib/image';
 
-export const revalidate = 10;
+export const revalidate = 120;
 
 const fetchSanityData = async () => {
   const totalBlogsCount = await client.fetch(GET_TOTAL_BLOGS_COUNT);
@@ -65,9 +65,6 @@ const BlogPage = async () => {
 export default BlogPage;
 
 
-
-//  const cardData = [
-//     {
 //       image: dummyDisplay,
 //       title: "Exploring the Future of AI in Healthcare",
 //       category: "HealthTech",

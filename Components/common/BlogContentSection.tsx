@@ -14,7 +14,7 @@ const BlogContentSection = ({ content,authorInfo }: any) => {
     // Function to extract headings from Portable Text content
     const extractHeadings = (content: any) => {
       const headingList: string[] = [];
-      const headingStyles = /h[2-6]/; // Matches h2, h3, h4, h5, h6
+      const headingStyles = /h[2]/; // Matches h2, h3, h4, h5, h6
     
       content?.forEach((block: any) => {
         if (block._type === "block" && block.style && headingStyles.test(block.style)) {
