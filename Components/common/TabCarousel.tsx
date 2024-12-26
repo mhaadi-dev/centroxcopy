@@ -125,7 +125,7 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
   aria-label="Tabs"
 >
   {tabs.map((tab: any, index: number) => (
-    <a
+    <div
       key={tab.name}
       className={classNames(
         tab.current
@@ -141,7 +141,7 @@ const Tabs = ({ tabs, setTabs, isGradientCardLayout = false }: any) => {
       onClick={() => handleTabClick(tab.name)}
     >
       {tab.name}
-    </a>
+    </div>
   ))}
 </nav>
 
@@ -329,43 +329,49 @@ export const TabCarousel = ({
                           className="flex flex-col gap-4   xl:flex-row gap-x-[0rem] lg:gap-x-16 2xl:gap-x-24"
                         >
                         {isGradientCardsLayoutwithImage && (
-  <>
-    {gradientCardData?.map((cc: any, indexmain: number) => (
-      <div
-        key={indexmain}
-        className={`w-full   flex flex-col xl:flex-row gap-2 lg:gap-10 ${
-          tab?.current && indexmain === tabindex ? "" : "hidden"
-        }`}
-      >
-        <div className="w-full  xl:w-1/2 flex flex-col gap-y-0">
-          {cc?.data?.map((card: any, index: number) => (
-            <GradientCard
-              key={index}
-              title={card?.heading}
-              description={card?.description}
-              showHoverState={lastHoveredCard === index}
-              hoveredCard={currentHoverCard}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-              onClick={() => {
-                setShowToast(!showToast);
-              }}
-              hoverOnGradient={true}
-            />
-          ))}
-        </div>
-        <div className="w-full h-full  flex xl:w-1/2 lg:mt-6 items-center justify-center">
-            <Image
-              className="w-full  "
-              src={tabs[tabindex]?.current && cc?.image}
-              alt={cc?.alt}
-              loading={width && width <= mobileWidth ? "lazy":"lazy"}
-            />
-        
-        </div>
-      </div>
-    ))}
-  </>
+ <>
+ {gradientCardData?.map((cc: any, indexmain: number) => (
+   <div
+     key={indexmain}
+     className={`w-full flex flex-col xl:flex-row gap-2 lg:gap-10 ${
+       tab?.current && indexmain === tabindex ? "visible" : "hidden"
+     }`}
+   >
+     <div className="w-full xl:w-1/2 flex flex-col gap-y-0">
+       {cc?.data?.map((card: any, index: number) => (
+         <GradientCard
+           key={index}
+           title={card?.heading}
+           description={card?.description}
+           showHoverState={lastHoveredCard === index}
+           hoveredCard={currentHoverCard}
+           onMouseEnter={() => handleMouseEnter(index)}
+           onMouseLeave={() => handleMouseLeave(index)}
+           onClick={() => {
+             setShowToast(!showToast);
+           }}
+           hoverOnGradient={true}
+         />
+       ))}
+     </div>
+     <div className="w-full h-full flex xl:w-1/2 lg:mt-6 items-center justify-center">
+       {cc?.image && (
+         <Image
+           className={`w-full ${
+             tabs[tabindex]?.current && indexmain === tabindex
+               ? "visible"
+               : "hidden"
+           }`}
+           src={cc?.image}
+           alt={cc?.alt}
+           loading={width && width <= mobileWidth ? "lazy" : "lazy"}
+         />
+       )}
+     </div>
+   </div>
+ ))}
+</>
+
 )}
 
                         </div>
