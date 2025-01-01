@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LinkedIn from "@/assets/linkedin.svg";
 import classNames, { text_para_2 } from "@/helpers/common";
 
@@ -13,12 +13,26 @@ const TeamSectionTabs = ({ data }: any) => {
     "marketing_specialists",
   ];
   const [currentTab, setCurrentTab] = useState("all");
+  const [filteredData,setFilteredData]=useState([])
 
   const aiMlEngineers = data.filter((item: any) => item.category === "AI/ml_engineers");
   const engineers = data.filter((item: any) => item.category === "Engineers");
   const product = data.filter((item: any) => item.category === "product");
   const marketingSpecialists = data.filter((item: any) => item.category === "marketing_specialists");
 
+  // const filteredData =
+  //   currentTab === "all"
+  //     ? data
+  //     : currentTab === "AI/ml_engineers"
+  //     ? aiMlEngineers
+  //     : currentTab === "Engineers"
+  //     ? engineers
+  //     : currentTab === "product"
+  //     ? product
+  //     : currentTab === "marketing_specialists"
+  //     ? marketingSpecialists
+  //     : [];
+useEffect(()=>{
   const filteredData =
     currentTab === "all"
       ? data
@@ -31,7 +45,8 @@ const TeamSectionTabs = ({ data }: any) => {
       : currentTab === "marketing_specialists"
       ? marketingSpecialists
       : [];
-
+      setFilteredData(filteredData)
+},[currentTab])
   return (
     <section className="flex flex-col gap-[4.5rem]">
       <div className="flex-col flex gap-x- lg:gap-x-0 lg:flex-row gap-y-4">
@@ -71,8 +86,9 @@ const TeamSectionTabs = ({ data }: any) => {
                 src={el.img}
                 alt={el?.alt || "Team Member"}
                 objectFit="cover"
+                loading="lazy"
                 className="rounded-xl object-cover aspect-square"
-                placeholder="blur"
+                // placeholder="blur"
               />
             )}
             <div className="w-full">
