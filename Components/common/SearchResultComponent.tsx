@@ -18,6 +18,7 @@ import Link from "next/link";
 import { slugify } from "@/sanity/lib/helpers";
 import { Loader } from "../Loader/Loader";
 import PaginationControls from "./PaginationControls";
+import { usePathname } from "next/navigation";
 
 interface Props {
   setShowSearch?: (val: boolean) => void;
@@ -31,6 +32,7 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
   const [currentPage,setCurrentPage]=useState(1)
   const [totalPages,setTotalPages]=useState(0)
   const [blogsLength,setBlogsLength]=useState(null)
+  const pathname=usePathname()
   const cardsPerPage=4
   
   const setUserQueryInput = (val: string) => {
@@ -67,7 +69,7 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
 
       const searchCaseStudy = async (start = 0, end = 4) => {
         if (!userInput.trim()) return;
-      
+      if(pathname.startsWith("/case-studies"))return
         setLoading(true);
       
         try {
@@ -156,19 +158,19 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
         {!loading && caseStudies.length > 0 ? (
           caseStudies.map((card: any, index: number) => {
             return (
-              <Link href={`${slugify(card?.content_item?.category)}/${slugify(card?.content_item?.label)}?id=${card?._id}`}>
+              <Link href={`${slugify(card?.content_item?.category)}/${slugify(card?.label?.current)}`}>
                 <CommonCard
                 image={card?.content_item?.image?.image}
                 title={
-                  card?.content_item?.title ||
+                  card?.meta_title ||
                   "Meta and Centrox Partner to Drive Enterprise Adoption of Llama 3.1 405B Using Scale GenAI Platform"
                 }
                 subdescription={
-                  card?.content_item?.subdescription ||
+                  card?.meta_description ||
                   "Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source."
                 }
                 tags={card?.content_item?.tags}
-                link={`${slugify(card?.content_item?.category)}/${slugify(card?.content_item?.label)}?id=${card?._id}`}
+                link={`${slugify(card?.category?.category_name)}/${slugify(card?.label?.current)}`}
                 linkText={card?.content_item?.linkText}
                 linkWithIcon={card?.content_item?.linkWithIcon}
                 isSearchResult={true}
@@ -182,7 +184,7 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
           blogsLength==0 && !loading&& <p className={classNames(text_para_2, "text-center")}>No Blogs to Show!</p>
         )}
       </div>
-    {blogsLength!==null && !loading&&  <PaginationControls
+    {blogsLength!==null &&blogsLength!==0  ?  <PaginationControls
         handleNext={onNextButtonClick}
         handlePrevious = {onPreviousButtonClick}
         currentPage={currentPage}
@@ -202,7 +204,7 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
           setCurrentPage(page)
           searchCaseStudy(startRange,endRange)
         }}
-      />}
+      />:""}
     </section>
   );
 };

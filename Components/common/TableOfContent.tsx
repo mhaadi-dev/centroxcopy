@@ -46,12 +46,13 @@ const TableOfContent: React.FC<TableOfContentProps> = ({ headings }) => {
   });
 
   return (
-    <div className='bg-gray-800/80 border-2 w-full flex overflow-y-auto min-h-screen flex-col gap-y-4 py-10 px-4 text-white border-gray-100/60 rounded-xl h-full'>
+    <div className="bg-gray-800/80 border-2 w-full flex  overflow-hidden flex-col gap-y-4 py-10 px-4 text-white border-gray-100/60 rounded-xl">
+    <div className="overflow-y-auto flex flex-col gap-y-4 lg:h-[19rem] 2xl:min-h-screen">
       <p className={classNames(text_para_2, "font-semibold")}>Table of Contents</p>
       <ol
         className={classNames(
-          "text-[#E5E7EB]  list-decimal flex flex-col justify-center text-[0.9rem] 2xl:text-[1.05rem]",
-          "list-inside" 
+          "text-[#E5E7EB] list-decimal flex  flex-col text-[0.9rem] 2xl:text-[1.05rem]",
+          "list-inside"
         )}
       >
         {headings.map((heading, index) => {
@@ -60,7 +61,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({ headings }) => {
             <li
               key={index}
               className={classNames(
-                'w-full  px-2 py-1 rounded-sm',
+                "w-full px-2 py-1 rounded-sm",
                 selectedIndex === index ? "bg-[#079DFC4D]" : ""
               )}
             >
@@ -80,6 +81,8 @@ const TableOfContent: React.FC<TableOfContentProps> = ({ headings }) => {
         })}
       </ol>
     </div>
+  </div>
+  
   );
 };
 

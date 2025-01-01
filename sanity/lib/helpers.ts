@@ -1,6 +1,6 @@
 export function slugify(input:any) {
   // If input is a React element
-  if (typeof input === "object" && input.$$typeof === Symbol.for("react.element")) {
+  if (typeof input === "object" && input?.$$typeof === Symbol.for("react.element")) {
     const textContent = input.props?.text || input.props?.children?.[0] || "";
     return textContent ? generateSlug(textContent) : "default-slug"; 
   }
@@ -39,7 +39,7 @@ const extractTextFromContent = (content: any[]): string => {
 
   content.forEach((block) => {
     if (block._type === 'block' && block.children) {
-      block.children.forEach((child: any) => {
+      block.children.forEach((child:any) => {
         if (child.text) {
           textContent += ' ' + child.text;
         }
@@ -51,44 +51,27 @@ const extractTextFromContent = (content: any[]): string => {
 };
 
 // Helper function to calculate reading time
-export const calculateReadingTime = (content: any[]) => {
-  const textContent = extractTextFromContent(content);  // Extract all text content
+export const calculateReadingTime = (content: any): string => {
+  const textContent = extractTextFromContent(content);
 
-  // Word count based on spaces and newlines
-  const words = textContent.split(/\s+/).length;
+  const words = textContent.split(" ").length;
 
-  // Average reading speed is 200 words per minute
-  const wordsPerMinute = 250;
+  const wordsPerMinute = 200; 
 
   // Calculate reading time in minutes
-  const timeInMinutes = Math.floor(words / wordsPerMinute);
+  const timeInMinutes = Math.ceil(words / wordsPerMinute); 
 
-  // Calculate remaining seconds if there's a fraction
-  const remainingSeconds = Math.round((words % wordsPerMinute) / (wordsPerMinute / 60));
-
-  let time = '';
-  let unit = '';
-
-  if (timeInMinutes < 1) {
-    // If less than a minute, use seconds
-    time = remainingSeconds.toString();
-    unit = 'second';
-  } else if (timeInMinutes === 1) {
-    // 1 minute
-    time = '1';
-    unit = 'minute';
+  if (timeInMinutes <= 1) {
+    return '1 min';
   } else if (timeInMinutes < 60) {
-    // Minutes calculation
-    time = timeInMinutes.toString();
-    unit = 'minute';
+    return `${timeInMinutes} mins`;
   } else {
-    // Calculate hours if more than 60 minutes
-    const timeInHours = Math.floor(timeInMinutes / 60);
-    const remainingMinutes = timeInMinutes % 60;
-
-    time = `${timeInHours}:${remainingMinutes < 10 ? '0' : ''}${remainingMinutes}`;
-    unit = 'hour';
+    const hours = Math.floor(timeInMinutes / 60);
+    const minutes = timeInMinutes % 60;
+    return `${hours}hr ${minutes}min`; 
   }
-
-  return  time+unit ;
 };
+
+export const reSlugify=(str:string)=>{
+  return str?.split("-").join(" ")
+}

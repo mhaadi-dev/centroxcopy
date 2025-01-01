@@ -61,7 +61,7 @@ export const StepperSection = ({
     const numSteps = stepperData?.length;
     const firstStepRange = width!=null && width>768? 350 / numSteps : 270/numSteps; 
     const otherStepRange = width!=null && width>768 ? (110 - firstStepRange) / (numSteps - 1):(90 - firstStepRange) / (numSteps - 1);
-console.log("SCROLL PERCENTAGE",scrollPercentage, "     : FIRST STEP",firstStepRange, "          : OTHER STEP",otherStepRange)
+// console.log("SCROLL PERCENTAGE",scrollPercentage, "     : FIRST STEP",firstStepRange, "          : OTHER STEP",otherStepRange)
     const updatedData = stepperData?.map((step: any, index: number) => {
       let isActive = false;
       if (index === 0) {

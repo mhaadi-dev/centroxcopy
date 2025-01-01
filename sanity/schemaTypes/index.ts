@@ -9,12 +9,12 @@ import { servicesPages } from './pages/landingPage'
 import { nestedServicePage } from './pages/nestedLandingPage'
 import  landingPage  from './landingPage'
 import { landingLogosCarousel } from './LandingLogosCarousel';
-import {  BlogSchema, ContentItemSchema } from './pages/Blogs'
+import {  AuthorSchema, BlogSchema, CategorySchema, ContentItemSchema } from './pages/Blogs'
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // blockContentType, categoryType, postType, authorType,teamSectionType,servicesPages,nestedServicePage,landingPage,landingLogosCarousel,
-     BlogSchema,blockContentType,ContentItemSchema
+     BlogSchema,blockContentType,ContentItemSchema,AuthorSchema,CategorySchema
   ],
 }

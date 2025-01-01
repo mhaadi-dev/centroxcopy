@@ -36,7 +36,7 @@ const MainBlogContent = ({ data, authorInfo }: any) => {
           <div className="w-full">
             {authorInfo?.name && (
               <h3 className={classNames("font-semibold uppercase underline underline-offset-4 hover:text-blue-azure")}>
-                <Link href={authorInfo?.link || ""}>{authorInfo?.name}</Link>
+                <Link href={authorInfo?.linkedin || ""}>{authorInfo?.name}</Link>
               </h3>
             )}
             {authorInfo?.author_description && (

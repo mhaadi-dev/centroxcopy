@@ -10,7 +10,7 @@ import leftIcon from "@/public/images/template/carousalLeftArrow.svg";
 import rightIcon from "@/public/images/template/carousalRightArrow.svg";
 import classNames, { h3ClassName, p4ClassName } from "@/helpers/common";
 import CommonCard from "./CommonCard";
-import { slugify } from "@/sanity/lib/helpers";
+import { calculateReadingTime, reSlugify, slugify } from "@/sanity/lib/helpers";
 import Link from "next/link";
 
 export const ProductsCarousal = ({ data }: any) => {
@@ -61,17 +61,16 @@ export const ProductsCarousal = ({ data }: any) => {
 useEffect(()=>{
 setIsClient(true)
 },[])
-  
   return (  
     <>
       {isClient && <div className="sm:max-w-[1681px] flex flex-col   overflow-hidden mx-[0rem] my-5 sm:-mr-[15rem] 3xl:mx-auto ">
           <Slider ref={slider} {...settings}>
           {data?.map((x, index) => {
 
-            const newLink = `/blogs/${slugify(x?.content_item?.category )}/${slugify(x?.content_item?.label)}?id=${x?._id} `;
+            const newLink = `/blogs/${slugify(x?.category?.category_name )}/${(slugify(x?.label?.current))} `;
             return (
               // link={`${x?.slug?.current }/${x?.subslug?.current}`}
-                 <CommonCard key={index} linkText={x?.content_item?.linkText || "Learn more"} linkWithIcon={x.content_item?.linkWithIcon} link={newLink} subdescription={x?.content_item?.subdescription}  title={x.content_item?.title} category={x.content_item?.category} date={x.content_item?.date} image={x.content_item?.image?.image} tags={x.content_item?.tags}/>
+                 <CommonCard key={index} label={reSlugify(x?.label?.current)} linkText={x?.content_item?.linkText || "Learn more"} linkWithIcon={x.content_item?.linkWithIcon} link={newLink} subdescription={x?.meta_description}  title={x?.meta_title} category={x?.category?.category_name} date={x.content_item?.date} image={x.content_item?.image?.image} tags={x.content_item?.tags} duration={calculateReadingTime(x?.content_item?.blog_data)}/>
              
                 
             );

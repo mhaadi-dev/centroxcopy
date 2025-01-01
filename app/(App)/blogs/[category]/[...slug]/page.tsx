@@ -3,7 +3,7 @@ import BlogBanner from '@/Components/common/BlogBanner';
 import BlogContentSection from '@/Components/common/BlogContentSection';
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import { client } from '@/sanity/lib/client';
-import { slugify } from '@/sanity/lib/helpers';
+import { calculateReadingTime, slugify } from '@/sanity/lib/helpers';
 import { urlFor } from '@/sanity/lib/image';
 import { GET_BLOG_BY_ID_QUERY, GET_BLOGS_BY_CATEGORY_QUERY } from '@/sanity/query';
 import LandingBlogSection from '@/views/LandingPageViews/LandingBlogSection';
@@ -11,70 +11,59 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 // Use generateMetadata to dynamically set meta title and description
-export const revalidate=120;
-export async function generateMetadata({ searchParams }: any) {
-  const { id } = searchParams;
-  let query;
-  if(id){
-   query = GET_BLOG_BY_ID_QUERY(id);
-  }else{
-     query = GET_BLOG_BY_ID_QUERY('');
+export const revalidate=10;
 
-  }
-let blogData;
-  if(id){
-     blogData = await client.fetch(query, { id });
-  }else{
-     blogData = await client.fetch(query, { id:'id' });
-
-  }
-  
-
-  if (!blogData) {
-  notFound()
-  }
-   function cleanMetaText(text: string): string {
-    if (!text) return "";
-    return text
-      .replace(/[\u200B-\u200D\uFEFF]/g, "") 
-      .replace(/\s+/g, " ")                  
-      .trim();                               
-  }
-  const metaTitle = cleanMetaText(blogData?.meta_title) || "";
-  const metaDescription = cleanMetaText(blogData?.meta_description) || "";
+export async function generateMetadata({ params }: { params: { slug: string[] } }) {
+  const { slug } = params;
 
 
-  return {
-    title: metaTitle,
-    description: metaDescription,
-    openGraph: {
+  const blogSlug: string = slug[0];
+
+  try {
+    // Fetch blog data
+    const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
+
+    if (!blogData) {
+      notFound();
+      return;
+    }
+
+    const metaTitle = blogData.meta_title || 'Centrox AI';
+    const metaDescription = blogData.meta_description || 'Centrox AI | Heart of Innovation';
+
+    return {
       title: metaTitle,
       description: metaDescription,
-      type: 'article',
-    },
-    alternates: {
-      canonical: `https://centrox.ai/blogs/${slugify(blogData?.content_item?.category)}/${slugify(blogData?.content_item?.label)}?id=${blogData?._id}`,
-    },
-  };
+      openGraph: {
+        title: metaTitle,
+        description: metaDescription,
+        type: 'article',
+      },
+      alternates: {
+        canonical: `https://centrox.ai/blogs/${blogData.category?.category_name}/${blogData.label}`,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching blog data:', error);
+    notFound();
+    return;
+  }
 }
-
-const Page = async ({ searchParams }: any) => {
-  const { id } = searchParams; 
+const Page = async ({ params }: any) => {
+  const { slug } = params; 
   let similarBlogs=[]
 
-  const query = GET_BLOG_BY_ID_QUERY(id);
+  const blogSlug: string = slug[0];
 
-  const blogData = await client.fetch(query, { 
-     id
-  });
+  const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
 
   if (!blogData) {
     notFound()
   }
   else{
-    const query = GET_BLOGS_BY_CATEGORY_QUERY(blogData?.content_item?.category);
+    const query = GET_BLOGS_BY_CATEGORY_QUERY(blogData?.category?.category_name);
     similarBlogs=await client.fetch(query, { 
-     category: blogData?.content_item?.category
+     category: blogData?.category?.category_name
    });
   }
   const navItems = [
@@ -119,31 +108,30 @@ const Page = async ({ searchParams }: any) => {
       ]
     }
   ];
-
   return (
     <section className='relative'>
       <SubnavBar imageLink = {"/blogs"} title='Blogs' navItems={[]} />
       <BlogBanner
         className="!mt-28 lg:mt-0"
-        heading={blogData.content_item?.banner_data?.banner_heading}
-        paraText={blogData.content_item?.banner_data?.banner_description}
+        heading={blogData.content_item?.banner_data?.banner_heading || blogData?.[0]?.meta_title}
+        paraText={blogData.content_item?.banner_data?.banner_description || blogData?.[0]?.meta_description}
         date={new Date(blogData.content_item?.date).toLocaleDateString()}
         name={blogData.content_item?.name}
-        product='Product'
-        duration={blogData.content_item?.duration}
+        category={blogData?.category?.category_name}
+        duration={calculateReadingTime(blogData.content_item?.blog_data)}
         banner_image={blogData?.content_item?.image?.image}
         showReadLink={false}
       />
       <BlogContentSection authorInfo={
-        {name:blogData?.content_item?.name,
-          link:blogData?.content_item?.link,
-          author_description:blogData?.content_item?.author_description,
-          author_image:urlFor(blogData?.content_item?.author_image)?.url()
+        {name:blogData?.author?.name,
+          author_description:blogData?.author?.bio,
+          author_image:blogData?.author?.image?.image,
+          linkedin:blogData?.author?.linkedin
         }
 
 
         } content={blogData.content_item?.blog_data} />
-     { similarBlogs?.length > 1 && <LandingBlogSection heading={blogData.content_item?.related_blogs_heading} description={blogData.content_item?.related_blogs_paragraph} cardsData={similarBlogs || []} className="overflow-hidden" />}
+     { similarBlogs?.length > 1 && <LandingBlogSection heading={blogData.content_item?.related_blogs_heading} description={blogData.content_item?.related_blogs_paragraph} cardsData={similarBlogs?.length>6 ? similarBlogs?.slice(0,6) : similarBlogs ||[]} className="overflow-hidden" />}
       <IndustryBanner
         heading="Good Stuff is All Here"
         description="We will help you develop whatever you desire in your AI development. This is a placeholder"

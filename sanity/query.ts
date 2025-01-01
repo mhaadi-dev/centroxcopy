@@ -25,10 +25,18 @@ export const GETFirstBLOGS_QUERY = groq`
     name,
     meta_title,
     meta_description,
+    label,
+    subslug,
+     category->{category_name,category_meta_title,category_meta_description},
+    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
     content_item {
       image { alt, "image": asset->url },
       title,
-      category,
       date,
       subdescription,
       tags,
@@ -38,10 +46,6 @@ export const GETFirstBLOGS_QUERY = groq`
       isSearchResult,
       label,
       duration,
-      name,
-      author_description,
-      author_image,
-      author_alt,
       blog_data,
       colSpan,
       banner_data,
@@ -50,6 +54,7 @@ export const GETFirstBLOGS_QUERY = groq`
     }
   }
 `;
+
 export const GET_TOTAL_BLOGS_COUNT = groq`
   count(*[_type == "blog"])
 `;
@@ -59,10 +64,17 @@ export const GETALLBLOGS_QUERY = groq`
     name,
     meta_title,
     meta_description,
+    label,subslug,
+    category->{category_name,category_meta_title,category_meta_description},
+    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
     content_item {
       image { alt, "image": asset->url },
       title,
-      category,
       date,
       subdescription,
       tags,
@@ -90,10 +102,17 @@ export const GET_PAGINATED_ARTICLES_QUERY = groq`
     name,
     meta_title,
     meta_description,
+    label,subslug,
+     category->{category_name,category_meta_title,category_meta_description},
+    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
     content_item {
       image { alt, "image": asset->url },
       title,
-      category,
       date,
       subdescription,
       tags,
@@ -115,37 +134,39 @@ export const GET_PAGINATED_ARTICLES_QUERY = groq`
     }
   }
 `;
+
 
 
 export const GET_PAGINATED_ARTICLES_QUERY_ONSPECIFICPAGE = groq`
   *[_type == "blog" && _id > $lastId][$index]._id 
 `;
-
-export const GET_BLOG_BY_ID_QUERY = (id: string) => groq`
-  *[_type == "blog" && _id == $id][0] {
+export const GET_BLOG_BY_ID_QUERY = groq`
+  *[_type == "blog" && label.current == $slug][0] {
     _id,
     name,
-  
     meta_title,
     meta_description,
+    subslug,
+    label,
+     category->{category_name,category_meta_title,category_meta_description},
+    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
     content_item {
       image { alt, "image": asset->url },
       title,
-      category,
       date,
       subdescription,
       tags,
       linkText,
       linkWithIcon,
-     
       isSearchResult,
       label,
       duration,
-      name,
-      author_description,
-      author_image,
-      author_alt,
-      link,
+
       colSpan,
       blog_data,
       banner_data,
@@ -155,23 +176,32 @@ export const GET_BLOG_BY_ID_QUERY = (id: string) => groq`
   }
 `;
 
+
 export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number, endRange: number) => groq`
   *[_type == "blog" && 
-    (name match "*${keyword}*" || 
+    (
      meta_title match "*${keyword}*" || 
      meta_description match "*${keyword}*" || 
      content_item.title match "*${keyword}*" || 
-     content_item.tags[] match "*${keyword}*"
+     content_item.tags[] match "*${keyword}*"||
+     content_item.category match "*${keyword}*"
     )
   ] | order(_createdAt desc) [${startRange}...${endRange}] {
     _id,
     name,
     meta_title,
     meta_description,
+    label,subslug,
+ category->{category_name,category_meta_title,category_meta_description},    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
     content_item {
       image { alt, "image": asset->url },
       title,
-      category,
+      
       date,
       subdescription,
       tags,
@@ -204,42 +234,109 @@ export const TOTAL_SEARCH_BLOGS_COUNT_QUERY = (keyword: string) => groq`
   ])
 `;
 
+export const GET_ALL_CATEGORIES=groq `*[_type == "category"]`
 export const GET_BLOGS_BY_CATEGORY_QUERY = (category: string) => groq`
-  *[_type == "blog" && content_item.category == $category] | order(_createdAt asc)[0..5] {
+
+  *[_type == "blog" && category->category_name == $category] | order(_createdAt desc)[0..5] {
     _id,
     name,
     meta_title,
     meta_description,
+    label,
+    subslug,
+    category->{
+      category_name,
+      category_meta_title,
+      category_meta_description
+    },
+    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
     content_item {
       image { alt, "image": asset->url },
       title,
-      category,
       date,
       subdescription,
       tags,
       linkText,
       linkWithIcon,
-      isSearchResult,
-      label,
       duration,
-      name,
-      author_description,
-      author_image,
-      author_alt,
-      link,
       colSpan,
       blog_data,
-      banner_data,
+      banner_data {
+        banner_heading,
+        banner_description
+      },
       related_blogs_heading,
       related_blogs_paragraph
-
     }
   }
 `;
 
+export const GET_PAGINATED_BLOGS_BY_CATEGORY_QUERY = (
+  category: string,
+  startRange: number,
+  endRange: number
+) => groq`
+  *[_type == "blog" && category->category_name == $category] 
+  | order(_createdAt desc)[$startRange..$endRange - 1] {
+    _id,
+    name,
+    meta_title,
+    meta_description,
+    label,
+    subslug,
+    category->{
+      category_name,
+      category_meta_title,
+      category_meta_description
+    },
+    author->{
+      name,
+      bio,
+      image { alt, "image": asset->url },
+      linkedin
+    },
+    content_item {
+      image { alt, "image": asset->url },
+      title,
+      date,
+      subdescription,
+      tags,
+      linkText,
+      linkWithIcon,
+      duration,
+      colSpan,
+      blog_data,
+      banner_data {
+        banner_heading,
+        banner_description
+      },
+      related_blogs_heading,
+      related_blogs_paragraph
+    }
+  }
+`;
+
+export const GET_CATEGORY_BY_SLUG_QUERY = (categorySlug: any) => groq`
+  *[_type == "category" && category_name == $categorySlug][0] {
+    _id,
+    category_name,
+    category_meta_title,
+    category_meta_description,
+
+  }
+`;
 
 
-
+export const GET_TOTAL_BLOGS_BY_CATEGORY = (category:any) => `
+  *[_type == "blog" && references(*[_type == "category" && category_name == $category]._id)] {
+    _id
+  }.length
+`;
 
 export const POSTS_QUERY = groq`*[_type == "profile"]{
   _id,

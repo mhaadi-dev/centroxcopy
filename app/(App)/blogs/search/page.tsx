@@ -9,6 +9,7 @@ import SubnavBar from '@/Components/Navbar/SubnavBar'
  const page = () => {
 
     const [showSearchComponent,setShowSearchComponent]=useState(true)
+    const [allCategories,setAllCategories]=useState([])
     const router=useRouter()
     
 
@@ -62,11 +63,22 @@ import SubnavBar from '@/Components/Navbar/SubnavBar'
           ]
         }
       ];
-      
+      const getAllCategories=async()=>{
+        try {
+          const res =await fetch("/api/get-categories")
+          const data = await res.json()
+          setAllCategories(data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      useEffect(()=>{
+        getAllCategories()
+      },[])
    return (
     
       <>
-      <SubnavBar title='Blogs' navItems={[]}/> 
+      <SubnavBar imageLink='/blogs' title='Blogs' navItems={allCategories || []}/> 
       <SearchResultComponent setShowSearch={toggleSearchComponent} />
        <IndustryBanner heading="Good Stuff is all here" description="We will help you develope what ever you desire in your AI developement. This is a place holder" isBooking btnText="Talk to Our AI Expert" />
       </>

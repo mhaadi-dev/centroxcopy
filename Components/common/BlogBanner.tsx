@@ -42,13 +42,13 @@ const BlogBanner = ({
   showReadLink=true
 }: Props) => {
   const pathname = usePathname();
-  console.log("Path",pathname)
+  // console.log("Path",pathname)
   let breadcrumbsPath = pathname.split("/").map((path) => {
     return path
       .split("-")
       .map((path) => path[0]?.toUpperCase() + path.slice(1));
   });
-console.log("id in banner is ",id)
+// console.log("id in banner is ",id)
   return (
     <section
       className={classNames(
@@ -73,15 +73,16 @@ console.log("id in banner is ",id)
                   {path.join(" ")}{" "}
                 </Link>
               ) : (
-                <li
+                <Link href={index==1?`/blogs/${slugify(path.join(" "))}`:""}
                   className={classNames(
                     "underline text-[0.65rem] lg:text-[1rem] list-none",
+                    index+1==breadcrumbsPath.slice(1).length && "pointer-events-none",
                     index + 1 == breadcrumbsPath.slice(1).length &&
                       "font-semibold"
                   )}
                 >
-                  {path.join(" ")}{" "}
-                </li>
+                  {path.join(" ")}
+                </Link>
               )}
 
               {index + 1 !== breadcrumbsPath.slice(1).length ? (
@@ -111,12 +112,12 @@ console.log("id in banner is ",id)
           <div className="flex gap-y-2 gap-x-6 lg:gap-6 flex-wrap">
             {date && <p>{date}</p>}
             {name && <p>{name}</p>}
-            {product && <p className="font-semibold">{product}</p>}
+            {category && <p className="font-semibold">{category}</p>}
             {duration && <p>{duration}</p>}
           </div>
       
         {   showReadLink&&  <Link
-         href={ `/blogs/${slugify(category)}/${slugify(label)}?id=${id}`} 
+         href={ `/blogs/${slugify(category)}/${slugify(label)}`} 
             className="text-gray-900 text-[0.7rem] lg:text-[1.1rem] my-3  flex items-center gap-2 hover:text-blue-900"
           >
            Read This Blog
@@ -137,7 +138,7 @@ console.log("id in banner is ",id)
           </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={banner_image} alt="image" width={610} height={320} className="h-[320px] w-[610px]"></Image>
+          <Image src={test} alt="image" width={0} height={0} className=""></Image>
         </div>
       </div>
     </section>

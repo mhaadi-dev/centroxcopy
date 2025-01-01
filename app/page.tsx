@@ -59,7 +59,7 @@ export default async function Home() {
   const blogsCardData:any = await sanityFetch({
     query:GETFirstBLOGS_QUERY
   })
-
+// console.log("bbbbbbbbbbbb",blogsCardData)
   //  useScrollToElement();
   const servicesTabs = [
     { name: "Data Annotations", href: "#", current: true },
@@ -381,7 +381,6 @@ export default async function Home() {
       <Navbar />
       <LandingHeroSection />
       <LogosCarousel />
-      <LandingBlogSection cardsData={blogsCardData}/>
       <LandingAboutUs />
       <LandingServicesSection
         servicesTabs={servicesTabs}
@@ -404,16 +403,12 @@ export default async function Home() {
         h2class="lg:!w-full"
         caption=""
       />
-      {/* <LandingCaseStudySection {...caseStudyData}/> */}
+      <LandingCaseStudySection {...caseStudyData}/>
       <LandingTestimonialSection />
+      <LandingBlogSection cardsData={blogsCardData}/>
    
       <LandingContactSection />
       <LandingFAQSection />
-
-      {/* <Section3 /> */}
-      {/* <POCS />
-      <Testimonial />
-      <BannerSection /> */}
       <WebsiteFooter />
     </main>
   );

@@ -40,7 +40,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={50}
-            className="w-[24px] lg:w-[30px]"
+            className="w-[18px] lg:w-[30px]"
             viewBox="0 0 24 24"
           >
             <path
@@ -76,7 +76,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={50}
-            className="w-[24px] lg:w-[30px]"
+            className="w-[18px] lg:w-[30px]"
             viewBox="0 0 24 24"
           >
             <path

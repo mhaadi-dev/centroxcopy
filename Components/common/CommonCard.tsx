@@ -1,9 +1,12 @@
+
 import classNames, { text_para_3 } from "@/helpers/common";
-import { slugify } from "@/sanity/lib/helpers";
+import { reSlugify, slugify } from "@/sanity/lib/helpers";
 import { FaceSmileIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import test from "@/assets/Test Design.png"
+import { Button } from "../Button.js/button";
+import arrow from "@/assets/RightArrow.svg"
 
 interface Props {
   image?: any;
@@ -20,6 +23,7 @@ interface Props {
   duration?: string;
   name?: string;
   colSpan?: number;
+  cardClick?:(link:string)=>void
 }
 const CommonCard = ({
   image,
@@ -27,10 +31,11 @@ const CommonCard = ({
   category,
   date,
   subdescription = "",
+  cardClick=()=>{},
   tags = [],
   linkWithIcon,
   linkText,
-  link,
+  link='',
   isSearchResult = false,
   label = "",
   duration = "",
@@ -41,17 +46,15 @@ const CommonCard = ({
     <div
       className={classNames(
         "max-w-  mx-auto  flex flex-col   justify-center    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",
-        colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1"
+        colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1",isSearchResult ? "lg:flex-row gap-6 !justify-start":"flex-col"
       )}
     >
-      <Link href={link||""} className={classNames( isSearchResult
-          ? "flex flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"")}>
-      {image && (
+       {image && (
         <Image
           src={image}
           loading="lazy"
           className={classNames(
-            " w-[610px] h-[320px] my-4 ",
+            "  my-4 ",
             isSearchResult ? "w-full  lg:!w-1/4 h-[60%]" : "w-full"
           )}
           width={610}
@@ -59,11 +62,15 @@ const CommonCard = ({
           alt="img-alt"
         />
       )}
-      <div className=" h-full   w-full">
-        <div className="flex items-center gap-x-3">
+      <Link href={link||""} className={classNames( isSearchResult
+          ? "flex flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"")}>
+
+       <section className=" h-full   w-full">
+        
+      <div className="flex items-center gap-x-3">
           {label && (
-            <p className={classNames(text_para_3, "text-blue-azure")}>
-              {label}
+            <p className={classNames(text_para_3, "text-blue-azure capitalize")}>
+              {reSlugify(label)}
             </p>
           )}
           {duration && <p className={classNames(text_para_3)}>{duration}</p>}
@@ -81,7 +88,7 @@ const CommonCard = ({
         {tags?.length > 0 && (
           <section
             aria-label="centrox case studies tags"
-            className=" w-full flex-wrap flex justify items-center gap-4 my-4 lg:my-6"
+            className=" w-full flex-wrap flex justify items-center gap-4 my-4 lg:my-4"
           >
             {tags?.map((tag:string)=>{
               return   <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] ">
@@ -102,8 +109,11 @@ const CommonCard = ({
         >
           {name && <p className="text-gray-500 font-semibold">{name}</p>}
           {category && (
-            <p className="text-blue-azure font-semibold text-start ">
-              {category}
+            <p className="text-blue-azure font-semibold text-start capitalize ">
+              <Link href={`/blogs/${slugify(category)}`} className="hover:underline underline-offset-4">
+               {reSlugify(category)}
+              </Link>
+             
             </p>
           )}
           {date && (
@@ -113,34 +123,44 @@ const CommonCard = ({
           )}
         </div>
 
-        {linkText && (
-          <Link
-          href={`${link}`} 
-            className="text-[#E5E7EB] text-[0.7rem] lg:text-[1.1rem] my-3  flex items-center gap-2 hover:text-blue-azure"
-          >
-            {linkText||""}
-            {linkWithIcon && (
-              <svg
-                className="cursor-pointer"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 25 25"
-                width={24}
-                height={24}
-              >
-                <path
-                  fill="currentColor"
-                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                  data-name="Right"
-                />
-              </svg>
-            )}
-          </Link>
-        )}
-      </div>
+        {linkText && link? (
+        
+             <Button  content={linkText} onClick={()=>{cardClick(link)}}
+            isLinkClass="s"
+            Icon={arrow} isLefticon={false}
+            iconClassName="!w-[13px] lg:!w-[15px]"
+            customClassName="font-normal text-[1.02rem] !mx-0 !p-0"
+            paddingclass="!pl-0"
+            className="!text-[#E5E7EB] !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3  !flex !items-center !gap-2 hover:!text-blue-azure"
+          />
+         
+          
+          
+        
+        ):null}
+      </section>
+     
+        
+      
       </Link>
+     
+      
       
     </div>
   );
 };
 
 export default CommonCard;
+{/* <svg
+className="cursor-pointer"
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 25 25"
+width={24}
+height={24}
+>
+<path
+  fill="currentColor"
+  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+  data-name="Right"
+/>
+</svg> */}

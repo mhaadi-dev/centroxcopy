@@ -5,10 +5,12 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import SearchResultComponent from "../common/SearchResultComponent";
 import Link from "next/link";
+import { reSlugify, slugify } from "@/sanity/lib/helpers";
 
 interface subNavItemList {
-  subTitle?: string;
-  link?: string;
+  category_name?: string;
+  category_meta_title?:string,
+  category_meta_description?:string
 }
 
 interface subNavItems {
@@ -20,7 +22,7 @@ interface subNavItems {
 interface Props {
   searchView?: (isSearch: boolean) => void;
   title?: string;
-  navItems?: subNavItems[];
+  navItems?: any[];
   imageLink?:string
 }
 
@@ -62,7 +64,11 @@ const SubnavBar = ({ searchView,imageLink="", title, navItems = [] }: Props) => 
                         setClickedIndex(clickedIndex === index ? null : index)
                       }
                     >
-                      {item.subNavTitle}
+                      <Link href={`/blogs/${slugify(item?.category_name)}`} className="capitalize">
+                       {reSlugify(item?.category_name||'')}
+                      </Link>
+                     
+                      {/* {item?.category_name}
                       {clickedIndex === index && (
                         <div className="bg-gray-900 absolute top-10 left-0 shadow-lg rounded-md z-50">
                           {item.subItems?.map((subitem, subIndex) => (
@@ -75,7 +81,7 @@ const SubnavBar = ({ searchView,imageLink="", title, navItems = [] }: Props) => 
                             </Link>
                           ))}
                         </div>
-                      )}
+                      )} */}
                     </li>
                   ))
                 : ""}

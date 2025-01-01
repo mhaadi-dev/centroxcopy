@@ -23,28 +23,16 @@ export const ContentItemSchema = defineType({
       type: 'string',
       validation: (Rule) => Rule.required().error('Alt text is required.'),
     }),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      description: 'This will be a main slug.',
-      validation: (Rule) => Rule.required().error('Category is required.'),
-    }),
+
     defineField({
       name: 'date',
       title: 'Date',
       type: 'datetime',
+      description:"Date should be less or equal to current date.",
+      validation: (Rule) =>
+     Rule.required().error("Date is required.")
     }),
-    defineField({
-      name: 'subdescription',
-      title: 'Subdescription',
-      type: 'string',
-    }),
+
     {
       title: 'Tags',
       name: 'tags',
@@ -63,51 +51,6 @@ export const ContentItemSchema = defineType({
       name: 'linkWithIcon',
       title: 'Link With Icon',
       type: 'boolean',
-    }),
-    defineField({
-      name: 'label',
-      title: 'Label',
-      type: 'string',
-      description: 'This will be a sub-slug.',
-      validation: (Rule) => Rule.required().error('Label is required.'),
-    }),
-    defineField({
-      name: 'duration',
-      title: 'Duration',
-      type: 'string',
-    }),
-    defineField({
-      name: 'name',
-      title: 'Author Name',
-      type: 'string',
-      validation: (Rule) => Rule.required().error('Author name is required.'),
-    }),
-    defineField({
-      name: 'author_description',
-      title: 'Author Description',
-      type: 'string',
-      validation: (Rule) => Rule.required().error('Author description is required.'),
-    }),
-    defineField({
-      name: 'link',
-      title: 'Author Profile Link',
-      type: 'string',
-      validation: (Rule) => Rule.required().error('Author profile link is required.'),
-    }),
-    defineField({
-      name: 'author_image',
-      title: 'Author Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      validation: (Rule) => Rule.required().error('Author image is required.'),
-    }),
-    defineField({
-      name: 'author_alt',
-      title: 'Author image alt text',
-      type: 'string',
-      validation: (Rule) => Rule.required().error('Author image alt text is required.'),
     }),
     {
       name: 'banner_data',
@@ -144,7 +87,6 @@ export const ContentItemSchema = defineType({
   ],
 });
 
-// Define the main BlogSchema
 export const BlogSchema = defineType({
   name: 'blog',
   title: 'Blog',
@@ -169,10 +111,111 @@ export const BlogSchema = defineType({
       validation: (Rule) =>
         Rule.required().max(160).error('Meta description should not exceed 160 characters.'),
     }),
+    {
+      name: 'category',
+      title: 'Category',
+      description: "This will be a main slug `/blogs/category/label`. Enter Category.",
+      type: 'reference', 
+      to: [{ type: 'category' }], 
+      validation: (Rule) => Rule.required().error('Category is required.'),
+    },
+    defineField({
+      name: 'subslug',
+      title: 'Sub-slug',
+      type: 'string',
+      description: 'The base for the generated slug.',
+      validation: (Rule) => Rule.required().error('Sub-slug is required.'),
+    }),
+    defineField({
+      name: 'label',
+      title: 'Label',
+      type: 'slug',
+      description: 'This will be a sub-slug.',
+      options: {
+        source: 'subslug',
+      },
+    }),
     defineField({
       name: 'content_item',
       title: 'Content Item',
-      type: 'content_item', // Reference the reusable 'content_item' schema
+      type: 'content_item', // Ensure this matches your 'content_item' schema
+    }),
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'reference', // Ensure type is 'reference'
+      to: [{ type: 'author' }], // Reference the 'author' schema
+      validation: (Rule) => Rule.required().error('Author is required.'),
+    }
+  ],
+});
+
+
+
+export const AuthorSchema = defineType({
+  name: 'author',
+  title: 'Author',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'name',
+      title: 'Author Name',
+      type: 'string',
+      validation: (Rule) => Rule.required().error('Author name is required.'),
+    }),
+    defineField({
+      name: 'bio',
+      title: 'Biography',
+      type: 'text',
+      validation: (Rule) => Rule.max(200).error('Bio should not exceed 200 characters.'),
+    }),
+    defineField({
+      name: 'image',
+      title: 'Author Image',
+      type: 'image',
+      options: {
+        hotspot: true, 
+      },
+    }),
+    defineField({
+      name: 'alt',
+      title: 'Alt text',
+      type: 'string',
+    }),
+
+    defineField({
+      name: 'linkedin',
+      title: 'Linkedin Link',
+      type: 'string',
+    }),
+  ],
+});
+export const CategorySchema = defineType({
+  name: 'category',
+  title: 'Category',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'category_name',
+      title: 'Category Name',
+      type: 'string',
+      description: 'Category name must be lowercase and hyphen-separated (e.g., "example-category")',
+      validation: (Rule) =>
+        Rule.required()
+          .error('Category name is required.')
+        
+    }),
+    defineField({
+      name: 'category_meta_title',
+      title: 'Category Meta Title',
+      type: 'string',
+      validation: (Rule) => Rule.required().error('Category Meta Title is required.'),
+    }),
+    defineField({
+      name: 'category_meta_description',
+      title: 'Category Meta Description',
+      type: 'string',
+      validation: (Rule) => Rule.required().error('Category Meta Description is required.'),
     }),
   ],
 });

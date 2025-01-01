@@ -7,10 +7,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: [
-          '/*.tsx',
-        ],
-        ...(isStaging ? { disallow: '/' } : {}), 
+        ...(isStaging 
+          ? { disallow: '/' } 
+          : { allow: ['/*.tsx'] }) 
       },
     ],
     sitemap: 'https://centrox.ai/sitemap.xml',
