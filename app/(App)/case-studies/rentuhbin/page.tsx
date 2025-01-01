@@ -21,63 +21,7 @@ import rightsidebg from "@/assets/rightsidebg.svg"
 import Icon10 from "@/assets/Icon-13.svg"
 
 const page = ({ params }: { params: { slug: string } }) => {
-const slugOptions=[{
-  slug:"pocketmate",
-  caseStudyBanner:{
-    heading:"Pocketmate.ai your reliable mental health support; ensuring emotional contentment whenever or wherever you need it.",
-    para1Text:"Pocketmate.ai offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
-  },
-  CommonDisplayCardsGrid:{
-    gridCols:4,
-    gradientBg:true,
-    data: {
-      headerData: {
-        tagText: "AChivements",
-        headingText: "Highlights for Metrics Achieved ",
-        para1Text:
-          "For startups like you, the best foot forward is to customise existing LLMs according to your unique business needs. We collaborate deeply with your team throughout the entire development lifecycle.",
-        para2Text: "",
-        heading2Text: "",
-      },
-      data: [
-        {
-          Icon: null,
-          heading: "56",
-          symbol: "%",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "96",
-          symbol: "%",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "200",
-          symbol: "+",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-        {
-          Icon: null,
-          heading: "100",
-          symbol: "%",
-          description: "This is something about metrics",
-          className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-      ],
-    },
-  
-      
-   }
-}]
+
 const banner1Data={
     heading:"Optimizing dumpster placement using image recognition.",
     para1Text:"Our solution ensures convenient, efficient, and eco-friendly waste disposal while prioritizing user satisfaction and reliability. Some of the major benefits this tool delivers are explained below.",
@@ -638,7 +582,7 @@ const heroSection2Data={
   return (
    
       <>
-      <SubnavBar title='Case Studies' navItems={navItems}/> 
+      {/* <SubnavBar imageLink="/case-studies" title='Case Studies' navItems={navItems}/>  */}
       <CaseStudyBanner
         heading={banner1Data.heading}
         para1Text={banner1Data.para1Text}

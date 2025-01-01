@@ -32,10 +32,11 @@ interface PropsI {
   moveToSection?:string
   alt?:string,
   isAboutPage?:boolean
+  link?:string
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,link,...props}: PropsI) => {
   return (
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
@@ -130,11 +131,12 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
             </div>
            
           </section>}
-          {props?.btnText && moveToSection==""? (
+          {props?.btnText && moveToSection=="" && link==""? (
             <div className="flex justify-start z-[1]">
               <CalendlyWidget
                 btnText={props?.btnText || "Book FREE Strategy call"}
                 isArrow={true}
+                btnClassName="!p-2 lg:!px-4 lg:!py-3"
               />
             </div>
           ):(
@@ -144,6 +146,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
                isLefticon={false}
                Icon={Arrow}
                moveToSection={moveToSection}
+               link={link}
               />
             </div>
           )}

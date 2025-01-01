@@ -8,12 +8,11 @@ import useSize from "@/helpers/windowWidth";
 import { useRouter } from "next/navigation";
 import classNames from "@/helpers/common";
 
-const SearchInput = ({name="",btnText="",placeholder="",btnClassName="",containerClassName="",icon1,icon2,setUserQueryInput,onClick}:any) => {
+const SearchInput = ({name="",btnText="",placeholder="",btnClassName="",containerClassName="",icon1,icon2,setUserQueryInput,onClick,value}:any) => {
   const [userInputVal, setUserInputVal] = useState("");
   const { width } = useSize();
   const [isClient, setIsClient] = useState(false);
-  const router = useRouter();
-  const [isEmailInvalid, setIsEmailInvalid] = useState(false);
+
   
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -22,9 +21,8 @@ const SearchInput = ({name="",btnText="",placeholder="",btnClassName="",containe
   }, []);
 
 useEffect(()=>{
-    if(userInputVal){
         setUserQueryInput(userInputVal)
-    }
+    
     
 },[userInputVal])
   
@@ -41,12 +39,13 @@ useEffect(()=>{
               ref={inputRef}
               name={name||"email"}
               id={name||"email"}
+              autoComplete="off"
               onChange={(e) => {
                 setUserInputVal(e.target.value);
               }}
               value={userInputVal}
               placeholder={placeholder||"Your Email"}
-              className="text-white bg-transparent w-full text-xl rounded-full px-2 lg:px-4 outline-none placeholder:text-[0.8rem] placeholder:lg:text-[1.1rem] py-2"
+              className="text-white bg-transparent w-full text-xl rounded-full px-2 lg:px-4 focus:bg-transparent outline-none placeholder:text-[0.8rem] placeholder:lg:text-[1.1rem] py-2"
             />
             
               <Button

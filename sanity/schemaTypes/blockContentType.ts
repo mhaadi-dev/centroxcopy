@@ -18,12 +18,9 @@ export const blockContentType = defineType({
   name: 'blockContent',
   type: 'array',
   of: [
+    // Block type for text content with additional list options
     defineArrayMember({
       type: 'block',
-      // Styles let you define what blocks can be marked up as. The default
-      // set corresponds with HTML tags, but you can set any title or value
-      // you want, and decide how you want to deal with it where you want to
-      // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
         {title: 'H1', value: 'h1'},
@@ -32,16 +29,16 @@ export const blockContentType = defineType({
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}],
-      // Marks let you mark up inline text in the Portable Text Editor
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number'},
+        {title: 'Check List', value: 'checklist'} // New list option
+      ],
       marks: {
-        // Decorators usually describe a single property – e.g. a typographic
-        // preference or highlighting
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
             title: 'URL',
@@ -55,12 +52,23 @@ export const blockContentType = defineType({
               },
             ],
           },
+          {
+            title: 'Email Link',
+            name: 'emailLink',
+            type: 'object',
+            fields: [
+              {
+                title: 'Email',
+                name: 'href',
+                type: 'email',
+              },
+            ],
+          },
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
+
+    // Block type for images with a hotspot option
     defineArrayMember({
       type: 'image',
       icon: ImageIcon,
@@ -70,8 +78,82 @@ export const blockContentType = defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
-        }
-      ]
+        },
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+        },
+      ],
     }),
+
+    // Table type for structured data in blockContent
+    defineArrayMember({
+      type: 'object',
+      name: 'table', // Unique name for the table object
+      title: 'Table',
+      fields: [
+        {
+          name: 'thead',
+          type: 'array',
+          title: 'Table Header',
+          of: [
+            {
+              type: 'string',
+              title: 'Header Cell',
+            },
+          ],
+        },
+        {
+          name: 'rows',
+          type: 'array',
+          title: 'Table Rows',
+          of: [
+            {
+              type: 'object',
+              name: 'tableRow', // Name each row to avoid conflicts
+              fields: [
+                {
+                  name: 'cells',
+                  type: 'array',
+                  title: 'Table Cells',
+                  of: [
+                    {
+                      type: 'string',
+                      title: 'Cell Content',
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Table Caption',
+        },
+      ],
+    }),
+    
+
+    defineArrayMember({
+      type: 'object',
+      name: 'codeBlock', 
+      title: 'Code Block',
+      fields: [
+        {
+          name: 'language',
+          type: 'string',
+          title: 'Programming Language',
+        },
+        {
+          name: 'code',
+          type: 'text',
+          title: 'Code Snippet',
+        },
+      ],
+    }),
+
   ],
-})
+});

@@ -91,7 +91,6 @@ export const ComputerVisoinSection4 = () => {
         setStepperData(newData);
       }
 
-      console.log("0% - 20% of the element is visible");
     } else if (scrollPercentage >= 35 && scrollPercentage < 50) {
       if (stepperData[1].status === false){
 
@@ -108,7 +107,6 @@ export const ComputerVisoinSection4 = () => {
       });
       setStepperData(newData);
     }
-      console.log("20% - 40% of the element is visible");
     } else if (scrollPercentage >= 50 && scrollPercentage < 60) {
       if (stepperData[2].status === false){
 
@@ -141,7 +139,6 @@ export const ComputerVisoinSection4 = () => {
       });
       setStepperData(newData);
     }
-      console.log("40% - 80% of the element is visible");
     } else if (scrollPercentage >= 80 && scrollPercentage < 90) {
       if (stepperData[4].status === false){
 
@@ -158,7 +155,7 @@ export const ComputerVisoinSection4 = () => {
       });
       setStepperData(newData);
     }
-      console.log("80% - 99% of the element is visible");
+     
     } else if (scrollPercentage >= 90) {
       if (stepperData[5].status === false){
 
@@ -175,7 +172,7 @@ export const ComputerVisoinSection4 = () => {
       });
       setStepperData(newData);
     }
-      console.log("99% of the element is visible");
+     
     }
 
     

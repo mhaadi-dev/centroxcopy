@@ -1,71 +1,153 @@
 "use client";
+
 import classNames, { section_wrapper_class } from "@/helpers/common";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommonCard from "./CommonCard";
-import dummyDisplay from "@/assets/dummyDisplay.webp";
 import PaginationControls from "./PaginationControls";
+import { useSearchParams } from "next/navigation";
+import { calculateReadingTime, reSlugify, slugify } from "@/sanity/lib/helpers";
+import { Loader } from "../Loader/Loader";
+import { useRouter } from "next/navigation";
 
 interface Props {
   headingText?: string;
-  cardData?: any;
+  totalBlogsCount?: number;
   cardsPerPage?: number;
+  showPagination?: boolean;
 }
 
 const GridBlogCardsWithPagination = ({
   headingText,
-  cardData,
+  totalBlogsCount = 0,
   cardsPerPage = 5,
+  showPagination = true,
 }: Props) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(cardData.length / cardsPerPage);
+  const searchParams = useSearchParams();
+  const pageParam = searchParams.get("page");
+  const initialPage = pageParam ? parseInt(pageParam, 10) : 1;
 
-  const startIndex = (currentPage - 1) * cardsPerPage;
-  const currentData = cardData.slice(startIndex, startIndex + cardsPerPage);
+  const [cardsData, setCardsData] = useState<any>([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(initialPage);
+  const router =useRouter()
 
+  const totalPages = Math.ceil(totalBlogsCount / cardsPerPage) || 0;
+
+  useEffect(() => {
+    // Synchronize currentPage when `page` in the URL changes
+    const pageParam = searchParams.get("page");
+    const updatedPage = pageParam ? parseInt(pageParam, 10) : 1;
+
+    if (currentPage !== updatedPage) {
+      setCurrentPage(updatedPage);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    const startRange = (currentPage - 1) * cardsPerPage;
+    const endRange = currentPage * cardsPerPage;
+
+    fetchPaginatedBlogs(startRange, endRange);
+  }, [currentPage]);
+
+  const fetchPaginatedBlogs = async (startRange: number, endRange: number) => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `/api/fetchBlogs?startRange=${startRange}&endRange=${endRange}`
+      );
+      const blogData = await response.json();
+      setCardsData(blogData || []);
+    } catch (error) {
+      console.error("Error fetching paginated blogs:", error);
+      setCardsData([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+
+    setLoading(true);
+    setCurrentPage(page);
+    window.history.pushState(null, "", `?page=${page}`);
+  };
+const cardClick=(link:string)=>{
+  router.push(link)
+}
   return (
-    <section className={classNames(section_wrapper_class, "flex flex-col gap-4")}>
-      <div
-        className={classNames(
-          "grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-        )}
-      >
-        {currentData.slice(0, 2).map((card: any, index: number) => (
-          <CommonCard
-            key={index}
-            colSpan={index < 2 ? 2 : 1}
-            name={card.name}
-            date={card.date}
-            label={card.label}
-            duration={card.duration}
-            image={dummyDisplay}
-            subdescription={card.subdescription}
-            title={card.title}
-          />
-        ))}
-      </div>
-      <div
-        className={classNames(
-          "grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        )}
-      >
-        {currentData.slice(2).map((card: any, index: number) => (
-          <CommonCard
-            key={index}
-            name={card.name}
-            date={card.date}
-            label={card.label}
-            duration={card.duration}
-            image={dummyDisplay}
-            subdescription={card.subdescription}
-            title={card.title}
-          />
-        ))}
-      </div>
-      <PaginationControls
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+    <section className={classNames(section_wrapper_class)}>
+      {loading && <Loader className="!mt-0 !h-[60vh] flex items-center" />}
+      {!loading && (
+        <section>
+          <div
+            className={classNames(
+              "grid gap-4 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            )}
+          >
+            {cardsData?.length > 0 &&
+              cardsData?.slice(0, 2).map((card: any, index: number) => (
+                <CommonCard
+                  key={index}
+                  colSpan={2}
+                  name={card?.author?.name}
+                  date={card?.content_item?.date}
+                  label={reSlugify(card?.label?.current)}
+                  category={card?.category?.category_name}
+                  duration={calculateReadingTime(card?.content_item?.blog_data)}
+                  image={card?.content_item?.image?.image}
+                  subdescription={card?.meta_description}
+                  title={card?.meta_title}
+                  tags={card?.content_item?.tags}
+                  linkText={card?.content_item?.linkText}
+                  linkWithIcon={card?.content_item?.linkWithIcon}
+                  link={`blogs/${slugify(
+                    card?.category?.category_name
+                  )}/${slugify(card?.label?.current)}`}
+                
+                />
+              ))}
+          </div>
+          <div
+            className={classNames(
+              "grid gap-4 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            )}
+          >
+            {cardsData?.length > 0 &&
+              cardsData?.slice(2).map((card: any, index: number) => (
+                <CommonCard
+                  key={index}
+                  name={card?.author?.name}
+                  date={card?.content_item?.date}
+                  category={card?.category?.category_name}
+                  label={reSlugify(card?.label?.current)}
+                  duration={calculateReadingTime(card?.content_item?.blog_data)}
+                  image={card?.content_item?.image?.image}
+                  subdescription={card?.meta_description}
+                  title={card?.meta_title}
+                  tags={card?.content_item?.tags}
+                  linkText={card?.content_item?.linkText}
+                  linkWithIcon={card?.content_item?.linkWithIcon}
+                  link={`blogs/${slugify(
+                    card?.category?.category_name
+                  )}/${slugify(card?.label?.current)}`}
+                  cardClick={cardClick}
+                />
+              ))}
+          </div>
+        </section>
+      )}
+      {showPagination && totalPages > 1  && (
+        <PaginationControls
+          handleNext={() => handlePageChange(currentPage + 1)}
+          handlePrevious={() => handlePageChange(currentPage - 1)}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      )}
+      {cardsData?.length === 0 && !loading && <p>No blogs found.</p>}
     </section>
   );
 };

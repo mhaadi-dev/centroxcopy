@@ -260,7 +260,41 @@ export const Navbar = () => {
         ],
       ],
     },
-    
+    {
+      navItemText: "Resources",
+      onClick: () => {
+        // if (pathname === "/") {
+        //   scrollToSection("industries");
+        // } else {
+        //   localStorage.setItem("industries", JSON.stringify(true));
+        //   router.push(`/`);
+        //   setTimeout(() => {
+        //     scrollToSection("industries");
+        //   }, 500);
+        // }
+       
+          // setShowBackdrop(!showBackdrop);
+        
+        
+      },
+      columnData: [
+        [
+          {
+            heading: "Case Studies",
+            description: " Read about our intelligent GenAI solutions.",
+            image: fintech,
+            link:"/case-studies"
+          },
+          {
+            heading: "Blogs",
+            description: "Read about our intelligent GenAI solutions.",
+            image: realestate,
+            link:"/blogs"
+          },
+       
+        ],
+      ],
+    },
     {
       navItemText: "Company",
       onClick: () => {

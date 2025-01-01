@@ -31,7 +31,6 @@ export async function sanityFetch<QueryResponse>({
   tags?: string[];
 }) {
   const isDraftMode = true
-  console.log("draft mode is",isDraftMode)
   if (isDraftMode && !token) {
     
     throw new Error("Missing environment variable SANITY_API_READ_TOKEN");

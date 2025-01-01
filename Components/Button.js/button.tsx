@@ -1,6 +1,7 @@
 "use client"
 import classNames from "@/helpers/common";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 interface PropsI {
@@ -19,6 +20,9 @@ interface PropsI {
 	isLefticon?: boolean;
 	id?: string;
 	moveToSection?:string
+	isLinkClass?:string
+	paddingclass?:string,
+	link?:string
 }
 
 // export const Button = ({
@@ -88,11 +92,16 @@ export const Button = ({
 	isLoading = false,
 	defaultClass = true,
 	isLefticon = true,
-	moveToSection=""
+	moveToSection="",
+	isLinkClass="",
+	paddingclass="",
+	link=""
   }: PropsI) => {
 	const router=useRouter()
 	return (
-	  <button id={id}
+		<>
+		{link ?<Link href={link || ""}>
+			  <button id={id}
 		type={type}
 		onClick={ onClick ? onClick : moveToSection ? ()=>{
 			router.push("/")
@@ -109,18 +118,18 @@ export const Button = ({
 			
 		}:()=>{}}
 		className={classNames(
-		  defaultClass &&
+		 isLinkClass=="" &&  defaultClass &&
 			"flex items-center justify-center gap-2 rounded-full px-3 py-3 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
 		  isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : 
-		  "bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] border-[2px] border-[#056EE199] rounded-full ease-in transition-all",
-		  className
-		)}
+		 isLinkClass=="" && "bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] border-[2px] border-[#056EE199] rounded-full ease-in transition-all",
+		  className)
+		}
 		disabled={isDisabled}
 	  >
 		{Icon && isLefticon && (
 		  <Image src={Icon} className={classNames(iconClassName)} alt="" />
 		)}
-		{content && <span className="flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl">
+		{content && <span className={classNames("flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl",paddingclass)}>
 		  {isLoading ? (
 			<span className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
 		  ) : (
@@ -138,6 +147,56 @@ export const Button = ({
 		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
 		)}
 	  </button>
+		</Link>:  <button id={id}
+		type={type}
+		onClick={ onClick ? onClick : moveToSection ? ()=>{
+			router.push("/")
+			setTimeout(() => {
+			
+				const Component = document.getElementById(moveToSection);
+			      if (Component) {
+			        Component.scrollIntoView({
+			          behavior: "smooth",
+			          block: "start",
+			        });
+			      }
+			}, 500);
+			
+		}:()=>{}}
+		className={classNames(
+		 isLinkClass=="" &&  defaultClass &&
+			"flex items-center justify-center gap-2 rounded-full px-3 py-3 text-white hover:bg-blue-darkBtn lg:px-6 lg:py-2",
+		  isDisabled ? "bg-gray-disabled hover:bg-gray-disabled" : 
+		 isLinkClass=="" && "bg-gradient-to-t from-[#056fe1ac] via-[#056fe19c] to-black bg-[length:100%_160%] border-[2px] border-[#056EE199] rounded-full ease-in transition-all",
+		  className)
+		}
+		disabled={isDisabled}
+	  >
+		{Icon && isLefticon && (
+		  <Image src={Icon} className={classNames(iconClassName)} alt="" />
+		)}
+		{content && <span className={classNames("flex flex-col font-semibold px-2 items-center justify-center text-sm lg:text-xl",paddingclass)}>
+		  {isLoading ? (
+			<span className="border-l-2 h-4 w-4 animate-spin rounded-full border-b-2 border-white" />
+		  ) : (
+			 <span
+			  className={classNames(
+				"flex items-center justify-center",
+				customClassName
+			  )}
+			>
+			  {content}
+			</span>
+		)}
+		</span>}
+		{Icon && !isLefticon && (
+		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
+		)}
+	  </button>}
+		
+		</>
+		
+	
 	);
   };
   

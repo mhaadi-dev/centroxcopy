@@ -28,7 +28,7 @@ export function Post({ post }: { post: POSTS_QUERYResult }) {
   };
     // @ts-ignore
   const { title, mainImage, body } = post || {};
-    console.log("body here in blog page is",body)
+    // console.log("body here in blog page is",body)
   return (
     <main className="container mx-auto prose prose-lg p-4 bg-white h-screen">
       {title ? <h1>{title}</h1> : null}

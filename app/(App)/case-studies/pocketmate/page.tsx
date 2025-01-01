@@ -572,7 +572,7 @@ const heroSection2Data={
   return (
    
       <>
-      <SubnavBar title='Case Studies' navItems={navItems}/> 
+      {/* <SubnavBar imageLink="/case-studies" title='Case Studies' navItems={navItems}/>  */}
       <CaseStudyBanner
         heading={banner1Data.heading}
         para1Text={banner1Data.para1Text}
