@@ -75,3 +75,7 @@ export const calculateReadingTime = (content: any): string => {
 export const reSlugify=(str:string)=>{
   return str?.split("-").join(" ")
 }
+
+export function cleanMetaString(str:string) { 
+ return str.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, ' ').trim();
+ }

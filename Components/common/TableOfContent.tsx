@@ -47,7 +47,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({ headings }) => {
 
   return (
     <div className="bg-gray-800/80 border-2 w-full flex  overflow-hidden flex-col gap-y-4 py-10 px-4 text-white border-gray-100/60 rounded-xl">
-    <div className="overflow-y-auto flex flex-col gap-y-4 lg:h-[19rem] 2xl:min-h-screen">
+    <div className="overflow-y-auto  flex flex-col gap-y-4 lg:h-[19rem] 2xl:min-h-screen">
       <p className={classNames(text_para_2, "font-semibold")}>Table of Contents</p>
       <ol
         className={classNames(

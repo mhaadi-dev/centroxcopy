@@ -43,9 +43,7 @@ export const PortableComponent = {
     strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
     em: ({ children }) => <em className="italic text-white">{children}</em>,
     link: ({ value, children }) => (
-      <a href={value?.href} className="text-blue-500 underline">
-        {children}
-      </a>
+      <a href={value?.href} target={value?.newTab ? "_blank" : "_self"} rel={value?.newTab ? "noopener noreferrer" : undefined} className="text-blue-500 underline"> {children} </a>
     ),
   },
   types: {

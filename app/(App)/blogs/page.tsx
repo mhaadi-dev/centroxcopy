@@ -8,9 +8,53 @@ import { client } from '@/sanity/lib/client';
 import { GET_ALL_CATEGORIES, GET_BLOGS_BY_CATEGORY_QUERY, GET_PAGINATED_ARTICLES_QUERY, GET_TOTAL_BLOGS_COUNT } from '@/sanity/query';
 import TabsWithGridCards from '@/Components/common/TabsWithGridCards';
 import { notFound } from 'next/navigation';
-import { calculateReadingTime, reSlugify } from '@/sanity/lib/helpers';
+import { calculateReadingTime, cleanMetaString, reSlugify } from '@/sanity/lib/helpers';
+import { blob } from 'node:stream/consumers';
 
 export const revalidate = 10;
+
+// Metadata generation function
+
+
+// export async function generateMetadata({ searchParams }: { searchParams: { page?: string } }) {
+//   const BLOGS_PER_PAGE = 5; 
+
+//   try {
+//     const totalBlogsCount = await client.fetch(GET_TOTAL_BLOGS_COUNT);
+
+//     const totalPages = Math.ceil(totalBlogsCount / BLOGS_PER_PAGE);
+
+//     const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
+//     const canonical =
+//       currentPage === 1
+//         ? `https://centrox.ai/blogs/`
+//         : `https://centrox.ai/blogs?page=${currentPage}`;
+
+//     const alternates = Array.from({ length: totalPages }, (_, i) => ({
+//       url: i === 0
+//         ? `https://centrox.ai/blogs/`
+//         : `https://centrox.ai/blogs?page=${i + 1}`,
+//     }));
+
+//     const metaTitle = `Centrox AI ${currentPage > 1 ? ` - Page ${currentPage}` : ''}`;
+//     const metaDescription = `Centrox AI | Heart of Innovation${currentPage > 1 ? ` - Browse Page ${currentPage}` : ''}`;
+
+//     return {
+//       title: cleanMetaString(metaTitle),
+//       description: cleanMetaString(metaDescription),
+//       alternates: {
+//         canonical,
+//         pages: alternates,
+//       },
+//     };
+//   } catch (error) {
+//     console.error("Error fetching category data:", error);
+//     notFound();
+//     return;
+//   }
+// }
+
+
 
 const fetchSanityData = async () => {
   const totalBlogsCount = await client.fetch(GET_TOTAL_BLOGS_COUNT);
@@ -37,7 +81,6 @@ const fetchSanityData = async () => {
 
   return { totalBlogsCount, blogData, allCategories, categoricalBlogs: categoricalBlogs.filter(Boolean) };
 };
-
 const BlogPage = async () => {
   try {
     const { totalBlogsCount, blogData, allCategories, categoricalBlogs } = await fetchSanityData();
@@ -54,6 +97,7 @@ const BlogPage = async () => {
           product={blogData?.[0]?.category?.category_name}
           duration={calculateReadingTime(blogData?.[0]?.content_item?.blog_data)}
           banner_image={blogData?.[0]?.content_item?.image?.image}
+          alt={blogData?.[0]?.content_item?.alt}
           category={blogData?.[0]?.category?.category_name}
           label={reSlugify(blogData?.[0]?.label?.current)}
           id={blogData?.[0]?._id}
@@ -65,13 +109,13 @@ const BlogPage = async () => {
             totalBlogsCount={totalBlogsCount}
           />
         )}
-        {categoricalBlogs?.map((category: any, index: number) => (
+        {categoricalBlogs?.length > 0 && categoricalBlogs?.length>3 ?categoricalBlogs.slice(0,3).map((category: any, index: number) => (
           <TabsWithGridCards
             key={index}
             cardsData={category?.blogs?.slice(0,5)}
             headingText={category?.category}
           />
-        ))}
+        )):""}
         <IndustryBanner
           heading="All the Good Stuff is here"
           description="Read these blogs to get to know more about Centrox."

@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import { space } from "postcss/lib/list";
 import Link from "next/link";
 import test from "@/assets/Test Design.svg";
-import { slugify } from "@/sanity/lib/helpers";
+import { reSlugify, slugify } from "@/sanity/lib/helpers";
 interface Props {
   heading?: string;
   paraText?: string;
@@ -26,7 +26,8 @@ interface Props {
   category?:string,
   label?:string,
   id?:string,
-  showReadLink?:boolean
+  showReadLink?:boolean,
+  alt?:string
 }
 const BlogBanner = ({
   heading,
@@ -39,6 +40,7 @@ const BlogBanner = ({
   banner_image,
   category,label,
   id,
+  alt,
   showReadLink=true
 }: Props) => {
   const pathname = usePathname();
@@ -48,16 +50,17 @@ const BlogBanner = ({
       .split("-")
       .map((path) => path[0]?.toUpperCase() + path.slice(1));
   });
-// console.log("id in banner is ",id)
+
   return (
-    <section
+    <Link href={!showReadLink ? "":  `/blogs/${slugify(category)}/${slugify(label)}`}  >
+      <section
       className={classNames(
         section_wrapper_class,
         "bg-gradient-to-r p-6 lg:p-10 from-[#079DFC] to-[#72EFDD] rounded-2xl",
         className
       )}
     >
-      <div className="flex items-center my-2  gap-x-2">
+      <div className="flex items-center my-2  gap-x-2 text-gray-900 hover:text-black">
         {breadcrumbsPath.slice(1).map((path, index) => {
           return (
             <>
@@ -105,20 +108,20 @@ const BlogBanner = ({
             </h1>
           )}
           {paraText && (
-            <p className={classNames(text_para_3, "text-gray-800")}>
+            <p className={classNames(text_para_3, "text-gray-900")}>
               {paraText}
             </p>
           )}
           <div className="flex gap-y-2 gap-x-6 lg:gap-6 flex-wrap">
-            {date && <p>{date}</p>}
-            {name && <p>{name}</p>}
-            {category && <p className="font-semibold">{category}</p>}
-            {duration && <p>{duration}</p>}
+            {date && <p className="text-gray-900">{date}</p>}
+            {name && <p className="text-gray-900">{name}</p>}
+            {category && <p className={classNames("font-semibold capitalize text-gray-900")}>{reSlugify(category)}</p>}
+            {duration && <p className="text-gray-800">{duration}</p>}
           </div>
       
         {   showReadLink&&  <Link
          href={ `/blogs/${slugify(category)}/${slugify(label)}`} 
-            className="text-gray-900 text-[0.7rem] lg:text-[1.1rem] my-3  flex items-center gap-2 hover:text-blue-900"
+            className={classNames(text_para_3,"flex text-gray-900 gap-1 items-center hover:text-blue-azure")}
           >
            Read This Blog
               <svg
@@ -138,10 +141,12 @@ const BlogBanner = ({
           </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={test} alt="image" width={0} height={0} className=""></Image>
+          <Image src={banner_image || test} alt={alt ||""} width={610} height={320} className=""></Image>
         </div>
       </div>
     </section>
+    </Link>
+    
   );
 };
 

@@ -29,7 +29,7 @@ const GridBlogCardsWithPagination = ({
   const [cardsData, setCardsData] = useState<any>([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(initialPage);
-  const router =useRouter()
+  const router = useRouter();
 
   const totalPages = Math.ceil(totalBlogsCount / cardsPerPage) || 0;
 
@@ -49,6 +49,25 @@ const GridBlogCardsWithPagination = ({
 
     fetchPaginatedBlogs(startRange, endRange);
   }, [currentPage]);
+
+  // useEffect(() => {
+  //   const metaTitle = `Centrox AI${currentPage > 1 ? ` - Page ${currentPage}` : ''}`;
+  //   const canonicalURL = currentPage === 1
+  //     ? `https://centrox.ai/blogs/`
+  //     : `https://centrox.ai/blogs?page=${currentPage}`;
+
+  //   document.title = metaTitle;
+
+  //   const link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
+  //   if (link) {
+  //     link.href = canonicalURL;
+  //   } else {
+  //     const newLink: HTMLLinkElement = document.createElement("link");
+  //     newLink.rel = "canonical";
+  //     newLink.href = canonicalURL;
+  //     document.head.appendChild(newLink);
+  //   }
+  // }, [currentPage]);
 
   const fetchPaginatedBlogs = async (startRange: number, endRange: number) => {
     setLoading(true);
@@ -73,9 +92,11 @@ const GridBlogCardsWithPagination = ({
     setCurrentPage(page);
     window.history.pushState(null, "", `?page=${page}`);
   };
-const cardClick=(link:string)=>{
-  router.push(link)
-}
+
+  const cardClick = (link: string) => {
+    router.push(link);
+  };
+
   return (
     <section className={classNames(section_wrapper_class)}>
       {loading && <Loader className="!mt-0 !h-[60vh] flex items-center" />}
@@ -105,7 +126,6 @@ const cardClick=(link:string)=>{
                   link={`blogs/${slugify(
                     card?.category?.category_name
                   )}/${slugify(card?.label?.current)}`}
-                
                 />
               ))}
           </div>
@@ -138,7 +158,7 @@ const cardClick=(link:string)=>{
           </div>
         </section>
       )}
-      {showPagination && totalPages > 1  && (
+      {showPagination && totalPages > 1 && (
         <PaginationControls
           handleNext={() => handlePageChange(currentPage + 1)}
           handlePrevious={() => handlePageChange(currentPage - 1)}
