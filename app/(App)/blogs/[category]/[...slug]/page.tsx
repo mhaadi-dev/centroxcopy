@@ -5,12 +5,11 @@ import IndustryBanner from '@/Components/common/IndustryBanner';
 import { client } from '@/sanity/lib/client';
 import { calculateReadingTime, slugify } from '@/sanity/lib/helpers';
 import { urlFor } from '@/sanity/lib/image';
-import { GET_BLOG_BY_ID_QUERY, GET_BLOGS_BY_CATEGORY_QUERY } from '@/sanity/query';
+import { GET_ALL_CATEGORIES, GET_BLOG_BY_ID_QUERY, GET_BLOGS_BY_CATEGORY_QUERY } from '@/sanity/query';
 import LandingBlogSection from '@/views/LandingPageViews/LandingBlogSection';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
-// Use generateMetadata to dynamically set meta title and description
 export const revalidate=10;
 
 export async function generateMetadata({ params }: { params: { slug: string[] } }) {
@@ -38,6 +37,8 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
         title: metaTitle,
         description: metaDescription,
         type: 'article',
+        image:blogData?.content_item?.image?.image,
+        url:`https://centrox.ai/blogs/${blogData.category?.category_name}/${blogData.label}`
       },
       alternates: {
         canonical: `https://centrox.ai/blogs/${blogData.category?.category_name}/${blogData.label}`,
@@ -56,6 +57,8 @@ const Page = async ({ params }: any) => {
   const blogSlug: string = slug[0];
 
   const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
+  const allCategories = await client.fetch(GET_ALL_CATEGORIES);
+
 
   if (!blogData) {
     notFound()
@@ -110,7 +113,7 @@ const Page = async ({ params }: any) => {
   ];
   return (
     <section className='relative'>
-      <SubnavBar imageLink = {"/blogs"} title='Blogs' navItems={[]} />
+      <SubnavBar imageLink = {"/blogs"} title='Blogs' navItems={allCategories || []} />
       <BlogBanner
         className="!mt-28 lg:mt-0"
         heading={blogData.content_item?.banner_data?.banner_heading || blogData?.[0]?.meta_title}
@@ -120,6 +123,7 @@ const Page = async ({ params }: any) => {
         category={blogData?.category?.category_name}
         duration={calculateReadingTime(blogData.content_item?.blog_data)}
         banner_image={blogData?.content_item?.image?.image}
+        alt={blogData?.content_item?.alt}
         showReadLink={false}
       />
       <BlogContentSection authorInfo={

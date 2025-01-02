@@ -182,9 +182,8 @@ export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number
     (
      meta_title match "*${keyword}*" || 
      meta_description match "*${keyword}*" || 
-     content_item.title match "*${keyword}*" || 
      content_item.tags[] match "*${keyword}*"||
-     content_item.category match "*${keyword}*"
+     category->category_name match "*${keyword}*"
     )
   ] | order(_createdAt desc) [${startRange}...${endRange}] {
     _id,
@@ -228,8 +227,8 @@ export const TOTAL_SEARCH_BLOGS_COUNT_QUERY = (keyword: string) => groq`
     (name match "*${keyword}*" || 
      meta_title match "*${keyword}*" || 
      meta_description match "*${keyword}*" || 
-     content_item.title match "*${keyword}*" || 
-     content_item.tags[] match "*${keyword}*"
+     content_item.tags[] match "*${keyword}*" || 
+     category->category_name match "*${keyword}*"
     )
   ])
 `;

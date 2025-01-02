@@ -45,22 +45,25 @@ const CommonCard = ({
   return (
     <div
       className={classNames(
-        "max-w-  mx-auto  flex flex-col   justify-center    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[1rem] rounded-2xl cursor-pointer ",
+        "max-w-  mx-auto  flex flex-col   justify-start    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[0.7rem] rounded-2xl cursor-pointer ",
         colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1",isSearchResult ? "lg:flex-row gap-6 !justify-start":"flex-col"
       )}
     >
        {image && (
-        <Image
+        <Link href={link||""}>
+           <Image
           src={image}
           loading="lazy"
           className={classNames(
             "  my-4 ",
-            isSearchResult ? "w-full  lg:!w-1/4 h-[60%]" : "w-full"
+            isSearchResult ? "w-full  lg:!w-1/4 h-[60%]" : ""
           )}
           width={610}
           height={320}
           alt="img-alt"
         />
+        </Link>
+       
       )}
       <Link href={link||""} className={classNames( isSearchResult
           ? "flex flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"")}>
@@ -78,12 +81,12 @@ const CommonCard = ({
        {isSearchResult ?<h2 className="font-semibold my-2 lg:my-4 text-[1rem] sm:text-[1.5rem] text-white">
           {title ||
             ""}
-        </h2>:<h4 className="font-semibold my-2 lg:my-4 text-[1rem] sm:text-[1.5rem] text-white">
+        </h2>:<h4 className="font-semibold my-2 lg:my-2 text-[1rem] sm:text-[1.5rem] text-white">
           {title ||
             ""}
         </h4>}
         {subdescription && (
-          <p className={classNames(text_para_3, "my-2")}>{subdescription}</p>
+          <p className={classNames(text_para_3, "!mb-2")}>{subdescription}</p>
         )}
         {tags?.length > 0 && (
           <section
@@ -91,7 +94,7 @@ const CommonCard = ({
             className=" w-full flex-wrap flex justify items-center gap-4 my-4 lg:my-4"
           >
             {tags?.map((tag:string)=>{
-              return   <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.5rem] text-white  text-[10px] md:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] ">
+              return   <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.3rem] text-white  text-[10px] md:text-[0.75] 2xl:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] ">
                {tag}
             </div>
             })}
@@ -107,17 +110,17 @@ const CommonCard = ({
             category || date || name ? "" : ""
           )}
         >
-          {name && <p className="text-gray-500 font-semibold">{name}</p>}
+          {name && <p className={classNames("text-gray-500 font-semibold ",text_para_3)}>{name}</p>}
           {category && (
-            <p className="text-blue-azure font-semibold text-start capitalize ">
-              <Link href={`/blogs/${slugify(category)}`} className="hover:underline underline-offset-4">
+            <p className={classNames("text-blue-azure font-semibold text-start capitalize",text_para_3)}>
+              <Link href={`/blogs/${slugify(category)}`} className={classNames("hover:underline underline-offset-4")}>
                {reSlugify(category)}
               </Link>
              
             </p>
           )}
           {date && (
-            <p className="text-gray-500 font-semibold ">
+            <p className={classNames("text-gray-500 font-semibold",text_para_3)}>
               {new Date(date).toLocaleDateString()}
             </p>
           )}

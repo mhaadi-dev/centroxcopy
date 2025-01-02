@@ -50,6 +50,7 @@ export const blockContentType = defineType({
                 name: 'href',
                 type: 'url',
               },
+              { title: 'Open in New Tab', name: 'newTab', type: 'boolean', },
             ],
           },
           {
