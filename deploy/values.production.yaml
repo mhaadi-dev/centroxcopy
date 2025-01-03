@@ -5,10 +5,16 @@ ingress:
     tls: true
     secret_name: centrox-ai-frontend-landing-tls
     domains:
-        - "www.centrox.ai"
-        - "centrox.ai"
+      - "www.centrox.ai"
+      - "centrox.ai"
+    annotations:
+      nginx.ingress.kubernetes.io/server-snippet: |
+            if ($host = "www.centrox.ai") {
+                return 301 https://centrox.ai$request_uri;
+            }
 
 service:
+    name: centrox-ai-frontend-landing-service
     ports:
         target: 3000
         port: 80
@@ -18,3 +24,4 @@ server:
     port: 3000
     session_secret: "ashdfjhasdlkjfhalksdjhflal"
     environment: production
+
