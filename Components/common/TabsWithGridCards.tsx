@@ -27,7 +27,7 @@ const TabsWithGridCards = ({ headingText = "", cardsData = [],clickAble=true }: 
                {reSlugify(headingText)}
               </Link>
               </h2>}
-          {clickAble &&<Link href={`/blogs/${slugify(headingText)}`}><Image src={linkIcon} alt="link" className="cursor-pointer lg:w-[2rem] lg:h-[2rem] hover:text-blue-azure transition-all duration-200"></Image>
+          {clickAble &&<Link href={`/blogs/${slugify(headingText)}`}><Image src={linkIcon} alt="link" className="cursor-pointer w-[1.8rem] lg:w-[2rem] lg:h-[2rem] hover:text-blue-azure transition-all duration-200"></Image>
           </Link> } 
           </div>
          

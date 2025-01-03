@@ -1,3 +1,5 @@
+import { client } from "./client";
+
 export function slugify(input:any) {
   // If input is a React element
   if (typeof input === "object" && input?.$$typeof === Symbol.for("react.element")) {
@@ -79,3 +81,4 @@ export const reSlugify=(str:string)=>{
 export function cleanMetaString(str:string) { 
  return str.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, ' ').trim();
  }
+

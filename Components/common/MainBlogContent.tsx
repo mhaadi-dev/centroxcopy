@@ -40,7 +40,7 @@ const MainBlogContent = ({ data, authorInfo }: any) => {
               </h3>
             )}
             {authorInfo?.author_description && (
-              <p className={classNames(text_para_3)}>
+              <p className={classNames(text_para_3,"lg:text-justify")}>
                 {authorInfo?.author_description}
               </p>
             )}

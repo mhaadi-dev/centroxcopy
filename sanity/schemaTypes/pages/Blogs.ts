@@ -102,7 +102,7 @@ export const BlogSchema = defineType({
       title: 'Meta Title',
       type: 'string',
       validation: (Rule) =>
-        Rule.required().max(60).error('Meta title should not exceed 60 characters.'),
+        Rule.required().max(60).warning('Meta title should not exceed 60 characters.'),
     }),
     defineField({
       name: 'meta_description',
@@ -167,7 +167,7 @@ export const AuthorSchema = defineType({
       name: 'bio',
       title: 'Biography',
       type: 'text',
-      validation: (Rule) => Rule.max(200).error('Bio should not exceed 200 characters.'),
+      validation: (Rule) => Rule.max(250).error('Bio should not exceed 250 characters.'),
     }),
     defineField({
       name: 'image',

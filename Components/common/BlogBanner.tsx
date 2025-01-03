@@ -27,7 +27,9 @@ interface Props {
   label?:string,
   id?:string,
   showReadLink?:boolean,
-  alt?:string
+  alt?:string,
+  isH2?:boolean,
+  isSpan?:boolean
 }
 const BlogBanner = ({
   heading,
@@ -40,7 +42,9 @@ const BlogBanner = ({
   banner_image,
   category,label,
   id,
+  isSpan=false,
   alt,
+  isH2=false,
   showReadLink=true
 }: Props) => {
   const pathname = usePathname();
@@ -102,11 +106,15 @@ const BlogBanner = ({
 
       <div className="flex flex-col-reverse lg:flex-row gap-6 items-start justify-between ">
         <div className="w-full lg:w-1/2">
-          {heading && (
-            <h1 className={classNames(text_h3_class, "text-gray-900")}>
+          {heading && isH2 ?(
+            <h2 className={classNames(text_h3_class, "text-gray-900")}>
               {heading}
-            </h1>
-          )}
+            </h2>
+          ) : heading && isSpan ?<span className={classNames(text_h3_class, "text-gray-900")}>
+          {heading}
+        </span>  : <h1 className={classNames(text_h3_class, "text-gray-900")}>
+          {heading}
+        </h1>}
           {paraText && (
             <p className={classNames(text_para_3, "text-gray-900")}>
               {paraText}

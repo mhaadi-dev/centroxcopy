@@ -79,7 +79,11 @@ const TabsWithGridCardsPagination = ({
   };
   return (
     <> 
-    <div className="!mt-24 lg:mt-0">
+       {headingText && <h1 className={classNames(text_h2_class," capitalize !mt-24 lg:mt-0 transition-all duration-200",section_wrapper_class)}>
+               {reSlugify(headingText)}
+           
+              </h1>}
+    <div className=" lg:mt-0">
         {!loading &&   cardsData?.length > 0 && <BlogBanner
           heading={cardsData?.[0]?.content_item?.banner_data?.banner_heading || cardsData?.[0]?.meta_title }
           paraText={cardsData?.[0]?.content_item?.banner_data?.banner_description ||  cardsData?.[0]?.meta_description}
@@ -89,10 +93,11 @@ const TabsWithGridCardsPagination = ({
           duration={calculateReadingTime(cardsData?.[0]?.content_item?.blog_data)}
           banner_image={cardsData?.[0]?.content_item?.image?.image}
           alt={cardsData?.[0]?.content_item?.alt}
-
+          isH2={false}
           category={cardsData?.[0]?.category?.category_name}
           label={reSlugify(cardsData?.[0]?.label?.current)}
           id={cardsData?.[0]?._id}
+          isSpan={true}
         />}
     </div>
         
@@ -104,10 +109,7 @@ const TabsWithGridCardsPagination = ({
         <> 
            {cardsData?.length === 0 && !loading && <p className="text-center">No blogs found.</p>} 
          <section className="flex flex-col gap-8 lg:gap-10">
-            {headingText && <h2 className={classNames(text_h2_class," capitalize mt-16 lg:mt-0 transition-all duration-200")}>
-               {reSlugify(headingText)}
-           
-              </h2>}          
+                   
               <div
             className={classNames(
               "grid space-4  grid-cols-1 justify-center  lg:justify-start sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3"
