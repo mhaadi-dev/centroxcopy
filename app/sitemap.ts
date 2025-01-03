@@ -1,6 +1,6 @@
 // pages/sitemap.ts
 import { MetadataRoute } from 'next';
-
+export const revalidate=10
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticLinks = [
     { url: 'https://centrox.ai/', lastModified: new Date().toISOString(), priority: 1.00 },
@@ -32,15 +32,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const fetchLink =  isStaging ? "https://staging.centrox.ai/api/fetchsitemapblogs" : "https://centrox.ai/api/fetchsitemapblogs"
     const localLink = 'http://localhost:3000/api/fetchsitemapblogs'
-    const response = await fetch( fetchLink);
+    const response = await fetch( fetchLink,{cache:"no-cache"});
     const data = await response.json();
     const dynamicLinks_blog_detail = data.map((blog: any) => ({
-      url: `https://centrox.ai/blogs/${blog.category}/${blog.label.current}`,
+      url: `https://centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`,
       lastModified: new Date(blog._updatedAt).toISOString(),
       priority: 0.8,
     }));
     const dynamicLinks_blog_categories = data.map((blog: any) => ({
-      url: `https://centrox.ai/blogs/${blog.category}`,
+      url: `https://centrox.ai/blogs/${blog.category?.category_name}`,
       lastModified: new Date(blog._updatedAt).toISOString(),
       priority: 0.8,
     }));

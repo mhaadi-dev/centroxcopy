@@ -336,23 +336,16 @@ export const GET_TOTAL_BLOGS_BY_CATEGORY = (category:any) => `
     _id
   }.length
 `;
-export const SITE_MAP_GET_BLOGS_AND_CATEGORIES_QUERY = groq`
-  *[_type == "blog"] {
-    name,
+export const SITE_MAP_GET_BLOGS_AND_CATEGORIES_QUERY = `
+  *[_type == "blog"]{
+    category->{
+      category_name
+    },
     label,
-    subslug,
-    _updatedAt,
-     category->category_name,
-    content_item {
-      image {
-        asset->{
-          url
-        },
-        alt
-      }
-    }
+    _updatedAt
   }
 `;
+
 
 
 export const POSTS_QUERY = groq`*[_type == "profile"]{
