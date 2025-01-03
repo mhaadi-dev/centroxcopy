@@ -116,6 +116,12 @@ const BlogPage = async () => {
             cardsData={category?.blogs?.slice(0,5)}
             headingText={category?.category}
           />
+        )):categoricalBlogs?.length > 0 ?categoricalBlogs.map((category: any, index: number) => (
+          <TabsWithGridCards
+            key={index}
+            cardsData={category?.blogs?.slice(0,5)}
+            headingText={category?.category}
+          />
         )):""}
         <IndustryBanner
           heading="All the Good Stuff is here"
