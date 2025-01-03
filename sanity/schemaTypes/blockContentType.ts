@@ -41,32 +41,43 @@ export const blockContentType = defineType({
         ],
         annotations: [
           {
-            title: 'URL',
-            name: 'link',
-            type: 'object',
+            title: "URL",
+            name: "link",
+            type: "object",
             fields: [
               {
-                title: 'URL',
-                name: 'href',
-                type: 'url',
+                title: "URL",
+                name: "href",
+                type: "url",
               },
-              { title: 'Open in New Tab', name: 'newTab', type: 'boolean', },
+              {
+                title: "Open in New Tab",
+                name: "newTab",
+                type: "boolean",
+              },
+              {
+                title: "Nofollow",
+                name: "nofollow",
+                type: "boolean",
+                description: "Enable nofollow for this link",
+              },
             ],
           },
           {
-            title: 'Email Link',
-            name: 'emailLink',
-            type: 'object',
+            title: "Email Link",
+            name: "emailLink",
+            type: "object",
             fields: [
               {
-                title: 'Email',
-                name: 'href',
-                type: 'email',
+                title: "Email",
+                name: "href",
+                type: "email",
               },
             ],
           },
         ],
       },
+      
     }),
 
     // Block type for images with a hotspot option

@@ -69,12 +69,12 @@ const Page = async ({ params }: { params: { category?: string[] } }) => {
       <section className="text-white">
         <SubnavBar imageLink="/blogs" title={"Blogs"} navItems={allCategories||[]} />
      
-        <TabsWithGridCardsPagination
+      {totalBlogsCount?.length > 0 &&  <TabsWithGridCardsPagination
           clickAble={false}
           totalBlogsCount={totalBlogsCount?.length}
           cardsPerPage={6}
           headingText={categoryData?.category_name}
-        />
+        />}
            <IndustryBanner
         heading="Good Stuff is All Here"
         description="We will help you develop whatever you desire in your AI development. This is a placeholder"

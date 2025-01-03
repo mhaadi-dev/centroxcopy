@@ -11,26 +11,26 @@ export const PortableComponent = {
     },
     h2: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h2 id={anchorId} className={classNames(text_h2_class)}>{children}</h2>;
+      return <h2 id={anchorId} className={classNames(text_h2_class,"my-4")}>{children}</h2>;
     },
     h3: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h3 id={anchorId} className={classNames(text_h3_class)}>{children}</h3>;
+      return <h3 id={anchorId} className={classNames(text_h3_class,"my-4")}>{children}</h3>;
     },
     h4: ({ children }) => {
       const anchorId = slugify(children?.[0] || children?.props?.children[0]);
-      return <h4 id={anchorId} className="text-3xl font-medium my-4 text-white">{children}</h4>;
+      return <h4 id={anchorId} className="text-[#E5E7EB] text-[1rem] lg:text-[1.25rem] my-4 2xl:text-[1.7rem] font-heading font-semibold leading-[1.5rem] 2xl:leading-[2rem]">{children}</h4>;
     },
     h5: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h5 id={anchorId} className="text-2xl font-medium my-4 text-white">{children}</h5>;
+      return <h5 id={anchorId} className="text-lg font-medium my-4  text-white">{children}</h5>;
     },
     h6: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h6 id={anchorId} className="text-xl font-medium my-4 text-white">{children}</h6>;
+      return <h6 id={anchorId} className="text-md font-medium my-4 text-white">{children}</h6>;
     },
     p: ({ children }) => <p className={classNames(text_para_3)}>{children}</p>,
-    normal: ({ children }) => <p className="text-base text-start lg:text-left lg:text-lg text-[#E5E7EB]">{children}</p>,
+    normal: ({ children }) => <p className="text-base   lg:text-lg text-[#E5E7EB] text-start lg:text-justify">{children}</p>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-white">{children}</blockquote>
     ),
@@ -40,10 +40,23 @@ export const PortableComponent = {
     number: ({ children }) => <ol className="text-left lg:text-left list-decimal pl-5 my-4 text-white">{children}</ol>,
   },
   marks: {
-    strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
-    em: ({ children }) => <em className="italic text-white">{children}</em>,
+    strong: ({ children }) => (
+      <strong className="font-bold text-white">{children}</strong>
+    ),
+    em: ({ children }) => (
+      <em className="italic text-white">{children}</em>
+    ),
     link: ({ value, children }) => (
-      <a href={value?.href} target={value?.newTab ? "_blank" : "_self"} rel={value?.newTab ? "noopener noreferrer" : undefined} className="text-blue-500 underline"> {children} </a>
+      <a
+        href={value?.href}
+        target={value?.newTab ? "_blank" : "_self"}
+        rel={`${value?.newTab ? "noopener noreferrer" : ""} ${
+          value?.nofollow ? "nofollow" : ""
+        }`.trim()}
+        className="text-blue-500 underline"
+      >
+        {children}
+      </a>
     ),
   },
   types: {

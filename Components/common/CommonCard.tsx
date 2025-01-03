@@ -55,7 +55,7 @@ const CommonCard = ({
           src={image}
           loading="lazy"
           className={classNames(
-            "  my-4 ",
+            "  my-4 w-full",
             isSearchResult ? "w-full  lg:!w-1/4 h-[60%]" : ""
           )}
           width={610}
@@ -68,7 +68,7 @@ const CommonCard = ({
       <Link href={link||""} className={classNames( isSearchResult
           ? "flex flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"")}>
 
-       <section className=" h-full   w-full">
+       <span className=" h-full   w-full block">
         
       <div className="flex items-center gap-x-3">
           {label && (
@@ -89,9 +89,9 @@ const CommonCard = ({
           <p className={classNames(text_para_3, "!mb-2")}>{subdescription}</p>
         )}
         {tags?.length > 0 && (
-          <section
+          <span
             aria-label="centrox case studies tags"
-            className=" w-full flex-wrap flex justify items-center gap-4 my-4 lg:my-4"
+            className=" w-full flex-wrap flex justify items-center gap-4 my-4 lg:my-4 "
           >
             {tags?.map((tag:string)=>{
               return   <div className="leading-[12px] md:leading-[0.5rem]  py-[0.2rem] md:py-[0.3rem] text-white  text-[10px] md:text-[0.75] 2xl:text-base px-[0.5rem] md:px-[1rem] rounded-[4px] border-2 border-[#6B7280] ">
@@ -100,7 +100,7 @@ const CommonCard = ({
             })}
           
         
-          </section>
+          </span>
         )}
 
         <div
@@ -141,7 +141,7 @@ const CommonCard = ({
           
         
         ):null}
-      </section>
+      </span>
      
         
       

@@ -12,7 +12,8 @@ interface SocialIconsContainerProps {
 }
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : ''; // Get the current blog URL
+  // const currentUrl = typeof window !== 'undefined' ? window.location.href : ''; 
+  const currentUrl=""
 
   const handleEmailShare = () => {
     const subject = encodeURIComponent('Check this out!');

@@ -101,6 +101,7 @@ const BlogPage = async () => {
           category={blogData?.[0]?.category?.category_name}
           label={reSlugify(blogData?.[0]?.label?.current)}
           id={blogData?.[0]?._id}
+          isH2={true}
         />
         {blogData?.length > 0 && (
           <GridBlogCardsWithPagination
