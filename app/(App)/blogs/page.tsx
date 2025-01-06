@@ -10,6 +10,7 @@ import TabsWithGridCards from '@/Components/common/TabsWithGridCards';
 import { notFound } from 'next/navigation';
 import { calculateReadingTime, cleanMetaString, reSlugify } from '@/sanity/lib/helpers';
 import { blob } from 'node:stream/consumers';
+import { BlogsWrapper } from '@/app/context';
 
 export const revalidate = 10;
 
@@ -87,6 +88,7 @@ const BlogPage = async () => {
 
     return (
       <>
+
         <SubnavBar title="Blogs" navItems={allCategories} />
         <BlogHeader headingText="Blogs" paraText="Company Updates and Technology Updates" />
         <BlogBanner
@@ -105,7 +107,6 @@ const BlogPage = async () => {
         />
         {blogData?.length > 0 && (
           <GridBlogCardsWithPagination
-            // cardData={blogData}
             cardsPerPage={5}
             totalBlogsCount={totalBlogsCount}
           />

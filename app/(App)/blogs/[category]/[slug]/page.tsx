@@ -15,9 +15,9 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 export const revalidate = 10;
-export async function generateMetadata({ params }: { params: { slug: string[] } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const blogSlug: string = slug[0];
+  const blogSlug: string = slug;
 
   try {
     // Fetch blog data
@@ -71,8 +71,8 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
 const Page = async ({ params }: any) => {
   const { slug } = params;
   let similarBlogs = [];
-
-  const blogSlug: string = slug[0];
+console.log("PARAMS",slug)
+  const blogSlug: string = slug;
 
   const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
   const allCategories = await client.fetch(GET_ALL_CATEGORIES);
@@ -87,48 +87,23 @@ const Page = async ({ params }: any) => {
       category: blogData?.category?.category_name
     });
   }
-  const navItems = [
-    {
-      subNavTitle: "Artificial Intelligence",
-      subItems: [
-        { subTitle: "AI ethics and bias", link: "" },
-        { subTitle: "item 2", link: "" },
-        { subTitle: "item 3", link: "" }
-      ]
-    },
-    {
-      subNavTitle: "Machine Learning",
-      subItems: [
-        { subTitle: "item 1", link: "" },
-        { subTitle: "item 2", link: "" },
-        { subTitle: "item 3", link: "" }
-      ]
-    },
-    {
-      subNavTitle: "ML Ops",
-      subItems: [
-        { subTitle: "item 1", link: "" },
-        { subTitle: "item 2", link: "" },
-        { subTitle: "item 3", link: "" }
-      ]
-    },
-    {
-      subNavTitle: "Generative AI",
-      subItems: [
-        { subTitle: "item 1", link: "" },
-        { subTitle: "item 2", link: "" },
-        { subTitle: "item 3", link: "" }
-      ]
-    },
-    {
-      subNavTitle: "Data Annotation",
-      subItems: [
-        { subTitle: "item 1", link: "" },
-        { subTitle: "item 2", link: "" },
-        { subTitle: "item 3", link: "" }
-      ]
-    }
-  ];
+  const extractHeadings = (content: any) => {
+    const headingList: string[] = [];
+    const headingStyles = /h[2]/; // Matches h2
+  
+    content?.forEach((block: any) => {
+      if (block._type === "block" && block.style && headingStyles.test(block.style)) {
+        headingList.push(block.children[0]?.text || "");
+      }
+    });
+  return headingList;
+    };
+    let AllHeadings;
+
+  if(blogData.content_item?.blog_data){
+     AllHeadings=extractHeadings(blogData.content_item?.blog_data);
+
+  }
   return (
     <section className="relative">
       <SubnavBar
@@ -161,6 +136,7 @@ const Page = async ({ params }: any) => {
           author_image: blogData?.author?.image?.image,
           linkedin: blogData?.author?.linkedin
         }}
+        headings={AllHeadings||[]}
         content={blogData.content_item?.blog_data}
       />
       {similarBlogs?.length > 1 && (

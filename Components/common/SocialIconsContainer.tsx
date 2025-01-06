@@ -13,7 +13,7 @@ interface SocialIconsContainerProps {
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
   // const currentUrl = typeof window !== 'undefined' ? window.location.href : ''; 
-  const currentUrl=""
+  const currentUrl="https://staging.centrox.ai/blogs/machine-learning/rag-in-llm"
 
   const handleEmailShare = () => {
     const subject = encodeURIComponent('Check this out!');
@@ -36,7 +36,8 @@ const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }
         </LinkedinShareButton>
     </div>
        <div className='w-full'>
-         <FacebookShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg ">
+         <FacebookShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg " quote='haddi'
+         >
           <FacebookIcon className='w-full'   round />
         </FacebookShareButton>
        </div>

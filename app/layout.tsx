@@ -6,6 +6,7 @@ import { ServiceViewProvider } from "@/store/ServiceViewProivder";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { VisualEditing } from "next-sanity";
 import { draftMode, headers } from "next/headers";
+import { BlogsWrapper } from "./context";
 
 // Load both fonts
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading" });
@@ -94,7 +95,10 @@ export default function RootLayout({
               Disable preview mode
             </a>
           )}
-          {children}
+          <BlogsWrapper>
+            {children}
+          </BlogsWrapper>
+          
           {draftMode().isEnabled && <VisualEditing />}
         </ServiceViewProvider>
       </body>

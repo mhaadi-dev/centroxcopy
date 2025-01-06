@@ -7,9 +7,13 @@ import dummyDisplay from "@/assets/dummyDisplay.webp";
 import { PortableText } from "next-sanity";
 import { PortableComponent } from "./PortableText";
 import Link from "next/link";
-const MainBlogContent = ({ data, authorInfo }: any) => {
+import TableOfContent from "./TableOfContent";
+const MainBlogContent = ({ data, authorInfo,headings }: any) => {
   return (
-    <div className=" text-white px-2 w-full ">
+    <div className=" text-white px-2 w-full relative ">
+        <div className="lg:hidden sticky top-[4.5rem] ">
+          <TableOfContent headings={headings} />
+        </div>
       {data ? (
         <PortableText
           value={data}

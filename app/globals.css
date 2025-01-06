@@ -184,6 +184,7 @@ html{
 ::-webkit-scrollbar {
     width: 2px;
 	background-color: #079DFC;
+	
 }
                     
 ::-webkit-scrollbar-track {
