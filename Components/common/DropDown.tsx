@@ -28,8 +28,8 @@ export const DropDown = ({
   useEffect(() => {
     setValue(selectedValue);
   }, [selectedValue]);
-  console.log("selected vlaue in drop down si",value)
-  console.log("dropdown values are ===>", value);
+  // console.log("selected vlaue in drop down si",value)
+  // console.log("dropdown values are ===>", value);
   return (
     <>
       <div className={classNames("flex flex-col w-full  ", className)}>

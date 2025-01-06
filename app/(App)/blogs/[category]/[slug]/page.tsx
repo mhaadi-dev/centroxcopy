@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // Clean and structure metadata
     const metaTitle = cleanMetaString(blogData.meta_title || "Centrox AI");
     const metaDescription = cleanMetaString(blogData.meta_description || "Centrox AI | Heart of Innovation");
-    const metaImage = blogData.content_item?.image?.image || "/default-image.jpg"; // Replace with a valid default image path
+    const metaImage = blogData.content_item?.image?.image || "/default-image.jpg"; 
     const metaUrl = cleanMetaString(`https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`);
 
     return {
@@ -71,7 +71,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 const Page = async ({ params }: any) => {
   const { slug } = params;
   let similarBlogs = [];
-console.log("PARAMS",slug)
   const blogSlug: string = slug;
 
   const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
