@@ -12,8 +12,8 @@ interface SocialIconsContainerProps {
 }
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
-  // const currentUrl = typeof window !== 'undefined' ? window.location.href : ''; 
-  const currentUrl="https://staging.centrox.ai/blogs/machine-learning/rag-in-llm"
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : ''; 
+  // const currentUrl="https://staging.centrox.ai/blogs/machine-learning/rag-in-llm"
 
   const handleEmailShare = () => {
     const subject = encodeURIComponent('Check this out!');
