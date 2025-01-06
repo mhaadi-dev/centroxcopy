@@ -47,7 +47,7 @@ const SubnavBar = ({ searchView,imageLink="", title, navItems = [] }: Props) => 
                 alt="Logo"
                 priority={true}
                 loading="eager"
-                className="w-[5rem] sm:w-[5rem] lg:w-[7rem] cursor-pointer"
+                className="w-[5rem] sm:w-[5.7rem]  cursor-pointer"
                 onClick={() => router.push(`${imageLink}`)}
               />
               {title && (

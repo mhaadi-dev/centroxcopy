@@ -10,6 +10,7 @@ interface PaginationControlsProps {
   handleNext:()=>void;
   handlePrevious:()=>void;
   onPageChange: (page: number) => void;
+  loading?:boolean
 }
 
 const PaginationControls: FC<PaginationControlsProps> = ({
@@ -18,6 +19,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   handleNext,
   handlePrevious,
   onPageChange,
+  loading=false
 }) => {
   const { width } = useSize();
   const [isClient, setIsClient] = useState(false);
@@ -31,7 +33,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
 
   return (
     <section className={classNames(section_wrapper_class)}>
-      <div className="flex items-center justify-center gap-3 lg:gap-10">
+      <div className={classNames("flex items-center justify-center gap-3 lg:gap-10",loading?"pointer-events-none":"")}>
         <button
           className={classNames("bg-gray-900/80 text-white rounded-full p-3",currentPage!==1 ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white':"")}
           onClick={handlePrevious}

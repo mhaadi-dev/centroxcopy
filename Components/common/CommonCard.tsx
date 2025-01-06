@@ -46,17 +46,17 @@ const CommonCard = ({
     <div
       className={classNames(
         "max-w-  mx-auto  flex flex-col   justify-start    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[0.7rem] rounded-2xl cursor-pointer ",
-        colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1",isSearchResult ? "lg:flex-row gap-6 !justify-start":"flex-col"
+        colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1",isSearchResult ? "lg:flex-row lg:gap-6 items-center !justify-start lg:px-[1rem] py-[0.7rem]":"flex-col"
       )}
     >
        {image && (
-        <Link href={link||""}>
+        <Link href={link||""} className={classNames(isSearchResult ? "lg:w-2/5 h-full":"w-full h-full")}>
            <Image
           src={image}
           loading="lazy"
           className={classNames(
-            "  my-4 w-full",
-            isSearchResult ? "w-full  lg:!w-1/4 h-[60%]" : ""
+            "  my-4 w-full rounded-xl",
+            isSearchResult ? "w-full  lg:!w-4/4 lg:!my-0 " : ""
           )}
           width={610}
           height={320}
@@ -65,8 +65,7 @@ const CommonCard = ({
         </Link>
        
       )}
-      <Link href={link||""} className={classNames( isSearchResult
-          ? "flex flex-col   justify-between  items-start lg:!flex-row max-w-full gap-2 lg:gap-8 ":"")}>
+      <Link href={link||""} className={classNames( isSearchResult? "flex flex-col lg:w-4/5    justify-between  items-start lg:!flex-row  gap-2 lg:gap-8 ":"w-full")}>
 
        <span className=" h-full   w-full block">
         
@@ -113,9 +112,8 @@ const CommonCard = ({
           {name && <p className={classNames("text-gray-500 font-semibold ",text_para_3)}>{name}</p>}
           {category && (
             <p className={classNames("text-blue-azure font-semibold text-start capitalize",text_para_3)}>
-              <Link href={`/blogs/${slugify(category)}`} className={classNames("hover:underline underline-offset-4")}>
                {reSlugify(category)}
-              </Link>
+             
              
             </p>
           )}
