@@ -28,13 +28,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       notFound();
       return;
     }
-
     // Clean and structure metadata
     const metaTitle = cleanMetaString(blogData.meta_title || "Centrox AI");
     const metaDescription = cleanMetaString(blogData.meta_description || "Centrox AI | Heart of Innovation");
 
-    // Determine the image to use, converting SVG to PNG if necessary
-    let metaImage = blogData.content_item?.image?.image;
+    let metaImage = blogData.content_item?.preview_image?.image;
  
 
     const metaUrl = cleanMetaString(`https://staging.centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`);

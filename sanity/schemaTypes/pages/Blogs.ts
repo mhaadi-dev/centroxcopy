@@ -17,6 +17,16 @@ export const ContentItemSchema = defineType({
       },
       validation: (Rule) => Rule.required().error('Image is required.'),
     }),
+     defineField({
+      name: 'preview_image',
+      title: 'Social Preview Image',
+      description:"Preview image shouldn't be SVG.",
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required().error('Preview image is required.'),
+    }),
     defineField({
       name: 'alt',
       title: 'Alt Text',
