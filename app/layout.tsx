@@ -33,7 +33,7 @@ const ogMetadata = {
   description:
     "Centrox provides cutting-edge AI services tailored to meet diverse business needs. Our expertise includes machine learning, natural language processing, computer vision, and more. Contact us to explore how our AI solutions can benefit your business.",
   url: "https://centrox.io/",
-  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkuMnBLpi2xF-ApuUG4yq3uMElwbPhAuKSuwmq-d6_w5Rju6KG65kSMsRwNzB79-zwYA&usqp=CAU",
+  image: "https://centrox.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogoWhite.2fd83e7a.png&w=828&q=75",
   type: "website",
 };
 

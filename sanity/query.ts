@@ -36,6 +36,7 @@ export const GETFirstBLOGS_QUERY = groq`
     },
     content_item {
       image { alt, "image": asset->url },
+      preview_image {alt,"image":asset->url},
       title,
       date,
       subdescription,
@@ -74,6 +75,7 @@ export const GETALLBLOGS_QUERY = groq`
     },
     content_item {
       image { alt, "image": asset->url },
+      preview_image {alt,"image":asset->url},
       title,
       date,
       subdescription,
@@ -157,6 +159,7 @@ export const GET_BLOG_BY_ID_QUERY = groq`
     },
     content_item {
       image { alt, "image": asset->url },
+      preview_image {alt,"image":asset->url},
       title,
       date,
       subdescription,
@@ -199,6 +202,7 @@ export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number
     },
     content_item {
       image { alt, "image": asset->url },
+      preview_image {alt,"image":asset->url},
       title,
       
       date,
@@ -256,6 +260,7 @@ export const GET_BLOGS_BY_CATEGORY_QUERY = (category: string) => groq`
     },
     content_item {
       image { alt, "image": asset->url },
+      preview_image {alt,"image":asset->url},
       title,
       date,
       subdescription,
@@ -301,6 +306,7 @@ export const GET_PAGINATED_BLOGS_BY_CATEGORY_QUERY = (
     },
     content_item {
       image { alt, "image": asset->url },
+      preview_image {alt,"image":asset->url},
       title,
       date,
       subdescription,
