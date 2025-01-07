@@ -117,7 +117,7 @@ const Page = async ({ params }: any) => {
       url={`https://staging.centrox.ai/${blogData?.category?.category_name}/${blogData?.label?.current}`}
       title="Blog headline"
       images={[
-        blogData.content_item?.image?.image 
+        blogData.content_item?.preview_image?.image 
       ]}
       datePublished={blogData?.content_item?.date}
       dateModified="2015-02-05T09:00:00+08:00"
