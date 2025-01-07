@@ -13,7 +13,7 @@ interface SocialIconsContainerProps {
 }
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
-  const BASE_URL="https://b12e-154-57-216-255.ngrok-free.app/" 
+  const BASE_URL="https://staging.centrox.ai" 
   const pathname=usePathname()
   const currentUrl=BASE_URL + pathname
   const handleEmailShare = () => {
