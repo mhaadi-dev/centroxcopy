@@ -12,7 +12,9 @@ import {
 } from "@/sanity/query";
 import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { notFound } from "next/navigation";
+import { url } from "node:inspector";
 import React from "react";
+import { ArticleJsonLd } from 'next-seo';
 
 export const revalidate = 10;
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -30,8 +32,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     // Clean and structure metadata
     const metaTitle = cleanMetaString(blogData.meta_title || "Centrox AI");
     const metaDescription = cleanMetaString(blogData.meta_description || "Centrox AI | Heart of Innovation");
-    const metaImage = blogData.content_item?.image?.image || "/default-image.jpg"; 
-    const metaUrl = cleanMetaString(`https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`);
+
+    // Determine the image to use, converting SVG to PNG if necessary
+    let metaImage = blogData.content_item?.image?.image;
+    if (metaImage?.endsWith(".svg")) {
+      // Convert SVG to PNG path, you can adjust this path as needed
+      metaImage = metaImage.replace(".svg", ".png");
+    }
+
+    const metaUrl = cleanMetaString(`https://staging.centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`);
 
     return {
       title: metaTitle,
@@ -55,7 +64,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         card: "summary_large_image",
         title: metaTitle,
         description: metaDescription,
-        images: [metaImage]
+        images: [metaImage],
+        url: metaUrl
       },
       metadataBase: new URL("https://staging.centrox.ai"),
     };
@@ -65,6 +75,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return;
   }
 }
+
 
 
 
@@ -105,6 +116,19 @@ const Page = async ({ params }: any) => {
   }
   return (
     <section className="relative">
+       <ArticleJsonLd
+    useAppDir={true}
+      type="BlogPosting"
+      url={`https://b12e-154-57-216-255.ngrok-free.app/${blogData?.category?.category_name}/${blogData?.label?.current}`}
+      title="Blog headline"
+      images={[
+        blogData.content_item?.image?.image 
+      ]}
+      datePublished={blogData?.content_item?.date}
+      dateModified="2015-02-05T09:00:00+08:00"
+      authorName="MHBN"
+      description={blogData.meta_description}
+    />
       <SubnavBar
         imageLink={"/blogs"}
         title="Blogs"

@@ -7,6 +7,7 @@ import { cleanMetaString, slugify } from "@/sanity/lib/helpers";
 import {
   GET_ALL_CATEGORIES,
   GET_CATEGORY_BY_SLUG_QUERY,
+  GET_PAGINATED_BLOGS_BY_CATEGORY_QUERY,
   GET_TOTAL_BLOGS_BY_CATEGORY,
 } from "@/sanity/query";
 import { notFound } from "next/navigation";
@@ -63,8 +64,14 @@ const Page = async ({ params }: { params: { category?: string[] } }) => {
       category: categoryData?.category_name 
     });
      const allCategories = await   client.fetch(GET_ALL_CATEGORIES)
-   
-
+     //@ts-ignore
+  
+     const query = GET_PAGINATED_BLOGS_BY_CATEGORY_QUERY(categorySlug, 0, 6);
+     const blogsData = await client.fetch(query, {
+       category:categorySlug,
+       startRange:0,
+       endRange:6
+     });
     return (
       <section className="text-white">
         <SubnavBar imageLink="/blogs" title={"Blogs"} navItems={allCategories||[]} />
@@ -74,6 +81,7 @@ const Page = async ({ params }: { params: { category?: string[] } }) => {
           totalBlogsCount={totalBlogsCount?.length}
           cardsPerPage={6}
           headingText={categoryData?.category_name}
+          cardData={blogsData||[]}
         />}
            <IndustryBanner
         heading="Good Stuff is All Here"

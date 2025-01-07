@@ -13,7 +13,8 @@ interface Props {
   totalBlogsCount?: number;
   cardsPerPage?: number;
   showPagination?: boolean;
-  clickAble?:boolean
+  clickAble?:boolean,
+  cardData:any
 }
 
 const TabsWithGridCardsPagination = ({
@@ -21,22 +22,23 @@ const TabsWithGridCardsPagination = ({
   totalBlogsCount = 0,
   cardsPerPage = 5,
   showPagination = true,
+  cardData=[],
   clickAble=true
 }: Props) => {
-  const [cardsData, setCardsData] = useState<any[]>([]);
+  const [cardsData, setCardsData] = useState<any[]>(cardData||[]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(totalBlogsCount / cardsPerPage);
-  useEffect(() => {
-    // On initial load, get the current page from query params
-    const urlParams = new URLSearchParams(window.location.search);
-    const pageParam = parseInt(urlParams.get("page") || "1", 10);
-    setCurrentPage(pageParam);
+  // useEffect(() => {
+  //   // On initial load, get the current page from query params
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const pageParam = parseInt(urlParams.get("page") || "1", 10);
+  //   setCurrentPage(pageParam);
 
-    // Fetch initial data
-    fetchPaginatedBlogs(pageParam);
-  }, []);
+  //   // Fetch initial data
+  //   fetchPaginatedBlogs(pageParam);
+  // }, []);
 
   useEffect(() => {
     // Listen for back/forward navigation to synchronize page state

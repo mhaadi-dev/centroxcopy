@@ -6,13 +6,16 @@ import X from "@/assets/X.webp";
 import linkedin from "@/assets/linkedin.svg";
 import facebook from "@/assets/Facebook-Logo.svg";
 import classNames, { text_para_2, text_para_3 } from '@/helpers/common';
+import { usePathname } from 'next/navigation';
 
 interface SocialIconsContainerProps {
   className?: string;
 }
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : ''; 
+  const BASE_URL="https://b12e-154-57-216-255.ngrok-free.app/" 
+  const pathname=usePathname()
+  const currentUrl=BASE_URL + pathname
   const handleEmailShare = () => {
     const subject = encodeURIComponent('Check this out!');
     const body = encodeURIComponent(`I found this interesting: ${currentUrl}`);
