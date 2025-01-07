@@ -35,10 +35,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
     // Determine the image to use, converting SVG to PNG if necessary
     let metaImage = blogData.content_item?.image?.image;
-    if (metaImage?.endsWith(".svg")) {
-      // Convert SVG to PNG path, you can adjust this path as needed
-      metaImage = metaImage.replace(".svg", ".png");
-    }
+ 
 
     const metaUrl = cleanMetaString(`https://staging.centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`);
 
@@ -119,7 +116,7 @@ const Page = async ({ params }: any) => {
        <ArticleJsonLd
     useAppDir={true}
       type="BlogPosting"
-      url={`https://b12e-154-57-216-255.ngrok-free.app/${blogData?.category?.category_name}/${blogData?.label?.current}`}
+      url={`https://staging.centrox.ai/${blogData?.category?.category_name}/${blogData?.label?.current}`}
       title="Blog headline"
       images={[
         blogData.content_item?.image?.image 

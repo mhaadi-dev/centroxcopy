@@ -34,6 +34,8 @@ import  evaluation from "@/assets/servicesnav/Evaluation.svg"
 import aiagent from "@/assets/servicesnav/AI_agent.svg"
 import optimization from "@/assets/servicesnav/Optimize.svg"
 import headcircuit from "@/assets/servicesnav/HeadCircuit.svg"
+import blogIcon from "@/assets/resourcesnav/BlogIcon.svg"
+import CasestudyIcon from "@/assets/resourcesnav/CasestudyIcon.svg"
 import classNames from "@/helpers/common";
 export const Navbar = () => {
   const pathname = usePathname();
@@ -282,13 +284,13 @@ export const Navbar = () => {
           {
             heading: "Case Studies",
             description: " Read about our intelligent GenAI solutions.",
-            image: fintech,
+            image: CasestudyIcon,
             link:"/case-studies"
           },
           {
             heading: "Blogs",
-            description: "Read about our intelligent GenAI solutions.",
-            image: realestate,
+            description: "Read about what AI experts has to say.",
+            image: blogIcon,
             link:"/blogs"
           },
        
