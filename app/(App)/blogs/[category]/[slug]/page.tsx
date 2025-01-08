@@ -47,7 +47,7 @@ export async function generateMetadata({
     let metaImage = blogData.content_item?.preview_image?.image;
 
     const metaUrl = cleanMetaString(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
+      `https://staging.centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
     );
 
     return {
@@ -75,7 +75,7 @@ export async function generateMetadata({
         images: [metaImage],
         url: metaUrl
       },
-      metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ||'')
+      metadataBase: new URL("https://staging.centrox.ai")
     };
   } catch (error) {
     console.error("Error fetching blog data:", error);
@@ -129,7 +129,7 @@ const Page = async ({ params }: any) => {
       <ArticleJsonLd
         useAppDir={true}
         type="BlogPosting"
-        url={`${process.env.NEXT_PUBLIC_BASE_URL}/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
+        url={`https://staging.centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
         title={blogData.meta_title}
         images={[blogData.content_item?.preview_image?.image]}
         datePublished={blogData?.content_item?.date}
@@ -143,10 +143,10 @@ const Page = async ({ params }: any) => {
         isAccessibleForFree={true}
         mainEntityOfPage={{
           "@type": "WebPage",
-          "@id": `${process.env.NEXT_PUBLIC_BASE_URL}/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
+          "@id": `https://staging.centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
         }}
         headline={blogData?.meta_title}
-        articleSection={cleanMetaString(blogData.category?.category_name)}
+        articleSection={slugify(blogData.category?.category_name)}
         keywords={blogData?.keywords}
       />
       <SubnavBar
