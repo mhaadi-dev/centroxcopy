@@ -10,7 +10,7 @@ import classNames, {
 
 
 import Image from "next/image";
-import advantages from "@/assets/advantages.webp"
+import advantages from "@/assets/advantages.svg"
 import SectionHeader from "@/Components/common/SectionHeader";
 
 

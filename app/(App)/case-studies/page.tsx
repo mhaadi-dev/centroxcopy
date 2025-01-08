@@ -13,6 +13,13 @@ import SearchResultComponent from '@/Components/common/SearchResultComponent';
 import SubnavBar from '@/Components/Navbar/SubnavBar';
 import pocketmate from "@/assets/pocketmate.png"
 
+export const metadata={
+	title:"Case Studies - Real-World Gen AI Solutions | Centrox AI",
+	description:"Explore Centrox AI case studies showcasing successful partnerships and enterprise adoption of Generative AI, including Llama deployments and AI driven innovations.",
+	alternates: {
+		canonical: "https://centrox.ai/case-studies",
+	  },
+}
 
 const page = () => {
     const benefitsData = [

@@ -11,6 +11,7 @@ import { notFound } from 'next/navigation';
 import { calculateReadingTime, cleanMetaString, reSlugify } from '@/sanity/lib/helpers';
 import { blob } from 'node:stream/consumers';
 import { BlogsWrapper } from '@/app/context';
+import { Loader } from '@/Components/Loader/Loader';
 
 export const revalidate = 10;
 
@@ -55,16 +56,16 @@ export const revalidate = 10;
 //   }
 // }
 
-
+export const metadata={
+	title:"Centrox AI Blog | Generative AI, Machine Learning & Innovation",
+	description:"Discover what's latest in Gen AI, Machine Learning, LLM Dev, and AI Innovation. Stay updated with insights to boost your business through AI technology",
+	alternates: {
+		canonical: "https://centrox.ai/blogs",
+	  },
+}
 
 const fetchSanityData = async () => {
   const totalBlogsCount = await client.fetch(GET_TOTAL_BLOGS_COUNT);
-
-  const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY, {
-    startRange: 0,
-    endRange: 5,
-  });
-;
   const allCategories = await   client.fetch(GET_ALL_CATEGORIES)
 
   const categoricalBlogs = await Promise.all(
@@ -79,6 +80,12 @@ const fetchSanityData = async () => {
         : null;
     })
   );
+  const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY, {
+    startRange: 0,
+    endRange: 5,
+  });
+;
+
 
   return { totalBlogsCount, blogData, allCategories, categoricalBlogs: categoricalBlogs.filter(Boolean) };
 };
@@ -105,12 +112,12 @@ const BlogPage = async () => {
           id={blogData?.[0]?._id}
           isH2={true}
         />
-        {blogData?.length > 0 && (
+        {blogData?.length > 0 ? (
           <GridBlogCardsWithPagination
             cardsPerPage={5}
             totalBlogsCount={totalBlogsCount}
           />
-        )}
+        ):<Loader/>}
         {categoricalBlogs?.length > 0 && categoricalBlogs?.length>3 ?categoricalBlogs.slice(0,3).map((category: any, index: number) => (
           <TabsWithGridCards
             key={index}

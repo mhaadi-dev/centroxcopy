@@ -147,7 +147,7 @@ const GridBlogCardsWithPagination = ({
           </div>
         </section>
       )}
-           {blogs?.length === 0 && !loading ? <p className="text-white text-center">No Blogs Found!</p>:""}
+           {/* {blogs?.length === 0 && !loading ? <p className="text-white text-center">No Blogs Found!</p>:""} */}
       {showPagination && totalPages > 1 && (
         <PaginationControls
           handleNext={() => handlePageChange(page + 1)}
@@ -156,6 +156,7 @@ const GridBlogCardsWithPagination = ({
           totalPages={totalPages}
           onPageChange={handlePageChange}
           loading={loading}
+          
         />
       )}
  

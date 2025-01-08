@@ -33,7 +33,7 @@ export const GETFirstBLOGS_QUERY = groq`
       bio,
       image { alt, "image": asset->url },
       linkedin
-    },
+    }, keywords,
     content_item {
       image { alt, "image": asset->url },
       preview_image {alt,"image":asset->url},
@@ -72,7 +72,7 @@ export const GETALLBLOGS_QUERY = groq`
       bio,
       image { alt, "image": asset->url },
       linkedin
-    },
+    }, keywords,
     content_item {
       image { alt, "image": asset->url },
       preview_image {alt,"image":asset->url},
@@ -145,6 +145,7 @@ export const GET_PAGINATED_ARTICLES_QUERY_ONSPECIFICPAGE = groq`
 export const GET_BLOG_BY_ID_QUERY = groq`
   *[_type == "blog" && label.current == $slug][0] {
     _id,
+    _createdAt,_updatedAt,
     name,
     meta_title,
     meta_description,
@@ -157,6 +158,7 @@ export const GET_BLOG_BY_ID_QUERY = groq`
       image { alt, "image": asset->url },
       linkedin
     },
+    keywords,
     content_item {
       image { alt, "image": asset->url },
       preview_image {alt,"image":asset->url},
@@ -199,7 +201,7 @@ export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number
       bio,
       image { alt, "image": asset->url },
       linkedin
-    },
+    }, keywords,
     content_item {
       image { alt, "image": asset->url },
       preview_image {alt,"image":asset->url},
@@ -257,7 +259,7 @@ export const GET_BLOGS_BY_CATEGORY_QUERY = (category: string) => groq`
       bio,
       image { alt, "image": asset->url },
       linkedin
-    },
+    }, keywords,
     content_item {
       image { alt, "image": asset->url },
       preview_image {alt,"image":asset->url},
@@ -303,7 +305,7 @@ export const GET_PAGINATED_BLOGS_BY_CATEGORY_QUERY = (
       bio,
       image { alt, "image": asset->url },
       linkedin
-    },
+    }, keywords,
     content_item {
       image { alt, "image": asset->url },
       preview_image {alt,"image":asset->url},

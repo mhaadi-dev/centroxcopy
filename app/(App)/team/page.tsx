@@ -3,7 +3,7 @@ import LandingLayout from "../layout";
 import { sanityFetch } from "@/sanity/lib/client";
 import { TEAM_SECTION_QUERY } from "@/sanity/query";
 import mhbnImg from "@/assets/mhbnimg.webp"
-import harrisimg from "@/assets/harrisimg.webp"
+import harrisimg from "@/assets/harrisimg2.webp"
 import zainRazaImg from "@/assets/zainRaza.webp"
 import servicebg from "@/assets/Servicebg.webp"
 import hadi from "@/assets/teampics/hadi.webp"
