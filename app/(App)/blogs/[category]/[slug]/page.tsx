@@ -2,8 +2,12 @@ import SubnavBar from "@/Components/Navbar/SubnavBar";
 import BlogBanner from "@/Components/common/BlogBanner";
 import BlogContentSection from "@/Components/common/BlogContentSection";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import { client } from "@/sanity/lib/client";
-import { calculateReadingTime, cleanMetaString, slugify } from "@/sanity/lib/helpers";
+import createOrUpdateBlog, { client } from "@/sanity/lib/client";
+import {
+  calculateReadingTime,
+  cleanMetaString,
+  slugify
+} from "@/sanity/lib/helpers";
 import { urlFor } from "@/sanity/lib/image";
 import {
   GET_ALL_CATEGORIES,
@@ -14,28 +18,37 @@ import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { notFound } from "next/navigation";
 import { url } from "node:inspector";
 import React from "react";
-import { ArticleJsonLd } from 'next-seo';
+import { ArticleJsonLd } from "next-seo";
 
 export const revalidate = 10;
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
   const blogSlug: string = slug;
 
   try {
     // Fetch blog data
-    const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
+    const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, {
+      slug: blogSlug
+    });
     if (!blogData) {
       notFound();
       return;
     }
     // Clean and structure metadata
     const metaTitle = cleanMetaString(blogData.meta_title || "Centrox AI");
-    const metaDescription = cleanMetaString(blogData.meta_description || "Centrox AI | Heart of Innovation");
+    const metaDescription = cleanMetaString(
+      blogData.meta_description || "Centrox AI | Heart of Innovation"
+    );
 
     let metaImage = blogData.content_item?.preview_image?.image;
- 
 
-    const metaUrl = cleanMetaString(`https://staging.centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`);
+    const metaUrl = cleanMetaString(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
+    );
 
     return {
       title: metaTitle,
@@ -62,7 +75,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         images: [metaImage],
         url: metaUrl
       },
-      metadataBase: new URL("https://staging.centrox.ai"),
+      metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ||'')
     };
   } catch (error) {
     console.error("Error fetching blog data:", error);
@@ -70,9 +83,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return;
   }
 }
-
-
-
 
 const Page = async ({ params }: any) => {
   const { slug } = params;
@@ -95,35 +105,50 @@ const Page = async ({ params }: any) => {
   const extractHeadings = (content: any) => {
     const headingList: string[] = [];
     const headingStyles = /h[2]/; // Matches h2
-  
+
     content?.forEach((block: any) => {
-      if (block._type === "block" && block.style && headingStyles.test(block.style)) {
+      if (
+        block._type === "block" &&
+        block.style &&
+        headingStyles.test(block.style)
+      ) {
         headingList.push(block.children[0]?.text || "");
       }
     });
-  return headingList;
-    };
-    let AllHeadings;
+    return headingList;
+  };
+  let AllHeadings;
 
-  if(blogData.content_item?.blog_data){
-     AllHeadings=extractHeadings(blogData.content_item?.blog_data);
-
+  if (blogData.content_item?.blog_data) {
+    AllHeadings = extractHeadings(blogData.content_item?.blog_data);
   }
+  // createOrUpdateBlog(blogData)
+  // console.log("BLOGGG",blogData)
   return (
     <section className="relative">
-       <ArticleJsonLd
-    useAppDir={true}
-      type="BlogPosting"
-      url={`https://staging.centrox.ai/${blogData?.category?.category_name}/${blogData?.label?.current}`}
-      title="Blog headline"
-      images={[
-        blogData.content_item?.preview_image?.image 
-      ]}
-      datePublished={blogData?.content_item?.date}
-      dateModified="2015-02-05T09:00:00+08:00"
-      authorName="MHBN"
-      description={blogData.meta_description}
-    />
+      <ArticleJsonLd
+        useAppDir={true}
+        type="BlogPosting"
+        url={`${process.env.NEXT_PUBLIC_BASE_URL}/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
+        title={blogData.meta_title}
+        images={[blogData.content_item?.preview_image?.image]}
+        datePublished={blogData?.content_item?.date}
+        dateModified={blogData?._updatedAt}
+        authorName={[
+          { name: blogData?.author?.name, url: blogData?.author?.linkedin }
+        ]}
+        publisherName="Centrox AI"
+        publisherLogo="https://centrox.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogoWhite.2fd83e7a.png&w=828&q=75"
+        description={blogData.meta_description}
+        isAccessibleForFree={true}
+        mainEntityOfPage={{
+          "@type": "WebPage",
+          "@id": `${process.env.NEXT_PUBLIC_BASE_URL}/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
+        }}
+        headline={blogData?.meta_title}
+        articleSection={cleanMetaString(blogData.category?.category_name)}
+        keywords={blogData?.keywords}
+      />
       <SubnavBar
         imageLink={"/blogs"}
         title="Blogs"
@@ -154,7 +179,7 @@ const Page = async ({ params }: any) => {
           author_image: blogData?.author?.image?.image,
           linkedin: blogData?.author?.linkedin
         }}
-        headings={AllHeadings||[]}
+        headings={AllHeadings || []}
         content={blogData.content_item?.blog_data}
       />
       {similarBlogs?.length > 1 && (

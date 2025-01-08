@@ -7,10 +7,10 @@ import useSize from '@/helpers/windowWidth';
 interface PaginationControlsProps {
   currentPage: number;
   totalPages: number;
-  handleNext:()=>void;
-  handlePrevious:()=>void;
+  handleNext: () => void;
+  handlePrevious: () => void;
   onPageChange: (page: number) => void;
-  loading?:boolean
+  loading?: boolean;
 }
 
 const PaginationControls: FC<PaginationControlsProps> = ({
@@ -19,25 +19,76 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   handleNext,
   handlePrevious,
   onPageChange,
-  loading=false
+  loading = false,
 }) => {
   const { width } = useSize();
   const [isClient, setIsClient] = useState(false);
+  const [visiblePages, setVisiblePages] = useState<number[]>([]);
+  const [pageRange, setPageRange] = useState({ start: 1, end: 10 });
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-  const visiblePages = isClient && width && width <= 768 ? pageNumbers.slice(0, 5) : pageNumbers;
+  useEffect(() => {
+    const updateVisiblePages = () => {
+      if (!isClient) return;
+
+      const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+      if (width && width <= 768) {
+        // Mobile: Show 5 pages at a time
+        const start = pageRange.start;
+        const end = Math.min(pageRange.end, totalPages);
+        setVisiblePages(pageNumbers.slice(start - 1, end));
+      } else {
+        // Desktop: Show 10 pages at a time
+        const start = pageRange.start;
+        const end = Math.min(pageRange.end, totalPages);
+        setVisiblePages(pageNumbers.slice(start - 1, end));
+      }
+    };
+
+    updateVisiblePages();
+  }, [isClient, width, pageRange, totalPages]);
+
+  useEffect(() => {
+    // Adjust visible range when current page reaches the boundary
+    if (currentPage > pageRange.end && pageRange.end < totalPages) {
+      // Move forward
+      const increment = width && width <= 768 ? 5 : 10;
+      setPageRange({
+        start: pageRange.end + 1,
+        end: Math.min(pageRange.end + increment, totalPages),
+      });
+    } else if (currentPage < pageRange.start && pageRange.start > 1) {
+      // Move backward
+      const decrement = width && width <= 768 ? 5 : 10;
+      setPageRange({
+        start: Math.max(pageRange.start - decrement, 1),
+        end: pageRange.start - 1,
+      });
+    }
+  }, [currentPage, pageRange, totalPages, width]);
 
   return (
     <section className={classNames(section_wrapper_class)}>
-      <div className={classNames("flex items-center justify-center gap-3 lg:gap-10",loading?"pointer-events-none":"")}>
+      <div
+        className={classNames(
+          'flex items-center justify-center gap-3 lg:gap-10',
+          loading ? 'pointer-events-none' : ''
+        )}
+      >
+        {/* Previous Button */}
         <button
-          className={classNames("bg-gray-900/80 text-white rounded-full p-3",currentPage!==1 ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white':"")}
+          className={classNames(
+            'bg-gray-900/80 text-white rounded-full p-3',
+            currentPage !== 1
+              ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white'
+              : ''
+          )}
           onClick={handlePrevious}
-          disabled={currentPage==1}
+          disabled={currentPage === 1}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +103,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
           </svg>
         </button>
 
+        {/* Page Buttons */}
         {isClient && (
           <div className="flex gap-x-4">
             {visiblePages.map((page) => (
@@ -70,10 +122,16 @@ const PaginationControls: FC<PaginationControlsProps> = ({
           </div>
         )}
 
+        {/* Next Button */}
         <button
-          className={classNames("bg-gray-900/80 text-white rounded-full p-3",currentPage!==totalPages ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white':"")}
-          disabled={currentPage === totalPages}
+          className={classNames(
+            'bg-gray-900/80 text-white rounded-full p-3',
+            currentPage !== totalPages
+              ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white'
+              : ''
+          )}
           onClick={handleNext}
+          disabled={currentPage === totalPages}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

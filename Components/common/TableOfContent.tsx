@@ -95,7 +95,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({ headings }) => {
   </div>
   
   <div
-  className="bg-gray-800 max-h-[60vh] overflow-y-auto border-2 rounded-lg p-4 mb-3 border-gray-100/60 lg:hidden"
+  className="bg-gray-900 max-h-[60vh] w-full overflow-y-auto border-2 rounded-lg p-4 mb-3 border-gray-100/60 lg:hidden"
   onClick={() => {
     showTableOfContent(!tableOfContent);
   }}

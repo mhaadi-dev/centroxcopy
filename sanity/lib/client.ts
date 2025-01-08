@@ -57,4 +57,13 @@ export async function sanityFetch<QueryResponse>({
       tags,
     },
   });
+
+
+
 }
+const setCreatedAtAndUpdatedAt = async (doc:any) => { 
+  if (!doc._createdAt)
+   { doc.createdAt = new Date().toISOString(); } 
+   doc.updatedAt = new Date().toISOString(); return doc; };
+    export default async function createOrUpdateBlog(blog:any)
+   { const modifiedBlog = await setCreatedAtAndUpdatedAt(blog); await client.createOrReplace(modifiedBlog); }

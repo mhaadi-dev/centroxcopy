@@ -46,7 +46,7 @@ const CommonCard = ({
     <div
       className={classNames(
         "max-w-  mx-auto  flex flex-col   justify-start    hover:bg-[#079DFC1A] transition-colors ease-in px-[.9rem]  lg:px-[1.5rem] py-[0.7rem] rounded-2xl cursor-pointer ",
-        colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1",isSearchResult ? "lg:flex-row lg:gap-6 items-center !justify-start lg:px-[1rem] py-[0.7rem]":"flex-col"
+        colSpan == 2 ? "col-span-1 lg:col-span-2" : "col-span-1",isSearchResult ? "lg:flex-row lg:gap-6 items-center !justify-start lg:px-[1.1rem] py-[0.7rem] mr-3":"flex-col"
       )}
     >
        {image && (

@@ -9,10 +9,11 @@ import { PortableComponent } from "./PortableText";
 import Link from "next/link";
 import TableOfContent from "./TableOfContent";
 const MainBlogContent = ({ data, authorInfo,headings }: any) => {
+
   return (
     <div className=" text-white px-2 w-full relative ">
         <div className="lg:hidden sticky top-[4.5rem] ">
-          <TableOfContent headings={headings} />
+             <TableOfContent  headings={headings} />
         </div>
       {data ? (
         <PortableText
@@ -23,8 +24,11 @@ const MainBlogContent = ({ data, authorInfo,headings }: any) => {
       ) : null}
 
       <div>
-        <SocialIconsContainer className="border-none !bg-gray-800/0" />
-        <div className=" flex gap-4 items-center">
+        <div className="w-full lg:w-1/2">
+            <SocialIconsContainer className="border-none !bg-gray-800/0" />
+        </div>
+      
+        <div className=" flex gap-4 items-start">
           {authorInfo?.author_image && (
             <div className="w-2/4 lg:w-1/4  rounded-full">
               <Image

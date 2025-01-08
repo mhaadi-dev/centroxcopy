@@ -11,33 +11,33 @@ export const PortableComponent = {
     },
     h2: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h2 id={anchorId} className={classNames(text_h2_class,"my-4")}>{children}</h2>;
+      return <h2 id={anchorId} className={classNames(text_h2_class,"mt-4 mb-2")}>{children}</h2>;
     },
     h3: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h3 id={anchorId} className={classNames(text_h3_class,"my-4")}>{children}</h3>;
+      return <h3 id={anchorId} className={classNames(text_h3_class,"mt-4 mb-2")}>{children}</h3>;
     },
     h4: ({ children }) => {
       const anchorId = slugify(children?.[0] || children?.props?.children[0]);
-      return <h4 id={anchorId} className="text-[#E5E7EB] text-[1rem] lg:text-[1.25rem] my-4 2xl:text-[1.7rem] font-heading font-semibold leading-[1.5rem] 2xl:leading-[2rem]">{children}</h4>;
+      return <h4 id={anchorId} className="text-[#E5E7EB] text-[1rem] lg:text-[1.25rem] mt-4 mb-2 2xl:text-[1.7rem] font-heading font-semibold leading-[1.5rem] 2xl:leading-[2rem]">{children}</h4>;
     },
     h5: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h5 id={anchorId} className="text-lg font-medium my-4  text-white">{children}</h5>;
+      return <h5 id={anchorId} className="text-lg font-medium mt-4 mb-2  text-white">{children}</h5>;
     },
     h6: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h6 id={anchorId} className="text-md font-medium my-4 text-white">{children}</h6>;
+      return <h6 id={anchorId} className="text-md font-medium mt-4 mb-2 text-white">{children}</h6>;
     },
     p: ({ children }) => <p className={classNames(text_para_3)}>{children}</p>,
     normal: ({ children }) => <p className="text-base   lg:text-lg text-[#E5E7EB] text-start lg:text-justify">{children}</p>,
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-white">{children}</blockquote>
+      <blockquote className="border-l-4 border-gray-300 pl-4 italic mt-4 mb-2 text-white">{children}</blockquote>
     ),
   },
   list: {
-    bullet: ({ children }) => <ul className="text-left lg:text-left list-disc pl-5 my-4 text-white">{children}</ul>,
-    number: ({ children }) => <ol className="text-left lg:text-left list-decimal pl-5 my-4 text-white">{children}</ol>,
+    bullet: ({ children }) => <ul className="text-left lg:text-left  list-disc pl-5 my-4 flex flex-col gap-2 text-white">{children}</ul>,
+    number: ({ children }) => <ol className="text-left lg:text-left list-decimal pl-5 my-4 flex flex-col gap-2 text-white">{children}</ol>,
   },
   marks: {
     strong: ({ children }) => (

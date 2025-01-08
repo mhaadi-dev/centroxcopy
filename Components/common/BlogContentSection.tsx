@@ -19,9 +19,6 @@ const BlogContentSection = ({ content,authorInfo,headings }: any) => {
     
       <div className="w-full bg-blue-30   lg:w-[52.5%]">
       
-      
-
-    
            <MainBlogContent headings={headings||[]} authorInfo={authorInfo} data={content} />
      
       </div>

@@ -36,12 +36,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ? 'https://staging.centrox.ai/api/fetchsitemapblogs'
       : 'https://centrox.ai/api/fetchsitemapblogs';
     const localLink = 'http://localhost:3000/api/fetchsitemapblogs';
-    const response = await fetch(localLink, { cache: 'no-cache' });
+    const response = await fetch(fetchLink, { cache: 'no-cache' });
     const data = await response.json();
 
     // Create dynamic blog detail links
+    
     const dynamicLinks_blog_detail = data.map((blog: any) => ({
-      url: `https://centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`,
+      url: !isStaging ? `https://centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`:`https://staging.centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`,
       lastModified: new Date(blog._updatedAt).toISOString(),
       priority: 0.8,
     }));
@@ -58,7 +59,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return true;
       })
       .map((blog: any) => ({
-        url: `https://centrox.ai/blogs/${blog.category?.category_name}`,
+        url:!isStaging ? `https://centrox.ai/blogs/${blog.category?.category_name}`:`https://staging.centrox.ai/blogs/${blog.category?.category_name}`,
         lastModified: new Date(blog._updatedAt).toISOString(),
         priority: 0.8,
       }));
