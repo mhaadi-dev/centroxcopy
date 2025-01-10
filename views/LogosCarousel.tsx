@@ -24,7 +24,7 @@ export async function LogosCarousel() {
     { logo: rankPage, alt: "Rank Page" },
     { logo: nooblerly, alt: "Nooblerly" },
   ];
-
+//logos section
   return (
     <div className="py-4 bg-black">
       <div className="w-full">
