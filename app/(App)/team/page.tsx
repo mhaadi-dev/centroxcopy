@@ -1,7 +1,4 @@
 import { TeamUsSection } from "@/views/TeamSection";
-import LandingLayout from "../layout";
-import { sanityFetch } from "@/sanity/lib/client";
-import { TEAM_SECTION_QUERY } from "@/sanity/query";
 import mhbnImg from "@/assets/mhbnimg.webp";
 import harrisimg from "@/assets/harrisimg2.webp";
 import zainRazaImg from "@/assets/zainRaza.webp";
@@ -39,7 +36,6 @@ export const metadata = {
   }
 };
 async function TeamPage(props:any) {
-  // console.log("team data is", teamData);
   const teamsData = [
     {
       LeadersImgs: [
@@ -283,8 +279,5 @@ async function TeamPage(props:any) {
   return <TeamUsSection props={teamsData} />;
 }
 export default TeamPage;
-export async function generateStaticParams() {
 
-  return [];
-}
 
