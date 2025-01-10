@@ -201,17 +201,7 @@ export const TabCarousel = ({
   const { view } = useContext(ServiceViewContext);
   const { width } = useSize();
   const [showToast, setShowToast] = useState(false);
-  // const industriesTabs = [
-  //   { name: "Healthcare", href: "#", current: true },
-  //   { name: "Fashion Retail", href: "#", current: false },
-  //   { name: "Real Estate", href: "#", current: false },
-  //   { name: "Fintech", href: "#", current: false },
-  // ];
-  // const servicesTabs = [
-  //   { name: "Data Annotations", href: "#", current: true },
-  //   { name: "LLM Development", href: "#", current: false },
-  //   { name: "ML Ops", href: "#", current: false },
-  // ];
+
   const [tabs, setTabs] = useState(
     headerTabs
   );
@@ -364,7 +354,7 @@ export const TabCarousel = ({
            }`}
            src={cc?.image}
            alt={cc?.alt}
-           loading={width && width <= mobileWidth ? "lazy" : "lazy"}
+           loading={ "lazy"}
          />
        )}
      </div>
@@ -373,7 +363,6 @@ export const TabCarousel = ({
 </>
 
 )}
-
                         </div>
                         {caption && <p className={classNames(text_para_2,"text-center my-4 w-full mx-auto lg:w-[60%]")}>{caption}</p>}
                        

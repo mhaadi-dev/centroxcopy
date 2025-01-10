@@ -14,7 +14,8 @@ const LandingHeroSection = () => {
             src={heroBg}
             className="absolute inset-0 h-full w-full object-cover opacity-80"
             alt="hero-bg"
-            priority
+            // priority
+            loading='lazy'
           />
     
           <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">

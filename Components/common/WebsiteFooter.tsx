@@ -59,6 +59,7 @@ export default function WebsiteFooter() {
               onClick={() => {
                 router.push("/");
               }}
+              loading="lazy"
             />
           </figure>
 
@@ -75,34 +76,6 @@ export default function WebsiteFooter() {
                   {navigation.services.map((item) => (
                     <li
                       key={item.name}
-                     
-                      // onClick={() => {
-                      //   if (pathname !== "/" && item.name !== "Solving Data") {
-                      //     router.push(`/`);
-                      //     localStorage.setItem(
-                      //       SHOW_SERVICES,
-                      //       JSON.stringify(true)
-                      //     );
-                      //   }
-                      //   //@ts-ignore
-                      //   if (item.name !== "Solving Data" ||  item.name !== "Custom Chatbot") {
-                      //     setView(item.name);
-                      //     const solutionsComponent =
-                      //       document.getElementById("services");
-                      //     if (solutionsComponent) {
-                      //       solutionsComponent.scrollIntoView({
-                      //         behavior: "smooth",
-                      //         block: "start",
-                      //       });
-                      //     }
-                      //   }
-                      //   if (item.name == "Solving Data") {
-                      //     router.push("/solving-data");
-                      //   }
-                      //   if (item.name === "Custom Chatbot") {
-                      //     router.push("/custom-chatbot");
-                      //   }
-                      // }}
                     >
                       <Link
                         href={item.href}
@@ -177,6 +150,7 @@ export default function WebsiteFooter() {
                 src={LinkedinIcon}
                 alt="Logo"
                 className="w-4 sm:w-8 cursor-pointer"
+                loading="lazy"
               />
             </Link>
             <Link href="https://twitter.com/CentroxAI" target="_blank">
@@ -184,71 +158,18 @@ export default function WebsiteFooter() {
                 src={TwitterIcon}
                 alt="Logo"
                 className="w-4 sm:w-8 cursor-pointer"
+                loading="lazy"
               />
             </Link>
           </div>
         </div>
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-4">
           <p className="text-sm leading-5 text-white text-center">
-            &copy; 2024 Centrox Technologies, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Centrox Technologies, Inc. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
     
-    
-    // <footer
-    //   aria-labelledby="footer-heading"
-    //   className="my-12 max-w-[2500px] "
-    // >
-    //   <h2 id="footer-heading" className="sr-only">
-    //     Footer
-    //   </h2>
-    //   <div className="mx-auto  border-blue-200   pb-8 pt-16 sm:pt-24 lg:pt-32 w-4/5  ">
-    //     <div className="flex flex-col lg:flex-row justify-start lg:justify-between lg:items-center gap-12">
-    //       <figure className="space-y-8 w-4/5 flex justify-center mx-auto lg:items-start lg:mx-0 lg:justify-start   lg:w-2/5 ">
-    //         <Image
-    //           alt="Company name"
-    //           src={AppLogo}
-    //           className="w-[10rem] sm:w-80 cursor-pointer  "
-    //           onClick={() => {
-    //             router.push("/");
-    //           }}
-    //         />
-    //       </figure>
-
-    //       <div className="mt-0">
-    //       <p className="text-sm sm:text-md font-bold lg:text-xl leading-6 text-white sm:text-lg mt-0">
-    //         Follow Us At
-    //       </p>
-    //       <div className=" flex space-x-4 lg:space-x-12 mt-4">
-    //         <Link
-    //           href="https://www.linkedin.com/company/centroxai"
-    //           target="_blank"
-    //         >
-    //           <Image
-    //             src={LinkedinIcon}
-    //             alt="Logo"
-    //             className="w-4 sm:w-8 cursor-pointer"
-    //           />
-    //         </Link>
-    //         <Link href="https://twitter.com/CentroxAI" target="_blank">
-    //           <Image
-    //             src={TwitterIcon}
-    //             alt="Logo"
-    //             className="w-4 sm:w-8 cursor-pointer"
-    //           />
-    //         </Link>
-    //       </div>
-    //     </div>
-    //     </div>
-     
-    //     <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-4">
-    //       <p className="text-sm leading-5 text-white text-center">
-    //         &copy; 2024 Centrox Technologies, Inc. All rights reserved.
-    //       </p>
-    //     </div>
-    //   </div>
-    // </footer>
   );
 }

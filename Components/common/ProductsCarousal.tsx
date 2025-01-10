@@ -84,12 +84,14 @@ setIsClient(true)
             onClick={() => slider?.current?.slickPrev()}
             className="w-12 cursor-pointer"
             alt="left-icon"
+            loading="lazy"
           />
           <Image
             src={rightIcon}
             onClick={() => slider?.current?.slickNext()}
             className="w-12 cursor-pointer"
             alt="right-ci"
+            loading="lazy"
           />
         </div>
       </div>}

@@ -58,6 +58,7 @@ const TestimonialCarousel = ({ imagesArray, dataArray }: Props) => {
         src={TestimonialBG}
         alt="bg"
         className="absolute mx-auto bottom-0 left-0 right-0"
+        loading="lazy"
       />
       <div className="flex flex-wrap gap-y-4 items-center gap-x-4 justify-center space-x-4 my-[0rem] lg:my-[1.5rem] ">
         {imagesArray?.map((image: any, index: number) => (

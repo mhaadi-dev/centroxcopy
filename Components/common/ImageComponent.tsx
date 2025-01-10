@@ -28,6 +28,7 @@ const ImageComponent = () => {
                    alt="Gen Ai Process, raw data into exceptional results"
                    src={LandingAboutUsBg}
                    className="w-full  2xl:w-full z-[2]"
+                   loading='lazy'
                  />
                </figure>
                </div>
