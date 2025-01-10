@@ -39,7 +39,6 @@ export const metadata = {
   }
 };
 async function TeamPage(props:any) {
-  // console.log("team data is", teamData);
   const teamsData = [
     {
       LeadersImgs: [
@@ -283,8 +282,5 @@ async function TeamPage(props:any) {
   return <TeamUsSection props={teamsData} />;
 }
 export default TeamPage;
-export async function generateStaticParams() {
 
-  return [];
-}
 
