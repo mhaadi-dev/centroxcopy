@@ -51,7 +51,7 @@ const SubnavBar = ({ searchView,imageLink="", title, navItems = [] }: Props) => 
                 onClick={() => router.push(`${imageLink}`)}
               />
               {title && (
-                <h3 className="text-blue-azure font-heading text-[1.1rem]">{title}</h3>
+                <h3 className="text-blue-azure font-heading text-[1.1rem]"> <Link href={`/${title?.toLowerCase()}` || "/"}>{title}</Link></h3>
               )}
             </div>
             <ul className="w-2/3 gap-x-6 text-[#E5E7EB] flex">

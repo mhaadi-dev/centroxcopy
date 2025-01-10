@@ -1,36 +1,16 @@
-"use client";
 import { Button } from "@/Components/Button.js/button";
 import Arrow from "@/assets/RightArrow.svg";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import classNames, { generateBlurDataURL, section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
-import LandingAboutUsBg from "@/assets/genai.webp";
+import classNames, {  section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
+
 import LandingAboutUsPattern from "@/assets/LandingAboutUsPattern.webp";
 import Link from "next/link";
+import ImageComponent from "@/Components/common/ImageComponent";
+import ImageComponent2 from "@/Components/common/ImageComponent2";
 
 export const LandingAboutUs = () => {
-  const [blurDataURL, setBlurDataURL] = useState<string | undefined>(undefined);
-  const [windowWidth, setWindowWidth] = useState<number>(0);
-  const singleImageLoad = async (imageSrc: string) => {
-    if (!blurDataURL) {
-      const blurredBase64 = await generateBlurDataURL(imageSrc);
-      setBlurDataURL(blurredBase64);
-    }
-  };
-// console.log("imgg",LandingAboutUsPattern)
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
 
-    setWindowWidth(window.innerWidth);
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
  
   return (
     <section className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
@@ -56,21 +36,8 @@ export const LandingAboutUs = () => {
               augment business that are moving the innovation needle in Gen AI.
             </p>
             <br />
-            {windowWidth <= 1023 ? (
-               <div className="w-full mx-[0.5rem]  lg:w-1/2  z-[2]">  
-               <figure className=" w-4/4">
-                 <Image
-                   alt="Gen Ai Process, raw data into exceptional results"
-                   src={LandingAboutUsBg}
-                   className="w-full  2xl:w-full z-[2]"
-                   onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
-                   blurDataURL={blurDataURL}
-                 />
-               </figure>
-               </div>
-            ) : (
-              ""
-            )}
+            <ImageComponent/>
+      
             <p className={classNames(text_para_2,"mt-4")}>
               We want to enable you to focus on your core product and achieve
               your business goals faster while we take over your Gen AI
@@ -91,22 +58,7 @@ export const LandingAboutUs = () => {
          
         </div>
 
-        {windowWidth > 1023 ? (
-          <div className=" w-1/2   z-[2]">  
-     
-            <Image
-              alt="Gen Ai Process, raw data into exceptional results"
-              src={LandingAboutUsBg}
-              className="w-full   2xl:w-full z-[2]"
-              onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
-              blurDataURL={blurDataURL}
-            />
-         
-          </div>
-        
-        ) : (
-          ""
-        )}
+       <ImageComponent2/>
       </div>
     </section>
   );

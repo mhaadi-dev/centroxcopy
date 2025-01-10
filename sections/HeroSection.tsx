@@ -78,7 +78,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
           { !isAboutPage && <h1
             className={classNames(
               text_h1_main,
-              "!text-left lg:!mx-0  lg:!w-full pr-2 "
+              "!text-left lg:!mx-0  lg:!w-full pr-2 capitalize "
             )}
           >
             {isGradientText &&( (

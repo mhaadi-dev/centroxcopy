@@ -18,7 +18,7 @@ import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { notFound } from "next/navigation";
 import { url } from "node:inspector";
 import React from "react";
-import { ArticleJsonLd } from "next-seo";
+import { ArticleJsonLd ,BreadcrumbJsonLd,WebPageJsonLd} from "next-seo";
 
 export const revalidate = 10;
 export async function generateMetadata({
@@ -149,8 +149,44 @@ const Page = async ({ params }: any) => {
         articleSection={slugify(blogData.category?.category_name)}
         keywords={blogData?.keywords}
       />
+      <BreadcrumbJsonLd
+      useAppDir={true}
+      itemListElements={[
+    {
+      position: 1,
+      name: 'Home',
+      item: 'https://centrox.ai/',
+    },
+    {
+      position: 2,
+      name: 'Blogs',
+      item: 'https://centrox.ai/blogs',
+    },
+    {
+      position: 3,
+      name: 'Category',
+      item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}`,
+    },
+    {
+      position: 4,
+      name: 'Details',
+      item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`,
+    },
+  ]}
+/>
+   <WebPageJsonLd
+          useAppDir={true}
+          description="Discover what's latest in Gen AI, Machine Learning, LLM Dev, and AI Innovation. Stay updated with insights to boost your business through AI technology"
+          id={`https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
+          lastReviewed={new Date().toISOString()}
+          reviewedBy={{
+            type: "Person",
+            name: "Muhammad Harris Bin Naeem"
+          }}
+        />
+
       <SubnavBar
-        imageLink={"/blogs"}
+        imageLink={"/"}
         title="Blogs"
         navItems={allCategories || []}
       />

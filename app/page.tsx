@@ -1,16 +1,10 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 import { LogosCarousel } from "@/views/LogosCarousel";
-import { Section3 } from "@/views/Section3";
 import { LandingAboutUs } from "@/views/LandingAboutUs";
 import dummyDisplay from "@/assets/dummyDisplay.webp";
 import { sanityFetch } from "@/sanity/lib/client";
 import { GETALLBLOGS_QUERY, GETFirstBLOGS_QUERY, LANDING_PAGE_QUERY } from "@/sanity/query";
-// import { Testimonial } from "@/views/Testimonial";
 
-import { POCS } from "@/views/POCS";
-
-// import WebsiteFooter from "@/Components/common/WebsiteFooter";
-// import  BannerSection  from "@/Components/MainPageComponents/Banner";
 import dynamic from "next/dynamic";
 
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
@@ -40,27 +34,18 @@ import industryPic3 from "@/assets/industry3.webp";
 import industryPic4 from "@/assets/industry4.webp";
 import pocketmatetitle from "@/assets/pocketmatetitle.webp"
 import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
+import { OrganizationJsonLd } from 'next-seo';
 import { PortableText } from "next-sanity";
 import { PortableComponent } from "@/Components/common/PortableText";
 const WebsiteFooter = dynamic(
   () => import("@/Components/common/WebsiteFooter"),
   { ssr: false }
 );
-
-
-
-// import useScrollToElement from "@/hooks/useScrollToElement";
 export const revalidate=10;
 export default async function Home() {
-  // const data: any = await sanityFetch({
-  //   query: LANDING_PAGE_QUERY,
-  // });
-
   const blogsCardData:any = await sanityFetch({
     query:GETFirstBLOGS_QUERY
   })
-// console.log("bbbbbbbbbbbb",blogsCardData)
-  //  useScrollToElement();
   const servicesTabs = [
     { name: "Data Annotations", href: "#", current: true },
     { name: "LLM Development", href: "#", current: false },
@@ -378,6 +363,21 @@ export default async function Home() {
   }
   return (
     <main className="flex min-h-screen flex-col bg-black overflow-x-hidden gap-10 max-w-[2500px] mx-auto">
+      <OrganizationJsonLd
+      useAppDir={true}
+  type="Corporation"
+  id="https://centrox.ai/#corporation"
+  logo="https://centrox.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLogoWhite.2fd83e7a.png&w=828&q=75"
+  legalName="Centrox AI"
+  name="Centrox AI"
+  url="https://centrox.ai/"
+  sameAs={[
+    "https://x.com/CentroxAI",
+    "https://www.linkedin.com/company/centroxai",
+    "https://centrox.ai/"
+  ]}
+/>
+
       <Navbar />
       <LandingHeroSection />
       <LogosCarousel />
@@ -413,3 +413,4 @@ export default async function Home() {
     </main>
   );
 }
+
