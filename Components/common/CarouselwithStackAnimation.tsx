@@ -93,7 +93,6 @@ useEffect(() => {
 //     }
 //   }, [scrollPercentage]);
 
-  // console.log(data, "dttttt");
   useEffect(() => {
     setIsClient(true);
   }, []);

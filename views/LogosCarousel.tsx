@@ -48,7 +48,7 @@ export async function LogosCarousel() {
                     alt={logo.alt}
                     className="h-auto w-auto"
                     key={`logo-${index}`}
-                    loading="eager"
+                    loading="lazy"
                   />
                 ))
               : ""}

@@ -48,6 +48,7 @@ export const CaseStudyCarousal = ({ data }: any) => {
             src={caseStudyBG}
             alt="case study background"
             className="absolute right-0 bottom-0 z-[0]" 
+            loading="lazy"
           />
           
           <div
@@ -94,6 +95,7 @@ export const CaseStudyCarousal = ({ data }: any) => {
                 src={data[currentIndex]?.image || dummyDisplay}
                 alt="case study"
                 className="z-[10] relative object-contain h-full" 
+                loading="lazy"
               />
             </section>
           </div>
@@ -105,12 +107,14 @@ export const CaseStudyCarousal = ({ data }: any) => {
             onClick={handlePrev}
             className="w-12 cursor-pointer"
             alt="left-icon"
+            loading="lazy"
           />
           <Image
             src={rightIcon}
             onClick={handleNext}
             className="w-12 cursor-pointer"
             alt="right-icon"
+            loading="lazy"
           />
         </div>
       </div>
