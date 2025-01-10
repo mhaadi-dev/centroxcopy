@@ -1,7 +1,4 @@
 import { TeamUsSection } from "@/views/TeamSection";
-import LandingLayout from "../layout";
-import { sanityFetch } from "@/sanity/lib/client";
-import { TEAM_SECTION_QUERY } from "@/sanity/query";
 import mhbnImg from "@/assets/mhbnimg.webp";
 import harrisimg from "@/assets/harrisimg2.webp";
 import zainRazaImg from "@/assets/zainRaza.webp";
