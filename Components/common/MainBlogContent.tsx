@@ -8,13 +8,13 @@ import { PortableText } from "next-sanity";
 import { PortableComponent } from "./PortableText";
 import Link from "next/link";
 import TableOfContent from "./TableOfContent";
+import ContentAndShare from "./ContentAndShare";
 const MainBlogContent = ({ data, authorInfo,headings }: any) => {
 
   return (
-    <div className=" text-white px-2 w-full relative ">
-        <div className="lg:hidden sticky top-[4.5rem] ">
-             <TableOfContent  headings={headings} />
-        </div>
+    <section className=" relative">
+    <div className=" text-white  px-2 w-full relative   ">
+   
       {data ? (
         <PortableText
           value={data}
@@ -22,13 +22,18 @@ const MainBlogContent = ({ data, authorInfo,headings }: any) => {
           components={PortableComponent}
         />
       ) : null}
-
-      <div>
-        <div className="w-full lg:w-1/2">
+    
+        <div className="hidden lg:block w-5/6 lg:w-2/5">
             <SocialIconsContainer className="border-none !bg-gray-800/0" />
         </div>
       
-        <div className=" flex gap-4 items-start">
+       
+         <ContentAndShare headings={headings || []}/> 
+        
+      
+    </div>
+  
+    <div className=" flex gap-4 items-start mt-10 lg:mt-4 text-[#E5E7EB]">
           {authorInfo?.author_image && (
             <div className="w-2/4 lg:w-1/4  rounded-full">
               <Image
@@ -54,8 +59,8 @@ const MainBlogContent = ({ data, authorInfo,headings }: any) => {
             )}
           </div>
         </div>
-      </div>
-    </div>
+    </section>
+    
   );
 };
 

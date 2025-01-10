@@ -2,6 +2,12 @@ import classNames, { text_h1_main, text_h2_class, text_h3_class, text_para_2, te
 import { slugify } from "@/sanity/lib/helpers";
 import { urlFor } from "@/sanity/lib/image";
 import React from "react";
+const text_h2="text-[#E5E7EB] text-[1.35rem] lg:text-[1.95rem] 2xl:text-[2.4rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3.7rem]"
+const text_h3="text-[#E5E7EB] text-[1.2rem] lg:text-[1.38rem] 2xl:text-[1.65rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"
+const text_h4="text-[#E5E7EB] text-[1.1rem] lg:text-[1.15rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"
+const text_h5="text-[#E5E7EB] text-[1rem] lg:text-[1.1rem] 2xl:text-[1.35rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"
+const text_h6="text-[#E5E7EB] text-[0.9rem] lg:text-[1.1rem] 2xl:text-[1.16rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"
+
 
 export const PortableComponent = {
   block: {
@@ -11,32 +17,32 @@ export const PortableComponent = {
     },
     h2: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h2 id={anchorId} className={classNames(text_h2_class,"mt-4 mb-2")}>{children}</h2>;
+      return <h2 id={anchorId} className={classNames(text_h2,"mt-4 mb-1 lg:mb-2")}>{children}</h2>;
     },
     h3: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h3 id={anchorId} className={classNames(text_h3_class,"mt-4 mb-2")}>{children}</h3>;
+      return <h3 id={anchorId} className={classNames(text_h3,"mt-4 mb-1 lg:mb-2")}>{children}</h3>;
     },
     h4: ({ children }) => {
       const anchorId = slugify(children?.[0] || children?.props?.children[0]);
-      return <h4 id={anchorId} className="text-[#E5E7EB] text-[1rem] lg:text-[1.25rem] mt-4 mb-2 2xl:text-[1.7rem] font-heading font-semibold leading-[1.5rem] 2xl:leading-[2rem]">{children}</h4>;
+      return <h4 id={anchorId} className={classNames(text_h4,"mt-4 mb-1")}>{children}</h4>;
     },
     h5: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h5 id={anchorId} className="text-lg font-medium mt-4 mb-2  text-white">{children}</h5>;
+      return <h5 id={anchorId} className={classNames(text_h5,"mt-4 mb-1")}>{children}</h5>;
     },
     h6: ({ children }) => {
       const anchorId = slugify(children?.[0]);
-      return <h6 id={anchorId} className="text-md font-medium mt-4 mb-2 text-white">{children}</h6>;
+      return <h6 id={anchorId} className={classNames(text_h6,"mt-4 mb-1")}>{children}</h6>;
     },
-    p: ({ children }) => <p className={classNames(text_para_3)}>{children}</p>,
-    normal: ({ children }) => <p className="text-base   lg:text-lg text-[#E5E7EB] text-start lg:text-justify">{children}</p>,
+    p: ({ children }) => <p className={classNames("text-[#E5E7EB] text-[0.75rem] lg:text-[0.85rem] 2xl:text-[1rem] leading-[1.35rem] 2xl:leading-[1.6rem] my-1")}>{children}</p>,
+    normal: ({ children }) => <p className="text-[0.88rem] mb-2   lg:text-[0.95rem] 2xl:text-[1.15rem] text-[#E5E7EB] text-start lg:text-justify">{children}</p>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 italic mt-4 mb-2 text-white">{children}</blockquote>
     ),
   },
   list: {
-    bullet: ({ children }) => <ul className="text-left lg:text-left  list-disc pl-5 my-4 flex flex-col gap-2 text-white">{children}</ul>,
+    bullet: ({ children }) => <ul className="text-left text-[0.88rem]   lg:text-[0.95rem] 2xl:text-[1.15rem] lg:text-left  list-disc pl-5   text-white">{children}</ul>,
     number: ({ children }) => <ol className="text-left lg:text-left list-decimal pl-5 my-4 flex flex-col gap-2 text-white">{children}</ol>,
   },
   marks: {

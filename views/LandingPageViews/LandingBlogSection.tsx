@@ -1,11 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import dummyDisplay from "@/assets/dummyDisplay.webp";
-import { Button } from "@/Components/Button.js/button";
-import Arrow from "@/assets/RightArrow.svg";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid"; // Solid icons
-import { CustomCarousalSection } from "@/sections/CustomCarousalSection";
-import { ProductsCarousalSection } from "@/sections/ProducstsCarousal";
+
 import { ProductsCarousal } from "@/Components/common/ProductsCarousal"
 import SectionTag from "@/Components/common/SectionTag";
 import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";

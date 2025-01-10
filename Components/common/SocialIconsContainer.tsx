@@ -13,7 +13,6 @@ interface SocialIconsContainerProps {
 }
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
-  const [visibleShare,setVisibleShare]=useState(false)
   const BASE_URL="https://staging.centrox.ai" 
   const pathname=usePathname()
   const currentUrl=BASE_URL + pathname
@@ -25,62 +24,34 @@ const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }
 
   return (
     <> 
-    <div className={classNames('bg-gray-800/80 border-2 hidden lg:flex gap-x-4 px-5 py-3 2xl:p-5 items-center text-white border-gray-100/60 rounded-xl', className)}>
-      <p className={classNames( text_para_2,"font-medium")}>Share</p>
+    {/* FOR DESKTOP */}
+    <div className={classNames('bg-gray border- hidden lg:flex gap-x-4  items-center text-white border-gray-100/60 rounded-xl', className)}>
+      <p className={classNames( text_para_3,"font-medium pb-1")}>Share</p>
       <div className="flex gap-x-3 justify-center items-center">
          <div className='w-full'>
           <TwitterShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg">
-          <TwitterIcon className='w-full'  round />
+          <TwitterIcon className='w-[80%]'  round />
         </TwitterShareButton>
         </div>
     <div className='w-full'>
        <LinkedinShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg">
-          <LinkedinIcon className='w-full'   round />
+          <LinkedinIcon className='w-[80%]'   round />
         </LinkedinShareButton>
     </div>
        <div className='w-full'>
-         <FacebookShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg " quote='haddi'
+         <FacebookShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg " 
          >
-          <FacebookIcon className='w-full'   round />
+          <FacebookIcon className='w-[80%]'   round />
         </FacebookShareButton>
        </div>
        <div className='w-full'>
         <EmailShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg " onClick={handleEmailShare}>
-        <EmailIcon className='w-full'   round />
+        <EmailIcon className='w-[80%]'   round />
        </EmailShareButton>
        </div>
  
      
       </div>
-    </div>
-    <div className={classNames('bg-gray-800/80 border-2 w-full flex lg:hidden gap-x-4 px-5 py-3 2xl:p-5 items-center text-white border-gray-100/60 rounded-xl', )}>
-      <p className={classNames( text_para_2,"font-medium")} onClick={()=>{setVisibleShare(!visibleShare)}}>Share</p>
-     {visibleShare && <div className="flex gap-x-3 justify-center items-center">
-         <div className='w-full'>
-          <TwitterShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg">
-          <TwitterIcon className='w-full'  round />
-        </TwitterShareButton>
-        </div>
-    <div className='w-full'>
-       <LinkedinShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg">
-          <LinkedinIcon className='w-full'   round />
-        </LinkedinShareButton>
-    </div>
-       <div className='w-full'>
-         <FacebookShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg " quote='haddi'
-         >
-          <FacebookIcon className='w-full'   round />
-        </FacebookShareButton>
-       </div>
-       <div className='w-full'>
-        <EmailShareButton url={currentUrl} className="p-2 bg-gray-700/90 rounded-lg " onClick={handleEmailShare}>
-        <EmailIcon className='w-full'   round />
-       </EmailShareButton>
-       </div>
- 
-     
-      </div>}
-     
     </div>
     </>
    

@@ -1,5 +1,3 @@
-"use client";
-
 import WebsiteFooter from "@/Components/common/WebsiteFooter";
 import { Navbar } from "@/Components/Navbar/navbar";
 

@@ -41,7 +41,6 @@ export const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
-  const [showBackdrop, setShowBackdrop] = useState(false);
   const { width } = useSize();
   const [isClient,setIsClient]=useState(false)
   const [clickedItem,setClickedItem]=useState(null)
@@ -53,26 +52,6 @@ export const Navbar = () => {
   useEffect(()=>{
    setIsClient(true)
   },[])
-  const scrollToSection = (id) => {
-    const checkAndScroll = () => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-        clearInterval(interval);
-      }
-    };
-  
-  
-    const interval = setInterval(checkAndScroll, 300);
-  
-    
-    setTimeout(() => {
-      clearInterval(interval);
-    }, 5000); 
-  };
   
   const data = [
     {
@@ -342,7 +321,7 @@ export const Navbar = () => {
   
   return (
     <>
-    {showBackdrop&&<section className="h-screen w-full absolute bg-black/80 z-30 "></section>}
+
      <nav className="flex   justify-center fixed z-40 top-0 left-0 py-4 sm:h-24 items-center w-full  backdrop-filter backdrop-blur-xl ">
       <div className="flex items-center justify-between w-[90%] mx-[1.5rem] 2xl:mx-[15rem] max-w-[2500px]  relative  ">
       <Link href={"/"} className="w-[6rem] sm:w-[15%] lg:w-[9%] 2xl:w-[10%]  cursor-pointer"> <Image
@@ -366,7 +345,6 @@ export const Navbar = () => {
                 isMobileView={showMenu}
                 key={index}
                 socialIcons={navItem?.socialIcons}
-                setShowBackdrop={setShowBackdrop}
               />
             );
           })}
