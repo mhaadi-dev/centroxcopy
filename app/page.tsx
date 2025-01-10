@@ -1,9 +1,8 @@
 import { Navbar } from "@/Components/Navbar/navbar";
 import { LogosCarousel } from "@/views/LogosCarousel";
 import { LandingAboutUs } from "@/views/LandingAboutUs";
-import dummyDisplay from "@/assets/dummyDisplay.webp";
 import { sanityFetch } from "@/sanity/lib/client";
-import { GETALLBLOGS_QUERY, GETFirstBLOGS_QUERY, LANDING_PAGE_QUERY } from "@/sanity/query";
+import {  GETFirstBLOGS_QUERY } from "@/sanity/query";
 
 import dynamic from "next/dynamic";
 
@@ -35,8 +34,8 @@ import industryPic4 from "@/assets/industry4.webp";
 import pocketmatetitle from "@/assets/pocketmatetitle.webp"
 import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { OrganizationJsonLd } from 'next-seo';
-import { PortableText } from "next-sanity";
-import { PortableComponent } from "@/Components/common/PortableText";
+// import { PortableText } from "next-sanity";
+// import { PortableComponent } from "@/Components/common/PortableText";
 const WebsiteFooter = dynamic(
   () => import("@/Components/common/WebsiteFooter"),
   { ssr: false }

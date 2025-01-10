@@ -359,7 +359,14 @@ export const Navbar = () => {
               iconClassName="-mt-1"
               className="z-[1] !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.6rem] transition-opacity duration-500 opacity-100"
             />
-          ):""}
+          ):  <Button
+          content="Contact Us"
+          onClick={() => router.push(`/contact`)}
+          Icon={null}
+          isLefticon={false}
+          iconClassName="!hidden"
+          className="z-[1] opacity-0 !px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.6rem] transition-opacity duration-500 "
+        />}
            {pathname?.startsWith("/case-studies") && !showMenu &&   <button
             onClick={() => {router.push("/case-studies/search")}}
             className="lg:hidden text-white p-1 ml-2 rounded-full bg-gray-700/80 "

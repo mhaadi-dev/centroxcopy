@@ -4,18 +4,25 @@ import { Button } from '@/Components/Button.js/button';
 import Arrow from "@/assets/RightArrow.svg";
 import { CalendlyWidget } from '@/Components/common/Calendly';
 import classNames, { text_para_main } from '@/helpers/common';
+import Head from 'next/head';
 
 
 const LandingHeroSection = () => {
     return (
-        <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
+      <>
+        <Head>
+            <link rel="preload" as="image" href={heroBg.src} />
+          </Head>
+      <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
           <Image
             id="hero-bg"
             src={heroBg}
-            className="absolute inset-0 h-full w-full object-cover opacity-80"
+            className="absolute inset-0 w-full  object-cover h-full opacity-80"
             alt="hero-bg"
-            // priority
-            loading='lazy'
+            priority
+            width={1267}
+            height={590}
+           loading='eager'
           />
     
           <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">
@@ -36,6 +43,8 @@ const LandingHeroSection = () => {
             <CalendlyWidget btnText='Meet Our AI Expert' btnClassName='!px-[0.5rem] !py-[0.3rem] 2xl:!px-[1.5rem] 2xl:!py-[0.8rem]' isArrow={true}/>
           </div>
         </section>
+      </>
+        
       );
 }
 
