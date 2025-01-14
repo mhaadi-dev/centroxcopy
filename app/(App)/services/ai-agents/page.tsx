@@ -725,9 +725,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
           />
           <CommonDisplayCardsGrid data={benefitsData2} />
-          {/* <LogosSection data={techStackData} /> */}
           <PointsandImagesSection arrayData={arrayData} />
-          {/* <LandingCaseStudySection /> */}
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"

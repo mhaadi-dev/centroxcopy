@@ -427,16 +427,16 @@ export const Navbar = () => {
 
           {/* IN MOBILE VIEW */}
           <nav
-  className={`bg-black px-3 z-[1] py-4 overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
+  className={`bg-black px-3  z-[1] py-4 overflow-y-auto w-[19rem] absolute -left-[6%] top-[3.5rem] transform transition-transform duration-700 ease-in-out opacity-100 ${
     showMenu ? "translate-y-0 opacity-100" : "-translate-y-[10000px] opacity-0"
   }`}
-  style={{ height: "calc(100vh - 85px)" }}
+  style={{ height: "calc(100vh - 70px)" }}
 >
   {data?.map((navItem, index) => (
     <div key={index} className="text-gray-100">
       <div className="flex justify-between items-center">
         <p
-          className={`font-semibold mt-4 uppercase w-[90%] ${
+          className={`font-semibold mt-4 uppercase w-[90%]  ${
             clickedItem == index && "text-blue-azure"
           }`}
           onClick={() => {
@@ -499,7 +499,7 @@ export const Navbar = () => {
                   href={item.link}
                   className={`${
                     subItemIndex === 0 || navItem?.columnData?.length === 1
-                      ? "font-semibold mt-1"
+                      ? "font-normal mt-1"
                       : "font-normal"
                   } text-sm`}
                   onClick={() => {
@@ -513,17 +513,17 @@ export const Navbar = () => {
           ));
         })
       ) : (
-        <>
+        <section className=" ">
      
             <div className={classNames(clickedItem==index ? "visible animate-height ":"hidden")}>
               {navItem?.columnData?.map((subItems, subIndex) => (
                 <div key={subIndex}>
                   {subItems.map((item, subItemIndex) => (
                     <div key={subItemIndex}>
-                      <h3 className="w-full flex gap-x-2">
+                      <h3 className="w-full  flex gap-x-2">
                         <Link
                           href={item.link}
-                          className="font-semibold text-base"
+                          className="font-normal text-base"
                           onClick={() => {
                             setShowMenu((prev) => !prev);
                             setClickedItem(null);
@@ -534,8 +534,13 @@ export const Navbar = () => {
                       </h3>
                     </div>
                   ))}
-                  {navItem?.socialIcons && (
-                    <div className="flex gap-6 my-3">
+             
+                </div>
+              ))}
+                  
+            </div>
+            {navItem?.socialIcons && (
+                    <div className="flex gap-6 my-3 mt-10  ">
                       {navItem?.socialIcons?.length &&
                         navItem?.socialIcons?.map((icon, iconIndex) => {
                           return (
@@ -546,11 +551,7 @@ export const Navbar = () => {
                         })}
                     </div>
                   )}
-                </div>
-              ))}
-            </div>
-         
-        </>
+        </section>
       )}
     </div>
   ))}

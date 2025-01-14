@@ -2,7 +2,7 @@ import classNames, { text_h1_main, text_h2_class, text_h3_class, text_para_2, te
 import { slugify } from "@/sanity/lib/helpers";
 import { urlFor } from "@/sanity/lib/image";
 import React from "react";
-const text_h2="text-[#E5E7EB] text-[1.35rem] lg:text-[1.95rem] 2xl:text-[2.4rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3.7rem]"
+const text_h2="text-[#E5E7EB] text-[1.35rem] lg:text-[1.73rem] 2xl:text-[2.4rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3.7rem]"
 const text_h3="text-[#E5E7EB] text-[1.2rem] lg:text-[1.38rem] 2xl:text-[1.65rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"
 const text_h4="text-[#E5E7EB] text-[1.1rem] lg:text-[1.15rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"
 const text_h5="text-[#E5E7EB] text-[1rem] lg:text-[1.1rem] 2xl:text-[1.35rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]"

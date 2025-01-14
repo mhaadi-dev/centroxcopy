@@ -512,7 +512,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
               "We're not just another chatbot development company. We're your strategic AI partner."
             }
           />
-          {/* <LandingCaseStudySection/> */}
           <FaqsSection
             addTag={true}
             heading="We're Often Asked"

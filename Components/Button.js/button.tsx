@@ -190,7 +190,7 @@ export const Button = ({
 		)}
 		</span>}
 		{Icon && !isLefticon && (
-		  <Image src={Icon} className={classNames(iconClassName, "-ml-2")} alt="" />
+		  <Image src={Icon} width={20} height={20} className={classNames(iconClassName, "-ml-2")} alt="" />
 		)}
 	  </button>}
 		

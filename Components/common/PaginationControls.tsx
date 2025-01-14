@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { FC, useEffect, useState } from 'react';
 import classNames, { section_wrapper_class } from '@/helpers/common';
@@ -24,7 +24,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   const { width } = useSize();
   const [isClient, setIsClient] = useState(false);
   const [visiblePages, setVisiblePages] = useState<number[]>([]);
-  const [pageRange, setPageRange] = useState({ start: 1, end: 10 });
+  const [pageRange, setPageRange] = useState({ start: 1, end: 5 });
 
   useEffect(() => {
     setIsClient(true);
@@ -37,12 +37,10 @@ const PaginationControls: FC<PaginationControlsProps> = ({
       const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
       if (width && width <= 768) {
-        // Mobile: Show 5 pages at a time
         const start = pageRange.start;
         const end = Math.min(pageRange.end, totalPages);
         setVisiblePages(pageNumbers.slice(start - 1, end));
       } else {
-        // Desktop: Show 10 pages at a time
         const start = pageRange.start;
         const end = Math.min(pageRange.end, totalPages);
         setVisiblePages(pageNumbers.slice(start - 1, end));
@@ -53,21 +51,30 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   }, [isClient, width, pageRange, totalPages]);
 
   useEffect(() => {
-    // Adjust visible range when current page reaches the boundary
-    if (currentPage > pageRange.end && pageRange.end < totalPages) {
-      // Move forward
-      const increment = width && width <= 768 ? 5 : 10;
-      setPageRange({
-        start: pageRange.end + 1,
-        end: Math.min(pageRange.end + increment, totalPages),
-      });
-    } else if (currentPage < pageRange.start && pageRange.start > 1) {
-      // Move backward
-      const decrement = width && width <= 768 ? 5 : 10;
-      setPageRange({
-        start: Math.max(pageRange.start - decrement, 1),
-        end: pageRange.start - 1,
-      });
+    if (width && width <= 768) {
+      if (currentPage > pageRange.end && pageRange.end < totalPages) {
+        setPageRange({
+          start: pageRange.end + 1,
+          end: Math.min(pageRange.end + 5, totalPages),
+        });
+      } else if (currentPage < pageRange.start && pageRange.start > 1) {
+        setPageRange({
+          start: Math.max(pageRange.start - 5, 1),
+          end: pageRange.start - 1,
+        });
+      }
+    } else {
+      if (currentPage > pageRange.end && pageRange.end < totalPages) {
+        setPageRange({
+          start: pageRange.end + 1,
+          end: Math.min(pageRange.end + 5, totalPages),
+        });
+      } else if (currentPage < pageRange.start && pageRange.start > 1) {
+        setPageRange({
+          start: Math.max(pageRange.start - 5, 1),
+          end: pageRange.start - 1,
+        });
+      }
     }
   }, [currentPage, pageRange, totalPages, width]);
 
@@ -82,7 +89,7 @@ const PaginationControls: FC<PaginationControlsProps> = ({
         {/* Previous Button */}
         <button
           className={classNames(
-            'bg-gray-900/80 text-white rounded-full p-3',
+            'bg-gray-900/80 text-white rounded-full p-2 lg:p-3',
             currentPage !== 1
               ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white'
               : ''
@@ -119,13 +126,24 @@ const PaginationControls: FC<PaginationControlsProps> = ({
                 {page}
               </button>
             ))}
+            {pageRange?.end< totalPages?  <button
+               
+                className={`py-1 px-2 lg:p-3 text-sm lg:text-xl lg:px-5 font-semibold rounded-lg ${
+                 true
+                    ? ' pointer-events-none border-gray-800 border-[1px] text-gray-400'
+                    : 'bg-gray-900/80 border-2 border-transparent text-white'
+                }`}
+               
+              >
+                ...
+              </button> : ""}
           </div>
         )}
 
         {/* Next Button */}
         <button
           className={classNames(
-            'bg-gray-900/80 text-white rounded-full p-3',
+            'bg-gray-900/80 text-white rounded-full p-2 lg:p-3',
             currentPage !== totalPages
               ? 'bg-gradient-to-b from-[#079DFC66] to-[#045D9666] border-2 border-blue-azure text-white'
               : ''
@@ -150,4 +168,4 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   );
 };
 
-export default PaginationControls;
+export default PaginationControls

@@ -51,44 +51,7 @@ export const metadata = {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  //   const { slug } = params;
-  //   console.log("slug is", slug);
-  //   let landingPageData;
-  //   let data;
-  //   try {
-  //     landingPageData = await sanityFetch({
-  //       query: SERVICES_PAGE_QUERY,
-  //       params: { slug },
-  //     });
 
-  //     if (
-  //       landingPageData &&
-  //       Array.isArray(landingPageData) &&
-  //       landingPageData.length > 0
-  //     ) {
-  //       let obj = landingPageData[0];
-
-  //       if (obj) {
-  //         const entries = Object.entries(obj);
-
-  //         const sortedEntries = entries.sort((a, b) => {
-  //           const orderA = a[1]?.order ?? Number.MAX_VALUE;
-  //           const orderB = b[1]?.order ?? Number.MAX_VALUE;
-  //           return orderA - orderB;
-  //         });
-
-  //         data = sortedEntries;
-  //         console.log("new data is", data[0][1]);
-  //       } else {
-  //         console.log("No valid data found in landingPageData");
-  //       }
-  //     } else {
-  //       console.log("No data received or data is not an array");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching or processing landing page data:", error);
-  //   }
-  //   console.log("data is",data,)
 
   const benefitsData = [
     {
@@ -454,13 +417,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
             gridCols={3}
           />
           <StepperSection data={stepperdata} />
-          {/* <LogosSection
-            data={techStackData}
-            heading={"Our Tech Stack"}
-            description={
-              "We leverage a powerful and flexible tech stack to build high-performing chatbots:"
-            }
-          /> */}
           <PointsandImagesSection
             arrayData={arrayData}
             heading={"Why Work With Centrox?"}
