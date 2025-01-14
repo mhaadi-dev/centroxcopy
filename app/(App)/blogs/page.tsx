@@ -26,46 +26,6 @@ import { BreadcrumbJsonLd,WebPageJsonLd } from "next-seo";
 
 export const revalidate = 10;
 
-// Metadata generation function
-
-// export async function generateMetadata({ searchParams }: { searchParams: { page?: string } }) {
-//   const BLOGS_PER_PAGE = 5;
-
-//   try {
-//     const totalBlogsCount = await client.fetch(GET_TOTAL_BLOGS_COUNT);
-
-//     const totalPages = Math.ceil(totalBlogsCount / BLOGS_PER_PAGE);
-
-//     const currentPage = searchParams.page ? parseInt(searchParams.page, 10) : 1;
-//     const canonical =
-//       currentPage === 1
-//         ? `https://centrox.ai/blogs/`
-//         : `https://centrox.ai/blogs?page=${currentPage}`;
-
-//     const alternates = Array.from({ length: totalPages }, (_, i) => ({
-//       url: i === 0
-//         ? `https://centrox.ai/blogs/`
-//         : `https://centrox.ai/blogs?page=${i + 1}`,
-//     }));
-
-//     const metaTitle = `Centrox AI ${currentPage > 1 ? ` - Page ${currentPage}` : ''}`;
-//     const metaDescription = `Centrox AI | Heart of Innovation${currentPage > 1 ? ` - Browse Page ${currentPage}` : ''}`;
-
-//     return {
-//       title: cleanMetaString(metaTitle),
-//       description: cleanMetaString(metaDescription),
-//       alternates: {
-//         canonical,
-//         pages: alternates,
-//       },
-//     };
-//   } catch (error) {
-//     console.error("Error fetching category data:", error);
-//     notFound();
-//     return;
-//   }
-// }
-
 export const metadata = {
   title: "Centrox AI Blog | Generative AI, Machine Learning & Innovation",
   description:

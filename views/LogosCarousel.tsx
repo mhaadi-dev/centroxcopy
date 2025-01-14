@@ -35,7 +35,7 @@ export async function LogosCarousel() {
               translateX: "-50%",
             }}
             transition={{
-              duration: 25,
+              duration: 20,
               repeat: Infinity,
               ease: "linear",
               repeatType: "loop",

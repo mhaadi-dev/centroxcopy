@@ -6,8 +6,8 @@ export async function GET(request: Request) {
     try {
       const { searchParams } = new URL(request.url);
       const category = searchParams.get("category") || "";
-      const page = parseInt(searchParams.get("page") || "1"); // Default to page 1
-      const limit = 6; // Blogs per page
+      const page = parseInt(searchParams.get("page") || "1"); 
+      const limit = 6; 
       const startRange = (page - 1) * limit;
       const endRange = startRange + limit;
   

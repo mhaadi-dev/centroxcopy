@@ -17,12 +17,11 @@ const LandingHeroSection = () => {
           <Image
             id="hero-bg"
             src={heroBg}
-            className="absolute inset-0 w-full  object-cover h-full opacity-80"
+            className="absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-80"
             alt="hero-bg"
-            priority
             width={1267}
             height={590}
-           loading='eager'
+           loading='lazy'
           />
     
           <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">

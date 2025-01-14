@@ -10,10 +10,10 @@ import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSe
 import LandingHeroSection from "@/views/LandingPageViews/LandingHeroSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
-import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
-import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
+// import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
+// import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
 import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
+// import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
 import Icon from "@/assets/Icon.svg";
 import Icon2 from "@/assets/Icon-1.svg";
 import Icon3 from "@/assets/Icon-3.svg";
@@ -40,6 +40,22 @@ const WebsiteFooter = dynamic(
   () => import("@/Components/common/WebsiteFooter"),
   { ssr: false }
 );
+const LandingFAQSection =dynamic(
+  () => import("@/views/LandingPageViews/LandingFAQSection"),
+  { ssr: false }
+);
+const LandingContactSection =dynamic(
+  () => import("@/views/LandingPageViews/LandingContactSection"),
+  { ssr: false }
+);
+
+
+const LandingTestimonialSection =dynamic(
+  () => import("@/views/LandingPageViews/LandingTestimonialSection"),
+  { ssr: false }
+);
+
+   
 export const revalidate=10;
 export default async function Home() {
   const blogsCardData:any = await sanityFetch({
