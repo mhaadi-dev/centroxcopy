@@ -62,7 +62,7 @@ const CommonResizeableCard = ({
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-4 lg:gap-6",reverse ? "lg:flex-row-reverse justify-between":"")}>
+        {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-4 lg:gap-6",reverse ? "lg:flex-row-reverse justify-evenly":"")}>
         <div className=" min-h-[150px] flex lg:min-w-[360px] lg:h-auto">
         <div className="w-full ">
         {bentoImage && <Image loading="lazy" src={bentoImage}  className="" alt={altText}></Image>}

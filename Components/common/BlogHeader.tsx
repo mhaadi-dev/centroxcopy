@@ -11,7 +11,7 @@ interface Props{
 
 const BlogHeader = ({ headingText, paraText, includeDots }: Props) => {
     return (
-      <header className="relative overflow-hidden mt-24 lg:mt-0">
+      <header className="relative overflow-hidden mt-24  xl:mt-0 ">
         <div className="absolute inset-0 object-cover z-[1]">
           <Image src={dotsbg} alt="background" layout="fill" objectFit="cover" />
         </div>

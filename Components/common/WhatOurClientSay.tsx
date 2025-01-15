@@ -3,7 +3,8 @@ import SectionHeader from './SectionHeader'
 import Image from 'next/image'
 import classNames, { section_wrapper_class, text_h1_main, text_h2_class, text_h3_class, text_para_2, text_para_3 } from '@/helpers/common'
 import revenue from "@/assets/revenue.svg"
-import mhbn from "@/assets/mhbnimg.webp"
+// import mhbn from "@/assets/mhbnimg.webp"
+import avatar from "@/assets/testimonial-avatar.jpg"
 interface Props{
     headingText?:string
     heading2Text?:string,
@@ -34,7 +35,7 @@ const WhatOurClientSay = (props:Props) => {
         <div className="w-full h-full px-4 py-4 lg:pt-4 lg:pb-10 lg:w-2/3  flex flex-col gap-y-3">
             {props?.review && <p className={classNames(text_para_2)}>{props?.review}</p>}
             <div className="flex flex-col gap-y-2">
-                <Image width={80} height={80} className="rounded-xl" src={mhbn} alt="client"></Image>
+                <Image width={75} height={75} className="rounded-xl" src={avatar} alt="client"></Image>
                 <div className="">
                     {props?.name && <p className={classNames(text_para_3,"font-semibold")}>{props.name}</p>}
                     {props?.position && <p className={classNames(text_para_3)}>{props?.position}</p>}
