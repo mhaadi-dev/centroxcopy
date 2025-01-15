@@ -84,7 +84,7 @@ export async function generateMetadata({
   }
 }
 
-const Page = async ({ params }: any) => {
+const Page = async ({ params }: {params:{slug:string}}) => {
   const { slug } = params;
   let similarBlogs = [];
   const blogSlug: string = slug;

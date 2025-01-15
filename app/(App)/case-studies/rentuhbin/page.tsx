@@ -11,14 +11,45 @@ import classNames, {
 import WhatOurClientSay from "@/Components/common/WhatOurClientSay";
 
 import SimpleIconHeroSection from "@/Components/common/SimpleIconHeroSection";
-import SubnavBar from "@/Components/Navbar/SubnavBar";
 import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
 import aws from "@/assets/awslogo.webp"
-import imageBG2 from "@/assets/Image BG2.webp"
 import rightsidebg from "@/assets/rightsidebg.svg"
-
 import Icon10 from "@/assets/Icon-13.svg"
+import reactnative from "@/assets/casestudies/ReactNative.svg"
+import ic1 from "@/assets/casestudies/ArrowsInSimple.svg"
+import ic2 from "@/assets/casestudies/ArrowsClockwise.svg"
+import js from "@/assets/casestudies/JS.svg"
+import nextjs from "@/assets/casestudies/next-js 2.svg"
+import fast from "@/assets/casestudies/FAst.svg"
+import fireauth from "@/assets/casestudies/FireAuth.svg"
+import fire from "@/assets/casestudies/Fire.svg"
+import nestjs from "@/assets/casestudies/nestjs 1.svg"
+import dumpster from "@/assets/casestudies/Trash.svg"
+import damage from "@/assets/casestudies/ImageBroken.svg"
+import currency from "@/assets/casestudies/CurrencyCircleDollar.svg"
+import discount from "@/assets/casestudies/SealPercent.svg"
+import star from "@/assets/casestudies/Star.svg"
+import headcircuit from "@/assets/casestudies/HeadCircuit.svg"
+import icon11 from "@/assets/Icon-11.svg"
+import detective from "@/assets/casestudies/Detective.svg"
+import yolo from "@/assets/casestudies/Yolo.svg"
+import tailwind from "@/assets/casestudies/Tailwibdcss.svg"
+import express from "@/assets/casestudies/Express.svg"
+import mongo from "@/assets/casestudies/Mongo.svg"
+import gitlab from "@/assets/casestudies/GitLabCLI.svg"
+import stripe from "@/assets/casestudies/Stripe.svg"
+import sentry from "@/assets/casestudies/Sentry.svg"
+
+import bento1 from "@/assets/casestudies/Dumpster booking.svg"
+import bento2 from "@/assets/casestudies/Chat.svg"
+import bento3 from "@/assets/casestudies/Complaint.svg"
+import multilang from "@/assets/casestudies/Mult-Language.svg"
+import enhancedassit from "@/assets/casestudies/Assistance.svg"
+
+
+
+
 
 const page = ({ params }: { params: { slug: string } }) => {
 
@@ -80,8 +111,9 @@ const heroSection2Data={
       },
       data: [
         {
-          Icon: null,
+          icon: dumpster,
           heading: "Reliable Dumpster Booking App",
+          alt: "Reliable Dumpster Booking App",
           symbol: "",
           description:
             "The app provides convenience to users by offering a reliable alternative for booking a dumpster. Users can book or rent a dumpster at their desired location without the hassle of searching manually. Additionally, it enables communication between consumers and service providers within the app.",
@@ -89,8 +121,9 @@ const heroSection2Data={
           linkText: "",
         },
         {
-          Icon: null,
+          icon: damage,
           heading: "Damage Claim Center",
+          alt: "Damage Claim Center",
           symbol: "",
           description:
             "To ensure a satisfying experience for both consumers and service providers, the app includes a complaint and damage claim center. This feature provides a sense of security and support for all parties involved.",
@@ -98,8 +131,9 @@ const heroSection2Data={
           linkText: "",
         },
         {
-          Icon: null,
+          icon: currency,
           heading: "2$ Tool",
+          alt: "2$ Tool",
           symbol: "",
           description:
             "This AI-enabled tool offers prompt suggestions for booking a relevant dumpster suitable for the type of dump identified in a picture captured within the app. This ensures users book the right dumpster for their needs.",
@@ -107,8 +141,9 @@ const heroSection2Data={
           linkText: "",
         },
         {
-          Icon: null,
+          icon: ic1,
           heading: "Placement Tool",
+          alt: "Placement Tool",
           symbol: "",
           description:
             "This AI-powered tool allows users to take a picture of the intended dumpster placement location. It analyzes the dimensions of the space and cross-checks it with placement rules and regulations, providing a response on whether the location is appropriate for placing a dumpster.",
@@ -118,6 +153,7 @@ const heroSection2Data={
       ],
     },
   ];
+  
   
   const data3 = [
     {
@@ -131,68 +167,78 @@ const heroSection2Data={
       },
       data: [
         {
-          Icon: null,
+          icon: null,
           heading: "Convenient and Reliable Booking",
+          alt: "Convenient and Reliable Booking",
           symbol: "",
           description:
             "This app provides a highly convenient way to book the size-appropriate dumpster of your choice. All service providers are verified, making it a reliable solution for potential users.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:2
+          colSpan: 2,
+          bentoImage: bento1,
         },
         {
-          Icon: Icon10,
+          icon: discount,
           heading: "Discounts and Referrals",
+          alt: "Discounts and Referrals",
           symbol: "",
           description:
             "The app helps manage expenses by offering discounts to users who meet certain criteria. This allows users to book or rent dumpsters at reasonable rates, making waste management more affordable.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:1
+          colSpan: 1,
         },
         {
-          Icon: Icon10,
+          icon: star,
           heading: "Rating and Reviews",
+          alt: "Rating and Reviews",
           symbol: "",
           description:
             "Consumers and service providers can rate and review each other based on their experiences. This feedback helps service providers improve their quality and guides users in selecting the best dumpster options.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:1
+          colSpan: 1,
         },
         {
-          Icon: null,
+          icon: null,
           heading: "Chat with Service Providers",
+          alt: "Chat with Service Providers",
           symbol: "",
           description:
             "The app enables consumers and service providers to communicate safely within the app. This feature promotes active collaboration and keeps both parties updated throughout the process.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:2
+          colSpan: 2,
+          bentoImage: bento2,
         },
         {
-          Icon: null,
+          icon: null,
           heading: "Complaint Center and Damage Claims",
+          alt: "Complaint Center and Damage Claims",
           symbol: "",
           description:
             "A dedicated complaint center and damage claim feature ensure safety and accountability. This allows users and service providers to address mishaps or potential fraud effectively.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:2
+          colSpan: 2,
+          bentoImage: bento3,
         },
         {
-          Icon: Icon10,
+          icon: headcircuit,
           heading: "AI-Enabled Tool",
+          alt: "AI-Enabled Tool",
           symbol: "",
           description:
             "The app integrates AI to efficiently suggest the most suitable dumpster size based on the collected waste. It also ensures that dumpsters fit appropriately in desired locations without violating placement regulations.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:1
+          colSpan: 1,
         },
       ],
     },
   ];
+  
   
   const data4 = [
     {
@@ -206,8 +252,9 @@ const heroSection2Data={
       },
       data: [
         {
-          Icon: null,
+          icon: ic1,
           heading: "Accurate Sizing and Placement",
+          alt: "Accurate Sizing and Placement",
           symbol: "",
           description:
             "Consumers struggled to select the correct dumpster size due to inaccurate system data, leading to inefficient placements. This resulted in consuming extra time and effort for users.",
@@ -215,8 +262,9 @@ const heroSection2Data={
           linkText: "",
         },
         {
-          Icon: null,
+          icon: icon11,
           heading: "Ineffective Spatial Data Utilization",
+          alt: "Ineffective Spatial Data Utilization",
           symbol: "",
           description:
             "Traditional dumpster placements in urban settings were rigid and not data-driven. Misaligned placements caused garbage trucks to take longer routes, increasing fuel consumption and operational costs.",
@@ -224,8 +272,9 @@ const heroSection2Data={
           linkText: "",
         },
         {
-          Icon: null,
+          icon: ic2,
           heading: "Synchronization Gaps",
+          alt: "Synchronization Gaps",
           symbol: "",
           description:
             "A lack of real-time communication between consumers and providers led to miscommunication and delays. This ultimately resulted in additional waiting time for dumpster arrivals.",
@@ -233,8 +282,9 @@ const heroSection2Data={
           linkText: "",
         },
         {
-          Icon: null,
+          icon: detective,
           heading: "Complex Object Detection",
+          alt: "Complex Object Detection",
           symbol: "",
           description:
             "Variations in dumpster scale and orientation created challenges in accurately detecting placements within dynamic urban environments. This raised the need to repeatedly book appropriate dumpsters.",
@@ -244,6 +294,7 @@ const heroSection2Data={
       ],
     },
   ];
+  
   
   const data5 = [
     {
@@ -257,28 +308,32 @@ const heroSection2Data={
       data: [
         {
           Icon: null,
-          heading: "Multi-Language and Cultural Support ",
+          heading: "Multi-Language and Cultural Support",
+          alt: "Multi-Language and Cultural Support",
           symbol: "",
           description: "Our ongoing developments aim to enable support for multiple languages and cultural contexts, broadening Rentuhbin’s market reach, ultimately bridging the communication gap alongside delivering the dumpster service; making it more inclusive for people all around the globe.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:2,
-          reverse:false
+          colSpan: 2,
+          bentoImage: multilang,
+          reverse: false,
         },
         {
           Icon: null,
           heading: "Enhanced Assistance",
+          alt: "Enhanced Assistance",
           symbol: "",
           description: "Future iterations of our AI will incorporate reinforcement learning techniques, enabling real-time feedback loops to improve model performance during actual deployments. This evolution will allow the system to assist service providers by offering predictive analytics based on client interactions and behavioral trends.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan:2,
-          reverse:true
+          colSpan: 2,
+          bentoImage: enhancedassit,
+          reverse: true,
         },
-       
       ],
     },
   ];
+  
   
   
   
@@ -459,53 +514,49 @@ const heroSection2Data={
       title: "Frontend Development (Mobile)",
       content: [
         {
-          alt: "Icon",
+          alt: "React Native",
           caption: "React Native",
-          img: aws,
+          img: reactnative,
         },
         {
-          alt: "Icon",
+          alt: "Javascript",
           caption: "Javascript",
-          img: aws,
+          img: js,
         },
-       
         {
-          alt: "Icon",
+          alt: "SAM/FAST SAM",
           caption: "SAM/FAST SAM",
-          img: aws,
+          img: fast,
         },
         {
-          alt: "Icon",
+          alt: "YOLO",
           caption: "YOLO",
-          img: aws,
+          img: yolo,
         },
-        
-      
-        
       ],
     },
     {
       title: "Frontend Development (Web)",
       content: [
         {
-          alt: "Icon",
+          alt: "Next.js",
           caption: "Next.js",
-          img: aws,
+          img: nextjs,
         },
         {
-          alt: "Icon",
+          alt: "Tailwind CSS",
           caption: "Tailwind CSS",
-          img: aws,
+          img: tailwind,
         },
         {
-          alt: "Icon",
+          alt: "React Data Tables",
           caption: "React Data Tables",
-          img: aws,
+          img: reactnative,
         },
         {
-          alt: "Icon",
+          alt: "Firebase Auth",
           caption: "Firebase Auth",
-          img: aws,
+          img: fireauth,
         },
       ],
     },
@@ -513,70 +564,64 @@ const heroSection2Data={
       title: "Backend Development",
       content: [
         {
-          alt: "Icon",
+          alt: "NestJS",
           caption: "NestJS",
-          img: aws,
+          img: nestjs,
         },
         {
-          alt: "Icon",
+          alt: "Javascript",
           caption: "Javascript",
-          img: aws,
+          img: js,
         },
         {
-          alt: "Icon",
+          alt: "Express",
           caption: "Express",
-          img: aws,
+          img: express,
         },
         {
-          alt: "Icon",
+          alt: "MongoDB",
           caption: "MongoDB",
-          img: aws,
+          img: mongo,
         },
-       
-       
-        
       ],
     },
     {
       title: "DevOps",
       content: [
         {
-          alt: "Icon",
+          alt: "AWS (S3, EC2)",
           caption: "AWS (S3, EC2)",
           img: aws,
         },
         {
-          alt: "Icon",
+          alt: "GitLab CI",
           caption: "GitLab CI",
-          img: aws,
+          img: gitlab,
         },
-        
       ],
     },
     {
       title: "Third-Party Services",
       content: [
         {
-          alt: "Icon",
+          alt: "Stripe",
           caption: "Stripe",
-          img: aws,
+          img: stripe,
         },
-      
-     
         {
-          alt: "Icon",
+          alt: "Sentry",
           caption: "Sentry",
-          img: aws,
+          img: sentry,
         },
         {
-          alt: "Icon",
+          alt: "Firebase",
           caption: "Firebase",
-          img: aws,
+          img: fire,
         },
-       
       ],
     },
   ];
+  
   
  
   return (
@@ -597,7 +642,7 @@ const heroSection2Data={
         headingText="What Our Customer Has to Say"
         review="“Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations.”"
         name="Dannis Loyed"
-        position="CEO DERQ"
+        position="CEO Rentuhbin"
       />
   <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid data={data2}/>
@@ -608,7 +653,6 @@ const heroSection2Data={
   <LogosSection data={techStackData}/>
   <CommonDisplayCardsGrid data={data5} resizeableCardsLayout />
  
-      <CaseStudyBanner heading='Meta and Centrox Partner to Drive Enterprise Adoption' para1Text='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
       </>
       
   );
