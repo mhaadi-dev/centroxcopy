@@ -25,6 +25,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://centrox.ai/team', lastModified: new Date().toISOString(), priority: 0.8 },
     { url: 'https://centrox.ai/contact', lastModified: new Date().toISOString(), priority: 0.8 },
     { url: 'https://centrox.ai/case-studies/pocketmate', lastModified: new Date().toISOString(), priority: 0.8 },
+    { url: 'https://centrox.ai/case-studies/rentuhbin', lastModified: new Date().toISOString(), priority: 0.8 },
+    { url: 'https://centrox.ai/case-studies/', lastModified: new Date().toISOString(), priority: 0.8 },
     { url: 'https://centrox.ai/blogs/', lastModified: new Date().toISOString(), priority: 0.8 },
     { url: 'https://centrox.ai/blogs/search', lastModified: new Date().toISOString(), priority: 0.8 },
   ];
@@ -33,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     const fetchLink = isStaging
-      ? 'https://staging.centrox.ai/api/fetchsitemapblogs'
+      ? 'https://centrox.ai/api/fetchsitemapblogs'
       : 'https://centrox.ai/api/fetchsitemapblogs';
     const localLink = 'http://localhost:3000/api/fetchsitemapblogs';
     const response = await fetch(fetchLink, { cache: 'no-cache' });
@@ -42,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Create dynamic blog detail links
     
     const dynamicLinks_blog_detail = data.map((blog: any) => ({
-      url: !isStaging ? `https://centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`:`https://staging.centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`,
+      url: !isStaging ? `https://centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`:`https://centrox.ai/blogs/${blog.category?.category_name}/${blog.label.current}`,
       lastModified: new Date(blog._updatedAt).toISOString(),
       priority: 0.8,
     }));
@@ -59,7 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return true;
       })
       .map((blog: any) => ({
-        url:!isStaging ? `https://centrox.ai/blogs/${blog.category?.category_name}`:`https://staging.centrox.ai/blogs/${blog.category?.category_name}`,
+        url:!isStaging ? `https://centrox.ai/blogs/${blog.category?.category_name}`:`https://centrox.ai/blogs/${blog.category?.category_name}`,
         lastModified: new Date(blog._updatedAt).toISOString(),
         priority: 0.8,
       }));

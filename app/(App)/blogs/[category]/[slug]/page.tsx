@@ -8,7 +8,6 @@ import {
   cleanMetaString,
   slugify
 } from "@/sanity/lib/helpers";
-import { urlFor } from "@/sanity/lib/image";
 import {
   GET_ALL_CATEGORIES,
   GET_BLOG_BY_ID_QUERY,
@@ -16,7 +15,6 @@ import {
 } from "@/sanity/query";
 import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { notFound } from "next/navigation";
-import { url } from "node:inspector";
 import React from "react";
 import { ArticleJsonLd ,BreadcrumbJsonLd,WebPageJsonLd} from "next-seo";
 
@@ -47,7 +45,7 @@ export async function generateMetadata({
     let metaImage = blogData.content_item?.preview_image?.image;
 
     const metaUrl = cleanMetaString(
-      `https://staging.centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
+      `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
     );
 
     return {
@@ -75,7 +73,7 @@ export async function generateMetadata({
         images: [metaImage],
         url: metaUrl
       },
-      metadataBase: new URL("https://staging.centrox.ai")
+      metadataBase: new URL("https://centrox.ai")
     };
   } catch (error) {
     console.error("Error fetching blog data:", error);

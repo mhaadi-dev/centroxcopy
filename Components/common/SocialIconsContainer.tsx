@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FacebookShareButton, FacebookIcon, TwitterIcon, LinkedinIcon,EmailIcon, TwitterShareButton, EmailShareButton, LinkedinShareButton } from 'next-share';
 import X from "@/assets/X.webp";
 import linkedin from "@/assets/linkedin.svg";
@@ -13,9 +13,12 @@ interface SocialIconsContainerProps {
 }
 
 const SocialIconsContainer: React.FC<SocialIconsContainerProps> = ({ className }) => {
-  const BASE_URL="https://staging.centrox.ai" 
-  const pathname=usePathname()
-  const currentUrl=BASE_URL + pathname
+  const [currentUrl,setCurrentURL]=useState("")
+ 
+  useEffect(() => {
+    const currentURL = window.location.href;
+    setCurrentURL(currentURL)
+  }, []);
   const handleEmailShare = () => {
     const subject = encodeURIComponent('Check this out!');
     const body = encodeURIComponent(`I found this interesting: ${currentUrl}`);

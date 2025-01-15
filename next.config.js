@@ -36,12 +36,11 @@ const nextConfig = {
   async redirects() {
     if (process.env.NEXT_PUBLIC_ENV === "production") {
       const redirectPaths = [
-        "/case-studies",
-        "/case-studies/:path*",
+        "/case-studies/search",
+        "/services",
         "/solutions",
         "/industries",
-        "/blogs",
-        "/blogs/:path*",
+   
       ];
   
       return redirectPaths.map((path) => ({
