@@ -24,7 +24,7 @@ import { BlogsWrapper } from "@/app/context";
 import { Loader } from "@/Components/Loader/Loader";
 import { BreadcrumbJsonLd,WebPageJsonLd } from "next-seo";
 
-export const revalidate = 10;
+export const revalidate = 600;
 
 export const metadata = {
   title: "Centrox AI Blog | Generative AI, Machine Learning & Innovation",

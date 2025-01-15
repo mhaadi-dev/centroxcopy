@@ -14,7 +14,7 @@ import {
 import { notFound } from "next/navigation";
 import React from "react";
 
-export const revalidate = 10;
+export const revalidate = 600;
 
 export async function generateMetadata({
   params

@@ -1,6 +1,6 @@
 // pages/sitemap.ts
 import { MetadataRoute } from 'next';
-export const revalidate = 10;
+export const revalidate = 600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticLinks = [
