@@ -5,6 +5,7 @@ import classNames from "@/helpers/common";
 import DropdownListItem from "./DropdownListItem";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Props {
   text: string;
@@ -18,7 +19,7 @@ interface Props {
 export const NavLink = ({ text, onClick, columnData, isMobileView = false,socialIcons,setShowBackdrop }: Props) => {
   const [isOpen, setIsOpen] = useState(false); 
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+  const pathname=usePathname()
   
   useEffect(() => {
 
@@ -34,6 +35,9 @@ export const NavLink = ({ text, onClick, columnData, isMobileView = false,social
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  useEffect(()=>{
+    setIsOpen(false)
+  },[pathname])
 
   // Toggle dropdown visibility
   const toggleDropdown = () => {

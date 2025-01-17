@@ -22,6 +22,7 @@ const GridBlogCardsWithPagination = ({
   totalBlogsCount = 0,
   cardsPerPage = 5,
   showPagination = true,
+  cardData
 }: Props) => {
   const searchParams = useSearchParams();
   const pageParam = searchParams.get("page");
@@ -117,6 +118,11 @@ const GridBlogCardsWithPagination = ({
                   )}/${slugify(card?.label?.current)}`}
                 />
               ))}
+              {
+                cardData?.length > 0 && blogs.length == 0 ? cardData?.map((card:any)=>{
+                  return ""
+                }) :""
+              }
           </div>
           <div
             className={classNames(

@@ -328,9 +328,10 @@ const heroSection2Data={
           linkText: "",
           colSpan: 2,
           bentoImage: enhancedassit,
-          reverse: true,
+          reverse: false,
         },
       ],
+      centerAlign:true
     },
   ];
   
@@ -641,7 +642,7 @@ const heroSection2Data={
       <WhatOurClientSay
         headingText="What Our Customer Has to Say"
         review="“Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations.”"
-        name="Dannis Loyed"
+        name="Donny Cooper"
         position="CEO Rentuhbin"
       />
   <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
