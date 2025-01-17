@@ -576,7 +576,7 @@ const heroSection2Data={
           icon: ic10,
           heading: "Healthcare",
           symbol: "",
-          description: "There are billions of people around the world, and the health care providers we currently have in the world aren't enough to provide the relevant care for the entire population. This solution can be improvised for extending everyday healthcare support accessible to the population, by providing instant health care assistance and significantly reducing the extensive rush in the hospitals, caused by the patients with mild disease.",
+          description: "With billions of people worldwide, healthcare providers fall short of meeting everyone’s needs. This solution improves accessibility by offering timely support, easing hospital overcrowding from minor cases, and enhancing care efficiency.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
         },
@@ -594,7 +594,7 @@ const heroSection2Data={
           icon: ic15,
           heading: "Collaborative Approach",
           symbol: "",
-          description: "We work closely with your team, fostering knowledge exchange and a shared passion for AI advancement.",
+          description: "We believe in building strong partnerships by working hand-in-hand with your team at every stage of the journey. Our approach emphasizes open communication and knowledge sharing, fostering a productive environment where ideas and expertise flow freely. Together, we aim to create innovative AI solutions that align with your vision and drive meaningful impact.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan:1
@@ -641,7 +641,7 @@ const heroSection2Data={
       <WhatOurClientSay
         headingText="What Our Customer Has to Say"
         review="“Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations.”"
-        name="Dannis Loyed"
+        name="Dennis Luis Sanchez"
         position="CEO Pocketmate.AI"
       />
   <SimpleIconHeroSection  bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>

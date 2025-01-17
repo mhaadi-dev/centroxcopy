@@ -127,6 +127,7 @@ const BlogPage = async () => {
           <GridBlogCardsWithPagination
             cardsPerPage={5}
             totalBlogsCount={totalBlogsCount}
+            cardData={blogData}
           />
         ) : (
           <Loader />
