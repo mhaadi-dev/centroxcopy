@@ -4,69 +4,64 @@ import CaseStudyBanner from "@/Components/common/CaseStudyBanner";
 
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 
-import classNames, {
-  text_h2_class,
-
-} from "@/helpers/common";
+import classNames, { text_h2_class } from "@/helpers/common";
 import WhatOurClientSay from "@/Components/common/WhatOurClientSay";
 
 import SimpleIconHeroSection from "@/Components/common/SimpleIconHeroSection";
 import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
-import aws from "@/assets/awslogo.webp"
-import rightsidebg from "@/assets/rightsidebg.svg"
-import Icon10 from "@/assets/Icon-13.svg"
-import reactnative from "@/assets/casestudies/ReactNative.svg"
-import ic1 from "@/assets/casestudies/ArrowsInSimple.svg"
-import ic2 from "@/assets/casestudies/ArrowsClockwise.svg"
-import js from "@/assets/casestudies/JS.svg"
-import nextjs from "@/assets/casestudies/next-js 2.svg"
-import fast from "@/assets/casestudies/FAst.svg"
-import fireauth from "@/assets/casestudies/FireAuth.svg"
-import fire from "@/assets/casestudies/Fire.svg"
-import nestjs from "@/assets/casestudies/nestjs 1.svg"
-import dumpster from "@/assets/casestudies/Trash.svg"
-import damage from "@/assets/casestudies/ImageBroken.svg"
-import currency from "@/assets/casestudies/CurrencyCircleDollar.svg"
-import discount from "@/assets/casestudies/SealPercent.svg"
-import star from "@/assets/casestudies/Star.svg"
-import headcircuit from "@/assets/casestudies/HeadCircuit.svg"
-import icon11 from "@/assets/Icon-11.svg"
-import detective from "@/assets/casestudies/Detective.svg"
-import yolo from "@/assets/casestudies/Yolo.svg"
-import tailwind from "@/assets/casestudies/Tailwibdcss.svg"
-import express from "@/assets/casestudies/Express.svg"
-import mongo from "@/assets/casestudies/Mongo.svg"
-import gitlab from "@/assets/casestudies/GitLabCLI.svg"
-import stripe from "@/assets/casestudies/Stripe.svg"
-import sentry from "@/assets/casestudies/Sentry.svg"
+import aws from "@/assets/awslogo.webp";
+import rightsidebg from "@/assets/rightsidebg.svg";
+import Icon10 from "@/assets/Icon-13.svg";
+import reactnative from "@/assets/casestudies/ReactNative.svg";
+import ic1 from "@/assets/casestudies/ArrowsInSimple.svg";
+import ic2 from "@/assets/casestudies/ArrowsClockwise.svg";
+import js from "@/assets/casestudies/JS.svg";
+import nextjs from "@/assets/casestudies/next-js 2.svg";
+import fast from "@/assets/casestudies/FAst.svg";
+import fireauth from "@/assets/casestudies/FireAuth.svg";
+import fire from "@/assets/casestudies/Fire.svg";
+import nestjs from "@/assets/casestudies/nestjs 1.svg";
+import dumpster from "@/assets/casestudies/Trash.svg";
+import damage from "@/assets/casestudies/ImageBroken.svg";
+import currency from "@/assets/casestudies/CurrencyCircleDollar.svg";
+import discount from "@/assets/casestudies/SealPercent.svg";
+import star from "@/assets/casestudies/Star.svg";
+import headcircuit from "@/assets/casestudies/HeadCircuit.svg";
+import icon11 from "@/assets/Icon-11.svg";
+import detective from "@/assets/casestudies/Detective.svg";
+import yolo from "@/assets/casestudies/Yolo.svg";
+import tailwind from "@/assets/casestudies/Tailwibdcss.svg";
+import express from "@/assets/casestudies/Express.svg";
+import mongo from "@/assets/casestudies/Mongo.svg";
+import gitlab from "@/assets/casestudies/GitLabCLI.svg";
+import stripe from "@/assets/casestudies/Stripe.svg";
+import sentry from "@/assets/casestudies/Sentry.svg";
 
-import bento1 from "@/assets/casestudies/Dumpster booking.svg"
-import bento2 from "@/assets/casestudies/Chat.svg"
-import bento3 from "@/assets/casestudies/Complaint.svg"
-import multilang from "@/assets/casestudies/Mult-Language.svg"
-import enhancedassit from "@/assets/casestudies/Assistance.svg"
-
-
-
-
+import bento1 from "@/assets/casestudies/Dumpster booking.svg";
+import bento2 from "@/assets/casestudies/Chat.svg";
+import bento3 from "@/assets/casestudies/Complaint.svg";
+import multilang from "@/assets/casestudies/Mult-Language.svg";
+import enhancedassit from "@/assets/casestudies/Assistance.svg";
 
 const page = ({ params }: { params: { slug: string } }) => {
-
-const banner1Data={
-    heading:"Optimizing dumpster placement using image recognition.",
-    para1Text:"Our solution ensures convenient, efficient, and eco-friendly waste disposal while prioritizing user satisfaction and reliability. Some of the major benefits this tool delivers are explained below.",
-}
-const heroSection1Data={
-    heading:"The Problem",
-    icon:"",
-    description:"For today's changing time and fast paced world, we need a solution that can offer instant assistance without extra hassle. The large waste collected after moving your place,construction , or maintenance can be difficult to dispose of, and finding a dumpster during the process can be a real struggle as your other priority task might get affected. So this creates a need of having an online application based platform that joins clients needing the dumpster service with a relevant dumpster- enabling easy booking, tracking, and chat with a variety of dumpsters options. By providing reliable eco-friendly waste disposal, it allows users to focus on performing other tasks efficiently."
-}
-const heroSection2Data={
-    heading:"Research and Analysis",
-    icon:"",
-    description:"After understanding and narrowing down the key requirements for the dumpster service, our experts did rigorous research to find the best possible and the most optimized approach for the given task. Our experts suggested having a separate app for both the consumers and service providers which will be administered by the admin panel. Where the customers end app will have the access to scheduling the delivery or pickup, tracking, and managing payment, the service providers app will be able to confirm the service along with being able to  market them for attracting the wide range of customer, while the admin panel will exercise its authority to monitor the order; its detail, status, and payments, offer support, along with managing taxes, and has the capability to block/unblock based on received feedback."
-}
+  const banner1Data = {
+    heading: "Optimizing dumpster placement using image recognition.",
+    para1Text:
+      "Our solution ensures convenient, efficient, and eco-friendly waste disposal while prioritizing user satisfaction and reliability. Some of the major benefits this tool delivers are explained below."
+  };
+  const heroSection1Data = {
+    heading: "The Problem",
+    icon: "",
+    description:
+      "For today's changing time and fast paced world, we need a solution that can offer instant assistance without extra hassle. The large waste collected after moving your place,construction , or maintenance can be difficult to dispose of, and finding a dumpster during the process can be a real struggle as your other priority task might get affected. So this creates a need of having an online application based platform that joins clients needing the dumpster service with a relevant dumpster- enabling easy booking, tracking, and chat with a variety of dumpsters options. By providing reliable eco-friendly waste disposal, it allows users to focus on performing other tasks efficiently."
+  };
+  const heroSection2Data = {
+    heading: "Research and Analysis",
+    icon: "",
+    description:
+      "After understanding and narrowing down the key requirements for the dumpster service, our experts did rigorous research to find the best possible and the most optimized approach for the given task. Our experts suggested having a separate app for both the consumers and service providers which will be administered by the admin panel. Where the customers end app will have the access to scheduling the delivery or pickup, tracking, and managing payment, the service providers app will be able to confirm the service along with being able to  market them for attracting the wide range of customer, while the admin panel will exercise its authority to monitor the order; its detail, status, and payments, offer support, along with managing taxes, and has the capability to block/unblock based on received feedback."
+  };
 
   const data = [
     {
@@ -76,7 +71,7 @@ const heroSection2Data={
         para1Text:
           "The impact that our solution delivers is far reaching an extremely benefiting.",
         para2Text: "",
-        heading2Text: "",
+        heading2Text: ""
       },
       data: [
         {
@@ -85,7 +80,7 @@ const heroSection2Data={
           symbol: "%",
           description: "Reduced placement errors.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           Icon: null,
@@ -93,11 +88,10 @@ const heroSection2Data={
           symbol: "%",
           description: "reducing communication latency.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-       
-      ],
-    },
+          linkText: ""
+        }
+      ]
+    }
   ];
   const data2 = [
     {
@@ -107,7 +101,7 @@ const heroSection2Data={
         para1Text:
           "The Rentuhbin aims to ensure reliable and eco-friendly waste disposal, reducing the need for extra hassle and efficiently saving time and efforts. The key features expected from this solution are as follows.",
         para2Text: "",
-        heading2Text: "",
+        heading2Text: ""
       },
       data: [
         {
@@ -118,7 +112,7 @@ const heroSection2Data={
           description:
             "The app provides convenience to users by offering a reliable alternative for booking a dumpster. Users can book or rent a dumpster at their desired location without the hassle of searching manually. Additionally, it enables communication between consumers and service providers within the app.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           icon: damage,
@@ -128,7 +122,7 @@ const heroSection2Data={
           description:
             "To ensure a satisfying experience for both consumers and service providers, the app includes a complaint and damage claim center. This feature provides a sense of security and support for all parties involved.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           icon: currency,
@@ -138,7 +132,7 @@ const heroSection2Data={
           description:
             "This AI-enabled tool offers prompt suggestions for booking a relevant dumpster suitable for the type of dump identified in a picture captured within the app. This ensures users book the right dumpster for their needs.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           icon: ic1,
@@ -148,13 +142,12 @@ const heroSection2Data={
           description:
             "This AI-powered tool allows users to take a picture of the intended dumpster placement location. It analyzes the dimensions of the space and cross-checks it with placement rules and regulations, providing a response on whether the location is appropriate for placing a dumpster.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-      ],
-    },
+          linkText: ""
+        }
+      ]
+    }
   ];
-  
-  
+
   const data3 = [
     {
       headerData: {
@@ -163,7 +156,7 @@ const heroSection2Data={
         para1Text:
           "Our solution ensures convenient, efficient, and eco-friendly waste disposal while prioritizing user satisfaction and reliability. Some of the major benefits this tool delivers are:",
         para2Text: "",
-        heading2Text: "",
+        heading2Text: ""
       },
       data: [
         {
@@ -176,7 +169,7 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: bento1,
+          bentoImage: bento1
         },
         {
           icon: discount,
@@ -187,7 +180,7 @@ const heroSection2Data={
             "The app helps manage expenses by offering discounts to users who meet certain criteria. This allows users to book or rent dumpsters at reasonable rates, making waste management more affordable.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan: 1,
+          colSpan: 1
         },
         {
           icon: star,
@@ -198,7 +191,7 @@ const heroSection2Data={
             "Consumers and service providers can rate and review each other based on their experiences. This feedback helps service providers improve their quality and guides users in selecting the best dumpster options.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan: 1,
+          colSpan: 1
         },
         {
           icon: null,
@@ -210,7 +203,7 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: bento2,
+          bentoImage: bento2
         },
         {
           icon: null,
@@ -222,7 +215,7 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: bento3,
+          bentoImage: bento3
         },
         {
           icon: headcircuit,
@@ -233,22 +226,21 @@ const heroSection2Data={
             "The app integrates AI to efficiently suggest the most suitable dumpster size based on the collected waste. It also ensures that dumpsters fit appropriately in desired locations without violating placement regulations.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
-          colSpan: 1,
-        },
-      ],
-    },
+          colSpan: 1
+        }
+      ]
+    }
   ];
-  
-  
+
   const data4 = [
     {
       headerData: {
         tagText: "",
         headingText: "Challenges Encountered",
-        para1Text: 
+        para1Text:
           "Rentuhbin’s clients faced several pressing challenges that needed innovative solutions for efficient waste management.",
         para2Text: "",
-        heading2Text: "",
+        heading2Text: ""
       },
       data: [
         {
@@ -259,7 +251,7 @@ const heroSection2Data={
           description:
             "Consumers struggled to select the correct dumpster size due to inaccurate system data, leading to inefficient placements. This resulted in consuming extra time and effort for users.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           icon: icon11,
@@ -269,7 +261,7 @@ const heroSection2Data={
           description:
             "Traditional dumpster placements in urban settings were rigid and not data-driven. Misaligned placements caused garbage trucks to take longer routes, increasing fuel consumption and operational costs.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           icon: ic2,
@@ -279,7 +271,7 @@ const heroSection2Data={
           description:
             "A lack of real-time communication between consumers and providers led to miscommunication and delays. This ultimately resulted in additional waiting time for dumpster arrivals.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
+          linkText: ""
         },
         {
           icon: detective,
@@ -289,13 +281,12 @@ const heroSection2Data={
           description:
             "Variations in dumpster scale and orientation created challenges in accurately detecting placements within dynamic urban environments. This raised the need to repeatedly book appropriate dumpsters.",
           className: "h-full !rounded-3xl w-full",
-          linkText: "",
-        },
-      ],
-    },
+          linkText: ""
+        }
+      ]
+    }
   ];
-  
-  
+
   const data5 = [
     {
       headerData: {
@@ -303,7 +294,7 @@ const heroSection2Data={
         headingText: "Future prospects",
         para1Text: "Centrox’s AI solution is engineered for future growth:",
         para2Text: "",
-        heading2Text: "",
+        heading2Text: ""
       },
       data: [
         {
@@ -311,34 +302,32 @@ const heroSection2Data={
           heading: "Multi-Language and Cultural Support",
           alt: "Multi-Language and Cultural Support",
           symbol: "",
-          description: "Our ongoing developments aim to enable support for multiple languages and cultural contexts, broadening Rentuhbin’s market reach, ultimately bridging the communication gap alongside delivering the dumpster service; making it more inclusive for people all around the globe.",
+          description:
+            "Our ongoing developments aim to enable support for multiple languages and cultural contexts, broadening Rentuhbin’s market reach, ultimately bridging the communication gap alongside delivering the dumpster service; making it more inclusive for people all around the globe.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
           bentoImage: multilang,
-          reverse: false,
+          reverse: false
         },
         {
           Icon: null,
           heading: "Enhanced Assistance",
           alt: "Enhanced Assistance",
           symbol: "",
-          description: "Future iterations of our AI will incorporate reinforcement learning techniques, enabling real-time feedback loops to improve model performance during actual deployments. This evolution will allow the system to assist service providers by offering predictive analytics based on client interactions and behavioral trends.",
+          description:
+            "Future iterations of our AI will incorporate reinforcement learning techniques, enabling real-time feedback loops to improve model performance during actual deployments. This evolution will allow the system to assist service providers by offering predictive analytics based on client interactions and behavioral trends.",
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
           bentoImage: enhancedassit,
-          reverse: false,
-        },
+          reverse: false
+        }
       ],
-      centerAlign:true
-    },
+      centerAlign: true
+    }
   ];
-  
-  
-  
-  
-  
+
   const navItems = [
     {
       subNavTitle: "Artificial Intelligence",
@@ -383,7 +372,7 @@ const heroSection2Data={
   ];
   const stepperdata = {
     heading: "Our Process",
-    description: 
+    description:
       "Our structured approach ensures a quality solution, developed through a series of focused steps designed to meet your unique needs.",
     data: [
       {
@@ -398,13 +387,12 @@ const heroSection2Data={
               {
                 _type: "span",
                 marks: [],
-                text: 
-                  "As soon as you choose to collaborate with us, we instantly hold sessions with you to understand your vision, expectations, and goals. This helps us align our efforts to deliver the best possible results.",
-              },
-            ],
-          },
+                text: "As soon as you choose to collaborate with us, we instantly hold sessions with you to understand your vision, expectations, and goals. This helps us align our efforts to deliver the best possible results."
+              }
+            ]
+          }
         ],
-        status: false,
+        status: false
       },
       {
         title: "Gather Information",
@@ -418,13 +406,12 @@ const heroSection2Data={
               {
                 _type: "span",
                 marks: [],
-                text: 
-                  "After closely collaborating with you, our team begins gathering the relevant information and datasets. This step ensures the integrated AI tool can deliver the desired outcomes.",
-              },
-            ],
-          },
+                text: "After closely collaborating with you, our team begins gathering the relevant information and datasets. This step ensures the integrated AI tool can deliver the desired outcomes."
+              }
+            ]
+          }
         ],
-        status: false,
+        status: false
       },
       {
         title: "Research",
@@ -438,13 +425,12 @@ const heroSection2Data={
               {
                 _type: "span",
                 marks: [],
-                text: 
-                  "We conduct detailed research and explore various approaches and techniques to develop a solution that is both convenient and optimized for the user.",
-              },
-            ],
-          },
+                text: "We conduct detailed research and explore various approaches and techniques to develop a solution that is both convenient and optimized for the user."
+              }
+            ]
+          }
         ],
-        status: false,
+        status: false
       },
       {
         title: "Brainstorm Solutions",
@@ -458,13 +444,12 @@ const heroSection2Data={
               {
                 _type: "span",
                 marks: [],
-                text: 
-                  "Our experts actively collaborate to analyze the research and gathered data, brainstorming to architect the most optimized and appropriate approach to bring your solution to life.",
-              },
-            ],
-          },
+                text: "Our experts actively collaborate to analyze the research and gathered data, brainstorming to architect the most optimized and appropriate approach to bring your solution to life."
+              }
+            ]
+          }
         ],
-        status: false,
+        status: false
       },
       {
         title: "Prototype",
@@ -478,13 +463,12 @@ const heroSection2Data={
               {
                 _type: "span",
                 marks: [],
-                text: 
-                  "We bring your vision to reality by implementing the idea and developing a prototype. This prototype demonstrates the expected functionality and convenience of the final solution.",
-              },
-            ],
-          },
+                text: "We bring your vision to reality by implementing the idea and developing a prototype. This prototype demonstrates the expected functionality and convenience of the final solution."
+              }
+            ]
+          }
         ],
-        status: false,
+        status: false
       },
       {
         title: "Test",
@@ -498,18 +482,17 @@ const heroSection2Data={
               {
                 _type: "span",
                 marks: [],
-                text: 
-                  "In the final phase, we test the prototype thoroughly to ensure it meets the given requirements. This assures both developers and stakeholders of its performance in real-world scenarios.",
-              },
-            ],
-          },
+                text: "In the final phase, we test the prototype thoroughly to ensure it meets the given requirements. This assures both developers and stakeholders of its performance in real-world scenarios."
+              }
+            ]
+          }
         ],
-        status: false,
-      },
+        status: false
+      }
     ],
-    btnText: "",
+    btnText: ""
   };
-  
+
   const techStackData = [
     {
       title: "Frontend Development (Mobile)",
@@ -517,24 +500,24 @@ const heroSection2Data={
         {
           alt: "React Native",
           caption: "React Native",
-          img: reactnative,
+          img: reactnative
         },
         {
           alt: "Javascript",
           caption: "Javascript",
-          img: js,
+          img: js
         },
         {
           alt: "SAM/FAST SAM",
           caption: "SAM/FAST SAM",
-          img: fast,
+          img: fast
         },
         {
           alt: "YOLO",
           caption: "YOLO",
-          img: yolo,
-        },
-      ],
+          img: yolo
+        }
+      ]
     },
     {
       title: "Frontend Development (Web)",
@@ -542,24 +525,24 @@ const heroSection2Data={
         {
           alt: "Next.js",
           caption: "Next.js",
-          img: nextjs,
+          img: nextjs
         },
         {
           alt: "Tailwind CSS",
           caption: "Tailwind CSS",
-          img: tailwind,
+          img: tailwind
         },
         {
           alt: "React Data Tables",
           caption: "React Data Tables",
-          img: reactnative,
+          img: reactnative
         },
         {
           alt: "Firebase Auth",
           caption: "Firebase Auth",
-          img: fireauth,
-        },
-      ],
+          img: fireauth
+        }
+      ]
     },
     {
       title: "Backend Development",
@@ -567,24 +550,24 @@ const heroSection2Data={
         {
           alt: "NestJS",
           caption: "NestJS",
-          img: nestjs,
+          img: nestjs
         },
         {
           alt: "Javascript",
           caption: "Javascript",
-          img: js,
+          img: js
         },
         {
           alt: "Express",
           caption: "Express",
-          img: express,
+          img: express
         },
         {
           alt: "MongoDB",
           caption: "MongoDB",
-          img: mongo,
-        },
-      ],
+          img: mongo
+        }
+      ]
     },
     {
       title: "DevOps",
@@ -592,14 +575,14 @@ const heroSection2Data={
         {
           alt: "AWS (S3, EC2)",
           caption: "AWS (S3, EC2)",
-          img: aws,
+          img: aws
         },
         {
           alt: "GitLab CI",
           caption: "GitLab CI",
-          img: gitlab,
-        },
-      ],
+          img: gitlab
+        }
+      ]
     },
     {
       title: "Third-Party Services",
@@ -607,27 +590,24 @@ const heroSection2Data={
         {
           alt: "Stripe",
           caption: "Stripe",
-          img: stripe,
+          img: stripe
         },
         {
           alt: "Sentry",
           caption: "Sentry",
-          img: sentry,
+          img: sentry
         },
         {
           alt: "Firebase",
           caption: "Firebase",
-          img: fire,
-        },
-      ],
-    },
+          img: fire
+        }
+      ]
+    }
   ];
-  
-  
- 
+
   return (
-   
-      <>
+    <>
       {/* <SubnavBar imageLink="/case-studies" title='Case Studies' navItems={navItems}/>  */}
       <CaseStudyBanner
         heading={banner1Data.heading}
@@ -641,21 +621,33 @@ const heroSection2Data={
       />
       <WhatOurClientSay
         headingText="What Our Customer Has to Say"
-        review="“Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations.”"
+        review="The platform has revolutionized how we manage waste disposal operations. A key highlight was the successful deployment of the SAM (Segment Anything Model), which brought a whole new level of precision and efficiency to the system. this platform ensures that tasks like identifying, categorizing, and managing dumpster services are handled seamlessly.
+The combination of AI-powered capabilities with dedicated apps for customers and service providers, alongside a centralized admin panel, made scheduling pickups, tracking, and payment management effortless. The SAM model has significantly enhanced the platform's ability to adapt to user needs, making the entire process smoother and more reliable."
         name="Donny Cooper"
         position="CEO Rentuhbin"
       />
-  <SimpleIconHeroSection bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
-  <CommonDisplayCardsGrid data={data2}/>
-  <SimpleIconHeroSection heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
-  <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
-  <CommonDisplayCardsGrid data={data4}/>
-  <StepperSection data={stepperdata}/>
-  <LogosSection data={techStackData}/>
-  <CommonDisplayCardsGrid data={data5} resizeableCardsLayout />
- 
-      </>
-      
+      <SimpleIconHeroSection
+        bulletPoints={false}
+        reverse={false}
+        headingText={heroSection1Data.heading}
+        paraText={heroSection1Data.description}
+      />
+      <CommonDisplayCardsGrid data={data2} />
+      <SimpleIconHeroSection
+        heroClassName=""
+        bgClassName="z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover"
+        bgImage1={rightsidebg}
+        bulletPoints={false}
+        reverse={true}
+        headingText={heroSection2Data.heading}
+        paraText={heroSection2Data.description}
+      />
+      <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3} />
+      <CommonDisplayCardsGrid data={data4} />
+      <StepperSection data={stepperdata} />
+      <LogosSection data={techStackData} />
+      <CommonDisplayCardsGrid data={data5} resizeableCardsLayout />
+    </>
   );
 };
 

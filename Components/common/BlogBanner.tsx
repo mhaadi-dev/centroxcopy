@@ -60,7 +60,7 @@ const BlogBanner = ({
  {!showReadLink ?  <section
       className={classNames(
         section_wrapper_class,
-        "bg-gradient-to-r p-6 lg:p-10 from-[#079DFC] to-[#72EFDD] rounded-2xl",
+        "bg-gradient-to-r p-6 !mt-0 lg:p-10 from-[#079DFC] to-[#72EFDD] rounded-2xl",
         className
       )}
     >

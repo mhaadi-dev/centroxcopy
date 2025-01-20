@@ -640,7 +640,7 @@ const heroSection2Data={
       />
       <WhatOurClientSay
         headingText="What Our Customer Has to Say"
-        review="“Centrox AI Services has been an invaluable partner in our AI initiatives. Their expertise in [specific AI area, e.g., natural language processing] has helped us develop innovative solutions that have significantly improved our [business outcome]. The team's dedication and ability to deliver results on time and within budget have exceeded our expectations.”"
+        review="Centrox's team just isn't about coding. They really took time to help understand what we wanted to achieve to bring our vision to life. Working with Centrox has been a game changer. Their expertise and support enabled us to launch a scalable and responsive service, much like an Uber for mental health, where our users interact directly with our AI, simplifying their path to mental wellness.  Thanks to Centrox, we're making a real impact, helping people manage their mental health more effectively. If you're looking to bring your tech idea to life, I couldn't recommend them enough."
         name="Dennis Luis Sanchez"
         position="CEO Pocketmate.AI"
       />
