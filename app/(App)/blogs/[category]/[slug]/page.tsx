@@ -127,7 +127,7 @@ const Page = async ({ params }: {params:{slug:string}}) => {
       <ArticleJsonLd
         useAppDir={true}
         type="BlogPosting"
-        url={`https://staging.centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
+        url={`https://centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
         title={blogData.meta_title}
         images={[blogData.content_item?.preview_image?.image]}
         datePublished={blogData?.content_item?.date}
@@ -141,7 +141,7 @@ const Page = async ({ params }: {params:{slug:string}}) => {
         isAccessibleForFree={true}
         mainEntityOfPage={{
           "@type": "WebPage",
-          "@id": `https://staging.centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
+          "@id": `https://centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
         }}
         headline={blogData?.meta_title}
         articleSection={slugify(blogData.category?.category_name)}

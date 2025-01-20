@@ -64,7 +64,7 @@ const fetchSanityData = async () => {
 };
 const BlogPage = async () => {
   try {
-    const { totalBlogsCount, blogData, allCategories, categoricalBlogs } =
+    const {  blogData, allCategories,  } =
       await fetchSanityData();
 
     return (
@@ -123,40 +123,9 @@ const BlogPage = async () => {
           id={blogData?.[0]?._id}
           isH2={true}
         />
-        {blogData?.length > 0 ? (
-          <GridBlogCardsWithPagination
-            cardsPerPage={5}
-            totalBlogsCount={totalBlogsCount}
-            cardData={blogData}
-          />
-        ) : (
-          <Loader />
-        )}
-        {categoricalBlogs?.length > 0 && categoricalBlogs?.length > 3
-          ? categoricalBlogs
-              .slice(0, 3)
-              .map((category: any, index: number) => (
-                <TabsWithGridCards
-                  key={index}
-                  cardsData={category?.blogs?.slice(0, 5)}
-                  headingText={category?.category}
-                />
-              ))
-          : categoricalBlogs?.length > 0
-            ? categoricalBlogs.map((category: any, index: number) => (
-                <TabsWithGridCards
-                  key={index}
-                  cardsData={category?.blogs?.slice(0, 5)}
-                  headingText={category?.category}
-                />
-              ))
-            : ""}
-        <IndustryBanner
-          heading="All the Good Stuff is here"
-          description="Read these blogs to get to know more about Centrox."
-          btnText="Talk to us"
-          isBooking
-        />
+
+ 
+  
       </>
     );
   } catch (error) {
