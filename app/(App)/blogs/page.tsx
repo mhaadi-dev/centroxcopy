@@ -161,7 +161,6 @@ const BlogPage = async () => {
     );
   } catch (error) {
     console.error("Error fetching blog data:", error);
-    // Optionally render a fallback UI here.
     return notFound();
   }
 };
