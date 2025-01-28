@@ -13,7 +13,8 @@ interface Props{
     review?:string
     image?:any,
     name?:string,
-    position?:string
+    position?:string,
+    revenue?:string
 }
 const WhatOurClientSay = (props:Props) => {
   return (
@@ -27,7 +28,7 @@ const WhatOurClientSay = (props:Props) => {
             <Image className="pr-6 object-cover  mt-auto lg:pr-0 rounded-bl-2xl" src={revenue} alt="background">
             </Image>
             <div className='z-[5]  absolute left-8 lg:left-14 bottom-[4rem] lg:bottom-[6.5rem]'>
-                  <p className={classNames(text_h1_main)}>100<span>%</span></p>
+                  <p className={classNames(text_h1_main)}>{props?.revenue}</p>
             <p className={classNames(text_para_2)}>Revenue Increase</p> 
             </div>
          

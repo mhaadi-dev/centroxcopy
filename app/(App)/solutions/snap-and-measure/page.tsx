@@ -470,6 +470,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Measurement Precision With AI"
             description="Our body measurement tool integrates computer vision and machine learning algorithms to extend convenience for measurement, and can consequently help you in various tasks where accurate measurement is crucial."
           />
+          <iframe src="https://bm.demo.centrox.ai:8443/" className="w-full h-[120vh]"></iframe>
           <CommonDisplayCardsGrid data={cardsSolutions} />
           <LogosSection
             data={techStackData}

@@ -43,6 +43,9 @@ import bento2 from "@/assets/casestudies/Chat.svg";
 import bento3 from "@/assets/casestudies/Complaint.svg";
 import multilang from "@/assets/casestudies/Mult-Language.svg";
 import enhancedassit from "@/assets/casestudies/Assistance.svg";
+import rentuhbin_problem from "@/assets/casestudies/rentuhbin_problem.svg"
+import rentuhbin_research from "@/assets/casestudies/rentuhbin_research.svg"
+ 
 
 const page = ({ params }: { params: { slug: string } }) => {
   const banner1Data = {
@@ -622,11 +625,13 @@ const page = ({ params }: { params: { slug: string } }) => {
       <WhatOurClientSay
         headingText="What Our Customer Has to Say"
         review="The platform has revolutionized how we manage waste disposal operations. A key highlight was the successful deployment of the SAM (Segment Anything Model), which brought a whole new level of precision and efficiency to the system. this platform ensures that tasks like identifying, categorizing, and managing dumpster services are handled seamlessly.
-The combination of AI-powered capabilities with dedicated apps for customers and service providers, alongside a centralized admin panel, made scheduling pickups, tracking, and payment management effortless. The SAM model has significantly enhanced the platform's ability to adapt to user needs, making the entire process smoother and more reliable."
+  The combination of AI-powered capabilities with dedicated apps for customers and service providers, alongside a centralized admin panel, made scheduling pickups, tracking, and payment management effortless. The SAM model has significantly enhanced the platform's ability to adapt to user needs, making the entire process smoother and more reliable."
         name="Donny Cooper"
         position="CEO Rentuhbin"
+        revenue="82.73%"
       />
       <SimpleIconHeroSection
+      image={rentuhbin_problem}
         bulletPoints={false}
         reverse={false}
         headingText={heroSection1Data.heading}
@@ -634,6 +639,7 @@ The combination of AI-powered capabilities with dedicated apps for customers and
       />
       <CommonDisplayCardsGrid data={data2} />
       <SimpleIconHeroSection
+      image={rentuhbin_research}
         heroClassName=""
         bgClassName="z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover"
         bgImage1={rightsidebg}
