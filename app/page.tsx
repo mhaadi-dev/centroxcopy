@@ -420,7 +420,10 @@ export default async function Home() {
       />
       <LandingCaseStudySection {...caseStudyData}/>
       <LandingTestimonialSection />
-      <LandingBlogSection cardsData={blogsCardData}/>
+      {
+        blogsCardData?.length>1 &&  <LandingBlogSection cardsData={blogsCardData}/>
+      }
+     
    
       <LandingContactSection />
       <LandingFAQSection />

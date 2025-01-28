@@ -45,7 +45,8 @@ import ic24 from "@/assets/casestudies/ReactNative.svg"
 import ic25 from "@/assets/casestudies/Java.svg"
 import icon3 from "@/assets/Icon-3.svg"
 import googlecloud from "@/assets/casestudies/google-logo.png"
-
+import pocketmate_problem from "@/assets/casestudies/pocketmate_theproblem.svg"
+import pocketmate_research from "@/assets/casestudies/pocketmate_research.svg"
 
 const page = ({ params }: { params: { slug: string } }) => {
 
@@ -643,10 +644,11 @@ const heroSection2Data={
         review="Centrox's team just isn't about coding. They really took time to help understand what we wanted to achieve to bring our vision to life. Working with Centrox has been a game changer. Their expertise and support enabled us to launch a scalable and responsive service, much like an Uber for mental health, where our users interact directly with our AI, simplifying their path to mental wellness.  Thanks to Centrox, we're making a real impact, helping people manage their mental health more effectively. If you're looking to bring your tech idea to life, I couldn't recommend them enough."
         name="Dennis Luis Sanchez"
         position="CEO Pocketmate.AI"
+        revenue="88.4%"
       />
-  <SimpleIconHeroSection  bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
+  <SimpleIconHeroSection image={pocketmate_problem} bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid  data={data2}/>
-  <SimpleIconHeroSection heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
+  <SimpleIconHeroSection image={pocketmate_research} heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
   <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>
