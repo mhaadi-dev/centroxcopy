@@ -1,17 +1,12 @@
 import React from 'react'
-import LandingLayout from '../layout'
-import classNames, { section_wrapper_class } from '@/helpers/common'
 import { HeroSection } from '@/sections/HeroSection'
-import dummyDisplay from "@/assets/dummyDisplay.webp";
 import imageBG from "@/assets/ImageBG.webp"
-import imageBG2 from "@/assets/Image BG2.webp"
-import CommonDisplayCardsGrid from '@/Components/common/CommonDisplayCardsGrid';
 import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from '@/Components/common/IndustryBanner';
-import LandingContactSection from '@/views/LandingPageViews/LandingContactSection';
-import SearchResultComponent from '@/Components/common/SearchResultComponent';
-import SubnavBar from '@/Components/Navbar/SubnavBar';
+import LandingContactSection from '@/views/LandingPageViews/LandingContactSection';;
 import pocketmate from "@/assets/pocketmate.png"
+import rentuhbin_research from "@/assets/casestudies/rentuhbin_research.webp"
+
 
 export const metadata={
 	title:"Case Studies - Real-World Gen AI Solutions | Centrox AI",
@@ -142,7 +137,7 @@ const page = () => {
       {/* <SubnavBar imageLink='/case-studies' title='Case Studies' navItems={navItems}/> */}
       <section className="">
         <HeroSection link='/case-studies/pocketmate' heroClassName='h-auto lg:min-h-[90vh] !pt-4'   bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={pocketmate} isGradientText={false} heading={caseStudy1.heading} description={caseStudy1.para1Text}/>
-        <HeroSection link="/case-studies/rentuhbin" moveToSection='/case-studies/rentuhbin' bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4'  tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading={caseStudy2.heading} description={caseStudy2.para1Text}/>
+        <HeroSection link="/case-studies/rentuhbin" moveToSection='/case-studies/rentuhbin' bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4'  tags={true} divider={true} reverse={true} btnText='Read Case Study' img={rentuhbin_research} isGradientText={false} heading={caseStudy2.heading} description={caseStudy2.para1Text}/>
         {/* <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage1={imageBG2} heroClassName='h-auto lg:min-h-[90vh] !pt-4' tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
         <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/> */}
 

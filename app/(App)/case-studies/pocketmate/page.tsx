@@ -18,7 +18,7 @@ import aws from "@/assets/awslogo.webp"
 import rightsidebg from "@/assets/rightsidebg.svg"
 import pocketmate from "@/assets/pocketmate.png"
 import therapy from "@/assets/casestudies/therapy.svg"
-import userfriendly from "@/assets/casestudies/User Friendly.svg"
+import userfriendly from "@/assets/casestudies/User Friendly.webp"
 import legal from "@/assets/casestudies/Legal Services.svg"
 
 import ic1 from "@/assets/casestudies/UserRectangle.svg"
@@ -45,8 +45,8 @@ import ic24 from "@/assets/casestudies/ReactNative.svg"
 import ic25 from "@/assets/casestudies/Java.svg"
 import icon3 from "@/assets/Icon-3.svg"
 import googlecloud from "@/assets/casestudies/google-logo.png"
-import pocketmate_problem from "@/assets/casestudies/pocketmate_theproblem.svg"
-import pocketmate_research from "@/assets/casestudies/pocketmate_research.svg"
+import pocketmate_problem from "@/assets/casestudies/pocketmate_theproblem.webp"
+import pocketmate_research from "@/assets/casestudies/pocketmate_research.webp"
 
 const page = ({ params }: { params: { slug: string } }) => {
 
