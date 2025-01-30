@@ -1,4 +1,6 @@
 import Image from "next/image"
+import LinkedIn from "@/assets/linkedin.svg";
+
 
 const TeamGrid=({filteredData}:any)=>{
     return  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 lg:gap-10 3xl:gap-20 w-full mx-auto text-white">
@@ -34,7 +36,7 @@ const TeamGrid=({filteredData}:any)=>{
             </p>
             {el.linkedINUrl && (
               <a href={el.linkedINUrl} target="_blank" rel="noreferrer">
-                <Image src={''} className="w-5" alt="LinkedIn Profile" />
+                <Image src={LinkedIn} className="w-5" alt="LinkedIn Profile" />
               </a>
             )}
           </div>
