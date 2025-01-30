@@ -39,12 +39,12 @@ import stripe from "@/assets/casestudies/Stripe.svg";
 import sentry from "@/assets/casestudies/Sentry.svg";
 
 import bento1 from "@/assets/casestudies/Dumpster booking.svg";
-import bento2 from "@/assets/casestudies/Chat.svg";
+import bento2 from "@/assets/casestudies/Chat.webp";
 import bento3 from "@/assets/casestudies/Complaint.svg";
 import multilang from "@/assets/casestudies/Mult-Language.svg";
 import enhancedassit from "@/assets/casestudies/Assistance.svg";
-import rentuhbin_problem from "@/assets/casestudies/rentuhbin_problem.svg"
-import rentuhbin_research from "@/assets/casestudies/rentuhbin_research.svg"
+import rentuhbin_problem from "@/assets/casestudies/rentuhbin_problem.webp"
+import rentuhbin_research from "@/assets/casestudies/rentuhbin_research.webp"
  
 
 const page = ({ params }: { params: { slug: string } }) => {
