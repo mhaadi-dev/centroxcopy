@@ -21,6 +21,10 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
 
       },
+      {
+        protocol: 'https',
+        hostname: 'centrox-landing-bucket.s3.eu-north-1.amazonaws.com',
+      },
     ],
   },
   experimental: {
