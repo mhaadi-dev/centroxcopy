@@ -1,35 +1,35 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true"
 });
 
 const nextConfig = {
   images: {
-
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'tailwindui.com',
-
+        protocol: "https",
+        hostname: "tailwindui.com"
       },
       {
-        protocol: 'https',
-        hostname: 'unsplash.com',
-
+        protocol: "https",
+        hostname: "unsplash.com"
       },
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-
+        protocol: "https",
+        hostname: "asset.cloudinary.com"
       },
-    ],
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io"
+      }
+    ]
   },
   experimental: {
-    taint: true,
+    taint: true
   },
   reactStrictMode: false,
   webpack: (config, { dev, isServer }) => {
     if (dev) {
-      config.devtool = 'source-map';
+      config.devtool = "source-map";
     }
     return config;
   },
@@ -39,19 +39,17 @@ const nextConfig = {
         "/case-studies/search",
         "/services",
         "/solutions",
-        "/industries",
-   
+        "/industries"
       ];
-  
+
       return redirectPaths.map((path) => ({
         source: path,
         destination: "/",
-        permanent: false,
+        permanent: false
       }));
     }
     return [];
   }
-  
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
