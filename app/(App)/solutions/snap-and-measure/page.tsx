@@ -46,6 +46,7 @@ import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 import opencv from "@/assets/opencv-plain logo.webp"
 import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
+import SolutionIntegration from "@/Components/common/SolutionIntegration";
 
 export const metadata = {
   title:"Body measurement AI-Powered Tool for Apparel | Centrox AI",
@@ -471,6 +472,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description="Our body measurement tool integrates computer vision and machine learning algorithms to extend convenience for measurement, and can consequently help you in various tasks where accurate measurement is crucial."
           />
           <CommonDisplayCardsGrid data={cardsSolutions} />
+          <SolutionIntegration/>
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}

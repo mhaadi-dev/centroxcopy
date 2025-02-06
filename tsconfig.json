@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "helpers/common.js", "Components/common/PortableText.js", "Components/common/PortableText.js", "Components/common/PortableText.js", "app/(App)/not-found.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "helpers/common.js", "Components/common/PortableText.js", "Components/common/PortableText.js", "Components/common/PortableText.js", "app/(App)/not-found.js", "app/(App)/api/demo-url"],
   "exclude": ["node_modules"]
 }
