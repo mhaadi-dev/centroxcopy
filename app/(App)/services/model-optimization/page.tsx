@@ -351,7 +351,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description="Helping You Achieve Peak AI Performance Without Compromising Accuracy With Model Optimisation."
             btnText="Book A Call Now" 
             bgimage1={servicebg}
-            img={modeloptimization}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/AI+Model+Optimization.svg"}
             bgClassName="opacity-60" 
             alt="Optimizing AI model for maximizing performance and efficiency"
           />

@@ -701,7 +701,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
             btnText="Book A FREE 1:1 Session"
             bgimage1={servicebg}
-            img={AIagent}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Agentic+AI1.svg"}
             bgClassName="opacity-60" 
             alt="Structure and functioning of AI agents"
        

@@ -34,3 +34,10 @@ const services=
 {
 
 }
+
+
+export const solutions={
+    home:{
+        
+    }
+}

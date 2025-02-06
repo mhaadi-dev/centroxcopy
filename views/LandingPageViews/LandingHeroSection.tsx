@@ -16,7 +16,7 @@ const LandingHeroSection = () => {
       <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
           <Image
             id="hero-bg"
-            src={heroBg}
+            src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/home/hero-bg.webp"}
             className="absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-80"
             alt="hero-bg"
             width={1267}
