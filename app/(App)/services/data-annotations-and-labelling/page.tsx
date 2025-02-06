@@ -240,7 +240,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Our scalable and high-quality data annotation services help you keep pace with innovation! Our expert-driven approach ensures raw data is transformed into high-quality labelled data across all industries. Our claim to fame is solving complex AI projects by refining machine learning algorithms.",
     btnText: "Book A Call Now",
     includeDots: false,
-    img: serviceHeroImg, // Make sure to replace with the actual image variable you're using
+    img: serviceHeroImg, 
     reverse: false,
   };
   
@@ -406,7 +406,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
    
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-        <HeroSection {...heroData} alt="Type of Data Annotation"  bgimage1={servicebg} img={dataannotation} bgClassName="opacity-60"   />
+        <HeroSection {...heroData} alt="Type of Data Annotation"  bgimage1={servicebg} img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Data+Annotations1.svg"} bgClassName="opacity-60"   />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

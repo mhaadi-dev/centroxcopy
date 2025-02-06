@@ -438,7 +438,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Engineering Custom LLMs from Ideation to Implementation"
             description="Overcome the limitations of generic LLMs. Centrox AI builds custom language models, fine-tuned on your data, to achieve superior performance and address your unique business challenges. Gain deeper insights, unlock new capabilities, and accelerate your AI initiatives."
             btnText="Book a FREE Strategy Call"
-            img={customllm}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Custom+LLM+2.svg"}
             bgimage1={servicebg}
             bgClassName="opacity-60" 
             alt="Process of Creating Custom LLM "

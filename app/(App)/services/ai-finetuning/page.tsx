@@ -437,7 +437,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description={
               " At Centrox AI, we help you go beyond the limitations of pre-trained models and achieve peak performance on your specific tasks."
             }
-            img={finetuninghero}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Fine+Tuning.svg"}
             bgimage1={servicebg}
             btnText="Schedule a Session"
             bgClassName="opacity-60" 

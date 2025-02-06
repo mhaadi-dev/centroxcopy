@@ -424,7 +424,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Streamline Your AI Pipelines For Faster Time-To-Market"
             description="Partner with Centrox AI as we guide and consult you on streamlining your AI development lifecycle, optimizing model performance, and ensuring scalability and reliability in production."
             bgimage1={servicebg}
-            img={evaluation}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Pipeline1.svg"}
             bgClassName="opacity-60" 
             alt="Managing and evaluating ML Ops and AI dev"
            

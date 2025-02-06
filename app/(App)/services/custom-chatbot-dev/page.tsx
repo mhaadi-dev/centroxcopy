@@ -318,7 +318,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Be Available For Your Customers 24/7. Partner with Centrox AI to build intelligent chatbots that know your business as well as you do, streamline support, and drive conversions. Our tailored solutions leverage LLMs to deliver a superior user experience.",
     btnText: "Book A Call Now",
     includeDots: false,
-    img: serviceHeroImg,
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/serviceHeroImg1.svg",
     reverse: false,
   };
   const arrayData = 
