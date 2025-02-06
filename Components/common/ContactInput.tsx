@@ -7,7 +7,7 @@ import useSize from "@/helpers/windowWidth";
 import { useRouter } from "next/navigation";
 import classNames from "@/helpers/common";
 
-const ContactInput = ({name="",btnText="",placeholder="",btnClassName="",containerClassName="",icon1,icon2}:any) => {
+const ContactInput = ({name="",btnText="",placeholder="",btnClassName="",containerClassName="",icon1,icon2,onClick,disabled=false}:any) => {
   const [userInput, setUserInput] = useState("");
   const { width } = useSize();
   const [isClient, setIsClient] = useState(false);
@@ -61,11 +61,12 @@ const ContactInput = ({name="",btnText="",placeholder="",btnClassName="",contain
             />
             {width != null && width > 768 && (
               <Button
-                onClick={goToContactPage}
+                onClick={onClick ? ()=>{onClick(userInput)}: goToContactPage}
                 content={btnText || "Get Started"}
                 Icon={Arrow}
                 iconClassName="!-mt-1"
                 isLefticon={false}
+                isDisabled={disabled}
                 className={classNames("w-full sm:w-[60%] !px-[0.5rem] !py-[0.5rem] sm:!px-[1.4rem] 2xl:!px-[2rem] sm:!py-[0.5rem] 2xl:!py-[1.15rem]",btnClassName)}
               />
             )}
@@ -73,7 +74,7 @@ const ContactInput = ({name="",btnText="",placeholder="",btnClassName="",contain
           {width != null && width < 768 && (
             <div className="flex justify-center w-full">
               <Button
-                onClick={goToContactPage}
+                onClick={onClick ? ()=>{onClick(userInput)}: goToContactPage}
                 content={btnText||"Get Started"}
                 Icon={Arrow}
                 iconClassName="!-mt-1"
