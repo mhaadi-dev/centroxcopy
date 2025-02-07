@@ -34,6 +34,7 @@ import industryPic4 from "@/assets/industry4.webp";
 import pocketmatetitle from "@/assets/pocketmatetitle.webp"
 import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { OrganizationJsonLd } from 'next-seo';
+import { industries, solutions } from "@/store/imageStore";
 // import { PortableText } from "next-sanity";
 // import { PortableComponent } from "@/Components/common/PortableText";
 const WebsiteFooter = dynamic(
@@ -190,8 +191,8 @@ export default async function Home() {
   ];
   const solutionsData = [
     {
-      img: SolutionsImage1,
-      alt:"Mental Health Chatbot conversation",
+      img: solutions.home.solutionsImage1,
+      alt: "Mental Health Chatbot conversation",
       description:
         "Provides empathetic support and personalized coping strategies for individuals experiencing emotional distress.Trained on a curated dataset of evidence-based therapeutic techniques and mental health resources.",
       heading: "Mental Health Chatbot",
@@ -200,8 +201,8 @@ export default async function Home() {
       link: "solutions/mental-health-chatbot",
     },
     {
-      img: SolutionsImage2,
-      alt:"Real Estate Chatbot solution ",
+      img: solutions.home.solutionsImage2,
+      alt: "Real Estate Chatbot solution ",
       description:
         "Provides intelligent property search, answer queries, schedule viewings, and offer tailored recommendations.Integrates with real estate databases and APIs to provide up-to-date property information and streamline the customer journey.",
       heading: "Real-Estate Chatbot",
@@ -210,8 +211,8 @@ export default async function Home() {
       link: "solutions/real-estate-chatbot",
     },
     {
-      img: SolutionsImage3,
-      alt:"Body Measurements Tool",
+      img: solutions.home.solutionsImage3,
+      alt: "Body Measurements Tool",
       description:
         "Utilizes computer vision and deep learning algorithms to accurately estimate body dimensions from just two photos.Enables precise garment fitting, personalized recommendations, and reduced return rates for fashion retailers.",
       heading: "Body Measurements Tool",
@@ -220,8 +221,8 @@ export default async function Home() {
       link: "solutions/snap-and-measure",
     },
     {
-      img: SolutionsImage4,
-      alt:"Labelling Dresses with AI",
+      img: solutions.home.solutionsImage4,
+      alt: "Labelling Dresses with AI",
       description:
         "Automates the process of tagging fashion products with relevant attributes (style, color, neckline, etc.) using computer vision and image recognition techniques.Improves efficiency, accuracy, and consistency in product cataloging for fashion retailers.",
       heading: "Labelling Dresses with AI",
@@ -229,7 +230,8 @@ export default async function Home() {
       btnText: "Try for Free",
       link: "solutions/labelling-dresses-with-ai",
     },
-  ];
+];
+
   const tabs = [
     {
       name: "Healthcare",
@@ -258,7 +260,7 @@ export default async function Home() {
   ];
   const gradientCardData = [
     {
-      image: industryPic1,
+      image: industries.home.industry1,
       alt:"Mental health chatbot",
       data: [
         {
@@ -279,7 +281,7 @@ export default async function Home() {
       ],
     },
     {
-      image: industryPic2,
+      image:  industries.home.industry2,
       alt:"AI-powered Body measurement tool",
       data: [
         {
@@ -300,7 +302,7 @@ export default async function Home() {
       ],
     },
     {
-      image: industryPic3,
+      image:  industries.home.industry3,
       alt:"Real Estate Chatbot service",
       data: [
         {
@@ -321,7 +323,7 @@ export default async function Home() {
       ],
     },
     {
-      image: industryPic4,
+      image:  industries.home.industry4,
       alt:"AI in fintech",
       data: [
         {
@@ -372,7 +374,7 @@ export default async function Home() {
         btnText:"Checkout Our Work",
         link:"/case-studies/rentuhbin",
         isBookingButton:false,
-        image:SolutionsImage4
+        image:solutions.home.solutionsImage4
        }
     ]
   }

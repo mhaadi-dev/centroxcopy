@@ -49,7 +49,7 @@ import keras from "@/assets/keras-plain logo.webp"
 import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
 import ContactInput from "@/Components/common/ContactInput";
 import SectionTag from "@/Components/common/SectionTag";
-import ProtectedSolutionView from "@/Components/common/ProtectedSolutionView";
+import { solutions } from "@/store/imageStore";
 
 export const metadata = {
   title:"Body measurement AI-Powered Tool for Apparel | Centrox AI",
@@ -196,7 +196,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const solutionsData = [
     {
-      img: SolutionsImage1,
+      img: solutions.sol1.capture_body_dimention ,
       description:
         "Extract precise measurements from simple photographs, eliminating the need for physical measuring tapes or in-person fittings. Our technology uses advanced pose estimation and body landmark detection to accurately identify key points on the body, ensuring precise measurements even from standard smartphone photos.",
       heading: "Accurately Capture Body Dimensions",
@@ -206,7 +206,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"capture and measure body dimensions"
     },
     {
-      img: SolutionsImage2,
+      img: solutions.sol1.virtual_tryon,
       description:
         "Allow customers to visualize how garments will fit and look on their own bodies in a virtual environment. This empowers customers to make more confident purchase decisions, reducing the likelihood of returns and enhancing the overall shopping experience.",
       heading: "Enable Virtual Try-Ons",
@@ -216,7 +216,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Virtual Try-Ons: Allow customers to visualize how garments will fit and look on their own bodies"
     },
     {
-      img: SolutionsImage3,
+      img: solutions.sol1.solution_pic3,
       description:
         " Offer tailored product suggestions based on individual body measurements and preferences, going beyond generic size charts to provide a truly personalized shopping journey.",
       heading: "Personalize Recommendations",
@@ -226,7 +226,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Personalised Recommendations: Offer tailored product suggestions based on individual body measurements and preferences"
     },
     {
-      img: SolutionsImage4,
+      img: solutions.sol1.streamline_prod_dev,
       description:
         "Gain valuable insights into customer body data to inform design and sizing decisions, reducing production costs, minimizing waste, and improving fit accuracy across your product lines.",
       heading: "Streamline Product Development",
@@ -336,7 +336,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Our body measurement tool integrates computer vision and machine learning algorithms to extend convenience for measurement, and can consequently help you in various tasks where accurate measurement is crucial.",
     btnText: "Try for Free",
     includeDots: false,
-    img: snapmeasureHero,
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/snapmeasureHero.svg",
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };
@@ -398,7 +398,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ];
   const gradientCardData = [
     {
-      image: industryPic1,
+      image: solutions.sol1.industry_pic1,
       alt:"AI in E-commerce",
       data: [
         {
@@ -419,7 +419,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic2,
+      image: solutions.sol1.industry_pic2,
       alt:"AI in Brick and Mortar Retail",
       data: [
         {
@@ -440,7 +440,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic3,
+      image: solutions.sol1.industry_pic3,
       alt:"AI in Fashion Brands & Designes",
       data: [
         {
@@ -491,7 +491,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <ContactInput/>
   </section> */}
 
-  <ProtectedSolutionView/>
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}

@@ -25,6 +25,7 @@ import modeloptimization from "@/assets/AI Model Optimization.svg"
 import customsolutions from "@/assets/bentobox/Custom solution.svg"
 import collaborativeapproach from "@/assets/bentobox/Collabrative approach.svg"
 import hardware_specific from "@/assets/bentobox/Hardware Specific.svg"
+import { bentobox } from "@/store/imageStore";
 
 export const metadata = {
   title:"AI Model Optimization Services - Maximize Performance | Centrox AI",
@@ -175,7 +176,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: customsolutions,
+          bentoImage: bentobox.services.bento11,
           alt: "Rocket icon representing custom solutions for optimizing model"
         },
         {
@@ -186,7 +187,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: collaborativeapproach,
+          bentoImage: bentobox.services.bento12,
           alt: "Document icon with connected team members representing a collaborative approach"
         },
         {
@@ -252,7 +253,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: hardware_specific,
+          bentoImage: bentobox.services.bento10,
           alt: "GPU icon representing hardware-specific optimization for fine-tuning models"
         },
         {

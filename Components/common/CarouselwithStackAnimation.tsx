@@ -208,7 +208,9 @@ useEffect(() => {
                       src={cars.img}
                       alt={cars?.alt}
                       loading="lazy"
-                    
+                      width={614}
+                      height={409}
+
                       className="w-full rounded-xl  md:rounded-none md:rounded-tr-xl"
                     />
                   )} 

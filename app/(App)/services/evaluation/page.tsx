@@ -50,6 +50,7 @@ import evaluation from "@/assets/Pipeline1.svg"
 import deployment_bottlenecks from "@/assets/bentobox/Deployment Bottlenecks.svg"
 import kubernetes from "@/assets/kubernetes-icon-white logo.webp"
 import githubci from "@/assets/evaluationlogos/githubci.svg"
+import { bentobox } from "@/store/imageStore";
 
 export const metadata = {
   title:"MLOps Consulting for Evaluating & Streamline AI Pipelines | Centrox AI",
@@ -150,7 +151,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan:2,
-          bentoImage:deployment_bottlenecks,
+          bentoImage:bentobox.services.bento13,
           alt:"Person fixing a computer screen with a bug icon, highlighting deployment bottlenecks"
         },
         {

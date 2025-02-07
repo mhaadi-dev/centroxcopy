@@ -41,6 +41,7 @@ import dataannotation from "@/assets/Data Annotations1.svg"
 import accurateannotation from "@/assets/bentobox/Accurate Annotations.svg"
 import comprehensive_solution from "@/assets/bentobox/Comprehensive solution.svg"
 import domain_specific from "@/assets/bentobox/Domain Specific Expertise.svg"
+import { bentobox } from "@/store/imageStore";
 
 export const metadata = {
   title:"Data Annotations and Labelling Services for AI & ML | Centrox AI",
@@ -72,7 +73,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: accurateannotation,
+          bentoImage: bentobox.services.bento14,
           alt: "Illustration of a facial landmark detection wireframe showcasing accurate annotation for object detection"  // No alt text, icon is null
         },
         {
@@ -102,7 +103,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: comprehensive_solution,
+          bentoImage: bentobox.services.bento8,
           alt: "Representing customized, comprehensive solutions matching your exact project requirements."  // No alt text, icon is null
         },
         {
@@ -113,7 +114,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: domain_specific,
+          bentoImage: bentobox.services.bento9,
           alt: "NLP gear icon with connected boxes, representing domain expertise in natural language processing for app development"  // No alt text, icon is null
         },
         {

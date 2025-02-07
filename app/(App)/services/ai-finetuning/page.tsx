@@ -41,6 +41,7 @@ import optimizing_efficiency from "@/assets/bentobox/Optimizing Efficiency.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import finetuninghero from "@/assets/Fine Tuning.svg"
 import servicebg from "@/assets/Servicebg.webp"
+import { bentobox } from "@/store/imageStore";
 
 
 export const metadata = {
@@ -121,7 +122,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: generalization,
+          bentoImage: bentobox.services.bento1,
           alt: "Generalization in Pre-trained AI models",
         },
         {
@@ -154,7 +155,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: optimizing_efficiency,
+          bentoImage: bentobox.services.bento2,
           alt: "Optimization and Efficiency in Pre-trained AI models.",
         },
       ],
