@@ -2,7 +2,7 @@ import { RateLimiterMemory, RateLimiterRes } from "rate-limiter-flexible";
 
 const rateLimiter = new RateLimiterMemory({
   points: 3, 
-  duration: 60, 
+  duration: 160, 
 });
 
 export async function POST(req: Request) {

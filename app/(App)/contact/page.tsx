@@ -3,6 +3,7 @@ import { ContactForm } from "@/Components/common/ContactForm";
 import CommonDisplayCardsGrid from "@/Components/common/CommonDisplayCardsGrid";
 import classNames, { section_wrapper_class, text_h2_class } from "@/helpers/common";
 import SimpleVerticalTimeLine from "@/Components/common/SimpleVerticalTimeLine";
+import RecapchaProvider from "@/Components/common/RecapchaProvider";
 export const metadata={
 	title:"Contact Us - Get in Touch with Our Team | Centrox AI",
 	description:"Reach out to Centrox AI for inquiries, collaboration or support. Connect with our AI experts and discover how we can help accelerate your AI projects and business growth.",
@@ -53,8 +54,10 @@ const  ContactUs=()=> {
 	<section className={classNames("")}>
 	{/* <ContactUsSection /> */}
 	<div className={classNames(section_wrapper_class,"flex flex-col lg:flex-row  gap-x-[2.5rem] pt-16 lg:pt-32 items-start")}>
-
+<RecapchaProvider siteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}>
 	<ContactForm heading="Contact Us" description="" disclaimer="Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information." />
+</RecapchaProvider>
+	
 	<SimpleVerticalTimeLine className="!py-12" heading="What happens next?" timelineData={timelineData}/>
 	</div>
 

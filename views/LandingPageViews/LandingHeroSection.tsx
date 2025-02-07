@@ -14,6 +14,7 @@ const LandingHeroSection = () => {
             <link rel="preload" as="image" href={heroBg.src} />
           </Head>
       <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
+        {/* hero image */}
           <Image
             id="hero-bg"
             src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/home/hero-bg.webp"}

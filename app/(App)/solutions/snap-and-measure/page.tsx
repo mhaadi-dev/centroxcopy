@@ -46,10 +46,7 @@ import solutionbg2 from "@/assets/solutions/solutionbg2.webp"
 import opencv from "@/assets/opencv-plain logo.webp"
 import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
-import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common";
-import ContactInput from "@/Components/common/ContactInput";
-import SectionTag from "@/Components/common/SectionTag";
-import { solutions } from "@/store/imageStore";
+import SolutionIntegration from "@/Components/common/SolutionIntegration";
 
 export const metadata = {
   title:"Body measurement AI-Powered Tool for Apparel | Centrox AI",
@@ -474,23 +471,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             heading="Measurement Precision With AI"
             description="Our body measurement tool integrates computer vision and machine learning algorithms to extend convenience for measurement, and can consequently help you in various tasks where accurate measurement is crucial."
           />
-          
-          {/* <iframe src="https://bm.demo.centrox.ai:8443/" className="w-full h-[120vh]"></iframe> */}
           <CommonDisplayCardsGrid data={cardsSolutions} />
-          {/* <section className={classNames(section_wrapper_class)}>
-    
-    <header aria-label="Centrox Contact" className="flex flex-col gap-y-4 ">
-    <SectionTag text="Solution"/>
-      <h2 className={classNames(text_h2_class,"text-center")}>
-        AI Powered Measurement Tool
-      </h2>
-      <p className={classNames(text_para_2,"text-center w-full sm:w-[60%] mx-auto")}>
-      To access the demo for the solution please provide your email.
-      </p>
-    </header>
-    <ContactInput/>
-  </section> */}
-
+          <SolutionIntegration/>
           <LogosSection
             data={techStackData}
             heading={"Our Tech Stack"}

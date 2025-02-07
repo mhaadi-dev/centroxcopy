@@ -17,13 +17,15 @@ import { FormSubmissionModal } from "./FormSubmissionModal";
 
 
 import { CalendlyWidget } from "./Calendly";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export const ContactForm = ({ heading, description, disclaimer, img }: any) => {
-  
+  const {executeRecaptcha}=useGoogleReCaptcha()
   const [formModal, setFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 const [isClient,setIsClient]=useState(false)
 const [userEmail,setUserEmail]=useState('')
+const [reCaptchaResponse,setRecaptchaResponse]=useState(false)
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -51,6 +53,28 @@ const [userEmail,setUserEmail]=useState('')
   };
 
   const submitBtnHandler = async () => {
+
+    if(!executeRecaptcha){
+      return
+    }
+    setIsLoading(true)
+    const token =await executeRecaptcha("form_submission");
+    const data = {
+      token: token
+    };
+    const response = await fetch("/api/verify-recaptcha", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    const recaptcha_response=await response.json()
+    if(!recaptcha_response.success){
+      setRecaptchaResponse(true)
+      setIsLoading(false)
+      return
+    }
     let missingData = [];
 
     // Validate the form data
@@ -73,11 +97,12 @@ const [userEmail,setUserEmail]=useState('')
     if (!validateEmail(formData.email)) {
       setError("Please enter a valid email");
 
+      setIsLoading(false)
       return;
     }
     if (formData.phone.length <= 6) {
       setError("Phone number you enter is not valid");
-
+      setIsLoading(false)
       return;
     } else {
       setIsLoading(true);
@@ -361,6 +386,23 @@ setFormData(prev=>{
                 </div>
               )}
             </div>
+            {reCaptchaResponse && <div className="col-span-2 border border-red-600 flex justify-between p-2 rounded-lg"><p className="text-red-600  ">Recaptcha Validation Failed!</p>  <XMarkIcon
+                  className="w-6 text-red-600  cursor-pointer"
+                  onClick={() => {
+                    setRecaptchaResponse(false);
+                  }}
+                /> </div> }
+                         {err && (
+              <div className="col-span-2 flex justify-between items-center p-2 rounded-lg border-2 border-red-600 ">
+                <p className="text-red-600 text-[0.7rem] lg:text-[1rem]">{err}</p>
+                <XMarkIcon
+                  className="w-6 text-white  cursor-pointer"
+                  onClick={() => {
+                    setError("");
+                  }}
+                />
+              </div>
+            )}
             <div className="flex justify-between gap-12 items-center col-span-2">
               {/* <p className={classNames(p4ClassName,"flex-1")}>
               Please be informed that when you click the Send button Centrox will process your personal data in accordance with our Privacy Policy for the purpose of providing you with appropriate information.
@@ -381,17 +423,7 @@ setFormData(prev=>{
                 className="!rounded-full"
               />
             </div>
-            {err && (
-              <div className="col-span-2 flex justify-between items-center p-2 rounded-lg border-2 border-red-600 ">
-                <p className="text-red-600 text-[0.5rem] lg:text-[1rem]">{err}</p>
-                <XMarkIcon
-                  className="w-6 text-white  cursor-pointer"
-                  onClick={() => {
-                    setError("");
-                  }}
-                />
-              </div>
-            )}
+   
           </form>
         </div>
         {/* <figure className="w-full lg:w-1/2 relative pt-[100%] lg:pt-[50%] z-10 ">
