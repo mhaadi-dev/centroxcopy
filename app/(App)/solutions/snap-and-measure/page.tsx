@@ -47,6 +47,7 @@ import opencv from "@/assets/opencv-plain logo.webp"
 import dockers from "@/assets/docker-icon logo.webp"
 import keras from "@/assets/keras-plain logo.webp"
 import SolutionIntegration from "@/Components/common/SolutionIntegration";
+import { solutions } from "@/store/imageStore";
 
 export const metadata = {
   title:"Body measurement AI-Powered Tool for Apparel | Centrox AI",
