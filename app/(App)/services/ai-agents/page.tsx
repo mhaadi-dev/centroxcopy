@@ -47,6 +47,7 @@ import dataanalysis from "@/assets/bentobox/Data Analysis & Insights-1.svg"
 import knowledgable from "@/assets/bentobox/Knowledge graphs & reasoning.svg"
 import Head from "next/head";
 import type { Metadata } from "next";
+import { bentobox } from "@/store/imageStore";
 export const metadata:Metadata = {
   title: "Empower Your Business with Agentic AI Solutions | Centrox AI",
   description: "Develop intelligent AI agents and workflows to automate tasks, make data-driven decisions, and grow for scalable solutions. Book a free session today.",
@@ -178,7 +179,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: goal_oriented,
+          bentoImage: bentobox.services.bento3,
           alt: "Goal Oriented AI Agents", // Left blank for null icon
         },
         {
@@ -299,7 +300,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           alt: "Interconnected nodes illustrating knowledge graphs for reasoning and intelligent decisions", // Empty alt text as icon is null
-          bentoImage: knowledgable,
+          bentoImage: bentobox.services.bento4,
         },
         {
           icon: Icon12,
@@ -331,7 +332,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           alt: "interconnected data nodes representing the LangChain framework for developing language model applications.", // Empty alt text as icon is null
-          bentoImage: langchain,
+          bentoImage: bentobox.services.bento5,
         },
       ],
       
@@ -371,7 +372,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkWithIcon: true,
           colSpan: 2,
           alt: "Representing data analysis and AI agents extracting trends and actionable information", // Empty alt text as icon is null
-          bentoImage: dataanalysis,
+          bentoImage: bentobox.services.bento6,
         },
         {
           icon: Icon11,
@@ -701,7 +702,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             }
             btnText="Book A FREE 1:1 Session"
             bgimage1={servicebg}
-            img={AIagent}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Agentic+AI1.svg"}
             bgClassName="opacity-60" 
             alt="Structure and functioning of AI agents"
        

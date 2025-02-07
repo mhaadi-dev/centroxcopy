@@ -21,6 +21,8 @@ const TeamGrid=({filteredData}:any)=>{
             src={el.img}
             alt={el?.alt || "Team Member"}
             objectFit="cover"
+            width={341}
+            height={341}
             // loading="lazy"
             className="rounded-xl object-cover aspect-square"
             // placeholder="blur"

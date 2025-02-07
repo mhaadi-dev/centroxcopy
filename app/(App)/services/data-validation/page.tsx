@@ -369,7 +369,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             btnText="Talk to Us Now"
             bgimage1={servicebg}
             bgClassName="opacity-60" 
-            img={datavalidation}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Data+Validations1.svg"}
         
           />
 

@@ -80,7 +80,9 @@ export const PointsandImagesSection = ({
           <div className="w-full  flex justify-center lg:w-1/2  z-10 ">
             {true && (
               <Image
-                src={advantages||data?.img}
+                src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/advantages.svg"}
+                width={663}
+                height={724}
                 alt={arrayData?.alt || "Why centrox?"}
                 className="object-fill w-full  lg:w-4/4 h-full"
                 loading="lazy"

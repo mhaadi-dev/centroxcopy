@@ -65,7 +65,7 @@ const CommonResizeableCard = ({
         {colSpan == 2 ? <div className={classNames("flex items-center   justify-start flex-col   lg:flex-row gap-4 lg:gap-6",reverse ? "lg:flex-row-reverse justify-evenly":"")}>
         <div className=" min-h-[150px] flex lg:min-w-[360px] lg:h-auto">
         <div className="w-full ">
-        {bentoImage && <Image loading="lazy" src={bentoImage}  className="" alt={altText}></Image>}
+        {bentoImage && <Image loading="lazy" src={bentoImage} width={360} height={250}  className="" alt={altText}></Image>}
         </div>
         </div>
         <div className="w-full  flex flex-col gap-y-2 lg:w-1/2">

@@ -41,6 +41,7 @@ import optimizing_efficiency from "@/assets/bentobox/Optimizing Efficiency.svg"
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import finetuninghero from "@/assets/Fine Tuning.svg"
 import servicebg from "@/assets/Servicebg.webp"
+import { bentobox } from "@/store/imageStore";
 
 
 export const metadata = {
@@ -121,7 +122,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: generalization,
+          bentoImage: bentobox.services.bento1,
           alt: "Generalization in Pre-trained AI models",
         },
         {
@@ -154,7 +155,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: optimizing_efficiency,
+          bentoImage: bentobox.services.bento2,
           alt: "Optimization and Efficiency in Pre-trained AI models.",
         },
       ],
@@ -437,7 +438,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             description={
               " At Centrox AI, we help you go beyond the limitations of pre-trained models and achieve peak performance on your specific tasks."
             }
-            img={finetuninghero}
+            img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Fine+Tuning.svg"}
             bgimage1={servicebg}
             btnText="Schedule a Session"
             bgClassName="opacity-60" 

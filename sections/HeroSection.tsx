@@ -157,6 +157,8 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
               src={props?.img}
               alt={alt || "hero-img"}
               objectFit="fill"
+              width={619}
+              height={619}
               className={classNames("object-fill  w-full   opacity-100  xl:w-[90%] mx-a rounded-2xl",imgClassName)}
             />
           )}

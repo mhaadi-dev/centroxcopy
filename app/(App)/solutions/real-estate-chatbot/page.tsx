@@ -359,7 +359,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: realestate_agents,
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/bentobox/Real+estate+agents.svg",
         },
         {
           icon: Icon32,
@@ -390,7 +390,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan: 2,
-          bentoImage: agencies,
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/bentobox/Agencies.svg",
         },
       ],
       
@@ -440,7 +440,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "We deliver a chatbot that empowers individuals to analyse documents quickly and accurately. By simply uploading your files, gain insights and actionable recommendations regarding land purchases, sales, rents, and construction projects.",
     btnText: "Try it for Free",
     includeDots: false,
-    img:realestatehero,
+    img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Real+estatehero.webp",
     reverse: false,
   };
   
