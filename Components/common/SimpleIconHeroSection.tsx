@@ -75,7 +75,7 @@ const SimpleIconHeroSection = ({ headingText, paraText, Icon, image, reverse, bu
                     "w-full lg:w-1/2 flex justify-center lg:justify-end",
                     reverse ? "lg:!justify-start" : ""
                 )}>
-                    <Image src={image||dummyDisplay} alt="image" />
+                    <Image src={image}  width ={610} height={324} alt="hero image" />
                 </div>
             </section>
         </section>

@@ -210,7 +210,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const solutionsData = [
     {
-      img: SolutionsImage1, // Body Measurement Technology
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Capture+Body+Dimensions.webp", // Body Measurement Technology
       description:
         "Utilising CNNs and image processing techniques, our body measurement tool accurately extracts critical dimensions from user-uploaded images, ensuring a precise fit and reducing return rates.",
       heading: "Body Measurement Technology",
@@ -220,7 +220,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"AI as body measurement tool"
     },
     {
-      img: SolutionsImage2, // Predictive Inventory Management
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Virtual+tryon.webp", // Predictive Inventory Management
       description:
         "Deploy time-series forecasting algorithms using RNNs to analyze historical sales data and market trends, predicting demand fluctuations to optimize inventory levels.",
       heading: "Predictive Inventory Management",
@@ -230,7 +230,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"AI as inventory management tool"
     },
     {
-      img: recommendationImage, // Personalized Recommendations
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Image+for+Recommendation+Engine+-+Solutions.webp", // Personalized Recommendations
       description:
         "Refine your recommendation engines with our data-driven technology, delivering relevant product suggestions that improve customer interaction and boost sales.",
       heading: "Personalized Recommendations",
@@ -240,7 +240,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"AI as recommendation engine"
     },
     {
-      img: SolutionsImage4, // Additional Solution
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/solutionPic4.webp", // Additional Solution
       description:
         "Address additional challenges in fashion retail with our comprehensive AI solutions tailored to enhance operational efficiency and customer satisfaction.",
       heading: "Comprehensive AI Solutions",
@@ -332,7 +332,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Refine your fashion retail operations with Centrox AI's advanced solutions. Our technology addresses critical industry challenges, providing effective strategies for accurate sizing, efficient inventory management, and personalised customer experiences.",
     btnText: "Talk to our Experts",
     includeDots: false,
-    img: retailhero, // Replace 'fashionHero' with the appropriate image for fashion retail context if available
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/industries/Hero+Image-retail.webp", // Replace 'fashionHero' with the appropriate image for fashion retail context if available
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };

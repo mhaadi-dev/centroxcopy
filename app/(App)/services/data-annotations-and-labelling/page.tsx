@@ -35,7 +35,6 @@ import googlecloud from "@/assets/Googlecloud.webp";
 import mlflow from "@/assets/mlflowlogo.webp";
 import kubeflow from "@/assets/kubeflowlogo.webp";
 
-import serviceHeroImg from "@/assets/Data Annotations1.svg";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import dataannotation from "@/assets/Data Annotations1.svg"
 import accurateannotation from "@/assets/bentobox/Accurate Annotations.svg"
@@ -241,7 +240,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Our scalable and high-quality data annotation services help you keep pace with innovation! Our expert-driven approach ensures raw data is transformed into high-quality labelled data across all industries. Our claim to fame is solving complex AI projects by refining machine learning algorithms.",
     btnText: "Book A Call Now",
     includeDots: false,
-    img: serviceHeroImg, 
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Data+Annotations1.svg", 
     reverse: false,
   };
   

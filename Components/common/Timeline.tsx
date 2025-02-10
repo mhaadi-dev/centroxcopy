@@ -8,7 +8,7 @@ import history from "@/assets/about/history.webp";
 
 const Timeline = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
+let history ="https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/history.webp"
   const timelineData = [
     { year: 2018, text: "We initiated our journey as a software development company driven to furnish AI solutions, during the process we contributed to develop AI solutions for fashion and retail space, which helped us explore the realm of neural networks. With our fueling passion and efforts we built our focus and specialization in AI, today we stand as a team of dedicated AI engineers and researchers pushing the boundaries of Generative AI and LLMs; fostering businesses to accelerate their AI developments.", image: history },
     { year: 2019, text: "We initiated our journey as a software development company driven to furnish AI solutions, during the process we contributed to develop AI solutions for fashion and retail space, which helped us explore the realm of neural networks. With our fueling passion and efforts we built our focus and specialization in AI, today we stand as a team of dedicated AI engineers and researchers pushing the boundaries of Generative AI and LLMs; fostering businesses to accelerate their AI developments.", image: history },
@@ -50,7 +50,7 @@ const Timeline = () => {
     <section className={classNames(section_wrapper_class, "py-6 h-auto  flex flex-col gap-y-10")}>
       <div className="flex flex-col lg:flex-row items-start gap-12">
         <div className="w-full rounded-xl lg:w-1/2">
-          <Image src={timelineData[activeIndex].image} alt="image" className="w-full rounded-xl h-full" />
+          <Image src={timelineData[activeIndex].image} width={605} height={403} alt="Centrox History" className="w-full rounded-xl h-full" />
         </div>
         <div className="w-full lg:w-1/2 flex flex-col gap-y-10">
           <p className={classNames(text_para_2)}>{timelineData[activeIndex].text}</p>

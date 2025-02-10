@@ -50,6 +50,7 @@ import education from "@/assets/Education.webp"
 import customerservice from "@/assets/customerservice.webp"
 import langchain from "@/assets/langchain.webp"
 import langgraph from "@/assets/LangGraph Icon.svg"
+import { industries } from "@/store/imageStore";
 
 export const metadata = {
   title:"AI Mental Health Chatbot for Emotional Support | Centrox AI",
@@ -340,7 +341,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Centrox AI introduces an advanced mental health chatbot designed specifically to assist individuals who are upset and seeking general emotional support. This AI-driven tool provides quick, actionable guidance without the need for human interaction.",
     btnText: "Talk to Our Bot Now",
     includeDots: false,
-    img: emotionalsupporthero, // Ensure `serviceHeroImg` is the relevant image for this hero section
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Emotional+Support.svg", // Ensure `serviceHeroImg` is the relevant image for this hero section
     reverse: false,
   };
 
@@ -399,7 +400,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   ];
   const gradientCardData = [
     {
-       image: IndustryPic1,
+       image: industries.home.industry1,
         alt:"AI Chatbot for Healthcare",
       data: [
         {
@@ -420,7 +421,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: customerservice,
+      image: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/customerservice.webp",
       alt:"AI for Customer Service",
       data: [
         {
@@ -441,7 +442,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: finance,
+      image: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Finance.webp",
       alt:"AI in Finance",
       data: [
         {
@@ -462,7 +463,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: education,
+      image: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Education.webp",
       alt:"AI in Education",
       data: [
         {

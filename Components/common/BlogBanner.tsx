@@ -12,7 +12,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { space } from "postcss/lib/list";
 import Link from "next/link";
-import test from "@/assets/Test Design.svg";
 import { reSlugify, slugify } from "@/sanity/lib/helpers";
 interface Props {
   heading?: string;
@@ -149,7 +148,7 @@ const BlogBanner = ({
           </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={banner_image || test} alt={alt ||""} width={610} height={320} className=""></Image>
+          <Image src={banner_image} alt={alt ||""} width={610} height={320} className=""></Image>
         </div>
       </div>
     </section>  : <Link href={!showReadLink ? "":  `/blogs/${slugify(category)}/${slugify(label)}`}  >
@@ -245,7 +244,7 @@ const BlogBanner = ({
           </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={banner_image || test} alt={alt ||""} width={610} height={320} className=""></Image>
+          <Image src={banner_image} alt={alt ||""} width={610} height={320} className=""></Image>
         </div>
       </div>
     </section>

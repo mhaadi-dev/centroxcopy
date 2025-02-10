@@ -305,7 +305,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Streamline your fashion e-commerce with Centrox AI's image labeling tool. Automate product tagging, improve search accuracy, and deliver a better shopping experience.",
     btnText: "Try It For FREE",
     includeDots: false,
-    img: labellinghero,
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/labeling+dresses+with+ai.svg",
     reverse: false,
   };
   
@@ -367,7 +367,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   
   const gradientCardData = [
     {
-      image: industryPic1,
+      image: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/sol-industry-1.webp",
       alt:"AI in Ecommerce Platforms",
       data: [
         {
@@ -388,7 +388,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic2,
+      image: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Brick+%26+mortae.webp",
       alt:"AI for Fashion Retailers",
       data: [
         {
@@ -409,7 +409,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       ],
     },
     {
-      image: industryPic3,
+      image: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Brands.webp",
       alt:"AI for Fashion Brands and Designers",
       data: [
         {
@@ -437,7 +437,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection alt="AI Image labeling your fashion products" img={labellinghero} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection alt="AI Image labeling your fashion products" img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/labeling+dresses+with+ai.svg"} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}
