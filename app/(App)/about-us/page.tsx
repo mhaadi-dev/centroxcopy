@@ -28,34 +28,34 @@ const page = () => {
     {
       alt:"hello",
       caption:"",
-      img:about1
+      img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about1.webp"
   },
   {
     alt:"hello",
     caption:"",
-    img:about2
+    img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about2.webp"
 },
 {
   alt:"hello",
   caption:"",
-  img:about3
+  img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about3.webp"
 },
 ]
 const data2=[
   {
     alt:"hello",
     caption:"",
-    img:about4
+    img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about4.webp"
 },
 {
   alt:"hello",
   caption:"",
-  img:about5
+  img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about5.webp"
 },
 {
 alt:"hello",
 caption:"",
-img:about6
+img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about6.webp"
 },
 ]
 
@@ -64,18 +64,18 @@ img:about6
 <>
 <div className="h-auto 2xl:min-h-screen   mt-24 ">
         <div className=' rotate-180  '>
-          <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
+          <Image src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/aboutbg.webp"} width={1716} height={244} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
         <section className={classNames(section_wrapper_class,"flex flex-col gap-4  !mt-0  py-10 lg:py-16")}>
              <h1 className={classNames(text_h1_main,"text-center")}>Accelerating Your Gen AI Journey</h1>
         <p className={classNames(text_para_main,"text-center mx-auto")}>At Centrox AI we envision to effectively contribute to the ongoing AI revolution, we offer our specialized services in GenAI eventually strengthening the business by delivering AI powered tailored solutions. We empower your business by plugging in our customized solution which guarantees prompt and quality results. Our experts are committed to ensure advanced AI solutions in areas such as LLM  Development, MLOps at Scale, and Data Ops for Model Quality Optimization. We are aiming to lead the AI innovation within the region through our engineered solutions which are innovative and safe.</p>
         </section>
         <div className=' '>
-          <Image src={aboutbg} alt='background' className=' w-full h-full object-cover'></Image>
+          <Image src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/aboutbg.webp"} width={1716} height={244} alt='background' className=' w-full h-full object-cover'></Image>
         </div>
       </div>
       <Timeline/>
-      <HeroSection isAboutPage moveToSection='solutions' imgClassName='lg:h-auto lg:w-auto' btnText='Checkout Our Work' img={whatwedotoday} isGradientText={false} description="Today we at Centrox AI have evolved as a team of growing and reliable generative AI solution providers,  ambitious towards advancing the potential of LLM to receive the best virtues it can offer. We extend our technical expertise, guidance, and collaborated approach to ensure quality Generative AI development and deployment. We deliver solutions for healthcare, retail,real estate, fashion and more industries empowering them to achieve their goals, along with gaining a significant competitive edge." heading='What We Do Today?'/>
+      <HeroSection isAboutPage moveToSection='solutions' imgClassName='lg:h-auto lg:w-auto' btnText='Checkout Our Work' img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/whatwedotoday.webp"} isGradientText={false} description="Today we at Centrox AI have evolved as a team of growing and reliable generative AI solution providers,  ambitious towards advancing the potential of LLM to receive the best virtues it can offer. We extend our technical expertise, guidance, and collaborated approach to ensure quality Generative AI development and deployment. We deliver solutions for healthcare, retail,real estate, fashion and more industries empowering them to achieve their goals, along with gaining a significant competitive edge." heading='What We Do Today?'/>
       <GridPicturesAbout linkText="/team" data={data1} headingText='Our Culture & Values' paraText="We're a team of driven individuals who thrive on technical challenges, continuous learning, and open collaboration. We embrace the entrepreneurial spirit and understand the fast-paced nature of startups. Our commitment to transparency, data-driven decision-making, and delivering tangible results sets us apart."
       btnText='Meet the Team'
       />

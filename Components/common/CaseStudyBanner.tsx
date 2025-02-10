@@ -12,7 +12,7 @@ const CaseStudyBanner = ({heading,para1Text,image}:Props) => {
     <section className={classNames(section_wrapper_class,"text-center pt-16 lg:pt-16 flex flex-col justify-center items-center gap-y-4 lg:gap-y-6")}>
      {heading && <h1 className={classNames(text_h1_main,"capitalize")}>{heading}</h1>}
      {para1Text && <p className={classNames(text_para_2,"w-full sm:w-[60%] mx-auto")}>{para1Text}</p>}
-     {image && <Image className='w-4/5 rounded-xl' src={image} alt="image"></Image>}
+     {image && <Image width={1006} height={567} className='w-4/5 rounded-xl' src={image} alt="image"></Image>}
     </section>
   )
 }

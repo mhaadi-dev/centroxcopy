@@ -18,21 +18,21 @@ async function TeamPage(props:any) {
       LeadersImgs: [
         {
           designation: "Co-Founder & CEO",
-          img: mhbnImg,
+          img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/team/mhbnimg.webp",
           linkedINUrl: "https://www.linkedin.com/in/mhbn",
           name: "Muhammad Haris Bin Naeem",
           alt: "Muhammad Haris Bin Naeem Centrox Co-founder and CEO"
         },
         {
           designation: "Co-Founder & CTO",
-          img: harrisimg,
+          img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/team/harrisimg2.webp",
           linkedINUrl: "https://www.linkedin.com/in/harris-perceptron",
           name: "Muhammad Harris​​​​‌‌",
           alt: "Muhammad Harris Co-Founder & CTO"
         },
         {
           designation: "Co-Founder & Growth Director",
-          img: zainRazaImg,
+          img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/team/zainRaza.webp",
           linkedINUrl: "https://www.linkedin.com/in/syed-zain-raza-ba96899b",
           name: "Syed Zain Raza",
           alt: "Syed Zain Raza Co-Founder & Growth Director"

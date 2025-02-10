@@ -10,10 +10,10 @@ import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSe
 import LandingHeroSection from "@/views/LandingPageViews/LandingHeroSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
-// import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
-// import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
+import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
+import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
 import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-// import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
+import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
 import Icon from "@/assets/Icon.svg";
 import Icon2 from "@/assets/Icon-1.svg";
 import Icon3 from "@/assets/Icon-3.svg";
@@ -23,15 +23,7 @@ import Icon6 from "@/assets/Icon-6.svg";
 import Icon7 from "@/assets/Icon-7.svg";
 import Icon8 from "@/assets/Icon-8.svg";
 import menubars from "@/assets/Icon-2.svg";
-import SolutionsImage1 from "@/assets/solutionpic1.webp";
-import SolutionsImage2 from "@/assets/solutionPic2.webp";
-import SolutionsImage3 from "@/assets/solutionPic3.webp";
-import SolutionsImage4 from "@/assets/solutionPic4.webp";
-import industryPic1 from "@/assets/industry1.png";
-import industryPic2 from "@/assets/industry2.webp";
-import industryPic3 from "@/assets/industry3.webp";
-import industryPic4 from "@/assets/industry4.webp";
-import pocketmatetitle from "@/assets/pocketmatetitle.webp"
+
 import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { OrganizationJsonLd } from 'next-seo';
 import { industries, solutions } from "@/store/imageStore";
@@ -41,20 +33,10 @@ const WebsiteFooter = dynamic(
   () => import("@/Components/common/WebsiteFooter"),
   { ssr: false }
 );
-const LandingFAQSection =dynamic(
-  () => import("@/views/LandingPageViews/LandingFAQSection"),
-  { ssr: false }
-);
-const LandingContactSection =dynamic(
-  () => import("@/views/LandingPageViews/LandingContactSection"),
-  { ssr: false }
-);
 
 
-const LandingTestimonialSection =dynamic(
-  () => import("@/views/LandingPageViews/LandingTestimonialSection"),
-  { ssr: false }
-);
+
+
 
    
 export const revalidate=10;
@@ -362,7 +344,7 @@ export default async function Home() {
        btnText:"Checkout Our Work",
        link:"/case-studies/pocketmate",
        isBookingButton:false,
-       image:pocketmatetitle
+       image:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmatetitle.webp"
       },
       {
         title:"Rentuhbin: book a dumpster whenever and wherever you want.",
@@ -374,7 +356,7 @@ export default async function Home() {
         btnText:"Checkout Our Work",
         link:"/case-studies/rentuhbin",
         isBookingButton:false,
-        image:solutions.home.solutionsImage4
+        image:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/rentuhbin_research.webp"
        }
     ]
   }

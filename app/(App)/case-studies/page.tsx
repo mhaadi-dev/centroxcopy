@@ -4,8 +4,7 @@ import imageBG from "@/assets/ImageBG.webp"
 import servicebg from "@/assets/Servicebg.webp"
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import LandingContactSection from '@/views/LandingPageViews/LandingContactSection';;
-import pocketmate from "@/assets/pocketmate.png"
-import rentuhbin_research from "@/assets/casestudies/rentuhbin_research.webp"
+
 
 
 export const metadata={
@@ -125,7 +124,7 @@ const page = () => {
       const caseStudy1={
         heading:"Pocketmate.AI your reliable mental health support.",
         para1Text:"Pocketmate.AI offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
-        image:pocketmate
+        image:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmate.png"
     }
     const caseStudy2={
       heading:"Optimizing dumpster placement using image recognition.",
@@ -136,8 +135,8 @@ const page = () => {
       <>
       {/* <SubnavBar imageLink='/case-studies' title='Case Studies' navItems={navItems}/> */}
       <section className="">
-        <HeroSection link='/case-studies/pocketmate' heroClassName='h-auto lg:min-h-[90vh] !pt-4'   bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={pocketmate} isGradientText={false} heading={caseStudy1.heading} description={caseStudy1.para1Text}/>
-        <HeroSection link="/case-studies/rentuhbin" moveToSection='/case-studies/rentuhbin' bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4'  tags={true} divider={true} reverse={true} btnText='Read Case Study' img={rentuhbin_research} isGradientText={false} heading={caseStudy2.heading} description={caseStudy2.para1Text}/>
+        <HeroSection link='/case-studies/pocketmate' heroClassName='h-auto lg:min-h-[90vh] !pt-4'   bgimage1={servicebg} tags={true} divider={true} btnText='Read Case Study' img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmate.png"} isGradientText={false} heading={caseStudy1.heading} description={caseStudy1.para1Text}/>
+        <HeroSection link="/case-studies/rentuhbin" moveToSection='/case-studies/rentuhbin' bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4'  tags={true} divider={true} reverse={true} btnText='Read Case Study' img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/rentuhbin_research.webp"} isGradientText={false} heading={caseStudy2.heading} description={caseStudy2.para1Text}/>
         {/* <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage1={imageBG2} heroClassName='h-auto lg:min-h-[90vh] !pt-4' tags={true} divider={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/>
         <HeroSection bgClassName='w-[90%] !object-contain lg:!w-2/5 opacity-50' bgimage2={imageBG} heroClassName='h-auto lg:min-h-[90vh] !pt-4' tags={true} divider={true} reverse={true} btnText='Read Case Study' img={dummyDisplay} isGradientText={false} heading='Meta and Centrox Partner to Drive Enterprise Adoption' description='Centrox is proud to be a Llama 3.1 405B is the largest openly available foundation model with capabilities that rival the best closed-source.'/> */}
 

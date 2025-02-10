@@ -10,9 +10,6 @@ import Head from 'next/head';
 const LandingHeroSection = () => {
     return (
       <>
-        <Head>
-            <link rel="preload" as="image" href={heroBg.src} />
-          </Head>
       <section className="relative w-full h-auto py-6 sm:h-[87vh] pt-32 sm:pt-32">
         {/* hero image */}
           <Image
@@ -22,7 +19,7 @@ const LandingHeroSection = () => {
             alt="hero-bg"
             width={1267}
             height={590}
-           loading='lazy'
+            priority={true}
           />
     
           <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">

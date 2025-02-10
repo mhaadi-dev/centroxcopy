@@ -16,10 +16,6 @@ import { StepperSection } from "@/sections/StepperSection";
 import { LogosSection } from "@/sections/LogosSection";
 import aws from "@/assets/awslogo.webp"
 import rightsidebg from "@/assets/rightsidebg.svg"
-import pocketmate from "@/assets/pocketmate.png"
-import therapy from "@/assets/casestudies/therapy.svg"
-import userfriendly from "@/assets/casestudies/User Friendly.webp"
-import legal from "@/assets/casestudies/Legal Services.svg"
 
 import ic1 from "@/assets/casestudies/UserRectangle.svg"
 import ic3 from "@/assets/casestudies/Prescription.svg"
@@ -45,15 +41,14 @@ import ic24 from "@/assets/casestudies/ReactNative.svg"
 import ic25 from "@/assets/casestudies/Java.svg"
 import icon3 from "@/assets/Icon-3.svg"
 import googlecloud from "@/assets/casestudies/google-logo.png"
-import pocketmate_problem from "@/assets/casestudies/pocketmate_theproblem.webp"
-import pocketmate_research from "@/assets/casestudies/pocketmate_research.webp"
+
 
 const page = ({ params }: { params: { slug: string } }) => {
 
 const banner1Data={
     heading:"Pocketmate.AI your reliable mental health support.",
     para1Text:"Pocketmate.AI offers support to individuals seeking mental-health assistance. It enables users to book sessions with professional therapists, ensuring timely and effective support.",
-    image:pocketmate
+    image:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmate.png"
 }
 const heroSection1Data={
     heading:"The Problem",
@@ -184,7 +179,7 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: userfriendly,
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/User+Friendly.webp",
         },
         {
           icon: ic5,
@@ -218,7 +213,7 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: therapy,
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/therapy.svg",
         },
       ],
     },
@@ -589,7 +584,7 @@ const heroSection2Data={
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan:2,
-          bentoImage:legal
+          bentoImage:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/Legal+Services.svg"
         },
         {
           icon: ic15,
@@ -646,9 +641,9 @@ const heroSection2Data={
         position="CEO Pocketmate.AI"
         revenue="88.4%"
       />
-  <SimpleIconHeroSection image={pocketmate_problem} bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
+  <SimpleIconHeroSection image={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmate_theproblem.webp"} bulletPoints={false} reverse={false} headingText={heroSection1Data.heading} paraText={heroSection1Data.description}/>
   <CommonDisplayCardsGrid  data={data2}/>
-  <SimpleIconHeroSection image={pocketmate_research} heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
+  <SimpleIconHeroSection image={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmate_research.webp"} heroClassName='' bgClassName='z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover' bgImage1={rightsidebg} bulletPoints={false} reverse={true} headingText={heroSection2Data.heading} paraText={heroSection2Data.description}/>
   <CommonDisplayCardsGrid data={data3} resizeableCardsLayout gridCols={3}/>
   <CommonDisplayCardsGrid data={data4}/>
   <StepperSection data={stepperdata}/>

@@ -17,19 +17,14 @@ import IndustryBanner from "@/Components/common/IndustryBanner";
 import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import strategy from "@/assets/solutions/Strategy.svg";
 import checkerboard from "@/assets/solutions/Checkerboard.svg";
-import SolutionsImage1 from "@/assets/solutions/Data integration.webp";
-import SolutionsImage2 from "@/assets/Transparent Insights.webp";
-import SolutionsImage3 from "@/assets/solutionPic3.webp";
-import SolutionsImage4 from "@/assets/research automation.webp";
+
 import Icon16 from "@/assets/Icon-16.webp"
 import Icon17 from "@/assets/Icon-17.webp"
 import Icon18 from "@/assets/Icon-18.webp"
 import Icon51 from "@/assets/Icon-51.webp"
 import Icon52 from "@/assets/Icon-52.webp"
 
-import healthhero from "@/assets/industries/Hero Image health.svg"
-import custombuilt from "@/assets/bentobox/Neural Network.svg"
-import scalable from "@/assets/bentobox/Scalable AI.svg"
+
 
 
 export const metadata = {
@@ -131,7 +126,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const solutionsData = [
     {
-      img: SolutionsImage1, // Replace with an appropriate image for Multimodal Data Fusion
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/Data+integration.webp", // Replace with an appropriate image for Multimodal Data Fusion
       description:
         "Our AI models integrate diverse data streams—clinical notes, imaging, genomics, and real-time monitoring—creating a unified platform for decision support with highly accurate and predictive insights.",
       heading: "Multimodal Data Fusion",
@@ -141,7 +136,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Hexagons with icons for doctor, cloud, and data, symbolizing multimodal data fusion"
     },
     {
-      img: SolutionsImage2, // Replace with an appropriate image for Explainable AI
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/industries/Transparent+Insights.webp", // Replace with an appropriate image for Explainable AI
       description:
         "Generative models offer transparency in their reasoning, ensuring clinicians understand and trust AI’s diagnostic and treatment suggestions, which is crucial for clinical decision-making.",
       heading: "Explainable AI in Clinical Decision Support",
@@ -151,7 +146,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Doctor reviewing a transparent chest X-ray with AI insights and an ECG display."
     },
     {
-      img: SolutionsImage3, // Replace with an appropriate image for AI-Powered Personalized Medicine
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/solutionPic3.webp", // Replace with an appropriate image for AI-Powered Personalized Medicine
       description:
         "Utilizing patient-specific data, our models predict individualized treatment responses, empowering doctors with data-driven tools tailored to each patient’s unique profile.",
       heading: "AI-Powered Personalized Medicine",
@@ -161,7 +156,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"AI-Powered Personalized Medicine,Utilizing patient data, ai models predict individualized treatment responses"
     },
     {
-      img: SolutionsImage4, // Replace with an appropriate image for Generative AI in Biomedical Research
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/industries/research+automation.webp", // Replace with an appropriate image for Generative AI in Biomedical Research
       description:
         "Automate literature reviews and synthesize new hypotheses from medical research data, predicting molecular interactions and generating new compounds for drug discovery.",
       heading: "Generative AI for Biomedical Research",
@@ -181,7 +176,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Centrox AI develops LLM-based solutions that reshape healthcare operations. Our AI solutions are engineered to solve complex challenges, from predicting patient outcomes to automating critical processes, all with the precision and reliability that the healthcare industry demands.",
     btnText: "Try Our Chatbot for FREE",
     includeDots: false,
-    img: healthhero, // Replace with the appropriate image for healthcare context
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/industries/Hero+Image+health.svg", // Replace with the appropriate image for healthcare context
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
     alt:" Transforming Healthcare with Generative AI"
@@ -323,7 +318,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan:2,
-          bentoImage:custombuilt,
+          bentoImage:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/bentobox/Neural+Network.svg",
           alt:"interconnected nodes representing custom built neural network designed for healthcare"
         },
         {
@@ -354,7 +349,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           linkText: "",
           linkWithIcon: true,
           colSpan:2,
-          bentoImage:scalable,
+          bentoImage:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/bentobox/Scalable+AI.svg",
           alt:"HIPAA compliant shield icon representing scalable AI infrastructure for healthcare"
         },
       ],

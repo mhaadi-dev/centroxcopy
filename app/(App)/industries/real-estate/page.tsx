@@ -202,7 +202,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   const solutionsData = [
     {
-      img: personalizedSearch, 
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/personlized+search.webp", 
       description:
         "Go beyond keyword matching. Our NLP-powered search understands user intent, delivering personalized property recommendations that boost engagement and conversions.",
       heading: "Search & Recommendations",
@@ -212,7 +212,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Displaying conversation of AI chatbot about search and recommendations"
     },
     {
-      img: leadengagment, // Replace with an appropriate image for Qualify & Nurture Leads
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/lead+engagement.webp", // Replace with an appropriate image for Qualify & Nurture Leads
       description:
         "Deploy AI chatbots and virtual assistants to engage leads 24/7, answer questions, and qualify prospects, freeing up your team to focus on closing deals.",
       heading: "Qualify & Nurture Leads",
@@ -222,7 +222,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Illustration of qualifying and nurturing leads from different sources through AI chatbot and virtual assistant"
     },
     {
-      img: documentanalysis, // Replace with an appropriate image for Analyze Documents
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/document+analysis.webp", // Replace with an appropriate image for Analyze Documents
       description:
         "Extract key information from contracts and leases, automate summarization, and identify potential risks, streamlining due diligence and ensuring compliance.",
       heading: "Analyze Documents",
@@ -232,7 +232,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       alt:"Representation of how AI chatbot analysis documents, extract key information and get deep analysis."
     },
     {
-      img: marketanalysis, // Replace with an appropriate image for Analyze Market Trends
+      img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/market+analysis.webp", // Replace with an appropriate image for Analyze Market Trends
       description:
         "Analyze market sentiment, track competitors, and gain data-driven insights to inform strategic decisions and stay ahead of the curve.",
       heading: "Analyze Market Trends",
@@ -327,7 +327,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Partner with Centrox AI to leverage AI and LLMs in the real estate industry. Enhance property search, automate tasks, and gain valuable insights to drive smarter decisions and boost your bottom line.",
     btnText: "Book 1:1 Session",
     includeDots: false,
-    img: realestatehero, // Replace 'snapmeasureHero' with the appropriate image for real estate context if available
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/industries/Real+estatehero.webp", // Replace 'snapmeasureHero' with the appropriate image for real estate context if available
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };

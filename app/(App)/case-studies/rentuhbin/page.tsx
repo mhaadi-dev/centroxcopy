@@ -38,13 +38,6 @@ import gitlab from "@/assets/casestudies/GitLabCLI.svg";
 import stripe from "@/assets/casestudies/Stripe.svg";
 import sentry from "@/assets/casestudies/Sentry.svg";
 
-import bento1 from "@/assets/casestudies/Dumpster booking.svg";
-import bento2 from "@/assets/casestudies/Chat.webp";
-import bento3 from "@/assets/casestudies/Complaint.svg";
-import multilang from "@/assets/casestudies/Mult-Language.svg";
-import enhancedassit from "@/assets/casestudies/Assistance.svg";
-import rentuhbin_problem from "@/assets/casestudies/rentuhbin_problem.webp"
-import rentuhbin_research from "@/assets/casestudies/rentuhbin_research.webp"
  
 
 const page = ({ params }: { params: { slug: string } }) => {
@@ -172,7 +165,7 @@ const page = ({ params }: { params: { slug: string } }) => {
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: bento1
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/Dumpster+booking.svg"
         },
         {
           icon: discount,
@@ -206,7 +199,7 @@ const page = ({ params }: { params: { slug: string } }) => {
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: bento2
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/Chat.webp"
         },
         {
           icon: null,
@@ -218,7 +211,7 @@ const page = ({ params }: { params: { slug: string } }) => {
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: bento3
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/Complaint.svg"
         },
         {
           icon: headcircuit,
@@ -310,7 +303,7 @@ const page = ({ params }: { params: { slug: string } }) => {
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: multilang,
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/Mult-Language.svg",
           reverse: false
         },
         {
@@ -323,7 +316,7 @@ const page = ({ params }: { params: { slug: string } }) => {
           className: "h-full !rounded-3xl w-full",
           linkText: "",
           colSpan: 2,
-          bentoImage: enhancedassit,
+          bentoImage: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/Assistance.svg",
           reverse: false
         }
       ],
@@ -631,7 +624,7 @@ const page = ({ params }: { params: { slug: string } }) => {
         revenue="82.73%"
       />
       <SimpleIconHeroSection
-      image={rentuhbin_problem}
+      image={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/rentuhbin_problem.webp"}
         bulletPoints={false}
         reverse={false}
         headingText={heroSection1Data.heading}
@@ -639,7 +632,7 @@ const page = ({ params }: { params: { slug: string } }) => {
       />
       <CommonDisplayCardsGrid data={data2} />
       <SimpleIconHeroSection
-      image={rentuhbin_research}
+      image={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/rentuhbin_research.webp"}
         heroClassName=""
         bgClassName="z-0 absolute pr-4 lg:pr-0 lg:w-1/3 object-contain  lg:object-cover"
         bgImage1={rightsidebg}

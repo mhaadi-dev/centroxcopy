@@ -37,7 +37,6 @@ import gpt from "@/assets/gpt.webp"
 import langchain from "@/assets/langchain.webp"
 import tableau from "@/assets/tableau logo.webp"
 import powerbi from "@/assets/powerbi.webp"
-import realestatehero from "@/assets/realestate.webp"
 // import frauddetection from "@/assets/bentobox/fraudetection"
 
 
@@ -257,7 +256,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       "Partner with Centrox AI to harness the transformative potential of Generative AI in fintech. Build intelligent applications, automate processes, and deliver exceptional customer experiences.",
     btnText: "Book 1:1 Session",
     includeDots: false,
-    img: realestatehero, // Replace with an appropriate image for fintech context if available
+    img: "https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/industries/realestate.webp", // Replace with an appropriate image for fintech context if available
     reverse: false,
     className: "lg:!w-1/3 !w-4/5 mx-auto",
   };
