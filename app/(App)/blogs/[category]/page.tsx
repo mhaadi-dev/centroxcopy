@@ -4,7 +4,7 @@ import TabsWithGridCardsPagination from "@/Components/common/TabsWithGridCardsPa
 import SubnavBar from "@/Components/Navbar/SubnavBar";
 import { client } from "@/sanity/lib/client";
 import { BreadcrumbJsonLd, WebPageJsonLd } from "next-seo";
-import { cleanMetaString, slugify } from "@/sanity/lib/helpers";
+import { calculateReadingTime, cleanMetaString, slugify } from "@/sanity/lib/helpers";
 import {
   GET_ALL_CATEGORIES,
   GET_CATEGORY_BY_SLUG_QUERY,
@@ -87,6 +87,14 @@ const Page = async ({ params }: { params: { category?: string[] } }) => {
       startRange: 0,
       endRange: 6
     });
+        const blogDataWithReadingTime = blogsData?.map((blog: any) => ({
+                ...blog,
+                duration: calculateReadingTime(blog.content_item?.blog_data || ''), 
+                content_item: {
+                  ...blog.content_item,
+                  blog_data: [], 
+                },
+              }));
     return (
       <section className="text-white">
         <BreadcrumbJsonLd
@@ -131,7 +139,7 @@ const Page = async ({ params }: { params: { category?: string[] } }) => {
             totalBlogsCount={totalBlogsCount?.length}
             cardsPerPage={6}
             headingText={categoryData?.category_name}
-            cardData={blogsData || []}
+            cardData={blogDataWithReadingTime || []}
           />
         )}
         <IndustryBanner

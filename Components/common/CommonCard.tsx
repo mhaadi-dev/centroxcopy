@@ -50,7 +50,7 @@ const CommonCard = ({
       )}
     >
        {image && (
-        <Link href={link||""} className={classNames(isSearchResult ? "lg:w-2/5 h-full":"w-full h-full")}>
+        <Link href={link||""} className={classNames(isSearchResult ? "lg:w-2/5 h-full":"w-full ")}>
            <Image
           src={image}
           loading="lazy"
@@ -122,6 +122,7 @@ const CommonCard = ({
               {new Date(date).toLocaleDateString()}
             </p>
           )}
+
         </div>
 
         {linkText && link? (
@@ -130,9 +131,9 @@ const CommonCard = ({
             isLinkClass="s"
             Icon={arrow} isLefticon={false}
             iconClassName="!w-[13px] lg:!w-[15px]"
-            customClassName="font-normal text-[1.02rem] !mx-0 !p-0"
+            customClassName="font-normal text-[1.02rem] mt-auto !mx-0 !p-0"
             paddingclass="!pl-0"
-            className="!text-[#E5E7EB] !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3  !flex !items-center !gap-2 hover:!text-blue-azure"
+            className="!text-[#E5E7EB]  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3  !flex !items-center !gap-2 hover:!text-blue-azure"
           />
          
           

@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { client } from '@/sanity/lib/client'; 
 import { GET_PAGINATED_ARTICLES_QUERY, PAGINATED_SEARCH_BLOGS_QUERY, TOTAL_SEARCH_BLOGS_COUNT_QUERY } from '@/sanity/query';
+import { calculateReadingTime } from '@/sanity/lib/helpers';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -17,7 +18,15 @@ export async function GET(request: NextRequest) {
 
   try {
     const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY, { startRange, endRange });
-    return NextResponse.json(blogData);
+    const blogDataWithReadingTime = blogData?.map((blog: any) => ({
+      ...blog,
+      duration: calculateReadingTime(blog.content_item?.blog_data || ''), 
+      content_item: {
+        ...blog.content_item,
+        blog_data: [], 
+      },
+    }));
+    return NextResponse.json(blogDataWithReadingTime);
   } catch (error) {
     console.error('Error fetching blog data:', error);
     return NextResponse.json({ error: 'Failed to fetch data' }, { status: 500 });
