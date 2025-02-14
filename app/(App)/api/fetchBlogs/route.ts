@@ -18,15 +18,15 @@ export async function GET(request: NextRequest) {
 
   try {
     const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY, { startRange, endRange });
-    const blogDataWithReadingTime = blogData?.map((blog: any) => ({
-      ...blog,
-      duration: calculateReadingTime(blog.content_item?.blog_data || ''), 
-      content_item: {
-        ...blog.content_item,
-        blog_data: [], 
-      },
-    }));
-    return NextResponse.json(blogDataWithReadingTime);
+    // const blogDataWithReadingTime = blogData?.map((blog: any) => ({
+    //   ...blog,
+    //   duration: calculateReadingTime(blog.content_item?.blog_data || ''), 
+    //   content_item: {
+    //     ...blog.content_item,
+    //     blog_data: [], 
+    //   },
+    // }));
+    return NextResponse.json(blogData);
   } catch (error) {
     console.error('Error fetching blog data:', error);
     return NextResponse.json({ error: 'Failed to fetch data' }, { status: 500 });

@@ -129,7 +129,7 @@ export const GET_PAGINATED_ARTICLES_QUERY = groq`
       author_alt,
       author_image,
       colSpan,
-     blog_data,
+
       banner_data,
       related_blogs_heading,
       related_blogs_paragraph
@@ -221,7 +221,6 @@ export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number
       author_alt,
       link,
       colSpan,
-      blog_data,
       banner_data,
       related_blogs_heading,
       related_blogs_paragraph
