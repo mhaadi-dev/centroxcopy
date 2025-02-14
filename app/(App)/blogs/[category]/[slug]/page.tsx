@@ -229,8 +229,8 @@ const Page = async ({ params }: {params:{slug:string}}) => {
         />
       )}
       <IndustryBanner
-        heading="Good Stuff is All Here"
-        description="We will help you develop whatever you desire in your AI development. This is a placeholder"
+        heading="Your AI Dream, Our Mission"
+        description="Partner with Us to Bridge the Gap Between Innovation and Reality."
         btnText="Talk to Our AI Expert"
         isBooking
       />

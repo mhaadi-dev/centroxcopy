@@ -146,7 +146,7 @@ const SearchResultComponent = ({ setShowSearch }: Props) => {
         icon1={searchicon}
         icon2={crossicon}
         name="search"
-        placeholder="Search case studies by name"
+        placeholder="Search blogs here"
         btnText="Search"
         containerClassName="lg:!w-[70%] 2xl:!py-[0.5rem]"
         btnClassName=" 2xl:!px-[1.5rem] sm:!py-[0.5rem] !py-[0.3rem]"

@@ -187,7 +187,7 @@ const BlogPage = async () => {
           date={new Date(blogData[0].content_item.date).toLocaleDateString()}
           name={blogData[0].content_item.name}
           product={blogData[0].category.category_name}
-          duration={calculateReadingTime(blogData[0].content_item.blog_data)}
+          // duration={calculateReadingTime(blogData[0].content_item.blog_data)}
           banner_image={blogData[0].content_item.image.image}
           alt={blogData[0].content_item.alt}
           category={blogData[0].category.category_name}
