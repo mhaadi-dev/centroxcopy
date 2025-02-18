@@ -34,7 +34,6 @@ export const generateOTP = (): string => {
 
 
 export const storeOTP = (email: string, otp: string): void => {
-  console.log("Storing OTP for email:", email, "OTP:", otp);
   const success = otpCache.set(email, otp);
   if (success) {
   } else {
