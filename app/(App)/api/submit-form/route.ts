@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const response = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/46946787/14afa6bc-ac3b-4980-9de2-a7874fa6b1f5`,
+      "https://api.hsforms.com/submissions/v3/integration/submit/46946787/14afa6bc-ac3b-4980-9de2-a7874fa6b1f5",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

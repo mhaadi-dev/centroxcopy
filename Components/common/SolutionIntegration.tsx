@@ -4,6 +4,7 @@ import ContactInput from "@/Components/common/ContactInput"
 import SectionTag from "@/Components/common/SectionTag"
 import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common"
 import { Solutions } from "@/helpers/enums"
+import { Button } from "../Button.js/button"
 
 const SolutionIntegration = () => {
     const [showDemo, setShowDemo] = useState(false)
@@ -11,6 +12,9 @@ const SolutionIntegration = () => {
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
     const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [otp, setOtp] = useState("")
+    const [showOtpInput, setShowOtpInput] = useState(false)
     const [demoToken, setDemoToken] = useState<string | null>(null)
 
     // Reset demo if token expires
@@ -41,7 +45,8 @@ const SolutionIntegration = () => {
         }
     }, [demoToken])
 
-    const SendEmailToHubSpot = async (email: string) => {
+    const sendOtp = async () => {
+    
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
         if (!emailRegex.test(email)) {
@@ -58,7 +63,54 @@ const SolutionIntegration = () => {
         setError(null)
 
         try {
-            // First submit the form
+            const payload={
+                email:email
+            }
+            const response = await fetch('/api/send-otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload)
+            });
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || "Failed to send OTP");
+            }
+
+            setShowOtpInput(true); // Show OTP input after OTP is sent
+        } catch (error: any) {
+            setError(error.message || "An error occurred. Please try again later.")
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const verifyOtpAndSubmit = async () => {
+      
+        if (!otp) {
+            setError("Please enter the OTP")
+            return
+        }
+
+        setLoading(true)
+        setError(null)
+
+        try {
+            const verifyResponse = await fetch('/api/verify-otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, otp })
+            });
+
+            if (!verifyResponse.ok) {
+                const data = await verifyResponse.json();
+                throw new Error(data.error || "Failed to verify OTP");
+            }
+
+            // If OTP is verified, submit the form to HubSpot
             const formResponse = await fetch('/api/submit-form', {
                 method: 'POST',
                 headers: {
@@ -173,21 +225,62 @@ const SolutionIntegration = () => {
                     <p className="text-red-500 text-center">{error}</p>
                 )}
             </header>
-            <input 
+            {!showOtpInput && <div className="flex flex-col gap-y-0 lg:gap-y-0 lg:flex-row gap-x-5">
+             <input 
                 type="text" 
                 name="name" 
-                className="block rounded-full text-xl text-white mx-auto w-full mt-6 bg-transparent border border-gray-400 sm:w-[70%] xl:w-[50%] py-4 px-5 lg:px-8 lg:py-[1.95rem]" 
+                className="block rounded-full text-xl text-white mx-auto w-full mt-6 bg-transparent border border-gray-400 sm:w-[70%] xl:w-[50%] py-4 px-5 lg:px-8 lg:py-[1.45rem]" 
                 placeholder="Your Full Name" 
                 onChange={(e) => setName(e.target.value)}
                 value={name}
             />
-            <ContactInput 
-                onClick={SendEmailToHubSpot} 
-                disabled={loading}
+            <input 
+                type="email" 
+                name="email" 
+                className="block rounded-full text-xl text-white mx-auto w-full mt-6 bg-transparent border border-gray-400 sm:w-[70%] xl:w-[50%] py-4 px-5 lg:px-8 lg:py-[1.45rem]" 
+                placeholder="Your Email" 
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
             />
-            {loading && (
-                <p className="text-center mt-4 text-white">Processing...</p>
+            </div>}
+           
+            {showOtpInput && (
+                <input 
+                    type="text" 
+                    name="otp" 
+                    className="block rounded-full text-xl text-white mx-auto w-full mt-6 bg-transparent border border-gray-400 sm:w-[70%] xl:w-[50%] py-4 px-5 lg:px-8 lg:py-[1.95rem]" 
+                    placeholder="Enter 6 digits OTP sent to your email" 
+                    onChange={(e) => setOtp(e.target.value)}
+                    value={otp}
+                />
             )}
+            {!showOtpInput ? (
+               
+
+
+            <Button
+                onClick={sendOtp}
+                content= {loading ? 'Sending OTP...' : 'Send OTP'}
+                Icon={''}
+                iconClassName="!-mt-1"
+                isLefticon={false}
+                isDisabled={loading}
+                className={classNames("w-full sm:w-[70%] xl:w-[50%] my-8 mx-auto  sm:!px-[1.4rem] 2xl:!px-[2rem] sm:!py-[1rem] 2xl:!py-[1.15rem]")}
+              />
+
+                 
+
+                
+            ) : (
+                <button 
+                    onClick={verifyOtpAndSubmit} 
+                    disabled={loading}
+                    className="block rounded-full text-xl text-white mx-auto w-full mt-6 bg-green-600 sm:w-[70%] xl:w-[50%] py-4 px-5 lg:px-8 lg:py-[1.95rem] hover:bg-green-600"
+                >
+                    {loading ? 'Verifying OTP...' : 'Verify OTP'}
+                </button>
+            )}
+       
         </section>
     )
 }
