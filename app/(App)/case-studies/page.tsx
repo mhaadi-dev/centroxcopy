@@ -142,7 +142,7 @@ const page = () => {
 
         </section>
         {/* <CommonDisplayCardsGrid tags={true} caseStudyCards={true} data={benefitsData} /> */}
-        <IndustryBanner heading="Good Stuff is all here" description="We will help you develope what ever you desire in your AI developement. This is a place holder" isBooking btnText="Talk to Our AI Expert" />
+        <IndustryBanner heading="Your AI Dream, Our Mission" description="Partner with Us to Bridge the Gap Between Innovation and Reality." isBooking btnText="Talk to Our AI Expert" />
         <LandingContactSection/>
       </>
  
