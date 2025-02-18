@@ -29,7 +29,7 @@ const WhatOurClientSay = (props:Props) => {
             </Image>
             <div className='z-[5]  absolute left-8 lg:left-14 bottom-[4rem] lg:bottom-[6.5rem]'>
                   <p className={classNames(text_h1_main)}>{props?.revenue}</p>
-            <p className={classNames(text_para_2)}>Revenue Increase</p> 
+            <p className={classNames(text_para_2)}>Revenue Growth</p> 
             </div>
          
             </div>
