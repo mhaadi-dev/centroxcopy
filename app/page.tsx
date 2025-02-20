@@ -10,10 +10,10 @@ import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSe
 import LandingHeroSection from "@/views/LandingPageViews/LandingHeroSection";
 import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
-import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
-import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
-import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
-import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
+// import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
+// import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
+// import LandingCaseStudySection from "@/views/LandingPageViews/LandingCaseStudySection";
+// import LandingTestimonialSection from "@/views/LandingPageViews/LandingTestimonialSection";
 import Icon from "@/assets/Icon.svg";
 import Icon2 from "@/assets/Icon-1.svg";
 import Icon3 from "@/assets/Icon-3.svg";
@@ -34,6 +34,10 @@ const WebsiteFooter = dynamic(
   { ssr: false }
 );
 
+const LandingFAQSection = dynamic(() => import('@/views/LandingPageViews/LandingFAQSection'));
+const LandingContactSection = dynamic(() => import('@/views/LandingPageViews/LandingContactSection'));
+const LandingCaseStudySection = dynamic(() => import('@/views/LandingPageViews/LandingCaseStudySection'));
+const LandingTestimonialSection = dynamic(() => import('@/views/LandingPageViews/LandingTestimonialSection'));
 
 
 
@@ -344,7 +348,7 @@ export default async function Home() {
        btnText:"Checkout Our Work",
        link:"/case-studies/pocketmate",
        isBookingButton:false,
-       image:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmatetitle.webp"
+       image:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/casestudies/pocketmate_research.webp"
       },
       {
         title:"Rentuhbin: book a dumpster whenever and wherever you want.",

@@ -15,7 +15,7 @@ export const LandingAboutUs = () => {
   return (
     <section className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
     > 
-    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] object-cover bottom-0  " loading="lazy"></Image>
+    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] object-cover bottom-0" width={1888} height={637} loading="lazy"></Image>
       <div
         className={classNames(
           "flex  sm:mt-0  py-0 sm:px-0",
@@ -36,7 +36,10 @@ export const LandingAboutUs = () => {
               augment business that are moving the innovation needle in Gen AI.
             </p>
             <br />
+            <div className="lg:hidden">
             <ImageComponent/>
+            </div>
+            
       
             <p className={classNames(text_para_2,"mt-4")}>
               We want to enable you to focus on your core product and achieve
@@ -57,7 +60,7 @@ export const LandingAboutUs = () => {
           </Link>
          
         </div>
-
+   
        <ImageComponent2/>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 import Slider from "react-slick";
 
-import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
+import img from "@/assets/Image 1.png";
 import Image from "next/image";
 import classNames, { p3ClassName } from "@/helpers/common";
 
@@ -60,7 +60,7 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
             <div key={index} className="bg-white rounded-2xl p-2 overflow-hidden h-80 w-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
               
                 {x.img && 
-                <Image alt={x.alt} src={x.img} className="object-cover rounded-2xl" fill  
+                <Image alt={x.alt} src={img} className="object-cover rounded-2xl" fill  
                 loading="lazy" />
                 }
           
@@ -78,7 +78,7 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
             <div key={index} className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
              
                 {x.img && 
-                <Image alt={x.alt} src={x.img} className="object-cover rounded-2xl" fill 
+                <Image alt={x.alt} src={img} className="object-cover rounded-2xl" fill 
                 loading="lazy" />
                 }
              

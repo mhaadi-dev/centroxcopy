@@ -355,8 +355,8 @@ export const TabCarousel = ({
            src={cc?.image}
            alt={cc?.alt}
            loading={ "lazy"}
-           width={598}
-           height={548}
+           width={644}
+           height={590}
          />
        )}
      </div>

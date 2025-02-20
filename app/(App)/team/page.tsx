@@ -1,7 +1,5 @@
 import { TeamUsSection } from "@/views/TeamSection";
-import mhbnImg from "@/assets/mhbnimg.webp";
-import harrisimg from "@/assets/harrisimg2.webp";
-import zainRazaImg from "@/assets/zainRaza.webp";
+
 import servicebg from "@/assets/Servicebg.webp";
 import {team} from "@/store/imageStore"
 export const metadata = {

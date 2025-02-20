@@ -81,8 +81,8 @@ export const PointsandImagesSection = ({
             {true && (
               <Image
                 src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/advantages.svg"}
-                width={663}
-                height={724}
+                width={664}
+                height={726}
                 alt={arrayData?.alt || "Why centrox?"}
                 className="object-fill w-full  lg:w-4/4 h-full"
                 loading="lazy"

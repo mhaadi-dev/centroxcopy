@@ -96,8 +96,8 @@ export const CaseStudyCarousal = ({ data }: any) => {
                 alt="case study"
                 className="z-[10] relative object-contain h-full" 
                 loading="lazy"
-                width={541}
-                height={407}
+                width={610}
+                height={320}
               />
             </section>
           </div>

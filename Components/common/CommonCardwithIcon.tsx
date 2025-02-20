@@ -64,23 +64,11 @@ const CommonCardwithIcon = ({
         {linkText && (
           <Link
             href={link || ""}
-            className="flex gap-x-2  text-gray-light hover:text-blue-azure mt-auto "
+            className="flex gap-x- items-center text-gray-light hover:text-blue-azure mt-auto "
           >
             {linkText}{" "}
             {linkWithIcon && (
-              <svg
-                className="cursor-pointer"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 25 25"
-                width={24}
-                height={24}
-              >
-                <path
-                  fill="currentColor"
-                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                  data-name="Right"
-                />
-              </svg>
+          <span className="text-4xl -mt-3">&#8594;</span>
             )}
           </Link>
         )}
