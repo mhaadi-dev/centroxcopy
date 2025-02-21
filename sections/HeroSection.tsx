@@ -32,11 +32,12 @@ interface PropsI {
   moveToSection?:string
   alt?:string,
   isAboutPage?:boolean
-  link?:string
+  link?:string,
+  isCasestudy?:boolean
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,link,...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,isCasestudy=false,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,link,...props}: PropsI) => {
   return (
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
@@ -159,8 +160,8 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
               src={props?.img}
               alt={alt || "hero-img"}
               // objectFit="fill"
-              width={isAboutPage ? 640 :614}
-              height={isAboutPage ? 427 :614}
+              width={isAboutPage ? 1920 :isCasestudy? 1440:614}
+              height={isAboutPage ? 1280 :isCasestudy? 811:614}
             
               // layout="responsive"
               className={classNames("object-  w-full   opacity-100  xl:w-[85%] mx-a rounded-2xl",imgClassName)}

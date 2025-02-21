@@ -208,8 +208,8 @@ useEffect(() => {
                       src={cars.img}
                       alt={cars?.alt}
                       loading="lazy"
-                      width={640}
-                      height={426}
+                      width={718}
+                      height={519}
 
                       className="w-full rounded-xl  md:rounded-none md:rounded-tr-xl"
                     />
