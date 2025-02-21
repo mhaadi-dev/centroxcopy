@@ -1,13 +1,10 @@
 import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from '@/helpers/common'
 import React from 'react'
 import { Button } from '../Button.js/button'
-import sectionImg from "@/assets/aboutusbackground.webp";
-import Image from 'next/image';
+
 import { VerticalCarousal } from './VeritcalCarousal';
-import dummyDisplay from "@/assets/dummyDisplay.webp";
-import industrypic1 from "@/assets/industry1.webp"
+
 import arrow from "@/assets/RightArrow.svg"
-import { link } from 'fs';
 import Link from 'next/link';
 interface Props{
     headingText?:string,

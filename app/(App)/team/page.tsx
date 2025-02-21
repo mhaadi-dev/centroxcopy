@@ -1,7 +1,5 @@
 import { TeamUsSection } from "@/views/TeamSection";
-import mhbnImg from "@/assets/mhbnimg.webp";
-import harrisimg from "@/assets/harrisimg2.webp";
-import zainRazaImg from "@/assets/zainRaza.webp";
+
 import servicebg from "@/assets/Servicebg.webp";
 import {team} from "@/store/imageStore"
 export const metadata = {
@@ -187,14 +185,7 @@ async function TeamPage(props:any) {
             category: "marketing_specialists",
             alt: "Muhammad Ahmad, SEO Specialist, posing for head shot sitting in front of Centrox logo"
           },
-          {
-            designation: "Marketing Executive",
-            img: team.nidaabid,
-            linkedINUrl: "http://www.linkedin.com/in/nida-abid-100",
-            name: "Nida Abid",
-            category: "marketing_specialists",
-            alt: "Nida Abid, Marketing Executive, posing for head shot sitting in front of Centrox logo"
-          },
+         
           {
             designation: "Digital Marketer",
             img: team.niddaasim,

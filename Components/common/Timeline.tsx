@@ -50,7 +50,7 @@ let history ="https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/h
     <section className={classNames(section_wrapper_class, "py-6 h-auto  flex flex-col gap-y-10")}>
       <div className="flex flex-col lg:flex-row items-start gap-12">
         <div className="w-full rounded-xl lg:w-1/2">
-          <Image src={timelineData[activeIndex].image} width={605} height={403} alt="Centrox History" className="w-full rounded-xl h-full" />
+          <Image src={timelineData[activeIndex].image} width={640} height={427} alt="Centrox History" className="w-full rounded-xl h-full" />
         </div>
         <div className="w-full lg:w-1/2 flex flex-col gap-y-10">
           <p className={classNames(text_para_2)}>{timelineData[activeIndex].text}</p>

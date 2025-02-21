@@ -26,8 +26,8 @@ const ImageComponent2 = () => {
                  <Image
                    alt="Gen Ai Process, raw data into exceptional results"
                    src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/home/genai.webp"}
-                   width={633}
-                   height={764}
+                   width={600}
+                   height={724}
                    className="w-full  2xl:w-full z-[2]"
                 //    onLoad={() => singleImageLoad(LandingAboutUsBg.src)}
                 //    blurDataURL={blurDataURL}

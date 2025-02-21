@@ -1,7 +1,6 @@
 "use client";
 import Slider from "react-slick";
 
-import img from "@/public/images/solvingdata/solvingdataheroSectionImg.webp";
 import Image from "next/image";
 import classNames, { p3ClassName } from "@/helpers/common";
 
@@ -57,10 +56,10 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
          <Slider {...settings}>
         {data?.map((x:any, index:number) => {
           return (
-            <div key={index} className="bg-white rounded-2xl p-2 overflow-hidden h-80 w-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
+            <div key={index} className="bg-black rounded-2xl  overflow-hidden  mt-2 relative flex flex-col gap-12 items-center justify-center">
               
                 {x.img && 
-                <Image alt={x.alt} src={x.img} className="object-cover rounded-2xl" fill  
+                <Image alt={x.alt} src={x.img} className="object-cover rounded-2xl" width={728} height={397} 
                 loading="lazy" />
                 }
           
@@ -75,10 +74,10 @@ export const VerticalCarousal = ({ data, isReverse = false }: any) => {
         <Slider {...settings2}>
         {data?.map((x:any, index:number) => {
           return (
-            <div key={index} className="bg-white rounded-2xl p-2 overflow-hidden h-80 mt-2 relative flex flex-col gap-12 items-center justify-center">
+            <div key={index} className="bg-black rounded-2xl  overflow-hidden  mt-2 relative flex flex-col gap-12 items-center justify-center">
              
                 {x.img && 
-                <Image alt={x.alt} src={x.img} className="object-cover rounded-2xl" fill 
+                <Image alt={x.alt} src={x.img} className="object-cover rounded-2xl" width={728} height={397} 
                 loading="lazy" />
                 }
              

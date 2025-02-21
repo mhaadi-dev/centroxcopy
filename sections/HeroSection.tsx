@@ -32,16 +32,17 @@ interface PropsI {
   moveToSection?:string
   alt?:string,
   isAboutPage?:boolean
-  link?:string
+  link?:string,
+  isCasestudy?:boolean
 }
 
 import Image from "next/image";
-export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,link,...props}: PropsI) => {
+export const HeroSection = ({isGradientText=true,isCasestudy=false,divider=false,tags=false,linkText="",moveToSection="",imgClassName="",isAboutPage=false,alt,link,...props}: PropsI) => {
   return (
     <div className={classNames(" w-full  mx-auto max-w-[2500px] pb-8   min-h-[80vh]  relative ")}>
       <section
         className={classNames(
-          "flex mt-10 pt-[2rem]  lg:pt-[3rem] xl:pt-[0rem]  w-[100%] 2xl:w-5/5  lg:pl-0    flex-col  lg:flex-row gap-y-6 lg:gap-0 justify-between items-center",
+          "flex mt-10 pt-[2rem]  lg:pt-[3rem] xl:pt-[0rem]  w-[100%] 2xl:w-5/5  lg:pl-0    flex-col  lg:flex-row gap-y-6 lg:gap-0  justify-between items-center",
           props?.heroClassName
         )}
       >
@@ -57,6 +58,7 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
               )}
               alt="bg-img"
               objectFit="cover"
+              loading="eager"
             />
           )}
          
@@ -70,10 +72,11 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
               )}
               alt="bg-img"
               objectFit="cover"
+              loading="eager"
             />
           )}
         </div>
-<section className={classNames("sm:w-auto   px-6 sm:px-0 mx-auto flex flex-col gap-y-6 lg:flex-row items-center   justify-between sm:mx-[2.5rem] md:mx-[3rem] lg:mx-[3.5rem] xl:mx-[4.5rem] 2xl:mx-[15rem] mt-8 lg:mt-12 2xl:mt-24",props.reverse ? "lg:!flex-row-reverse" : "",)}>
+<section className={classNames("sm:w-auto   px-6 sm:px-0 mx-auto flex flex-col gap-y-6 lg:flex-row gap-x-5 items-center   justify-between sm:mx-[2.5rem] md:mx-[3rem] lg:mx-[3.5rem] xl:mx-[4.5rem] 2xl:mx-[15rem] mt-8 lg:mt-12 2xl:mt-24",props.reverse ? "lg:!flex-row-reverse" : "",)}>
   <div className="flex flex-col w-full z-[1] lg:w-1/2 gap-8 gap-y-4 ">
           { !isAboutPage && <h1
             className={classNames(
@@ -156,10 +159,12 @@ export const HeroSection = ({isGradientText=true,divider=false,tags=false,linkTe
             <Image
               src={props?.img}
               alt={alt || "hero-img"}
-              objectFit="fill"
-              width={619}
-              height={619}
-              className={classNames("object-fill  w-full   opacity-100  xl:w-[90%] mx-a rounded-2xl",imgClassName)}
+              // objectFit="fill"
+              width={isAboutPage ? 1920 :isCasestudy? 610:614}
+              height={isAboutPage ? 1280 :isCasestudy? 320:614}
+            
+              // layout="responsive"
+              className={classNames("object-  w-full   opacity-100  xl:w-[85%] mx-a rounded-2xl",imgClassName)}
             />
           )}
         </div>

@@ -84,16 +84,18 @@ export const MainAboutUs = (props: any) => {
                     backdropFilter: "blur(18px)",
                   }}
                 >
-                  <div className="relative  h-96 w-full   ">
+                  <div className="  w-full   ">
                     {el.img && (
                       <Image
                         src={el.img}
                         alt={el?.alt}
-                        fill
+                        width={712}
+                        height={712}
+                        // fill
                         //   placeholder="blur"
                         // blurDataURL={blurDataURLs[index]}
                         // onLoad={() => handleImageLoad(index, el.img.src)}
-                        className="rounded-2xl  object-cover"
+                        className="rounded-2xl   object-cover"
                         
                       />
                     )}

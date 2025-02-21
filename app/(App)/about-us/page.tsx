@@ -28,7 +28,7 @@ const page = () => {
     {
       alt:"hello",
       caption:"",
-      img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about1.webp"
+      img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about4.webp"
   },
   {
     alt:"hello",
@@ -38,24 +38,24 @@ const page = () => {
 {
   alt:"hello",
   caption:"",
-  img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about3.webp"
+  img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about5.webp"
 },
 ]
 const data2=[
   {
     alt:"hello",
     caption:"",
-    img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about4.webp"
+    img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about6.webp"
 },
 {
   alt:"hello",
   caption:"",
-  img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about5.webp"
+  img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about1.webp"
 },
 {
 alt:"hello",
 caption:"",
-img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about6.webp"
+img:"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/about/about3.webp"
 },
 ]
 

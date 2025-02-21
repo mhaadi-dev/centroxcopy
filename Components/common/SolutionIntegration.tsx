@@ -87,7 +87,7 @@ const SolutionIntegration = () => {
     }
 
     const verifyOtpAndSubmit = async () => {
-      
+    //   debugger
         if (!otp) {
             setError("Please enter the OTP")
             return
@@ -147,7 +147,7 @@ const SolutionIntegration = () => {
                 },
                 body: JSON.stringify({ email })
             });
-
+           console.log("TOKEN RESPONSE",tokenResponse)
             const tokenData = await tokenResponse.json();
             
             if (!tokenResponse.ok) {
