@@ -185,14 +185,7 @@ async function TeamPage(props:any) {
             category: "marketing_specialists",
             alt: "Muhammad Ahmad, SEO Specialist, posing for head shot sitting in front of Centrox logo"
           },
-          {
-            designation: "Marketing Executive",
-            img: team.nidaabid,
-            linkedINUrl: "http://www.linkedin.com/in/nida-abid-100",
-            name: "Nida Abid",
-            category: "marketing_specialists",
-            alt: "Nida Abid, Marketing Executive, posing for head shot sitting in front of Centrox logo"
-          },
+         
           {
             designation: "Digital Marketer",
             img: team.niddaasim,

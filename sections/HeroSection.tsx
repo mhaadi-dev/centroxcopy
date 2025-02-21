@@ -160,8 +160,8 @@ export const HeroSection = ({isGradientText=true,isCasestudy=false,divider=false
               src={props?.img}
               alt={alt || "hero-img"}
               // objectFit="fill"
-              width={isAboutPage ? 1920 :isCasestudy? 1440:614}
-              height={isAboutPage ? 1280 :isCasestudy? 811:614}
+              width={isAboutPage ? 1920 :isCasestudy? 610:614}
+              height={isAboutPage ? 1280 :isCasestudy? 320:614}
             
               // layout="responsive"
               className={classNames("object-  w-full   opacity-100  xl:w-[85%] mx-a rounded-2xl",imgClassName)}
