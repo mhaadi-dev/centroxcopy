@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { CalendlyWidget } from '@/Components/common/Calendly';
 import classNames, { text_para_main } from '@/helpers/common'
-import hero from "@/assets/hero.webp"
 
 
 const LandingHeroSection = () => {
