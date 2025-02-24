@@ -1,10 +1,6 @@
 import Image from 'next/image';
-import heroBg from "@/assets/hero-bg.webp";
-import { Button } from '@/Components/Button.js/button';
-import Arrow from "@/assets/RightArrow.svg";
 import { CalendlyWidget } from '@/Components/common/Calendly';
-import classNames, { text_para_main } from '@/helpers/common';
-import Head from 'next/head';
+import classNames, { text_para_main } from '@/helpers/common'
 
 
 const LandingHeroSection = () => {

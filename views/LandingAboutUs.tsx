@@ -15,7 +15,7 @@ export const LandingAboutUs = () => {
   return (
     <section className={classNames(section_wrapper_class,"flex flex-col gap-4 justify-center items-center relative ")  }
     > 
-    <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] object-cover bottom-0" width={1888} height={637} loading="lazy"></Image>
+    {/* <Image src={LandingAboutUsPattern} alt="bg" className="absolute z-[1] object-cover bottom-0" width={1888} height={637} loading="lazy"></Image> */}
       <div
         className={classNames(
           "flex  sm:mt-0  py-0 sm:px-0",

@@ -5,15 +5,10 @@ import GridBlogCardsWithPagination from "@/Components/common/GridBlogCardsWithPa
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import SubnavBar from "@/Components/Navbar/SubnavBar";
 import { client } from "@/sanity/lib/client";
-import {
-  GET_ALL_CATEGORIES,
-  GET_BLOGS_BY_CATEGORY_QUERY,
-  GET_PAGINATED_ARTICLES_QUERY,
-  GET_TOTAL_BLOGS_COUNT
-} from "@/sanity/query";
+import { GET_ALL_CATEGORIES, GET_BLOGS_BY_CATEGORY_QUERY, GET_PAGINATED_ARTICLES_QUERY, GET_TOTAL_BLOGS_COUNT } from "@/sanity/query";
 import TabsWithGridCards from "@/Components/common/TabsWithGridCards";
 import { notFound } from "next/navigation";
-import { calculateReadingTime, reSlugify } from "@/sanity/lib/helpers";
+import {  reSlugify } from "@/sanity/lib/helpers";
 import { Loader } from "@/Components/Loader/Loader";
 import { BreadcrumbJsonLd, WebPageJsonLd } from "next-seo";
 
@@ -21,8 +16,7 @@ export const revalidate = process.env.NEXT_PUBLIC_ENV === 'staging' ? 10 : 600;
 
 export const metadata = {
   title: "Centrox AI Blog | Generative AI, Machine Learning & Innovation",
-  description:
-    "Discover what's latest in Gen AI, Machine Learning, LLM Dev, and AI Innovation. Stay updated with insights to boost your business through AI technology",
+  description: "Discover what's latest in Gen AI, Machine Learning, LLM Dev, and AI Innovation. Stay updated with insights to boost your business through AI technology",
   alternates: {
     canonical: "https://centrox.ai/blogs"
   }
