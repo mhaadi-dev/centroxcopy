@@ -136,7 +136,7 @@ const CommonCard = ({
           //   className="!text-[#E5E7EB]  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3  !flex !items-center !gap-2 hover:!text-blue-azure"
           // />
          
-          <Link href={link} className="!text-[#E5E7EB] h-full  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3 !items-center !gap-1 hover:!text-blue-azure">{linkText}<span className="text-4xl -mt-3">&#8594;</span></Link>
+          <Link href={link} className="!text-[#E5E7EB] h-full flex  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3 !items-center !gap-1 hover:!text-blue-azure">{linkText}<span className="text-4xl -mt-3">&#8594;</span></Link>
           
         
         ):null}
