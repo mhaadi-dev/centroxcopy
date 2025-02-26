@@ -9,6 +9,7 @@ import { calculateReadingTime, reSlugify, slugify } from "@/sanity/lib/helpers";
 import { Loader } from "../Loader/Loader";
 import { useRouter } from "next/navigation";
 import { useBlogs } from "@/app/context";
+import { link } from "node:fs";
 
 interface Props {
   headingText?: string;
@@ -98,8 +99,12 @@ const GridBlogCardsWithPagination = ({
             )}
           >
             {blogs?.length > 0 &&
-              blogs?.slice(0, 2).map((card: any, index: number) => (
-                <CommonCard
+              blogs?.slice(0, 2).map((card: any, index: number) => 
+              {
+              const  link=`blogs/${slugify(
+                    card?.category?.category_name
+                  )}/${slugify(card?.label?.current)}`
+               return <CommonCard
                   key={index}
                   colSpan={2}
                   name={card?.author?.name}
@@ -113,11 +118,11 @@ const GridBlogCardsWithPagination = ({
                   tags={card?.content_item?.tags}
                   linkText={card?.content_item?.linkText}
                   linkWithIcon={card?.content_item?.linkWithIcon}
-                  link={`blogs/${slugify(
-                    card?.category?.category_name
-                  )}/${slugify(card?.label?.current)}`}
+                  link={link}
                 />
-              ))}
+              }
+                
+              )}
               {
                 cardData?.length > 0 && blogs.length == 0 ? cardData?.map((card:any)=>{
                   return ""
@@ -130,8 +135,11 @@ const GridBlogCardsWithPagination = ({
             )}
           >
             {blogs?.length > 0 &&
-              blogs?.slice(2).map((card: any, index: number) => (
-                <CommonCard
+              blogs?.slice(2).map((card: any, index: number) => {
+                const  link=`blogs/${slugify(
+                  card?.category?.category_name
+                )}/${slugify(card?.label?.current)}`
+                 return <CommonCard
                   key={index}
                   name={card?.author?.name}
                   date={card?.content_item?.date}
@@ -144,12 +152,12 @@ const GridBlogCardsWithPagination = ({
                   tags={card?.content_item?.tags}
                   linkText={card?.content_item?.linkText}
                   linkWithIcon={card?.content_item?.linkWithIcon}
-                  link={`blogs/${slugify(
-                    card?.category?.category_name
-                  )}/${slugify(card?.label?.current)}`}
+                  link={link}
                   cardClick={cardClick}
                 />
-              ))}
+              }
+               
+              )}
           </div>
         </section>
       )}

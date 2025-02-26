@@ -65,11 +65,11 @@ const CommonCard = ({
         </Link>
        
       )}
-      <Link href={link||""} className={classNames( isSearchResult? "flex flex-col lg:w-4/5    justify-between  items-start lg:!flex-row  gap-2 lg:gap-8 ":"w-full")}>
+      <Link href={link||""} className={classNames( isSearchResult? "flex flex-col lg:w-4/5    justify-between  items-start lg:!flex-row  gap-2 lg:gap-8 ":"w-full ")}>
 
-       <span className=" h-full   w-full block">
+       <div className=" h-full   w-full  flex flex-col">
         
-      <div className="flex items-center gap-x-3">
+      <div className="flex items-center gap-x-3 ">
           {label && (
             <p className={classNames(text_para_3, "text-blue-azure capitalize")}>
               {reSlugify(label)}
@@ -109,9 +109,9 @@ const CommonCard = ({
             category || date || name ? "" : ""
           )}
         >
-          {name && <p className={classNames("text-gray-500 font-semibold ",text_para_3)}>{name}</p>}
+          {name && <p className={classNames("text-gray-500 !text-sm font-semibold ",)}>{name}</p>}
           {category && (
-            <p className={classNames("text-blue-azure font-semibold text-start capitalize",text_para_3)}>
+            <p className={classNames("text-blue-azure font-semibold text-start capitalize text-sm",)}>
                {reSlugify(category)}
              
              
@@ -127,20 +127,20 @@ const CommonCard = ({
 
         {linkText && link? (
         
-             <Button  content={linkText} onClick={()=>{cardClick(link)}}
-            isLinkClass="s"
-            Icon={arrow} isLefticon={false}
-            iconClassName="!w-[13px] lg:!w-[15px]"
-            customClassName="font-normal text-[1.02rem] mt-auto !mx-0 !p-0"
-            paddingclass="!pl-0"
-            className="!text-[#E5E7EB]  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3  !flex !items-center !gap-2 hover:!text-blue-azure"
-          />
+          //    <Button  content={linkText} onClick={()=>{cardClick(link)}}
+          //   isLinkClass="s"
+          //   Icon={arrow} isLefticon={false}
+          //   iconClassName="!w-[13px] lg:!w-[15px]"
+          //   customClassName="font-normal text-[1.02rem] mt-auto !mx-0 !p-0"
+          //   paddingclass="!pl-0"
+          //   className="!text-[#E5E7EB]  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3  !flex !items-center !gap-2 hover:!text-blue-azure"
+          // />
          
-          
+          <Link href={link} className="!text-[#E5E7EB] h-full  !text-[0.7rem] !p-0 lg:!text-[1.1rem] !my-3 !items-center !gap-1 hover:!text-blue-azure">{linkText}<span className="text-4xl -mt-3">&#8594;</span></Link>
           
         
         ):null}
-      </span>
+      </div>
      
         
       

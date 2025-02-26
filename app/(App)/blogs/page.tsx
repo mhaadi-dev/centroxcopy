@@ -78,14 +78,22 @@ const fetchCategoricalData = async () => {
 };
 
 const fetchPaginatedData = async () => {
-  const totalBlogsCount = await client.fetch<number>(GET_TOTAL_BLOGS_COUNT);
-  const blogData = await client.fetch<Blog[]>(GET_PAGINATED_ARTICLES_QUERY, {
-    startRange: 0,
-    endRange: 5
-  });
+  const [totalBlogsCount, blogData] = await Promise.all([
+    client.fetch<number>(GET_TOTAL_BLOGS_COUNT),
+    client.fetch<Blog[]>(GET_PAGINATED_ARTICLES_QUERY, {
+      startRange: 0,
+      endRange: 5,
+    }),
+  ]);
+
   return { totalBlogsCount, blogData };
 };
 
+const fetchCategories=async()=>{
+  const allCategories = await client.fetch<Category[]>(GET_ALL_CATEGORIES);
+  return {allCategories}
+
+}
 const CategoricalContent = async () => {
   const { categoricalBlogs } = await fetchCategoricalData();
   
@@ -128,10 +136,11 @@ const PaginatedContent = async () => {
   );
 };
 
+
 const BlogPage = async () => {
   try {
-    const { allCategories } = await fetchCategoricalData();
-    const { blogData } = await fetchPaginatedData();
+    const[{ allCategories }, { blogData }]=await Promise.all([await fetchCategories(),await fetchPaginatedData()])
+
 
     if (!blogData?.[0]) {
       return <Loader />;
@@ -164,6 +173,7 @@ const BlogPage = async () => {
             name: 'Muhammad Harris Bin Naeem',
           }}
         />
+   
         <SubnavBar title="Blogs" imageLink="/" navItems={allCategories} />
         <BlogHeader
           headingText="Blogs"
@@ -189,7 +199,7 @@ const BlogPage = async () => {
           id={blogData[0]._id}
           isH2={true}
         />
-        
+             
         <Suspense fallback={<Loader />}>
           <PaginatedContent />
         </Suspense>

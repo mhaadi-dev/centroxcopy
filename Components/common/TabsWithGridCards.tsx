@@ -17,13 +17,14 @@ interface Props {
 }
 const TabsWithGridCards = ({ headingText = "", cardsData = [],clickAble=true }: Props) => {
   const isDataAvailable = Array.isArray(cardsData) && cardsData.length > 0;
+  const headingLink=isDataAvailable ? `/blogs/${slugify(headingText)}`:""
   return (
     <>
     {isDataAvailable ?  
         <section className={classNames(section_wrapper_class, "flex flex-col gap-8 lg:gap-10 ")}>
           <div className="flex gap-4 items-center ">
             {headingText && <h2 className={classNames(text_h2_class,"cursor-pointer capitalize hover:text-blue-azure transition-all duration-200")}>
-              <Link href={`/blogs/${slugify(headingText)}`}>
+              <Link href={headingLink}>
                {reSlugify(headingText)}
               </Link>
               </h2>}
@@ -34,8 +35,10 @@ const TabsWithGridCards = ({ headingText = "", cardsData = [],clickAble=true }: 
  
   <>
    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {cardsData.slice(0, 2).map((card: any, index: number) => (
-              <CommonCard
+            {cardsData.slice(0, 2).map((card: any, index: number) => 
+            {
+             const link=`blogs/${slugify(card?.category?.category_name)}/${slugify(card?.label?.current)}`
+              return <CommonCard
                 key={index}
                 colSpan={2}
                 name={card?.author?.name}
@@ -49,14 +52,18 @@ const TabsWithGridCards = ({ headingText = "", cardsData = [],clickAble=true }: 
                 tags={card?.content_item?.tags}
                 linkText={card?.content_item?.linkText}
                 linkWithIcon={card?.content_item?.linkWithIcon}
-                link={`blogs/${slugify(card?.category?.category_name)}/${slugify(card?.label?.current)}`}
+                link={link}
               />
-            ))}
+            }
+             
+            )}
           </div>
 
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {cardsData.slice(2).map((card: any, index: number) => (
-              <CommonCard
+            {cardsData.slice(2).map((card: any, index: number) => 
+            {
+              const link=`blogs/${slugify(card?.category?.category_name)}/${slugify(card?.label?.current)}`
+            return   <CommonCard
                 key={index}
                 colSpan={1}
                 name={card?.author?.name}
@@ -70,9 +77,11 @@ const TabsWithGridCards = ({ headingText = "", cardsData = [],clickAble=true }: 
                 tags={card?.content_item?.tags}
                 linkText={card?.content_item?.linkText}
                 linkWithIcon={card?.content_item?.linkWithIcon}
-                link={`blogs/${slugify(card?.category?.category_name)}/${slugify(card?.label?.current)}`}
+                link={link}
               />
-            ))}
+            }
+              
+            )}
           </div>
   </> 
          
