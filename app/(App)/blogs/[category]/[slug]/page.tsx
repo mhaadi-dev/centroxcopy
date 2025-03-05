@@ -2,7 +2,7 @@ import SubnavBar from "@/Components/Navbar/SubnavBar";
 import BlogBanner from "@/Components/common/BlogBanner";
 import BlogContentSection from "@/Components/common/BlogContentSection";
 import IndustryBanner from "@/Components/common/IndustryBanner";
-import createOrUpdateBlog, { client } from "@/sanity/lib/client";
+import { client } from "@/sanity/lib/client";
 import {
   calculateReadingTime,
   cleanMetaString,
@@ -18,7 +18,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { ArticleJsonLd ,BreadcrumbJsonLd,WebPageJsonLd} from "next-seo";
 
-export const revalidate = process.env.NEXT_PUBLIC_ENV === 'staging' ? 10 : 600;
+export const revalidate =0;
 export async function generateMetadata({
   params
 }: {

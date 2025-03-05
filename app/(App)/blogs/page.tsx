@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import {  reSlugify } from "@/sanity/lib/helpers";
 import { Loader } from "@/Components/Loader/Loader";
 import { BreadcrumbJsonLd, WebPageJsonLd } from "next-seo";
+import { draftMode } from "next/headers";
 
 export const revalidate = process.env.NEXT_PUBLIC_ENV === 'staging' ? 10 : 600;
 
@@ -78,16 +79,18 @@ const fetchCategoricalData = async () => {
 };
 
 const fetchPaginatedData = async () => {
+  const isStaging=process.env.NEXT_PUBLIC_ENV =="staging"
+  const isDraftMode = isStaging && draftMode().isEnabled; 
+  const perspective = isDraftMode ? "previewDrafts" : "published";
+
   const [totalBlogsCount, blogData] = await Promise.all([
-    client.fetch<number>(GET_TOTAL_BLOGS_COUNT),
-    client.fetch<Blog[]>(GET_PAGINATED_ARTICLES_QUERY, {
-      startRange: 0,
-      endRange: 5,
-    }),
+    client.fetch<number>(GET_TOTAL_BLOGS_COUNT, {}, { perspective }), 
+    client.fetch<Blog[]>(GET_PAGINATED_ARTICLES_QUERY, { startRange: 0, endRange: 5 }, { perspective }),
   ]);
 
   return { totalBlogsCount, blogData };
 };
+
 
 const fetchCategories=async()=>{
   const allCategories = await client.fetch<Category[]>(GET_ALL_CATEGORIES);

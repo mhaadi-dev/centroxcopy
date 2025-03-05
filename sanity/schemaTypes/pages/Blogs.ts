@@ -168,7 +168,18 @@ export const BlogSchema = defineType({
     }
   ],
  
- 
+  // preview: {
+  //   select: {
+  //     title: "title",
+  //     publishedAt: "publishedAt",
+  //   },
+  //   prepare({ title, publishedAt }) {
+  //     return {
+  //       title,
+  //       subtitle: publishedAt ? `Published on ${new Date(publishedAt).toDateString()}` : "Draft",
+  //     };
+  //   },
+  // },
 });
 
 export const AuthorSchema = defineType({
