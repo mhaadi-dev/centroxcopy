@@ -22,7 +22,7 @@ export default defineConfig({
       origin: 'https://staging.centrox.ai/',
 
         draftMode: {
-          enable: "/api/preview",
+          enable: "https://staging.centrox.ai/api/preview",
           // live: true,
           
         },
