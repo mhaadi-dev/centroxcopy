@@ -1,5 +1,3 @@
-// ./src/sanity/client.ts
-
 import "server-only";
 
 import { draftMode } from "next/headers";
@@ -8,18 +6,26 @@ import { createClient, type QueryOptions, type QueryParams } from "next-sanity";
 import { apiVersion, dataset, projectId } from "../env";
 import { token } from "./token";
 
+const isStaging = process.env.NEXT_PUBLIC_ENV === "staging";
+const isProduction = process.env.NEXT_PUBLIC_ENV === "production";
+const allowCDN = !isStaging; 
+
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: allowCDN, 
+  token: isProduction ? undefined : token, 
   stega: {
-    enabled:true,
-    // enabled: process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
+    enabled: isStaging,
     studioUrl: "/studio",
   },
+  ignoreBrowserTokenWarning: true, // Prevent warnings in the browser
 });
 
+/**
+ * Fetch data from Sanity with support for preview drafts.
+ */
 export async function sanityFetch<QueryResponse>({
   query,
   params = {},
@@ -31,39 +37,50 @@ export async function sanityFetch<QueryResponse>({
   revalidate?: number | false;
   tags?: string[];
 }) {
-  const isDraftMode = draftMode().isEnabled;
+  let isDraftMode = false;
+
+  try {
+    isDraftMode = isStaging && draftMode().isEnabled; 
+  } catch (error) {
+    console.warn("draftMode() must be called within a request scope.");
+  }
+
   if (isDraftMode && !token) {
     throw new Error("Missing environment variable SANITY_API_READ_TOKEN");
   }
 
   let dynamicRevalidate = revalidate;
   if (isDraftMode) {
-    // Do not cache in Draft Mode
     dynamicRevalidate = 0;
   } else if (tags.length) {
-    // Cache indefinitely if tags supplied, purge with revalidateTag()
-    dynamicRevalidate = false;
+    dynamicRevalidate = false; 
   }
 
   return client.fetch<QueryResponse>(query, params, {
-    ...(isDraftMode &&
-      ({
-        token: token,
-        perspective: "previewDrafts",
-        stega: true,
-      } satisfies QueryOptions)),
+    token: isDraftMode ? token : undefined, 
+    perspective: isDraftMode ? "previewDrafts" : "published", 
     next: {
       revalidate: dynamicRevalidate,
       tags,
     },
   });
-
-
-
 }
-const setCreatedAtAndUpdatedAt = async (doc:any) => { 
-  if (!doc._createdAt)
-   { doc.createdAt = new Date().toISOString(); } 
-   doc.updatedAt = new Date().toISOString(); return doc; };
-    export default async function createOrUpdateBlog(blog:any)
-   { const modifiedBlog = await setCreatedAtAndUpdatedAt(blog); await client.createOrReplace(modifiedBlog); }
+
+/**
+ * Ensure createdAt and updatedAt fields are set before saving.
+ */
+const setCreatedAtAndUpdatedAt = async (doc: any) => {
+  if (!doc._createdAt) {
+    doc.createdAt = new Date().toISOString();
+  }
+  doc.updatedAt = new Date().toISOString();
+  return doc;
+};
+
+/**
+ * Create or update a blog in Sanity.
+ */
+export async function createOrUpdateBlog(blog: any) {
+  const modifiedBlog = await setCreatedAtAndUpdatedAt(blog);
+  await client.createOrReplace(modifiedBlog);
+}

@@ -101,11 +101,14 @@ export const GETALLBLOGS_QUERY = groq`
 export const GET_PAGINATED_ARTICLES_QUERY = groq`
   *[_type == "blog"] | order(_createdAt desc) [$startRange...$endRange] {
     _id,
+    _rev,
+    title, 
     name,
     meta_title,
     meta_description,
-    label,subslug,
-     category->{category_name,category_meta_title,category_meta_description},
+    label,
+    subslug,
+    category->{category_name, category_meta_title, category_meta_description},
     author->{
       name,
       bio,
@@ -129,13 +132,13 @@ export const GET_PAGINATED_ARTICLES_QUERY = groq`
       author_alt,
       author_image,
       colSpan,
-
       banner_data,
       related_blogs_heading,
       related_blogs_paragraph
     }
   }
 `;
+
 
 
 
