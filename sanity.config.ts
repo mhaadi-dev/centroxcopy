@@ -19,7 +19,7 @@ export default defineConfig({
     presentationTool({
 
       previewUrl: {
-      origin: 'http:localhost:3000',
+      origin: 'https://staging.centrox.ai/',
 
         draftMode: {
           enable: "/api/preview",
