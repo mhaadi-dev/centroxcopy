@@ -7,13 +7,15 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        ...(isStaging 
-          ? { disallow: '/' } 
-          : { allow: ['/*.tsx'] }) 
+        ...(isStaging
+          ? { disallow: '/' }
+          : { allow: ['/*.tsx'], disallow: ['/studio'] }) 
       },
     ],
     sitemap: 'https://centrox.ai/sitemap.xml',
   };
+}
+
 
   // return {
   //   rules: [
@@ -26,4 +28,3 @@ export default function robots(): MetadataRoute.Robots {
   //   ],
   //   sitemap: 'https://centrox.ai/sitemap.xml',
   // };
-}
