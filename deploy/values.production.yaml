@@ -5,7 +5,6 @@ ingress:
     tls: true
     secret_name: centrox-ai-frontend-landing-tls
     domains:
-      - "www.centrox.ai"
       - "centrox.ai"
     annotations:
       nginx.ingress.kubernetes.io/server-snippet: |
