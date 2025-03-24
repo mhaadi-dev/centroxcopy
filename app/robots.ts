@@ -8,14 +8,16 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         ...(isStaging
-          ? { disallow: '/' }
-          : { allow: ['/*.tsx'], disallow: ['/studio'] }) 
+          ? { disallow: '/' } 
+          : {
+              allow: ['/blogs', '/*.tsx'], 
+              disallow: ['/blogs/search', '/studio'],
+            }),
       },
     ],
     sitemap: 'https://centrox.ai/sitemap.xml',
   };
 }
-
 
   // return {
   //   rules: [

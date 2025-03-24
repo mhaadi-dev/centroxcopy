@@ -42,7 +42,13 @@ import ic25 from "@/assets/casestudies/Java.svg"
 import icon3 from "@/assets/Icon-3.svg"
 import googlecloud from "@/assets/casestudies/google-logo.png"
 
-
+export const metadata = {
+  title: "Centrox AI Develops Pocketmate.io: AI Mental Health Platform",
+  description: "Centrox AI developed Pocketmate.io, an AI-powered platform offering affordable, 24/7 mental health support via chatbots and advanced booking services.",
+  alternates: {
+    canonical: "https://centrox.ai/case-studies/pocketmate"
+  }
+};
 const page = ({ params }: { params: { slug: string } }) => {
 
 const banner1Data={

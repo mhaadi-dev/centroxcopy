@@ -194,6 +194,23 @@ export const AuthorSchema = defineType({
       validation: (Rule) => Rule.required().error("Author name is required.")
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "name",
+        maxLength: 96,
+        slugify: (input: string) =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .slice(0, 96)
+            .replace(/[^a-z0-9-]/g, ""), // Ensure clean slugs
+      },
+      validation: (Rule) =>
+        Rule.required(),
+    }),
+    defineField({
       name: "bio",
       title: "Biography",
       type: "text",
@@ -213,7 +230,6 @@ export const AuthorSchema = defineType({
       title: "Alt text",
       type: "string"
     }),
-
     defineField({
       name: "linkedin",
       title: "Linkedin Link",

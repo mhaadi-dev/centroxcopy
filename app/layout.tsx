@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     description:
       "Centrox provides cutting-edge AI services tailored to meet diverse business needs...",
   },
+  alternates: {
+    canonical: "https://centrox.ai"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

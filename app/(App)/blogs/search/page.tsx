@@ -5,6 +5,14 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SubnavBar from "@/Components/Navbar/SubnavBar";
 
+// export const metadata = {
+//   title: "Search Blogs | Centrox AI",
+//   description:
+//     "Search wide range of blogs related to AI.",
+//   alternates: {
+//     canonical: "https://centrox.ai/blogs/search"
+//   }
+// };
 const Page = () => {
   const [showSearchComponent, setShowSearchComponent] = useState(true);
   const [allCategories, setAllCategories] = useState([]);
