@@ -14,10 +14,7 @@ export const authorType = defineType({
     }),
     defineField({
       name: "slug",
-      type: "slug",
-      options: {
-        source: "name",
-      },
+      type: "string",
     }),
     defineField({
       name: "image",

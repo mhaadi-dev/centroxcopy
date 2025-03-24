@@ -3,7 +3,7 @@ import { TeamUsSection } from "@/views/TeamSection";
 import servicebg from "@/assets/Servicebg.webp";
 import {team} from "@/store/imageStore"
 export const metadata = {
-  title: "Meet the Team | Centrox AI ",
+  title: "Meet the team of AI Engineers Solving Problems | Centrox AI",
   description:
     "Meet the expert team behind Centrox AI. Our team of AI Specialist, Co-founder, engineers, managers and marketers driving innovative AI-powered solutions",
   alternates: {

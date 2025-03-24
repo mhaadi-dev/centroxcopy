@@ -211,7 +211,8 @@ const Page = async ({ params }: {params:{slug:string}}) => {
           name: blogData?.author?.name,
           author_description: blogData?.author?.bio,
           author_image: blogData?.author?.image?.image,
-          linkedin: blogData?.author?.linkedin
+          linkedin: blogData?.author?.linkedin,
+          _id:blogData?.author?._id
         }}
         headings={AllHeadings || []}
         content={blogData.content_item?.blog_data}

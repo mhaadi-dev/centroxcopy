@@ -38,7 +38,13 @@ import gitlab from "@/assets/casestudies/GitLabCLI.svg";
 import stripe from "@/assets/casestudies/Stripe.svg";
 import sentry from "@/assets/casestudies/Sentry.svg";
 
- 
+export const metadata = {
+  title: "Optimizing Dumpster Placement with AI for Rentuhbin | Centrox AI",
+  description: "Centrox AI optimized Rentuhbin’s dumpster placement using AI for accurate sizing, compliance, and real-time updates, boosting efficiency and reducing errors.",
+  alternates: {
+    canonical: "https://centrox.ai/case-studies/rentuhbin"
+  }
+};
 
 const page = ({ params }: { params: { slug: string } }) => {
   const banner1Data = {

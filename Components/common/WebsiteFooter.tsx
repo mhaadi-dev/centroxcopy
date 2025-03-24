@@ -46,9 +46,7 @@ export default function WebsiteFooter() {
       // aria-labelledby="footer-heading"
       className="my-12 max-w-[2500px] "
     >
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
+     
       <div className="mx-auto  border-blue-200   pb-8 pt-16 sm:pt-24 lg:pt-32 w-4/5  ">
         <div className="flex flex-col lg:flex-row justify-between  gap-12">
           <figure className="space-y-8 w-4/5 flex justify-center lg:items-start lg:justify-start mx-auto  lg:w-2/5 ">

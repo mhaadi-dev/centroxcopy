@@ -29,6 +29,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://centrox.ai/case-studies/', lastModified: new Date().toISOString(), priority: 0.8 },
     { url: 'https://centrox.ai/blogs/', lastModified: new Date().toISOString(), priority: 0.8 },
     { url: 'https://centrox.ai/blogs/search', lastModified: new Date().toISOString(), priority: 0.8 },
+    { url: 'https://centrox.ai/authors', lastModified: new Date().toISOString(), priority: 0.8 },
+
   ];
 
   const isStaging = process.env.NEXT_PUBLIC_ENV === 'staging';
