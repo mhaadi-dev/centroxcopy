@@ -71,7 +71,7 @@ const Page = () => {
       document.head.appendChild(newCanonicalLink);
     }
   }, []);
-
+// this is search page
   return (
     <>
       <SubnavBar
