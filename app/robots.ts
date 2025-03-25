@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         ...(isStaging
           ? { disallow: '/' } 
           : {
-              allow: ['/blogs', '/*.tsx'], 
+              allow: ['/blogs', '/'], 
               disallow: ['/blogs/search', '/studio'],
             }),
       },
