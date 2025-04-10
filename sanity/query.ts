@@ -146,7 +146,7 @@ export const GET_PAGINATED_ARTICLES_QUERY_ONSPECIFICPAGE = groq`
   *[_type == "blog" && _id > $lastId][$index]._id 
 `;
 export const GET_BLOG_BY_ID_QUERY = groq`
-  *[_type == "blog" && label.current == $slug][0] {
+  *[_type == "blog" && label.current == $slug && category->category_name == $category][0] {
     _id,
     _createdAt,_updatedAt,
     name,
@@ -154,7 +154,7 @@ export const GET_BLOG_BY_ID_QUERY = groq`
     meta_description,
     subslug,
     label,
-     category->{category_name,category_meta_title,category_meta_description},
+    category->{category_name,category_meta_title,category_meta_description},
     author->{
       name,
       bio,
@@ -174,7 +174,6 @@ export const GET_BLOG_BY_ID_QUERY = groq`
       isSearchResult,
       label,
       duration,
-
       colSpan,
       blog_data,
       banner_data,
@@ -183,6 +182,7 @@ export const GET_BLOG_BY_ID_QUERY = groq`
     }
   }
 `;
+
 
 
 export const PAGINATED_SEARCH_BLOGS_QUERY = (keyword: string, startRange: number, endRange: number) => groq`

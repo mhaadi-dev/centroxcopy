@@ -21,28 +21,24 @@ import { ArticleJsonLd ,BreadcrumbJsonLd,WebPageJsonLd} from "next-seo";
 export const revalidate =0;
 export async function generateMetadata({
   params
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = params;
-  const blogSlug: string = slug;
-
+}: any) {
+  const slugs = params;
   try {
-    // Fetch blog data
     const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, {
-      slug: blogSlug
+      slug:slugs.slug,
+      category: slugs.category
     });
     if (!blogData) {
       notFound();
       return;
     }
-    // Clean and structure metadata
+
     const metaTitle = cleanMetaString(blogData.meta_title || "Centrox AI");
     const metaDescription = cleanMetaString(
       blogData.meta_description || "Centrox AI | Heart of Innovation"
     );
 
-    let metaImage = blogData.content_item?.preview_image?.image;
+    const metaImage = blogData.content_item?.preview_image?.image;
 
     const metaUrl = cleanMetaString(
       `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
@@ -76,18 +72,20 @@ export async function generateMetadata({
       metadataBase: new URL("https://centrox.ai")
     };
   } catch (error) {
-    console.error("Error fetching blog data:", error);
+    console.error("Error fetching blog metadata:", error);
     notFound();
-    return;
   }
 }
 
-const Page = async ({ params }: {params:{slug:string}}) => {
-  const { slug } = params;
-  let similarBlogs = [];
-  const blogSlug: string = slug;
 
-  const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, { slug: blogSlug });
+const Page = async ({ params }:any) => {
+  const slugs = params
+  let similarBlogs = [];
+  const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, {
+    slug:slugs.slug,
+    category: slugs.category
+  });
+
   const allCategories = await client.fetch(GET_ALL_CATEGORIES);
 
   if (!blogData) {
@@ -100,9 +98,10 @@ const Page = async ({ params }: {params:{slug:string}}) => {
       category: blogData?.category?.category_name
     });
   }
+
   const extractHeadings = (content: any) => {
     const headingList: string[] = [];
-    const headingStyles = /h[2]/; // Matches h2
+    const headingStyles = /h[2]/;
 
     content?.forEach((block: any) => {
       if (
@@ -115,19 +114,19 @@ const Page = async ({ params }: {params:{slug:string}}) => {
     });
     return headingList;
   };
+
   let AllHeadings;
 
   if (blogData.content_item?.blog_data) {
     AllHeadings = extractHeadings(blogData.content_item?.blog_data);
   }
-  // createOrUpdateBlog(blogData)
-  // console.log("BLOGGG",blogData)
+
   return (
     <section className="relative">
       <ArticleJsonLd
         useAppDir={true}
         type="BlogPosting"
-        url={`https://centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
+        url={`https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
         title={blogData.meta_title}
         images={[blogData.content_item?.preview_image?.image]}
         datePublished={blogData?.content_item?.date}
@@ -141,47 +140,47 @@ const Page = async ({ params }: {params:{slug:string}}) => {
         isAccessibleForFree={true}
         mainEntityOfPage={{
           "@type": "WebPage",
-          "@id": `https://centrox.ai/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
+          "@id": `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
         }}
         headline={blogData?.meta_title}
         articleSection={slugify(blogData.category?.category_name)}
         keywords={blogData?.keywords}
       />
       <BreadcrumbJsonLd
-      useAppDir={true}
-      itemListElements={[
-    {
-      position: 1,
-      name: 'Home',
-      item: 'https://centrox.ai/',
-    },
-    {
-      position: 2,
-      name: 'Blogs',
-      item: 'https://centrox.ai/blogs',
-    },
-    {
-      position: 3,
-      name: 'Category',
-      item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}`,
-    },
-    {
-      position: 4,
-      name: 'Details',
-      item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`,
-    },
-  ]}
-/>
-   <WebPageJsonLd
-          useAppDir={true}
-          description="Discover what's latest in Gen AI, Machine Learning, LLM Dev, and AI Innovation. Stay updated with insights to boost your business through AI technology"
-          id={`https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
-          lastReviewed={new Date().toISOString()}
-          reviewedBy={{
-            type: "Person",
-            name: "Muhammad Harris Bin Naeem"
-          }}
-        />
+        useAppDir={true}
+        itemListElements={[
+          {
+            position: 1,
+            name: 'Home',
+            item: 'https://centrox.ai/',
+          },
+          {
+            position: 2,
+            name: 'Blogs',
+            item: 'https://centrox.ai/blogs',
+          },
+          {
+            position: 3,
+            name: 'Category',
+            item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}`,
+          },
+          {
+            position: 4,
+            name: 'Details',
+            item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`,
+          },
+        ]}
+      />
+      <WebPageJsonLd
+        useAppDir={true}
+        description="Discover what's latest in Gen AI, Machine Learning, LLM Dev, and AI Innovation. Stay updated with insights to boost your business through AI technology"
+        id={`https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`}
+        lastReviewed={new Date().toISOString()}
+        reviewedBy={{
+          type: "Person",
+          name: "Muhammad Harris Bin Naeem"
+        }}
+      />
 
       <SubnavBar
         imageLink={"/"}
@@ -192,11 +191,11 @@ const Page = async ({ params }: {params:{slug:string}}) => {
         className="!mt-28 lg:mt-0"
         heading={
           blogData.content_item?.banner_data?.banner_heading ||
-          blogData?.[0]?.meta_title
+          blogData?.meta_title
         }
         paraText={
           blogData.content_item?.banner_data?.banner_description ||
-          blogData?.[0]?.meta_description
+          blogData?.meta_description
         }
         date={new Date(blogData.content_item?.date).toLocaleDateString()}
         name={blogData.content_item?.name}
@@ -212,7 +211,7 @@ const Page = async ({ params }: {params:{slug:string}}) => {
           author_description: blogData?.author?.bio,
           author_image: blogData?.author?.image?.image,
           linkedin: blogData?.author?.linkedin,
-          _id:blogData?.author?._id
+          _id: blogData?.author?._id
         }}
         headings={AllHeadings || []}
         content={blogData.content_item?.blog_data}
@@ -240,3 +239,5 @@ const Page = async ({ params }: {params:{slug:string}}) => {
 };
 
 export default Page;
+
+
