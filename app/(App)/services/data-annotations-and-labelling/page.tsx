@@ -406,7 +406,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
    
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-        <HeroSection {...heroData} alt="Type of Data Annotation"  bgimage1={servicebg} img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Data+Annotations1.svg"} bgClassName="opacity-60"   />
+        <HeroSection {...heroData} alt="Type of Data Annotation"  bgimage1={servicebg} img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Data+Annotations1.svg"} bgClassName="opacity-60"  moveToSection=""
+            link=""  />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

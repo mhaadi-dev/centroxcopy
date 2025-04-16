@@ -486,7 +486,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
    
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} alt="Process of AI-powered Chatbots "  bgimage1={servicebg} bgClassName="opacity-60"  />
+          <HeroSection {...heroData}  moveToSection=""
+            link="" alt="Process of AI-powered Chatbots "  bgimage1={servicebg} bgClassName="opacity-60"  />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

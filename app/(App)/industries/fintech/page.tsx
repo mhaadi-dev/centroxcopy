@@ -429,7 +429,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
      
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} alt="Gen AI Solutions for Fintech Use Cases" />
+          <HeroSection {...heroData} alt="Gen AI Solutions for Fintech Use Cases"  moveToSection=""
+            link=""/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <CommonDisplayCardsGrid data={cardsSolutions} gridCols={3}  />

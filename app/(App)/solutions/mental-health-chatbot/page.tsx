@@ -495,6 +495,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage2={solutionbg2}
             bgClassName="opacity-30"
             alt="Mental health chatbot view"
+             moveToSection=""
+            link=""
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} gridCols={3}/>

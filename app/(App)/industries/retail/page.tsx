@@ -549,7 +549,8 @@ const stepperdata = {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} alt="AI in Creating Personalised Shopping Experiences " />
+          <HeroSection {...heroData} alt="AI in Creating Personalised Shopping Experiences "  moveToSection=""
+            link=""/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection

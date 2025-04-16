@@ -464,7 +464,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection alt="AI-powered Body measurement tool" {...heroData} bgimage1={solutionbg2} bgimage2={solutionbg1} bgClassName="opacity-30"/>
+          <HeroSection  moveToSection=""
+            link="" alt="AI-powered Body measurement tool" {...heroData} bgimage1={solutionbg2} bgimage2={solutionbg1} bgClassName="opacity-30"/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} gridCols={3} />
           <LandingSolutionsSection

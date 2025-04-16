@@ -70,7 +70,7 @@ setIsClient(true)
             const newLink = `/blogs/${slugify(x?.category?.category_name )}/${(slugify(x?.label?.current))} `;
             return (
               // link={`${x?.slug?.current }/${x?.subslug?.current}`}
-                 <CommonCard key={index} label={reSlugify(x?.label?.current)} linkText={x?.content_item?.linkText || "Learn more"} linkWithIcon={x.content_item?.linkWithIcon} link={newLink} subdescription={x?.meta_description}  title={x?.meta_title} category={x?.category?.category_name} date={x.content_item?.date} image={x.content_item?.image?.image} tags={x.content_item?.tags} duration={calculateReadingTime(x?.content_item?.blog_data)}/>
+                 <CommonCard key={index} label={reSlugify(x?.label?.current)} linkText={x?.content_item?.linkText || "Learn more"} linkWithIcon={x.content_item?.linkWithIcon} link={newLink} subdescription={x?.meta_description}  title={x?.content_item?.banner_data?.banner_heading} category={x?.category?.category_name} date={x.content_item?.date} image={x.content_item?.image?.image} tags={x.content_item?.tags} duration={calculateReadingTime(x?.content_item?.blog_data)}/>
              
                 
             );

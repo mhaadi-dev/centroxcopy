@@ -468,7 +468,8 @@ const stepperdata = {
     <div>
   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} alt="Transforming Healthcare with Generative AI" />
+          <HeroSection {...heroData} alt="Transforming Healthcare with Generative AI"  moveToSection=""
+            link=""/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection
