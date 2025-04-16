@@ -370,6 +370,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             bgClassName="opacity-60" 
             img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Data+Validations1.svg"}
+             moveToSection=""
+            link=""
         
           />
 

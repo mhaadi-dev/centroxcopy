@@ -580,7 +580,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
     
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection {...heroData} alt="Real estate AI chatbot in Real estate industry" />
+          <HeroSection {...heroData} alt="Real estate AI chatbot in Real estate industry"  moveToSection=""
+            link=""/>
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} />
           <LandingSolutionsSection

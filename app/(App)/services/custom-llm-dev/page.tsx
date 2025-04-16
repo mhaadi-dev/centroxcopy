@@ -440,6 +440,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             btnText="Book a FREE Strategy Call"
             img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Custom+LLM+2.svg"}
             bgimage1={servicebg}
+            moveToSection=""
+            link=""
             bgClassName="opacity-60" 
             alt="Process of Creating Custom LLM "
           />

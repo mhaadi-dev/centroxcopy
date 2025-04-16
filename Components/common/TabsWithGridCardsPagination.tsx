@@ -128,7 +128,8 @@ const TabsWithGridCardsPagination = ({
                   duration={card?.duration}
                   image={card?.content_item?.image?.image}
                   subdescription={card?.meta_description}
-                  title={card?.meta_title}
+                  title={card?.content_item?.banner_data?.banner_heading}
+
                   tags={card?.content_item?.tags}
                   linkText={card?.content_item?.linkText}
                   linkWithIcon={card?.content_item?.linkWithIcon}

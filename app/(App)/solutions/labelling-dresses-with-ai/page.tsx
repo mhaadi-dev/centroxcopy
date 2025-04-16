@@ -437,7 +437,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
   
         <main className="max-w-[2500px] mx-auto bg-[#060606] ">
-          <HeroSection alt="AI Image labeling your fashion products" img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/labeling+dresses+with+ai.svg"} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
+          <HeroSection  moveToSection=""
+            link="" alt="AI Image labeling your fashion products" img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/solutions/labeling+dresses+with+ai.svg"} {...heroData} bgimage1={solutionbg1} bgimage2={solutionbg2} bgClassName="opacity-30" />
           <LogosCarousel />
           <CommonDisplayCardsGrid
             data={challengeData}

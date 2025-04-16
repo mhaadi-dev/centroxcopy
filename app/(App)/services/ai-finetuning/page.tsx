@@ -442,6 +442,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             btnText="Schedule a Session"
             bgClassName="opacity-60" 
+             moveToSection=""
+            link=""
           />
           <LogosCarousel />
           <CommonDisplayCardsGrid data={challengeData} resizeableCardsLayout gridCols={3} />

@@ -427,6 +427,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             bgimage1={servicebg}
             img={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/services/Pipeline1.svg"}
             bgClassName="opacity-60" 
+            moveToSection=""
+            link=""
+            btnText="Book FREE Strategy Call"
             alt="Managing and evaluating ML Ops and AI dev"
            
           />
