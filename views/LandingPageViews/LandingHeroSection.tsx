@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { CalendlyWidget } from '@/Components/common/Calendly';
 import classNames, { text_para_main } from '@/helpers/common'
-
+import smallhero from "@/assets/smallhero.svg"
 
 const LandingHeroSection = () => {
     return (
@@ -11,10 +11,19 @@ const LandingHeroSection = () => {
           <Image
             id="hero-bg"
             src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/home/hero-bg.webp"}
-            className="absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-100"
+            className=" hidden lg:block absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-100"
             alt="hero-bg"
             width={1920}
             height={895}
+            priority={true}
+          />
+            <Image
+            id="hero-bg"
+            src={smallhero}
+            className="lg:hidden absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-70"
+            alt="hero-bg"
+            // width={1920}
+            // height={895}
             priority={true}
           />
 
