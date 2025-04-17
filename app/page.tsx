@@ -40,7 +40,7 @@ const LandingCaseStudySection = dynamic(() => import('@/views/LandingPageViews/L
 const LandingTestimonialSection = dynamic(() => import('@/views/LandingPageViews/LandingTestimonialSection'));
 
 
-
+//redeploy to test the contact form
 
    
 export const revalidate=10;
