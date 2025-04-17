@@ -1,59 +1,27 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true"
-});
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "tailwindui.com"
-      },
-      {
-        protocol: "https",
-        hostname: "unsplash.com"
-      },
-      {
-        protocol: "https",
-        hostname: "asset.cloudinary.com"
-      },
-      {
-        protocol: 'https',
-        hostname: 'centrox-landing-bucket.s3.eu-north-1.amazonaws.com',
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io"
-      }
-    ]
+      { protocol: 'https', hostname: 'tailwindui.com' },
+      { protocol: 'https', hostname: 'unsplash.com' },
+      { protocol: 'https', hostname: 'asset.cloudinary.com' },
+      { protocol: 'https', hostname: 'centrox-landing-bucket.s3.eu-north-1.amazonaws.com' },
+      { protocol: 'https', hostname: 'cdn.sanity.io' },
+    ],
   },
   experimental: {
-    taint: true
+    taint: true,
   },
   reactStrictMode: false,
   webpack: (config, { dev, isServer }) => {
     if (dev) {
-      config.devtool = "source-map";
+      config.devtool = 'source-map'
     }
-    return config;
+    return config
   },
-  async redirects() {
-    if (process.env.NEXT_PUBLIC_ENV === "production") {
-      const redirectPaths = [
-        "/case-studies/search",
-        "/services",
-        "/solutions",
-        "/industries"
-      ];
+}
 
-      return redirectPaths.map((path) => ({
-        source: path,
-        destination: "/",
-        permanent: false
-      }));
-    }
-    return [];
-  }
-};
-
-module.exports = withBundleAnalyzer(nextConfig);
+module.exports = withBundleAnalyzer(nextConfig)
