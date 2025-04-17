@@ -15,7 +15,7 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: allowCDN, 
-  token: isProduction ? undefined : undefined, 
+  token: isProduction ? undefined : token, 
   stega: {
     enabled: isStaging,
     studioUrl: "/studio",
