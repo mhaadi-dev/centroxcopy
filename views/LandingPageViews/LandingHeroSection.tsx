@@ -19,11 +19,11 @@ const LandingHeroSection = () => {
           />
             <Image
             id="hero-bg"
-            src={smallhero}
-            className="lg:hidden absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-70"
+            src={"https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/home/smallhero.svg"}
+            className="lg:hidden absolute inset-0  lg:w-full lg:h-full h-full    w-full object-cover  opacity-40"
             alt="hero-bg"
-            // width={1920}
-            // height={895}
+            width={522}
+            height={322}
             priority={true}
           />
 
