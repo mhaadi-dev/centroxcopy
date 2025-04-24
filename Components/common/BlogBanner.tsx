@@ -136,10 +136,11 @@ const BlogBanner = ({
           </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={banner_image} alt={alt ||""} width={610} height={320} className=""></Image>
+          <Image loading="eager" src={banner_image} alt={alt ||""} width={610} height={320} className=""></Image>
         </div>
       </div>
-    </section>  : <Link href={!showReadLink ? "":  `/blogs/${slugify(category)}/${slugify(label)}`}  >
+    </section>  : 
+    <Link href={!showReadLink ? "":  `/blogs/${slugify(category)}/${slugify(label)}`}  >
       <section
       className={classNames(
         section_wrapper_class,
@@ -220,7 +221,7 @@ const BlogBanner = ({
           </Link>}
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src={banner_image} alt={alt ||""} width={610} height={320} className=""></Image>
+          <Image loading="eager" src={banner_image} alt={alt ||""} width={610} height={320} className=""></Image>
         </div>
       </div>
     </section>
