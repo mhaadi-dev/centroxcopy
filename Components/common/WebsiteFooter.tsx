@@ -4,10 +4,8 @@ import AppLogo from "../../public/images/updatedCentroxLogo.svg";
 import TwitterIcon from "@/assets/twitter.svg";
 import LinkedinIcon from "@/assets/linkedin.svg";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useContext } from "react";
-import { ServiceViewContext } from "@/store/ServiceViewProivder";
-import { SHOW_SERVICES } from "@/helpers/enums";
+import { useRouter } from "next/navigation";
+
 const navigation = {
   services: [
     { name: "Custom LLM Development", href: "/services/custom-llm-dev" },
@@ -38,8 +36,7 @@ const navigation = {
 
 export default function WebsiteFooter() {
   const router = useRouter();
-  const { setView } = useContext(ServiceViewContext);
-  const pathname = usePathname();
+
  
   return (
     <footer
