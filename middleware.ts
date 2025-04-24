@@ -70,5 +70,5 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: ['/services', '/blogs/:path*'],
-  runtime: 'experimental-edge', 
+  // runtime: 'experimental-edge', 
 }

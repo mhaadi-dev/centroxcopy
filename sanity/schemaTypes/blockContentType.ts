@@ -2,23 +2,11 @@
 import {defineType, defineArrayMember} from 'sanity'
 import {ImageIcon} from '@sanity/icons'
 
-/**
- * This is the schema type for block content used in the post document type
- * Importing this type into the studio configuration's `schema` property
- * lets you reuse it in other document types with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- */
-
 export const blockContentType = defineType({
   title: 'Block Content',
   name: 'blockContent',
   type: 'array',
   of: [
-    // Block type for text content with additional list options
     defineArrayMember({
       type: 'block',
       styles: [
@@ -34,7 +22,7 @@ export const blockContentType = defineType({
       lists: [
         {title: 'Bullet', value: 'bullet'},
         {title: 'Numbered', value: 'number'},
-        {title: 'Check List', value: 'checklist'} // New list option
+        {title: 'Check List', value: 'checklist'}
       ],
       marks: {
         decorators: [
@@ -78,12 +66,30 @@ export const blockContentType = defineType({
               },
             ],
           },
+          // New YouTube Link Annotation
+          {
+            title: "YouTube Link",
+            name: "youtubeLink",
+            type: "object",
+            fields: [
+              {
+                title: "YouTube URL",
+                name: "url",
+                type: "url",
+                validation: Rule =>
+                  Rule.uri({
+                    scheme: ['https'],
+                    allowRelative: false,
+                  }).regex(/^(https:\/\/)(www\.)?(youtube\.com|youtu\.be)/, {
+                    name: 'YouTube URL',
+                    message: 'Must be a valid YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID or https://youtu.be/VIDEO_ID)',
+                  }),
+              },
+            ],
+          },
         ],
       },
-      
     }),
-
-    // Block type for images with a hotspot option
     defineArrayMember({
       type: 'image',
       icon: ImageIcon,
@@ -101,23 +107,16 @@ export const blockContentType = defineType({
         },
       ],
     }),
-
-    // Table type for structured data in blockContent
     defineArrayMember({
       type: 'object',
-      name: 'table', // Unique name for the table object
+      name: 'table',
       title: 'Table',
       fields: [
         {
           name: 'thead',
           type: 'array',
           title: 'Table Header',
-          of: [
-            {
-              type: 'string',
-              title: 'Header Cell',
-            },
-          ],
+          of: [{type: 'string', title: 'Header Cell'}],
         },
         {
           name: 'rows',
@@ -126,18 +125,13 @@ export const blockContentType = defineType({
           of: [
             {
               type: 'object',
-              name: 'tableRow', // Name each row to avoid conflicts
+              name: 'tableRow',
               fields: [
                 {
                   name: 'cells',
                   type: 'array',
                   title: 'Table Cells',
-                  of: [
-                    {
-                      type: 'string',
-                      title: 'Cell Content',
-                    },
-                  ],
+                  of: [{type: 'string', title: 'Cell Content'}],
                 },
               ],
             },
@@ -150,11 +144,9 @@ export const blockContentType = defineType({
         },
       ],
     }),
-    
-
     defineArrayMember({
       type: 'object',
-      name: 'codeBlock', 
+      name: 'codeBlock',
       title: 'Code Block',
       fields: [
         {
@@ -169,6 +161,5 @@ export const blockContentType = defineType({
         },
       ],
     }),
-
   ],
 });

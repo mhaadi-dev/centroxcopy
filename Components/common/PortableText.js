@@ -1,15 +1,24 @@
-import classNames, { text_h1_main, text_h2_class, text_h3_class, text_para_2, text_para_3 } from "@/helpers/common";
+import classNames from "@/helpers/common";
 import { slugify } from "@/sanity/lib/helpers";
 import { urlFor } from "@/sanity/lib/image";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
+const text_h1_main = "text-[#E5E7EB] text-[1.5rem] lg:text-[2rem] 2xl:text-[2.5rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]";
 const text_h2 = "text-[#E5E7EB] text-[1.35rem] lg:text-[1.73rem] 2xl:text-[2.4rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3.7rem]";
 const text_h3 = "text-[#E5E7EB] text-[1.2rem] lg:text-[1.38rem] 2xl:text-[1.65rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]";
 const text_h4 = "text-[#E5E7EB] text-[1.1rem] lg:text-[1.15rem] 2xl:text-[1.5rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]";
 const text_h5 = "text-[#E5E7EB] text-[1rem] lg:text-[1.1rem] 2xl:text-[1.35rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]";
 const text_h6 = "text-[#E5E7EB] text-[0.9rem] lg:text-[1.1rem] 2xl:text-[1.16rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]";
+const text_para_3 = "text-[#E5E7EB] text-[0.75rem] lg:text-[0.85rem] 2xl:text-[1rem] leading-[1.35rem] 2xl:leading-[1.6rem]";
+
+// Helper function to extract YouTube video ID from URL
+const getYouTubeVideoId = (url) => {
+  const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+};
 
 export const PortableComponent = {
   block: {
@@ -37,7 +46,6 @@ export const PortableComponent = {
       const anchorId = slugify(children?.[0]);
       return <h6 id={anchorId} className={classNames(text_h6, "mt-4 mb-1")}>{children}</h6>;
     },
-    p: ({ children }) => <p className={classNames("text-[#E5E7EB] text-[0.75rem] lg:text-[0.85rem] 2xl:text-[1rem] leading-[1.35rem] 2xl:leading-[1.6rem] my-1")}>{children}</p>,
     normal: ({ children }) => <p className="text-[0.88rem] mb-2 lg:text-[0.95rem] 2xl:text-[1.15rem] text-[#E5E7EB] text-start lg:text-justify">{children}</p>,
     blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-gray-300 pl-4 italic mt-4 mb-2 text-white">{children}</blockquote>
@@ -63,6 +71,24 @@ export const PortableComponent = {
         {children}
       </a>
     ),
+    youtubeLink: ({ value, children }) => {
+      const videoId = getYouTubeVideoId(value?.url);
+
+      if (!videoId) {
+        return <span className="text-red-500">{children} (Invalid YouTube URL)</span>;
+      }
+      return (
+        <div className="my-6 w-full overflow-visible">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title={children?.toString() || "YouTube video"}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full !h-[60vh]  rounded-lg"
+          />
+        </div>
+      );
+    },
   },
   types: {
     image: ({ value }) => {
