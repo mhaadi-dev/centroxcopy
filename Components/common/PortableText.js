@@ -4,6 +4,7 @@ import { urlFor } from "@/sanity/lib/image";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 const text_h1_main = "text-[#E5E7EB] text-[1.5rem] lg:text-[2rem] 2xl:text-[2.5rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3rem]";
 const text_h2 = "text-[#E5E7EB] text-[1.35rem] lg:text-[1.73rem] 2xl:text-[2.4rem] font-heading font-semibold leading-[2rem] 2xl:leading-[3.7rem]";
@@ -77,17 +78,7 @@ export const PortableComponent = {
       if (!videoId) {
         return <span className="text-red-500">{children} (Invalid YouTube URL)</span>;
       }
-      return (
-        <div className="my-6 w-full overflow-visible">
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}`}
-            title={children?.toString() || "YouTube video"}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full !h-[60vh]  rounded-lg"
-          />
-        </div>
-      );
+      return <YoutubeEmbed videoId={videoId} children={children} />;
     },
   },
   types: {
