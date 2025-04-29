@@ -9,7 +9,7 @@ const LandingHeroSection = () => {
       style={{ background: 'none', filter: 'none' }}
     >
       {/* Background image for all devices */}
-      <Image
+      {/* <Image
         id="hero-bg"
         src="https://centrox-landing-bucket.s3.eu-north-1.amazonaws.com/home/hero-bg.webp"
         className="absolute inset-0 w-full h-full object-cover opacity-100 z-0"
@@ -19,7 +19,7 @@ const LandingHeroSection = () => {
         priority={true}
         sizes="(max-width: 1024px) 600px, 1920px"
         style={{ aspectRatio: '1920/895' }}
-      />
+      /> */}
 
       <div className="relative z-10 flex flex-col gap-3 sm:gap-[1.5rem] items-center text-center px-4 sm:px-0 w-full h-full justify-center">
         <h1 className="text-white text-2xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold">
