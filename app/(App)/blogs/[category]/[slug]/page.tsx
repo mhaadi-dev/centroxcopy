@@ -10,24 +10,30 @@ import {
 } from "@/sanity/lib/helpers";
 import {
   GET_ALL_CATEGORIES,
-  GET_BLOG_BY_ID_QUERY,
-  GET_BLOGS_BY_CATEGORY_QUERY
+  GET_BLOG_BY_ID_QUERY
 } from "@/sanity/query";
-import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { notFound } from "next/navigation";
-import React from "react";
-import { ArticleJsonLd ,BreadcrumbJsonLd,WebPageJsonLd} from "next-seo";
+import React, { Suspense } from "react";
+import { ArticleJsonLd, BreadcrumbJsonLd, WebPageJsonLd } from "next-seo";
+import dynamic from "next/dynamic";
 
-export const revalidate =0;
-export async function generateMetadata({
-  params
-}: any) {
-  const slugs = params;
+// Dynamically import LandingBlogSection for lazy loading
+const LazyLandingBlogSection = dynamic(() => import("@/views/LandingPageViews/LandingBlogSection"), {
+  ssr: false,
+  loading: () => <div className="h-64  animate-pulse" />
+});
+
+// Set revalidation to 60 seconds for ISR
+export const revalidate = 60;
+
+// Cache blog data to avoid duplicate fetches
+async function fetchBlogData(slug: string, category: string) {
+  return await client.fetch(GET_BLOG_BY_ID_QUERY, { slug, category }, { cache: "force-cache" });
+}
+
+export async function generateMetadata({ params }: { params: { slug: string; category: string } }) {
   try {
-    const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, {
-      slug:slugs.slug,
-      category: slugs.category
-    });
+    const blogData = await fetchBlogData(params.slug, params.category);
     if (!blogData) {
       notFound();
       return;
@@ -37,9 +43,7 @@ export async function generateMetadata({
     const metaDescription = cleanMetaString(
       blogData.meta_description || "Centrox AI | Heart of Innovation"
     );
-
     const metaImage = blogData.content_item?.preview_image?.image;
-
     const metaUrl = cleanMetaString(
       `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${blogData.label?.current}`
     );
@@ -77,26 +81,12 @@ export async function generateMetadata({
   }
 }
 
-
-const Page = async ({ params }:any) => {
-  const slugs = params
-  let similarBlogs = [];
-  const blogData = await client.fetch(GET_BLOG_BY_ID_QUERY, {
-    slug:slugs.slug,
-    category: slugs.category
-  });
-
-  const allCategories = await client.fetch(GET_ALL_CATEGORIES);
+const Page = async ({ params }: { params: { slug: string; category: string } }) => {
+  const blogData = await fetchBlogData(params.slug, params.category);
+  const allCategories = await client.fetch(GET_ALL_CATEGORIES, {}, { cache: "force-cache" });
 
   if (!blogData) {
     notFound();
-  } else {
-    const query = GET_BLOGS_BY_CATEGORY_QUERY(
-      blogData?.category?.category_name
-    );
-    similarBlogs = await client.fetch(query, {
-      category: blogData?.category?.category_name
-    });
   }
 
   const extractHeadings = (content: any) => {
@@ -115,14 +105,18 @@ const Page = async ({ params }:any) => {
     return headingList;
   };
 
-  let AllHeadings;
+  let AllHeadings = blogData.content_item?.blog_data
+    ? extractHeadings(blogData.content_item?.blog_data)
+    : [];
 
-  if (blogData.content_item?.blog_data) {
-    AllHeadings = extractHeadings(blogData.content_item?.blog_data);
-  }
+  // console.log("Blog data for related blogs:", {
+  //   category: blogData?.category?.category_name,
+  //   related_blogs_heading: blogData.content_item?.related_blogs_heading,
+  //   hasRelatedBlogs: !!blogData.content_item?.related_blogs_heading
+  // });
 
   return (
-    <section className="relative">
+    <section className="relative font-paragraph">
       <ArticleJsonLd
         useAppDir={true}
         type="BlogPosting"
@@ -151,24 +145,24 @@ const Page = async ({ params }:any) => {
         itemListElements={[
           {
             position: 1,
-            name: 'Home',
-            item: 'https://centrox.ai/',
+            name: "Home",
+            item: "https://centrox.ai/"
           },
           {
             position: 2,
-            name: 'Blogs',
-            item: 'https://centrox.ai/blogs',
+            name: "Blogs",
+            item: "https://centrox.ai/blogs"
           },
           {
             position: 3,
-            name: 'Category',
-            item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}`,
+            name: "Category",
+            item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}`
           },
           {
             position: 4,
-            name: 'Details',
-            item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`,
-          },
+            name: "Details",
+            item: `https://centrox.ai/blogs/${slugify(blogData.category?.category_name)}/${slugify(blogData?.label?.current)}`
+          }
         ]}
       />
       <WebPageJsonLd
@@ -216,17 +210,15 @@ const Page = async ({ params }:any) => {
         headings={AllHeadings || []}
         content={blogData.content_item?.blog_data}
       />
-      {similarBlogs?.length > 1 && (
-        <LandingBlogSection
-          heading={blogData.content_item?.related_blogs_heading}
-          description={blogData.content_item?.related_blogs_paragraph}
-          cardsData={
-            similarBlogs?.length > 6
-              ? similarBlogs?.slice(0, 6)
-              : similarBlogs || []
-          }
-          className="overflow-hidden"
-        />
+      {blogData.content_item?.related_blogs_heading && (
+        <Suspense fallback={<div className="h-64 animate-pulse flex items-center justify-center text-white">Loading related blogs...</div>}>
+          <LazyLandingBlogSection
+            heading={blogData.content_item?.related_blogs_heading}
+            description={blogData.content_item?.related_blogs_paragraph}
+            category={blogData?.category?.category_name || ""}
+            className="overflow-hidden"
+          />
+        </Suspense>
       )}
       <IndustryBanner
         heading="Your AI Dream, Our Mission"
@@ -239,5 +231,3 @@ const Page = async ({ params }:any) => {
 };
 
 export default Page;
-
-
