@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
     const { email, otp } = await request.json();
-    console.log("VERIFY",email,otp)
+    // console.log("VERIFY",email,otp)
 
     if (!email || !otp) {
         return NextResponse.json(

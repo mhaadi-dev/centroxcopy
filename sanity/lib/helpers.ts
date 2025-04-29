@@ -39,7 +39,7 @@ interface ReadingTime {
 const extractTextFromContent = (content: any[]): string => {
   let textContent = '';
 
-  content.forEach((block) => {
+  content?.forEach((block) => {
     if (block._type === 'block' && block.children) {
       block.children.forEach((child:any) => {
         if (child.text) {

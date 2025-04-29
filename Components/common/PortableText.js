@@ -47,27 +47,27 @@ export const PortableComponent = {
       const anchorId = slugify(children?.[0]);
       return <h6 id={anchorId} className={classNames(text_h6, "mt-4 mb-1")}>{children}</h6>;
     },
-    normal: ({ children }) => <p className="text-[0.88rem] mb-2 lg:text-[0.95rem] 2xl:text-[1.15rem] text-[#E5E7EB] text-start lg:text-justify">{children}</p>,
+    normal: ({ children }) => <p className="text-[0.88rem] mb-2 lg:text-[0.95rem] 2xl:text-[1.15rem] text-[#E5E7EB] text-start lg:text-justify font-paragraph">{children}</p>,
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-gray-300 pl-4 italic mt-4 mb-2 text-white">{children}</blockquote>
+      <blockquote className="border-l-4 border-gray-300 pl-4 italic mt-4 mb-2 text-white font-paragraph">{children}</blockquote>
     ),
   },
   list: {
-    bullet: ({ children }) => <ul className="text-left text-[0.88rem] lg:text-[0.95rem] 2xl:text-[1.15rem] lg:text-left list-disc pl-5 text-white">{children}</ul>,
-    number: ({ children }) => <ol className="text-left lg:text-left list-decimal pl-5 my-4 flex flex-col gap-2 text-white">{children}</ol>,
+    bullet: ({ children }) => <ul className="text-left text-[0.88rem] lg:text-[0.95rem] font-paragraph 2xl:text-[1.15rem] lg:text-left list-disc pl-5 text-white">{children}</ul>,
+    number: ({ children }) => <ol className="text-left lg:text-left list-decimal pl-5 font-paragraph my-4 flex flex-col gap-2 text-white">{children}</ol>,
   },
   marks: {
-    strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
-    em: ({ children }) => <em className="italic text-white">{children}</em>,
+    strong: ({ children }) => <strong className="font-bold font-paragraph text-white">{children}</strong>,
+    em: ({ children }) => <em className="italic font-paragraph text-white">{children}</em>,
     highlight: ({ children }) => (
-      <span className="bg-[#079DFC4D] px-1">{children}</span>
+      <span className="bg-[#079DFC4D] font-paragraph px-1">{children}</span>
     ),
     link: ({ value, children }) => (
       <a
         href={value?.href}
         target={value?.newTab ? "_blank" : "_self"}
         rel={`${value?.newTab ? "noopener noreferrer" : ""} ${value?.nofollow ? "nofollow" : ""}`.trim()}
-        className="text-blue-500 underline"
+        className="text-blue-500 underline font-paragraph"
       >
         {children}
       </a>
@@ -94,7 +94,7 @@ export const PortableComponent = {
     table: ({ value }) => {
       const { thead, rows, caption } = value;
       return (
-        <div className="overflow-x-auto my-6">
+        <div className="overflow-x-auto my-6 font-paragraph">
           <table className="w-full border-collapse border border-gray-300">
             {thead && (
               <thead className="bg-gray-900">

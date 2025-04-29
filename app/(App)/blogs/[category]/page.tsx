@@ -96,7 +96,7 @@ const Page = async ({ params }: { params: { category?: string[] } }) => {
                 },
               }));
     return (
-      <section className="text-white">
+      <section className="text-white font-paragraph">
         <BreadcrumbJsonLd
           useAppDir={true}
           itemListElements={[
