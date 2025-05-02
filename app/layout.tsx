@@ -7,13 +7,22 @@ import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 import { BlogsWrapper } from "./context";
 
-// Import Slick Carousel CSS correctly
+// Import Slick Carousel CSS
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Load fonts
-const jakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading",display:"swap" });
-const inter = Inter({ subsets: ["latin"], variable: "--font-paragraph",display:"swap" });
+const jakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-paragraph",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Centrox AI | Full-Cycle Gen AI and Custom LLM Dev Services",
@@ -37,13 +46,30 @@ export const metadata: Metadata = {
       "Centrox provides cutting-edge AI services tailored to meet diverse business needs...",
   },
   alternates: {
-    canonical: "https://centrox.ai"
-  }
+    canonical: "https://centrox.ai",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Optional: Preload fonts to improve loading performance */}
+        <link
+          rel="preload"
+          href="/fonts/plus-jakarta-sans.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/inter.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${jakartaSans.variable} ${inter.variable}`}>
         <GoogleTagManager gtmId={process.env["NEXT_PUBLIC_REACT_APP_GTM_ID"] as string} />
         <GoogleAnalytics gaId={process.env["NEXT_PUBLIC_REACT_APP_ANALYTICS_ID"] as string} />
@@ -66,9 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Disable preview mode
             </a>
           )}
-          <BlogsWrapper>
-            {children}
-          </BlogsWrapper>
+          <BlogsWrapper>{children}</BlogsWrapper>
 
           {draftMode().isEnabled && <VisualEditing />}
         </ServiceViewProvider>
