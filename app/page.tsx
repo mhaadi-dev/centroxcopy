@@ -6,9 +6,7 @@ import {  GETFirstBLOGS_QUERY } from "@/sanity/query";
 
 import dynamic from "next/dynamic";
 
-import LandingSolutionsSection from "@/views/LandingPageViews/LandingSolutionsSection";
 import LandingHeroSection from "@/views/LandingPageViews/LandingHeroSection";
-import LandingIndustriesSection from "@/views/LandingPageViews/LandingIndustriesSection";
 import LandingServicesSection from "@/views/LandingPageViews/LandingServicesSection";
 // import LandingFAQSection from "@/views/LandingPageViews/LandingFAQSection";
 // import LandingContactSection from "@/views/LandingPageViews/LandingContactSection";
@@ -24,7 +22,7 @@ import Icon7 from "@/assets/Icon-7.svg";
 import Icon8 from "@/assets/Icon-8.svg";
 import menubars from "@/assets/Icon-2.svg";
 
-import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
+// import LandingBlogSection from "@/views/LandingPageViews/LandingBlogSection";
 import { OrganizationJsonLd } from 'next-seo';
 import { industries, solutions } from "@/store/imageStore";
 // import { PortableText } from "next-sanity";
@@ -38,7 +36,9 @@ const LandingFAQSection = dynamic(() => import('@/views/LandingPageViews/Landing
 const LandingContactSection = dynamic(() => import('@/views/LandingPageViews/LandingContactSection'));
 const LandingCaseStudySection = dynamic(() => import('@/views/LandingPageViews/LandingCaseStudySection'));
 const LandingTestimonialSection = dynamic(() => import('@/views/LandingPageViews/LandingTestimonialSection'));
-
+const LandingSolutionsSection = dynamic(()=>import('@/views/LandingPageViews/LandingSolutionsSection'))
+const LandingIndustriesSection =  dynamic(()=>import('@/views/LandingPageViews/LandingIndustriesSection'))
+const LandingBlogSection =  dynamic(()=>import('@/views/LandingPageViews/LandingBlogSection'))
 
 //redeploy to test the contact form
 

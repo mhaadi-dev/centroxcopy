@@ -2,204 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimized Animations */
 @keyframes move {
-	0% {
-		transform: translateX(90%);
-	}
-	20% {
-		transform: translateX(80%);
-	}
-	40% {
-		transform: translateX(60%);
-	}
-	60% {
-		transform: translateX(40%);
-	}
-	80% {
-		transform: translateX(20%);
-	}
-	100% {
-		transform: translateX(50%);
-		-webkit-transform: translateX(50%);
-		-moz-transform: translateX(50%);
-		-ms-transform: translateX(50%);
-		-o-transform: translateX(50%);
-	}
-}
-html{
-	background-color:  #060606;
-
+  0% { transform: translateX(90%); }
+  20% { transform: translateX(80%); }
+  40% { transform: translateX(60%); }
+  60% { transform: translateX(40%); }
+  80% { transform: translateX(20%); }
+  100% { transform: translateX(50%); }
 }
 
 .animate-move {
-	animation: move 35s infinite linear;
-	animation-delay: 1s;
-	-webkit-animation: move 35s infinite linear;
+  animation: move 35s infinite linear;
+  animation-delay: 1s;
 }
 
+/* Highlighted Bar */
 .highlighted-bar {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 1px;
-	background-color: rgba(0, 122, 255, 1); /* Adjust the color as needed */
-	border-radius: 8px;
-	background: rgba(255, 255, 255, 0.08);
-	box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.25) inset,
-		0px 2px 2px 0px rgba(0, 0, 0, 0.25) inset,
-		0px -2px 2px 0px rgba(0, 0, 0, 0.15) inset;
-}
-.box-shadow-initial:hover {
-	box-shadow: 10px 10px 18px 18px rgba(0, 83, 168, 0.2) inset,
-		0px 0px 16px 0px rgba(6, 119, 230, 0.55);
-	backdrop-filter: blur(18px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(0, 122, 255, 1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.25) inset,
+    0 2px 2px rgba(0, 0, 0, 0.25) inset,
+    0 -2px 2px rgba(0, 0, 0, 0.15) inset;
 }
 
+/* Hover Box Shadow */
+.box-shadow-initial:hover {
+  box-shadow: 10px 10px 18px rgba(0, 83, 168, 0.2) inset,
+    0 0 16px rgba(6, 119, 230, 0.55);
+  backdrop-filter: blur(18px);
+}
+
+/* Scrollbar Styles (Consolidated) */
 ::-webkit-scrollbar {
-	width: 8px;
-	height: 3px;
+  width: 4px; /* Reduced size for better UX */
+  height: 3px;
 }
+
 ::-webkit-scrollbar-track {
-	background-color: #646464;
-}
-::-webkit-scrollbar-track-piece {
-	background-color: #e5e5e5;
+  background-color: #e5e5e5;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	height: 50px;
-	background-color: #666;
-	border-radius: 3px;
+  background-color: #079DFC;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+
 ::-webkit-resizer {
-	background-color: #666;
+  background-color: #666;
 }
 
+/* Textarea */
 textarea {
-	resize: none;
-  }
-.react-international-phone-input-container{
-	background-color: #060606 !important;
-	border-radius: 8px;
-
-} 
-
-.react-international-phone-input{
-	background-color:#060606  !important;
-	border: none !important;
-	border-bottom: 1px solid white !important;
-	outline: none !important;
-	width: 100% !important;
-	height: 2.6rem !important;
-
-	color: white !important;
-
-} 
-.react-international-phone-country-selector-button{
-	background-color: rgb(255 255 255 / 0.01) !important;
-	outline: none !important;
-	border: none !important;
-	border-bottom: 1px solid white !important;
-
-	height: 2.6rem !important;
-
-
+  resize: none;
 }
 
-
-.hrclass{
-	transition: all 0.4s ease-in-out;
+/* React International Phone Input */
+.react-international-phone-input-container {
+  background-color: #060606;
+  border-radius: 8px;
 }
 
+.react-international-phone-input {
+  background-color: #060606;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  width: 100%;
+  height: 2.6rem;
+  color: white;
+}
+
+.react-international-phone-country-selector-button {
+  background-color: rgba(255, 255, 255, 0.01);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  height: 2.6rem;
+}
+
+/* HR Transition */
+.hrclass {
+  transition: all 0.4s ease-in-out;
+}
+
+/* Active Stepper */
 .activeStepper {
-	border-radius: 16px;
-	border: 2px solid rgba(252, 252, 252, 0.20);
-	background: rgba(7, 157, 252, 0.30);
-	backdrop-filter: blur(46px);
-	animation: opacityanimation 0.6s linear forwards; 
+  border-radius: 16px;
+  border: 2px solid rgba(252, 252, 252, 0.2);
+  background: rgba(7, 157, 252, 0.3);
+  backdrop-filter: blur(46px);
+  animation: opacityanimation 0.6s linear forwards;
 }
 
 @keyframes opacityanimation {
-	from {
-		opacity: 0.5;
-	}
-	to {
-		opacity: 1;
-	}
+  from { opacity: 0.5; }
+  to { opacity: 1; }
 }
 
-  
-
+/* Fade In Animation */
 @keyframes fadeIn {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
-  }
-
-  /* .fade-in-image { animation: fadeIn 3s ease-in; }	 */
-
-  .slick-test .slick-track {
-    background: none !important;
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
+/* Slick Carousel */
 .slick-test .slick-slide {
-   background-color: #556677 !important;
-   margin-right: 5px;
-   padding: 3px;
+  background-color: #556677;
+  margin-right: 5px;
+  padding: 3px;
 }
 
-
-.animate-height {
-	max-height: 0;
-	overflow: hidden;
-	animation: heightanimate 1s ease-in-out forwards; /* 'forwards' ensures it keeps the final state */
-  }
-  
-  @keyframes heightanimate {
-	0% {
-	  max-height: 0;
-	}
-	100% {
-	  max-height: 500px;
-	}
-  }
- 
-& .slick-list { margin: 0 -10px; & .slick-slide > div { padding: 0 10px; } }
-
-
-.slick-track,
 .slick-list {
--webkit-perspective: 2000;
--webkit-backface-visibility: hidden;
+  margin: 0 -10px;
 }
 
-.carousalHoverShadow{
-	box-shadow: 0px 0px 20px 0px #079DFC, 0px 0px 12px 0px #079DFC inset, 0px -8px 24px 0px rgba(128, 255, 219, 0.40) inset;
+.slick-slide > div {
+  padding: 0 10px;
 }
-html{
-	scroll-behavior: smooth;
+
+/* Carousel Hover Shadow */
+.carousalHoverShadow {
+  box-shadow: 0 0 20px #079DFC, 0 0 12px #079DFC inset,
+    0 -8px 24px rgba(128, 255, 219, 0.4) inset;
 }
-::-webkit-scrollbar {
-    width: 2px;
-	background-color: #079DFC;
-	
+
+/* Height Animation */
+.animate-height {
+  max-height: 0;
+  overflow: hidden;
+  animation: heightanimate 1s ease-in-out forwards;
 }
-                    
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 2px rgba(77, 124, 187, 0.3); 
-    border-radius: 10px;
+
+@keyframes heightanimate {
+  from { max-height: 0; }
+  to { max-height: 500px; }
 }
-                    
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+
+/* Global Styles */
+html {
+  background-color: #060606;
+  scroll-behavior: smooth;
 }
+
+/* Font Definitions */
 :root {
-	--font-heading: "Plus Jakarta Sans", sans-serif;
-	--font-paragraph: "Inter", sans-serif;
-  }
-  
-  /* body {
-	font-family: var(--font-paragraph);
-  } */
-  
+  --font-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-paragraph: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-paragraph);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
