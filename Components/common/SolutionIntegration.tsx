@@ -5,6 +5,7 @@ import SectionTag from "@/Components/common/SectionTag"
 import classNames, { section_wrapper_class, text_h2_class, text_para_2 } from "@/helpers/common"
 import { Solutions } from "@/helpers/enums"
 import { Button } from "../Button.js/button"
+import { useRouter } from "next/navigation"
 
 const SolutionIntegration = () => {
     const [showDemo, setShowDemo] = useState(false)
@@ -16,7 +17,7 @@ const SolutionIntegration = () => {
     const [otp, setOtp] = useState("")
     const [showOtpInput, setShowOtpInput] = useState(false)
     const [demoToken, setDemoToken] = useState<string | null>(null)
-
+    const router = useRouter()
     // Reset demo if token expires
     useEffect(() => {
         if (showDemo && !demoToken) {
@@ -173,30 +174,34 @@ const SolutionIntegration = () => {
         setDemoToken(null)
         setError(null)
     }
-
-    if (showDemo && demoToken) {
-        return (
-            <section className={classNames(section_wrapper_class)}>
-                <div className="relative w-full">
-                    <iframe 
-                        src={`/api/demo-url?token=${demoToken}&solution=${Solutions.Snap}`}
-                        className="w-full h-screen border-0 rounded-lg"
-                        title="Solution Demo"
-                    />
-                    {error && (
-                        <div className="absolute top-0 left-0 right-0 bg-red-500 text-white p-4 text-center">
-                            {error}
-                            <button 
-                                onClick={handleRetry}
-                                className="ml-4 underline hover:no-underline"
-                            >
-                                Try Again
-                            </button>
-                        </div>
-                    )}
-                </div>
-            </section>
-        )
+const redirectToDemo=()=>{
+    window.open(process.env.NEXT_PUBLIC_SNAP_DEMO, '_blank');
+}
+    if (showDemo && demoToken ) {
+     
+        return <Button className="mx-auto my-10 lg:my-24" content="Go to Demo" onClick={()=>{redirectToDemo()}}/>
+        // return (
+        //     <section className={classNames(section_wrapper_class)}>
+        //         <div className="relative w-full">
+        //             <iframe 
+        //                 src={`/api/demo-url?token=${demoToken}&solution=${Solutions.Snap}`}
+        //                 className="w-full h-screen border-0 rounded-lg"
+        //                 title="Solution Demo"
+        //             />
+        //             {error && (
+        //                 <div className="absolute top-0 left-0 right-0 bg-red-500 text-white p-4 text-center">
+        //                     {error}
+        //                     <button 
+        //                         onClick={handleRetry}
+        //                         className="ml-4 underline hover:no-underline"
+        //                     >
+        //                         Try Again
+        //                     </button>
+        //                 </div>
+        //             )}
+        //         </div>
+        //     </section>
+        // )
     }
 
     if (showSuccess) {
