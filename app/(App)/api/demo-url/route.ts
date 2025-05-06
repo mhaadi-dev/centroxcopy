@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
 
     let targetUrl = ""
     if (solution === "snap and measure") {
-        targetUrl = "https://bm.demo.centrox.ai:9443/"
+        targetUrl = "https://bmf.demo.centrox.ai:9443/"
     } else if (solution === "labelling") {
         targetUrl = "https://labelling.demo.centrox.ai/"
     } else {
