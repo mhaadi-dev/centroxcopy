@@ -178,7 +178,7 @@ const redirectToDemo=()=>{
     window.open(process.env.NEXT_PUBLIC_SNAP_DEMO, '_blank');
 }
     if (showDemo && demoToken ) {
-     
+     //redirect to new tab
         return <Button className="mx-auto my-10 lg:my-24" content="Go to Demo" onClick={()=>{redirectToDemo()}}/>
         // return (
         //     <section className={classNames(section_wrapper_class)}>
