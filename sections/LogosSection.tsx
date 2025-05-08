@@ -53,7 +53,8 @@ export const LogosSection = ({heading,description,data,btnText="",caption=""}:an
                         <Image
                           src={el.img}
                           className={classNames("h-full w-full object-contain ")}
-                          
+                          width={73}
+                          height={73}
                           alt={el.alt}
                         />
                 }

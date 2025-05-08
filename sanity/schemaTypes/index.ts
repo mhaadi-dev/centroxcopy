@@ -2,6 +2,8 @@ import { type SchemaTypeDefinition } from 'sanity'
 import { blockContentType } from './blockContentType'
 import { AuthorSchema, BlogSchema, CategorySchema, ContentItemSchema } from './pages/Blogs'
 import { redirectType } from './redirects'
+import { imageWithAlt, cardItem, headerData, techStackItem } from "@/sanity/schemaTypes/commonTypes"
+import { caseStudy } from './pages/Casestudies'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -10,6 +12,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     ContentItemSchema,
     AuthorSchema,
     CategorySchema,
-    redirectType, // Add redirect schema
+    redirectType, 
+    caseStudy,
+    imageWithAlt,
+    cardItem,
+    headerData,
+    techStackItem
   ],
 }

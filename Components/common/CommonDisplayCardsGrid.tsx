@@ -23,7 +23,7 @@ interface Props {
   reverse?:boolean
 }
 const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridCols,headingClassName="",gradientBg=false,resizeableCardsLayout,reverse }: Props) => {
-  
+  console.log("data is:", data)
   if (!data) {
     return null;
   }
@@ -59,14 +59,14 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
               <CommonCardwithIcon
                 key={index}
                 isGradientBg={true}
-                Icon={card?.icon}
+                Icon={ card?.icon?.src || card?.icon}
                 heading={card?.heading}
                 description={card?.description}
                 className="!h-auto !rounded-3xl w-full"
                 linkText={card?.linkText}
                 headingClassName={headingClassName}
                 symbol={card.symbol}
-                alt={card?.alt}
+                alt={ card?.icon?.alt || card.alt}
               />
             ))
           : ""}
@@ -99,8 +99,8 @@ const CommonDisplayCardsGrid = ({ data, caseStudyCards = false, tags=false,gridC
                 symbol={card.symbol}
                 colSpan={card.colSpan}
                 reverse={card.reverse}
-                bentoImage={card?.bentoImage}
-                altText={card?.alt}
+                bentoImage={   card?.bentoImage?.src ? card?.bentoImage?.src : card?.bentoImage}
+                altText={ card?.bentoImage?.alt ? card?.bentoImage?.alt : card?.alt }
               />
             ))
           : ""}

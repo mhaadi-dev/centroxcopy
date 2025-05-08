@@ -853,3 +853,50 @@ export const LANDING_PAGE_QUERY = `*[_type == "landingPage"]{
   },
 
 }`;
+export const GET_CASE_STUDY_BY_SLUG = `*[_type == "caseStudy" && slug.current == $slug][0] {
+  title,
+  slug,
+  meta_title,
+  meta_description,
+  sections[] {
+    _type,
+    showSection,
+    order,
+    heading,
+    para1Text,
+    image { asset-> { url }, alt },
+    headerData { tagText, headingText, para1Text, para2Text, heading2Text },
+    cards[] {
+      icon { asset-> { url }, alt },
+      heading,
+      caption,
+      symbol,
+      description,
+      linkText,
+      colSpan,
+      bentoImage { asset-> { url }, alt }
+    },
+    extraCards[] {
+      icon { asset-> { url }, alt },
+      heading,
+      caption,
+      symbol,
+      description,
+      linkText,
+      colSpan,
+      bentoImage { asset-> { url }, alt }
+    },
+    headingText,
+    review,
+    name,
+    position,
+    revenue,
+    paraText,
+    bgImage { asset-> { url }, alt },
+    resizeableCardsLayout,
+    btnText,
+    description,
+    steps[] { title, content, status },
+    categories[] { title, content[] { caption, img { asset-> { url }, alt } } }
+  }
+}`;
