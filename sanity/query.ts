@@ -900,3 +900,25 @@ export const GET_CASE_STUDY_BY_SLUG = `*[_type == "caseStudy" && slug.current ==
     categories[] { title, content[] { caption, img { asset-> { url }, alt } } }
   }
 }`;
+export const GET_ALL_CASE_STUDIES = `*[_type == "caseStudy"] | order(_createdAt desc) {
+  title,
+  slug,
+  meta_title,
+  meta_description,
+  sections[_type == "caseStudyBanner" && showSection][0] {
+    heading,
+    para1Text,
+    image { asset-> { url }, alt }
+  }
+}`;
+export const GET_PAGINATED_CASE_STUDIES = `*[_type == "caseStudy"] | order(_createdAt desc) [$startRange...$endRange] {
+  title,
+  slug,
+  meta_title,
+  meta_description,
+  sections[_type == "caseStudyBanner" && showSection][0] {
+    heading,
+    para1Text,
+    image { asset-> { url }, alt }
+  }
+}`;

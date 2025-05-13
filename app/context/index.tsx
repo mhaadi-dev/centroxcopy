@@ -38,3 +38,37 @@ export function useBlogs() {
   }
   return context;
 }
+
+
+
+interface CaseStudyContextType {
+  caseStudies: any[];
+  setCaseStudies: (caseStudies: any[]) => void;
+  page: number;
+  setPage: (page: number) => void;
+}
+
+const CaseStudyContext = createContext<CaseStudyContextType | undefined>(
+  undefined
+);
+
+export const CaseStudyProvider = ({ children }: { children: ReactNode }) => {
+  const [caseStudies, setCaseStudies] = useState<any[]>([]);
+  const [page, setPage] = useState(1);
+
+  return (
+    <CaseStudyContext.Provider
+      value={{ caseStudies, setCaseStudies, page, setPage }}
+    >
+      {children}
+    </CaseStudyContext.Provider>
+  );
+};
+
+export const useCaseStudies = () => {
+  const context = useContext(CaseStudyContext);
+  if (!context) {
+    throw new Error("useCaseStudies must be used within a CaseStudyProvider");
+  }
+  return context;
+};
