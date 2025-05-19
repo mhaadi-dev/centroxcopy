@@ -10,6 +10,7 @@ import { LogosSection } from "@/sections/LogosSection";
 import rightsidebg from "@/assets/rightsidebg.svg";
 import { client } from "@/sanity/lib/client";
 import { GET_CASE_STUDY_BY_SLUG } from "@/sanity/query";
+import { cleanMetaString } from "@/sanity/lib/helpers";
 
 export const revalidate = 0;
 
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: caseStudy.meta_title,
-    description: caseStudy.meta_description,
+    title: cleanMetaString(caseStudy.meta_title),
+    description:cleanMetaString(caseStudy.meta_description),
     alternates: {
       canonical: `https://centrox.ai/case-studies/${caseStudy.slug.current}`,
     },

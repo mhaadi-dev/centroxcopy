@@ -138,7 +138,7 @@ useEffect(() => {
                             : ""}`,}}
                     className={classNames(
                       "text-white text-[0.59rem] w-full   sm:text-[0.8rem] 2xl:text-[1.2rem] font-semibold text-center p-[0.7rem] rounded-xl lg:rounded-t-xl lg:rounded-b-none cursor-pointer whitespace-nowrap ",
-                      tabsClassName
+                      tabsClassName,index==activeIndex && " border-0 border-b-4 border-blue-azure"
                     )}
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(activeIndex)}
@@ -147,14 +147,14 @@ useEffect(() => {
                     {carousal.tabheading}
                   </div>
                 ))}
-                <hr
+                {/* <hr
                   className={classNames(
                     "bg-[#079DFC] hidden lg:block z-20 h-[0.3rem] w-full cursor-pointer hrclass border-none"
                   )}
                   style={{
                     marginLeft: hoverIndex > 0 ? `${hoverIndex * 100}%` : "",
                   }}
-                />
+                /> */}
               </div>
               <hr className="bg-white h-1 -mt-3" />
             </>
