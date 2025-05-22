@@ -125,6 +125,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
             key={index}
             data={transformGridData(section)}
             resizeableCardsLayout={section.resizeableCardsLayout}
+            gridCols={3}
             
           />
         );
@@ -158,6 +159,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
             key={index}
             data={transformGridData(section)}
             resizeableCardsLayout={section.resizeableCardsLayout}
+            gridCols={3}
             
           />
         );
@@ -193,6 +195,7 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
             key={index}
             data={transformGridData(section)}
             resizeableCardsLayout={section.resizeableCardsLayout}
+            gridCols={3}
           />
         );
       case "applicationsGrid":
