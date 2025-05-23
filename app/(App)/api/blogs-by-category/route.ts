@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { client } from "@/sanity/lib/client";
 import { GET_BLOGS_BY_CATEGORY_QUERY } from "@/sanity/query";
 
+export const dynamic = 'force-static';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const category = searchParams.get("category");

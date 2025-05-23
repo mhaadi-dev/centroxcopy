@@ -67,7 +67,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function AuthorPage({ params }: Props) {
+export default async function AuthorPage({ params: paramsProp }: Props) {
+  const params = await paramsProp;
   const { slug } = params;
   // Fetch author data using ID
   const author: Author = await client.fetch(authorQuery, { id: slug });
@@ -156,7 +157,8 @@ export default async function AuthorPage({ params }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params: paramsProp }: Props) {
+  const params = await paramsProp;
   const author: Author = await client.fetch(authorQuery, { id: params.slug });
 
   if (!author) {

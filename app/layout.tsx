@@ -50,7 +50,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const isDraftModeEnabled = draftMode().isEnabled;
   return (
     <html lang="en">
       <head>
@@ -84,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
 
         <ServiceViewProvider>
-          {draftMode().isEnabled && (
+          {isDraftModeEnabled && (
             <a
               className="fixed right-0 bottom-0 bg-blue-500 text-white p-4 m-4"
               href="/api/draft-mode/disable"
@@ -94,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           )}
           <BlogsWrapper>{children}</BlogsWrapper>
 
-          {draftMode().isEnabled && <VisualEditing />}
+          {isDraftModeEnabled && <VisualEditing />}
         </ServiceViewProvider>
       </body>
     </html>

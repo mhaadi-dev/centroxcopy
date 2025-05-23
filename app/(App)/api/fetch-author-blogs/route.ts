@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 
+export const dynamic = 'force-static';
+
 const GET_AUTHOR_BLOGS_QUERY = groq`
   *[_type == "blog" && author._ref == $authorId] | order(_createdAt desc)[$startRange...$endRange] {
     _id,
@@ -61,7 +63,7 @@ export async function GET(request: NextRequest) {
       startRange,
       endRange,
       authorId
-    });
+    }, { cache: "force-cache" });
     return NextResponse.json(blogData);
   } catch (error) {
     console.error("Error fetching author blogs:", error);

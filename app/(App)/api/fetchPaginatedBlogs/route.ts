@@ -3,6 +3,8 @@ import { calculateReadingTime } from "@/sanity/lib/helpers";
 import { GET_PAGINATED_BLOGS_BY_CATEGORY_QUERY } from "@/sanity/query";
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-static';
+
 export async function GET(request: Request) {
     try {
       const { searchParams } = new URL(request.url);
@@ -17,7 +19,7 @@ export async function GET(request: Request) {
         category,
         startRange,
         endRange
-      });
+      }, { cache: "force-cache" });
       const blogDataWithReadingTime = blogsData?.map((blog: any) => ({
             ...blog,
             duration: calculateReadingTime(blog.content_item?.blog_data || ''), 

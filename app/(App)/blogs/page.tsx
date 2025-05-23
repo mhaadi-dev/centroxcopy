@@ -4,7 +4,9 @@ import BlogBanner from "@/Components/common/BlogBanner";
 import GridBlogCardsWithPagination from "@/Components/common/GridBlogCardsWithPagination";
 import IndustryBanner from "@/Components/common/IndustryBanner";
 import SubnavBar from "@/Components/Navbar/SubnavBar";
-import { client } from "@/sanity/lib/client";
+// Remove direct client import if only sanityFetch is used for fetching
+// import { client } from "@/sanity/lib/client"; 
+import { sanityFetch } from "@/sanity/lib/client"; // Import sanityFetch
 import { GET_ALL_CATEGORIES, GET_BLOGS_BY_CATEGORY_QUERY, GET_PAGINATED_ARTICLES_QUERY, GET_TOTAL_BLOGS_COUNT } from "@/sanity/query";
 import TabsWithGridCards from "@/Components/common/TabsWithGridCards";
 import { notFound } from "next/navigation";
@@ -58,13 +60,11 @@ interface CategoricalBlog {
 }
 
 const fetchCategoricalData = async () => {
-  const allCategories = await client.fetch<Category[]>(GET_ALL_CATEGORIES);
+  const allCategories = await sanityFetch<Category[]>({ query: GET_ALL_CATEGORIES });
   const categoricalBlogs = await Promise.all(
     allCategories.map(async (category) => {
       const query = GET_BLOGS_BY_CATEGORY_QUERY(category.category_name);
-      const similarBlogs = await client.fetch<Blog[]>(query, {
-        category: category.category_name
-      });
+      const similarBlogs = await sanityFetch<Blog[]>({ query, params: { category: category.category_name } });
 
       return similarBlogs?.length > 0
         ? { category: category.category_name, blogs: similarBlogs }
@@ -79,13 +79,10 @@ const fetchCategoricalData = async () => {
 };
 
 const fetchPaginatedData = async () => {
-  const isStaging=process.env.NEXT_PUBLIC_ENV =="staging"
-  const isDraftMode = isStaging && draftMode().isEnabled; 
-  const perspective = isDraftMode ? "previewDrafts" : "published";
-
+  // draftMode and perspective are handled by sanityFetch
   const [totalBlogsCount, blogData] = await Promise.all([
-    client.fetch<number>(GET_TOTAL_BLOGS_COUNT, {}, { perspective }), 
-    client.fetch<Blog[]>(GET_PAGINATED_ARTICLES_QUERY, { startRange: 0, endRange: 5 }, { perspective }),
+    sanityFetch<number>({ query: GET_TOTAL_BLOGS_COUNT }), 
+    sanityFetch<Blog[]>({ query: GET_PAGINATED_ARTICLES_QUERY, params: { startRange: 0, endRange: 5 } }),
   ]);
 
   return { totalBlogsCount, blogData };
@@ -93,7 +90,7 @@ const fetchPaginatedData = async () => {
 
 
 const fetchCategories=async()=>{
-  const allCategories = await client.fetch<Category[]>(GET_ALL_CATEGORIES);
+  const allCategories = await sanityFetch<Category[]>({ query: GET_ALL_CATEGORIES });
   return {allCategories}
 
 }
