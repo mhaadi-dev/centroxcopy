@@ -6,7 +6,7 @@ import dummyDisplay from "@/assets/dummyDisplay.webp";
 import IndustryBanner from '@/Components/common/IndustryBanner';
 import classNames, { section_wrapper_class, text_h1_main, text_para_main } from '@/helpers/common';
 import aboutbg from "@/assets/aboutbg.webp"
-
+//images
 import Image from 'next/image';
 import Timeline from '@/Components/common/Timeline';
 import about1 from "@/assets/about/about1.webp"
