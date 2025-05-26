@@ -31,7 +31,8 @@ async function fetchBlogData(slug: string, category: string) {
   return await client.fetch(GET_BLOG_BY_ID_QUERY, { slug, category }, { cache: "force-cache" });
 }
 
-export async function generateMetadata({ params }: { params: { slug: string; category: string } }) {
+export async function generateMetadata({ params: paramsProp }: { params: { slug: string; category: string } }) {
+  const params = await paramsProp;
   try {
     const blogData = await fetchBlogData(params.slug, params.category);
     if (!blogData) {
@@ -81,7 +82,8 @@ export async function generateMetadata({ params }: { params: { slug: string; cat
   }
 }
 
-const Page = async ({ params }: { params: { slug: string; category: string } }) => {
+const Page = async ({ params: paramsProp }: { params: { slug: string; category: string } }) => {
+  const params = await paramsProp;
   const blogData = await fetchBlogData(params.slug, params.category);
   const allCategories = await client.fetch(GET_ALL_CATEGORIES, {}, { cache: "force-cache" });
 

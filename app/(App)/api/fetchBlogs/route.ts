@@ -1,6 +1,8 @@
 // app/api/fetchBlogs/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { client } from "@/sanity/lib/client";
+
+export const dynamic = 'force-static';
 import {
   GET_PAGINATED_ARTICLES_QUERY,
   PAGINATED_SEARCH_BLOGS_QUERY,
@@ -32,7 +34,7 @@ export async function GET(request: NextRequest) {
     const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY, {
       startRange,
       endRange
-    });
+    }, { cache: "force-cache" });
     // const blogDataWithReadingTime = blogData?.map((blog: any) => ({
     //   ...blog,
     //   duration: calculateReadingTime(blog.content_item?.blog_data || ''),
@@ -62,10 +64,10 @@ export async function POST(request: NextRequest) {
     }
 
     const blogData = await client.fetch(
-      PAGINATED_SEARCH_BLOGS_QUERY(keyword, startRange, endRange)
+      PAGINATED_SEARCH_BLOGS_QUERY(keyword, startRange, endRange), {}, { cache: "force-cache" }
     );
     const totalBlogs = await client.fetch(
-      TOTAL_SEARCH_BLOGS_COUNT_QUERY(keyword)
+      TOTAL_SEARCH_BLOGS_COUNT_QUERY(keyword), {}, { cache: "force-cache" }
     );
     return NextResponse.json({ blogData, totalBlogs });
   } catch (error) {

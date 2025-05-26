@@ -17,10 +17,11 @@ import React from "react";
 export const revalidate = process.env.NEXT_PUBLIC_ENV === 'staging' ? 10 :600;
 
 export async function generateMetadata({
-  params
+  params: paramsProp
 }: {
   params: { category?: string[] };
 }) {
+  const params = await paramsProp;
   const categorySlug = slugify(params?.category);
 
   try {
@@ -54,7 +55,8 @@ export async function generateMetadata({
   }
 }
 
-const Page = async ({ params }: { params: { category?: string[] } }) => {
+const Page = async ({ params: paramsProp }: { params: { category?: string[] } }) => {
+  const params = await paramsProp;
   const categorySlug = params?.category;
 
   try {

@@ -75,6 +75,7 @@ export async function GET(request: NextRequest) {
         headers: {
             "Content-Type": "application/json"  // If needed
         },
+        cache: "no-store"
     });
      
     const body = await response.text();

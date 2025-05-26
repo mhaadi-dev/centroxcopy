@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
   
     
   
-      const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY_ONSPECIFICPAGE, { lastId,index });
+      const blogData = await client.fetch(GET_PAGINATED_ARTICLES_QUERY_ONSPECIFICPAGE, { lastId,index }, { cache: "force-cache" });
   
       return NextResponse.json(blogData);
     } catch (error) {

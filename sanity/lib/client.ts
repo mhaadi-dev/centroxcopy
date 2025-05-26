@@ -40,7 +40,8 @@ export async function sanityFetch<QueryResponse>({
   let isDraftMode = false;
 
   try {
-    isDraftMode = isStaging && draftMode().isEnabled; 
+    // Ensure draftMode is awaited
+    isDraftMode = isStaging && (await draftMode()).isEnabled; 
   } catch (error) {
     console.warn("draftMode() must be called within a request scope.");
   }
@@ -57,8 +58,10 @@ export async function sanityFetch<QueryResponse>({
   }
 
   return client.fetch<QueryResponse>(query, params, {
-    token: isDraftMode ? token : undefined, 
-    perspective: isDraftMode ? "previewDrafts" : "published", 
+    token: isDraftMode ? token : undefined,
+    perspective: isDraftMode ? "previewDrafts" : "published",
+    // Explicitly set cache strategy for Next.js 15
+    cache: dynamicRevalidate === 0 ? "no-store" : "force-cache",
     next: {
       revalidate: dynamicRevalidate,
       tags,
